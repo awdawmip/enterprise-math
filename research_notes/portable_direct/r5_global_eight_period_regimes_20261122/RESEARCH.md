@@ -49,6 +49,10 @@ This removes the previous open question of how to classify non-triple-contractio
 
 5. This is an exact root-of-unity statement about signed integer polynomials and their Euler jets. It preserves the joint incidence of the first three events; reducing the signed numerator to a positive BRC mass would erase cancellations. No claim about original X6 heartbeat dynamics follows from this scalar projection.
 
+## Exact *fundamental* threshold period
+
+The 79808 step is not merely an upper period: it is the **least positive period** of the function m -> M_m on positive integers. The eight output integers are distinct, and their 29-, 2^5- and 43-adic valuations recover A29(m), A32(m), A43(m) uniquely. Therefore every period of M_m must preserve each binary flag. The A29 flag on the 58-cycle consists of one cyclic run of exactly five consecutive true residues (54,55,56,57,0), so its least period is 58; the A32 flag similarly has least period 64 (60,61,62,63,0); the A43 flag has least period 43 (37,...,42,0). A nonzero cyclic translation cannot preserve a single proper run of consecutive true residues. Hence any period is divisible by 58, 64, and 43, and therefore by 79808. The previous theorem provides 79808 as a period, proving exact minimality.
+
 ## Exact CRT count
 
 In residues modulo lcm(58,64)=1856, A29 holds in 160 classes, A32 in 145, and both in 13: the two zero-residue sets each have 3 even and 2 odd representatives, so the shared parity compatibility condition gives 3×3+2×2=13. Therefore the four (A29,A32) counts are 13,147,132,1564 (both, only29, only32, neither). Modulo 43 independently, A43 holds in 7 classes and fails in 36. Multiplication gives exactly the eight table counts, summing to 79808. The triple-contraction density is 91/79808; full L occurs on 56304/79808 of positive m. The full theorem is period-79808, and each value is explicitly attained.
@@ -68,4 +72,4 @@ The accompanying `VERIFY_GLOBAL_PERIOD.py` computes the 40 denominator orders, l
 
 The present contribution is assembly of a missing **global logical implication**, full eight-value classification, exact density/counts, and bounded independent integer arithmetic/CRT verification. The above cyclotomic proofs are **reused** at their pinned author-proven scopes; their independent reviewer status remains NOT_REVIEWED. No native CLAIM/RUN is asserted. Existing identity for provenance: EM-DIRECT-D1A28F / RA-93CBA60ADED3274CF6CD2E83 / SID MCP-72b1951ce5d94267b6e60b1567acb22f; ownership and protected Activity writes require their own current authority.
 
-Next: independently audit the six-cone root-pole bound and the R5 all-m characteristic-zero certificates; then seek structure in the now-complete eight-regime sequence (minimal fundamental threshold period, exact generating function for the classification, relations to native X6 observation maps). A complete conditional corollary is not a new P000 theorem or independently accepted Result.
+Next: independently audit the six-cone root-pole bound and the R5 all-m characteristic-zero certificates; then seek structure in the now-complete eight-regime sequence (exact generating function for the classification, relations to native X6 observation maps). A complete conditional corollary is not a new P000 theorem or independently accepted Result.
