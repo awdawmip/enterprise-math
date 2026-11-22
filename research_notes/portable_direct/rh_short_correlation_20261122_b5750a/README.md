@@ -4,8 +4,9 @@ Date: 2026-11-22. Researcher `EM-DIRECT-B5750A / TASK_RESEARCH`.
 Activity `RA-60C6D083A81B19084A74C5BA`.
 Scientific premise freeze: `9fc068244e4f1117f1e75df5eb0285c6697d21d7`.
 
-Start with [REPORT.md](REPORT.md). This coherent batch contains four proofs,
-two finite computation scripts and their complete interval outputs. It adds:
+Start with [REPORT.md](REPORT.md). This coherent batch contains the full
+proof notes, five finite computation scripts and their complete interval
+outputs. It adds:
 
 - the exact squarefree-supported matching error and full-vector convergence;
 - the summable background's explicit short-interval tail and retained affine prefix;
@@ -14,6 +15,13 @@ two finite computation scripts and their complete interval outputs. It adds:
   Dirichlet contraction, evaluated on the original 38 packets;
 - uniform matching stability of the computable U/Z packet budgets across
   all permitted integer partitions, trees and packet cutoffs.
+- an exact freely ordered ancestor optimum and certified minimum attaining
+  depths on the actual fine mesh;
+- deterministic maximal bounds, the precise true-skeleton floor, and
+  source-controlled counterexamples to stronger claims;
+- a rational full-integer family forcing deep exactly optimal trees;
+- signed subtree frontiers whose true positive-energy excess is exactly
+  additive, with a certified node-budget dynamic program on the old tree.
 
 The mathematical status is author proof and strict finite computation. The
 actual unbounded reference arithmetic estimate remains open. No independent
@@ -29,6 +37,16 @@ Review, RH proof or canonical truth promotion is asserted.
 - `rh_phase_dominance_20261122/certify_ancestor_compression.py`
 - `rh_phase_dominance_20261122/ancestor_compression_certificate.json`
 - `rh_short_root_20261122/UNIFORM_ADAPTIVE_REFERENCE_STABILITY.md`
+- `rh_tree_order_20261122/OPTIMAL_INSERTION_ORDER_AND_SKELETON_FLOOR.md`
+- `rh_tree_order_20261122/certify_optimal_tree_order.py`
+- `rh_tree_order_20261122/optimal_tree_order_certificate.json`
+- `rh_maximal_interpolation_20261122/DETERMINISTIC_MAXIMAL_BOUNDS_AND_OBSTRUCTIONS.md`
+- `rh_short_root_20261122/TREE_DEPTH_OBSTRUCTION.md`
+- `rh_short_root_20261122/verify_tree_depth_obstruction.py`
+- `rh_short_root_20261122/tree_depth_obstruction_certificate.json`
+- `rh_signed_subtree_20261122/SIGNED_SUBTREE_FRONTIER_AND_BUDGET_DP.md`
+- `rh_signed_subtree_20261122/certify_signed_frontier.py`
+- `rh_signed_subtree_20261122/signed_frontier_certificate.json`
 
 ## Reproduce
 
@@ -37,6 +55,9 @@ From a workspace containing the prior dependency directories, run:
 ```bash
 python3 rh_reference_certificate_20261122/certify_reference_split.py
 python3 rh_phase_dominance_20261122/certify_ancestor_compression.py
+python3 rh_tree_order_20261122/certify_optimal_tree_order.py
+python3 rh_signed_subtree_20261122/certify_signed_frontier.py
+python3 rh_short_root_20261122/verify_tree_depth_obstruction.py
 ```
 
 The reference calculation reuses the complete road cache when available;
