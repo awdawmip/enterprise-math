@@ -1,0 +1,228 @@
+{
+  "schema": "X6_R124_PORT10_TO11_ROBUST_COLLAPSE_EXACT_V1",
+  "status": "PASS",
+  "observer": "six positive pair capacities derived from four positive channel weights; unoriented integer triples modulo sign only",
+  "weight": [
+    "1",
+    "3",
+    "4",
+    "18"
+  ],
+  "capacities": [
+    "4",
+    "5",
+    "19",
+    "7",
+    "21",
+    "22"
+  ],
+  "anchor": [
+    10,
+    -5,
+    1
+  ],
+  "anchor_port": 11,
+  "anchor_gaps": [
+    "1",
+    "0",
+    "1",
+    "1",
+    "0",
+    "1"
+  ],
+  "finite_replay": [
+    {
+      "p": 10,
+      "population": 1935,
+      "eta": [
+        "11",
+        "19"
+      ],
+      "near": [
+        {
+          "a": [
+            1,
+            -3,
+            1
+          ],
+          "F": [
+            "19",
+            "22"
+          ]
+        },
+        {
+          "a": [
+            1,
+            0,
+            0
+          ],
+          "F": [
+            "3",
+            "5"
+          ]
+        },
+        {
+          "a": [
+            4,
+            -1,
+            0
+          ],
+          "F": [
+            "11",
+            "19"
+          ]
+        },
+        {
+          "a": [
+            5,
+            -4,
+            1
+          ],
+          "F": [
+            "3",
+            "5"
+          ]
+        },
+        {
+          "a": [
+            5,
+            -1,
+            0
+          ],
+          "F": [
+            "3",
+            "5"
+          ]
+        },
+        {
+          "a": [
+            6,
+            -4,
+            1
+          ],
+          "F": [
+            "12",
+            "19"
+          ]
+        },
+        {
+          "a": [
+            9,
+            -5,
+            1
+          ],
+          "F": [
+            "3",
+            "5"
+          ]
+        },
+        {
+          "a": [
+            9,
+            -2,
+            0
+          ],
+          "F": [
+            "6",
+            "7"
+          ]
+        }
+      ],
+      "max_near_score": [
+        "19",
+        "22"
+      ],
+      "min_outside_score": [
+        "18",
+        "19"
+      ],
+      "min_outside_witnesses": [
+        [
+          3,
+          -1,
+          0
+        ]
+      ]
+    },
+    {
+      "p": 11,
+      "population": 2541,
+      "eta": [
+        "1",
+        "4"
+      ],
+      "near": [
+        {
+          "a": [
+            10,
+            -5,
+            1
+          ],
+          "F": [
+            "1",
+            "4"
+          ]
+        }
+      ],
+      "max_near_score": [
+        "1",
+        "4"
+      ],
+      "min_outside_score": [
+        "11",
+        "19"
+      ],
+      "min_outside_witnesses": [
+        [
+          4,
+          -1,
+          0
+        ]
+      ]
+    },
+    {
+      "p": 22,
+      "population": 18997,
+      "eta": [
+        "1",
+        "4"
+      ],
+      "near": [
+        {
+          "a": [
+            10,
+            -5,
+            1
+          ],
+          "F": [
+            "1",
+            "4"
+          ]
+        }
+      ],
+      "max_near_score": [
+        "1",
+        "4"
+      ],
+      "min_outside_score": [
+        "1",
+        "2"
+      ],
+      "min_outside_witnesses": [
+        [
+          20,
+          -10,
+          2
+        ]
+      ]
+    }
+  ],
+  "analytic_global_isolation": "For all nonzero integer a != +/-(10,-5,1), F_w0(a)>=1/2; proof is in the companion Markdown.",
+  "relative_stability": {
+    "all_p_ge_11": "rho <= 1/7",
+    "port10_and_all_larger": "rho < 1/362",
+    "port10_inside_margin": "1/362",
+    "port10_outside_margin": "1/23"
+  },
+  "limitations": "Finite replay p=10,11,22; unbounded p>=11 comes from the written integer proof; no independent review and no native X6 dynamics"
+}
