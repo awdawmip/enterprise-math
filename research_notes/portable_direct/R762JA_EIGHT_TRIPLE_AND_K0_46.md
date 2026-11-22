@@ -1,72 +1,89 @@
-# R762JA — Eight-triple 47→45 Port–Euler compression; k=0 upper bound ≤46
+# R762JA — Complete eight-triple 47→45 compression and k=0 upper bound 46
 
 Date: 2026-11-22 (Asia/Shanghai).
-Scientific input: `awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389` (frozen; not rebased).
-Scope: six-axis **composite Port–Euler observer**; no signed native P000 Cell/time/force/rotation lifting.
+Frozen scientific input: \`awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389\`.
+Scope: **composite Port–Euler observer** of the six-axis model; not a signed native P000 Cell/time/force/rotation lifting.
 Status: **AUTHOR_PROVED / EXACT_FINITE_CERTIFICATES_VERIFIED / NOT_REVIEWED**.
-Predecessors: R762IR, R762IU (≤47), R762IV, R762IW, R762IX, R762IY, R762IZ.
-No native Result/Review or shared-task CLAIM is inferred.
+Predecessors: R762IR, R762IU, R762IV, R762IW, R762IX, R762IY, R762IZ.
 
-## Exact model and new theorem
+## Model and new theorem
 
-Let (A={0,1,2,3,4,5}). The 15 Ports are (P=inom A2), and the 20 support types are (mathcal S=inom A3). An event of support (S={a,b,c}) joins any two of the three Ports (ab,ac,bc), allowing repeated edges. A legal closed history with active Port set (Vsubseteq P) and prescribed start (pin V) is a connected multigraph on precisely (V), all active degrees positive and even, and no inactive incidence. Let (N_{p,V}(n)>0) mean such a history with support-count vector (n).
+Let \(A=\{0,1,2,3,4,5\}\), with 15 Ports \(P=\binom{A}{2}\) and 20 supports \(\mathcal S=\binom{A}{3}\).
+Each event of support \(S=\{a,b,c\}\) chooses one edge between two of the three Ports \(ab,ac,bc\), allowing parallel edges.
+A legal closed history has a connected even-degree multigraph on precisely its positive-degree Port set \(V\), with prescribed start \(p\in V\).
+Write \(N_{p,V}(n)>0\) for existence at support multiplicity vector \(n\).
 
-**Theorem R762JA (complete eight-triple terminal class).** For every legal 47-event history with precisely eight supports of multiplicity 3, eleven of multiplicity 2, and one of multiplicity 1 (no absent supports), there is a legal 45-event history with the same (V,p), all 20 positive supports and per-support parity, obtained by reducing exactly one triple multiplicity (3	o1):
+**Theorem (complete eight-triple terminal class).** For every legal history whose 20 support multiplicities have histogram \((t,d,s,z)=(8,11,1,0)\) (47 events), some triple support can be reduced from count 3 to count 1, preserving the active set, designated start, all positive support types, parity of each support count and existence of an Euler circuit:
 
-[
-N_{p,V}(n)>0,quad (t,d,s,z)=(8,11,1,0)
-quadLongrightarrowquad
-exists j:n_j=3, N_{p,V}(n-2e_j)>0.
-]
+\[
+N_{p,V}(n)>0
+\quad\Longrightarrow\quad
+\exists j:\ n_j=3,\ N_{p,V}(n-2e_j)>0 .
+\]
 
-This is a complete computer-assisted proof at the composite-observer level. The certificate checker below uses only Python's standard library and exact integers, independent of the numerical candidate generator.
+This is a computer-assisted finite proof; its 300 explicit integer certificates are published with a standard-library-only independent checker.
 
-## Exhaustive three-way reduction
+## Exhaustive proof
 
-**(i) Some triple support contains an inactive Port.** Every support has a positive event count. Therefore two inactive Ports cannot share an axis: their three-axis union would provide a positive support with fewer than two usable Port vertices. Thus inactive Ports form a matching in (K_6). If an inactive Port lies in a triple support (j), precisely two Port vertices in that support remain active. The three events of (j) must lie along their unique edge. Delete two parallel copies. This keeps an edge of type (j), all active degrees' parity, the active set and connectivity.
+**Case 1: A triple support contains an inactive Port.**
+Because all 20 supports have positive count, two inactive Ports cannot share an axis: the support containing their three axes would have fewer than two active Port vertices and hence no allowed event edge. Thus the inactive Port set \(M=P\setminus V\) is a matching in \(K_6\).
+If one of the eight triple supports contains an inactive Port, precisely two Ports of its triangle remain active. All three events must lie on the unique allowed edge. Removing two parallel copies preserves an edge of that support, active Port degrees modulo 2, connectivity and the exact active set.
 
-**(ii) Every triple support is fully active, but some triple is not essential to its triangle union.** Write (T) for the eight triple supports and (G(T)) for the graph formed by *all three possible edges* of each support triangle. If (jin T) is not essential to the connected-component partition of (G(T)), then its three Port vertices are connected in (G(Tsetminus{j})). Replace its three events by a single allowed edge (uv). The resulting parity change at those vertices is an even GF(2) boundary, either zero or two odd Port vertices. Route that boundary along a path of edges in (G(Tsetminus{j})). For each remaining triple support, group path contributions into a local even boundary. Any such local boundary is realized by **exactly three edges connecting all three Port vertices**: the 3-cycle for zero boundary, or one edge between the odd pair and two parallel edges to the third vertex otherwise. This restores overall even degrees. Since the other triple supports now each connect their entire Port triples and (j)'s vertices are connected through them, reachability in the original graph is preserved. Other supports are unchanged. The result is a legal 45-event history.
+**Case 2: Every triple is fully active and a triple is nonessential in the triangle-union graph.**
+Let \(T\) be the set of eight triple supports and \(G(T)\) the union of *all three possible edges* of each support triangle on the 15 Ports. If deletion of \(j\in T\) does not increase the number of connected components, the three Port vertices of \(j\) remain mutually connected through \(G(T\setminus\{j\})\).
+Replace its three events by one edge \(uv\) of \(j\). The degree parity change is an even GF(2) boundary supported in the three Port vertices of \(j\), either zero or two odd vertices. Route any two odd vertices along a path in \(G(T\setminus\{j\})\), grouping the traversed edges by supporting triangle. Each retained triangle receives an even local boundary, either zero or a pair of Port endpoints.
+Any even local boundary of a triangle is realizable using **exactly three edges that connect all its three Port vertices**: the triangle's 3-cycle realizes zero boundary; one edge between the odd pair plus two parallel edges connecting one of that pair to the third vertex realizes the prescribed pair. Reassign the three events of each retained triple accordingly. All degrees are even again. Each retained triangle preserves (and can extend) the original within-support connectivity. The three vertices of the reduced support remain connected through the retained triangle graph; all other support allocations are fixed. Consequently the overall active Port graph stays connected, has the same active set and is Eulerian.
 
-**(iii) All eight fully active triple supports are essential.** Enumerate every (inom{20}{8}=125{,}970) eight-support family by integer union-find over the fixed 15 Ports. Exactly **4,920** are all-essential; under the complete six-axis permutation group (S_6) they form **16** orbits. The union of their support triangles covers **13, 14, or 15** Ports. Since every triple is fully active, the inactive matching (M=Psetminus V) must lie in the complement of those covered Ports. For each orbit representative, enumerate every such matching and each of the 12 possible singleton supports outside (T); select the first support (jin T) and prescribe (n'_j=1), the other seven triples remaining 3, the singleton remaining 1 and the other eleven supports remaining 2.
+**Case 3: All eight fully active triple supports are essential.**
+Enumerate \(\binom{20}{8}=125,970\) possible eight-support families \(T\) with an integer union-find component counter on the 15 Port vertices. Exactly **4,920** are all-essential (deleting any triple increases the component count); under the six-axis permutation group \(S_6\), they form **16 orbits**. Their triangle unions cover 13, 14 or 15 distinct Ports.
 
-This gives **exactly 300** representative parameter cases, grouped by uncovered Port count 0/1/2 as 120/96/84, or by inactive Port count 0/1/2 as 192/96/12. All 300 have explicit 45-edge allocations satisfying exact support counts, positive even degrees on exactly (V), zero degree outside (V), and connectivity. The 300 integer edge-allocation certificates are in `R762JA_CERTS.b64`; they are checked in the same deterministic orbit/matching/singleton order by `R762JA_VERIFY_CERTS.py`. Axis equivariance transports each representative witness to all its labelled (S_6) configurations. A connected even-degree graph admits an Euler circuit beginning at every (pin V).
+For each of the 16 orbit representatives, enumerate every inactive matching \(M\) disjoint from that union (necessary because every triple is fully active), and each of 12 choices of the singleton support outside \(T\). Reduce the lexicographically first triple support \(j\) from 3 to 1, keeping seven other triples at 3, one singleton at 1 and eleven doubles at 2.
 
-The three cases exhaust all legal histories in this histogram. This proves the theorem without relying on an unverified optimizer output. The candidate constructor used SciPy/HiGHS integer optimization and connectivity cuts, but the published certificates are checked by a separate exact standard-library program.
+The complete representative verification domain consists of **300 cases**: grouped by the count of Port vertices outside the triple union, \(120,96,84\) for \(0,1,2\); grouped by \(|M|\), \(192,96,12\) for \(0,1,2\). For every case the certificate provides all 60 nonnegative integer allocations to the three allowed event edges of each support; the independent checker confirms:
 
-## Independent exact-verification details
+- Exactly 45 total events and each specified support multiplicity.
+- No event touches an inactive Port; every active Port has strictly positive even degree.
+- The active Port graph is connected.
+- The compressed vector differs from the 47-event vector only in the one prescribed \(3\to1\) reduction.
 
-- (4,920) all-essential eight-support sets; (16) permutation orbits.
-- (300/300) exact 45-event certificates passed.
-- Certificate stream: each of the 60 support-edge counts is an integer in ({0,1,2,3}); four 2-bit integers are packed per byte, so 15 bytes per witness. Exactly 4,500 raw bytes, zlib-compressed and base64 encoded.
-- Raw stream SHA-256: `6b30b9be0cea2a021f894c2e5b3d82fec736b910faf52a0409a6145aa6b21980`.
-- Compressed stream SHA-256: `808000aeed1e01de0d9ff3c0336be6c22b80f92b6a467b8d204f79aacff741f5`.
-- Local author validation on 2026-11-22: **PASS**, 300 cases, no unresolved case. Integer verification checks the actual certificates, not MILP tolerance, solver status, or just a hash.
+The action of \(S_6\) transports each representative certificate to every axis-labelled case in its orbit. Euler's multigraph theorem permits any start \(p\in V\). These three cases exhaust the full \((8,11,1,0)\) histogram.
 
-## Derived improvement of the full k=0 bound
+### Exact certificate material and reproducibility
 
-The existing R762IU author-side theorem gives at most 47 events for any legal vector (nin{0,1,2,3}^{20}), preserving the original active set, starting Port, positive supports, and support-count parity. If a compressed witness has exactly 47 events, its histogram with (tle10) is exactly one of:
+Files alongside this note:
+\`R762JA_CERTS.b64\` contains 300 edge-allocation certificates, each 60 integers in \(\{0,1,2,3\}\); four 2-bit values are packed per byte, giving exactly **4,500 raw bytes**, then zlib-compressed and base64-encoded.
+\`R762JA_VERIFY_CERTS.py\` reproduces the union-find classification, 16 orbits, the exact representative parameter domain, and all degree/support/connectivity checks using only Python's standard library.
 
-| ((t,d,s,z)) | Terminal 47→45 source |
+Raw certificate stream SHA-256: \`6b30b9be0cea2a021f894c2e5b3d82fec736b910faf52a0409a6145aa6b21980\`.
+Compressed stream SHA-256: \`808000aeed1e01de0d9ff3c0336be6c22b80f92b6a467b8d204f79aacff741f5\`.
+Local execution on 2026-11-22: **PASS**, 4,920 essential sets, 16 orbits, 300/300 explicit Euler witnesses. A SciPy/HiGHS integer optimizer with connectivity cuts generated the witnesses; independent mathematical verification relies on the emitted integers and the standard-library verifier, not on solver status or floating-point tolerance.
+
+## Consequence: k=0 uniform 46-event bound
+
+The prior R762IU author-side theorem gives a witness of length at most 47 for every legal multiplicity vector \(n\in\{0,1,2,3\}^{20}\), preserving active set, support presence, support-count parity and chosen start.
+If a witness has exactly 47 events and at most 10 triple supports, its histogram is exactly one of the following six cases; each has an author-proved 47→45 reduction:
+
+| \((t,d,s,z)\) | Proof |
 |---|---|
-| ((7,13,0,0)) | R762IV |
-| ((8,11,1,0)) | **R762JA (new)** |
-| ((9,9,2,0)) | R762IY + R762IZ, with nonessential reduction |
-| ((9,10,0,1)) | R762IW, with nonessential reduction |
-| ((10,7,3,0)) | R762IY |
-| ((10,8,1,1)) | R762IX |
+| \((7,13,0,0)\) | R762IV |
+| \((8,11,1,0)\) | **R762JA, new** |
+| \((9,9,2,0)\) | R762IY, R762IZ, plus the explicit nonessential-triangle reduction |
+| \((9,10,0,1)\) | R762IW, plus the explicit nonessential-triangle reduction |
+| \((10,7,3,0)\) | R762IY |
+| \((10,8,1,1)\) | R762IX |
 
-For (tge11), the earlier R762IR triangle-redundancy lemma supplies a reducible triple, and the explicit GF(2) repair above handles a fully active nonessential triple; if its triangle has only two active Ports, parallel-pair deletion applies. Hence every 47-event witness has a 45-event witness, while witnesses already at 46 or less need no change. **Consequently, conditional on the cited author-side antecedent theorems, the entire k=0 composite Port–Euler class has a uniform bound of 46 events**:
+With at least eleven triple supports, R762IR's author-side triangle-redundancy lemma supplies a nonessential triple, unless a triple has only two active Ports, which is the immediate parallel-pair case. Therefore every 47-event witness compresses to 45 while all witnesses already at 46 or less stay as they are. Combining with R762IU gives the following **derived author-side theorem, conditional on the stated previous author-proved dependencies**:
 
-[
-oxed{N_{p,V}(n)>0, nin{0,1,2,3}^{20}
-Longrightarrow exists hle n: N_{p,V}(h)>0, 
-operatorname{supp}h=operatorname{supp}n, hequiv n (mod2),sum_S h_Sle46.}
-]
+\[
+\boxed{N_{p,V}(n)>0,\ n\in\{0,1,2,3\}^{20}
+\ \Longrightarrow\
+\exists h\le n:\ N_{p,V}(h)>0,\quad
+\operatorname{supp}(h)=\operatorname{supp}(n),\quad
+h\equiv n\pmod 2,\quad \sum_S h_S\le46.}
+\]
 
-This improves the previously published author-side bound 47. All cited lemmas and finite checks retain their actual author-verification status; **no independent mathematical Review or canonical theorem admission has occurred**. The 54-event upper bound previously stated for the broader fourfold-support case remains unchanged.
+This improves the preceding k=0 upper bound 47 to **46** within the exact composite Port–Euler observer. It does not alter the previously stated **54** for the separate fourfold-support model. All dependencies retain **NOT_REVIEWED** status: GitHub publication is source preservation, not independent proof acceptance.
 
-## Preservation and next questions
+The observation preserved is Port activity, support presence, support parity, closed Euler realizability and chosen start. Full event ordering, branching, native signed X6 path/residual, force/phase and time are outside this observer map; a native P000 lifting requires its own proof.
 
-A deleted pair of same-support Port–Euler events can be inserted as a parallel pair on an existing edge of that support. The preserved observer is **active Port set + support presence + support parity + existence of a closed Euler history + chosen start**. This compression is not a proof of equality of the full path-order/branch/time/native signed X6 residual state.
-
-Next, test 46-event terminal histograms for a 44-event compression or construct an invariant lower-bound witness; independently audit the load-bearing prior reduction and all-essential orbit counts; then investigate the fourfold critical support and native signed P000 bridge. The original scientific pin remains unchanged.
+Next: independently audit R762IR and the orbit predicates; investigate 46-event terminal histograms for a 44-event witness or an exact lower bound; extend to fourfold critical supports and native signed P000 dynamics without changing the frozen input pin.
