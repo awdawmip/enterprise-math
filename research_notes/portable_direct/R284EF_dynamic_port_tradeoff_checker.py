@@ -105,7 +105,7 @@ def main():
           'scope':'Frozen auxiliary named Port readings; separate oracle/cache vs indexed-table models'}
     from pathlib import Path
     path=Path(__file__).with_name('R284EF_dynamic_port_tradeoff_certificate.json')
-    path.write_text(json.dumps(cert,indent=2,ensure_ascii=False)+'\\n',encoding='utf-8')
+    path.write_text(json.dumps(cert,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
     print(json.dumps(cert,ensure_ascii=False,indent=2))
 
 if __name__=='__main__':main()
