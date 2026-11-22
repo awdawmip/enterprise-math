@@ -1,0 +1,105 @@
+{
+  "schema": "PREFIX1003_BRC_PORT_PHASE_COVER_CERTIFICATE_V1",
+  "input": {
+    "axis_count": 6,
+    "port_count": 12,
+    "initial_incoming_direction": "-e1",
+    "blocked_directed_links": [
+      "0 -> +e1",
+      "+e1 -> 0"
+    ],
+    "grade_sector": "exactly one negative primitive step",
+    "semiring": "N-weighted Z2 phase cover; observe by signed character per (cell,last-port)"
+  },
+  "proof_obligations": {
+    "time_grade_lemma": "t=grade+2*negative_steps",
+    "third_step_forbidden_signed_numerator": -25
+  },
+  "prefix": {
+    "matching_fibre_count": 1,
+    "terminal_cell_and_port": [
+      [
+        [
+          1,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        6,
+        -25
+      ]
+    ],
+    "signed_total_numerator": -25
+  },
+  "checked": [
+    {
+      "n": 1,
+      "unmasked_first_interior_mass": "5/6",
+      "masked_first_interior_mass": "5/6",
+      "fibre_count_unmasked": 6,
+      "fibre_count_masked": 6,
+      "signed_fibre_comparison": "PASS"
+    },
+    {
+      "n": 2,
+      "unmasked_first_interior_mass": "5/6",
+      "masked_first_interior_mass": "175/216",
+      "fibre_count_unmasked": 72,
+      "fibre_count_masked": 66,
+      "signed_fibre_comparison": "PASS"
+    },
+    {
+      "n": 3,
+      "unmasked_first_interior_mass": "25/432",
+      "masked_first_interior_mass": "2555/46656",
+      "fibre_count_unmasked": 306,
+      "fibre_count_masked": 305,
+      "signed_fibre_comparison": "PASS"
+    },
+    {
+      "n": 4,
+      "unmasked_first_interior_mass": "85/2916",
+      "masked_first_interior_mass": "1945/93312",
+      "fibre_count_unmasked": 912,
+      "fibre_count_masked": 906,
+      "signed_fibre_comparison": "PASS"
+    },
+    {
+      "n": 5,
+      "unmasked_first_interior_mass": "3355/186624",
+      "masked_first_interior_mass": "5285/419904",
+      "fibre_count_unmasked": 2142,
+      "fibre_count_masked": 2096,
+      "signed_fibre_comparison": "PASS"
+    },
+    {
+      "n": 6,
+      "unmasked_first_interior_mass": "3115/279936",
+      "masked_first_interior_mass": "9715/1259712",
+      "fibre_count_unmasked": 4368,
+      "fibre_count_masked": 4262,
+      "signed_fibre_comparison": "PASS"
+    },
+    {
+      "n": 7,
+      "unmasked_first_interior_mass": "7796785/1088391168",
+      "masked_first_interior_mass": "1341545/272097792",
+      "fibre_count_unmasked": 6047,
+      "fibre_count_masked": 6868,
+      "signed_fibre_comparison": "PASS"
+    },
+    {
+      "n": 8,
+      "unmasked_first_interior_mass": "3945025/816293376",
+      "masked_first_interior_mass": "259181485/78364164096",
+      "fibre_count_unmasked": 13824,
+      "fibre_count_masked": 13603,
+      "signed_fibre_comparison": "PASS"
+    }
+  ],
+  "operation": "typed_phase_cover_finite_branch_recurrence",
+  "canonical_stage46_module_invoked": false,
+  "mathematical_status": "AUTHOR_PROOF_EXACT_CHECK_NOT_REVIEWED"
+}
