@@ -1,0 +1,29 @@
+{
+  "schema": "EM_X6_R108_EXACT_VERIFICATION_V1",
+  "scientific_model": "four-positive-weight six-pair BRC observer w=(9,1,C,41)",
+  "parameter_domain": "real C >= 1, integer p>=11",
+  "moment_box": {
+    "moment_box": "9*9*43_with_exact_intersection_constraints",
+    "nonzero_oriented": 20,
+    "unoriented_candidates": 10
+  },
+  "high_low_port": {
+    "oriented": 16,
+    "unoriented": 8,
+    "complete": "PASS"
+  },
+  "cutoffs": {
+    "low_rows": 10,
+    "mid_rows": 12,
+    "linear_inequality_cutoffs": "PASS"
+  },
+  "crosscheck": {
+    "q_max": 40,
+    "unoriented_vectors": 110740,
+    "exact_rational_parameters": 66,
+    "port_budgets": 14,
+    "complete_optimum_and_near_set_checks": 924,
+    "all": "PASS"
+  },
+  "scope": "analytic proof infinite-lattice; finite integer q<=40 crosscheck; author-side only"
+}
