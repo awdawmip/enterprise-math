@@ -1,0 +1,194 @@
+{
+  "schema": "T6_P17_Q12_SPLIT6_6_H013_EXACT_CERT_V1",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "scientific_scope": "MAXIMAL_P17_ONE_POWER_TOTAL_VERTICAL_ORDER12_SPLIT6_6_CANONICAL_Q0_J1_TO16",
+  "p": 17,
+  "per_side_mass_budget": 2331,
+  "q0_j_interval": [
+    1,
+    16
+  ],
+  "cofactor_scale_L": "99891792000",
+  "atomic_vertical_catalog": 60,
+  "vertical_rosters_each_side": 11105,
+  "q0_multisets_with_mass_at_most_565": 54000,
+  "full_single_side_configurations": 6992576,
+  "distinct_H012_signatures": 6988554,
+  "H012_colliding_signature_groups": 4019,
+  "H012_unordered_pairs_before_support_cancellation": 4025,
+  "H012_disjoint_signed_pairs_up_to_side_exchange": 4,
+  "H013_disjoint_signed_pairs": 0,
+  "max_H012_signature_group_size": 3,
+  "H3_min_abs_gap_conditional_on_H012": "1/647101056",
+  "H012_aliases": [
+    {
+      "A": {
+        "vertical_cofactors": [
+          21,
+          42,
+          56
+        ],
+        "q0_j": [],
+        "denominators": [
+          357,
+          714,
+          952
+        ],
+        "mass": 2020
+      },
+      "B": {
+        "vertical_cofactors": [
+          24,
+          28,
+          84
+        ],
+        "q0_j": [],
+        "denominators": [
+          408,
+          476,
+          1428
+        ],
+        "mass": 2309
+      },
+      "H3_A_minus_B": "-1/647101056"
+    },
+    {
+      "A": {
+        "vertical_cofactors": [
+          35,
+          70
+        ],
+        "q0_j": [
+          12,
+          12
+        ],
+        "denominators": [
+          595,
+          1190,
+          204,
+          204
+        ],
+        "mass": 2189
+      },
+      "B": {
+        "vertical_cofactors": [
+          20,
+          21,
+          84
+        ],
+        "q0_j": [
+          10
+        ],
+        "denominators": [
+          340,
+          357,
+          1428,
+          170
+        ],
+        "mass": 2291
+      },
+      "H3_A_minus_B": "1/96294800"
+    },
+    {
+      "A": {
+        "vertical_cofactors": [
+          18,
+          36,
+          63
+        ],
+        "q0_j": [
+          8,
+          9
+        ],
+        "denominators": [
+          306,
+          612,
+          1071,
+          136,
+          153
+        ],
+        "mass": 2273
+      },
+      "B": {
+        "vertical_cofactors": [
+          21,
+          21,
+          72
+        ],
+        "q0_j": [
+          7,
+          12
+        ],
+        "denominators": [
+          357,
+          357,
+          1224,
+          119,
+          204
+        ],
+        "mass": 2256
+      },
+      "H3_A_minus_B": "1019/26207592768"
+    },
+    {
+      "A": {
+        "vertical_cofactors": [
+          24,
+          24,
+          36,
+          36
+        ],
+        "q0_j": [
+          4,
+          4,
+          6
+        ],
+        "denominators": [
+          408,
+          408,
+          612,
+          612,
+          68,
+          68,
+          102
+        ],
+        "mass": 2271
+      },
+      "B": {
+        "vertical_cofactors": [
+          18,
+          18,
+          72
+        ],
+        "q0_j": [
+          3,
+          8,
+          9,
+          9
+        ],
+        "denominators": [
+          306,
+          306,
+          1224,
+          51,
+          136,
+          153,
+          153
+        ],
+        "mass": 2322
+      },
+      "H3_A_minus_B": "11/8989056"
+    }
+  ],
+  "execution": {
+    "method": "exact unsigned-128-bit integer signatures and sorted finite lookup; rational Python witness readback",
+    "cxx_standard": "c++17",
+    "compile": "g++ -O3 -std=c++17 research_checks/T6_P17_Q12_SPLIT6_6_H013_CANONICAL_CHECK_20261122.cpp -o /tmp/t6q12 && /tmp/t6q12",
+    "observed_local_scan_wall_seconds": 2.12,
+    "observed_peak_rss_KiB": 444304,
+    "independent_witness_check": "Python fractions, all four H012 equalities and H3 gaps exactly checked",
+    "formal_proof_status": "AUTHOR_EXACT_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+    "parent_objective": "GLOBAL_T6_OPEN",
+    "native_claim_or_progress_granted": false
+  }
+}
