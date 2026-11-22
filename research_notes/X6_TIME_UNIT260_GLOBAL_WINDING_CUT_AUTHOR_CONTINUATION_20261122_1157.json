@@ -1,0 +1,93 @@
+{
+  "schema": "X6_NATIVE_TIME_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-22",
+  "cycle": "20261122_1157",
+  "task_id": "RS-X6-NATIVE-TIME-DYNAMICS",
+  "publication_id": "TP2-91D4A7C2F63805BE21A3",
+  "parent_objective": "PO-X6-UPPER-STRUCTURE-20260906",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_lane_excluded": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "own_session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "frozen_scientific_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "exact_original_BRC": "f56840285cafeb9f5767ea91e903e1f53808186f:research_checks/X6_TIME_UNIT245_DIRECTED_CENTER_PORT_PAIR_RESULTS_20261121_2200.json",
+  "previous_immutable_frontier": "Unit259 / Activity261 / 7042ec54348fc6e55e20ddbcd65ea9af487e19ed:research_notes/X6_TIME_UNIT259_BIPARTITE_CLOCK_AUTHOR_CONTINUATION_20261122_1103.json",
+  "latest_scientific_unit": {
+    "id": "Unit260",
+    "title": "Global signed winding conservation, 21/36 universal negative-wrap Port cuts and sharp 15/36 A-only orientation bypass",
+    "theorem": "For any closed signed one-triad BRC history under fixed directed Port ingress i, egress j, W_T=R_T(i-j)+12(U_T-D_T). For A target -12 and i>=j (21 of 36 even directed Port pairs), D_A>=1 for every feasible event length; for all i<j (15 pairs) there is a constructive A-only -12 winding bypass with D_A=0. A-only bypass does not assert two-triad occupancy or physical admission.",
+    "proof": {
+      "commit": "4ddb94c8f8d99ad5b35cbb10eebc1826bb2d4bd1",
+      "path": "research_notes/X6_TIME_UNIT260_GLOBAL_SIGNED_WRAP_CUT_THEOREM_20261122_1157.md",
+      "sha256": "923d883f66b48c13c05e65ad2ecb4419e82e0f95aa0945cf86b2e0884aa7f491",
+      "git_blob_sha1": "53ff9d71f46b364ed6f9796ebcff419c6c00c315"
+    },
+    "checker": {
+      "commit": "21e23948abe4a009ca5e6f18687e78dd39a97bdc",
+      "path": "research_checks/X6_TIME_UNIT260_GLOBAL_WINDING_CUT_CHECK_20261122_1157.js",
+      "sha256": "4b2c51d05d67917af24060e3887a98eaf9eb1bcd26f878df9db07f23934937ff"
+    },
+    "certificate": {
+      "commit": "bd5dc1a1c82205f77c7e76f2b815bc39c5a6e4a8",
+      "path": "research_checks/X6_TIME_UNIT260_GLOBAL_WINDING_CUT_RESULTS_20261122_1157.json",
+      "sha256": "bafda9b80ac6a56e1d3ff1bc2250e8d4a8364321681cfc025a0da216cd87b367"
+    },
+    "execution": {
+      "exact_assertions": 3931,
+      "original_certified_path_count": 36,
+      "original_primitive_events_replayed": 1312,
+      "explicit_converse_A_only_paths_constructed": 15,
+      "universal_cuts_across_unbounded_event_lengths": 21,
+      "all_passed": true
+    },
+    "status": "AUTHOR_PROVED / EXACT_FINITE_EXECUTED / GITHUB_VERIFIED / UNREVIEWED / NOT_ADMITTED / NO_NATIVE_PHYSICAL_EXECUTION"
+  },
+  "activity": {
+    "id": "RA-5E3FE1E761E4963EC461A892",
+    "event_id": "onhour-20261122-1157-x6-unit260-global-winding-cut-v1",
+    "event_total": 262,
+    "commit": "eb008a2bfad0b5257951b2c90473832617edee90",
+    "verified": true
+  },
+  "global_knowledge": {
+    "journal_commit": "3588256604c785399c55ff6cee5d07ea7b18145b",
+    "journal_path": "journal/enterprise-math/2026-11-22/20261122T1157+0800-x6-onhour-unit260-global-wrap-cut.md",
+    "verified": true
+  },
+  "control": {
+    "gateway_last_observed_version": "0.6.11",
+    "original_exact_task_read_request": "onhour-20261122-1000-x6-exact-task-read-v1",
+    "original_exact_task_status": "SUCCEEDED / error=null (historical Source snapshot; not current CLAIM)",
+    "original_own_continuation_request": "onhour-20261122-1103-x6-own-continuation-after-task-terminal-v1",
+    "original_own_continuation_terminal": "SUCCEEDED / error=null, as-of 2026-11-22T03:18:18.239300Z, execution_authorized=false",
+    "new_separate_artifact_read_request": "onhour-20261122-1157-unit260-cert-read-v1",
+    "new_separate_artifact_read_status": "SUCCEEDED / error=null; no authority granted",
+    "earlier_terminal_failed_requests": [
+      "onhour-20261122-0004-x6-own-source-continuation-v1",
+      "onhour-20261122-0756-x6-own-source-continuation-read-v1"
+    ],
+    "earlier_terminal_failed_signature": "SOURCE_TREE_TRUNCATED",
+    "original_research_run_id": "RUN-d653f1346f38369bc27f5fc5",
+    "original_research_claim_id": "MCP-369991930c5b4fddf26dbefa",
+    "historic_generation": 5,
+    "historic_claim_not_currently_authorized": true,
+    "current_live_winning_claim_verified": false,
+    "protected_native_semantic_progress": "NOT_PUBLISHED for Units233-260",
+    "existing_support_issue": "https://github.com/awdawmip/enterprise-math/issues/2903"
+  },
+  "evidence_gaps": [
+    "Actual native Source signed intact-triad transfer engine with force token identities and TRIADIC_CLOSURE_E admissibility for A:x0->x11,-e2, empty-target occupancy and full environment response",
+    "True scope of admission/rejection (all contexts versus particular recorded BRC precontext), with precise sign, port, source, target and observer timestamps",
+    "Remaining original fully signed 28-event path under current actual guards, with independent C24/C3 in-trace sensor evidence if available; original R063 separate and unchanged",
+    "Current authentic winning CLAIM and native protected PROGRESS; independent RESULT/review mathematical admission not established"
+  ],
+  "do_not_repeat": [
+    "Already saved Units233-259 and original Unit245 36 paths, Unit257 5664 optimal histories, Unit258 contextual minimal cuts, Unit259 parity/half-clock",
+    "Unit260 36 original witness path replay, 15 A-only bypass constructions, theorem, checker, certificate, Activity262 and global journal",
+    "Earlier terminal Source read failures; original 1103 Source continuation SUCCEEDED and new 1157 artifact request SUCCEEDED, do not reissue",
+    "Do not turn positive-only candidate into actual signed physical transfer, or A-only bypass into original two-triad witness",
+    "Do not borrow maintenance conversation, borrow other owner, dispatch outside selector, modify scheduler, run R063 replacement or fake native benchmark results"
+  ],
+  "next_exact_action": "On real Source-authorized signed triad engine, test A:x0->x11,-e2 with conserved triadic tokens/Cell occupancy/environment in the exact frozen prestate and record an authenticated response. A global context-independent rejection eliminates all lengths for all 21 i>=j ports by Unit260; a one-context refusal only applies locally and triggers Unit258 B-first/context alternatives. Check current CLAIM via fresh Source before any protected Native semantic progress; preserve work if Source engine remains undefined.",
+  "checkpoint_category": "GITHUB_AUTHOR_SCIENCE_AND_ACTIVITY_ONLY_NOT_NATIVE_SEMANTIC_PROGRESS"
+}
