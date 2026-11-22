@@ -1,0 +1,465 @@
+# RH 与 Dirichlet-GRH 对进取数论现有研究的推进评估
+
+日期：2026-11-22（Asia/Hong_Kong）  
+Progress-Event-ID: RH-IMPACT-20261122-AF81E5B398B7  
+性质：已有成果的依赖审查、外部定理应用和作者侧书面推导。  
+状态：AUTHOR_DERIVED / SOURCE_DEPENDENT / NOT_REVIEWED。本记录不更改原任务、原作者归属、旧 Result、Working Truth 或 Foundation。
+
+## 1. 结论与优先级
+
+最直接的推进是把已公开核验的 RH 接到现有稳定匹配道路：原道路的无界匹配窗口正部能量可得 O(log A)，真实 dyadic 骨架与每层精确 Green 核也获得统一预算。第二个可落地接口是将现有周期残差观察器变成带平方根级误差的素数计数器；EC49 的锚 1/2 给出一个精确的 27/40 例子。
+
+| 研究线 | 本轮确认的推进 | 继续研究的科学问题 |
+|---|---|---|
+| RH 方法转译／完整道路 | 对指定稳定匹配族，原 q 的平方根包络、O(log A) 能量、骨架和逐层精确核预算可以由外部 RH 推出 | 内部算术抵消机制、有效常数、总位复杂度与认证成本 |
+| EC49／Farey／周期 CRT 观察 | 新增素数分母限制后，有限残差表可接入 Dirichlet-GRH 的误差与供给定理 | 变动锚和模数时的统一误差、合格素数分母最近邻 |
+| 里塞尔残差嵌合 | 可对确实只有互素同余条件的新素数供给使用显式界 | 固定根全程有限覆盖、精确乘法阶和余因子联合关系仍按原问题研究 |
+| 约数和型因数库存扩展 | Robin/Lagarias 给全域约数和约束 | 先核目标是否真正含 sigma(n)/n；现有固定因子安排精度问题没有自动改变 |
+| P017 勒让德压力测试 | 可把 RH 的标准短区间尺度作为可证基线 | 相邻平方间隔仍需要更细的局部抵消 |
+| X6/BRC、固定因子同步与精度、速记本几何 | 本轮未发现它们现有缺口对 RH 的实际依赖 | 继续各自的原生映射、未来操作安全性、信息保留与几何更新问题 |
+
+## 2. 外部事实：采用的精确范围
+
+2026-11-21 Lean 与 Mathlib 社区联合声明确认 RH 命题和形式化证明正确。[E1]
+
+MIT Andrew Sutherland 的核验页更新至 2026-11-22 04:35 UTC（香港时间12:35），列出五个精确命题：RH，以及全部模数、原始和非原始 Dirichlet 特征的临界带零点结论。其范围是 Dirichlet L 函数；一般 Dedekind ζ、Hecke 和 automorphic L 函数不在列出的五个已核终点内。[E2]
+
+本轮读取了原始声明、核验命题、相关论文及我们的固定 Source；没有执行外部巨型 Lean 库的完整重建。下面的项目结论采用该外部定理以及逐项列明的既有项目引理，属于新的应用推导。
+
+## 3. 完整道路：无界匹配窗口可以得到定量上界
+
+### 3.1 保留窗口参数，明确适用族
+
+读取的既有来源：[P1] phase README §§2–3 和 [P2] triangle REPORT。
+
+对目标上界 Z，使用 [P1] 中所构造的稳定有理厚度节点及权重，记：
+
+\[
+R_a(n)=\prod_{p\mid n}(1-p^{-a}),\qquad
+D_{Z,n}=\sum_j\nu_{Z,j}R_{a_{Z,j}}(n)/a_{Z,j},\qquad D_{Z,1}=0,
+\]
+
+\[
+F_Z(y)=\sum_{2\le n\le y}D_{Z,n}(y/n-1)
+-y\log y+(1+\gamma)y,\qquad q_n=F_Z(n).
+\]
+
+把 D 换为 von Mangoldt 函数 Λ 得到固定参考曲线：
+
+\[
+G(y)=\sum_{n\le y}\Lambda(n)(y/n-1)
+-y\log y+(1+\gamma)y.
+\]
+
+[P1] 式(5)对其指定匹配族给出：
+
+\[
+Z\ge e^{10},\quad 1\le y\le Z,\quad \theta=\tfrac12
+\quad\Longrightarrow\quad
+|F_Z(y)-G(y)|<\tfrac12\sqrt y.
+\tag{3.1}
+\]
+
+这一条件是本轮推导的既有项目输入。节点随 Z 选择；下述常数对该族统一。这里的量词是无界的匹配窗口族，并非把一组有限厚度节点永久固定后外推。
+
+### 3.2 外部 RH 的平滑显式公式
+
+Rubinstein 托管的工作说明 I.1 给出同一个 G 及经典显式公式：[E3]
+
+\[
+G(y)=\log(2\pi)-\sum_\rho
+\frac{y^\rho}{\rho(\rho-1)}+O(y^{-2}).
+\tag{3.2}
+\]
+
+零点按重数计，因二次分母而绝对收敛。在 RH 下：
+
+\[
+\sum_\rho\frac1{|\rho(\rho-1)|}
+=2+\gamma-\log(4\pi)=:C_0\approx0.0461914.
+\]
+
+所以存在统一常数 C_G，使 |G(y)|≤C_G√y（y≥2）。结合(3.1)，存在与 Z、A、B 无关的 K，使：
+
+\[
+\boxed{|F_Z(y)|\le K\sqrt y\qquad (2\le y\le Z).}
+\tag{3.3}
+\]
+
+任意 K>C_0+1/2 在共同充分大门槛以后均可使用。本轮不优化该门槛或显式有限常数。
+
+### 3.3 正部能量
+
+对整数 2≤A≤B≤Z：
+
+\[
+S_Z(A,B)=\sum_{n=A}^{B}\frac{(F_Z(n))_+^2}{n^2}.
+\]
+
+于是有完全直接的界：
+
+\[
+\boxed{
+S_Z(A,B)
+\le K^2\sum_{n=A}^{B}\frac1n
+\le K^2\left(\log(B/A)+\frac1A\right).
+}
+\tag{3.4}
+\]
+
+固定 λ>1，B∼A^λ，并在每个窗口按既有规则匹配节点：
+
+\[
+\boxed{S_Z(A,B)=O_\lambda(\log A).}
+\tag{3.5}
+\]
+
+连续能量同样满足：
+
+\[
+\int_A^B \frac{(F_Z(y))_+^2}{y^2}\,dy
+\le K^2\log(B/A).
+\]
+
+这覆盖全部足够远的规定匹配窗口，支付旧接口的次幂能量目标。其来源关系是“外部 RH＋既有完整道路误差桥＋本轮推导”。若研究独立的 RH 证明，应另保留不引用 RH 的论证目标；本段作为定理应用使用。
+
+### 3.4 原道路真实骨架和分层 Green 核
+
+在一个实际 dyadic 块 [X,Y]⊂[X,2X]，真实骨架 Jq 是两端样值的凸组合，由(3.3)：
+
+\[
+|Jq(n)|\le K\sqrt{2X}.
+\]
+
+所以每块临界加权能量 O(K²)，固定幂窗口共 Oλ(log A) 块：
+
+\[
+\boxed{\|(Jq)_+\|_w^2=O_\lambda(\log A),\qquad w_n=n^{-2}.}
+\tag{3.6}
+\]
+
+对原稿包 p=(L,x,R)，置 a=x−L、b=R−x、h=a+b，并定义：
+
+\[
+\delta_p=q_x-\frac b hq_L-\frac a hq_R,\quad
+t_p=\frac h{ab}\delta_p,\quad
+T_p=\frac{ab}h\Phi_p.
+\]
+
+其中 Φ_p 为高度1的非负三角帽。于是：
+
+\[
+(t_p)_+T_p=(\delta_p)_+\Phi_p,\qquad
+|\delta_p|\le2K\sqrt{2X}.
+\]
+
+同层包的内部支撑不交，故：
+
+\[
+\boxed{
+\left\|\sum_{p\in\ell}(t_p)_+T_p\right\|_w^2
+\le8K^2X\sum_{n=X}^{Y}n^{-2}=O(K^2).
+}
+\tag{3.7}
+\]
+
+这一精确核版本不要求左右半包同长。若选几何平衡树，a,b≥ηh，0<η≤1/2，则 ab≥η(1−η)h²，且同层 Σh≤X：
+
+\[
+\boxed{
+\sum_{p\in\ell}h_p^3(t_p)_+^2
+\le\frac{8K^2}{\eta^2(1-\eta)^2}X^2.
+}
+\tag{3.8}
+\]
+
+这对应原稿按 h³ 计费的中粗层充分条件。所有端点仍使用真实道路端点。
+
+### 3.5 相位修正的可用范围
+
+[P1] 已给 H=⌊A^(4/5)⌋ 时的统一修正能量：
+
+\[
+\sum_{n=A}^\infty |P_H(n)|^2/n^2=O(\log^3 A).
+\]
+
+因此 Q=q+P_H 满足：
+
+\[
+\|(Q)_+\|_w\le\|(q)_+\|_w+\|P_H\|_w,\qquad
+\boxed{S(Q)=O(\log^3 A).}
+\tag{3.9}
+\]
+
+这一总能量界没有直接控制 Q 在特定稀疏骨架点的大小；固定 Q 的逐层充分条件仍按其实际接口单独判断。原 q 已有较直接的全窗路线。
+
+### 3.6 这条线的新目标
+
+- 将(3.3)–(3.9)整理为外部 RH 输入下的定量推论，审查原匹配桥的精确适用族与统一量词。
+- 把存在性预算作为基准，研究完整道路的低成本计算与严格认证。既有12次道路读出的有限证书还支付了筛至32768、3392个素数幂事件、3488个对数的参考成本；总成本需要一起比较。
+- 研究
+  \[
+  t_p^{[H]}=-\sigma_H\mathcal K_{1,p}
+  -\sum_{d>H}c(d)\mathcal K_{d,p}
+  \]
+  中真正产生抵消的关系，争取更紧常数、局部尺度或更短证书。
+- 原稿“逐包只挑更小矩”的固定树 no-go 保留。混合正负修正、改变骨架或整体相位的收益，须计入回到原道路的修正成本。
+
+## 4. 周期残差观察器可以获得素数计数误差
+
+这是一个可复用的定理应用接口。
+
+设 w 是单位剩余类群 (Z/qZ)* 上的固定观察函数，并在非单位类上置0。对 Dirichlet 特征定义：
+
+\[
+\widehat w(\chi)=\frac1{\varphi(q)}
+\sum_{a\in(\mathbb Z/q\mathbb Z)^\times}
+w(a)\overline{\chi(a)},\qquad
+\mathcal F(w)=\sum_{\chi\bmod q}|\widehat w(\chi)|.
+\]
+
+标准特征和估计 [E4] 给：
+
+\[
+\psi(x,\chi)=\mathbf1_{\chi=\chi_0}x+
+O(\sqrt x\log x\log(qx)).
+\]
+
+将有限特征展开 w(n)=Σχ ŵ(χ)χ(n) 代入，直接得到：
+
+\[
+\boxed{
+\sum_{n\le x}\Lambda(n)w(n)
+=x\widehat w(\chi_0)
++O\!\left(\mathcal F(w)\sqrt x\log x\log(qx)\right).
+}
+\tag{4.1}
+\]
+
+相应的素数计数版本为：
+
+\[
+\boxed{
+\sum_{p\le x}w(p)
+=\operatorname{Li}(x)\widehat w(\chi_0)
++O\!\left(\mathcal F(w)\sqrt x\log(qx)\right).
+}
+\tag{4.2}
+\]
+
+若 w=1_S，则 ŵ(χ0)=|S|/φ(q)。Parseval 与 Cauchy–Schwarz 给：
+
+\[
+\mathcal F(1_S)\le\sqrt{|S|}.
+\]
+
+具体谱结构还可能进一步节省误差预算。对固定 q，误差是 Oq,S(√x log x)；变动 q 时保留(4.1)–(4.2)中的显式 q 依赖，不把渐近主项占优范围自动扩大。
+
+应用于本体系时，先严格确认已有观察器确实是所述周期函数，再使用这个算术读出结论。该投影不删除完整整数人口、合数背景、相位、联合关系、原点或后续操作需要的状态。
+
+## 5. EC49 的具体新例子：素数分母的 27/40
+
+[P3] 的 determinant-one 左侧分支满足：
+
+\[
+(h_t,n_t)=(H_1,N_1)+t(a,b-a),\qquad
+d_t=H_1+N_1+bt,
+\]
+
+\[
+\mathbf1_{C_{11}}(h_t,n_t)
+=U(t\bmod10)\mathbf1_V(t\bmod11).
+\]
+
+对固定约分锚 a/b，合格 t mod110 映射到分母剩余类 mod Q=110b。保留与 Q 互素的合格分母类 A_Q，素数分母计数便是这些剩余类中的素数计数之和，另加整除 Q 的有限素数例外。
+
+### 5.1 冻结数据和相位
+
+[P4] 对锚 1/2 明确保存：
+
+- 初始程序基点为(−2,−1)，rephase_t0=2；
+- 规范化基点 H1=0、N1=1；
+- U_mask=447；
+- V_mask=1919，排除 t≡7 mod11。
+
+所以规范参数确为 h_t=t、n_t=t+1、d_t=2t+1。不能在此基点上再加一次 rephase。
+
+### 5.2 人工 CRT 计数
+
+447 的允许位是：
+
+\[
+t\bmod10\in\{0,1,2,3,4,5,7,8\}.
+\]
+
+当分母 d=2t+1 与220互素：
+
+- 模2条件自动成立；
+- 5∤d 去掉 t≡2 mod5，即十位支持中的2、7，剩6类；
+- 11∤d 去掉 t≡5 mod11；
+- 原观察器再去掉 t≡7 mod11，剩9类。
+
+CRT 给出 6×9=54 个合格单位类，而 φ(220)=80。因此：
+
+\[
+\boxed{\frac{|A_{220}|}{\varphi(220)}
+=\frac{54}{80}=\frac{27}{40}.}
+\]
+
+本轮协作检查还用冻结程序的原 predicate 逐项核查了110格，计数相符；根复读保存的规范基点，并独立核对以上CRT计算。该检查属于同作者范围核对。
+
+若 N(H) 计满足原 C11 的 determinant-one 左邻候选且分母是素数、不超过 H 的个数，则：
+
+\[
+N(H)=\sum_{r\in A_{220}}\pi(H;220,r)
++\mathbf1_{H\ge5}+\mathbf1_{H\ge11},
+\]
+
+\[
+\boxed{
+N(H)=\frac{27}{40}\operatorname{Li}(H)
++O(\sqrt H\log H).
+}
+\tag{5.1}
+\]
+
+该固定模主项本身亦可由普通素数定理得到；本轮 RH 输入的增益是平方根级误差、有效搜寻窗口和近邻尺度。
+
+从(5.1)的累计误差，取充分大的固定常数，长度 h=C√H log²H 的左侧窗口已有正的合格素数增量。因此存在合格 p≤H 满足：
+
+\[
+H-p=O(\sqrt H\log^2H).
+\]
+
+其左侧有理点为 (p−1)/(2p)，故：
+
+\[
+\boxed{
+\frac12-\frac{p-1}{2p}
+=\frac1{2H}
++O\!\left(\frac{\log^2H}{H^{3/2}}\right).
+}
+\tag{5.2}
+\]
+
+(5.1)–(5.2)是新增“素数分母限制”的应用推导。原有限观察成本6／9／12及其600状态范围、实际Farey锚点族的下界实现问题保留原状态。母材料 [P3] 来自已保存分支，尚无正式独立 Review。
+
+## 6. 里塞尔：使用新输入时对齐实际缺口
+
+[P5] 当前研究 F_n(a)=a²2^n−1。旧素数字典覆盖奇下标，偶下标有：
+
+\[
+F_{2u}(a)=(a2^u-1)(a2^u+1).
+\]
+
+当前固定根问题要求一个固定有限素数集合覆盖所有项。其量词是：
+
+\[
+\exists\text{有限 }P'\ \forall n\ \exists p\in P':p\mid F_n(a).
+\]
+
+逐项存在因子和素数总体计数都没有直接给出这个固定有限集合。
+
+现有锐密度阶梯(72,36,13,8,3,0)/420、固定25通道同轨迹上每个有限新增成本s≥5的构造、固定旧根2056项窗口的1791下界，继续按原证明和精确范围使用。所有有限成本构造已有primitive-prime存在输入。
+
+Dirichlet-GRH 能用于真正只有互素同余条件的素数供给。LLS [E5] 给：
+
+\[
+q>3,\quad(a,q)=1
+\quad\Longrightarrow\quad
+P(a,q)\le(\varphi(q)\log q)^2.
+\tag{6.1}
+\]
+
+但精确阶 ord_p(2)=d 要求 p 为2^d−1的相应原始素因子；p≡1 mod d 只给必要条件。当前里塞尔根族还包含3|a和其它强制因子，不能把它改写成“在原根剩余类里挑一个素数根”。
+
+有价值的衔接是对既有构造逐条标明：哪个环节只需同余素数供给，哪个环节仍需阶、gcd及覆盖联合关系；对前者消去条件或设置有限搜索终点，对后者继续原问题。
+
+## 7. 因数库存、勒让德与其它研究
+
+### 7.1 约数和型扩展
+
+MIT [E2] 已把 RH 与独立 Robin/Lagarias 形式化组合，核验：
+
+\[
+\sigma(n)<e^\gamma n\log\log n\quad(n>5040),
+\]
+
+\[
+\sigma(n)\le H_n+e^{H_n}\log H_n\quad(n\ge1).
+\]
+
+若将因数研究扩展至可变素因子库存、目标涉及 σ(n)/n，这些是全域比较界。当前固定5、7、23的安排、同步和有限精度恢复，应按实际目标函数评估；本轮没有找到它们既有门槛对RH的依赖。
+
+### 7.2 P017 勒让德压力测试
+
+[P6] 将P017列为开放。RH 的标准短区间后果能保证 O(√x log x) 尺度内素数供给。[E4] 对 x=n²，这是 O(n log n)，而相邻平方间隔长2n+1。因此可以把新结论作严格基准，进一步研究更细的局部相位和抵消；上述标准后果尚不足以关闭P017。
+
+### 7.3 原生几何、BRC与速记本
+
+本轮全部推导作用在已定义的算术观察量及辅助有理锚点上，保持P000、Heartbeat X6、联合关系保留与残差保真语义。没有把解析复数平面当作原生空间，没有由标量正负相消推定原生正质量消失。
+
+X6旋转、时间动力学、未来操作安全压缩、固定因子精度、速记本覆盖几何仍按其原有具体问题推进。外部RH可以为确实接上素数算术的子模型提供输入，收益由真实映射决定。
+
+## 8. 推荐接续单元
+
+优先次序是资源判断，不是强制研究步骤。
+
+1. **完整道路定量推论。** 固定[P1]的匹配族，完成外部RH输入、统一常数、全窗口能量、真实骨架和精确核预算的项目侧复核；不重跑旧有限证书。
+2. **周期观察器的素数事件接口。** 以EC49锚1/2的27/40为首个明确用例，再推广到实际锚a/b，计算允许单位类及Fourier误差成本。
+3. **实际认证与搜寻成本。** 比较道路证书、参考筛法、分层修正及素数候选筛选的全部成本，争取可复算收益。
+4. **保留开放机制。** 研究里塞尔固定根覆盖与精确阶、匹配道路内部联合抵消、P017的更细局部尺度；这些仍有独立数学价值。
+
+本记录只形成新的应用推导与建议，不发布新的共享任务、不领取已有任务，也不修改调度。
+
+## 9. 固定来源
+
+### 项目来源
+
+[P1] enterprise-math@b2664a273150536823c6c3217732adf4cd84e784:
+research_notes/portable_direct/rh_phase_correlation_20261121_b5750a/README.md  
+https://github.com/awdawmip/enterprise-math/blob/b2664a273150536823c6c3217732adf4cd84e784/research_notes/portable_direct/rh_phase_correlation_20261121_b5750a/README.md
+
+[P2] 同提交：
+research_notes/portable_direct/rh_triangle_correlation_20261122_b5750a/REPORT.md  
+https://github.com/awdawmip/enterprise-math/blob/b2664a273150536823c6c3217732adf4cd84e784/research_notes/portable_direct/rh_triangle_correlation_20261122_b5750a/REPORT.md
+
+[P3] enterprise-math@95507f064ee46910b32e26d1c49e6df4a05b84fc:
+research_notes/portable_direct/EC49FWS_FAREY_ONE_HOLE_FIBER_OBSERVER_THEOREM.md  
+https://github.com/awdawmip/enterprise-math/blob/95507f064ee46910b32e26d1c49e6df4a05b84fc/research_notes/portable_direct/EC49FWS_FAREY_ONE_HOLE_FIBER_OBSERVER_THEOREM.md
+
+[P4] 同提交：
+research_notes/portable_direct/EC49FWS_FAREY_FACTOR_PROBE_OUTPUT.json  
+https://github.com/awdawmip/enterprise-math/blob/95507f064ee46910b32e26d1c49e6df4a05b84fc/research_notes/portable_direct/EC49FWS_FAREY_FACTOR_PROBE_OUTPUT.json
+
+[P5] enterprise-math@b2664a273150536823c6c3217732adf4cd84e784:
+research_notes/portable_direct/riesel_observers_20261122/README.md  
+https://github.com/awdawmip/enterprise-math/blob/b2664a273150536823c6c3217732adf4cd84e784/research_notes/portable_direct/riesel_observers_20261122/README.md
+
+[P6] 同提交：docs/PROBLEM_STATUS.en.md。P017开放；P018/P023等保留各自成立范围。  
+https://github.com/awdawmip/enterprise-math/blob/b2664a273150536823c6c3217732adf4cd84e784/docs/PROBLEM_STATUS.en.md
+
+### 外部来源
+
+[E1] Lean/Mathlib联合声明，2026-11-21：  
+https://leanprover-community.github.io/blog/posts/riemann-hypothesis/
+
+[E2] Andrew Sutherland, MIT, Verification files for the Lean proof of RH，页面核验更新2026-11-22 04:35 UTC：  
+https://math.mit.edu/~drew/grh/
+
+[E3] Rubinstein托管工作稿，The Alpöge–Claude proof … explained for the Riemann zeta function，2026-11-21，I.1。本文只取该节经典G定义和显式公式；完整主不等式M的证明仍由该工作稿引用Lean发展。  
+https://www.math.uwaterloo.ca/~mrubinst/alpoge_claude_grh/zeta-paper.pdf
+
+[E4] Montgomery–Vaughan, Multiplicative Number Theory I, Chapter 13, Theorem13.3, 13.7及Corollary13.8，作者托管：  
+https://personal.science.psu.edu/rcv4/personal/Publications/MNTI/17.0_pp_419_451_Conditional_estimates.pdf
+
+[E5] Lamzouri–Li–Soundararajan, Conditional bounds for the least quadratic non-residue and related problems, arXiv:1309.3595v3, Corollary1.2：  
+https://arxiv.org/pdf/1309.3595
+
+## 10. 本轮来源与记录状态
+
+本轮先读取全局规范main@6c1f65f71b07ca97f6392290be3a4469ec80275c，及Source main@b2664a273150536823c6c3217732adf4cd84e784。科学源维持各自固定提交，EC49FWS读取已保存的分支版本。
+
+本轮真实原登记请求：rh-impact-20261122-af81e5b398b7-start-v1。服务签发公共SID MCP-2203252904c54083a55d83a4cd908721；这不等于登记终局、CLAIM或研究成果接纳。登记及Activity关联的实际终局另以原请求和交付回执为准。根与协作agent使用共享任务上下文，纸面核对不称独立项目Review。
+
+没有重放原RH任务历史失败的Result，没有改写原B5750A或970E1C的Activity。新推导与旧成果通过精确Source引用保持贡献关系。
