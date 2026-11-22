@@ -1,0 +1,33 @@
+{
+  "schema": "EM_SIGNED_SKELETON_EXACT_CHECK_V1",
+  "status": "PASS",
+  "arithmetic": "fractions.Fraction; exact integers and rationals",
+  "gram_checks": 72,
+  "convex_endpoint_checks": 72,
+  "positive_support_checks": 72,
+  "downward_no_go_scalar_checks": 325,
+  "downward_no_go_strict_scalar_cases": 196,
+  "overlapping_packet_reconstruction_checks": 36,
+  "skeleton_strict_loss_example": {
+    "nodes": [
+      8,
+      16,
+      32,
+      64
+    ],
+    "values": [
+      "0/1",
+      "-3/2",
+      "-3/16",
+      "0/1"
+    ],
+    "signed_masses": [
+      "-69/256",
+      "39/512"
+    ],
+    "true_positive_energy": "0/1",
+    "positive_mass_envelope_at_4X": "117/112"
+  },
+  "scope": "Finite exact checks support accompanying universal algebraic proofs; not actual arithmetic-road examples or independent review.",
+  "script_sha256": "4258cb27824f8f77db43bac9166e24e5b3178e66edc0d017579c2f0bd6d041b4"
+}

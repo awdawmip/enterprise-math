@@ -1,0 +1,1721 @@
+{
+  "schema": "RH_SCALE_ADAPTED_EXACT_SOURCE_EXAMPLES_V1",
+  "date": "2026-11-22",
+  "arithmetic_road_recomputed": false,
+  "scope": "exact auxiliary examples supporting proved general-source assertions",
+  "source_filename": "certify_scale_examples.py",
+  "source_sha256": "3d564267acdc230a6299f116175bca3c39381d4fb47ad6f705f35824487a1e56",
+  "outward_energy_denominator": "1000000000000000000000000000000",
+  "case_count": 12,
+  "verified_integer_source_locations": 76628,
+  "verified_packet_hat_moments": 105,
+  "cases": [
+    {
+      "label": "critical_s2",
+      "scope": "auxiliary integer-source family; not an arithmetic road",
+      "family": "full_critical",
+      "X": 16,
+      "right_endpoint": 32,
+      "span": 16,
+      "cell_width": 8,
+      "cell_count": 2,
+      "amplitude": {
+        "numerator": "1",
+        "denominator": "1",
+        "decimal_approximation": "1"
+      },
+      "fine_step": 4,
+      "fine_interval_count": 4,
+      "all_integer_values_count": 17,
+      "actual_endpoint_values": [
+        "0",
+        "0"
+      ],
+      "dyadic_block_chord": "identically zero",
+      "exact_source_checks": 15,
+      "source_min": {
+        "numerator": "-49",
+        "denominator": "512",
+        "decimal_approximation": "-0.095703125"
+      },
+      "source_max": {
+        "numerator": "31",
+        "denominator": "512",
+        "decimal_approximation": "0.060546875"
+      },
+      "exact_hat_moment_checks": 3,
+      "packet_count": 3,
+      "positive_packet_count": 2,
+      "target_h_layer": 1,
+      "all_coarser_than_h_charges_zero": true,
+      "exact_interpolation_reconstruction": true,
+      "all_local_positive_remainders_below_curvature_parabola": true,
+      "critical_energy_scale_a2_span_h4_over_X4": {
+        "numerator": "1",
+        "denominator": "1",
+        "decimal_approximation": "1"
+      },
+      "true_energy_interval": {
+        "lower_numerator": "774238713266506116650607910",
+        "upper_numerator": "774238713266506116650607920",
+        "denominator": "1000000000000000000000000000000",
+        "lower_decimal": "0.000774238713266506116650607910",
+        "upper_decimal": "0.000774238713266506116650607920",
+        "outward_rounded_term_count": 14
+      },
+      "true_energy_analytic_lower": {
+        "numerator": "81",
+        "denominator": "524288",
+        "decimal_approximation": "0.0001544952392578125"
+      },
+      "true_energy_analytic_upper": {
+        "numerator": "1",
+        "denominator": "256",
+        "decimal_approximation": "0.00390625"
+      },
+      "positive_envelope_energy_interval": {
+        "lower_numerator": "655301542114362743210313694",
+        "upper_numerator": "655301542114362743210313706",
+        "denominator": "1000000000000000000000000000000",
+        "lower_decimal": "0.000655301542114362743210313694",
+        "upper_decimal": "0.000655301542114362743210313706",
+        "outward_rounded_term_count": 14
+      },
+      "positive_remainder_energy_interval": {
+        "lower_numerator": "9781755637522866502368774",
+        "upper_numerator": "9781755637522866502368782",
+        "denominator": "1000000000000000000000000000000",
+        "lower_decimal": "0.000009781755637522866502368774",
+        "upper_decimal": "0.000009781755637522866502368782",
+        "outward_rounded_term_count": 8
+      },
+      "positive_remainder_source_upper": {
+        "numerator": "17",
+        "denominator": "32768",
+        "decimal_approximation": "0.000518798828125"
+      },
+      "levels": [
+        {
+          "local_level": 1,
+          "support_width": 8,
+          "packet_count": 2,
+          "positive_packet_count": 2,
+          "zero_packet_count": 0,
+          "sum_positive_charge_square": {
+            "numerator": "1",
+            "denominator": "32",
+            "decimal_approximation": "0.03125"
+          },
+          "scale_normalized_square_sum": {
+            "numerator": "1",
+            "denominator": "16",
+            "decimal_approximation": "0.0625"
+          },
+          "old_condition_required_C_squared": {
+            "numerator": "1",
+            "denominator": "2",
+            "decimal_approximation": "0.5"
+          },
+          "exact_source_bound_for_normalized_sum": {
+            "numerator": "1",
+            "denominator": "4",
+            "decimal_approximation": "0.25"
+          }
+        },
+        {
+          "local_level": 2,
+          "support_width": 16,
+          "packet_count": 1,
+          "positive_packet_count": 0,
+          "zero_packet_count": 1,
+          "sum_positive_charge_square": {
+            "numerator": "0",
+            "denominator": "1",
+            "decimal_approximation": "0"
+          },
+          "scale_normalized_square_sum": {
+            "numerator": "0",
+            "denominator": "1",
+            "decimal_approximation": "0"
+          },
+          "old_condition_required_C_squared": {
+            "numerator": "0",
+            "denominator": "1",
+            "decimal_approximation": "0"
+          },
+          "exact_source_bound_for_normalized_sum": {
+            "numerator": "4",
+            "denominator": "1",
+            "decimal_approximation": "4"
+          }
+        }
+      ],
+      "embedding_in_length_matched_window": {
+        "A": 16,
+        "B": 256,
+        "rule": "for full-block families extend q by zero beyond 2X",
+        "scope": "length quantifier only; not arithmetic matching"
+      }
+    },
+    {
+      "label": "critical_s4",
+      "scope": "auxiliary integer-source family; not an arithmetic road",
+      "family": "full_critical",
+      "X": 256,
+      "right_endpoint": 512,
+      "span": 256,
+      "cell_width": 64,
+      "cell_count": 4,
+      "amplitude": {
+        "numerator": "1",
+        "denominator": "1",
+        "decimal_approximation": "1"
+      },
+      "fine_step": 32,
+      "fine_interval_count": 8,
+      "all_integer_values_count": 257,
+      "actual_endpoint_values": [
+        "0",
+        "0"
+      ],
+      "dyadic_block_chord": "identically zero",
+      "exact_source_checks": 255,
+      "source_min": {
+        "numerator": "-3969",
+        "denominator": "524288",
+        "decimal_approximation": "-0.0075702667236328125"
+      },
+      "source_max": {
+        "numerator": "2047",
+        "denominator": "524288",
+        "decimal_approximation": "0.0039043426513671875"
+      },
+      "exact_hat_moment_checks": 7,
+      "packet_count": 7,
+      "positive_packet_count": 4,
+      "target_h_layer": 1,
+      "all_coarser_than_h_charges_zero": true,
+      "exact_interpolation_reconstruction": true,
+      "all_local_positive_remainders_below_curvature_parabola": true,
+      "critical_energy_scale_a2_span_h4_over_X4": {
+        "numerator": "1",
+        "denominator": "1",
+        "decimal_approximation": "1"
+      },
+      "true_energy_interval": {
+        "lower_numerator": "788499473029465785646540789",
+        "upper_numerator": "788499473029465785646541036",
+        "denominator": "1000000000000000000000000000000",
+        "lower_decimal": "0.000788499473029465785646540789",
+        "upper_decimal": "0.000788499473029465785646541036",
+        "outward_rounded_term_count": 252
+      },
+      "true_energy_analytic_lower": {
+        "numerator": "81",
+        "denominator": "524288",
+        "decimal_approximation": "0.0001544952392578125"
+      },
+      "true_energy_analytic_upper": {
+        "numerator": "1",
+        "denominator": "256",
+        "decimal_approximation": "0.00390625"
+      },
+      "positive_envelope_energy_interval": {
+        "lower_numerator": "647289746652018788821484354",
+        "upper_numerator": "647289746652018788821484603",
+        "denominator": "1000000000000000000000000000000",
+        "lower_decimal": "0.000647289746652018788821484354",
+        "upper_decimal": "0.000647289746652018788821484603",
+        "outward_rounded_term_count": 252
+      },
+      "positive_remainder_energy_interval": {
+        "lower_numerator": "10254133123428724873181451",
+        "upper_numerator": "10254133123428724873181601",
+        "denominator": "1000000000000000000000000000000",
+        "lower_decimal": "0.000010254133123428724873181451",
+        "upper_decimal": "0.000010254133123428724873181601",
+        "outward_rounded_term_count": 152
+      },
+      "positive_remainder_source_upper": {
+        "numerator": "69905",
+        "denominator": "134217728",
+        "decimal_approximation": "0.0005208328366279602050781"
+      },
+      "levels": [
+        {
+          "local_level": 1,
+          "support_width": 64,
+          "packet_count": 4,
+          "positive_packet_count": 4,
+          "zero_packet_count": 0,
+          "sum_positive_charge_square": {
+            "numerator": "1",
+            "denominator": "64",
+            "decimal_approximation": "0.015625"
+          },
+          "scale_normalized_square_sum": {
+            "numerator": "1",
+            "denominator": "16",
+            "decimal_approximation": "0.0625"
+          },
+          "old_condition_required_C_squared": {
+            "numerator": "4",
+            "denominator": "1",
+            "decimal_approximation": "4"
+          },
+          "exact_source_bound_for_normalized_sum": {
+            "numerator": "1",
+            "denominator": "4",
+            "decimal_approximation": "0.25"
+          }
+        },
+        {
+          "local_level": 2,
+          "support_width": 128,
+          "packet_count": 2,
+          "positive_packet_count": 0,
+          "zero_packet_count": 2,
+          "sum_positive_charge_square": {
+            "numerator": "0",
+            "denominator": "1",
+            "decimal_approximation": "0"
+          },
+          "scale_normalized_square_sum": {
+            "numerator": "0",
+            "denominator": "1",
+            "decimal_approximation": "0"
+          },
+          "old_condition_required_C_squared": {
+            "numerator": "0",
+            "denominator": "1",
+            "decimal_approximation": "0"
+          },
+          "exact_source_bound_for_normalized_sum": {
+            "numerator": "4",
+            "denominator": "1",
+            "decimal_approximation": "4"
+          }
+        },
+        {
+          "local_level": 3,
+          "support_width": 256,
+          "packet_count": 1,
+          "positive_packet_count": 0,
+          "zero_packet_count": 1,
+          "sum_positive_charge_square": {
+            "numerator": "0",
+            "denominator": "1",
+            "decimal_approximation": "0"
+          },
+          "scale_normalized_square_sum": {
+            "numerator": "0",
+            "denominator": "1",
+            "decimal_approximation": "0"
+          },
+          "old_condition_required_C_squared": {
+            "numerator": "0",
+            "denominator": "1",
+            "decimal_approximation": "0"
+          },
+          "exact_source_bound_for_normalized_sum": {
+            "numerator": "64",
+            "denominator": "1",
+            "decimal_approximation": "64"
+          }
+        }
+      ],
+      "embedding_in_length_matched_window": {
+        "A": 256,
+        "B": 65536,
+        "rule": "for full-block families extend q by zero beyond 2X",
+        "scope": "length quantifier only; not arithmetic matching"
+      }
+    },
+    {
+      "label": "critical_s8",
+      "scope": "auxiliary integer-source family; not an arithmetic road",
+      "family": "full_critical",
+      "X": 4096,
+      "right_endpoint": 8192,
+      "span": 4096,
+      "cell_width": 512,
+      "cell_count": 8,
+      "amplitude": {
+        "numerator": "1",
+        "denominator": "1",
+        "decimal_approximation": "1"
+      },
+      "fine_step": 256,
+      "fine_interval_count": 16,
+      "all_integer_values_count": 4097,
+      "actual_endpoint_values": [
+        "0",
+        "0"
+      ],
+      "dyadic_block_chord": "identically zero",
+      "exact_source_checks": 4095,
+      "source_min": {
+        "numerator": "-261121",
+        "denominator": "536870912",
+        "decimal_approximation": "-0.0004863757640123367309570"
+      },
+      "source_max": {
+        "numerator": "131071",
+        "denominator": "536870912",
+        "decimal_approximation": "0.0002441387623548507690430"
+      },
+      "exact_hat_moment_checks": 15,
+      "packet_count": 15,
+      "positive_packet_count": 8,
+      "target_h_layer": 1,
+      "all_coarser_than_h_charges_zero": true,
+      "exact_interpolation_reconstruction": true,
+      "all_local_positive_remainders_below_curvature_parabola": true,
+      "critical_energy_scale_a2_span_h4_over_X4": {
+        "numerator": "1",
+        "denominator": "1",
+        "decimal_approximation": "1"
+      },
+      "true_energy_interval": {
+        "lower_numerator": "792342647592485821985989178",
+        "upper_numerator": "792342647592485821985993259",
+        "denominator": "1000000000000000000000000000000",
+        "lower_decimal": "0.000792342647592485821985989178",
+        "upper_decimal": "0.000792342647592485821985993259",
+        "outward_rounded_term_count": 4088
+      },
+      "true_energy_analytic_lower": {
+        "numerator": "81",
+        "denominator": "524288",
+        "decimal_approximation": "0.0001544952392578125"
+      },
+      "true_energy_analytic_upper": {
+        "numerator": "1",
+        "denominator": "256",
+        "decimal_approximation": "0.00390625"
+      },
+      "positive_envelope_energy_interval": {
+        "lower_numerator": "650013791304269352258311925",
+        "upper_numerator": "650013791304269352258316002",
+        "denominator": "1000000000000000000000000000000",
+        "lower_decimal": "0.000650013791304269352258311925",
+        "upper_decimal": "0.000650013791304269352258316002",
+        "outward_rounded_term_count": 4088
+      },
+      "positive_remainder_energy_interval": {
+        "lower_numerator": "10303393762695618274962502",
+        "upper_numerator": "10303393762695618274965027",
+        "denominator": "1000000000000000000000000000000",
+        "lower_decimal": "0.000010303393762695618274962502",
+        "upper_decimal": "0.000010303393762695618274965027",
+        "outward_rounded_term_count": 2528
+      },
+      "positive_remainder_source_upper": {
+        "numerator": "286331153",
+        "denominator": "549755813888",
+        "decimal_approximation": "0.0005208333332120673730969"
+      },
+      "levels": [
+        {
+          "local_level": 1,
+          "support_width": 512,
+          "packet_count": 8,
+          "positive_packet_count": 8,
+          "zero_packet_count": 0,
+          "sum_positive_charge_square": {
+            "numerator": "1",
+            "denominator": "128",
+            "decimal_approximation": "0.0078125"
+          },
+          "scale_normalized_square_sum": {
+            "numerator": "1",
+            "denominator": "16",
+            "decimal_approximation": "0.0625"
+          },
+          "old_condition_required_C_squared": {
+            "numerator": "32",
+            "denominator": "1",
+            "decimal_approximation": "32"
+          },
+          "exact_source_bound_for_normalized_sum": {
+            "numerator": "1",
+            "denominator": "4",
+            "decimal_approximation": "0.25"
+          }
+        },
+        {
+          "local_level": 2,
+          "support_width": 1024,
+          "packet_count": 4,
+          "positive_packet_count": 0,
+          "zero_packet_count": 4,
+          "sum_positive_charge_square": {
+            "numerator": "0",
+            "denominator": "1",
+            "decimal_approximation": "0"
+          },
+          "scale_normalized_square_sum": {
+            "numerator": "0",
+            "denominator": "1",
+            "decimal_approximation": "0"
+          },
+          "old_condition_required_C_squared": {
+            "numerator": "0",
+            "denominator": "1",
+            "decimal_approximation": "0"
+          },
+          "exact_source_bound_for_normalized_sum": {
+            "numerator": "4",
+            "denominator": "1",
+            "decimal_approximation": "4"
+          }
+        },
+        {
+          "local_level": 3,
+          "support_width": 2048,
+          "packet_count": 2,
+          "positive_packet_count": 0,
+          "zero_packet_count": 2,
+          "sum_positive_charge_square": {
+            "numerator": "0",
+            "denominator": "1",
+            "decimal_approximation": "0"
+          },
+          "scale_normalized_square_sum": {
+            "numerator": "0",
+            "denominator": "1",
+            "decimal_approximation": "0"
+          },
+          "old_condition_required_C_squared": {
+            "numerator": "0",
+            "denominator": "1",
+            "decimal_approximation": "0"
+          },
+          "exact_source_bound_for_normalized_sum": {
+            "numerator": "64",
+            "denominator": "1",
+            "decimal_approximation": "64"
+          }
+        },
+        {
+          "local_level": 4,
+          "support_width": 4096,
+          "packet_count": 1,
+          "positive_packet_count": 0,
+          "zero_packet_count": 1,
+          "sum_positive_charge_square": {
+            "numerator": "0",
+            "denominator": "1",
+            "decimal_approximation": "0"
+          },
+          "scale_normalized_square_sum": {
+            "numerator": "0",
+            "denominator": "1",
+            "decimal_approximation": "0"
+          },
+          "old_condition_required_C_squared": {
+            "numerator": "0",
+            "denominator": "1",
+            "decimal_approximation": "0"
+          },
+          "exact_source_bound_for_normalized_sum": {
+            "numerator": "1024",
+            "denominator": "1",
+            "decimal_approximation": "1024"
+          }
+        }
+      ],
+      "embedding_in_length_matched_window": {
+        "A": 4096,
+        "B": 16777216,
+        "rule": "for full-block families extend q by zero beyond 2X",
+        "scope": "length quantifier only; not arithmetic matching"
+      }
+    },
+    {
+      "label": "coarse_s2",
+      "scope": "auxiliary integer-source family; not an arithmetic road",
+      "family": "coarse_critical",
+      "X": 256,
+      "right_endpoint": 512,
+      "span": 256,
+      "cell_width": 128,
+      "cell_count": 2,
+      "amplitude": {
+        "numerator": "1",
+        "denominator": "4",
+        "decimal_approximation": "0.25"
+      },
+      "fine_step": 32,
+      "fine_interval_count": 8,
+      "all_integer_values_count": 257,
+      "actual_endpoint_values": [
+        "0",
+        "0"
+      ],
+      "dyadic_block_chord": "identically zero",
+      "exact_source_checks": 255,
+      "source_min": {
+        "numerator": "-16129",
+        "denominator": "8388608",
+        "decimal_approximation": "-0.00192272663116455078125"
+      },
+      "source_max": {
+        "numerator": "8191",
+        "denominator": "8388608",
+        "decimal_approximation": "0.00097644329071044921875"
+      },
+      "exact_hat_moment_checks": 7,
+      "packet_count": 7,
+      "positive_packet_count": 6,
+      "target_h_layer": 2,
+      "all_coarser_than_h_charges_zero": true,
+      "exact_interpolation_reconstruction": true,
+      "all_local_positive_remainders_below_curvature_parabola": true,
+      "critical_energy_scale_a2_span_h4_over_X4": {
+        "numerator": "1",
+        "denominator": "1",
+        "decimal_approximation": "1"
+      },
+      "true_energy_interval": {
+        "lower_numerator": "774169618195620804744542069",
+        "upper_numerator": "774169618195620804744542318",
+        "denominator": "1000000000000000000000000000000",
+        "lower_decimal": "0.000774169618195620804744542069",
+        "upper_decimal": "0.000774169618195620804744542318",
+        "outward_rounded_term_count": 254
+      },
+      "true_energy_analytic_lower": {
+        "numerator": "81",
+        "denominator": "524288",
+        "decimal_approximation": "0.0001544952392578125"
+      },
+      "true_energy_analytic_upper": {
+        "numerator": "1",
+        "denominator": "256",
+        "decimal_approximation": "0.00390625"
+      },
+      "positive_envelope_energy_interval": {
+        "lower_numerator": "698517883003575682476575588",
+        "upper_numerator": "698517883003575682476575831",
+        "denominator": "1000000000000000000000000000000",
+        "lower_decimal": "0.000698517883003575682476575588",
+        "upper_decimal": "0.000698517883003575682476575831",
+        "outward_rounded_term_count": 254
+      },
+      "positive_remainder_energy_interval": {
+        "lower_numerator": "4795370004414277663200178",
+        "upper_numerator": "4795370004414277663200302",
+        "denominator": "1000000000000000000000000000000",
+        "lower_decimal": "0.000004795370004414277663200178",
+        "upper_decimal": "0.000004795370004414277663200302",
+        "outward_rounded_term_count": 124
+      },
+      "positive_remainder_source_upper": {
+        "numerator": "69905",
+        "denominator": "2147483648",
+        "decimal_approximation": "0.00003255205228924751281738"
+      },
+      "levels": [
+        {
+          "local_level": 1,
+          "support_width": 64,
+          "packet_count": 4,
+          "positive_packet_count": 4,
+          "zero_packet_count": 0,
+          "sum_positive_charge_square": {
+            "numerator": "1",
+            "denominator": "16384",
+            "decimal_approximation": "0.00006103515625"
+          },
+          "scale_normalized_square_sum": {
+            "numerator": "1",
+            "denominator": "4096",
+            "decimal_approximation": "0.000244140625"
+          },
+          "old_condition_required_C_squared": {
+            "numerator": "1",
+            "denominator": "64",
+            "decimal_approximation": "0.015625"
+          },
+          "exact_source_bound_for_normalized_sum": {
+            "numerator": "1",
+            "denominator": "64",
+            "decimal_approximation": "0.015625"
+          }
+        },
+        {
+          "local_level": 2,
+          "support_width": 128,
+          "packet_count": 2,
+          "positive_packet_count": 2,
+          "zero_packet_count": 0,
+          "sum_positive_charge_square": {
+            "numerator": "1",
+            "denominator": "512",
+            "decimal_approximation": "0.001953125"
+          },
+          "scale_normalized_square_sum": {
+            "numerator": "1",
+            "denominator": "16",
+            "decimal_approximation": "0.0625"
+          },
+          "old_condition_required_C_squared": {
+            "numerator": "1",
+            "denominator": "2",
+            "decimal_approximation": "0.5"
+          },
+          "exact_source_bound_for_normalized_sum": {
+            "numerator": "1",
+            "denominator": "4",
+            "decimal_approximation": "0.25"
+          }
+        },
+        {
+          "local_level": 3,
+          "support_width": 256,
+          "packet_count": 1,
+          "positive_packet_count": 0,
+          "zero_packet_count": 1,
+          "sum_positive_charge_square": {
+            "numerator": "0",
+            "denominator": "1",
+            "decimal_approximation": "0"
+          },
+          "scale_normalized_square_sum": {
+            "numerator": "0",
+            "denominator": "1",
+            "decimal_approximation": "0"
+          },
+          "old_condition_required_C_squared": {
+            "numerator": "0",
+            "denominator": "1",
+            "decimal_approximation": "0"
+          },
+          "exact_source_bound_for_normalized_sum": {
+            "numerator": "4",
+            "denominator": "1",
+            "decimal_approximation": "4"
+          }
+        }
+      ],
+      "embedding_in_length_matched_window": {
+        "A": 256,
+        "B": 65536,
+        "rule": "for full-block families extend q by zero beyond 2X",
+        "scope": "length quantifier only; not arithmetic matching"
+      }
+    },
+    {
+      "label": "coarse_s4",
+      "scope": "auxiliary integer-source family; not an arithmetic road",
+      "family": "coarse_critical",
+      "X": 65536,
+      "right_endpoint": 131072,
+      "span": 65536,
+      "cell_width": 16384,
+      "cell_count": 4,
+      "amplitude": {
+        "numerator": "1",
+        "denominator": "16",
+        "decimal_approximation": "0.0625"
+      },
+      "fine_step": 1024,
+      "fine_interval_count": 64,
+      "all_integer_values_count": 65537,
+      "actual_endpoint_values": [
+        "0",
+        "0"
+      ],
+      "dyadic_block_chord": "identically zero",
+      "exact_source_checks": 65535,
+      "source_min": {
+        "numerator": "-268402689",
+        "denominator": "140737488355328",
+        "decimal_approximation": "-0.000001907115809274273487972"
+      },
+      "source_max": {
+        "numerator": "134217727",
+        "denominator": "140737488355328",
+        "decimal_approximation": "9.536743093008226423990E-7"
+      },
+      "exact_hat_moment_checks": 63,
+      "packet_count": 63,
+      "positive_packet_count": 36,
+      "target_h_layer": 4,
+      "all_coarser_than_h_charges_zero": true,
+      "exact_interpolation_reconstruction": true,
+      "all_local_positive_remainders_below_curvature_parabola": true,
+      "critical_energy_scale_a2_span_h4_over_X4": {
+        "numerator": "1",
+        "denominator": "1",
+        "decimal_approximation": "1"
+      },
+      "true_energy_interval": {
+        "lower_numerator": "788499472788089381511377892",
+        "upper_numerator": "788499472788089381511443421",
+        "denominator": "1000000000000000000000000000000",
+        "lower_decimal": "0.000788499472788089381511377892",
+        "upper_decimal": "0.000788499472788089381511443421",
+        "outward_rounded_term_count": 65532
+      },
+      "true_energy_analytic_lower": {
+        "numerator": "81",
+        "denominator": "524288",
+        "decimal_approximation": "0.0001544952392578125"
+      },
+      "true_energy_analytic_upper": {
+        "numerator": "1",
+        "denominator": "256",
+        "decimal_approximation": "0.00390625"
+      },
+      "positive_envelope_energy_interval": {
+        "lower_numerator": "807269063099440986591184222",
+        "upper_numerator": "807269063099440986591249744",
+        "denominator": "1000000000000000000000000000000",
+        "lower_decimal": "0.000807269063099440986591184222",
+        "upper_decimal": "0.000807269063099440986591249744",
+        "outward_rounded_term_count": 65532
+      },
+      "positive_remainder_energy_interval": {
+        "lower_numerator": "19309502489344729564402",
+        "upper_numerator": "19309502489344729604018",
+        "denominator": "1000000000000000000000000000000",
+        "lower_decimal": "0.000000019309502489344729564402",
+        "upper_decimal": "0.000000019309502489344729604018",
+        "outward_rounded_term_count": 39616
+      },
+      "positive_remainder_source_upper": {
+        "numerator": "73300775185",
+        "denominator": "576460752303423488",
+        "decimal_approximation": "1.271565755207176851016E-7"
+      },
+      "levels": [
+        {
+          "local_level": 1,
+          "support_width": 2048,
+          "packet_count": 32,
+          "positive_packet_count": 16,
+          "zero_packet_count": 0,
+          "sum_positive_charge_square": {
+            "numerator": "9985",
+            "denominator": "1073741824",
+            "decimal_approximation": "0.000009299255907535552978516"
+          },
+          "scale_normalized_square_sum": {
+            "numerator": "9985",
+            "denominator": "536870912",
+            "decimal_approximation": "0.00001859851181507110595703"
+          },
+          "old_condition_required_C_squared": {
+            "numerator": "9985",
+            "denominator": "16384",
+            "decimal_approximation": "0.60943603515625"
+          },
+          "exact_source_bound_for_normalized_sum": {
+            "numerator": "1",
+            "denominator": "16384",
+            "decimal_approximation": "0.00006103515625"
+          }
+        },
+        {
+          "local_level": 2,
+          "support_width": 4096,
+          "packet_count": 16,
+          "positive_packet_count": 8,
+          "zero_packet_count": 0,
+          "sum_positive_charge_square": {
+            "numerator": "625",
+            "denominator": "33554432",
+            "decimal_approximation": "0.0000186264514923095703125"
+          },
+          "scale_normalized_square_sum": {
+            "numerator": "625",
+            "denominator": "2097152",
+            "decimal_approximation": "0.000298023223876953125"
+          },
+          "old_condition_required_C_squared": {
+            "numerator": "625",
+            "denominator": "512",
+            "decimal_approximation": "1.220703125"
+          },
+          "exact_source_bound_for_normalized_sum": {
+            "numerator": "1",
+            "denominator": "1024",
+            "decimal_approximation": "0.0009765625"
+          }
+        },
+        {
+          "local_level": 3,
+          "support_width": 8192,
+          "packet_count": 8,
+          "positive_packet_count": 8,
+          "zero_packet_count": 0,
+          "sum_positive_charge_square": {
+            "numerator": "1",
+            "denominator": "524288",
+            "decimal_approximation": "0.0000019073486328125"
+          },
+          "scale_normalized_square_sum": {
+            "numerator": "1",
+            "denominator": "4096",
+            "decimal_approximation": "0.000244140625"
+          },
+          "old_condition_required_C_squared": {
+            "numerator": "1",
+            "denominator": "8",
+            "decimal_approximation": "0.125"
+          },
+          "exact_source_bound_for_normalized_sum": {
+            "numerator": "1",
+            "denominator": "64",
+            "decimal_approximation": "0.015625"
+          }
+        },
+        {
+          "local_level": 4,
+          "support_width": 16384,
+          "packet_count": 4,
+          "positive_packet_count": 4,
+          "zero_packet_count": 0,
+          "sum_positive_charge_square": {
+            "numerator": "1",
+            "denominator": "16384",
+            "decimal_approximation": "0.00006103515625"
+          },
+          "scale_normalized_square_sum": {
+            "numerator": "1",
+            "denominator": "16",
+            "decimal_approximation": "0.0625"
+          },
+          "old_condition_required_C_squared": {
+            "numerator": "4",
+            "denominator": "1",
+            "decimal_approximation": "4"
+          },
+          "exact_source_bound_for_normalized_sum": {
+            "numerator": "1",
+            "denominator": "4",
+            "decimal_approximation": "0.25"
+          }
+        },
+        {
+          "local_level": 5,
+          "support_width": 32768,
+          "packet_count": 2,
+          "positive_packet_count": 0,
+          "zero_packet_count": 2,
+          "sum_positive_charge_square": {
+            "numerator": "0",
+            "denominator": "1",
+            "decimal_approximation": "0"
+          },
+          "scale_normalized_square_sum": {
+            "numerator": "0",
+            "denominator": "1",
+            "decimal_approximation": "0"
+          },
+          "old_condition_required_C_squared": {
+            "numerator": "0",
+            "denominator": "1",
+            "decimal_approximation": "0"
+          },
+          "exact_source_bound_for_normalized_sum": {
+            "numerator": "4",
+            "denominator": "1",
+            "decimal_approximation": "4"
+          }
+        },
+        {
+          "local_level": 6,
+          "support_width": 65536,
+          "packet_count": 1,
+          "positive_packet_count": 0,
+          "zero_packet_count": 1,
+          "sum_positive_charge_square": {
+            "numerator": "0",
+            "denominator": "1",
+            "decimal_approximation": "0"
+          },
+          "scale_normalized_square_sum": {
+            "numerator": "0",
+            "denominator": "1",
+            "decimal_approximation": "0"
+          },
+          "old_condition_required_C_squared": {
+            "numerator": "0",
+            "denominator": "1",
+            "decimal_approximation": "0"
+          },
+          "exact_source_bound_for_normalized_sum": {
+            "numerator": "64",
+            "denominator": "1",
+            "decimal_approximation": "64"
+          }
+        }
+      ],
+      "embedding_in_length_matched_window": {
+        "A": 65536,
+        "B": 4294967296,
+        "rule": "for full-block families extend q by zero beyond 2X",
+        "scope": "length quantifier only; not arithmetic matching"
+      }
+    },
+    {
+      "label": "above_fine_threshold_s2",
+      "scope": "auxiliary integer-source family; not an arithmetic road",
+      "family": "above_fine_threshold",
+      "X": 32,
+      "right_endpoint": 64,
+      "span": 32,
+      "cell_width": 16,
+      "cell_count": 2,
+      "amplitude": {
+        "numerator": "1",
+        "denominator": "1",
+        "decimal_approximation": "1"
+      },
+      "fine_step": 8,
+      "fine_interval_count": 4,
+      "all_integer_values_count": 33,
+      "actual_endpoint_values": [
+        "0",
+        "0"
+      ],
+      "dyadic_block_chord": "identically zero",
+      "exact_source_checks": 31,
+      "source_min": {
+        "numerator": "-225",
+        "denominator": "4096",
+        "decimal_approximation": "-0.054931640625"
+      },
+      "source_max": {
+        "numerator": "127",
+        "denominator": "4096",
+        "decimal_approximation": "0.031005859375"
+      },
+      "exact_hat_moment_checks": 3,
+      "packet_count": 3,
+      "positive_packet_count": 2,
+      "target_h_layer": 1,
+      "all_coarser_than_h_charges_zero": true,
+      "exact_interpolation_reconstruction": true,
+      "all_local_positive_remainders_below_curvature_parabola": true,
+      "critical_energy_scale_a2_span_h4_over_X4": {
+        "numerator": "2",
+        "denominator": "1",
+        "decimal_approximation": "2"
+      },
+      "true_energy_interval": {
+        "lower_numerator": "1548341448920121302289336059",
+        "upper_numerator": "1548341448920121302289336084",
+        "denominator": "1000000000000000000000000000000",
+        "lower_decimal": "0.001548341448920121302289336059",
+        "upper_decimal": "0.001548341448920121302289336084",
+        "outward_rounded_term_count": 30
+      },
+      "true_energy_analytic_lower": {
+        "numerator": "81",
+        "denominator": "262144",
+        "decimal_approximation": "0.000308990478515625"
+      },
+      "true_energy_analytic_upper": {
+        "numerator": "1",
+        "denominator": "128",
+        "decimal_approximation": "0.0078125"
+      },
+      "positive_envelope_energy_interval": {
+        "lower_numerator": "1281155909596194902654151841",
+        "upper_numerator": "1281155909596194902654151869",
+        "denominator": "1000000000000000000000000000000",
+        "lower_decimal": "0.001281155909596194902654151841",
+        "upper_decimal": "0.001281155909596194902654151869",
+        "outward_rounded_term_count": 30
+      },
+      "positive_remainder_energy_interval": {
+        "lower_numerator": "20126553790298230593263657",
+        "upper_numerator": "20126553790298230593263672",
+        "denominator": "1000000000000000000000000000000",
+        "lower_decimal": "0.000020126553790298230593263657",
+        "upper_decimal": "0.000020126553790298230593263672",
+        "outward_rounded_term_count": 16
+      },
+      "positive_remainder_source_upper": {
+        "numerator": "273",
+        "denominator": "262144",
+        "decimal_approximation": "0.001041412353515625"
+      },
+      "levels": [
+        {
+          "local_level": 1,
+          "support_width": 16,
+          "packet_count": 2,
+          "positive_packet_count": 2,
+          "zero_packet_count": 0,
+          "sum_positive_charge_square": {
+            "numerator": "1",
+            "denominator": "32",
+            "decimal_approximation": "0.03125"
+          },
+          "scale_normalized_square_sum": {
+            "numerator": "1",
+            "denominator": "8",
+            "decimal_approximation": "0.125"
+          },
+          "old_condition_required_C_squared": {
+            "numerator": "1",
+            "denominator": "1",
+            "decimal_approximation": "1"
+          },
+          "exact_source_bound_for_normalized_sum": {
+            "numerator": "1",
+            "denominator": "2",
+            "decimal_approximation": "0.5"
+          }
+        },
+        {
+          "local_level": 2,
+          "support_width": 32,
+          "packet_count": 1,
+          "positive_packet_count": 0,
+          "zero_packet_count": 1,
+          "sum_positive_charge_square": {
+            "numerator": "0",
+            "denominator": "1",
+            "decimal_approximation": "0"
+          },
+          "scale_normalized_square_sum": {
+            "numerator": "0",
+            "denominator": "1",
+            "decimal_approximation": "0"
+          },
+          "old_condition_required_C_squared": {
+            "numerator": "0",
+            "denominator": "1",
+            "decimal_approximation": "0"
+          },
+          "exact_source_bound_for_normalized_sum": {
+            "numerator": "8",
+            "denominator": "1",
+            "decimal_approximation": "8"
+          }
+        }
+      ],
+      "embedding_in_length_matched_window": {
+        "A": 32,
+        "B": 1024,
+        "rule": "for full-block families extend q by zero beyond 2X",
+        "scope": "length quantifier only; not arithmetic matching"
+      }
+    },
+    {
+      "label": "above_fine_threshold_s4",
+      "scope": "auxiliary integer-source family; not an arithmetic road",
+      "family": "above_fine_threshold",
+      "X": 1024,
+      "right_endpoint": 2048,
+      "span": 1024,
+      "cell_width": 256,
+      "cell_count": 4,
+      "amplitude": {
+        "numerator": "1",
+        "denominator": "1",
+        "decimal_approximation": "1"
+      },
+      "fine_step": 128,
+      "fine_interval_count": 8,
+      "all_integer_values_count": 1025,
+      "actual_endpoint_values": [
+        "0",
+        "0"
+      ],
+      "dyadic_block_chord": "identically zero",
+      "exact_source_checks": 1023,
+      "source_min": {
+        "numerator": "-65025",
+        "denominator": "33554432",
+        "decimal_approximation": "-0.001937896013259887695312"
+      },
+      "source_max": {
+        "numerator": "32767",
+        "denominator": "33554432",
+        "decimal_approximation": "0.0009765326976776123046875"
+      },
+      "exact_hat_moment_checks": 7,
+      "packet_count": 7,
+      "positive_packet_count": 4,
+      "target_h_layer": 1,
+      "all_coarser_than_h_charges_zero": true,
+      "exact_interpolation_reconstruction": true,
+      "all_local_positive_remainders_below_curvature_parabola": true,
+      "critical_energy_scale_a2_span_h4_over_X4": {
+        "numerator": "4",
+        "denominator": "1",
+        "decimal_approximation": "4"
+      },
+      "true_energy_interval": {
+        "lower_numerator": "3153997891152593315797359504",
+        "upper_numerator": "3153997891152593315797360519",
+        "denominator": "1000000000000000000000000000000",
+        "lower_decimal": "0.003153997891152593315797359504",
+        "upper_decimal": "0.003153997891152593315797360519",
+        "outward_rounded_term_count": 1020
+      },
+      "true_energy_analytic_lower": {
+        "numerator": "81",
+        "denominator": "131072",
+        "decimal_approximation": "0.00061798095703125"
+      },
+      "true_energy_analytic_upper": {
+        "numerator": "1",
+        "denominator": "64",
+        "decimal_approximation": "0.015625"
+      },
+      "positive_envelope_energy_interval": {
+        "lower_numerator": "2587977514912440225761785953",
+        "upper_numerator": "2587977514912440225761786968",
+        "denominator": "1000000000000000000000000000000",
+        "lower_decimal": "0.002587977514912440225761785953",
+        "upper_decimal": "0.002587977514912440225761786968",
+        "outward_rounded_term_count": 1020
+      },
+      "positive_remainder_energy_interval": {
+        "lower_numerator": "41015695721929362671504411",
+        "upper_numerator": "41015695721929362671505041",
+        "denominator": "1000000000000000000000000000000",
+        "lower_decimal": "0.000041015695721929362671504411",
+        "upper_decimal": "0.000041015695721929362671505041",
+        "outward_rounded_term_count": 632
+      },
+      "positive_remainder_source_upper": {
+        "numerator": "17895697",
+        "denominator": "8589934592",
+        "decimal_approximation": "0.002083333325572311878204"
+      },
+      "levels": [
+        {
+          "local_level": 1,
+          "support_width": 256,
+          "packet_count": 4,
+          "positive_packet_count": 4,
+          "zero_packet_count": 0,
+          "sum_positive_charge_square": {
+            "numerator": "1",
+            "denominator": "64",
+            "decimal_approximation": "0.015625"
+          },
+          "scale_normalized_square_sum": {
+            "numerator": "1",
+            "denominator": "4",
+            "decimal_approximation": "0.25"
+          },
+          "old_condition_required_C_squared": {
+            "numerator": "16",
+            "denominator": "1",
+            "decimal_approximation": "16"
+          },
+          "exact_source_bound_for_normalized_sum": {
+            "numerator": "1",
+            "denominator": "1",
+            "decimal_approximation": "1"
+          }
+        },
+        {
+          "local_level": 2,
+          "support_width": 512,
+          "packet_count": 2,
+          "positive_packet_count": 0,
+          "zero_packet_count": 2,
+          "sum_positive_charge_square": {
+            "numerator": "0",
+            "denominator": "1",
+            "decimal_approximation": "0"
+          },
+          "scale_normalized_square_sum": {
+            "numerator": "0",
+            "denominator": "1",
+            "decimal_approximation": "0"
+          },
+          "old_condition_required_C_squared": {
+            "numerator": "0",
+            "denominator": "1",
+            "decimal_approximation": "0"
+          },
+          "exact_source_bound_for_normalized_sum": {
+            "numerator": "16",
+            "denominator": "1",
+            "decimal_approximation": "16"
+          }
+        },
+        {
+          "local_level": 3,
+          "support_width": 1024,
+          "packet_count": 1,
+          "positive_packet_count": 0,
+          "zero_packet_count": 1,
+          "sum_positive_charge_square": {
+            "numerator": "0",
+            "denominator": "1",
+            "decimal_approximation": "0"
+          },
+          "scale_normalized_square_sum": {
+            "numerator": "0",
+            "denominator": "1",
+            "decimal_approximation": "0"
+          },
+          "old_condition_required_C_squared": {
+            "numerator": "0",
+            "denominator": "1",
+            "decimal_approximation": "0"
+          },
+          "exact_source_bound_for_normalized_sum": {
+            "numerator": "256",
+            "denominator": "1",
+            "decimal_approximation": "256"
+          }
+        }
+      ],
+      "embedding_in_length_matched_window": {
+        "A": 1024,
+        "B": 1048576,
+        "rule": "for full-block families extend q by zero beyond 2X",
+        "scope": "length quantifier only; not arithmetic matching"
+      }
+    },
+    {
+      "label": "tail_critical_s2",
+      "scope": "auxiliary integer-source family; not an arithmetic road",
+      "family": "tail_critical",
+      "X": 32,
+      "right_endpoint": 48,
+      "span": 16,
+      "cell_width": 16,
+      "cell_count": 1,
+      "amplitude": {
+        "numerator": "1",
+        "denominator": "1",
+        "decimal_approximation": "1"
+      },
+      "fine_step": 16,
+      "fine_interval_count": 1,
+      "all_integer_values_count": 17,
+      "actual_endpoint_values": [
+        "0",
+        "0"
+      ],
+      "dyadic_block_chord": "identically zero",
+      "exact_source_checks": 15,
+      "source_min": {
+        "numerator": "-167",
+        "denominator": "4096",
+        "decimal_approximation": "-0.040771484375"
+      },
+      "source_max": {
+        "numerator": "127",
+        "denominator": "4096",
+        "decimal_approximation": "0.031005859375"
+      },
+      "exact_hat_moment_checks": 0,
+      "packet_count": 0,
+      "positive_packet_count": 0,
+      "target_h_layer": null,
+      "all_coarser_than_h_charges_zero": true,
+      "exact_interpolation_reconstruction": true,
+      "all_local_positive_remainders_below_curvature_parabola": true,
+      "critical_energy_scale_a2_span_h4_over_X4": {
+        "numerator": "1",
+        "denominator": "1",
+        "decimal_approximation": "1"
+      },
+      "true_energy_interval": {
+        "lower_numerator": "1027130534208937016828789649",
+        "upper_numerator": "1027130534208937016828789661",
+        "denominator": "1000000000000000000000000000000",
+        "lower_decimal": "0.001027130534208937016828789649",
+        "upper_decimal": "0.001027130534208937016828789661",
+        "outward_rounded_term_count": 15
+      },
+      "true_energy_analytic_lower": {
+        "numerator": "81",
+        "denominator": "524288",
+        "decimal_approximation": "0.0001544952392578125"
+      },
+      "true_energy_analytic_upper": {
+        "numerator": "1",
+        "denominator": "256",
+        "decimal_approximation": "0.00390625"
+      },
+      "positive_envelope_energy_interval": {
+        "lower_numerator": "0",
+        "upper_numerator": "0",
+        "denominator": "1000000000000000000000000000000",
+        "lower_decimal": "0.000000000000000000000000000000",
+        "upper_decimal": "0.000000000000000000000000000000",
+        "outward_rounded_term_count": 0
+      },
+      "positive_remainder_energy_interval": {
+        "lower_numerator": "1027130534208937016828789649",
+        "upper_numerator": "1027130534208937016828789661",
+        "denominator": "1000000000000000000000000000000",
+        "lower_decimal": "0.001027130534208937016828789649",
+        "upper_decimal": "0.001027130534208937016828789661",
+        "outward_rounded_term_count": 15
+      },
+      "positive_remainder_source_upper": {
+        "numerator": "4369",
+        "denominator": "524288",
+        "decimal_approximation": "0.0083332061767578125"
+      },
+      "levels": [],
+      "embedding_in_length_matched_window": null
+    },
+    {
+      "label": "tail_critical_s4",
+      "scope": "auxiliary integer-source family; not an arithmetic road",
+      "family": "tail_critical",
+      "X": 1024,
+      "right_endpoint": 1280,
+      "span": 256,
+      "cell_width": 256,
+      "cell_count": 1,
+      "amplitude": {
+        "numerator": "1",
+        "denominator": "1",
+        "decimal_approximation": "1"
+      },
+      "fine_step": 256,
+      "fine_interval_count": 1,
+      "all_integer_values_count": 257,
+      "actual_endpoint_values": [
+        "0",
+        "0"
+      ],
+      "dyadic_block_chord": "identically zero",
+      "exact_source_checks": 255,
+      "source_min": {
+        "numerator": "-64007",
+        "denominator": "33554432",
+        "decimal_approximation": "-0.001907557249069213867188"
+      },
+      "source_max": {
+        "numerator": "32767",
+        "denominator": "33554432",
+        "decimal_approximation": "0.0009765326976776123046875"
+      },
+      "exact_hat_moment_checks": 0,
+      "packet_count": 0,
+      "positive_packet_count": 0,
+      "target_h_layer": null,
+      "all_coarser_than_h_charges_zero": true,
+      "exact_interpolation_reconstruction": true,
+      "all_local_positive_remainders_below_curvature_parabola": true,
+      "critical_energy_scale_a2_span_h4_over_X4": {
+        "numerator": "1",
+        "denominator": "1",
+        "decimal_approximation": "1"
+      },
+      "true_energy_interval": {
+        "lower_numerator": "1258407159714722430775194740",
+        "upper_numerator": "1258407159714722430775194995",
+        "denominator": "1000000000000000000000000000000",
+        "lower_decimal": "0.001258407159714722430775194740",
+        "upper_decimal": "0.001258407159714722430775194995",
+        "outward_rounded_term_count": 255
+      },
+      "true_energy_analytic_lower": {
+        "numerator": "81",
+        "denominator": "524288",
+        "decimal_approximation": "0.0001544952392578125"
+      },
+      "true_energy_analytic_upper": {
+        "numerator": "1",
+        "denominator": "256",
+        "decimal_approximation": "0.00390625"
+      },
+      "positive_envelope_energy_interval": {
+        "lower_numerator": "0",
+        "upper_numerator": "0",
+        "denominator": "1000000000000000000000000000000",
+        "lower_decimal": "0.000000000000000000000000000000",
+        "upper_decimal": "0.000000000000000000000000000000",
+        "outward_rounded_term_count": 0
+      },
+      "positive_remainder_energy_interval": {
+        "lower_numerator": "1258407159714722430775194740",
+        "upper_numerator": "1258407159714722430775194995",
+        "denominator": "1000000000000000000000000000000",
+        "lower_decimal": "0.001258407159714722430775194740",
+        "upper_decimal": "0.001258407159714722430775194995",
+        "outward_rounded_term_count": 255
+      },
+      "positive_remainder_source_upper": {
+        "numerator": "286331153",
+        "denominator": "34359738368",
+        "decimal_approximation": "0.008333333331393077969551"
+      },
+      "levels": [],
+      "embedding_in_length_matched_window": null
+    },
+    {
+      "label": "tail_critical_s8",
+      "scope": "auxiliary integer-source family; not an arithmetic road",
+      "family": "tail_critical",
+      "X": 32768,
+      "right_endpoint": 36864,
+      "span": 4096,
+      "cell_width": 4096,
+      "cell_count": 1,
+      "amplitude": {
+        "numerator": "1",
+        "denominator": "1",
+        "decimal_approximation": "1"
+      },
+      "fine_step": 4096,
+      "fine_interval_count": 1,
+      "all_integer_values_count": 4097,
+      "actual_endpoint_values": [
+        "0",
+        "0"
+      ],
+      "dyadic_block_chord": "identically zero",
+      "exact_source_checks": 4095,
+      "source_min": {
+        "numerator": "-16752647",
+        "denominator": "274877906944",
+        "decimal_approximation": "-0.00006094577474868856370449"
+      },
+      "source_max": {
+        "numerator": "8388607",
+        "denominator": "274877906944",
+        "decimal_approximation": "0.00003051757448702119290829"
+      },
+      "exact_hat_moment_checks": 0,
+      "packet_count": 0,
+      "positive_packet_count": 0,
+      "target_h_layer": null,
+      "all_coarser_than_h_charges_zero": true,
+      "exact_interpolation_reconstruction": true,
+      "all_local_positive_remainders_below_curvature_parabola": true,
+      "critical_energy_scale_a2_span_h4_over_X4": {
+        "numerator": "1",
+        "denominator": "1",
+        "decimal_approximation": "1"
+      },
+      "true_energy_interval": {
+        "lower_numerator": "1407381267853298755294789122",
+        "upper_numerator": "1407381267853298755294793216",
+        "denominator": "1000000000000000000000000000000",
+        "lower_decimal": "0.001407381267853298755294789122",
+        "upper_decimal": "0.001407381267853298755294793216",
+        "outward_rounded_term_count": 4095
+      },
+      "true_energy_analytic_lower": {
+        "numerator": "81",
+        "denominator": "524288",
+        "decimal_approximation": "0.0001544952392578125"
+      },
+      "true_energy_analytic_upper": {
+        "numerator": "1",
+        "denominator": "256",
+        "decimal_approximation": "0.00390625"
+      },
+      "positive_envelope_energy_interval": {
+        "lower_numerator": "0",
+        "upper_numerator": "0",
+        "denominator": "1000000000000000000000000000000",
+        "lower_decimal": "0.000000000000000000000000000000",
+        "upper_decimal": "0.000000000000000000000000000000",
+        "outward_rounded_term_count": 0
+      },
+      "positive_remainder_energy_interval": {
+        "lower_numerator": "1407381267853298755294789122",
+        "upper_numerator": "1407381267853298755294793216",
+        "denominator": "1000000000000000000000000000000",
+        "lower_decimal": "0.001407381267853298755294789122",
+        "upper_decimal": "0.001407381267853298755294793216",
+        "outward_rounded_term_count": 4095
+      },
+      "positive_remainder_source_upper": {
+        "numerator": "18764998447377",
+        "denominator": "2251799813685248",
+        "decimal_approximation": "0.008333333333333303727386"
+      },
+      "levels": [],
+      "embedding_in_length_matched_window": null
+    },
+    {
+      "label": "tail_above_threshold_s2",
+      "scope": "auxiliary integer-source family; not an arithmetic road",
+      "family": "tail_above_threshold",
+      "X": 64,
+      "right_endpoint": 96,
+      "span": 32,
+      "cell_width": 32,
+      "cell_count": 1,
+      "amplitude": {
+        "numerator": "1",
+        "denominator": "1",
+        "decimal_approximation": "1"
+      },
+      "fine_step": 32,
+      "fine_interval_count": 1,
+      "all_integer_values_count": 33,
+      "actual_endpoint_values": [
+        "0",
+        "0"
+      ],
+      "dyadic_block_chord": "identically zero",
+      "exact_source_checks": 31,
+      "source_min": {
+        "numerator": "-839",
+        "denominator": "32768",
+        "decimal_approximation": "-0.025604248046875"
+      },
+      "source_max": {
+        "numerator": "511",
+        "denominator": "32768",
+        "decimal_approximation": "0.015594482421875"
+      },
+      "exact_hat_moment_checks": 0,
+      "packet_count": 0,
+      "positive_packet_count": 0,
+      "target_h_layer": null,
+      "all_coarser_than_h_charges_zero": true,
+      "exact_interpolation_reconstruction": true,
+      "all_local_positive_remainders_below_curvature_parabola": true,
+      "critical_energy_scale_a2_span_h4_over_X4": {
+        "numerator": "2",
+        "denominator": "1",
+        "decimal_approximation": "2"
+      },
+      "true_energy_interval": {
+        "lower_numerator": "2054258077236373162904646719",
+        "upper_numerator": "2054258077236373162904646747",
+        "denominator": "1000000000000000000000000000000",
+        "lower_decimal": "0.002054258077236373162904646719",
+        "upper_decimal": "0.002054258077236373162904646747",
+        "outward_rounded_term_count": 31
+      },
+      "true_energy_analytic_lower": {
+        "numerator": "81",
+        "denominator": "262144",
+        "decimal_approximation": "0.000308990478515625"
+      },
+      "true_energy_analytic_upper": {
+        "numerator": "1",
+        "denominator": "128",
+        "decimal_approximation": "0.0078125"
+      },
+      "positive_envelope_energy_interval": {
+        "lower_numerator": "0",
+        "upper_numerator": "0",
+        "denominator": "1000000000000000000000000000000",
+        "lower_decimal": "0.000000000000000000000000000000",
+        "upper_decimal": "0.000000000000000000000000000000",
+        "outward_rounded_term_count": 0
+      },
+      "positive_remainder_energy_interval": {
+        "lower_numerator": "2054258077236373162904646719",
+        "upper_numerator": "2054258077236373162904646747",
+        "denominator": "1000000000000000000000000000000",
+        "lower_decimal": "0.002054258077236373162904646719",
+        "upper_decimal": "0.002054258077236373162904646747",
+        "outward_rounded_term_count": 31
+      },
+      "positive_remainder_source_upper": {
+        "numerator": "69905",
+        "denominator": "4194304",
+        "decimal_approximation": "0.0166666507720947265625"
+      },
+      "levels": [],
+      "embedding_in_length_matched_window": null
+    },
+    {
+      "label": "tail_above_threshold_s4",
+      "scope": "auxiliary integer-source family; not an arithmetic road",
+      "family": "tail_above_threshold",
+      "X": 4096,
+      "right_endpoint": 5120,
+      "span": 1024,
+      "cell_width": 1024,
+      "cell_count": 1,
+      "amplitude": {
+        "numerator": "1",
+        "denominator": "1",
+        "decimal_approximation": "1"
+      },
+      "fine_step": 1024,
+      "fine_interval_count": 1,
+      "all_integer_values_count": 1025,
+      "actual_endpoint_values": [
+        "0",
+        "0"
+      ],
+      "dyadic_block_chord": "identically zero",
+      "exact_source_checks": 1023,
+      "source_min": {
+        "numerator": "-1042439",
+        "denominator": "2147483648",
+        "decimal_approximation": "-0.0004854234866797924041748"
+      },
+      "source_max": {
+        "numerator": "524287",
+        "denominator": "2147483648",
+        "decimal_approximation": "0.0002441401593387126922607"
+      },
+      "exact_hat_moment_checks": 0,
+      "packet_count": 0,
+      "positive_packet_count": 0,
+      "target_h_layer": null,
+      "all_coarser_than_h_charges_zero": true,
+      "exact_interpolation_reconstruction": true,
+      "all_local_positive_remainders_below_curvature_parabola": true,
+      "critical_energy_scale_a2_span_h4_over_X4": {
+        "numerator": "4",
+        "denominator": "1",
+        "decimal_approximation": "4"
+      },
+      "true_energy_interval": {
+        "lower_numerator": "5033628638858506131941214704",
+        "upper_numerator": "5033628638858506131941215727",
+        "denominator": "1000000000000000000000000000000",
+        "lower_decimal": "0.005033628638858506131941214704",
+        "upper_decimal": "0.005033628638858506131941215727",
+        "outward_rounded_term_count": 1023
+      },
+      "true_energy_analytic_lower": {
+        "numerator": "81",
+        "denominator": "131072",
+        "decimal_approximation": "0.00061798095703125"
+      },
+      "true_energy_analytic_upper": {
+        "numerator": "1",
+        "denominator": "64",
+        "decimal_approximation": "0.015625"
+      },
+      "positive_envelope_energy_interval": {
+        "lower_numerator": "0",
+        "upper_numerator": "0",
+        "denominator": "1000000000000000000000000000000",
+        "lower_decimal": "0.000000000000000000000000000000",
+        "upper_decimal": "0.000000000000000000000000000000",
+        "outward_rounded_term_count": 0
+      },
+      "positive_remainder_energy_interval": {
+        "lower_numerator": "5033628638858506131941214704",
+        "upper_numerator": "5033628638858506131941215727",
+        "denominator": "1000000000000000000000000000000",
+        "lower_decimal": "0.005033628638858506131941214704",
+        "upper_decimal": "0.005033628638858506131941215727",
+        "outward_rounded_term_count": 1023
+      },
+      "positive_remainder_source_upper": {
+        "numerator": "73300775185",
+        "denominator": "2199023255552",
+        "decimal_approximation": "0.03333333333330301684327"
+      },
+      "levels": [],
+      "embedding_in_length_matched_window": null
+    }
+  ]
+}
