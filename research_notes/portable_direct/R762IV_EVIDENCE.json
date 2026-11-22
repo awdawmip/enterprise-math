@@ -1,0 +1,96 @@
+{
+  "schema": "ENTERPRISE_MATH_PORT_EULER_FINITE_CERTIFICATE_V1",
+  "record": "R762IV",
+  "date": "2026-11-22",
+  "scope": "Six-axis composite Port-Euler observer; 15 Ports, 20 three-axis supports, event edges between two Ports within the support; per-support multiplicities 3 on 7 supports and 2 on 13; 47 to 45 with exact Port active set",
+  "scientific_input_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "predecessor": "R762IU@ef9d6b3f1cea7e59b090d6db396977e1fd1062bc",
+  "finite_domain": {
+    "seven_support_masks": 77520,
+    "six_axis_group_order": 720,
+    "generating_set": "adjacent transpositions (01),(12),(23),(34),(45)",
+    "orbits_all": 161,
+    "all_essential_masks": 23700,
+    "all_essential_orbits": 55,
+    "inactive_port_matchings": 76,
+    "matching_sizes": {
+      "0": 1,
+      "1": 15,
+      "2": 45,
+      "3": 15
+    },
+    "target_reduction": "Choose the lowest-index triple support, change its count 3 to 1; all remaining support counts fixed"
+  },
+  "checks": [
+    {
+      "type": "all_seven_support_orbit_representatives",
+      "inactive_size": 0,
+      "cases": 161,
+      "passed": 161,
+      "sha256": "10c5f9904483299ca806fc3cc5c2aa67e30ebb729f22091b5120d427a788314d",
+      "seconds": 3.06
+    },
+    {
+      "type": "all_essential_representatives",
+      "inactive_size": 0,
+      "cases": 55,
+      "passed": 55,
+      "sha256": "a6ade475b4f28bdc81474f418f2accd503d8dec7db0234b54cdecd2f0cea243e",
+      "seconds": 0.9
+    },
+    {
+      "type": "all_essential_representatives",
+      "inactive_size": 1,
+      "cases": 825,
+      "passed": 825,
+      "sha256": "859a6dafa7ff5faa581bcc838e3ff984bc82bf66b280e4ccf6aa25e6c467c176",
+      "seconds": 9.3
+    },
+    {
+      "type": "all_essential_representatives",
+      "inactive_size": 2,
+      "cases": 2475,
+      "passed": 2475,
+      "sha256": "058f871a726d04cae79f7f0877c73bea47f0387a7251c85ef25c4332368db9b0",
+      "seconds": 22.1
+    },
+    {
+      "type": "all_essential_representatives",
+      "inactive_size": 3,
+      "cases": 825,
+      "passed": 825,
+      "sha256": "c12cb6b42778ca039b0307d2d32801e1ff01632165b0330604cf9b2319afd121",
+      "seconds": 5.13
+    }
+  ],
+  "runtime": {
+    "python": "3.13.5",
+    "numpy": "2.3.5",
+    "scipy": "1.17.0",
+    "solver": "SciPy/HiGHS MILP; objective seeded PRNG, integrality constraints and connectivity cuts",
+    "verifier": "independent exact integer checker verifying support edge multiplicity, active matching, positive even degrees and graph connectivity",
+    "notes": "SHA-256 reflects a particular verified witness stream. Alternative optimizer versions can choose different valid witnesses. Each run's acceptance relies on the exact integer checks; solver output alone is not proof."
+  },
+  "status": "AUTHOR_PROVED / EXACT_FINITE_CONSTRUCTION_CHECKED / NOT_REVIEWED",
+  "consequence": "Unconditional full-active 7-triple stratum bound 45. All-essential seven-triple stratum bound 45 for every inactive matching. Global 7-triple stratum corollary uses R762IR prior redundant-triangle lemma, not independently reviewed.",
+  "native_p000_lift": "NOT_ASSERTED",
+  "task_control": {
+    "task_id": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+    "task_read_request": "r3-20261122-1517-x6-task-read-v1",
+    "read_terminal": "SUCCEEDED",
+    "observed_at": "2026-11-22T07:20:13.509275Z",
+    "dispatch_state": "NEEDS_DISPATCH",
+    "actor": null,
+    "claim_id": null,
+    "execution_authorized": false,
+    "own_session_start_request": "r3-20261122-1517-own-start-v1",
+    "own_session_id": "MCP-3bd4f725b45a446ca875e048778dae2e",
+    "own_registration_terminal": "RUNNING at last read; reconciliation pending"
+  },
+  "unresolved": [
+    "Other five 47-event terminal histograms in k=0",
+    "Independent mathematical review of R762IR redundancy lemma and current exhaustive verifier",
+    "k>0 critical four-event support classes",
+    "native signed P000 Cell/path/time/provenance-preserving triadic lift"
+  ]
+}
