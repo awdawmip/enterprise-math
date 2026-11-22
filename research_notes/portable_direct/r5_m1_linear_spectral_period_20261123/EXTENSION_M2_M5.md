@@ -6,14 +6,14 @@ Scope: unchanged frozen five-event scalar cost observer @75d986aa23b68a7ecf9b29d
 
 ## Result
 
-The m=1 full linear-term coefficient period proved in \`RESEARCH.md\` persists at the next four positive thresholds:
+The m=1 full linear-term coefficient period proved in `RESEARCH.md` persists at the next four positive thresholds:
 
 \[
 \boxed{M_m^{(\ge1)}=814202665467037976682352800
 \quad \text{for each }m\in\{1,2,3,4,5\}.}
 \]
 
-The upper bound for all \(m\ge1\) is the denominator-root lcm \(\Lambda_1\), already proved in \`RESEARCH.md\` independently of all-threshold numerator cancellations. For the lower bound, the 18 selected primitive orders from that note all remain nonzero at each of \(m=2,3,4,5\), now with the **genuine simultaneous inequalities** and the **correct complete-homogeneous total-count numerator**. The same 18 orders have lcm \(\Lambda_1\), completing the exact-period conclusion for five individual thresholds.
+The upper bound for all \(m\ge1\) is the denominator-root lcm \(\Lambda_1\), already proved in `RESEARCH.md` independently of all-threshold numerator cancellations. For the lower bound, the 18 selected primitive orders from that note all remain nonzero at each of \(m=2,3,4,5\), now with the **genuine simultaneous inequalities** and the **correct complete-homogeneous total-count numerator**. The same 18 orders have lcm \(\Lambda_1\), completing the exact-period conclusion for five individual thresholds.
 
 ## Exact inclusion/exclusion and disjoint-block calculation
 
@@ -47,7 +47,7 @@ These formulas are exact in \(\mathbb Z[q]\), hence evaluating modulo any prime 
 
 ## Finite characteristic-zero obstruction certificates
 
-Take the fixed 18 order/primality/primitive-root triples \((d,p,z)\) printed in \`RESEARCH.md\`. The companion code \`VERIFY_M2_M5_LINEAR_PERIOD.py\` calculates each \(R_m(z)\in\mathbb F_p\) by the formulas above. All \(4\times18=72\) exact values are nonzero; the table records them by row, with orders in increasing report order (the same order as \`VERIFY_M1_LINEAR_PERIOD.py\`):
+Take the fixed 18 order/primality/primitive-root triples \((d,p,z)\) printed in `RESEARCH.md`. The companion code `VERIFY_M2_M5_LINEAR_PERIOD.py` calculates each \(R_m(z)\in\mathbb F_p\) by the formulas above. All \(4\times18=72\) exact values are nonzero; the table records them by row, with orders in increasing report order (the same order as `VERIFY_M1_LINEAR_PERIOD.py`):
 
 | d | m=2 | m=3 | m=4 | m=5 |
 |---:|---:|---:|---:|---:|
@@ -76,14 +76,14 @@ This is a **finite exact proof for the four specified thresholds**, not an inter
 
 ## Reproduction
 
-Place \`VERIFY_M1_LINEAR_PERIOD.py\` and \`VERIFY_M2_M5_LINEAR_PERIOD.py\` in the same directory and run:
-\`\`\`
+Place `VERIFY_M1_LINEAR_PERIOD.py` and `VERIFY_M2_M5_LINEAR_PERIOD.py` in the same directory and run:
+```
 python3 VERIFY_M2_M5_LINEAR_PERIOD.py
-\`\`\`
-The base module first certifies the primitive orders and m=1 values; the extension then enumerates all finite overlapping loads for m=2..5, computes the two disjoint complete-homogeneous blocks, and asserts the 72 tabulated residues and nonvanishing. Pure standard-library modular integers, no floating point. Author execution returned \`PASS: m=1..5 attain Lambda_1=814202665467037976682352800\` (local duration approximately 17 seconds).
+```
+The base module first certifies the primitive orders and m=1 values; the extension then enumerates all finite overlapping loads for m=2..5, computes the two disjoint complete-homogeneous blocks, and asserts the 72 tabulated residues and nonvanishing. Pure standard-library modular integers, no floating point. Author execution returned `PASS: m=1..5 attain Lambda_1=814202665467037976682352800` (local duration approximately 17 seconds).
 
 ## Next question and status
 
 Determine the **first positive m** (if any) at which one of the new primitive orders ceases to contribute its degree-\(\ge1\) term, and formulate a residue-class / recurrence classification for all m without brute-force enumeration of \(m^8\) assignments. Extend the existing corrected six-cone rational threshold series and first-jet methods, respecting their true pole degree and the five event constraints. The existing all-m primitive-43 first-jet result remains reusable at its proved scope.
 
-These are scalar quasipolynomial results only. Preserve P000/ACTIVE X6 semantics, do not collapse signed cyclotomic phases to positive BRC mass, and do not infer formal shared Task Result/Review/CLAIM from independent portable publication. Independent mathematics review remains \`NOT_REVIEWED\`.
+These are scalar quasipolynomial results only. Preserve P000/ACTIVE X6 semantics, do not collapse signed cyclotomic phases to positive BRC mass, and do not infer formal shared Task Result/Review/CLAIM from independent portable publication. Independent mathematics review remains `NOT_REVIEWED`.
