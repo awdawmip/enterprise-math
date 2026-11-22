@@ -101,7 +101,7 @@ def exact_oracle(B):
             return 0 if x == 0 else 4
         if (abs(x), y) in ((2, 1), (1, -1)):
             return 2
-        return 2 + (abs(x * 113 + y * 19 + 7) % 3)
+        return 2 + ((abs(x) * 113 + y * 19 + 7) % 3)
 
     def h(r, v):
         return q4(2 * r - v, r - v)
