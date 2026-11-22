@@ -10,13 +10,13 @@ WITNESSES = {
     19:(10223,2301), 23:(10259,4778), 25:(10151,7216),
     27:(10099,2017), 31:(10169,1836), 37:(10139,1802),
 }
-INITIAL = (2492,2493,2494,4588,6144,8638,8639,8640,
+INITIAL = (2492,2493,2494,4988,6144,8638,8639,8640,
            11132,11133,11134,11135,11136,13628,13629,
            13630,16124,17280,19774,19775,19776)
 Z29={0,54,55,56,57}
 Z32={0,60,61,62,63}
 Z43={0,37,38,39,40,41,42}
-EXPECTED_T=5227895009230676964441858656999003237584323114423885022400
+EXPECTED_T=5227895009230676964441898656999003237584323114423885022400
 def isprime(n):
     return n>=2 and all(n%k for k in range(2,math.isqrt(n)+1))
 for d,(p,w) in WITNESSES.items():
@@ -26,8 +26,8 @@ for d,(p,w) in WITNESSES.items():
 assert tuple(m for m in range(1,20000) if
     m%58 in Z29 and m%64 in Z32 and m%43 in Z43)==INITIAL
 assert sum(r%58 in Z29 and r%64 in Z32 and r%43 in Z43
-           for r in range(75808))==91
-T=math.lcm(75808,*(2*d*p for d,(p,_) in WITNESSES.items()))
+           for r in range(79808))==91
+T=math.lcm(79808,*(2*d*p for d,(p,_) in WITNESSES.items()))
 assert T==EXPECTED_T and len(str(T))==58
 assert 229746052653717600//(29*2*43)==92119507880400
 assert math.lcm(*WITNESSES.keys())==92119507880400
