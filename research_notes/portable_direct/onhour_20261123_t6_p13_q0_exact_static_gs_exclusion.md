@@ -1,14 +1,14 @@
 # T6 / maximal-p13 valuation-one q0: exact global mixed-congruence obstruction
 
-Date: 2026-11-23 (Asia/Hong_Kong). This is an author-executed **TASK_RESEARCH scientific unit** for the existing T6 mother objective, not a new task/owner or independent review. Original logical research lane: \`chatgpt-research-onhour-enterprise-math-20260923\`; existing attributed Researcher \`EM-X6-FB6990\` / public SID \`MCP-082892eb480e45dea6d4b9fcc0491034\`. Status **AUTHOR_PROVED / EXACT_GS_EXECUTED / UNREVIEWED / NOT_ADMITTED**. Native winning T6 CLAIM/PROGRESS not established by this mathematical file.
+Date: 2026-11-23 (Asia/Hong_Kong). This is an author-executed **TASK_RESEARCH scientific unit** for the existing T6 mother objective, not a new task/owner or independent review. Original logical research lane: `chatgpt-research-onhour-enterprise-math-20260923`; existing attributed Researcher `EM-X6-FB6990` / public SID `MCP-082892eb480e45dea6d4b9fcc0491034`. Status **AUTHOR_PROVED / EXACT_GS_EXECUTED / UNREVIEWED / NOT_ADMITTED**. Native winning T6 CLAIM/PROGRESS not established by this mathematical file.
 
 ## Frozen question and precise statement
 
-The immutable scientific task is \`research_tasks/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260909.md\` at \`d84bd940cfb093cdc60e569f15cad58772a51dca\` (blob \`87b3a6f38e9350f7a3f56624b27bff2a7778a439\`). Side exponent masses are each at most 2331; signed exponents, named denominators \(a=e+1\) and the six original moment equalities \(H_0,\dots,H_6\) are preserved. P000 remains ACTIVE_LOCKED.
+The immutable scientific task is `research_tasks/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260909.md` at `d84bd940cfb093cdc60e569f15cad58772a51dca` (blob `87b3a6f38e9350f7a3f56624b27bff2a7778a439`). Side exponent masses are each at most 2331; signed exponents, named denominators \(a=e+1\) and the six original moment equalities \(H_0,\dots,H_6\) are preserved. P000 remains ACTIVE_LOCKED.
 
-After the separately saved author p13²-and-p13³ cancellation lemma, suppose the only residual valuation-one denominators divisible by 13 are \`a=13r\`, \`r=1,...,12\`, with arbitrary 13-free denominators permitted. Let \`u_r\` be their signed multiplicity after cancellation of common named atoms.
+After the separately saved author p13²-and-p13³ cancellation lemma, suppose the only residual valuation-one denominators divisible by 13 are `a=13r`, `r=1,...,12`, with arbitrary 13-free denominators permitted. Let `u_r` be their signed multiplicity after cancellation of common named atoms.
 
-**Author exact q0-only proposition.** Under these hypotheses the signed p13 q0 vector is \`u=0\`. In particular, no primitive, nonidentical maximal-p13 collision with zero positive-order p13 vertical atoms can satisfy all six globally necessary 13-adic mixed congruences while respecting the true two side budgets.
+**Author exact q0-only proposition.** Under these hypotheses the signed p13 q0 vector is `u=0`. In particular, no primitive, nonidentical maximal-p13 collision with zero positive-order p13 vertical atoms can satisfy all six globally necessary 13-adic mixed congruences while respecting the true two side budgets.
 
 This conclusion is model-scoped: p13 vertical orders \(q\ge1\), lower-prime completion, independent review and the global \(T_6=2332\) proof remain open.
 
@@ -52,7 +52,7 @@ The exact strict inequality \(d_{\min}>10867122\) is a contradiction for any non
 
 ## Executed checker, provenance, and next frontier
 
-A local Python/SymPy exact-arithmetic run established \(|\det\Lambda|=13^{21}\), validated the LLL basis's congruences and determinant, recomputed all twelve rational Gram–Schmidt squares, and asserted the exact rational value above and its strict budget separation. Reproducible compact checker: \`research_checks/T6_P13_Q0_STATIC_GS_EXACT_CHECK_20261123.py\`. Its local executed SHA-256 is \`ed0786958ca95be8539ab446028130aa4a37644a332217789efb964529c02dd7\`. It uses SymPy exact arithmetic without floating equality tolerances. The initial lattice experiment used a separate longer local implementation; the compact checker itself was also executed locally successfully before its GitHub publication. It is an author check, not a nonauthor verification.
+A local Python/SymPy exact-arithmetic run established \(|\det\Lambda|=13^{21}\), validated the LLL basis's congruences and determinant, recomputed all twelve rational Gram–Schmidt squares, and asserted the exact rational value above and its strict budget separation. Reproducible compact checker: `research_checks/T6_P13_Q0_STATIC_GS_EXACT_CHECK_20261123.py`. Its local executed SHA-256 is `ed0786958ca95be8539ab446028130aa4a37644a332217789efb964529c02dd7`. It uses SymPy exact arithmetic without floating equality tolerances. The initial lattice experiment used a separate longer local implementation; the compact checker itself was also executed locally successfully before its GitHub publication. It is an author check, not a nonauthor verification.
 
 Previously saved p17 q0–q16 and p13 high-valuation work are reused at their author/Source scopes, without replay. The smallest scientific next unit for maximal p13 is valuation-one positive vertical order \(q=1\), alongside any actually existing canonical q1 evidence and the full p13 congruences. Enumerate its named atoms, retain both separate side budgets, solve the affine 12-dimensional q0 cosets, and preserve any surviving candidate for lower-prime completion; do not infer global p13 closure from q0 alone.
 
