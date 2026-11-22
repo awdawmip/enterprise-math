@@ -1,0 +1,630 @@
+{
+  "schema": "T6_P13_Q7_PARTIAL_AUTHOR_EXACT_FINITE_CERT_V1",
+  "date_local": "2026-11-23",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED_PARTIALLY_CLOSED_UNREVIEWED_NOT_ADMITTED",
+  "parent_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "frozen_mass_cap_each": 2331,
+  "original_exact_observers": "H0..H6",
+  "modular_necessary_conditions": "signed inverse-power sum mod 13^j, j=1..6, lower-prime atoms unrestricted",
+  "prior_dependencies": [
+    "original published p13 valuation>=2 cancellation lemma",
+    "p13 12D saturated q0 lattice index13^21 and exact GS",
+    "p13 q0..q6 author boundaries"
+  ],
+  "roster_counts": {
+    "0": 1,
+    "1": 12,
+    "2": 90,
+    "3": 520,
+    "4": 2535,
+    "5": 10908,
+    "6": 42614,
+    "7": 153960
+  },
+  "work": [
+    {
+      "split": [
+        0,
+        7
+      ],
+      "scope": "COMPLETE",
+      "first_side_range": [
+        0,
+        1
+      ],
+      "raw": 153960,
+      "cancelled": 0,
+      "evaluated": 153960,
+      "gs_nodes": 447638,
+      "leaves": 2,
+      "budget_valid": 0,
+      "source_order_sha256": "afe2e45fdf9f2d40b54fb0956a1954a3e73781cd6d5b878b9da4a4106fae8150",
+      "original_elapsed_seconds": 11.537
+    },
+    {
+      "split": [
+        1,
+        6
+      ],
+      "scope": "COMPLETE_PARTITION_HALF_1_OF_2",
+      "first_side_range": [
+        0,
+        6
+      ],
+      "raw": 255684,
+      "cancelled": 65448,
+      "evaluated": 190236,
+      "gs_nodes": 512749,
+      "leaves": 4,
+      "budget_valid": 0,
+      "source_order_sha256": "b5c8ca28a56b5576d24ba8ac3b81854e7b55130736c461c2718f51fc33318b4c",
+      "original_elapsed_seconds": 13.069
+    },
+    {
+      "split": [
+        1,
+        6
+      ],
+      "scope": "COMPLETE_PARTITION_HALF_2_OF_2",
+      "first_side_range": [
+        6,
+        12
+      ],
+      "raw": 255684,
+      "cancelled": 65448,
+      "evaluated": 190236,
+      "gs_nodes": 492985,
+      "leaves": 2,
+      "budget_valid": 0,
+      "source_order_sha256": "4b18af88d958ed258b85e6452b90df6a870c1d98e1125f180b298faee8fce02d",
+      "original_elapsed_seconds": 12.542
+    },
+    {
+      "split": [
+        2,
+        5
+      ],
+      "scope": "PARTIAL_ONLY",
+      "first_side_range": [
+        0,
+        15
+      ],
+      "first_side_total": 90,
+      "raw": 163620,
+      "cancelled": 64220,
+      "evaluated": 99400,
+      "gs_nodes": 254294,
+      "leaves": 1,
+      "budget_valid": 0,
+      "source_order_sha256": "562556516187de6bd43ecb63b15a1dbc8e9e60239be96ae981a07e961da76cea",
+      "original_elapsed_seconds": 734.359
+    }
+  ],
+  "totals_visited": {
+    "raw": 828948,
+    "cancelled": 195116,
+    "evaluated": 633832,
+    "gs_nodes": 1707666,
+    "sphere_leaves": 9,
+    "budget_valid": 0
+  },
+  "full_splits_closed": [
+    [
+      0,
+      7
+    ],
+    [
+      1,
+      6
+    ]
+  ],
+  "unvisited": [
+    {
+      "split": [
+        2,
+        5
+      ],
+      "first_side_range": [
+        15,
+        90
+      ]
+    },
+    {
+      "split": [
+        3,
+        4
+      ],
+      "scope": "ENTIRE_SPLIT"
+    }
+  ],
+  "relaxed_leaves": [
+    {
+      "split": [
+        0,
+        7
+      ],
+      "plus": [],
+      "minus": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "u": [
+        36,
+        16,
+        1,
+        -22,
+        -11,
+        15,
+        -8,
+        7,
+        -7,
+        5,
+        -5,
+        -1
+      ],
+      "side_masses": [
+        3391,
+        5608
+      ],
+      "relaxed_norm_sq": 6078328,
+      "radius_sq": 6328477,
+      "budget_valid": false
+    },
+    {
+      "split": [
+        0,
+        7
+      ],
+      "plus": [],
+      "minus": [
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "u": [
+        14,
+        19,
+        22,
+        -13,
+        -23,
+        17,
+        -4,
+        2,
+        -4,
+        1,
+        3,
+        -3
+      ],
+      "side_masses": [
+        3549,
+        4797
+      ],
+      "relaxed_norm_sq": 6074253,
+      "radius_sq": 6351325,
+      "budget_valid": false
+    },
+    {
+      "split": [
+        1,
+        6
+      ],
+      "plus": [
+        [
+          1,
+          2
+        ]
+      ],
+      "minus": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          9
+        ]
+      ],
+      "u": [
+        72,
+        -6,
+        8,
+        3,
+        -1,
+        -1,
+        7,
+        -6,
+        -13,
+        3,
+        -6,
+        -3
+      ],
+      "side_masses": [
+        2532,
+        4991
+      ],
+      "relaxed_norm_sq": 5039632,
+      "radius_sq": 5720245,
+      "budget_valid": false
+    },
+    {
+      "split": [
+        1,
+        6
+      ],
+      "plus": [
+        [
+          1,
+          3
+        ]
+      ],
+      "minus": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "u": [
+        26,
+        23,
+        24,
+        21,
+        4,
+        -7,
+        3,
+        3,
+        3,
+        -5,
+        6,
+        1
+      ],
+      "side_masses": [
+        5267,
+        2298
+      ],
+      "relaxed_norm_sq": 4218250,
+      "radius_sq": 5992465,
+      "budget_valid": false
+    },
+    {
+      "split": [
+        1,
+        6
+      ],
+      "plus": [
+        [
+          1,
+          4
+        ]
+      ],
+      "minus": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "u": [
+        6,
+        27,
+        30,
+        -2,
+        11,
+        -3,
+        -7,
+        -12,
+        -8,
+        -2,
+        -3,
+        0
+      ],
+      "side_masses": [
+        2811,
+        5069
+      ],
+      "relaxed_norm_sq": 5353610,
+      "radius_sq": 5607650,
+      "budget_valid": false
+    },
+    {
+      "split": [
+        1,
+        6
+      ],
+      "plus": [
+        [
+          1,
+          5
+        ]
+      ],
+      "minus": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "u": [
+        -61,
+        17,
+        9,
+        -16,
+        -16,
+        -4,
+        7,
+        3,
+        3,
+        -9,
+        -2,
+        1
+      ],
+      "side_masses": [
+        2442,
+        5763
+      ],
+      "relaxed_norm_sq": 4708796,
+      "radius_sq": 5199053,
+      "budget_valid": false
+    },
+    {
+      "split": [
+        1,
+        6
+      ],
+      "plus": [
+        [
+          1,
+          7
+        ]
+      ],
+      "minus": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          10
+        ]
+      ],
+      "u": [
+        97,
+        -12,
+        -4,
+        14,
+        6,
+        -1,
+        10,
+        7,
+        2,
+        -2,
+        4,
+        -2
+      ],
+      "side_masses": [
+        4942,
+        2522
+      ],
+      "relaxed_norm_sq": 4000134,
+      "radius_sq": 5114020,
+      "budget_valid": false
+    },
+    {
+      "split": [
+        1,
+        6
+      ],
+      "plus": [
+        [
+          1,
+          7
+        ]
+      ],
+      "minus": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "u": [
+        -12,
+        -8,
+        12,
+        -14,
+        6,
+        -9,
+        -1,
+        9,
+        11,
+        0,
+        -1,
+        2
+      ],
+      "side_masses": [
+        3612,
+        3188
+      ],
+      "relaxed_norm_sq": 4018042,
+      "radius_sq": 5561060,
+      "budget_valid": false
+    },
+    {
+      "split": [
+        2,
+        5
+      ],
+      "plus": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "minus": [
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          9
+        ]
+      ],
+      "u": [
+        48,
+        2,
+        -17,
+        -6,
+        1,
+        16,
+        -11,
+        -9,
+        2,
+        -1,
+        4,
+        -2
+      ],
+      "side_masses": [
+        3084,
+        4577
+      ],
+      "relaxed_norm_sq": 4695766,
+      "radius_sq": 5004805,
+      "budget_valid": false
+    }
+  ],
+  "local_original_exec_sources": [
+    "t6_p13_q7_split0_7_author_check_20261123.py",
+    "t6_p13_q7_split1_6_firsthalf_check_20261123.py",
+    "t6_p13_q7_split1_6_secondhalf_check_20261123.py",
+    "t6_p13_q7_batched_author_check.py"
+  ],
+  "derived_replay_check": {
+    "path": "research_checks/T6_P13_Q7_BOUNDED_AUTHOR_AFFINE_CHECK_20261123.py",
+    "commit": "2d4f0e3ba9687d7c988b0966009ff00569d07e4d",
+    "post_publication_rerun": false
+  },
+  "independent_review": false,
+  "native_claim": false,
+  "native_progress": false,
+  "global_T6": "OPEN"
+}
