@@ -1,0 +1,95 @@
+{
+  "schema": "R284EJ_TWO_BIT_RW_INVARIANT_OBSERVER_V1",
+  "frozen_commit": "acba2d8667903434aaa2a10720f43637fcc2421b",
+  "frozen_path": "research_notes/portable_direct/R284CO_spectral_witness_checker.py",
+  "frozen_blob_sha1": "b46e0f682b58e47c27094b4bea6fa4e55119a3ee",
+  "frozen_residue_sha256": "b6ce76b2c08b9ec6b79ec83173befd2589928ca7c636643c3eaecd40405f4ff4",
+  "state_count": 65536,
+  "arc_count": 64,
+  "tag": [
+    "(i >> 12) & 1",
+    "(i >> 14) & 1"
+  ],
+  "read_offsets": [
+    0,
+    65
+  ],
+  "same_tag_minimum_Linf": 17313,
+  "same_tag_minimizer_pairs": [
+    [
+      36912,
+      36977
+    ]
+  ],
+  "same_tag_pruned_pair_comparisons": 101043,
+  "RW_forced_pair_minimum": 17313,
+  "RW_forced_pair_minimizers": [
+    [
+      36912,
+      36977
+    ]
+  ],
+  "all_phase_width_prefix": 17313,
+  "first_two_bit_failure": {
+    "width": 17314,
+    "phase": 10733,
+    "pair": [
+      36912,
+      36977
+    ],
+    "common_code": [
+      482403,
+      482403
+    ]
+  },
+  "arbitrary_one_bit_no_go": {
+    "width": 9395,
+    "phase": 58,
+    "triple": [
+      17336,
+      37542,
+      33446
+    ],
+    "common_code": [
+      894824,
+      878868
+    ]
+  },
+  "two_port_integer_error_radius": 8656,
+  "direct_checks": [
+    {
+      "width": 60,
+      "phase": 0,
+      "collisions": 0,
+      "example": null
+    },
+    {
+      "width": 9394,
+      "phase": 58,
+      "collisions": 0,
+      "example": null
+    },
+    {
+      "width": 9395,
+      "phase": 58,
+      "collisions": 0,
+      "example": null
+    },
+    {
+      "width": 17313,
+      "phase": 10733,
+      "collisions": 0,
+      "example": null
+    },
+    {
+      "width": 17314,
+      "phase": 10733,
+      "collisions": 1,
+      "example": [
+        36912,
+        36977
+      ]
+    }
+  ],
+  "status": "AUTHOR_EXACT_CHECKED / EXACT_FINITE_CERTIFIED / NOT_REVIEWED"
+}
