@@ -1,0 +1,25 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/riesel_observers_20261122/native/proof.md",
+    "ref": "a2ae4d93398425e67dacbb4c99b7f3a6755e5771",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "LOCAL-RIESEL-V8-SCIENCE-14-OBSERVED",
+  "result": {
+    "content": [
+      {
+        "text": "Action completed.",
+        "type": "text"
+      }
+    ],
+    "isError": false,
+    "structuredContent": {
+      "content": "# Native execution of the complete optimal phase family\n\nStatus: author integration evidence, not independent Review. Researcher `EM-DIRECT-970E1C`; Activity `RA-D2EC212845B63844081F9A14`.\n\nThe mathematical phase classification is proved in the companion staircase and observer notes. This integration checks the actual pinned native state update and residue readouts for every one of the twelve nested-optimal phase dictionaries, and for the least positive root of that classified subclass.\n\nThe native source is frozen at `b1efc6c805661ed7b476e6e730107da6043176ee`; the four module Git blobs are recorded in the original base certificate and in `native_certificate.json`. The executed packet is\n\n```python\nEffectHistogram.from_terms(1, [(1, Affine(((2,),), (1,)), 1)])\n```\n\nIts weight and multiplicity are both one. Packet composition gives the even update `4*x+3`. Starting from `a*a-1`, each actual step equals `a*a*2**n-1` exactly. Every selected prime residue is read with the native `euclidean_digits` implementation and reconstructed with its quotient to check the integer division identity.\n\nFor each parity choice and each bijection between `{11,61,331}` and categories `{0,1,4}`, the verifier constructs one CRT root using positive inverse signs. It executes 420 updates and 25 prime readouts per update. It checks that every old readout equals the old-root readout, every new zero agrees with its derived exact phase, and each divisor recorded as a hit is proper.\n\nIt also executes the separately classified least positive root\n\n\\[\n39741911323337250951212360989279347168190786597922987443929\n\\]\n\nwith the ordered chain `5,13,61,11,331`.\n\nAcross all thirteen runs, the recorded totals are:\n\n| Check | Count |\n|---|---:|\n| Actual native updates | 5,460 |\n| Native prime readouts | 136,500 |\n| Equalities with old-root readouts | 109,200 |\n| Phase dictionaries exercised | 12 |\n| Additional least-root run | 1 |\n\nEvery run gives the uncovered counts\n\n\\[\n(72,36,13,8,3,0)\n\\]\n\nover one exponent period of length 420 as the first zero through five channels are included. The four-channel holes are `{128,308,368}` for parity0 and `{98,158,338}` for parity1.\n\nThis finite period is sufficient for these coverage observables because the established old-hole predicate has period210 in n, while all five new zero phases have base-2 orders dividing60. Their least common multiple is420. The previous full old trajectory evidence is reused; a finite run alone is not presented as a proof of the infinite claim.\n\nChanging any of the five root-residue signs leaves its square and every readout at that prime unchanged. CRT makes these signs independent, accounting for all32 sign choices per phase dictionary. The observer certificate supplies the full384-root-class enumeration and least-root comparison; this native execution checks membership and state semantics, not minimality by itself.\n\nThe fixed X6 anchor and typed integer state remain intact. The index n labels arithmetic updates, not physical time. Prime observations are readout channels, not extra spatial axes or native branches. The finite observer is used only for the specific predicates for which sufficiency is proved; full integer and joint-cofactor information remain available for covering-cost questions.\n\nReproduce with `python verify_native.py`, optionally supplying `--source-dir` for the pinned native source. The default finds the existing `src` or `vendor_src` folder.\n",
+      "display_title": "proof.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/a2ae4d93398425e67dacbb4c99b7f3a6755e5771/research_notes/portable_direct/riesel_observers_20261122/native/proof.md",
+      "encoding": "utf-8",
+      "sha": "08e524e1e87db5df2921e7530a046b3bb6dc7327"
+    }
+  },
+  "tool_name": "mcp__codex_apps__github_fetch_file"
+}
