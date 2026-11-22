@@ -1,0 +1,80 @@
+{
+  "schema": "PREFIX1019_R6_EXACT_CERTIFICATE_V1",
+  "status": "AUTHOR_INTEGER_EXECUTED_PASS_NOT_REVIEWED",
+  "date": "2026-11-23",
+  "model": {
+    "p000": "V5 frozen f42f2906d77f24085c123f3ccfe9667d41caa96d",
+    "kernel": "Stage46 signed 12 port candidate, w(h,d)=1-6*[h=d], update (x+d,-d)",
+    "absorption": "both orientations of {0,e1}",
+    "source_class": "arbitrary legal unit packets; all negative-step grades retained",
+    "output_type": "coherent Cell-port squared numerator"
+  },
+  "program": "research_notes/portable_direct/PREFIX1019_R6_FINITE_HORIZON_BRC_CHECK.py",
+  "recomputed_full_json_sha256": "6882420a48c12bc5f36d77e55b25299c6a6308132bda204f4497f91fe44df240",
+  "tests": {
+    "parseval_general_packet": {
+      "initial_norm": 54,
+      "first_link_flux": 305,
+      "free_step_norm": 1944,
+      "masked_step_norm": 1639,
+      "four_step_fluxes": [
+        305,
+        25,
+        23225,
+        50000
+      ],
+      "four_step_masked_norm": 75550684,
+      "status": "PASS"
+    },
+    "arbitrary_horizon": [
+      {
+        "r": 1,
+        "t": 2,
+        "near_total": 1295,
+        "far_total": 1296,
+        "near_plus_e1": 635,
+        "far_plus_e1": 636
+      },
+      {
+        "r": 2,
+        "t": 3,
+        "near_total": 46655,
+        "far_total": 46656,
+        "near_plus_e1": 1835,
+        "far_plus_e1": 1836
+      },
+      {
+        "r": 3,
+        "t": 4,
+        "near_total": 1679615,
+        "far_total": 1679616,
+        "near_plus_e1": 1433615,
+        "far_plus_e1": 1433616
+      },
+      {
+        "r": 4,
+        "t": 5,
+        "near_total": 60466175,
+        "far_total": 60466176,
+        "near_plus_e1": 1917755,
+        "far_plus_e1": 1917756
+      }
+    ],
+    "asserted_for_every_tested_r": [
+      "entire Cell-port packet equality after translation for t<=r",
+      "12 signed terminal-port margins equal t<=r",
+      "12 Gram terminal-port margins equal t<=r",
+      "exactly one +1 fibre removed at t=r+1",
+      "signed and squared distinguished terminal port each drop by 1",
+      "all other terminal port signed and Gram masses unchanged at first difference"
+    ]
+  },
+  "universal_proof": "formal local coin W=J12-6I with W^TW=36I; shift bijection; shortest-path first Link crossing for arbitrary r",
+  "computed_r_range": [
+    1,
+    4
+  ],
+  "mathematical_claim_scope": "Theorem applies all r>=1 by proof, computations verify r<=4",
+  "independent_review": "NOT_REVIEWED",
+  "formal_task_state": "NOT_CLAIMED"
+}
