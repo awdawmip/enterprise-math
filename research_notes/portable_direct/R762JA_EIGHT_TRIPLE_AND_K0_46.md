@@ -1,7 +1,7 @@
 # R762JA — Complete eight-triple 47→45 compression and k=0 upper bound 46
 
 Date: 2026-11-22 (Asia/Shanghai).
-Frozen scientific input: \`awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389\`.
+Frozen scientific input: `awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389`.
 Scope: **composite Port–Euler observer** of the six-axis model; not a signed native P000 Cell/time/force/rotation lifting.
 Status: **AUTHOR_PROVED / EXACT_FINITE_CERTIFICATES_VERIFIED / NOT_REVIEWED**.
 Predecessors: R762IR, R762IU, R762IV, R762IW, R762IX, R762IY, R762IZ.
@@ -51,11 +51,11 @@ The action of \(S_6\) transports each representative certificate to every axis-l
 ### Exact certificate material and reproducibility
 
 Files alongside this note:
-\`R762JA_CERTS.b64\` contains 300 edge-allocation certificates, each 60 integers in \(\{0,1,2,3\}\); four 2-bit values are packed per byte, giving exactly **4,500 raw bytes**, then zlib-compressed and base64-encoded.
-\`R762JA_VERIFY_CERTS.py\` reproduces the union-find classification, 16 orbits, the exact representative parameter domain, and all degree/support/connectivity checks using only Python's standard library.
+`R762JA_CERTS.b64` contains 300 edge-allocation certificates, each 60 integers in \(\{0,1,2,3\}\); four 2-bit values are packed per byte, giving exactly **4,500 raw bytes**, then zlib-compressed and base64-encoded.
+`R762JA_VERIFY_CERTS.py` reproduces the union-find classification, 16 orbits, the exact representative parameter domain, and all degree/support/connectivity checks using only Python's standard library.
 
-Raw certificate stream SHA-256: \`6b30b9be0cea2a021f894c2e5b3d82fec736b910faf52a0409a6145aa6b21980\`.
-Compressed stream SHA-256: \`808000aeed1e01de0d9ff3c0336be6c22b80f92b6a467b8d204f79aacff741f5\`.
+Raw certificate stream SHA-256: `6b30b9be0cea2a021f894c2e5b3d82fec736b910faf52a0409a6145aa6b21980`.
+Compressed stream SHA-256: `808000aeed1e01de0d9ff3c0336be6c22b80f92b6a467b8d204f79aacff741f5`.
 Local execution on 2026-11-22: **PASS**, 4,920 essential sets, 16 orbits, 300/300 explicit Euler witnesses. A SciPy/HiGHS integer optimizer with connectivity cuts generated the witnesses; independent mathematical verification relies on the emitted integers and the standard-library verifier, not on solver status or floating-point tolerance.
 
 ## Consequence: k=0 uniform 46-event bound
