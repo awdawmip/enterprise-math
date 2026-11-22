@@ -13,7 +13,7 @@ $$
 对十二个 **已经有非零一阶喷流模证书**的本原单位根阶数 (d\in W=\{7,9,11,13,16,17,19,23,25,27,31,37\})，选择表中的素数 (\ell_d)、本原根 (w_d)。设
 
 $$
-T=\operatorname{lcm}\left(79808,\;\{2d\\ell_d^2:d\in W\}\right).
+T=\operatorname{lcm}\left(79808,\;\{2d\ell_d^2:d\in W\}\right).
 $$
 
 计算得到精确十进制整数
