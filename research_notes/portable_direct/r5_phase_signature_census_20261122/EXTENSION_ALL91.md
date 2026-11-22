@@ -46,7 +46,7 @@ T=\operatorname{lcm}(79808,\{2d\ell_d:d\in W\})=
 
 令
 \[
-Q=\operatorname{lcm}(79808,\{2d:d\in W\})=459492105307435200,\qquad Q\mid T.
+Q=\operatorname{lcm}(79808,\{2d:d\in W\})=459492105307435200=2L,\qquad Q\mid T.
 \]
 
 **定理C（有限异常集）。** 对每个固定 s∈S，在无限进程 m=s+kQ (k≥0) 中，除了至多1116个非负整数k，均有严格最小周期 M_m(O_m(N))=K。该界不表示存在实际例外。
