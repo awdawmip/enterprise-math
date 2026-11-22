@@ -1,0 +1,661 @@
+{
+  "schema": "T6_P13_Q8_SPLIT3_5_AUTHOR_EXACT_FINITE_COMPLETE_CERT_V1",
+  "scientific_status": "AUTHOR_EXACT_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "mother_task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "frozen_task": {
+    "commit": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+    "side_mass_cap": 2331
+  },
+  "model": {
+    "maximal_prime": 13,
+    "valuation": 1,
+    "vertical_total_order": 8,
+    "split": [
+      3,
+      5
+    ],
+    "first_side_total": 520,
+    "second_side_total": 10908,
+    "completed_first_side_range": [
+      0,
+      520
+    ],
+    "q0_saturated_basis_rank": 12,
+    "q0_lattice_index": "247064529073450392704413",
+    "q0_min_exact_gs_square": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+    "necessary_mixed_congruences": "sum_r u_r*r^-j+sum_plus(13q+r)^-j-sum_minus(13q+r)^-j=0 mod13^j,j=1..6",
+    "prior_lemma": "p13 higher-valuation cancellation established in separate prior author evidence"
+  },
+  "execution": {
+    "original_script": "/mnt/data/p13_q8_3_5_partial_exact_20261123.py",
+    "local_script_sha256": "d99d9e31199b59dfaaafb85800fccf171f3688ad9127340fedc4baed7c9544ee",
+    "independent_public_replay": false,
+    "method": "Exact SymPy HNF/LLL, rational Gram-Schmidt pruning and integer mass/modular checks; streamed slices"
+  },
+  "counts": {
+    "raw": 5672160,
+    "common_cancelled": 2408760,
+    "vert_over_cap": 0,
+    "evaluated": 3263400,
+    "nodes": 7333379,
+    "sphere_leaves": 8,
+    "budget_valid": 0
+  },
+  "slices": [
+    {
+      "range": [
+        0,
+        10
+      ],
+      "counts": {
+        "raw": 109080,
+        "common_cancelled": 43485,
+        "vert_over_cap": 0,
+        "evaluated": 65595,
+        "nodes": 154519,
+        "sphere_leaves": 0,
+        "budget_valid": 0
+      },
+      "ordered_pairs_sha256": "181116dc0cef17baadf249fa45c5d8a555a5250e2ebd3bb3196f7c666ceb89fb"
+    },
+    {
+      "range": [
+        10,
+        25
+      ],
+      "counts": {
+        "raw": 163620,
+        "common_cancelled": 85685,
+        "vert_over_cap": 0,
+        "evaluated": 77935,
+        "nodes": 180328,
+        "sphere_leaves": 0,
+        "budget_valid": 0
+      },
+      "ordered_pairs_sha256": "893a9e64358b7e8ee0112063d60660cb3cf506e35f31cf09dec4cb4b8245db4c"
+    },
+    {
+      "range": [
+        25,
+        75
+      ],
+      "counts": {
+        "raw": 545400,
+        "common_cancelled": 295655,
+        "vert_over_cap": 0,
+        "evaluated": 249745,
+        "nodes": 562002,
+        "sphere_leaves": 0,
+        "budget_valid": 0
+      },
+      "ordered_pairs_sha256": "f8ecf9343d38b3c4f60349d3ea619351c95c47c2e6d23667acbb75222c9c3b92"
+    },
+    {
+      "range": [
+        75,
+        125
+      ],
+      "counts": {
+        "raw": 545400,
+        "common_cancelled": 241335,
+        "vert_over_cap": 0,
+        "evaluated": 304065,
+        "nodes": 698857,
+        "sphere_leaves": 0,
+        "budget_valid": 0
+      },
+      "ordered_pairs_sha256": "30c53c3ed2cce7a17de55538a7bd61bb24c2aab36dcd7cec56ca25ccb3ff0dc8"
+    },
+    {
+      "range": [
+        125,
+        175
+      ],
+      "counts": {
+        "raw": 545400,
+        "common_cancelled": 244505,
+        "vert_over_cap": 0,
+        "evaluated": 300895,
+        "nodes": 682548,
+        "sphere_leaves": 0,
+        "budget_valid": 0
+      },
+      "ordered_pairs_sha256": "1d1ac050074f8ef6e9738c3dfb491288b20e01ebde910848aa33dd95e83a53b8"
+    },
+    {
+      "range": [
+        175,
+        225
+      ],
+      "counts": {
+        "raw": 545400,
+        "common_cancelled": 281390,
+        "vert_over_cap": 0,
+        "evaluated": 264010,
+        "nodes": 589157,
+        "sphere_leaves": 4,
+        "budget_valid": 0
+      },
+      "ordered_pairs_sha256": "640e6688cee1491ef0e9fd3f8df81eaca3667c5a2462238b4ca1cff848bf24c4"
+    },
+    {
+      "range": [
+        225,
+        275
+      ],
+      "counts": {
+        "raw": 545400,
+        "common_cancelled": 249260,
+        "vert_over_cap": 0,
+        "evaluated": 296140,
+        "nodes": 664616,
+        "sphere_leaves": 0,
+        "budget_valid": 0
+      },
+      "ordered_pairs_sha256": "fa46180797041ab83dcebc76f36b552637e427d40af06754a564aad35b6bfbe4"
+    },
+    {
+      "range": [
+        275,
+        325
+      ],
+      "counts": {
+        "raw": 545400,
+        "common_cancelled": 242920,
+        "vert_over_cap": 0,
+        "evaluated": 302480,
+        "nodes": 674280,
+        "sphere_leaves": 2,
+        "budget_valid": 0
+      },
+      "ordered_pairs_sha256": "9c38ef87057c52d8ed74467dbc4c8ef74f671dba93a6d67c1900be1267a87c10"
+    },
+    {
+      "range": [
+        325,
+        375
+      ],
+      "counts": {
+        "raw": 545400,
+        "common_cancelled": 220730,
+        "vert_over_cap": 0,
+        "evaluated": 324670,
+        "nodes": 727538,
+        "sphere_leaves": 0,
+        "budget_valid": 0
+      },
+      "ordered_pairs_sha256": "62a14ea8546036bfcf32b6724d71a3d350dac1059b805ce5e3a6be11ea9268bf"
+    },
+    {
+      "range": [
+        375,
+        425
+      ],
+      "counts": {
+        "raw": 545400,
+        "common_cancelled": 220300,
+        "vert_over_cap": 0,
+        "evaluated": 325100,
+        "nodes": 714389,
+        "sphere_leaves": 0,
+        "budget_valid": 0
+      },
+      "ordered_pairs_sha256": "a9768a1870d89b5b363fde2f57dc92bf86054aa47c8aa7f3e7ae30dba818bec0"
+    },
+    {
+      "range": [
+        425,
+        475
+      ],
+      "counts": {
+        "raw": 545400,
+        "common_cancelled": 182260,
+        "vert_over_cap": 0,
+        "evaluated": 363140,
+        "nodes": 803257,
+        "sphere_leaves": 1,
+        "budget_valid": 0
+      },
+      "ordered_pairs_sha256": "011fddb74db8da7951cf6a125e0cd71c5f1522c22fd42878c2bcd4c98659ee2a"
+    },
+    {
+      "range": [
+        475,
+        520
+      ],
+      "counts": {
+        "raw": 490860,
+        "common_cancelled": 101235,
+        "vert_over_cap": 0,
+        "evaluated": 389625,
+        "nodes": 881888,
+        "sphere_leaves": 1,
+        "budget_valid": 0
+      },
+      "ordered_pairs_sha256": "c07c389fa7c8db5cf7fb9317e5c1aa585c2cf108c7b21faf91576026167bfd6d"
+    }
+  ],
+  "relaxed_leaves": [
+    {
+      "plus": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          11
+        ]
+      ],
+      "minus": [
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          3,
+          12
+        ]
+      ],
+      "u": [
+        -21,
+        48,
+        2,
+        6,
+        5,
+        3,
+        3,
+        -5,
+        -6,
+        4,
+        3,
+        5
+      ],
+      "masses": [
+        4858,
+        2591
+      ],
+      "radius_sq": 3984858
+    },
+    {
+      "plus": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          5
+        ]
+      ],
+      "minus": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          10
+        ]
+      ],
+      "u": [
+        42,
+        26,
+        -10,
+        10,
+        1,
+        -3,
+        -8,
+        -8,
+        8,
+        1,
+        4,
+        1
+      ],
+      "masses": [
+        4181,
+        3425
+      ],
+      "radius_sq": 3874685
+    },
+    {
+      "plus": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          11
+        ]
+      ],
+      "minus": [
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "u": [
+        25,
+        -4,
+        3,
+        -2,
+        -10,
+        -8,
+        -9,
+        9,
+        3,
+        4,
+        1,
+        1
+      ],
+      "masses": [
+        3266,
+        3564
+      ],
+      "radius_sq": 3526714
+    },
+    {
+      "plus": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          12
+        ]
+      ],
+      "minus": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          10
+        ]
+      ],
+      "u": [
+        -18,
+        19,
+        11,
+        8,
+        5,
+        -13,
+        0,
+        7,
+        5,
+        3,
+        4,
+        2
+      ],
+      "masses": [
+        5003,
+        2317
+      ],
+      "radius_sq": 3810586
+    },
+    {
+      "plus": [
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          12
+        ]
+      ],
+      "minus": [
+        [
+          1,
+          1
+        ],
+        [
+          4,
+          3
+        ]
+      ],
+      "u": [
+        -28,
+        -26,
+        -5,
+        9,
+        -7,
+        3,
+        -10,
+        10,
+        -1,
+        1,
+        7,
+        1
+      ],
+      "masses": [
+        3711,
+        3535
+      ],
+      "radius_sq": 4680020
+    },
+    {
+      "plus": [
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          11
+        ]
+      ],
+      "minus": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          12
+        ]
+      ],
+      "u": [
+        -62,
+        -31,
+        4,
+        -2,
+        5,
+        4,
+        1,
+        -2,
+        0,
+        -1,
+        9,
+        -1
+      ],
+      "masses": [
+        2964,
+        3367
+      ],
+      "radius_sq": 3450850
+    },
+    {
+      "plus": [
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          10
+        ]
+      ],
+      "minus": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ]
+      ],
+      "u": [
+        20,
+        -4,
+        0,
+        11,
+        2,
+        2,
+        -4,
+        12,
+        -1,
+        0,
+        6,
+        4
+      ],
+      "masses": [
+        4685,
+        1754
+      ],
+      "radius_sq": 3394378
+    },
+    {
+      "plus": [
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "minus": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          8
+        ]
+      ],
+      "u": [
+        3,
+        25,
+        -21,
+        -13,
+        2,
+        -12,
+        3,
+        2,
+        1,
+        -7,
+        -1,
+        0
+      ],
+      "masses": [
+        2081,
+        4544
+      ],
+      "radius_sq": 4141250
+    }
+  ],
+  "smallest_max_mass": 3367,
+  "unvisited": [],
+  "next_scientific_unit": "p13 order8 (4,4)",
+  "native_semantic_progress": "NOT_PUBLISHED",
+  "review": "UNREVIEWED"
+}
