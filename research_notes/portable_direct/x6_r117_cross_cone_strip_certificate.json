@@ -1,0 +1,248 @@
+{
+  "schema": "X6_R117_STRIP_CERTIFICATE_V1",
+  "date": "2026-11-23",
+  "observer": "CONDITIONAL_4_POSITIVE_WEIGHT_6_PAIR_BRC",
+  "scope": "exact finite replay up to Port 28; infinite Port and real parameter rectangle via analytic proof",
+  "domain": {
+    "q": [
+      "3/5",
+      "7/10"
+    ],
+    "delta": [
+      "-1/4",
+      "1/4"
+    ],
+    "port_min_proved": 10
+  },
+  "claimed_exact_optimum": "6/(154-82q+delta)",
+  "new_direction_moment": [
+    1,
+    2,
+    0
+  ],
+  "new_direction_raw": [
+    -14,
+    9,
+    -2
+  ],
+  "new_direction_min_port": 16,
+  "strict_entry_condition": "151q>100+delta",
+  "sample_count": 13,
+  "per_sample_unoriented_vectors_checked": 38598,
+  "total_unoriented_vector_parameter_checks": 501774,
+  "port_slices": [
+    10,
+    11,
+    15,
+    16,
+    17,
+    21,
+    28
+  ],
+  "tests": [
+    {
+      "q": "3/5",
+      "delta": "-1/4",
+      "entry": false,
+      "p28_near_count": 7,
+      "near_counts_by_port": [
+        3,
+        4,
+        4,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "q": "3/5",
+      "delta": "1/4",
+      "entry": false,
+      "p28_near_count": 7,
+      "near_counts_by_port": [
+        3,
+        4,
+        4,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "q": "7/10",
+      "delta": "-1/4",
+      "entry": true,
+      "p28_near_count": 8,
+      "near_counts_by_port": [
+        3,
+        4,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "q": "7/10",
+      "delta": "1/4",
+      "entry": true,
+      "p28_near_count": 8,
+      "near_counts_by_port": [
+        3,
+        4,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "q": "99599/151000",
+      "delta": "-1/4",
+      "entry": false,
+      "p28_near_count": 7,
+      "near_counts_by_port": [
+        3,
+        4,
+        4,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "q": "399/604",
+      "delta": "-1/4",
+      "entry": false,
+      "p28_near_count": 7,
+      "near_counts_by_port": [
+        3,
+        4,
+        4,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "q": "99901/151000",
+      "delta": "-1/4",
+      "entry": true,
+      "p28_near_count": 8,
+      "near_counts_by_port": [
+        3,
+        4,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "q": "99849/151000",
+      "delta": "0",
+      "entry": false,
+      "p28_near_count": 7,
+      "near_counts_by_port": [
+        3,
+        4,
+        4,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "q": "100/151",
+      "delta": "0",
+      "entry": false,
+      "p28_near_count": 7,
+      "near_counts_by_port": [
+        3,
+        4,
+        4,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "q": "100151/151000",
+      "delta": "0",
+      "entry": true,
+      "p28_near_count": 8,
+      "near_counts_by_port": [
+        3,
+        4,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "q": "100099/151000",
+      "delta": "1/4",
+      "entry": false,
+      "p28_near_count": 7,
+      "near_counts_by_port": [
+        3,
+        4,
+        4,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "q": "401/604",
+      "delta": "1/4",
+      "entry": false,
+      "p28_near_count": 7,
+      "near_counts_by_port": [
+        3,
+        4,
+        4,
+        4,
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "q": "100401/151000",
+      "delta": "1/4",
+      "entry": true,
+      "p28_near_count": 8,
+      "near_counts_by_port": [
+        3,
+        4,
+        4,
+        5,
+        6,
+        7,
+        8
+      ]
+    }
+  ],
+  "checks": [
+    "six actual pair gaps",
+    "no F<6/Y in Port<=28",
+    "exact optimizer at Port 10",
+    "full near sets, not only counts",
+    "wall equality excluded"
+  ],
+  "status": "AUTHOR_COMPUTED_PASS_NOT_INDEPENDENTLY_REVIEWED",
+  "reproduce": "python3 research_notes/portable_direct/x6_r117_cross_cone_strip_verify.py"
+}
