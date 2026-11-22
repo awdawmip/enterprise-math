@@ -1,0 +1,254 @@
+{
+  "schema": "R284ER_EXACT_FINITE_CROSSCHECK_V1",
+  "scope": "binary repetition tag-storage channel only",
+  "unknown_torn_cases_checked": 72,
+  "known_address_sets_checked": 387,
+  "directed_page_transitions_checked": 5208,
+  "enumeration_range": {
+    "length_t": [
+      1,
+      8
+    ],
+    "background_s": [
+      0,
+      2
+    ],
+    "blind_address_bound_b": [
+      0,
+      2
+    ],
+    "directed_length_t": [
+      1,
+      7
+    ],
+    "directed_external_r": [
+      0,
+      1
+    ]
+  },
+  "formulas": {
+    "unknown": "t>=2*(s+b)+1",
+    "known_set": "t>=2*s+b+1",
+    "directed_page": "t>=2*(e+r)+1"
+  },
+  "bit_cost_examples": [
+    {
+      "background": 0,
+      "torn_addresses": 1,
+      "unknown_main_bits": 3,
+      "known_main_bits": 2,
+      "exact_set_address_bits": 1,
+      "known_total_bits": 3,
+      "unknown_total_bits": 3
+    },
+    {
+      "background": 0,
+      "torn_addresses": 2,
+      "unknown_main_bits": 5,
+      "known_main_bits": 3,
+      "exact_set_address_bits": 2,
+      "known_total_bits": 5,
+      "unknown_total_bits": 5
+    },
+    {
+      "background": 0,
+      "torn_addresses": 3,
+      "unknown_main_bits": 7,
+      "known_main_bits": 4,
+      "exact_set_address_bits": 2,
+      "known_total_bits": 6,
+      "unknown_total_bits": 7
+    },
+    {
+      "background": 0,
+      "torn_addresses": 4,
+      "unknown_main_bits": 9,
+      "known_main_bits": 5,
+      "exact_set_address_bits": 3,
+      "known_total_bits": 8,
+      "unknown_total_bits": 9
+    },
+    {
+      "background": 0,
+      "torn_addresses": 5,
+      "unknown_main_bits": 11,
+      "known_main_bits": 6,
+      "exact_set_address_bits": 3,
+      "known_total_bits": 9,
+      "unknown_total_bits": 11
+    },
+    {
+      "background": 0,
+      "torn_addresses": 6,
+      "unknown_main_bits": 13,
+      "known_main_bits": 7,
+      "exact_set_address_bits": 3,
+      "known_total_bits": 10,
+      "unknown_total_bits": 13
+    },
+    {
+      "background": 0,
+      "torn_addresses": 7,
+      "unknown_main_bits": 15,
+      "known_main_bits": 8,
+      "exact_set_address_bits": 3,
+      "known_total_bits": 11,
+      "unknown_total_bits": 15
+    },
+    {
+      "background": 0,
+      "torn_addresses": 8,
+      "unknown_main_bits": 17,
+      "known_main_bits": 9,
+      "exact_set_address_bits": 4,
+      "known_total_bits": 13,
+      "unknown_total_bits": 17
+    },
+    {
+      "background": 1,
+      "torn_addresses": 1,
+      "unknown_main_bits": 5,
+      "known_main_bits": 4,
+      "exact_set_address_bits": 2,
+      "known_total_bits": 6,
+      "unknown_total_bits": 5
+    },
+    {
+      "background": 1,
+      "torn_addresses": 2,
+      "unknown_main_bits": 7,
+      "known_main_bits": 5,
+      "exact_set_address_bits": 4,
+      "known_total_bits": 9,
+      "unknown_total_bits": 7
+    },
+    {
+      "background": 1,
+      "torn_addresses": 3,
+      "unknown_main_bits": 9,
+      "known_main_bits": 6,
+      "exact_set_address_bits": 5,
+      "known_total_bits": 11,
+      "unknown_total_bits": 9
+    },
+    {
+      "background": 1,
+      "torn_addresses": 4,
+      "unknown_main_bits": 11,
+      "known_main_bits": 7,
+      "exact_set_address_bits": 6,
+      "known_total_bits": 13,
+      "unknown_total_bits": 11
+    },
+    {
+      "background": 1,
+      "torn_addresses": 5,
+      "unknown_main_bits": 13,
+      "known_main_bits": 8,
+      "exact_set_address_bits": 6,
+      "known_total_bits": 14,
+      "unknown_total_bits": 13
+    },
+    {
+      "background": 1,
+      "torn_addresses": 6,
+      "unknown_main_bits": 15,
+      "known_main_bits": 9,
+      "exact_set_address_bits": 7,
+      "known_total_bits": 16,
+      "unknown_total_bits": 15
+    },
+    {
+      "background": 1,
+      "torn_addresses": 7,
+      "unknown_main_bits": 17,
+      "known_main_bits": 10,
+      "exact_set_address_bits": 7,
+      "known_total_bits": 17,
+      "unknown_total_bits": 17
+    },
+    {
+      "background": 1,
+      "torn_addresses": 8,
+      "unknown_main_bits": 19,
+      "known_main_bits": 11,
+      "exact_set_address_bits": 8,
+      "known_total_bits": 19,
+      "unknown_total_bits": 19
+    },
+    {
+      "background": 2,
+      "torn_addresses": 1,
+      "unknown_main_bits": 7,
+      "known_main_bits": 6,
+      "exact_set_address_bits": 3,
+      "known_total_bits": 9,
+      "unknown_total_bits": 7
+    },
+    {
+      "background": 2,
+      "torn_addresses": 2,
+      "unknown_main_bits": 9,
+      "known_main_bits": 7,
+      "exact_set_address_bits": 5,
+      "known_total_bits": 12,
+      "unknown_total_bits": 9
+    },
+    {
+      "background": 2,
+      "torn_addresses": 3,
+      "unknown_main_bits": 11,
+      "known_main_bits": 8,
+      "exact_set_address_bits": 6,
+      "known_total_bits": 14,
+      "unknown_total_bits": 11
+    },
+    {
+      "background": 2,
+      "torn_addresses": 4,
+      "unknown_main_bits": 13,
+      "known_main_bits": 9,
+      "exact_set_address_bits": 7,
+      "known_total_bits": 16,
+      "unknown_total_bits": 13
+    },
+    {
+      "background": 2,
+      "torn_addresses": 5,
+      "unknown_main_bits": 15,
+      "known_main_bits": 10,
+      "exact_set_address_bits": 8,
+      "known_total_bits": 18,
+      "unknown_total_bits": 15
+    },
+    {
+      "background": 2,
+      "torn_addresses": 6,
+      "unknown_main_bits": 17,
+      "known_main_bits": 11,
+      "exact_set_address_bits": 9,
+      "known_total_bits": 20,
+      "unknown_total_bits": 17
+    },
+    {
+      "background": 2,
+      "torn_addresses": 7,
+      "unknown_main_bits": 19,
+      "known_main_bits": 12,
+      "exact_set_address_bits": 10,
+      "known_total_bits": 22,
+      "unknown_total_bits": 19
+    },
+    {
+      "background": 2,
+      "torn_addresses": 8,
+      "unknown_main_bits": 21,
+      "known_main_bits": 13,
+      "exact_set_address_bits": 11,
+      "known_total_bits": 24,
+      "unknown_total_bits": 21
+    }
+  ],
+  "verified": true,
+  "independent_review": false
+}
