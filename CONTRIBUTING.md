@@ -53,7 +53,7 @@ Choose one numbered item when possible.
 
 ## Claim status
 
-Every substantive claim should be labeled as one of:
+Make the status of each substantive result clear in the surrounding text or theorem statement. A common status may cover a coherent argument; ordinary notes do not need a label on every inference. Canonical result records use the existing labels:
 
 - `DEFINITION`
 - `PROVED`
@@ -70,7 +70,9 @@ Do not present a mathematical analogy as physical evidence.
 
 Finding earlier work is a first-class contribution.
 
-If your change materially uses an external source:
+In research notes, calculations, manuscript drafts and ordinary discussions, cite the relevant paper, theorem, page or stable link where it supports the argument. Those citations do not require a separate source registry, lineage record or translation before research can continue or the draft can be saved.
+
+When integrating an external source into the canonical project reference/specification corpus:
 
 1. verify the primary source when possible;
 2. add or reuse its stable `SRC-*` entry in `sources.json`;
@@ -84,11 +86,11 @@ Read `docs/CITATION_POLICY.en.md` before changing novelty language.
 
 ## Bilingual canonical documents
 
-Issues and discussions may use either English or Chinese.
+Research notes, calculations, manuscript drafts, handoffs, issues and discussions may use either English or Chinese. Translation is needed when it is part of the requested deliverable or integration into an established bilingual canonical pair.
 
 Canonical prose files must remain synchronized English/Chinese pairs. Contributors are not required to know both languages: a maintainer may supply the paired translation before merge.
 
-A pull request that changes one canonical language file but not its pair is incomplete.
+A canonical pair's semantic update is complete when both versions agree. Working drafts may be saved before that integration; the pairing requirement does not extend to every research artifact.
 
 ## Code rules
 
@@ -101,7 +103,7 @@ In `src/enterprise_math/core.py`:
 - no hidden call to a floating root implementation;
 - behavior must follow the written specification.
 
-Run the relevant checks locally first. The routine GitHub workflows for quality, reference integrity, bilingual synchronization, and Lean are manual; ordinary research does not wait for them.
+For software changes, run the checks needed for the affected behavior. For mathematics, review the actual argument or computation. A complete written proof does not require Lean, and a calculation script does not require packaging, a public API or a full software test suite solely because it is executable. A formal-verification claim still needs the corresponding actual checker result. The routine GitHub workflows for quality, reference integrity, bilingual synchronization, and Lean are manual; ordinary research does not wait for them.
 
 For a Python integration change that warrants the full local suite, use the repository runner, which includes both unittest and pytest-style tests:
 
@@ -117,7 +119,7 @@ base=$(git rev-parse --verify "${BASE_REF:?Set BASE_REF to the locally available
 python tools/check_bilingual_pairs.py --base "$base"
 ```
 
-The base-free bilingual command only checks structure. Run `python tools/check_references.py` for citation or lineage changes, and `lake build --wfail -KCI EnterpriseMath` for changes to the Lean proof layer. For narrower changes, run the affected test or proof directly.
+The base-free bilingual command only checks structure. Run `python tools/check_references.py` when integrating changes to the canonical source/lineage corpus. For Lean changes, check the affected proof and dependencies; use `lake build --wfail -KCI EnterpriseMath` when the full proof layer is affected. Ordinary scholarly citations and prose-only research edits need no repository-wide build.
 
 ## Pull requests
 

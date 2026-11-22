@@ -73,7 +73,7 @@ Default checkpoint behavior:
 
 1. batch the coherent checkpoint on the owner branch;
 2. persist one immutable commit;
-3. return branch, commit SHA, exact paths, inventory, frontier and next action;
+3. return branch, commit SHA, exact paths, a short inventory and the current frontier/conclusion; include a next action when one is known;
 4. record the HANDOFF `progress_ref` against that durable commit/path when scheduler coordination is required;
 5. keep the branch/tag reachable until the material is accepted, superseded or deliberately archived;
 6. a model may use its normal branch/PR/merge workflow without a separate necessity test; neither PR creation nor CI waiting is a universal checkpoint prerequisite or a conversation stopping point.
@@ -93,9 +93,12 @@ Choosing a PR workflow does not waive applicable validation or integration gates
 
 ## 5. Required handoff manifest
 
-A required handoff identifies at minimum:
+A handoff manifest is the locator and context needed to resume the work. A compact
+paragraph or the existing scientific note may supply it; no additional JSON file
+or duplicate report is required unless the exact task's machine interface needs
+one. It identifies, as applicable:
 
-- `task_id`;
+- `task_id` when the work is bound to a formal Task; otherwise the actual research subject/frontier, without inventing a Task ID;
 - `Researcher-ID`;
 - durable surface: `GITHUB` or `GOOGLE_DRIVE`;
 - exact branch/tag or Drive locator;
@@ -103,7 +106,12 @@ A required handoff identifies at minimum:
 - exact persisted paths/files;
 - short inventory;
 - durable frontier/conclusion;
-- smallest recommended next action.
+- known unfinished work or smallest recommended next action, if present.
+
+A completed unit or an unknown successor may have no next action. Report the
+actual scope; this does not mark a parent Task complete or grant Result/Review
+authority. Existing scientific files and verified locators may be reused rather
+than copied into another handoff artifact.
 
 When exact byte identity is task-critical, include the required Git blob SHA, SHA-256 or manifest digest.
 

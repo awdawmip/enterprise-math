@@ -678,7 +678,7 @@ def main() -> int:
     freeze.add_argument("--terminal-verdict", choices=sorted(TERMINAL_VERDICTS), required=True)
     freeze.add_argument("--hard-target-disposition", required=True)
     freeze.add_argument("--unresolved-residue", required=True)
-    freeze.add_argument("--method-harvest", choices=sorted(METHOD_HARVEST), required=True)
+    freeze.add_argument("--method-harvest", choices=sorted(METHOD_HARVEST), default="RESULT_ONLY")
     freeze.add_argument("--independence-status", choices=sorted(INDEPENDENCE_STATUS), required=True)
     freeze.add_argument("--source-exposure-status", choices=sorted(SOURCE_EXPOSURE_STATUS), required=True)
     freeze.add_argument("--next-control-plane-recommendation", required=True)

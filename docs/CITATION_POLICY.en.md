@@ -6,6 +6,8 @@ This policy applies to external mathematical, computational, physical, historica
 
 The goal is not merely to produce a bibliography. The goal is to make every borrowed definition, structural analogy, contrast class, and novelty boundary auditable.
 
+Ordinary research notes, computations, manuscript drafts and discussion use scholarly citations at the point of use: a paper, theorem/page reference, DOI or stable link sufficient to locate the source. The registry, lineage and paired-language update procedure below applies when integrating material into the canonical project corpus. Saving a draft in GitHub alone does not perform that integration. Attribution and support for the actual claim remain necessary in either case.
+
 ## 2. Canonical source IDs and registry corpus
 
 Every external source used materially in canonical project prose must have exactly one stable `SRC-*` record in the **canonical source-registry corpus**.
@@ -102,7 +104,7 @@ When a new citation is introduced into canonical work:
 5. update the relevant bilingual `docs/PRIOR_ART*.en.md` / `.zh-CN.md` corpus so the source and novelty boundary are visible in prose;
 6. update any theorem, specification, reference, or physical-comparison document that relies on it;
 7. preserve old source records unless they were factually erroneous;
-8. run the reference-integrity and bilingual checks.
+8. check the affected source/lineage relationships and canonical language pairs; use the repository checkers when validating that integration.
 
 Prefer a small additive shard for an independent research line when rewriting the large base JSON would create unnecessary merge contention. Sharding is an integration mechanism, not a relaxation of provenance rules.
 
@@ -131,7 +133,7 @@ If two sources conflict, record the conflict instead of silently choosing the on
 
 `tools/check_references.py` validates the combined machine-readable provenance graph and stable source IDs across all registry files.
 
-The CI workflow must fail when:
+When the registry checker is run locally or through the manual workflow, it reports errors when:
 
 - a source ID is duplicated anywhere in the registry corpus;
 - a component ID is duplicated anywhere in the lineage corpus;

@@ -20,6 +20,10 @@ checkpoint persistence requirement. This protocol does not replace either.
 
 ## Start, including a connector-only ChatGPT host
 
+Use this section when creating a missing Activity association. Reuse an existing
+own record. Ordinary research and scientific-file publication do not require
+running registration, a guard, or an audit at each step.
+
 With local execution, run:
 
 ```text
@@ -84,6 +88,14 @@ valid provenance without implying main admission or mathematical acceptance.
 An EM source already present must not be copied again merely because the activity
 was unregistered. A KB-only checkpoint is `SYNC_DEBT`.
 
+Activity association is separate bookkeeping and may cover a coherent batch of
+research. A verified scientific file does not need a second copy, a separate JSON
+manifest, or an observation sidecar merely to count as saved. The full observation
+format below is for an Activity source recorded as `EM_SOURCE_OBSERVED`; it is not
+a checklist for each deduction, file save, or substantive response. A source
+recorded without its observation remains `VERIFY_EM_PUBLICATION` for that evidence
+audit, without undoing an independently verified scientific publication.
+
 `checkpoint --source-json` accepts this shape; the `readback.result` is the actual
 full managed tool response, not a reconstructed success flag:
 
@@ -147,20 +159,15 @@ unverified successor can clear debt. Connector-only transport must preserve this
 same schema/history and actual hashes; unavailable verification stays explicit
 until the helper or an authorized execution host can check it.
 
-Within an observation check, reuse its computed Git blob and receipt digest rather
-than computing the same identity again for the return fields. The guard derives
-record contents and record_sha256 from one read snapshot: a concurrent update
-cannot pair old events with a newer record hash. Persisted sidecars retain their
-existing full validation on each operation, with no cross-call validation cache.
-Event ordering, source pins, debt repair, lock/CAS and idempotency are unchanged.
-
-Within one history validation, repeated references to the same persisted sidecar
-use its first complete byte snapshot and verified source fields. Every row still
-checks its own full source binding and event order. The next operation reads and
-validates the sidecar again, including an unchanged path/size/mtime; changes or
-deletion remain visible. This is operation-local reuse, with no process-wide LRU
-or stored validation certificate. The memo retains source metadata, not raw
-observation bodies.
+`checkpoint` validates the newly supplied observations and preserves existing
+events without replaying their stored receipts. The lightweight `guard` checks
+the current record and original session association; it does not read historical
+sidecars or verify a registration observation. Run the separate `audit` only when
+an observation-evidence audit is needed. That audit validates the persisted
+history, reading each distinct sidecar once within the call; a later audit reads
+and validates it again. The audit's record contents and hash come from the same
+read snapshot. Source bindings, event order, immutable receipts, write locks,
+CAS and idempotency keep their existing checks at their applicable boundaries.
 
 New sidecars use canonical JSON. A persisted receipt's path and SHA-256 identify
 its actual stored bytes, including the original whitespace and key order. The
@@ -181,20 +188,23 @@ records and sidecars are not rewritten to adopt a different serialization.
 
 Unshared derivation may begin without activity pre-registration. The canonical
 runtime guard permits that local scope with `authorized=false`; it grants no
-task claim or protected write. An explicitly supplied activity record still
-requires its original session/source/CAS checks.
-Use `activity_id`, `session_id`, and `activity_registration_source` in that state.
-The latter has the same repo/commit/path/SHA/readback shape as an EM source above,
-but targets the **current exact activity record**. A stale record readback cannot
-authenticate an updated checkpoint record.
-Live guards require the caller's explicit current `session_id` to match the
-record. Omission returns `BIND_CURRENT_RESEARCH_ACTIVITY_SESSION`; it does not
-reuse a prior session. UNKNOWN retrospective records support read-only
-persistence checking, never live activity permission or research `RETURN_FINAL`.
+task claim or protected write. Ordinary final reporting does not require an
+Activity guard or audit. An actual record update still preserves the original
+identity, history and CAS rules.
+
+When checking an existing live association, supply its `activity_id` and actual
+`session_id`. Omission returns `BIND_CURRENT_RESEARCH_ACTIVITY_SESSION`; a
+mismatched session is rejected. UNKNOWN retrospective records do not establish
+a live session or formal completion authority.
+
+Only an explicit observation audit needs `activity_registration_source` (or the
+CLI's `--registration-json`): the full repo/commit/path/SHA/readback for the
+**current exact activity record**. A stale observation does not verify the updated
+record. The lightweight guard does not use this observation input.
 
 ```text
-python tools/research_activity.py guard --activity-id <RA-id> --session-id <current-session-key> --boundary startup --registration-json <current-activity-publication.json>
-python tools/research_activity.py guard --activity-id <RA-id> --session-id <current-session-key> --boundary pre-final --event-id <current-event-id> --registration-json <current-activity-publication.json>
+python tools/research_activity.py guard --activity-id <RA-id> --session-id <current-session-key>
+python tools/research_activity.py audit --activity-id <RA-id> --session-id <current-session-key> --registration-json <current-activity-publication.json>
 python tools/research_activity.py list --limit 20
 ```
 
@@ -202,16 +212,15 @@ The last command supports `--after <next_cursor>`. Canonical
 `research_control_dispatch.py` also adds `research_activity_overview` when records
 exist; this is an output field, not a dispatch subcommand or claim queue.
 The overview reports stored metadata only. It retains historical debt and lists
-recorded repairs separately until the activity guard revalidates their exact
+recorded repairs separately; an explicit observation audit verifies their exact
 evidence. It does not reread research sources during every dispatch.
 
-For an explicitly requested formal boundary,
-`tools/research_runtime_guard.py pre-final --formal-task-completion` consumes
-`research_checkpoint_event_id` and the original primitive `parent_liveness`
-inputs from `tools/active_turn_liveness.py`. Persistence does not close an open
-parent with executable work. `new_semantic_progress=false` (or the activity CLI's
-`--no-new-semantic-progress`) handles a stop before new research without inventing
-a result; it never clears an existing debt. Repository guards cannot intercept
+Formal task completion is a separate operation through
+`tools/research_runtime_guard.py pre-final --formal-task-completion` and its actual
+task/owner/parent-liveness requirements. Activity bookkeeping does not supply that
+authority or close an open parent with executable work. In an explicit observation
+audit, `new_semantic_progress=false` (or `--no-new-semantic-progress`) records a
+boundary without new research; it does not clear an existing debt. Repository guards cannot intercept
 arbitrary chat messages by themselves: the ChatGPT startup/continuation routers
 must preserve the actual shared-task and record-write checks. Ordinary reporting
 and material preservation remain available without an activity registration or

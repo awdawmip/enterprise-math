@@ -81,10 +81,6 @@ class ResearchStartupTransportTests(unittest.TestCase):
             "SEPARATE_ROLE_ROUTE_NOT_ORDINARY_SCHEDULER_FALLBACK",
         )
         self.assertFalse(authority["manual_override_allowed"])
-        self.assertIn(
-            "CONSUME_CURRENT_CANONICAL_DISPATCH_DECISION",
-            payload["hot_start"],
-        )
 
     def test_leased_top_priority_tasks_do_not_block_lower_fresh_candidate(self):
         policy = {

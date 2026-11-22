@@ -38,12 +38,19 @@ def heading_levels(text: str) -> list[int]:
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--base", default=None, help="Base commit used to enforce same-change pairing")
+    parser.add_argument("--paths", nargs="+", metavar="PATH",
+                        help="Check only the named registered pairs and their counterparts")
     args = parser.parse_args()
 
     data = json.loads(MANIFEST.read_text(encoding="utf-8"))
     pairs = [tuple(pair) for pair in data["pairs"]]
     errors: list[str] = []
     registered = {path for pair in pairs for path in pair}
+    if args.paths is not None:
+        requested = set(args.paths)
+        for path in sorted(requested - registered):
+            fail(f"requested path is not registered in bilingual_pairs.json: {path}", errors)
+        pairs = [pair for pair in pairs if requested.intersection(pair)]
 
     for english, chinese in pairs:
         en_path = ROOT / english
@@ -65,15 +72,16 @@ def main() -> int:
         if heading_levels(en_text) != heading_levels(zh_text):
             fail(f"heading structure differs between pair: {english} <-> {chinese}", errors)
 
-    for path in (ROOT / "docs").glob("*.en.md"):
-        rel = path.relative_to(ROOT).as_posix()
-        if rel not in registered:
-            fail(f"unregistered English prose document: {rel}", errors)
+    if args.paths is None:
+        for path in (ROOT / "docs").glob("*.en.md"):
+            rel = path.relative_to(ROOT).as_posix()
+            if rel not in registered:
+                fail(f"unregistered English prose document: {rel}", errors)
 
-    for path in (ROOT / "docs").glob("*.zh-CN.md"):
-        rel = path.relative_to(ROOT).as_posix()
-        if rel not in registered:
-            fail(f"unregistered Chinese prose document: {rel}", errors)
+        for path in (ROOT / "docs").glob("*.zh-CN.md"):
+            rel = path.relative_to(ROOT).as_posix()
+            if rel not in registered:
+                fail(f"unregistered Chinese prose document: {rel}", errors)
 
     changed = changed_files(args.base)
     if changed is not None:
@@ -91,7 +99,10 @@ def main() -> int:
             print(f"ERROR: {error}")
         return 1
 
-    print(f"PASS: {len(pairs)} bilingual document pairs are synchronized structurally.")
+    if args.paths is None:
+        print(f"PASS: {len(pairs)} bilingual document pairs are synchronized structurally.")
+    else:
+        print(f"PASS: {len(pairs)} selected bilingual document pairs are synchronized structurally; full registry audit not run.")
     return 0
 
 

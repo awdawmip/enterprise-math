@@ -34,13 +34,13 @@
     "exact no-go or falsification",
     "material finite experiment result",
     "reusable implementation or checker checkpoint",
-    "research direction change or closed route",
+    "research direction change or closed route worth preserving in the current coherent research batch",
     "handoff or recovery frontier",
     "terminal task result",
     "final substantive research response containing new nontrivial progress"
   ],
   "remote_silence": {
-    "allowed": "Only inside an unfinished below-checkpoint computation when no durable handoff is yet required.",
+    "allowed": "Inside a coherent stretch of unfinished reasoning or computation while no result, handoff, interruption-risk or final-delivery boundary requires durable preservation. Individual inferences, trial values and chat messages are not separate checkpoints.",
     "forbidden_across": [
       "semantic checkpoint",
       "handoff boundary",
@@ -49,7 +49,7 @@
     ]
   },
   "project_artifact_rule": {
-    "requirement": "Persist the smallest faithful project-native artifact authorized by the active research mode and owner/promotion rules.",
+    "requirement": "Persist the smallest faithful project-native artifact for a recoverable, meaningful research batch, under the active research mode and owner/promotion rules. One artifact may include multiple derivation steps, calculations and failed attempts; do not require a separate file, commit or Activity event per step.",
     "examples": [
       "research_notes/ research frontier note",
       "experiments/ executable checkpoint",
@@ -69,7 +69,7 @@
       "explicit source journal path",
       "semantic equivalence to a verified current project artifact"
     ],
-    "repair_rule": "Before treating the parent research objective as durably checkpointed, reconcile newly captured Enterprise Math journal events against current project artifacts and persist only missing semantic content."
+    "repair_rule": "Before treating the parent research objective as durably checkpointed, use the known journal and project references to persist only new scientific content still missing from the project artifact. Reuse verified representations; pending Activity association or index work does not require copying or republishing that science."
   },
   "machine_freeze": {
     "REMOTE_SILENT_BELOW_SEMANTIC_CHECKPOINT": true,
