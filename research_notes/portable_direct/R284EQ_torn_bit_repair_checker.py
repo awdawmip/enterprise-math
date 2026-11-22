@@ -50,6 +50,7 @@ def distinguishable(t, s, kind):
 def check():
     cases = 0
     monotonic_checks = 0
+    interleaved_checks = 0
     witness = {}
     for t in range(1, 10):
         for s in range(0, 4):
@@ -79,6 +80,16 @@ def check():
                             new = tear(u, j, v)
                             assert hamming(new, center) <= hamming(u, center)
                             monotonic_checks += 1
+                        # Exactly one external flip may occur after selecting
+                        # an initially wrong j and before the torn write.
+                        # The complete read-select-write interval may gain at
+                        # most that one externally charged error.
+                        for k in range(t):
+                            mid = u ^ (1 << k)
+                            for v in (0, 1):
+                                new = tear(mid, j, v)
+                                assert hamming(new, center) <= hamming(u, center) + 1
+                                interleaved_checks += 1
 
     # Concrete sharp witnesses at s=1.
     assert distinguishable(3, 1, 'directed')
@@ -93,6 +104,7 @@ def check():
         'tested_s': [0, 3],
         'classification_cases': cases,
         'directed_repair_monotonic_checks': monotonic_checks,
+        'interleaved_external_flip_checks': interleaved_checks,
         'formulas': {
             'directed_only_wrong_positions': 't >= 2*s+1',
             'unknown_torn_address': 't >= 2*s+3',
