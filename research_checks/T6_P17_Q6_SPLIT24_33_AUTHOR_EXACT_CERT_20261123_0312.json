@@ -1,0 +1,124 @@
+{
+  "schema": "T6_P17_Q6_SPLIT24_33_AUTHOR_EXACT_FINITE_CERT_V1",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "frozen_task": {
+    "commit": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+    "path": "research_tasks/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260909.md",
+    "blob": "87b3a6f38e9350f7a3f56624b27bff2a7778a439"
+  },
+  "q0_lattice": {
+    "blob": "d9ac014355a6a1058cc8a0cf2141a01082628881",
+    "index": "17^21",
+    "dimension": 16,
+    "weights": "w_r=17r-1 for r=1,...,16",
+    "D_min_exact": [
+      "8350069911612335617606677214061177705401058080646556447012234889468081355909",
+      "480650972868542992444263969893692042421717754534280313801217347854273"
+    ]
+  },
+  "algorithm": {
+    "affine": "For each named vertical signed roster, build the exact particular q0 representative using six mixed mod-17^j constraints, then shift by the full saturated homogeneous 16D lattice.",
+    "sphere": "Necessary: ||W*u||^2 <= (2331 - cost(V+))^2 + (2331 - cost(V-))^2.",
+    "enumeration": "Exact Fraction Gram-Schmidt; R^2 < Dmin. Enumerate floor and ceil of each backwards coefficient; prune only if exact partial squared norm exceeds R^2.",
+    "sign": "For (3,3), choose i<j to quotient the simultaneous global sign exchange; equal side roster is cancelled."
+  },
+  "splits": {
+    "2,4": {
+      "states": [
+        152,
+        6460
+      ],
+      "max_sphere_R_squared": 4360450,
+      "raw_pairs": 981920,
+      "shared_vertical_pairs": 262720,
+      "primitive_pairs": 719200,
+      "gs_nodes": 1917830,
+      "sphere_leaves": 0,
+      "budget_valid_kernels": 0,
+      "chunks": [
+        {
+          "state_index_range": [
+            0,
+            76
+          ],
+          "raw_pairs": 490960,
+          "shared_vertical_pairs": 148208,
+          "primitive_pairs": 342752,
+          "gs_nodes": 944481,
+          "sphere_leaves": 0,
+          "local_chunk_sha256": "4f0565b1e636d1265e3789aa4d1e4a93e0ab1decacd1d8850b685463212b5d4e"
+        },
+        {
+          "state_index_range": [
+            76,
+            152
+          ],
+          "raw_pairs": 490960,
+          "shared_vertical_pairs": 114512,
+          "primitive_pairs": 376448,
+          "gs_nodes": 973349,
+          "sphere_leaves": 0,
+          "local_chunk_sha256": "7982c612a95fbf6af860d1286a142d389aee9547320fe717e6fabf747938eac3"
+        }
+      ]
+    },
+    "3,3": {
+      "states": [
+        1088,
+        1088
+      ],
+      "max_sphere_R_squared": 4193408,
+      "raw_pairs": 591328,
+      "shared_vertical_pairs": 171136,
+      "primitive_pairs": 420192,
+      "gs_nodes": 1035941,
+      "sphere_leaves": 0,
+      "budget_valid_kernels": 0,
+      "chunks": [
+        {
+          "state_index_range": [
+            0,
+            300
+          ],
+          "raw_pairs": 281250,
+          "shared_vertical_pairs": 87090,
+          "primitive_pairs": 194160,
+          "gs_nodes": 489455,
+          "sphere_leaves": 0,
+          "local_chunk_sha256": "4c993de2b933963e1c5ef501287abb3e1bbd74dc58795135fee1cd306c398a45"
+        },
+        {
+          "state_index_range": [
+            300,
+            700
+          ],
+          "raw_pairs": 235000,
+          "shared_vertical_pairs": 71672,
+          "primitive_pairs": 163328,
+          "gs_nodes": 388468,
+          "sphere_leaves": 0,
+          "local_chunk_sha256": "682cf4c1a3254872046bb14859c0bb474da3e40069fdd4f0bc5daf82f06c491d"
+        },
+        {
+          "state_index_range": [
+            700,
+            1088
+          ],
+          "raw_pairs": 75078,
+          "shared_vertical_pairs": 12374,
+          "primitive_pairs": 62704,
+          "gs_nodes": 158018,
+          "sphere_leaves": 0,
+          "local_chunk_sha256": "780ba71b4cc3010867db9580902394ddb93ab0a789c593f71822d5325ea7c7a2"
+        }
+      ]
+    }
+  },
+  "coverage": "Primitive maximal-p17 v17=1, vertical order6 splits(2,4),(3,3), full bounded q0-lattice mixed necessary congruences. Shared-atom configurations reduce to previously checked lower order; low-prime atoms are unrestricted.",
+  "conclusion": "No affine integer q0 vector meets even the necessary weighted sphere for any primitive signed roster in these two splits; zero original-budget-valid completions.",
+  "original_execution": "Exact self-contained Python/sympy script actually executed in 5 disjoint fixed ranges; published compact wrapper has not been independently executed.",
+  "independent_review": "NOT_PERFORMED",
+  "native_claim": "NOT_VERIFIED",
+  "protected_semantic_progress": "NOT_PUBLISHED"
+}
