@@ -1,0 +1,66 @@
+{
+  "schema": "R762JO_PORT_EULER_44_TO_42_FINITE_EVIDENCE_V1",
+  "date": "2026-11-23",
+  "status": "AUTHOR_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "model": "six-axis composite Port-Euler observer; not native signed P000",
+  "histogram": [
+    6,
+    13,
+    0,
+    1
+  ],
+  "initial_events": 44,
+  "compressed_events": 42,
+  "fixed_absent_support": [
+    0,
+    1,
+    2
+  ],
+  "absent_support_choices": 20,
+  "stabilizer_order": 36,
+  "triple_support_choices_per_absent": 27132,
+  "triple_support_orbits": 885,
+  "inactive_port_subsets_exhaustively_tested": 32768,
+  "eligible_inactive_sets_per_absent": 92,
+  "breakdown": {
+    "empty": 1,
+    "nonmatching": 16,
+    "nonempty_matching": 75
+  },
+  "certificates": {
+    "matching_new": {
+      "checked": 66375,
+      "raw_bytes": 1062000,
+      "raw_sha256": "b53b09e48aa3c124a2cce3cca54c437a99e928e96f6150944a71077a325654f8",
+      "text_sha256": "b7078a725ed5472d64fa2ade3fdebd9bf4ad193eb41eccfde32e705919fa886a"
+    },
+    "active_previous": {
+      "checked": 885,
+      "raw_bytes": 14160,
+      "raw_sha256": "52ccee2fab77f0b8ff343cffbebbe2833dc3fe2f10bc5fa963c0412e22a4a738"
+    },
+    "nonmatching_previous": {
+      "checked": 14160,
+      "raw_bytes": 226560,
+      "raw_sha256": "a255c9a3fc95d4d578a99243c68171d114db7bef038b3fc28b2035b037d5e512"
+    }
+  },
+  "verified_records_total": 81420,
+  "labelled_cases_exactly_covered": 49922880,
+  "finite_verifier": "R762JO_INDEPENDENT_VERIFY.py",
+  "candidate_proposer": "R762JO_MATCHING_GENERATE.py (optional SciPy/HiGHS; uploaded source variant not rerun here)",
+  "certificate_archives": {
+    "matching": "local full reproducibility ZIP; not in GitHub",
+    "active": "prior R762JN full package",
+    "nonmatching": "prior R762JN full package"
+  },
+  "sources": [
+    "R762JN GitHub Draft PR #2975@e7c02b1b55f6debed1612bbf012a86e7e27700bd",
+    "frozen task scientific pins retained"
+  ],
+  "open_questions": [
+    "(6,12,2,0) 44-event terminal class",
+    "independent audit of R762IR/R762JK reductions",
+    "signed native P000 triadic lift preserving provenance and future operations"
+  ]
+}
