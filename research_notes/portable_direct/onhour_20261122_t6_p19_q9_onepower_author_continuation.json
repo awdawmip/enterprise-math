@@ -1,0 +1,166 @@
+{
+  "schema": "EM_AUTHOR_PORTABLE_TASK_CONTINUATION_V1",
+  "created_at": "2026-11-22T23:05+08:00",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "publication_id": "TP2-34B106D2512A298C9647",
+  "parent_objective": "EXACT_GLOBAL_T6_THRESHOLD_OR_CHEAPER_COLLISION",
+  "actor": {
+    "role": "TASK_RESEARCH",
+    "researcher_id": "EM-X6-FB6990",
+    "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+    "maintenance_conversation_id_prohibited": "chatgpt-hourly-enterprise-math-20260921",
+    "own_session_closed": false,
+    "winning_claim": null,
+    "run_id": null,
+    "role_bound_execution_authorized": false
+  },
+  "previous_author_continuation": {
+    "source_commit": "a5886560702316a3f5e71d770e3d2c706df2ac0a",
+    "path": "research_notes/portable_direct/onhour_20261122_t6_q12_h013_author_continuation.json"
+  },
+  "immutable_frontier": [
+    {
+      "kind": "p19_q9_onepower_scope_and_proof",
+      "source_commit": "03889da251c08393a1570724030d36c8f261cee6",
+      "path": "research_notes/portable_direct/onhour_20261122_t6_p19_q9_onepower_h013_exclusion.md",
+      "git_blob_sha1": "96bb32b4d540f3194c14465be3194a7d1de9ff86"
+    },
+    {
+      "kind": "p19_q9_exact_census_executed_checker",
+      "source_commit": "8654a62153cd0456bf463d3b1e1a125715822e23",
+      "path": "research_checks/T6_P19_Q9_ONEPOWER_H012_JOIN_20261122_2300.cpp",
+      "git_blob_sha1": "eb902a4ad8f46e16a41e5a442b9273b5c5579c3c",
+      "sha256": "189c686b559c2bc5b8ccad4df85c7895fc430a42124c2610fceff8c0f4db72a8"
+    },
+    {
+      "kind": "p19_q9_exact_eight_witness_certificate",
+      "source_commit": "41802649d25b5fafb905f29783f92ac4bbd45a32",
+      "path": "research_checks/T6_P19_Q9_ONEPOWER_H013_AUTHOR_CERT_20261122_2300.json",
+      "git_blob_sha1": "c5c706fd5c6103db1db7781fcdf06213d8d44c45"
+    },
+    {
+      "kind": "p19_q9_rational_verifier",
+      "source_commit": "5eb9e45db59d48d21ac064de78f177707d4bfc70",
+      "path": "research_checks/T6_P19_Q9_ONEPOWER_EIGHT_WITNESSES_VERIFY_20261122_2300.py",
+      "git_blob_sha1": "40bbbafc10c9842cb39d124721ac1683bd29c462"
+    },
+    {
+      "kind": "account_journal",
+      "repository": "awdawmip/chatgpt-global-knowledge",
+      "source_commit": "973c9925fc25c265613ab97127be9cc069dd0116",
+      "path": "journal/enterprise-math/2026-11-22/20261122T2305+0800-onhour-t6-p19-order9-onepower-h3-exclusion.md",
+      "git_blob_sha1": "7e67df5756cd0618678161e17e4e88e4acf13199"
+    },
+    {
+      "kind": "research_activity_275",
+      "source_commit": "d75c7b5dd883fa8415fae135a17d473e790f8195",
+      "path": "research_activity_records/RA-5E3FE1E761E4963EC461A892.json",
+      "git_blob_sha1": "a4930306e40345887f6ebf091837df09f291ac49"
+    }
+  ],
+  "frozen_science_scope": {
+    "source_taskbook": "research_tasks/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260909.md",
+    "mother_target": "T6=2332 or exact cheaper collision",
+    "author_submodel": "maximal p19, valuation v19(d)=1, vertical q order9 split(3,6)/(4,5), distinct q0 denominators 19j j1..18; every cofactor 19-smooth; separate masses<=2331; opposing supports disjoint",
+    "p000_blob_sha1": "770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc"
+  },
+  "current_scientific_conclusion": {
+    "status": "AUTHOR_EXACT_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+    "submodel": "P19_Q9_ONEPOWER_Q0_J1_18",
+    "vertical_atoms": 64,
+    "split_3_6": {
+      "vertical_rosters": [
+        751,
+        114
+      ],
+      "full_side_configurations": [
+        569718902,
+        675
+      ],
+      "H01_pairs": 4247,
+      "H012_pairs_before_support": 12,
+      "H012_support_disjoint": 2,
+      "H013_support_disjoint": 0
+    },
+    "split_4_5": {
+      "vertical_rosters": [
+        3484,
+        3378
+      ],
+      "full_side_configurations": [
+        43043867,
+        852346
+      ],
+      "H01_pairs": 20588569,
+      "H012_pairs_before_support": 28650,
+      "H012_support_disjoint": 6,
+      "H013_support_disjoint": 0
+    },
+    "total_H012_survivors": 8,
+    "total_H013_survivors": 0,
+    "sharp_abs_H3_gap": "1/2710237824",
+    "witness": {
+      "A": [
+        532,
+        532,
+        1064
+      ],
+      "B": [
+        456,
+        798,
+        798
+      ],
+      "H0_H2_equal": true,
+      "H3_delta": "1/2710237824"
+    },
+    "parent_global_T6_status": "OPEN"
+  },
+  "completed_scientific_units": [
+    "Consume existing accepted p19 orders0-8 and last author-side p17 q14/q13/q12 without rerunning",
+    "Execute both p19 order-nine valuation-one finite exact H012 joins, full integer witness reconstruction and prove H3 excludes all eight scoped survivors",
+    "Publish the corresponding proof, executable enumeration checker, certificate, rational witness verification script, global journal and Activity275 source association; remote readback verified"
+  ],
+  "evidence_open": [
+    "Original full p19 order-nine p-adic valuation layers and zero-first-digit/inactive rescue mechanisms not checked",
+    "Original frozen maximal-p19 saturated q0 lattice and mixed congruences not run; one-power cofactor test is not substitute",
+    "Independent nonauthor mathematical verification, source-plan scope review, and formal Result pending",
+    "Winning live T6 CLAIM/RUN and authorized protected semantic PROGRESS absent; as-of Task read does not grant them",
+    "X6 original complete signed triad movement and C24/C3 sensors remain separate Native experiments"
+  ],
+  "do_not_repeat": [
+    "Accepted p19 orders0-8 or previous p17 q12-14 no defect",
+    "Current exact p19 one-power scan absent found mathematical or checker defect",
+    "Prior rejected typed prepares onhour-20261122-1920-t6-own-typed-cont-prep-v1 and onhour-20261122-1925-t6-own-typed-cont-prep-bounded-scope-v1",
+    "Do not mistake Activity/checkpoint/GitHub artifact for protected Native PROGRESS, native owner, independent review or global T6 proof",
+    "No registration, prepare, claim, open, dispatch or recovery to maintenance conversation"
+  ],
+  "next_scientific_action": "From exact original p19 order-nine Source plan, classify and close higher v19 factor, inactive residues and zero-first-digit rescues; validate mixed q0 congruence feasibility using full named carriers and side budgets. If valid modular kernel found do lower-prime completion. Resolve current canonical owner/typed continuation legally before any protected semantic mutation.",
+  "control": {
+    "research_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+    "maintenance_conversation_id_prohibited": "chatgpt-hourly-enterprise-math-20260921",
+    "own_session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "last_original_task_request_id": "onhour-20261122-2205-t6-task-current-read-v1",
+    "last_original_task_receipt": "SUCCEEDED / error=null",
+    "last_original_task_as_of": "2026-11-22T14:17:14.201534+00:00",
+    "as_of_dispatch_state": "NEEDS_DISPATCH",
+    "as_of_owner": "taskbook/unassigned",
+    "as_of_execution_authorized": false,
+    "winning_claim_id": null,
+    "run_id": null,
+    "protected_semantic_progress": "NOT_PUBLISHED",
+    "prior_terminal_prepare_failures": [
+      {
+        "request_id": "onhour-20261122-1920-t6-own-typed-cont-prep-v1",
+        "error": "NATIVE_INPUT_SCOPE_METADATA_BUDGET_EXCEEDED"
+      },
+      {
+        "request_id": "onhour-20261122-1925-t6-own-typed-cont-prep-bounded-scope-v1",
+        "error": "GITHUB_PRIMARY_RATE_LIMIT"
+      }
+    ],
+    "next_control_action": "Use latest current Source and original receipt/continuation; if same-session authorized use valid predecessor CAS typed prepare and new genuine own winning CLAIM/open; do not replay failed/unknown writes. No maintenance-lane use.",
+    "scheduler_mutated": false
+  },
+  "formal_admission": false
+}
