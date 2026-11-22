@@ -1,0 +1,28 @@
+{
+  "schema": "ENTERPRISE_MATH_R762JP_RAINBOW_PARITY_EVIDENCE_V1",
+  "date": "2026-11-23",
+  "model": "six-axis composite Port–Euler, 15 active Ports, 20 triple labels",
+  "theorem": "With any three singleton support labels and all remaining 17 labels of multiplicity 2 or 3, a connected positive-even-degree Euler witness exists on all 15 Ports. Consequence: for the (6,12,2,0) 44-event histogram and V=P, every triple j can be lowered by 2 to 42 events.",
+  "method": "Spectral cut lemma for J(6,2) + graphic/partition matroid intersection + GF(2) tree parity correction",
+  "result": "PASS",
+  "three_support_exclusions_checked": 1140,
+  "verified_rainbow_trees": 1140,
+  "witnesses_checked": 3420,
+  "greedy_attempt_histogram": {
+    "0": 1062,
+    "1": 74,
+    "2": 4
+  },
+  "max_attempt_index": 2,
+  "min_positive_even_degree": 2,
+  "exhaustive_cut_checks": 32766,
+  "singleton_cosingleton_cuts": 30,
+  "min_other_cut": 14,
+  "witness_stream_sha256": "987329223570b86051911fcbb85b907501e29c8cc14fb5f8d5d7fabed3a49c92",
+  "computation": "Python 3 standard library; integer graph/parity enumeration",
+  "proof_dependencies": "Standard graphic/partition matroid intersection theorem; exact analytic spectral cut bound",
+  "coverage": "ALL_ACTIVE_PORTS_ONLY",
+  "excluded": "Inactive Port configurations; native signed P000 dynamic lift; independent review; global upper bound improvement",
+  "prior": "awdawmip/enterprise-math@f712e0bbe7ef895d94d2eb6b8b28847d653f91da:research_notes/portable_direct/R762JO_COMPLETE_T6D13_Z1_44_TO42.md",
+  "review": "NOT_REVIEWED"
+}
