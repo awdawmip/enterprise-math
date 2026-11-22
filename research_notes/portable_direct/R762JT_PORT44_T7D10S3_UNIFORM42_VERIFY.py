@@ -7,6 +7,7 @@ from itertools import combinations
 from collections import Counter
 from hashlib import sha256
 from random import Random
+from pathlib import Path
 import json, zlib, base64, sys
 
 AXES = tuple(range(6))
@@ -96,6 +97,7 @@ def find_forest(F,D,pairs,ncomponents,mindex):
     raise AssertionError(f'cannot construct rainbow forest for M={mindex} D={D}')
 
 def run():
+    out_dir=Path(__file__).resolve().parent
     totals=[];all_cert=[]
     for mindex,M in enumerate(PATTERNS):
         V,F,G,edges,vec,pairs,ncomp=analyze(M)
@@ -125,7 +127,7 @@ def run():
                       'exception_masks':pencils})
     certificate=json.dumps(all_cert,separators=(',',':')).encode()
     packed=base64.b64encode(zlib.compress(certificate,9)).decode()
-    open('/mnt/data/R762JT_RAINBOW_CERTS.b64','w').write(packed+'\n')
+    open(out_dir/'R762JT_RAINBOW_CERTS.b64','w').write(packed+'\n')
     evidence={'schema':'R762JT_EXACT_FINITE_EVIDENCE_V1',
               'scope':'composite_6_axis_Port_Euler; all matching inactive port sizes 0..3; full support singleton subsets <=4',
               'totals':totals,'total_patterns':sum(x['patterns'] for x in totals),
@@ -136,7 +138,7 @@ def run():
               'certificate_records_sha256':sha256(certificate).hexdigest(),
               'certificates_b64_sha256':sha256((packed+'\n').encode()).hexdigest(),
               'review':'AUTHOR_EXACT_FINITE_VERIFIED_NOT_INDEPENDENTLY_REVIEWED'}
-    open('/mnt/data/R762JT_EVIDENCE.json','w').write(json.dumps(evidence,ensure_ascii=False,indent=2)+'\n')
+    open(out_dir/'R762JT_EVIDENCE.json','w').write(json.dumps(evidence,ensure_ascii=False,indent=2)+'\n')
     print(json.dumps({k:v for k,v in evidence.items() if k not in ('totals',)},indent=2))
     for item in totals:print({k:v for k,v in item.items() if k not in ('rank_hist','exception_masks')})
 
