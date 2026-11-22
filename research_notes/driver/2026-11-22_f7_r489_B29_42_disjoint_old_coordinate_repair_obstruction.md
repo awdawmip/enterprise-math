@@ -12,7 +12,7 @@ Let (q_{28}) be **the exact globally defined witness** from r488: (Q_{28}=4q_{28
 - [actual fixed encoded byte array](https://github.com/awdawmip/enterprise-math/blob/a8250b8b3155e0dac034e168517f298037fde266/research_artifacts/F7_R488_B28_Exact_Quarter_Witness_20261122.b85), decompressed SHA256 `fa01c131e431a7ff708dbffc9974c44dcb8e2f126349bcbe8ba6ee5bc7a1fd6d`
 - [original independent B28 integer checker](https://github.com/awdawmip/enterprise-math/blob/7cafd74d5a6eb7ff8040900d23ec7ca0e48bfe7e/research_checks/CBRC_F7_R488_B28_EXACT_QUARTER_CERT_20261122.py).
 
-**Theorem r489.** The unchanged global r488 witness has (\max_{[-29,29]^4}|4D_{q_{28}}|=4), violating the B29 half-error bound on **18,752** of the (59^4=12,117,361) original integer quadruples. Of these, **18,304** are supported exclusively on preexisting B28 indexed (evenness-reduced) function coordinates. More strongly, every admissible real-valued (\widetilde q) with (\max_{[-29,29]^4}|D_{\widetilde q}|\le1/2) must differ from (q_{28}) at **at least 42 distinct old B28 indexed keys**, and its old-coordinate total change satisfies
+**Theorem r489.** The unchanged global r488 witness has (\max_{[-29,29]^4}|4D_{q_{28}}|=4), violating the B29 half-error bound on **18,752** of the (59^4=12,117,361) original integer quadruples. Of these, **18,304** involve no B29-only free key: every mutable support coordinate is an old B28 indexed key; any remaining axis or marked coordinate is fixed by the original model. More strongly, every admissible real-valued (\widetilde q) with (\max_{[-29,29]^4}|D_{\widetilde q}|\le1/2) must differ from (q_{28}) at **at least 42 distinct old B28 indexed keys**, and its old-coordinate total change satisfies
 \[
 \sum_{K\in I_{28}}|\widetilde q(K)-q_{28}(K)|\ge\frac{42}{4}=\frac{21}{2}.
 \]
@@ -20,7 +20,7 @@ Here (I_{28}) denotes the 16,294 B28 free keys (K=(|x|,y)) with (y\ne0), excludi
 
 ## Complete finite-check method and histogram
 
-Use the exact r471 change of variables (r=a-b,t=a-2b,u=c-d,s=c-2d); then (D_q=[h_r(s)-h_u(s)]-[h_r(t)-h_u(t)]), (h_r(v)=q(2r-v,r-v)). For each (r\in[-58,58]), (T_r=[2r-\min(29,r+29),,2r-\max(-29,r-29)]\cap\mathbb Z). Enumerate all (r<u), (t\in T_r), (s\in T_u), and accumulate the exact integer (4D_{q_{28}}=Q(2r-s,r-s)-Q(2u-s,u-s)-Q(2r-t,r-t)+Q(2u-t,u-t)). Restore (r>u) by sign reversal and (r=u) by zero. This enumerates the original full input box bijectively, with no rounding.
+Use the exact r471 change of variables (r=a-b,t=a-2b,u=c-d,s=c-2d); then (D_q=[h_r(s)-h_u(s)]-[h_r(t)-h_u(t)]), (h_r(v)=q(2r-v,r-v)). For each (r\in[-58,58]), (T_r=[2r-\min(29,r+29),2r-\max(-29,r-29)]\cap\mathbb Z). Enumerate all (r<u), (t\in T_r), (s\in T_u), and accumulate the exact integer (4D_{q_{28}}=Q(2r-s,r-s)-Q(2u-s,u-s)-Q(2r-t,r-t)+Q(2u-t,u-t)). Restore (r>u) by sign reversal and (r=u) by zero. This enumerates the original full input box bijectively, with no rounding.
 
 | Exact (4D_{q_{28}}) | Original-input count |
 |---:|---:|
@@ -34,7 +34,7 @@ Use the exact r471 change of variables (r=a-b,t=a-2b,u=c-d,s=c-2d); then (D_q=[h
 | +3 | 9,288 |
 | +4 | 88 |
 
-The (r<u) half has 9,376 violating rows, of which 9,152 have all four *editable* evenness-reduced support keys inside (I_{28}). The opposite orientation doubles these figures. The original (r=u) cases total 136,939 and have zero error.
+The (r<u) half has 9,376 violating rows, of which 9,152 have every mutable support coordinate within the old B28 index (I_{28}); fixed axis/mark endpoints are permitted. The opposite orientation doubles these figures. The original (r=u) cases total 136,939 and have zero error.
 
 ## Independent-support certificate for old-coordinate repair
 
