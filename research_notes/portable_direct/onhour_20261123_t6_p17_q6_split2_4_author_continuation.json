@@ -1,0 +1,82 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_AUTHOR_CONTINUATION_V1",
+  "record_kind": "AUTHOR_SCIENTIFIC_AND_CONTROL_CONTINUATION",
+  "date": "2026-11-23",
+  "timezone": "Asia/Hong_Kong",
+  "mother_task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "parent_objective_id": "EM-T6-SHAPE-MOMENT-EXACT-THRESHOLD",
+  "mother_question": "T6=2332 global exact lower bound or cheaper H0..H6 collision both masses<=2331?",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_excluded_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "frozen_scientific_input": {
+    "repository": "awdawmip/enterprise-math",
+    "source_commit": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+    "path": "research_tasks/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260909.md",
+    "git_blob_sha1": "87b3a6f38e9350f7a3f56624b27bff2a7778a439",
+    "repinned": false
+  },
+  "P000": {
+    "state": "ACTIVE_LOCKED",
+    "account_projection": "projects/enterprise-math/P000_STARTUP.json",
+    "canonical_blob": "770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc"
+  },
+  "prior_continuation": {
+    "path": "research_notes/portable_direct/onhour_20261123_t6_p17_q6_two_splits_author_continuation.json",
+    "commit": "5832fa096f2a4a0129efc0e70d8d114b9f0b057b"
+  },
+  "completed_units": [
+    {
+      "id": "T6-P17-Q6-SPLIT2_4-GLOBAL-MIXED-EXCLUSION",
+      "statement": "Author exact valuation-one p17 vertical total order 6, split (2,4): 152*6460=981920 raw pair rosters, 262720 opposite shared-named cancellations, 719200 primitive pairs; saturated q0 lattice exact Gram-Schmidt 1917830 recursion nodes; zero complete necessary weighted sphere leaves; zero valid two-side mass bounded corrections; lower-prime unrestricted",
+      "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+      "note": {
+        "commit": "86e65c69c3a602fa281fba24ac03784605345177",
+        "path": "research_notes/portable_direct/onhour_20261123_t6_p17_q6_split2_4_exact_affine_exclusion.md"
+      },
+      "certificate": {
+        "commit": "d08e00698ec6c82f7bbc7fa301af2849ceac7417",
+        "path": "research_checks/T6_P17_Q6_SPLIT2_4_AUTHOR_CERT_20261123.json"
+      },
+      "checker": {
+        "commit": "f73396da4abaaafd7927daaf8e7d308f6d2fb673",
+        "path": "research_checks/T6_P17_Q6_SPLIT2_4_EXACT_REPRODUCER_20261123.py",
+        "separately_executed": false
+      },
+      "local_original": {
+        "status": "EXACT_EXECUTED_IN_TWO_NONOVERLAPPING_SEGMENTS",
+        "sha256": "57be59d0010745f398ca89e7e02396e91b3d08badc66a163aea12e69cb52db5f"
+      }
+    }
+  ],
+  "do_not_repeat": [
+    "Preserve accepted p>=29,p23,p19 earlier authoritative scopes with their review strengths; do not rerun originals",
+    "Author p17 q5 and q6 split(0,6),(1,5),(2,4), and higher-valuation proofs are already authored and persisted; avoid duplicate math",
+    "Each source remains at its own author/review/admission level; Activity does not grant official Progress or Result",
+    "Do not use maintenance identity, overwrite another live owner, replay unknown or failed writes, or change scheduled settings"
+  ],
+  "next_science": {
+    "exact_unit": "T6 p17 valuation-one vertical order6 split(3,3)",
+    "plan": "Use original 16-dimensional q0 saturated integer lattice and exact Gram-Schmidt, enumerate up to overall sign all support-disjoint order3 rosters with actual per-side mass<=2331, apply mixed mod17^j necessary conditions and split mass bound; test any survivors against lower-prime completion. After q6 finish, inspect pinned task and smallest unclosed q7."
+  },
+  "activity": {
+    "id": "RA-5E3FE1E761E4963EC461A892",
+    "count": 285,
+    "commit": "50899402b3e3ad2567b76bbc970470f26a4210dc",
+    "git_blob_sha1": "cdfacf383fbadc206d1fb519ab28138a46e3cefe"
+  },
+  "native": {
+    "version": "0.6.11",
+    "recovery_observation": "session MCP-082892eb480e45dea6d4b9fcc0491034 RESEARCHER open; own T6 run absent in recovery projection; truncated requests",
+    "original_successful_continuation": "onhour-20261123-0105-t6-current-source-cont-v1",
+    "last_exact_task_request": "onhour-20261123-0200-t6-current-read-02",
+    "last_exact_task_status": "SUCCEEDED / NEEDS_DISPATCH / owner unassigned as of 2026-11-22T18:01:48Z",
+    "winning_T6_claim_verified": false,
+    "T6_run_id": null,
+    "protected_native_semantic_progress_published": false,
+    "unresolved_original_write_to_replay": null,
+    "next_action": "At genuine new control boundary refresh current exact task/owner and Source; no privilege from this read-only packet"
+  },
+  "state": "ONE_NEW_PORTABLE_AUTHOR_UNIT_SAVED_AND_ACTIVITY285; GLOBAL_T6_OPEN"
+}
