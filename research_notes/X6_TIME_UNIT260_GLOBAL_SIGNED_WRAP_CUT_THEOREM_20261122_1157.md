@@ -12,26 +12,26 @@ The declared conditional BRC model has OUTER directed ring edges on `x0,...,x11`
 
 For either labeled triad T in any finite closed OUTER-to-OUTER event history define:
 
-- (R_T): completed center passages `x_i -> P -> x_j` (ingress and egress counts agree);
-- (U_T): positive ring-boundary traversals `x11 -> x0`;
-- (D_T): negative ring-boundary traversals `x0 -> x11`;
-- (W_T): cumulative signed OUTER winding.
+- $R_T$: completed center passages `x_i -> P -> x_j` (ingress and egress counts agree);
+- $U_T$: positive ring-boundary traversals `x11 -> x0`;
+- $D_T$: negative ring-boundary traversals `x0 -> x11`;
+- $W_T$: cumulative signed OUTER winding.
 
 **Theorem.** In the exact directed-port graph, irrespective of path length, event interleaving, or occupancy guard,
 
-[
+$
 \boxed{W_T=R_T(i-j)+12(U_T-D_T).}
-]
+$
 
-**Proof.** Use the integer index potential (phi(x_k)=k). For every ring edge except boundary crossing, the signed ring contribution equals (Delta phi). A positive boundary crossing `x11 -> x0` contributes (+12) relative to (Deltaphi=-11); a negative boundary crossing `x0 -> x11` contributes (-12) relative to (Deltaphi=+11). Each completed center passage changes the index potential by (j-i) while adding zero ring winding. Because T returns to its initial OUTER Cell, the ring-edge potential sum is (-R_T(j-i)=R_T(i-j)). Summing signed ring contributions gives the formula. Occupancy restrictions can only delete paths; they cannot invalidate this identity.
+**Proof.** Use the integer index potential $\phi(x_k)=k$. For every ring edge except boundary crossing, the signed ring contribution equals $\Delta\phi$. A positive boundary crossing `x11 -> x0` contributes (+12) relative to $\Delta\phi=-11$; a negative boundary crossing `x0 -> x11` contributes (-12) relative to $\Delta\phi=+11$. Each completed center passage changes the index potential by (j-i) while adding zero ring winding. Because T returns to its initial OUTER Cell, the ring-edge potential sum is (-R_T(j-i)=R_T(i-j)). Summing signed ring contributions gives the formula. Occupancy restrictions can only delete paths; they cannot invalidate this identity.
 
-For A's frozen target (W_A=-12), solve exactly:
+For A's frozen target $W_A=-12$, solve exactly:
 
-[
+$
 \boxed{D_A=U_A+1+\frac{R_A(i-j)}{12}.}
-]
+$
 
-Feasibility therefore requires (12\mid R_A(i-j)). If **i >= j**, then (D_A\ge 1): **the A-labeled negative primitive edge `x0 -> x11` is unavoidable for EVERY feasible closed target history, regardless of length**. The even-port grid has exactly (6+5+4+3+2+1=21) ingress/egress choices with (i\ge j). This includes both original 28-event minimizers `(6,0)` and `(8,2)`. For `(6,0)`, any history with two completed A-center passages requires (D_A\ge2). For `(8,2)`, an A history with zero center passages requires (D_A\ge1).
+Feasibility therefore requires $12\mid R_A(i-j)$. If **i >= j**, then $D_A\ge1$: **the A-labeled negative primitive edge `x0 -> x11` is unavoidable for EVERY feasible closed target history, regardless of length**. The even-port grid has exactly $6+5+4+3+2+1=21$ ingress/egress choices with $i\ge j$. This includes both original 28-event minimizers `(6,0)` and `(8,2)`. For `(6,0)`, any history with two completed A-center passages requires $D_A\ge2$. For `(8,2)`, an A history with zero center passages requires (D_A\ge1).
 
 This upgrades Unit257's all-5,664-shortest-history negative-edge cut to an **unbounded-length topological necessity** for these port orientations. It does not depend on counting the shortest paths or assuming a temporal period.
 
@@ -60,6 +60,6 @@ Code: `research_checks/X6_TIME_UNIT260_GLOBAL_WINDING_CUT_CHECK_20261122_1157.js
 
 ## Direct native consequence and next exact action
 
-The original Source discriminant is still signed intact-triad movement `A:x0 -> x11,-e2` with actual token IDs, TRIADIC_CLOSURE_E, Cell occupancy and environment/observer response. **If Source proves context-independent rejection of this transfer over all relevant full states**, the frozen A target is impossible at *any path length* for all 21 port orientations (i\ge j), including the two original optima. If Source rejects only one observed precontext, apply Unit258's actual-context distinctions; do not extrapolate to a global ban. For (i<j), the A-only bypass construction identifies an alternate orientation class to study only through an authorized Task route; it does not replace the current frozen benchmark.
+The original Source discriminant is still signed intact-triad movement `A:x0 -> x11,-e2` with actual token IDs, TRIADIC_CLOSURE_E, Cell occupancy and environment/observer response. **If Source proves context-independent rejection of this transfer over all relevant full states**, the frozen A target is impossible at *any path length* for all 21 port orientations $i\ge j$, including the two original optima. If Source rejects only one observed precontext, apply Unit258's actual-context distinctions; do not extrapolate to a global ban. For (i<j), the A-only bypass construction identifies an alternate orientation class to study only through an authorized Task route; it does not replace the current frozen benchmark.
 
 Current original Research continuation read `onhour-20261122-1103-x6-own-continuation-after-task-terminal-v1` has been consumed: `SUCCEEDED / error=null` as of 2026-11-22T03:18:18Z, `execution_authorized=false`. It does not prove a present winning CLAIM. Prior terminal `SOURCE_TREE_TRUNCATED` requests are not replayed. Existing engineering support is [#2903](https://github.com/awdawmip/enterprise-math/issues/2903). Native semantic PROGRESS, physical Source event and original unrelated R063 six-file benchmark remain unexecuted by this unit. Preserve independent review and mathematical admission boundaries.
