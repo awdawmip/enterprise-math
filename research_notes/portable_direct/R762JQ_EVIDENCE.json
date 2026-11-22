@@ -1,0 +1,30 @@
+{
+  "schema": "R762JQ_ONE_INACTIVE_EVIDENCE_V1",
+  "date": "2026-11-23",
+  "scope": "Composite Port-Euler, one inactive Port, 6 triple/12 double/2 singleton 44-event histogram",
+  "proof": "Conditional parity repair via 13-color rainbow spanning tree of FULL triangles on 14 active Ports",
+  "exhaustive_three_color_exclusions": 1140,
+  "rainbow_criterion_successes": 1100,
+  "positive_integer_42_witnesses": 3300,
+  "positive_examples_sha256": "01e9b2fdeb37ea8ca69da71b50967086042860f73ce03b664d02561b4f7db809",
+  "criterion_failures": 40,
+  "criterion_failure_family": "all 3 omitted FULL support colors lie in the same six-label wing",
+  "failure_is_not_an_euler_obstruction": true,
+  "small_exception_probe": {
+    "successful_examples": 120,
+    "failed": 0,
+    "quantified_over": "40 failed D x 3 choice of reduced support j; other five triple supports are canonical lexicographic choice only",
+    "generator": "SciPy HiGHS R762JM_GENERATE.candidate with connectivity cuts",
+    "verification": "Integer degree parity, support counts and independent graph traversal"
+  },
+  "symmetry": "all 15 choices of singleton inactive Port under six-axis permutations",
+  "verification": "Python standard library exact integer checks of positive cases; SciPy proposer in supplemental 120 examples",
+  "status": "AUTHOR_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "remaining": "All exceptional 40 D with arbitrary other five triple supports and all inactive-Port patterns M of size>=2",
+  "dependencies": [
+    "R762JP_RAINBOW_PARITY_THEOREM.md",
+    "R762JQ_ONE_INACTIVE_VERIFY.py",
+    "R762JQ_EXCEPTION_PROBE.py",
+    "R762JM_GENERATE.py and R762JM_VERIFY.py at frozen commit c63e8cdc2fea3cca8bd33a6d311d18b8424550b4"
+  ]
+}
