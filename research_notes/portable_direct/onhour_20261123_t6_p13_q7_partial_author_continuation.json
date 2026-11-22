@@ -1,0 +1,135 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_AUTHOR_CONTINUATION_V1",
+  "record_kind": "AUTHOR_SCIENTIFIC_AND_CONTROL_CONTINUATION",
+  "date_local": "2026-11-23",
+  "timezone": "Asia/Hong_Kong",
+  "mother_task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "mother_objective": "T6=2332 exact proof or cheaper six-observer collision; still OPEN",
+  "logical_research_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "prohibited_maintenance_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+  "original_researcher_id": "EM-X6-FB6990",
+  "original_own_session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "frozen_task": {
+    "path": "research_tasks/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260909.md",
+    "commit": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+    "per_side_mass_cap": 2331,
+    "re_pinned": false
+  },
+  "P000": {
+    "canonical_blob_sha1": "770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc",
+    "status": "ACTIVE_LOCKED"
+  },
+  "consumed_prior": {
+    "q0_q3": "research_notes/portable_direct/onhour_20261123_t6_p13_q0_q3_exact_author_continuation.json",
+    "q4_q6": "research_notes/portable_direct/onhour_20261123_t6_p13_q4_q6_author_continuation.json",
+    "q4_q6_commit": "fad5f5ecc578ba364f6697864c7ee111f87e5498",
+    "q4_q6_activity_count": 322
+  },
+  "exact_scientific_source": {
+    "path": "research_notes/portable_direct/onhour_20261123_t6_p13_q7_two_complete_splits_and_partial2_5_author.md",
+    "commit": "9128c44600db48443dc0a778576b0ba432a4f36c",
+    "git_blob_sha1": "a120072c0f088eb97b6656b2bbda02d4ce395ea9"
+  },
+  "replay": {
+    "path": "research_checks/T6_P13_Q7_BOUNDED_AUTHOR_AFFINE_CHECK_20261123.py",
+    "commit": "2d4f0e3ba9687d7c988b0966009ff00569d07e4d",
+    "git_blob_sha1": "15c77d1a928620e5c2217122e55387169be03d8d",
+    "post_publication_executed": false
+  },
+  "certificate": {
+    "path": "research_checks/T6_P13_Q7_PARTIAL_AUTHOR_EXACT_CERT_20261123.json",
+    "commit": "2df0ebd18efb020dfd150dd388344308f2af0bab",
+    "git_blob_sha1": "92af990d76e900fe7afa817fac910855f1209da6"
+  },
+  "q7_exact_frontier": {
+    "completed": [
+      {
+        "split": "(0,7)",
+        "raw": 153960,
+        "primitive": 153960,
+        "GS_nodes": 447638,
+        "relaxed": 2,
+        "valid": 0
+      },
+      {
+        "split": "(1,6)",
+        "raw": 511368,
+        "primitive": 380472,
+        "GS_nodes": 1005734,
+        "relaxed": 6,
+        "valid": 0
+      }
+    ],
+    "partial": [
+      {
+        "split": "(2,5)",
+        "first_side_ordered_index_range": [
+          0,
+          15
+        ],
+        "first_side_total": 90,
+        "raw": 163620,
+        "primitive": 99400,
+        "GS_nodes": 254294,
+        "relaxed": 1,
+        "valid_in_visited_range": 0,
+        "elapsed_s": 734.359
+      }
+    ],
+    "not_visited": [
+      {
+        "split": "(2,5)",
+        "first_side_ordered_index_range": [
+          15,
+          90
+        ]
+      },
+      {
+        "split": "(3,4)",
+        "scope": "entire split"
+      }
+    ],
+    "visited_total": {
+      "raw": 828948,
+      "primitive": 633832,
+      "GS_nodes": 1707666,
+      "relaxed": 9,
+      "valid_in_visited_subfamilies": 0
+    },
+    "proof_status": "AUTHOR_EXACT_FINITE_EXECUTED_FOR_TWO_COMPLETE_SPLITS / PARTIAL_FOR_THIRD / UNREVIEWED / NOT_ADMITTED"
+  },
+  "research_activity": {
+    "id": "RA-5E3FE1E761E4963EC461A892",
+    "count": 325,
+    "verified_commit": "42b5e52895a2a39b8e0d7c93b226907c084b5f1e",
+    "blob_sha1": "dbcd41a336909a570bf301cc20dc240447e64a21"
+  },
+  "do_not_repeat": [
+    "p13 high valuation lemma, q0 lattice, q0..q6 verified earlier at their original author scope",
+    "q7 (0,7) and (1,6) already complete",
+    "q7 (2,5) first-side indices [0,15) completed and digest verified; do not replay as new scientific work",
+    "No attribution of finished unvisited q7 cases, no global closure, no fabricated independent review or native claim"
+  ],
+  "next_scientific_unit": {
+    "target": "p13 valuation-one q7 split(2,5) remaining sorted first-side indices [15,90), then split(3,4)",
+    "method": "Reuse the exact 12D q0 saturated lattice; perform bounded subrange enumeration and exact mixed p13^j j1..6 congruences, H0 and original two mass caps; optimize slow code before reworking original scope; every completed interval checkpoint with digest and relaxed leaves."
+  },
+  "control_status": {
+    "gateway_version": "0.6.11",
+    "own_recovery_status_request_id": "onhour-20261123-0503-own-recovery-ro",
+    "original_continuation_request_id": "onhour-20261123-0431-t6-own-exact-continuation-v1",
+    "original_continuation_terminal": "SUCCEEDED/error=null",
+    "original_task_request_id": "onhour-20261123-0431-t6-current-task-v1",
+    "original_task_terminal": "SUCCEEDED / NEEDS_DISPATCH",
+    "owner": "taskbook/unassigned",
+    "current_claim_id": null,
+    "winning_claim_verified": false,
+    "execution_authorized": false,
+    "native_progress_published": false,
+    "next_control_action": "At a natural new-unit boundary refresh exact Source/claim, choose canonical dispatch only if no own executable run and current router permits, use own SID only. Activity/GitHub output is portable research, not Native semantic PROGRESS."
+  },
+  "result_freeze": "NOT_PERFORMED",
+  "independent_review": "NOT_PERFORMED",
+  "global_T6": "OPEN",
+  "scheduler_modified": false
+}
