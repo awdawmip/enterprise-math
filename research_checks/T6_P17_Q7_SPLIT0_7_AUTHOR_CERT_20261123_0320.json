@@ -1,0 +1,42 @@
+{
+  "schema": "T6_P17_Q7_SPLIT0_7_AUTHOR_EXACT_FINITE_CERT_V1",
+  "scope": "maximal p17 valuation-one, q7 split(0,7), frozen T6",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "frozen_task_commit": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "q0_basis_blob_sha1": "d9ac014355a6a1058cc8a0cf2141a01082628881",
+  "mass_cap_each_side": 2331,
+  "q0_lattice_dimension": 16,
+  "q0_lattice_index": "17^21",
+  "affine_constraints": "sum_r u_r*r^(-j)+sum_vertical m_(q,r)*(r+17q)^(-j)=0 mod 17^j for j=1..6",
+  "roster_counts": {
+    "order0": 1,
+    "order7": 8697
+  },
+  "max_weighted_sphere_radius_squared": 5518825,
+  "min_GS_squared_exact": [
+    "8350069911612335617606677214061177705401058080646556447012234889468081355909",
+    "480650972868542992444263969893692042421717754534280313801217347854273"
+  ],
+  "statistics": {
+    "raw_pairs": 8697,
+    "shared_vertical": 0,
+    "primitive_pairs": 8697,
+    "gs_nodes": 40799,
+    "sphere_leaves": 0,
+    "budget_valid_kernels": 0
+  },
+  "original_execution": {
+    "python": "3",
+    "arithmetics": "exact fractions and integer modular inverse",
+    "completed": true,
+    "local_chunk_sha256": "ea1c7cdd5077cc650f30c1f9fe611038ab937e9cbd878967b3caef162e007b1b",
+    "range": [
+      0,
+      1
+    ],
+    "published_compact_checker_reexecuted": false
+  },
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "global_T6": "OPEN",
+  "native_protected_progress": "NOT_PUBLISHED"
+}
