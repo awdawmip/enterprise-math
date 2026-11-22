@@ -14,6 +14,20 @@ The correct Euler derivative at primitive d=17, where D_Z(q)=product_{p=296}^{31
 h_j\bigl(\zeta_{17}^{296},\ldots,\zeta_{17}^{312}\bigr).
 \]
 
+
+**Standalone all-m Z-block identity at primitive order 17.** The Z block consists of exactly seventeen consecutive prices, hence for any primitive 17th root z the multiset \(\{z^{296},\dots,z^{312}\}\) is the full set of 17th roots. Therefore
+\[
+\prod_{p=296}^{312}(1-tz^p)=1-t^{17},\qquad
+\sum_{j=0}^{m-1}h_j(z^{296},\dots,z^{312})
+=\left\lceil m/17\right\rceil.
+\]
+The unique 17-multiple in the Z block is 306 and the cyclotomic product identity gives \(\prod_{a=1}^{16}(1-z^a)=17\). Applying the Euler derivative to \(D_Z(q)\) at \(q=z\) yields \(\dot D_Z(z)=-306\cdot17=-5202\), and therefore the **exact infinite threshold formula**
+\[
+\boxed{\dot C_m(z)=-5202\left\lceil m/17\right\rceil
+\quad\text{for every integer }m\ge1.}
+\]
+This proves directly that along \(m=r+34h\) the corrected S4 first jet has degree one and step \(-10404\), without a computational extrapolation. The corrected exact cyclic-DP results agree with this formula at the tested thresholds.
+
 The first three overlapping short events retain the exact signed joint incidence; their original computed A_m and dot A_m values are **reused unchanged** from the pinned source CSV. On the ten phases r=13..17 and r=30..34 the previous paper had A_{r+34h}=0 and needed a nonzero first jet. At fixed r, the previous rational six-cone bound gives dot A polynomial degree at most 2 in h; the corrected Cdot along m=r+34h is affine. For all ten phases the second forward difference computed from m=r,r+34,r+68 is zero, so dot R is exactly affine for every h>=0. Corrected canonical coordinate 0 gives:
 
 | r | corrected U | corrected V |
