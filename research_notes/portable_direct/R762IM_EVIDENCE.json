@@ -1,0 +1,404 @@
+{
+  "schema": "R762IM_EXACT_K0_EVEN_TAIL_V1",
+  "status": "PASS",
+  "model": "15 pair-Ports, 20 triple-supports, every named event chooses an edge of its Port triangle",
+  "observer": "Euler existence with same support presence/parity and exact active Port set; any active Port may start",
+  "frozen_input": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "target_events": 52,
+  "verification": "Every even 54..60 event support histogram checked through complete S6 orbits; every possible 14-Port omission checked individually; each constructed witness independently checks count, parity, degree, connectivity, active Port set",
+  "total": {
+    "histograms": 181946,
+    "orbits": 435,
+    "omitted_port_cases": 3165,
+    "omitted_port_failures": 0,
+    "full_port_failures": 0
+  },
+  "results": [
+    {
+      "family": "T20",
+      "deficit": 0,
+      "histograms": 1,
+      "orbits": 1,
+      "omitted_port_cases": 0
+    },
+    {
+      "family": "E2",
+      "deficit": 2,
+      "histograms": 190,
+      "orbits": 3,
+      "omitted_port_cases": 0
+    },
+    {
+      "family": "U1",
+      "deficit": 2,
+      "histograms": 20,
+      "orbits": 1,
+      "omitted_port_cases": 0
+    },
+    {
+      "family": "E4",
+      "deficit": 4,
+      "histograms": 4845,
+      "orbits": 21,
+      "omitted_port_cases": 15
+    },
+    {
+      "family": "U1E2",
+      "deficit": 4,
+      "histograms": 3420,
+      "orbits": 12,
+      "omitted_port_cases": 0
+    },
+    {
+      "family": "U2",
+      "deficit": 4,
+      "histograms": 190,
+      "orbits": 3,
+      "omitted_port_cases": 0
+    },
+    {
+      "family": "M1E1",
+      "deficit": 4,
+      "histograms": 380,
+      "orbits": 3,
+      "omitted_port_cases": 0
+    },
+    {
+      "family": "E6",
+      "deficit": 6,
+      "histograms": 38760,
+      "orbits": 94,
+      "omitted_port_cases": 1800
+    },
+    {
+      "family": "U1E4",
+      "deficit": 6,
+      "histograms": 77520,
+      "orbits": 152,
+      "omitted_port_cases": 1200
+    },
+    {
+      "family": "U2E2",
+      "deficit": 6,
+      "histograms": 29070,
+      "orbits": 69,
+      "omitted_port_cases": 90
+    },
+    {
+      "family": "U3",
+      "deficit": 6,
+      "histograms": 1140,
+      "orbits": 7,
+      "omitted_port_cases": 0
+    },
+    {
+      "family": "M1E3",
+      "deficit": 6,
+      "histograms": 19380,
+      "orbits": 48,
+      "omitted_port_cases": 60
+    },
+    {
+      "family": "M1U1E1",
+      "deficit": 6,
+      "histograms": 6840,
+      "orbits": 18,
+      "omitted_port_cases": 0
+    },
+    {
+      "family": "M2",
+      "deficit": 6,
+      "histograms": 190,
+      "orbits": 3,
+      "omitted_port_cases": 0
+    }
+  ],
+  "sample": {
+    "T20": {
+      "initial_histogram": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "witness_edge_triples": [
+        [
+          3,
+          0,
+          4
+        ],
+        [
+          3,
+          0,
+          8
+        ],
+        [
+          3,
+          0,
+          8
+        ],
+        [
+          5,
+          1,
+          3
+        ],
+        [
+          5,
+          1,
+          10
+        ],
+        [
+          5,
+          1,
+          10
+        ],
+        [
+          6,
+          1,
+          4
+        ],
+        [
+          6,
+          1,
+          11
+        ],
+        [
+          6,
+          1,
+          11
+        ],
+        [
+          7,
+          2,
+          3
+        ],
+        [
+          7,
+          2,
+          12
+        ],
+        [
+          7,
+          2,
+          12
+        ],
+        [
+          8,
+          2,
+          4
+        ],
+        [
+          8,
+          2,
+          13
+        ],
+        [
+          8,
+          2,
+          13
+        ],
+        [
+          9,
+          3,
+          4
+        ],
+        [
+          9,
+          3,
+          14
+        ],
+        [
+          9,
+          3,
+          14
+        ],
+        [
+          10,
+          5,
+          6
+        ],
+        [
+          10,
+          5,
+          9
+        ],
+        [
+          10,
+          6,
+          9
+        ],
+        [
+          11,
+          5,
+          7
+        ],
+        [
+          11,
+          5,
+          10
+        ],
+        [
+          11,
+          7,
+          10
+        ],
+        [
+          12,
+          5,
+          8
+        ],
+        [
+          12,
+          5,
+          11
+        ],
+        [
+          12,
+          8,
+          11
+        ],
+        [
+          13,
+          6,
+          7
+        ],
+        [
+          13,
+          6,
+          12
+        ],
+        [
+          13,
+          7,
+          12
+        ],
+        [
+          14,
+          6,
+          8
+        ],
+        [
+          14,
+          6,
+          13
+        ],
+        [
+          14,
+          8,
+          13
+        ],
+        [
+          15,
+          7,
+          8
+        ],
+        [
+          15,
+          7,
+          14
+        ],
+        [
+          15,
+          8,
+          14
+        ],
+        [
+          16,
+          9,
+          10
+        ],
+        [
+          16,
+          9,
+          12
+        ],
+        [
+          16,
+          10,
+          12
+        ],
+        [
+          17,
+          9,
+          11
+        ],
+        [
+          17,
+          9,
+          13
+        ],
+        [
+          17,
+          11,
+          13
+        ],
+        [
+          18,
+          10,
+          11
+        ],
+        [
+          18,
+          10,
+          14
+        ],
+        [
+          18,
+          11,
+          14
+        ],
+        [
+          19,
+          12,
+          13
+        ],
+        [
+          19,
+          12,
+          14
+        ],
+        [
+          19,
+          13,
+          14
+        ],
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          2,
+          0,
+          3
+        ],
+        [
+          4,
+          1,
+          2
+        ]
+      ]
+    }
+  }
+}
