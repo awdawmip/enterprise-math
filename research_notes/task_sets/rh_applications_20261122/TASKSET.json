@@ -1,0 +1,147 @@
+{
+  "schema": "ENTERPRISE_MATH_SOURCE_BOUND_TASKSET_V1",
+  "taskset_id": "TS-RH-APPLICATIONS-20261122",
+  "parent_objective_id": "OBJ-RH-APPLICATIONS-WEIGHTED-20261122",
+  "created_at": "2026-11-22T09:47:03.977967+00:00",
+  "user_authorization": "当前用户要求将本对话RH推进方向发布为不同权重的任务集。",
+  "publication_kind": "ATOMIC_TASKBOOK_AND_IMMUTABLE_V2_RECORD_BATCH",
+  "publisher_id": "EM-DVR-2D6C6F",
+  "publisher_session_id": "MCP-d6362c0d7d31434e82af45c5e425dc26",
+  "publisher_authority_record": {
+    "authority": "RESEARCH_DRIVER",
+    "authority_record_id": "DA-F510B2698ACA7B1E8F0B",
+    "canonical_promotion_granted": false,
+    "control_authorized": true,
+    "driver_id": "EM-DVR-2D6C6F",
+    "edited": false,
+    "event": "AUTHORIZE",
+    "foundation_authority_granted": false,
+    "github_app_is_authority": false,
+    "global_knowledge_is_authority": false,
+    "record_schema": "ENTERPRISE_MATH_DRIVER_AUTHORITY_RECORD_V1",
+    "scope": "CONTROL_PLANE",
+    "server_authenticated": true,
+    "source_body": "{\"authority\":\"RESEARCH_DRIVER\",\"driver_id\":\"EM-DVR-2D6C6F\",\"event\":\"AUTHORIZE\",\"schema\":\"ENTERPRISE_MATH_DRIVER_AUTH_EVENT_V1\",\"scope\":\"CONTROL_PLANE\",\"session_id\":\"MCP-d6362c0d7d31434e82af45c5e425dc26\",\"session_source_ref\":{\"commit\":\"a783b567c179a09e13224b5407e12fe80bf7e7bd\",\"path\":\"research_session_records/MCP-d6362c0d7d31434e82af45c5e425dc26.json\",\"repository\":\"awdawmip/enterprise-math\",\"sha256\":\"d5313444101b5f3d32a274740105e577bf042a9d9b209c9181580fe52fdaeb1a\"}}",
+    "source_body_sha256": "sha256:4c3d2b1f61d40b5f9914e9dda8525d78a740b0d9a146988f3e522f14244c3f1a",
+    "source_comment_id": 7077316949,
+    "source_comment_url": "https://api.github.com/repos/awdawmip/enterprise-math/issues/comments/7077316949",
+    "source_created_at": "2026-11-22T09:42:19Z",
+    "source_issue": 240,
+    "source_issue_url": "https://api.github.com/repos/awdawmip/enterprise-math/issues/240",
+    "source_repository": "awdawmip/enterprise-math",
+    "source_server_author": {
+      "author_association": "OWNER",
+      "login": "awdawmip",
+      "user_id": 30957095
+    },
+    "source_updated_at": "2026-11-22T09:42:19Z",
+    "working_truth_granted": false
+  },
+  "publisher_authority_source_commit": "b3a8f074928b71c8db046926c15fd71b2bec1754",
+  "scientific_origin": {
+    "researcher_id": "EM-DIRECT-8C7F06",
+    "report": "c2f563200a46fd4bc70ac44453c749ccd0a37bd1:research_notes/portable_direct/rh_impact_20261122_af81e5b398b7/REPORT.md",
+    "mathematical_acceptance": "SOURCE_DEPENDENT_AUTHOR_DERIVATION_NOT_INDEPENDENT_REVIEW"
+  },
+  "control_snapshot": "16d003b7f927efc5ee96f6c47335ab54c8a4d945",
+  "global_snapshot": "1445b0726921efe74a9352bc1e2b943e74582afe",
+  "weight_semantics": {
+    "source": "research_runtime_policy_v2.json#/selection_policy/priority_weights",
+    "base_weights": {
+      "P0": 40,
+      "P1": 30,
+      "P2": 20,
+      "P3": 10
+    },
+    "selection_method": "SEEDED_WEIGHTED_WAITING_ROTATION_V1",
+    "note": "基础优先级权重；还受可执行状态、方向轮转、等待与领取历史影响，不是固定概率或配额。",
+    "global_policy_modified": false
+  },
+  "publication_preflight": {
+    "taskbook_prepare": "PASS",
+    "taskbook_dispatch_lint": "PASS",
+    "scoped_immutable_record_audit": "PASS",
+    "scope": "THIS_SIX_TASK_PUBLICATION_BATCH",
+    "code_source": "16d003b7f927efc5ee96f6c47335ab54c8a4d945"
+  },
+  "tasks": [
+    {
+      "task_id": "RS-RH-ROAD-CERTIFIED-NET-COST-20261122",
+      "title": "已知 RH 下完整道路实际输出的净成本与短证书",
+      "priority": "P0",
+      "base_weight": 40,
+      "publication_id": "TP2-CA89C5FEF350C16A4016",
+      "taskbook_path": "research_tasks/RS-RH-ROAD-CERTIFIED-NET-COST-20261122.md",
+      "taskbook_blob_sha1": "sha1:9f72504791ecacf27adb3ad9abc6cf094324ad66",
+      "record_path": "research_task_records/RS-RH-ROAD-CERTIFIED-NET-COST-20261122/TP2-CA89C5FEF350C16A4016.json",
+      "lineage": "CONTINUATION",
+      "parent_task_id": "RS-RH-METHOD-TRANSFER-20261121",
+      "dependencies": []
+    },
+    {
+      "task_id": "RS-EC49-PRIME-DENOMINATOR-FAMILY-20261122",
+      "title": "EC49 真实锚点族的素数分母密度与统一供给",
+      "priority": "P0",
+      "base_weight": 40,
+      "publication_id": "TP2-DB171770183E82051548",
+      "taskbook_path": "research_tasks/RS-EC49-PRIME-DENOMINATOR-FAMILY-20261122.md",
+      "taskbook_blob_sha1": "sha1:4f7087118711b918898f5ce2fc3393b4cbfafabf",
+      "record_path": "research_task_records/RS-EC49-PRIME-DENOMINATOR-FAMILY-20261122/TP2-DB171770183E82051548.json",
+      "lineage": "INTEGRATION",
+      "parent_task_id": null,
+      "dependencies": []
+    },
+    {
+      "task_id": "RS-RH-MATCHING-PRECISION-TRADEOFF-20261122",
+      "title": "稳定匹配的误差、参数规模与有效常数",
+      "priority": "P1",
+      "base_weight": 30,
+      "publication_id": "TP2-4BD21A5C3A47CC8EAF98",
+      "taskbook_path": "research_tasks/RS-RH-MATCHING-PRECISION-TRADEOFF-20261122.md",
+      "taskbook_blob_sha1": "sha1:60aa2b56569c88699ece08178788b564bf75e173",
+      "record_path": "research_task_records/RS-RH-MATCHING-PRECISION-TRADEOFF-20261122/TP2-4BD21A5C3A47CC8EAF98.json",
+      "lineage": "CONTINUATION",
+      "parent_task_id": "RS-RH-METHOD-TRANSFER-20261121",
+      "dependencies": []
+    },
+    {
+      "task_id": "RS-RIESEL-GRH-COMPATIBLE-SUPPLY-20261122",
+      "title": "Riesel 构造的兼容同余素数供给与实际覆盖收益",
+      "priority": "P2",
+      "base_weight": 20,
+      "publication_id": "TP2-A563AEFE0AF01122F743",
+      "taskbook_path": "research_tasks/RS-RIESEL-GRH-COMPATIBLE-SUPPLY-20261122.md",
+      "taskbook_blob_sha1": "sha1:0974459016814c462dbc7fd1b2eea03c9e784ba4",
+      "record_path": "research_task_records/RS-RIESEL-GRH-COMPATIBLE-SUPPLY-20261122/TP2-A563AEFE0AF01122F743.json",
+      "lineage": "INTEGRATION",
+      "parent_task_id": null,
+      "dependencies": []
+    },
+    {
+      "task_id": "RS-P017-RH-LOCAL-CORRELATION-20261122",
+      "title": "P017 平方窗相关余项中的 RH 输入压力测试",
+      "priority": "P3",
+      "base_weight": 10,
+      "publication_id": "TP2-80A9553A9261D1E38A3C",
+      "taskbook_path": "research_tasks/RS-P017-RH-LOCAL-CORRELATION-20261122.md",
+      "taskbook_blob_sha1": "sha1:e9d6069393b905c644b1e64b0c9522d2440ce555",
+      "record_path": "research_task_records/RS-P017-RH-LOCAL-CORRELATION-20261122/TP2-80A9553A9261D1E38A3C.json",
+      "lineage": "CONTINUATION",
+      "parent_task_id": "RS-P017-P018-ANALYTIC-MASS",
+      "dependencies": []
+    },
+    {
+      "task_id": "RS-INVENTORY-DIVISOR-SUM-INTERFACE-20261122",
+      "title": "因数库存的约数和读出与有效约束",
+      "priority": "P3",
+      "base_weight": 10,
+      "publication_id": "TP2-FA4F8A02D56154DCDF99",
+      "taskbook_path": "research_tasks/RS-INVENTORY-DIVISOR-SUM-INTERFACE-20261122.md",
+      "taskbook_blob_sha1": "sha1:1e663a3623e026ac7e91dfcea4f415682759b530",
+      "record_path": "research_task_records/RS-INVENTORY-DIVISOR-SUM-INTERFACE-20261122/TP2-FA4F8A02D56154DCDF99.json",
+      "lineage": "INTEGRATION",
+      "parent_task_id": null,
+      "dependencies": []
+    }
+  ]
+}
