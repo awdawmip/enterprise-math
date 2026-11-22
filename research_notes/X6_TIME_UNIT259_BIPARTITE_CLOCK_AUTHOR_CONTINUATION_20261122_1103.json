@@ -1,0 +1,91 @@
+{
+  "schema": "X6_NATIVE_TIME_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-22",
+  "cycle": "20261122_1103",
+  "task_id": "RS-X6-NATIVE-TIME-DYNAMICS",
+  "publication_id": "TP2-91D4A7C2F63805BE21A3",
+  "parent_objective": "PO-X6-UPPER-STRUCTURE-20260906",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_lane_excluded": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "own_session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "frozen_scientific_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "exact_original_BRC": "f56840285cafeb9f5767ea91e903e1f53808186f:research_checks/X6_TIME_UNIT245_DIRECTED_CENTER_PORT_PAIR_RESULTS_20261121_2200.json",
+  "previous_immutable_frontier": "Unit258 / Activity260 / 3efd0fab8c93ba0134ae4798c1809e6ff210c89f:research_notes/X6_TIME_UNIT258_CONTEXT_GUARD_AUTHOR_CONTINUATION_20261122_1000.json",
+  "latest_scientific_unit": {
+    "id": "Unit259",
+    "title": "Bipartite event ordinal parity and sharp minimal half-clock memory for serial signed triadic BRC",
+    "theorem": "In the even-port bipartite 12+center graph, t mod2 is observable q=parity(posA) XOR parity(posB), with parity(P)=1. The legal signed x0->x1->x0 two-event return preserves the entire visible BRC state while t advances by2. Thus the event-count observer t mod2^m has an exact 2^(m-1) element fiber at the initial state and requires precisely m-1 additional bits. A sharp repair is h=floor(t/2) mod2^(m-1), update q'=1-q,h'=h+q.",
+    "proof": {
+      "commit": "420ef0e7bf0d53e719264fc3f2bb5512efe24b67",
+      "path": "research_notes/X6_TIME_UNIT259_BIPARTITE_EVENT_CLOCK_REPAIR_20261122_1103.md",
+      "sha256": "1c615e0c98401f3b42ba928541658d1b4699f8ede52d94594a77bf746b826f55",
+      "blob": "5ab752b6f3ba5e76953caacaa2afe14b0eda5e7b"
+    },
+    "checker": {
+      "commit": "a19da467cb6173a2019ab8cf09504e14669f0001",
+      "path": "research_checks/X6_TIME_UNIT259_BIPARTITE_CLOCK_CHECK_20261122_1103.js",
+      "sha256": "1d2043b642b5e6c3a6f8d19cb246cb9a59f5b73ec43ebcdea58c668b3a6edcdc"
+    },
+    "certificate": {
+      "commit": "78c1d008df24c24565e55a4c90779f69a2ccf06f",
+      "path": "research_checks/X6_TIME_UNIT259_BIPARTITE_CLOCK_RESULTS_20261122_1103.json",
+      "sha256": "1b6f2dc09dd4c5bcebdc92fb47a6faa47c6a86f03f1b6312109741ec502e2cd1"
+    },
+    "executed": {
+      "integer_assertions": 133045,
+      "checked_transitions_per_port": 47578,
+      "distinct_BRC_states_to_28_per_port": 3711,
+      "states_with_two_mod4_phases_per_port": 3039,
+      "halfclock_test_m": "1..10",
+      "complete_event_loop_witness": true
+    },
+    "status": "AUTHOR_PROVED / EXACT_FINITE_EXECUTED / GITHUB_VERIFIED / UNREVIEWED / NOT_ADMITTED / NO_NATIVE_PHYSICAL_EXECUTION"
+  },
+  "activity": {
+    "id": "RA-5E3FE1E761E4963EC461A892",
+    "event_id": "onhour-20261122-1103-x6-unit259-bipartite-event-clock-v1",
+    "event_total": 261,
+    "commit": "115d109bc147e0e9edb644bd64ec37a193b12c2d",
+    "verified": true
+  },
+  "global_knowledge": {
+    "journal_commit": "7b07fbca080bd4a67651cf87c68738b07f84651e",
+    "journal_path": "journal/enterprise-math/2026-11-22/20261122T1103+0800-x6-onhour-unit259-bipartite-event-clock.md",
+    "verified": true
+  },
+  "control": {
+    "current_gateway_last_observed_version": "0.6.11",
+    "original_exact_task_request": "onhour-20261122-1000-x6-exact-task-read-v1",
+    "original_exact_task_terminal": "SUCCEEDED / error=null, read snapshot as-of, not live write authority; as-of state owner=null, claim_id=null",
+    "own_new_continuation_request_id": "onhour-20261122-1103-x6-own-continuation-after-task-terminal-v1",
+    "own_new_continuation_latest_status": "QUEUED / READY_FOR_NATIVE; must consume original target_request_id to terminal, never submit a duplicate",
+    "earlier_failed_continuations": [
+      "onhour-20261122-0004-x6-own-source-continuation-v1",
+      "onhour-20261122-0756-x6-own-source-continuation-read-v1"
+    ],
+    "earlier_failed_signature": "FAILED / SOURCE_TREE_TRUNCATED",
+    "historic_own_run_id": "RUN-d653f1346f38369bc27f5fc5",
+    "historic_own_claim_id": "MCP-369991930c5b4fddf26dbefa",
+    "historic_generation": 5,
+    "historic_owner_lease_expired": true,
+    "current_live_winning_claim_verified": false,
+    "protected_semantic_progress": "NOT_PUBLISHED for Units233-259",
+    "support_issue": "https://github.com/awdawmip/enterprise-math/issues/2903"
+  },
+  "evidence_gaps": [
+    "Actual Source admission or rejection of A:x0->x11 (-e2) with signed intact triad, three token IDs, triadic closure, occupancy, environmental response and independent witness",
+    "Two separately initialized signed native trials: initial S0 vs same S0 after permitted x0->x1->x0 two-event detour, to detect hidden history state; source must approve detour and preserved environment ledger",
+    "Actual executable 28-event (or legally revised minimum) serial signed path and specified independent C24/C3 in-trace measurements",
+    "Consume the pending original own continuation request terminal; re-check current legal winning CLAIM/OPEN from authenticated Source before any protected Native semantic PROGRESS",
+    "Independent Review/Result and external physical interpretation unverified"
+  ],
+  "do_not_repeat": [
+    "Units233–258 proved conditional work and existing finite certificates; original Unit245 36 BRC paths; Unit257 5664 all-optimal histories; Unit258 4-case contextual guard and E4/E16 cover",
+    "Unit259 persisted proof, checker, certificate, journal and Activity261",
+    "Terminal FAILED 0004/0756 continuation requests; unknown or pending original request 1103 must be reconciled, never replayed",
+    "Do not use maintenance conversation identity, reinterpret stale recovery projection as live claim, or turn signed conditional BRC into physical Source evidence"
+  ],
+  "next_exact_action": "Consume pending own 1103 continuation by original ID and check native authorization. If Source provides a real signed event engine, compare A:x0->x11 admission at initial S0 with that after a signed x0->x1->x0 return in an independently initialized trial, collecting force-token/environment/time/observer evidence. If initial admission refused, use Unit258 B-first shortest-path witness and E4/E16-context distinctions. Without source engine, retain these as UNEXECUTED and pursue other authorized current scientific work; no false success.",
+  "checkpoint_category": "GITHUB_AUTHOR_SCIENCE_AND_ACTIVITY_ONLY_NOT_NATIVE_SEMANTIC_PROGRESS"
+}
