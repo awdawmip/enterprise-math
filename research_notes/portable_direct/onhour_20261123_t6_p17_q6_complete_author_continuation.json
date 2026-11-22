@@ -1,0 +1,78 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_AUTHOR_CONTINUATION_V1",
+  "record_kind": "AUTHOR_SCIENTIFIC_AND_CONTROL_CONTINUATION",
+  "date_local": "2026-11-23",
+  "timezone": "Asia/Hong_Kong",
+  "mother_task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "parent_objective_id": "EM-T6-SHAPE-MOMENT-EXACT-THRESHOLD",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_lane_excluded": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "source_task_pin": {
+    "repository": "awdawmip/enterprise-math",
+    "source_commit": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+    "path": "research_tasks/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260909.md",
+    "git_blob_sha1": "87b3a6f38e9350f7a3f56624b27bff2a7778a439",
+    "repinned": false
+  },
+  "worldview": {
+    "P000_state": "ACTIVE_LOCKED",
+    "account_canonical_blob_sha1": "770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc"
+  },
+  "highest_prior_continuation": {
+    "path": "research_notes/portable_direct/onhour_20261123_t6_p17_q6_split2_4_author_continuation.json",
+    "commit": "f8f3897e6185bc4d6acb3c695ddb4164b1a5bcf8"
+  },
+  "completed_units": [
+    {
+      "id": "T6-P17-Q6-SPLIT2_4-GLOBAL-MIXED-EXCLUSION",
+      "scope": "719200 primitive pairs, 1917830 exact GS nodes, zero sphere leaves",
+      "source": "research_notes/portable_direct/onhour_20261123_t6_p17_q6_split2_4_exact_affine_exclusion.md",
+      "commit": "86e65c69c3a602fa281fba24ac03784605345177",
+      "evidence": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED"
+    },
+    {
+      "id": "T6-P17-Q6-SPLIT3_3-GLOBAL-MIXED-EXCLUSION",
+      "scope": "420192 primitive unordered pairs, 1035941 exact GS nodes, zero sphere leaves",
+      "source": "research_notes/portable_direct/onhour_20261123_t6_p17_q6_split3_3_exact_affine_exclusion.md",
+      "commit": "29c7d6fb0a2919130f346d59fd385b513dccef8f",
+      "certificate": {
+        "path": "research_checks/T6_P17_Q6_SPLIT3_3_AUTHOR_CERT_20261123.json",
+        "commit": "a2fb36c7072a8f53711cf0a11759c70eeaa18428"
+      },
+      "evidence": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED"
+    }
+  ],
+  "combined_statement": "Together with previously saved q6 split(0,6) and (1,5) at original sources, four unordered up-to-sign splits exhaust vertical order6 for p17 valuation one. All four are author-level exact mixed-congruence excluded, conditional on previously saved p17 squared-valuation cancellation and lower-order handling. Parent T6 not closed.",
+  "next_science": {
+    "candidate": "First actual uncompleted maximal-p17 vertical order7 primitive mixed-congruence subunit, likely (0,7), after exact source overlap check; retain original q0 lattice and per-side masses, and do not infer zero from prior local H-moment checks.",
+    "if_survives": "Preserve exact signed vector, named atoms and lower-prime completion question.",
+    "if_none": "Continue next q7 split only when warranted."
+  },
+  "do_not_repeat": [
+    "Accepted p>=29,p23,p19 previous certificates and q1..q4 prior results at their exact original contribution/review statuses",
+    "Author q5 full and q6 four split results, p17^2/13^2 cancellation notes",
+    "No formal CLAIM from Activity; do not claim own T6 run or semantic PROGRESS; no maintenance-lane identity"
+  ],
+  "activity": {
+    "id": "RA-5E3FE1E761E4963EC461A892",
+    "events": 286,
+    "source_commit": "b882e50055b05ff1f1ccf2bf8ad6a7150b57fb4a",
+    "git_blob_sha1": "89e3261dbe536cdfbd4bdec94f48add4c1950027"
+  },
+  "control": {
+    "backend_version": "0.6.11",
+    "session_recovery": "Verified own Researcher SID (read-only; request list truncated), no own T6 run listed",
+    "last_read_continuation_request": "onhour-20261123-0105-t6-current-source-cont-v1",
+    "last_read_continuation_status": "SUCCEEDED",
+    "last_read_task_request": "onhour-20261123-0200-t6-current-read-02",
+    "last_task_observed_at_utc": "2026-11-22T18:01:48.803Z",
+    "last_task_state": "NEEDS_DISPATCH / taskbook unassigned / execution_authorized=false",
+    "winning_T6_claim_verified": false,
+    "own_T6_run_id": null,
+    "native_semantic_progress_published": false,
+    "control_next": "Obtain fresh Task/current owner and live authority before any native write, consume prior request IDs; only canonical selector if no own recoverable frontier and routing permits; never replay declined or unknown writes."
+  },
+  "state": "TWO_NEW_AUTHOR_UNITS_SAVED; ALL_Q6_SPLITS_AUTHOR_EXCLUDED; ACTIVITY286; T6_GLOBAL_OPEN"
+}
