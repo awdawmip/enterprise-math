@@ -1,0 +1,106 @@
+{
+  "schema": "R284EB_NINE_BIT_ADAPTIVE_QUERY_OPTIMALITY_V1",
+  "scientific_input": "R284EA nine-bit score on frozen R284CO Port source",
+  "source_ref": "awdawmip/enterprise-math@bc66d7bdd3210f426dc38497e6c0368ab11ab292:research_notes/portable_direct/R284EA_NINE_BIT_EXCEPTION_THRESHOLD_AND_SHARP_ADDITIVE_WEIGHT_20261122.md",
+  "frozen_R284CO_commit": "acba2d8667903434aaa2a10720f43637fcc2421b",
+  "bit_order": [
+    "Y",
+    "Z",
+    "U",
+    "G",
+    "H",
+    "R",
+    "B0",
+    "B1",
+    "B2"
+  ],
+  "weights": [
+    13,
+    6,
+    28,
+    25,
+    11,
+    12,
+    26,
+    17,
+    6
+  ],
+  "threshold": 77,
+  "cost_model": "One unit per queried original bit, exact/noiseless query; independent equiprobable 512 input vectors; deterministic adaptive decision tree",
+  "subcubes_checked": 19683,
+  "optimal_total_queries_over_512": 2734,
+  "optimal_expected_queries": {
+    "numerator": 1367,
+    "denominator": 256
+  },
+  "optimal_max_depth_secondary": 9,
+  "minimax_depth": 9,
+  "minimax_total_queries_secondary": 2734,
+  "witness_fixed_order_zero_indexed": [
+    2,
+    6,
+    3,
+    7,
+    0,
+    5,
+    4,
+    1,
+    8
+  ],
+  "witness_fixed_order_names": [
+    "U",
+    "B0",
+    "G",
+    "B1",
+    "Y",
+    "R",
+    "H",
+    "Z",
+    "B2"
+  ],
+  "witness_fixed_order_histogram": {
+    "3": 128,
+    "4": 96,
+    "5": 48,
+    "6": 80,
+    "7": 76,
+    "8": 42,
+    "9": 42
+  },
+  "adaptive_dp_histogram": {
+    "3": 128,
+    "4": 96,
+    "5": 48,
+    "6": 80,
+    "7": 76,
+    "8": 42,
+    "9": 42
+  },
+  "full_six_core_guard_total_queries_over_65536": 134492,
+  "full_six_core_guard_mean": {
+    "numerator": 33623,
+    "denominator": 16384
+  },
+  "full_six_core_guard_worst_depth": 15,
+  "full_six_core_guard_histogram": {
+    "1": 32768,
+    "2": 16384,
+    "3": 8192,
+    "4": 4096,
+    "5": 2048,
+    "6": 1024,
+    "9": 256,
+    "10": 192,
+    "11": 96,
+    "12": 160,
+    "13": 152,
+    "14": 84,
+    "15": 84
+  },
+  "full_guard_scope": "Concrete short-circuit strategy; NOT proved globally optimal among interleavings of 15 original bits",
+  "true_outputs": 223,
+  "false_outputs": 289,
+  "dp_table_sha256": "19f9fc8d4cb4c0b1f34bdd0c2dfe44377ebcbe2bb9fd46454c8d2b77744cdcb2",
+  "coverage": "Full 3^9 ternary partial-assignment DP, all 2^9 Boolean inputs and the 2^16-state guard input population",
+  "research_status": "AUTHOR_PROVED / EXACT_FINITE_CERTIFIED / NOT_REVIEWED"
+}
