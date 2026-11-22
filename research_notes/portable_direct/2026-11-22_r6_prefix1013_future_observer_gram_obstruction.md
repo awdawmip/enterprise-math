@@ -66,3 +66,16 @@ The actually executed self-contained Python reproducer implements the full signe
 **Next:** derive the two classes of final-port squared mass (j=1 and the S5-symmetric j=2,...,6) using the finite Laurent collision representation, and seek the smallest autonomous finite-horizon defect/Gram repair. The existing B_fix,odd(32)∈{19,20} mother question remains open.
 
 Scientific provenance: earlier EM-DIRECT-FBEA5D and RA-3FB2D033BE6048D8712FF056 are historical attribution only; current official task execution, CLAIM, PROGRESS and independent Review are not asserted.
+
+## Additional fixed-source Gram counterexample (exact n=5)
+
+The frozen initial Cell 0, incoming port -e1, and the absorbed Link are invariant under the S5 subgroup permuting axes 2,...,6. Consequently for **all n** the positive-last-port squared masses have two (possibly equal) classes: j=1 and j=2,...,6; the same holds for negative-last ports.
+
+They are **actually distinct at n=5**. From the full typed integer signed BRC transfer, crosschecked against the N[Z2] phase-cover at **each** joint Cell-port fibre, the exact squared **numerator** sums (each divided by 36^5 to obtain its probability mass) are:
+
+| Terminal last actual direction | e1 / -e1 class | Each other axis 2,...,6 |
+|---|---:|---:|
+| Positive +e_j | 135110 | 109490 |
+| Negative -e_j | 16560 | 12384 |
+
+Hence the total is 135110+5(109490)+16560+5(12384)=761040, giving 761040/36^5=5285/419904. The signed amplitudes in the **same fixed-source** packet have the equal port margins 25/1296 for every positive-last port, and zero for every negative-last port (Theorem 1013.2). The port-class contrast 25620 (positive) and 4176 (negative), in squared-numerator units, is therefore a **concrete fixed-source residual hidden by the signed terminal-port marginals**. The result does not assert strict inequality for every n; determining that scope is the next analytic question. This refines, rather than changes, the earlier arbitrary-source two-step observer obstruction.
