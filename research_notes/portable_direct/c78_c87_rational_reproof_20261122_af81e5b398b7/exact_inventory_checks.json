@@ -1,0 +1,101 @@
+{
+  "source_commit": "63eec225728612d1df6c178b516b5ecf4687ee06",
+  "arithmetic": "fractions.Fraction; no floating point, Gamma, log or roots",
+  "base_inventory_range": [
+    2,
+    12
+  ],
+  "base_templates": 286,
+  "distinct_inventory_templates_checked": 706,
+  "individual_tail_equalities": 2118,
+  "positive_path_tail_mass_partition_checked": true,
+  "all_equalities_passed": true,
+  "witnesses": [
+    {
+      "n": 2,
+      "v": 2,
+      "w": 2,
+      "tail_ratios": [
+        "853463/833133",
+        "46943/45813",
+        "523289/510699"
+      ],
+      "g": "1002814421/1002556421"
+    },
+    {
+      "n": 8,
+      "v": 6,
+      "w": 3,
+      "tail_ratios": [
+        "4545096492047/4411039390112",
+        "8554404718943/8305059150428",
+        "3680701104547/3573389218612"
+      ],
+      "g": "8794803171214618098473/8791662668736613581848"
+    },
+    {
+      "n": 9,
+      "v": 6,
+      "w": 3,
+      "tail_ratios": [
+        "102619114238407/104064817175872",
+        "192861198501283/195550199051368",
+        "82984788033407/84142064346872"
+      ],
+      "g": "18173217601935911648776/18170612378207748948901"
+    },
+    {
+      "n": 16,
+      "v": 6,
+      "w": 3,
+      "tail_ratios": [
+        "58918708958929835663/317271998938411654448",
+        "109652419336206830297/590188303208210711462",
+        "47190998380697586913/254001218690046029698"
+      ],
+      "g": "154205848739285223024028270755976/154132670447725407173343971107351"
+    }
+  ],
+  "c8_exact_bin_counts": {
+    "stocks": [
+      8,
+      9,
+      10,
+      16
+    ],
+    "templates": 28,
+    "offsets": [
+      "0",
+      "1/3",
+      "2/5",
+      "3/7"
+    ],
+    "rows": [
+      {
+        "p": 6,
+        "counts": [
+          0,
+          0,
+          0
+        ]
+      },
+      {
+        "p": 9,
+        "counts": [
+          2,
+          4,
+          2
+        ]
+      },
+      {
+        "p": 12,
+        "counts": [
+          24,
+          26,
+          26
+        ]
+      }
+    ]
+  },
+  "proof_scope": "The general finite-kernel identity has a written algebraic proof. These finite checks validate its implementation; they do not establish C78/C87 asymptotics."
+}

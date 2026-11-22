@@ -1,0 +1,143 @@
+{
+  "status": "PASS",
+  "arithmetic": "fractions.Fraction",
+  "c_range_inclusive": [
+    16,
+    64
+  ],
+  "deltas": [
+    "1/16",
+    "1/32",
+    "1/64",
+    "1/256",
+    "1/1024"
+  ],
+  "full_inventory_parameter_cases": 245,
+  "max_actual_to_bound_upper": {
+    "out": "292149/500000",
+    "in": "108587/500000"
+  },
+  "examples": [
+    {
+      "c": 16,
+      "delta": "1/16",
+      "N_out": 10,
+      "N_in": 3,
+      "out_bound_upper": "141/4",
+      "in_bound_upper": "2311/40"
+    },
+    {
+      "c": 32,
+      "delta": "1/16",
+      "N_out": 21,
+      "N_in": 17,
+      "out_bound_upper": "4123/40",
+      "in_bound_upper": "14433/125"
+    },
+    {
+      "c": 64,
+      "delta": "1/16",
+      "N_out": 43,
+      "N_in": 67,
+      "out_bound_upper": "172069/500",
+      "in_bound_upper": "308509/1000"
+    },
+    {
+      "c": 16,
+      "delta": "1/32",
+      "N_out": 10,
+      "N_in": 2,
+      "out_bound_upper": "27",
+      "in_bound_upper": "50779/1000"
+    },
+    {
+      "c": 32,
+      "delta": "1/32",
+      "N_out": 21,
+      "N_in": 8,
+      "out_bound_upper": "2759/40",
+      "in_bound_upper": "88303/1000"
+    },
+    {
+      "c": 64,
+      "delta": "1/32",
+      "N_out": 43,
+      "N_in": 33,
+      "out_bound_upper": "102769/500",
+      "in_bound_upper": "201513/1000"
+    },
+    {
+      "c": 16,
+      "delta": "1/64",
+      "N_out": 10,
+      "N_in": 1,
+      "out_bound_upper": "183/8",
+      "in_bound_upper": "47281/1000"
+    },
+    {
+      "c": 32,
+      "delta": "1/64",
+      "N_out": 21,
+      "N_in": 4,
+      "out_bound_upper": "2077/40",
+      "in_bound_upper": "74723/1000"
+    },
+    {
+      "c": 64,
+      "delta": "1/64",
+      "N_out": 43,
+      "N_in": 16,
+      "out_bound_upper": "68119/500",
+      "in_bound_upper": "18502/125"
+    },
+    {
+      "c": 16,
+      "delta": "1/256",
+      "N_out": 0,
+      "N_in": 0,
+      "out_bound_upper": "9891/500",
+      "in_bound_upper": "44657/1000"
+    },
+    {
+      "c": 32,
+      "delta": "1/256",
+      "N_out": 21,
+      "N_in": 0,
+      "out_bound_upper": "19569/500",
+      "in_bound_upper": "32269/500"
+    },
+    {
+      "c": 64,
+      "delta": "1/256",
+      "N_out": 0,
+      "N_in": 2,
+      "out_bound_upper": "84263/1000",
+      "in_bound_upper": "26973/250"
+    },
+    {
+      "c": 16,
+      "delta": "1/1024",
+      "N_out": 0,
+      "N_in": 0,
+      "out_bound_upper": "2376/125",
+      "in_bound_upper": "44001/1000"
+    },
+    {
+      "c": 32,
+      "delta": "1/1024",
+      "N_out": 21,
+      "N_in": 0,
+      "out_bound_upper": "35941/1000",
+      "in_bound_upper": "61991/1000"
+    },
+    {
+      "c": 64,
+      "delta": "1/1024",
+      "N_out": 0,
+      "N_in": 1,
+      "out_bound_upper": "71269/1000",
+      "in_bound_upper": "97861/1000"
+    }
+  ],
+  "scope": "Direct finite rho counts; universal proof checked separately in SYNCHRONY_COUNT_CHECK.md"
+}
