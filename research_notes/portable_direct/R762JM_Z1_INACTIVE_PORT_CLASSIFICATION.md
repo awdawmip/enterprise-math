@@ -1,0 +1,13 @@
+# R762JM-Z1 — Exact inactive-Port local-positivity classification with one absent support
+
+Date: 2026-11-23 Asia/Shanghai. Status: **ELEMENTARY PROOF / FINITE ENUMERATION VERIFIED / NOT_REVIEWED**. Same six-axis composite Port–Euler observer and frozen scientific source as R762JM. This auxiliary lemma is intended for the next 44-event histogram (6,13,0,1), not a claim of its 44→42 compression.
+
+Let the six axes be A={0,...,5}, the 15 Ports be unordered pairs from A, and the 20 supports be unordered triples. Fix exactly one absent support z={a,b,c}; every other support is positive. Call an inactive Port set M **locally eligible** when every positive support has at least two active Ports (otherwise it could not carry even one event).
+
+**Theorem.** For each fixed z there are exactly **92** locally eligible inactive-Port sets, namely the **76 matchings** of K6 plus **16 nonmatching configurations**. The count by |M| is (0:1, 1:15, 2:48, 3:25, 4:3).
+
+**Proof.** Two distinct inactive Ports sharing an axis, such as ab and ac, belong together to precisely the support abc; a support with both inactive cannot have a permitted event. Thus every adjacent inactive pair must be among the three Port vertices {ab,ac,bc} of the unique absent support z. If there are no adjacent inactive Ports, M is a matching (76 possibilities). Otherwise M contains at least two of z's three Port vertices. Those two Ports jointly use all three axes a,b,c. Every other inactive Port must be disjoint from both, so its axes lie in the complementary triple A\z. There can be at most one such outside Port, because any two pair-Ports within the three complementary axes share an axis. The nonmatching cases are: two z-Ports (3); two z-Ports plus one complementary Port (3×3=9); all three z-Ports (1); or all three plus one complementary Port (3). Total 16. Conversely all these configurations satisfy the positive-support local criterion, since any adjacent inactive pair has union z. Counting their sizes yields 3 extra at |M|=2, 10 extra at |M|=3 and 3 extra at |M|=4, added to matching counts (1,15,45,15) = (1,15,48,25,3).
+
+The attached exact Python checker enumerates all 2^15 Port subsets for each of 20 choices of z and independently confirms 92 eligible sets, 76 matchings, 16 nonmatchings and the stated size distribution. **This classifies local support positivity only; it does not assert an even-degree connected realization for any 44-event histogram.**
+
+**Next:** For (6,13,0,1) enumerate (six triple supports T, one absent support z, 92 locally eligible M) under S6 and seek exact 42-event witnesses or an obstruction. Maintain the separation from signed native P000 triadic dynamics.
