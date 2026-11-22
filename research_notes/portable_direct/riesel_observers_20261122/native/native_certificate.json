@@ -1,0 +1,775 @@
+{
+  "schema": "riesel-optimal-observers-native-integration-v1",
+  "status": "AUTHOR_NATIVE_EXECUTION; NOT_INDEPENDENT_REVIEW",
+  "native_source_commit": "b1efc6c805661ed7b476e6e730107da6043176ee",
+  "native_source_blobs": [
+    {
+      "module": "brc_transport.py",
+      "git_blob": "be1debe367263931bd5e93fd750be3ed54624fe1"
+    },
+    {
+      "module": "brc_histogram.py",
+      "git_blob": "9a3962ec095095f14e63a91cfe6b7ebf07d9a1d1"
+    },
+    {
+      "module": "brc_rational_holonomy.py",
+      "git_blob": "2591640fe348da9cd7f293a957bea9ae92c82943"
+    },
+    {
+      "module": "brc_weighted_recurrent.py",
+      "git_blob": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb"
+    }
+  ],
+  "base_certificate_git_blob": "c1909a5e2e209b0f6bd5f613d0f758dde45caee9",
+  "reused_dependency": {
+    "commit": "af9e1a5e49386a28283781876e10742a71991036",
+    "path": "research_notes/portable_direct/riesel_spectrum_20261121/gap/small_gap_certificate.json",
+    "scope": "All-future old holes and old residue trajectory"
+  },
+  "twelve_phase_dictionaries": [
+    {
+      "label": "positive_inverse_signs",
+      "epsilon": 0,
+      "category_assignment": {
+        "0": 11,
+        "1": 61,
+        "4": 331
+      },
+      "root": "8681796600341899699165924755002845830837950628236344137765453",
+      "root_digits": 61,
+      "root_residue_mod_K": 8056478,
+      "ordered_rows": [
+        {
+          "q": 5,
+          "phase_u": 1,
+          "root_residue": 3
+        },
+        {
+          "q": 13,
+          "phase_u": 0,
+          "root_residue": 1
+        },
+        {
+          "q": 11,
+          "phase_u": 0,
+          "root_residue": 1
+        },
+        {
+          "q": 61,
+          "phase_u": 16,
+          "root_residue": 25
+        },
+        {
+          "q": 331,
+          "phase_u": 4,
+          "root_residue": 269
+        }
+      ],
+      "uncovered_counts_mod_420": [
+        72,
+        36,
+        13,
+        8,
+        3,
+        0
+      ],
+      "four_channel_missing_n_mod_420": [
+        128,
+        308,
+        368
+      ],
+      "native_updates": 420,
+      "native_readouts": 10500,
+      "old_projection_equalities": 8400,
+      "last_native_state_sha256": "85360bd809471213592612095a0649a22301ed5e4d192d21fbe898e2ccb22665"
+    },
+    {
+      "label": "positive_inverse_signs",
+      "epsilon": 0,
+      "category_assignment": {
+        "0": 11,
+        "1": 331,
+        "4": 61
+      },
+      "root": "92723236729440316242608042635996850881816136757974233511789763",
+      "root_digits": 62,
+      "root_residue_mod_K": 772058,
+      "ordered_rows": [
+        {
+          "q": 5,
+          "phase_u": 1,
+          "root_residue": 3
+        },
+        {
+          "q": 13,
+          "phase_u": 0,
+          "root_residue": 1
+        },
+        {
+          "q": 11,
+          "phase_u": 0,
+          "root_residue": 1
+        },
+        {
+          "q": 331,
+          "phase_u": 1,
+          "root_residue": 166
+        },
+        {
+          "q": 61,
+          "phase_u": 4,
+          "root_residue": 42
+        }
+      ],
+      "uncovered_counts_mod_420": [
+        72,
+        36,
+        13,
+        8,
+        3,
+        0
+      ],
+      "four_channel_missing_n_mod_420": [
+        128,
+        308,
+        368
+      ],
+      "native_updates": 420,
+      "native_readouts": 10500,
+      "old_projection_equalities": 8400,
+      "last_native_state_sha256": "0e2d73df5af9d189885665efca4afd61fa68a27e6eedd5d3abf6a32706788850"
+    },
+    {
+      "label": "positive_inverse_signs",
+      "epsilon": 0,
+      "category_assignment": {
+        "0": 61,
+        "1": 11,
+        "4": 331
+      },
+      "root": "38626488345528248066615104822891857506752115268980905541737593",
+      "root_digits": 62,
+      "root_residue_mod_K": 13392198,
+      "ordered_rows": [
+        {
+          "q": 5,
+          "phase_u": 1,
+          "root_residue": 3
+        },
+        {
+          "q": 13,
+          "phase_u": 0,
+          "root_residue": 1
+        },
+        {
+          "q": 61,
+          "phase_u": 10,
+          "root_residue": 14
+        },
+        {
+          "q": 11,
+          "phase_u": 1,
+          "root_residue": 6
+        },
+        {
+          "q": 331,
+          "phase_u": 4,
+          "root_residue": 269
+        }
+      ],
+      "uncovered_counts_mod_420": [
+        72,
+        36,
+        13,
+        8,
+        3,
+        0
+      ],
+      "four_channel_missing_n_mod_420": [
+        128,
+        308,
+        368
+      ],
+      "native_updates": 420,
+      "native_readouts": 10500,
+      "old_projection_equalities": 8400,
+      "last_native_state_sha256": "e6d3a228d8ee9b8c5d49eb7c3e5f8d8397f7f9a061a0e11615a1ffa10a569ca1"
+    },
+    {
+      "label": "positive_inverse_signs",
+      "epsilon": 0,
+      "category_assignment": {
+        "0": 61,
+        "1": 331,
+        "4": 11
+      },
+      "root": "79915567368547360013156887305755165165009475977896740381175173",
+      "root_digits": 62,
+      "root_residue_mod_K": 11013198,
+      "ordered_rows": [
+        {
+          "q": 5,
+          "phase_u": 1,
+          "root_residue": 3
+        },
+        {
+          "q": 13,
+          "phase_u": 0,
+          "root_residue": 1
+        },
+        {
+          "q": 61,
+          "phase_u": 10,
+          "root_residue": 14
+        },
+        {
+          "q": 331,
+          "phase_u": 1,
+          "root_residue": 166
+        },
+        {
+          "q": 11,
+          "phase_u": 4,
+          "root_residue": 9
+        }
+      ],
+      "uncovered_counts_mod_420": [
+        72,
+        36,
+        13,
+        8,
+        3,
+        0
+      ],
+      "four_channel_missing_n_mod_420": [
+        128,
+        308,
+        368
+      ],
+      "native_updates": 420,
+      "native_readouts": 10500,
+      "old_projection_equalities": 8400,
+      "last_native_state_sha256": "4fd64128e57eb05c21dafcd491c546585e6c85a1bc4b637894c0497667622edc"
+    },
+    {
+      "label": "positive_inverse_signs",
+      "epsilon": 0,
+      "category_assignment": {
+        "0": 331,
+        "1": 11,
+        "4": 61
+      },
+      "root": "34280240817630655371416051005663763230273109281103027676257343",
+      "root_digits": 62,
+      "root_residue_mod_K": 12508458,
+      "ordered_rows": [
+        {
+          "q": 5,
+          "phase_u": 1,
+          "root_residue": 3
+        },
+        {
+          "q": 13,
+          "phase_u": 0,
+          "root_residue": 1
+        },
+        {
+          "q": 331,
+          "phase_u": 10,
+          "root_residue": 299
+        },
+        {
+          "q": 11,
+          "phase_u": 1,
+          "root_residue": 6
+        },
+        {
+          "q": 61,
+          "phase_u": 4,
+          "root_residue": 42
+        }
+      ],
+      "uncovered_counts_mod_420": [
+        72,
+        36,
+        13,
+        8,
+        3,
+        0
+      ],
+      "four_channel_missing_n_mod_420": [
+        128,
+        308,
+        368
+      ],
+      "native_updates": 420,
+      "native_readouts": 10500,
+      "old_projection_equalities": 8400,
+      "last_native_state_sha256": "6267b55cc320d41589a2272dc822b645130439fe29a410e057b81a34fb1fd935"
+    },
+    {
+      "label": "positive_inverse_signs",
+      "epsilon": 0,
+      "category_assignment": {
+        "0": 331,
+        "1": 61,
+        "4": 11
+      },
+      "root": "112569374657455204717638606122915757611880021655097844840859203",
+      "root_digits": 63,
+      "root_residue_mod_K": 2977313,
+      "ordered_rows": [
+        {
+          "q": 5,
+          "phase_u": 1,
+          "root_residue": 3
+        },
+        {
+          "q": 13,
+          "phase_u": 0,
+          "root_residue": 1
+        },
+        {
+          "q": 331,
+          "phase_u": 10,
+          "root_residue": 299
+        },
+        {
+          "q": 61,
+          "phase_u": 16,
+          "root_residue": 25
+        },
+        {
+          "q": 11,
+          "phase_u": 4,
+          "root_residue": 9
+        }
+      ],
+      "uncovered_counts_mod_420": [
+        72,
+        36,
+        13,
+        8,
+        3,
+        0
+      ],
+      "four_channel_missing_n_mod_420": [
+        128,
+        308,
+        368
+      ],
+      "native_updates": 420,
+      "native_readouts": 10500,
+      "old_projection_equalities": 8400,
+      "last_native_state_sha256": "02f39e82f084e140290949f9ef83a273a32ae651aa49a5a4213c3ca35a18409b"
+    },
+    {
+      "label": "positive_inverse_signs",
+      "epsilon": 1,
+      "category_assignment": {
+        "0": 11,
+        "1": 61,
+        "4": 331
+      },
+      "root": "7399642051104078295480890353578867759079624023600200730106961",
+      "root_digits": 61,
+      "root_residue_mod_K": 7739711,
+      "ordered_rows": [
+        {
+          "q": 5,
+          "phase_u": 0,
+          "root_residue": 1
+        },
+        {
+          "q": 13,
+          "phase_u": 3,
+          "root_residue": 5
+        },
+        {
+          "q": 11,
+          "phase_u": 0,
+          "root_residue": 1
+        },
+        {
+          "q": 61,
+          "phase_u": 1,
+          "root_residue": 31
+        },
+        {
+          "q": 331,
+          "phase_u": 4,
+          "root_residue": 269
+        }
+      ],
+      "uncovered_counts_mod_420": [
+        72,
+        36,
+        13,
+        8,
+        3,
+        0
+      ],
+      "four_channel_missing_n_mod_420": [
+        98,
+        158,
+        338
+      ],
+      "native_updates": 420,
+      "native_readouts": 10500,
+      "old_projection_equalities": 8400,
+      "last_native_state_sha256": "e3d057f5570a6878bb770f4fda7a4ec44b00771245ee079d00f5638f2a4ef3a3"
+    },
+    {
+      "label": "positive_inverse_signs",
+      "epsilon": 1,
+      "category_assignment": {
+        "0": 11,
+        "1": 331,
+        "4": 61
+      },
+      "root": "107315376599337426503594862728393553698494234782166532294188791",
+      "root_digits": 63,
+      "root_residue_mod_K": 8501901,
+      "ordered_rows": [
+        {
+          "q": 5,
+          "phase_u": 0,
+          "root_residue": 1
+        },
+        {
+          "q": 13,
+          "phase_u": 3,
+          "root_residue": 5
+        },
+        {
+          "q": 11,
+          "phase_u": 0,
+          "root_residue": 1
+        },
+        {
+          "q": 331,
+          "phase_u": 1,
+          "root_residue": 166
+        },
+        {
+          "q": 61,
+          "phase_u": 19,
+          "root_residue": 26
+        }
+      ],
+      "uncovered_counts_mod_420": [
+        72,
+        36,
+        13,
+        8,
+        3,
+        0
+      ],
+      "four_channel_missing_n_mod_420": [
+        98,
+        158,
+        338
+      ],
+      "native_updates": 420,
+      "native_readouts": 10500,
+      "old_projection_equalities": 8400,
+      "last_native_state_sha256": "035d84d7f7343c597791907b06ce9b77198251d1825747d847e70a0dcba0e427"
+    },
+    {
+      "label": "positive_inverse_signs",
+      "epsilon": 1,
+      "category_assignment": {
+        "0": 61,
+        "1": 11,
+        "4": 331
+      },
+      "root": "96872937868046420405449524773295432766630381022451420346794801",
+      "root_digits": 62,
+      "root_residue_mod_K": 7158806,
+      "ordered_rows": [
+        {
+          "q": 5,
+          "phase_u": 0,
+          "root_residue": 1
+        },
+        {
+          "q": 13,
+          "phase_u": 3,
+          "root_residue": 5
+        },
+        {
+          "q": 61,
+          "phase_u": 25,
+          "root_residue": 29
+        },
+        {
+          "q": 11,
+          "phase_u": 1,
+          "root_residue": 6
+        },
+        {
+          "q": 331,
+          "phase_u": 4,
+          "root_residue": 269
+        }
+      ],
+      "uncovered_counts_mod_420": [
+        72,
+        36,
+        13,
+        8,
+        3,
+        0
+      ],
+      "four_channel_missing_n_mod_420": [
+        98,
+        158,
+        338
+      ],
+      "native_updates": 420,
+      "native_readouts": 10500,
+      "old_projection_equalities": 8400,
+      "last_native_state_sha256": "41a4c5315bcdc3e839f371176794132525c85a6af29f759df573bb33da4b3877"
+    },
+    {
+      "label": "positive_inverse_signs",
+      "epsilon": 1,
+      "category_assignment": {
+        "0": 61,
+        "1": 331,
+        "4": 11
+      },
+      "root": "17120521945161678408868416740776048650560003936550383487043791",
+      "root_digits": 62,
+      "root_residue_mod_K": 4779806,
+      "ordered_rows": [
+        {
+          "q": 5,
+          "phase_u": 0,
+          "root_residue": 1
+        },
+        {
+          "q": 13,
+          "phase_u": 3,
+          "root_residue": 5
+        },
+        {
+          "q": 61,
+          "phase_u": 25,
+          "root_residue": 29
+        },
+        {
+          "q": 331,
+          "phase_u": 1,
+          "root_residue": 166
+        },
+        {
+          "q": 11,
+          "phase_u": 4,
+          "root_residue": 9
+        }
+      ],
+      "uncovered_counts_mod_420": [
+        72,
+        36,
+        13,
+        8,
+        3,
+        0
+      ],
+      "four_channel_missing_n_mod_420": [
+        98,
+        158,
+        338
+      ],
+      "native_updates": 420,
+      "native_readouts": 10500,
+      "old_projection_equalities": 8400,
+      "last_native_state_sha256": "872dbf1507bc6fdda68c3f4ed98dbf42f65614efd49ff76c62533a7b0f9c8afa"
+    },
+    {
+      "label": "positive_inverse_signs",
+      "epsilon": 1,
+      "category_assignment": {
+        "0": 331,
+        "1": 11,
+        "4": 61
+      },
+      "root": "48872380687527765632402871098060466046951207305295326458656371",
+      "root_digits": 62,
+      "root_residue_mod_K": 5801736,
+      "ordered_rows": [
+        {
+          "q": 5,
+          "phase_u": 0,
+          "root_residue": 1
+        },
+        {
+          "q": 13,
+          "phase_u": 3,
+          "root_residue": 5
+        },
+        {
+          "q": 331,
+          "phase_u": 10,
+          "root_residue": 299
+        },
+        {
+          "q": 11,
+          "phase_u": 1,
+          "root_residue": 6
+        },
+        {
+          "q": 61,
+          "phase_u": 19,
+          "root_residue": 26
+        }
+      ],
+      "uncovered_counts_mod_420": [
+        72,
+        36,
+        13,
+        8,
+        3,
+        0
+      ],
+      "four_channel_missing_n_mod_420": [
+        98,
+        158,
+        338
+      ],
+      "native_updates": 420,
+      "native_readouts": 10500,
+      "old_projection_equalities": 8400,
+      "last_native_state_sha256": "e480a107597447d440745eb3ae13bd32a7700ca362f9e072096b63d9ec22ffdf"
+    },
+    {
+      "label": "positive_inverse_signs",
+      "epsilon": 1,
+      "category_assignment": {
+        "0": 331,
+        "1": 61,
+        "4": 11
+      },
+      "root": "111287220108217383313953571721491779540121695050461701433200711",
+      "root_digits": 63,
+      "root_residue_mod_K": 2660546,
+      "ordered_rows": [
+        {
+          "q": 5,
+          "phase_u": 0,
+          "root_residue": 1
+        },
+        {
+          "q": 13,
+          "phase_u": 3,
+          "root_residue": 5
+        },
+        {
+          "q": 331,
+          "phase_u": 10,
+          "root_residue": 299
+        },
+        {
+          "q": 61,
+          "phase_u": 1,
+          "root_residue": 31
+        },
+        {
+          "q": 11,
+          "phase_u": 4,
+          "root_residue": 9
+        }
+      ],
+      "uncovered_counts_mod_420": [
+        72,
+        36,
+        13,
+        8,
+        3,
+        0
+      ],
+      "four_channel_missing_n_mod_420": [
+        98,
+        158,
+        338
+      ],
+      "native_updates": 420,
+      "native_readouts": 10500,
+      "old_projection_equalities": 8400,
+      "last_native_state_sha256": "5a302bd3bd610ec23f2131fbe180131ae15bba54bd28bee216fb02b9c61a4c4e"
+    }
+  ],
+  "minimal_root_native_check": {
+    "label": "least_positive_nested_root_from_observer_certificate",
+    "epsilon": 1,
+    "category_assignment": {
+      "0": 61,
+      "1": 11,
+      "4": 331
+    },
+    "root": "39741911323337250951212360989279347168190786597922987443929",
+    "root_digits": 59,
+    "root_residue_mod_K": 10046119,
+    "ordered_rows": [
+      {
+        "q": 5,
+        "phase_u": 0,
+        "root_residue": 4
+      },
+      {
+        "q": 13,
+        "phase_u": 3,
+        "root_residue": 5
+      },
+      {
+        "q": 61,
+        "phase_u": 25,
+        "root_residue": 29
+      },
+      {
+        "q": 11,
+        "phase_u": 1,
+        "root_residue": 6
+      },
+      {
+        "q": 331,
+        "phase_u": 4,
+        "root_residue": 269
+      }
+    ],
+    "uncovered_counts_mod_420": [
+      72,
+      36,
+      13,
+      8,
+      3,
+      0
+    ],
+    "four_channel_missing_n_mod_420": [
+      98,
+      158,
+      338
+    ],
+    "native_updates": 420,
+    "native_readouts": 10500,
+    "old_projection_equalities": 8400,
+    "last_native_state_sha256": "2d2012b0f54dd59ab19e123f3a955303c56353b2828935ac87b47ee945e3cae5"
+  },
+  "native_updates": 5460,
+  "native_readouts": 136500,
+  "old_projection_equalities": 109200,
+  "optimal_missing_counts_per_420": [
+    72,
+    36,
+    13,
+    8,
+    3,
+    0
+  ],
+  "phase_completeness_and_minimality": "Proved in companion staircase/observer proofs; not inferred from these thirteen runs.",
+  "all_future_bridge": "Old-hole predicate has period210 in n, all five new zero-phase periods divide60; their combined coverage predicate has period420. Both facts have separate exact proofs.",
+  "sign_lifting": "Changing any root residue sign leaves a^2 and every readout at that prime unchanged. CRT independently realizes all32 signs in each phase dictionary.",
+  "native_scope": "Fixed X6 anchor and typed integer register. Positive singleton weight1 and multiplicity1. Index n is an update count, not physical time. Prime readouts are not axes or extra branches.",
+  "observer_scope": "Optimal-budget predicates only; no claim that a modK determines the full integer state, cofactor structure, or unbounded covering complexity."
+}
