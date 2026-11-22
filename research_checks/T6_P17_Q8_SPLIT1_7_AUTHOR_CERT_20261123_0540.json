@@ -1,0 +1,49 @@
+{
+  "schema": "T6_P17_Q8_SPLIT1_7_AUTHOR_EXACT_FINITE_CERT_V1",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "frozen_task_commit": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "q0_basis_git_blob_sha1": "d9ac014355a6a1058cc8a0cf2141a01082628881",
+  "model": {
+    "prime": 17,
+    "valuation": 1,
+    "vertical_split": [
+      1,
+      7
+    ],
+    "max_mass_per_side": 2331,
+    "named_denom": "17(r+17q)",
+    "atom_mass": "289q+17r-1",
+    "q0_signed_r": "1..16",
+    "necessary_congruences": "for j in 1..6: sum_r u_r*r^-j+sum_vertical m_(q,r)*(r+17q)^-j=0 mod17^j",
+    "p17_free_completion": "unrestricted"
+  },
+  "finite_coverage": {
+    "order1_states": 16,
+    "order7_states": 8697,
+    "raw_pairs": 139152,
+    "shared_vertical": 15360,
+    "primitive_pairs": 123792,
+    "GS_nodes": 398646,
+    "sphere_leaves": 0,
+    "budget_valid_q0": 0,
+    "max_R_squared": 4189940
+  },
+  "GS_Dmin_exact": [
+    "8350069911612335617606677214061177705401058080646556447012234889468081355909",
+    "480650972868542992444263969893692042421717754534280313801217347854273"
+  ],
+  "execution": {
+    "standalone_exact_python_completed": true,
+    "complete_left_index_range": [
+      0,
+      16
+    ],
+    "local_result_json_sha256": "25cff974581311a6bacadda243c5a15c2e9275ecf229ad4502081941c62e817e",
+    "published_compact_reproducer_executed": false
+  },
+  "conclusion": "No primitive signed maximal-p17 valuation-one vertical-order-eight split(1,7) reaches the globally necessary mixed affine q0 lattice inside both original budgets; common support reduces to previous lower-order work.",
+  "mother_T6": "OPEN",
+  "winning_claim": "UNVERIFIED",
+  "semantic_PROGRESS": "NOT_PUBLISHED"
+}
