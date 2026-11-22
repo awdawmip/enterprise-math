@@ -10,10 +10,10 @@ The globally necessary mixed p-adic conditions are: for j=1,..,6, sum_r u_r/r^j 
 ## New exhaustive finite results
 | New order-8 split | Raw named pairs | Shared named-atom reductions | Primitive pairs | Exact certified interval GS recursion nodes | Sphere leaves |
 |---|---:|---:|---:|---:|---:|
-| (2,6) | 7,239,456 | 1,950,508 | 5,288,948 | 12,536,695 | 0 |
-| (3,5) | 32,683,520 | 12,329,503 | 20,354,017 | 38,279,342 | 0 |
-| (4,4), unordered | 20,862,570 | 8,306,144 | 12,556,426 | 21,438,527 | 0 |
-| Total new | **60,785,546** | **22,585,155** | **38,199,391** | **72,254,564** | **0** |
+| (2,6) | 7,239,456 | 1,950,508 | 5,288,948 | 12,537,258 | 0 |
+| (3,5) | 32,683,520 | 12,329,503 | 20,354,017 | 38,279,565 | 0 |
+| (4,4), unordered | 20,862,570 | 8,306,144 | 12,556,426 | 21,438,635 | 0 |
+| Total new | **60,785,546** | **22,585,155** | **38,199,391** | **72,255,458** | **0** |
 
 Order-2,3,4,5,6 side-roster counts respectively 152,1088,6460,30040,47628. Prior author-saved order8 (0,8) and (1,7) have zero candidates and are not recalculated here. The five order8 splits together are **author-level fully excluded in this valuation-one globally necessary mixed-congruence model**.
 
@@ -29,3 +29,6 @@ The locally executed Python3/SymPy generator and C++ checker cover all 38,199,39
 
 ## Next science, control and boundaries
 This closes the *valuation-one order8* primitive class, not all p17 orders or T6=2332. The next p17 valuation-one total vertical order9 possible splits are (1,8),(2,7),(3,6),(4,5); each side's vertical order is <=8 since one order9 atom already costs 2617>2331. Retain lower-prime completion if a modular kernel survives. The T6 native task still reports owner unassigned, CLAIM absent; await canonical selector/typed continuation for protected writes, do not substitute GitHub notes for Source semantic PROGRESS.
+
+## Exact recursion correction in the same research run
+A mandatory local proof implementation audit caught an error in the first interval-checker version: the propagated z[j] was incorrectly set to the full conditional Gram–Schmidt center plus n[j], instead of the original coefficient c[j]+n[j] required by the recurrence. The original zero-leaf output cannot independently certify the claimed theorem. The implementation was corrected before the scoped result was finalized and all 38,199,391 primitive pairs were recomputed. The corrected C++ sets `zLo[i]=cLo[i]+n*SCALE`, `zHi[i]=cHi[i]+n*SCALE` when descending the GS recursion. The corrected exhaustive node counts are 12,537,258 / 38,279,565 / 21,438,635 (aggregate 72,255,458), and all three corrected runs again return **zero complete outward-interval leaves**. The full fixed checker source and data-generator were executed locally; archive/publication and external replication remain separate from this author proof.
