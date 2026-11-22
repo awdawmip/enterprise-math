@@ -1,103 +1,103 @@
 # CBRC F7 r471 — exact fiber-swap oscillation reduction and global audit of the r469 finite-box witness
 
-Date: 2026-11-22 (Asia/Taipei). Mathematical contribution/derivation by the existing Driver logical lane EM-DVR-DEBB5E. The original F7 model and originating researcher EM-CBRCF7-83A1D4 remain unchanged. This is a new scoped mathematical reduction and exact audit of an existing construction, not a native independent Result review or admission.
+Date: 2026-11-22 (Asia/Taipei). This new derivation/check belongs to the existing Driver logical lane \`EM-DVR-DEBB5E\`. The original F7 researcher \`EM-CBRCF7-83A1D4\`, its model and existing scientific evidence are preserved. This is not a native independent Result review or admission.
 
-## Original model
+## Original model and notation
 
-Write (z=(a,b,c,d)\in\mathbb Z^4), (k=a-2b-c+2d) and
-[
+For $z=(a,b,c,d)\in\mathbb Z^4$, let $k=a-2b-c+2d$ and
+$$
 D_q(z)=q(a+k,b+k)+q(c-k,d-k)-q(a,b)-q(c,d).
-]
-Retain original first-coordinate evenness, axes/origin, off-axis lower bound and the two marked points for admissible (q:\mathbb Z^2\to\mathbb R). No hypothesis is removed or strengthened.
+$$
+All original admissibility conditions remain: first-coordinate evenness, axis/origin values, nonzero off-axis lower bound, and both fixed marked values. Define $E_B(q)=\max_{z\in[-B,B]^4\cap\mathbb Z^4}|D_q(z)|$ and $E_\infty(q)=\sup_{z\in\mathbb Z^4}|D_q(z)|$ for a fixed function.
 
-## Theorem 1: exact fiber-swap identity (all integer inputs)
+## Theorem 1 — exact fiber-swap identity and cubic finite-box evaluator
 
-For (r,t\in\mathbb Z), define
-[
+For any integers $r,t$, define
+$$
 h_r(t):=q(2r-t,r-t).
-]
-The substitution (r=a-b, t=a-2b, u=c-d, s=c-2d) is bijective over (\mathbb Z^4). Since (k=t-s), the two transformed arguments have coordinates ((r,s)) and ((u,t)), respectively. Thus
-[
+$$
+The substitution
+$$
+r=a-b,\quad t=a-2b,\qquad u=c-d,\quad s=c-2d
+$$
+is a bijection on $\mathbb Z^4$. Since $k=t-s$, the two transformed arguments have fiber coordinates $(r,s)$ and $(u,t)$, respectively. Therefore
+$$
 \boxed{D_q(z)=h_r(s)+h_u(t)-h_r(t)-h_u(s)
-          =[h_r(s)-h_u(s)]-[h_r(t)-h_u(t)].}
-]
-Consequently, for *any* real-valued function (q), without continuity or boundedness assumptions,
-[
+=[h_r(s)-h_u(s)]-[h_r(t)-h_u(t)].}
+$$
+For **any** real-valued $q$, even if unbounded,
+$$
 \boxed{E_\infty(q)=\sup_{r,u\in\mathbb Z}
-       \operatorname{osc}_{t\in\mathbb Z}(h_r(t)-h_u(t)),}
-]
-where (\operatorname{osc} f=\sup_{s,t}|f(s)-f(t)|\), allowing (+\infty).
-This reformulates the **evaluation** objective, not the infimum over admissible functions.
+\operatorname{osc}_{t\in\mathbb Z}(h_r(t)-h_u(t)),}
+$$
+where $\operatorname{osc}f=\sup_{s,t}|f(s)-f(t)|$ may equal $+\infty$.
 
-For the complete integer input box ([-B,B]^4), put
-[
-I_r(B)=[\max(2r-B,r-B),\min(2r+B,r+B)]\cap\mathbb Z.
-]
-Only nonempty (I_r) occur, with (r\in[-2B,2B]). For
-(f_{r,u}(v):=h_r(v)-h_u(v)), let (m_r, M_r) be its minimum and maximum on (I_r(B)), and similarly (m_u,M_u) on (I_u(B)). Then
-[
-\boxed{E_B(q)=\max_{r,u:I_r,I_u\ne\emptyset}
-     \max\{M_u-m_r,\; M_r-m_u\}.}
-]
-The two interval extrema are independent because (t\in I_r) and (s\in I_u) can be selected freely. Enumerating each nonempty interval for each pair of (r,u) takes (O(B^3)) exact evaluations (rather than (O(B^4)) direct input enumeration), with constant-size extrema state. This is an exact formula for every (B\ge1), not a numerical approximation.
+For a complete finite input box $[-B,B]^4$, define the nonempty integer intervals
+$$
+I_r(B)=[\max(2r-B,r-B),\,\min(2r+B,r+B)]\cap\mathbb Z,
+\qquad -2B\le r\le2B.
+$$
+Let $f_{r,u}(v)=h_r(v)-h_u(v)$, and write $m_r,M_r$ for its minimum and maximum over $I_r(B)$; likewise $m_u,M_u$ over $I_u(B)$. Then
+$$
+\boxed{E_B(q)=\max_{r,u:I_r,I_u\ne\varnothing}
+\max\{M_u-m_r,\;M_r-m_u\}.}
+$$
+This is exact: the original first pair selects $t\in I_r$, the second selects $s\in I_u$, and these choices are independent. For each of $O(B^2)$ fiber-label pairs, evaluating both $O(B)$-length intervals suffices. Consequently the fixed-$q$ maximum is computable with $O(B^3)$ exact evaluations and constant-size extrema state, rather than enumerating $O(B^4)$ original inputs. No numerical approximation is used.
 
-## Theorem 2: the r469 *specific* quarter-valued witness has exact global error 1
+## Theorem 2 — the specified r469 quarter-valued witness has exact global error one
 
-Freeze the original r469 1,190-row integer table at:
-- `enterprise-math@ba281507cfcba49b9fb592c0e7f98b5a4ccd5621:research_artifacts/F7_R469_B14_Exact_Quarter_Witness_20261122.json` (Git blob `81afd124e5d9faaa877f8cbffd4bdb25a377b10b`).
-- The original (q_*\) has (4q_*(0,0)=0), (4q_*(x,0)=4) for (x\ne0), and (4q_*(x,y)=2+n(|x|,y)\) off axis, with (n\in\{1,2\}) on the table and 0 elsewhere.
+Freeze the *existing* r469 1,190-row table at
+\`enterprise-math@ba281507cfcba49b9fb592c0e7f98b5a4ccd5621:research_artifacts/F7_R469_B14_Exact_Quarter_Witness_20261122.json\`,
+Git blob \`81afd124e5d9faaa877f8cbffd4bdb25a377b10b\`.
+It defines $4q_*(0,0)=0$, $4q_*(x,0)=4$ for nonzero $x$, and
+$4q_*(x,y)=2+n(|x|,y)$ off axis, with $n\in\{1,2\}$ on the table and zero elsewhere.
 
-The above fiber reduction computes, using exact integer arithmetic:
-[
-\boxed{E_{14}(q_*)=\tfrac12,\qquad E_{15}(q_*)=1,
-       \qquad E_{32}(q_*)=1,\qquad E_\infty(q_*)=1.}
-]
+Exact integer evaluation of the fiber formula gives
+$$
+\boxed{E_{14}(q_*)=\tfrac12,\quad E_{15}(q_*)=1,\quad
+E_{32}(q_*)=1,\quad E_\infty(q_*)=1.}
+$$
 
-**Finite certificate for the global supremum.** For every table triple ((|x|,y,n)), put both signs (x=\pm|x|), and record the fiber label (r=x-y) and its exceptional argument (t=x-2y). Form the finite representative set (R) from all such (r) **and** (t), plus 0 and two distinct integers beyond its range. Here the pre-representative special set contains 276 integers; with the two generic representatives, (|R|=278).
+**Finite reduction for the global supremum.** Each table triple $(|x|,y,n)$ gives both signs $x=\pm |x|$. Record the fiber label $r=x-y$ and its exceptional argument $t=x-2y$. Let $R_0$ contain all these $r$ and $t$, plus zero. It contains exactly 276 integers. Add two distinct generic labels strictly outside its range to form $R$, of size 278.
 
-A fiber whose label (r\notin R) has no table modifications; its only non-default value (4h_r(r)=4) is the axis spike. Such (r) cannot coincide with any exceptional argument of a table-modified fiber or its axis, nor with zero. Therefore any pair of labels outside or inside (R) has exactly the same oscillation type as one of the (278^2=77,284) representative pairs (using two distinct generic labels for the generic/generic case).
+For $r\notin R_0$ the fiber $4h_r$ takes its default value 2 except for the axis spike $4h_r(r)=4$. Such $r$ cannot coincide with any exceptional $t$ from the table, nor with an axis label or the origin of a special fiber. Hence every pair of arbitrary fiber labels has the same oscillation as a pair in $R\times R$; two generic representatives cover the case of distinct generic labels.
 
-For a fixed pair of representatives (r,u), (4h_r(v)-4h_u(v)) is zero except at the finite union of their axis positions (v=r,u), origin (v=0), and listed table-argument positions. Include one external default argument. Exactly evaluating the minimum and maximum on these finite positions for every representative pair produces global oscillation numerator **4**, i.e. (E_\infty(q_*)=1).
+For fixed $(r,u)\in R^2$, the integer function $4h_r(v)-4h_u(v)$ is zero off the finite set consisting of $v=r,u,0$ and the two fibers' table arguments. Evaluating extrema on that set plus one outside default argument is exhaustive. The maximum oscillation over all **77,284 representative pairs** is exactly 4 in the $4q$ scaling. Thus $E_\infty(q_*)=1$.
 
-An explicit attaining input is
-[
-z=(40,33,-59,-33),\quad k=-33.
-]
-The two transformed arguments are ((7,0)) and ((-26,0)), where (q_*=1); the original arguments are untabled off-axis points where (q_*=1/2). Hence (D_{q_*}(z)=1). This provides a human-readable lower witness independent of the representative enumeration.
+An explicit maximizer is $z=(40,33,-59,-33)$ with $k=-33$: its transformed arguments $(7,0)$ and $(-26,0)$ each have $q_*=1$, while its two original off-axis arguments are outside the table and each have $q_*=1/2$. Thus $D_{q_*}(z)=1$.
 
-The exact independent JavaScript computation that motivated this certificate evaluated 95,874 fiber values for (B=14), 117,242 for (B=15), 1,090,050 for (B=32), and all 77,284 global representative pairs. The matching standalone checker was published at:
-`research_checks/CBRC_F7_R471_FIBER_OSCILLATION_20261122.mjs`, Git commit `09b143759b94dca22d81c98bf1d040f3613b8647`.
-It uses only the original static table, built-in integer arithmetic and no solver/CI. The standalone file was published/read back; the exact calculations above were performed in the current JavaScript execution environment, not reported as a separate `node` invocation.
+The original independent JavaScript calculation evaluated 95,874 fiber values for $B=14$, 117,242 for $B=15$, and 1,090,050 for $B=32$. The standalone reproducibility program is
+\`research_checks/CBRC_F7_R471_FIBER_OSCILLATION_20261122.mjs\` at commit \`09b143759b94dca22d81c98bf1d040f3613b8647\`.
+It uses the existing table, integer arithmetic and no CI. Its file was published/read back; the stated exact calculations were executed in the live JavaScript computation, not attributed to a separate Node run.
 
-## Theorem 3: an infinite-tail obstruction to every finite perturbation of the half-valued off-axis baseline
+## Theorem 3 — every finite off-axis perturbation of the half-valued baseline has global error at least one
 
-For arbitrary distinct nonzero integers (r,u), take the original input
-[
-z=(2r-u,r-u,\;2u-r,u-r).
-]
-The shear parameter is (k=u-r), so the transformed pair is ((r,0),(u,0)). Since both axis values equal 1, the **exact** original-model identity is
-[
+Take any distinct nonzero integers $r,u$ and the original input
+$$
+z=(2r-u,r-u,\,2u-r,u-r).
+$$
+Its shear parameter is $k=u-r$, making the transformed pair $(r,0),(u,0)$. Both axis values equal one, giving the **unconditional original-model identity**
+$$
 \boxed{D_q(z)=2-q(2r-u,r-u)-q(2u-r,u-r).}
-]
-Thus any admissible global candidate satisfying (E_\infty(q)\le\varepsilon) must obey, for every such pair,
-[
-\boxed{2-\varepsilon\le q(2r-u,r-u)+q(2u-r,u-r)\le 2+\varepsilon.}
-]
-At least one of the paired off-axis values is \(\ge1-\varepsilon/2\). For \(\varepsilon=4/7\), this means at least one value is \(\ge5/7\) for **each** distinct nonzero (r,u); for \(\varepsilon=1/2\) it must be \(\ge3/4\).
+$$
+Therefore any admissible global candidate with $E_\infty(q)\le\varepsilon$ necessarily satisfies, for **every** distinct nonzero pair $r,u$,
+$$
+\boxed{2-\varepsilon\le q(2r-u,r-u)+q(2u-r,u-r)
+\le2+\varepsilon.}
+$$
+At least one of the paired off-axis values is $\ge1-\varepsilon/2$. For $\varepsilon=4/7$ at least one is $\ge5/7$; for $\varepsilon=1/2$ at least one is $\ge3/4$.
 
-In particular, setting (r=N,u=-N\) gives the explicit escaping family
-[
-\boxed{q(3N,2N)+q(-3N,-2N)\ge 2-\varepsilon
+Choosing $r=N,u=-N$ supplies the escaping ray pair
+$$
+\boxed{q(3N,2N)+q(-3N,-2N)\ge2-\varepsilon
 \quad\text{for every integer }N\ge1.}
-]
-If an admissible (q\) equals (1/2\) at every off-axis point outside any finite exceptional set, then for all sufficiently large (N\) both terms on the left are exactly (1/2\). Therefore \(E_\infty(q)\ge1\). More quantitatively, to have the known best-upper-bound target \(E_\infty(q)\le4/7\), one member of each escaping pair must differ positively from the half-baseline by at least \(3/14\), at arbitrarily large scales. This is an analytic obstruction to **finite-support repairs**, not an impossibility claim for infinite-tail constructions.
+$$
+If $q=1/2$ at all off-axis coordinates except finitely many, the two left-hand terms equal $1/2$ for sufficiently large $N$, so $E_\infty(q)\ge1$. More quantitatively, achieving $E_\infty(q)\le4/7$ requires at least one point in each escaping pair to exceed the half-baseline by at least $3/14$, at arbitrarily large scales. This is a rigorous global-tail **necessary condition**, not a negation of infinite-tail constructions.
 
-Theorem 3 supplies an independent human proof of the global lower bound 1 for the particular r469 finite table; the finite representative computation in Theorem 2 gives its matching upper bound 1.
+This theorem independently supplies $E_\infty(q_*)\ge1$ for the r469 table; the exact finite-representative audit in Theorem 2 supplies the matching upper bound.
 
-## Scientific significance and remaining scope
+## Boundary and continuation
 
-The fiber-swap formula exposes an exact one-dimensional oscillation family and replaces a four-index verification loop by interval extrema. It can be used to search for improved whole-domain constructions or derive global obstructions without enumerating all quadruples.
+The r469 witness's error one on the full lattice does not supersede the existing global existence bracket $1/2\le E_\infty^*\le4/7$ (whose upper bound uses a different function). Nor does it resolve the unrestricted $B=15$ finite-box optimum. The new oscillation representation offers a mathematically exact reduced optimization/evaluation route; the tail constraint shows that a global candidate below error one needs genuinely nontrivial off-axis behavior at unbounded scales.
 
-The frozen **r469 witness** has global error 1 even though it is optimal on every (1\le B\le14). This does **not** alter the separately established global existence bracket (\tfrac12\le E_\infty^*\le\tfrac47\), whose upper bound uses another function. The unrestricted (B=15) minimax value and infinite-domain optimal value remain open. The old r470 relative-repair theorem, original F7 researcher, immutable Result and review/admission states are preserved.
-
-No Native Review or Result acceptance is claimed from this derivation; any formal admission must use current Source authority and actual Result-byte and independence checks.
+Original scientific ownership, prior r470 relative-repair results and all existing Source/Result/Review states remain unchanged. This derivation has not been canonically admitted as a Native Result or Independent Review.
