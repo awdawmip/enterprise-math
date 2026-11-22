@@ -1,0 +1,293 @@
+{
+  "schema": "T6_P17_Q7_SPLIT3_4_AUTHOR_EXACT_FINITE_CERT_V1",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "frozen_task": {
+    "commit": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+    "git_blob_sha1": "87b3a6f38e9350f7a3f56624b27bff2a7778a439"
+  },
+  "model": {
+    "maximal_prime": 17,
+    "valuation": 1,
+    "vertical_split": [
+      3,
+      4
+    ],
+    "max_exponent_mass_per_side": 2331,
+    "named_atom_denominator": "17(r+17q)",
+    "cost": "289q+17r-1",
+    "q0_residues": "r=1..16",
+    "global_necessary_congruences": "for j=1..6: sum_r u_r*r^-j+sum_vertical m_qr*(r+17q)^-j = 0 mod 17^j",
+    "lower_prime_completion": "unrestricted"
+  },
+  "lattice": {
+    "dimension": 16,
+    "saturated_basis_blob_sha1": "d9ac014355a6a1058cc8a0cf2141a01082628881",
+    "index": "17^21",
+    "Dmin_numerator": "8350069911612335617606677214061177705401058080646556447012234889468081355909",
+    "Dmin_denominator": "480650972868542992444263969893692042421717754534280313801217347854273"
+  },
+  "coverage": {
+    "rosters_order3": 1088,
+    "rosters_order4": 6460,
+    "raw_pairs": 7028480,
+    "shared_vertical_pairs": 2398208,
+    "primitive_pairs": 4630272,
+    "GS_nodes": 9623589,
+    "sphere_leaves": 0,
+    "budget_valid_q0": 0,
+    "max_R_squared": 3439985
+  },
+  "execution": {
+    "standalone_python_exact_completed": true,
+    "disjoint_ranges": [
+      {
+        "left_indices": [
+          0,
+          32
+        ],
+        "local_json_sha256": "945c483750ab54f80c70196c0043e8bf4dcd12ab4ce25dbf443b2d3cd45ddcbd"
+      },
+      {
+        "left_indices": [
+          32,
+          64
+        ],
+        "local_json_sha256": "2d5c7044efe5ca2adf398de20b585070785ef148270e71cd61b9111d451da24c"
+      },
+      {
+        "left_indices": [
+          64,
+          96
+        ],
+        "local_json_sha256": "b81720f50871656329423dfc66478755bcff4c95324998dab62fbeb4e45144bc"
+      },
+      {
+        "left_indices": [
+          96,
+          128
+        ],
+        "local_json_sha256": "dd8901e8638333afdc50aa989127b62209a7d99069885c67d2568d8785608d48"
+      },
+      {
+        "left_indices": [
+          128,
+          160
+        ],
+        "local_json_sha256": "92f3e325a428d78f44a0b3a3a6700f5d58d4d2d77e4fbcb00d449aba02bd4b1b"
+      },
+      {
+        "left_indices": [
+          160,
+          192
+        ],
+        "local_json_sha256": "18471d3da2ae001f626f0df206e5bac655c13d4e7afba9ad1ff869f24c1a6004"
+      },
+      {
+        "left_indices": [
+          192,
+          224
+        ],
+        "local_json_sha256": "9398052a4e0ba694f966ed3873a68c8948e6d3d662b4663a3b1f436a26588a4b"
+      },
+      {
+        "left_indices": [
+          224,
+          256
+        ],
+        "local_json_sha256": "6ef0025b567ddaeff0262bee91d20e9aa270b5cb4eb8f28c99c922d96397daf8"
+      },
+      {
+        "left_indices": [
+          256,
+          288
+        ],
+        "local_json_sha256": "5104085e6ffc587dac080c44b9738f335ff82790a9580e407458a8f872ba4292"
+      },
+      {
+        "left_indices": [
+          288,
+          320
+        ],
+        "local_json_sha256": "da22cee5a1f98506455b7c668ed1748259b8222440895a67e7c3624f3ceb0aa5"
+      },
+      {
+        "left_indices": [
+          320,
+          352
+        ],
+        "local_json_sha256": "2964f2f17c1218f451fc2d4d8f8d81d2222121c5106a29ee4ce3ec2cc5d3f642"
+      },
+      {
+        "left_indices": [
+          352,
+          384
+        ],
+        "local_json_sha256": "1e0f2a5c5f0800ced66e9a85c452d8736af6cfff63f7aea0408f7d495461c176"
+      },
+      {
+        "left_indices": [
+          384,
+          416
+        ],
+        "local_json_sha256": "2f95fe4993e1f68fcf87f9848f05b4d0a72600aed1d4245eb303c14a531f8541"
+      },
+      {
+        "left_indices": [
+          416,
+          448
+        ],
+        "local_json_sha256": "80210cfe87fc6ebde9be2e3385f5e31b5a2ff91a70f42cba3f7c5094250c0f29"
+      },
+      {
+        "left_indices": [
+          448,
+          480
+        ],
+        "local_json_sha256": "c4bf64ffd82368d2553bd33874d3465ae8bb06827d0b853bc7632f7d234a0c26"
+      },
+      {
+        "left_indices": [
+          480,
+          512
+        ],
+        "local_json_sha256": "69174793c135b4c1c57a8425a4d3b493dcd456010f91b98015f0b66d4fc67e57"
+      },
+      {
+        "left_indices": [
+          512,
+          544
+        ],
+        "local_json_sha256": "35db284ca26283db749fd82214b63dc7dc787cc9711dc9fa96f05da944021ee4"
+      },
+      {
+        "left_indices": [
+          544,
+          576
+        ],
+        "local_json_sha256": "931c0735f4e5a444fb64aa988b6f262140b798033e221173d851cc9e115d96e6"
+      },
+      {
+        "left_indices": [
+          576,
+          608
+        ],
+        "local_json_sha256": "e1417464707caef6d4f05dcaa81e9d1a081f41a093a8f0ef61f962ca6e7110fe"
+      },
+      {
+        "left_indices": [
+          608,
+          640
+        ],
+        "local_json_sha256": "b0a39fa6059ba9ab186b5138d22d495b5961c3a26112363dd24fd56288f53ea0"
+      },
+      {
+        "left_indices": [
+          640,
+          672
+        ],
+        "local_json_sha256": "9898b5ec7966560307fa2e7b56c0950b63096b26b73b1d3d67f99f46ad2ad8dd"
+      },
+      {
+        "left_indices": [
+          672,
+          704
+        ],
+        "local_json_sha256": "94ba82d27fe546a8bd181ce15b917e1eb3d64a7322ec16bfbd06a644608d2eaa"
+      },
+      {
+        "left_indices": [
+          704,
+          736
+        ],
+        "local_json_sha256": "d281d801776c02fa2943872df25eee6d90e339e767e3510c4a506eeb483f0c3f"
+      },
+      {
+        "left_indices": [
+          736,
+          768
+        ],
+        "local_json_sha256": "b7aa68b0e9bde6ea2ada81d3e0c6f05f8057b21643abee2fb6396a93c3c2a40a"
+      },
+      {
+        "left_indices": [
+          768,
+          800
+        ],
+        "local_json_sha256": "71ccd82f96ac64290d264eb0d7f571a05f0f242e88f92a7d030cd043ecda6bde"
+      },
+      {
+        "left_indices": [
+          800,
+          832
+        ],
+        "local_json_sha256": "4038b5a699d8bf1917fb9e8245af12ce3ba927d665ccdd97ca40f09943d5b00b"
+      },
+      {
+        "left_indices": [
+          832,
+          864
+        ],
+        "local_json_sha256": "5f5cd637198bd35f99f0e51dca287fb039264b1bd1f53cf0f2fa814edce3d3e1"
+      },
+      {
+        "left_indices": [
+          864,
+          896
+        ],
+        "local_json_sha256": "ef0eecc064299ca6cfad24b5ce2b711e01dbc84714ea0e409867317926a11a12"
+      },
+      {
+        "left_indices": [
+          896,
+          928
+        ],
+        "local_json_sha256": "9802dcbae320a7bc8e152457df7756b570b03c429e9097ee0d6a804e719466b6"
+      },
+      {
+        "left_indices": [
+          928,
+          960
+        ],
+        "local_json_sha256": "6135a61a709e10f48aafa2b31be8f7e91fb9f4ba49659783d910e784dd389ac7"
+      },
+      {
+        "left_indices": [
+          960,
+          992
+        ],
+        "local_json_sha256": "333f9df5b59953e902bddaa6a004abfb0f6152bd1b37bda0bc1aa24eb7776a15"
+      },
+      {
+        "left_indices": [
+          992,
+          1024
+        ],
+        "local_json_sha256": "c09ca351b7da1bad58c48911480353cb201d3928e0fa5408f7a0cd51ab5686a3"
+      },
+      {
+        "left_indices": [
+          1024,
+          1056
+        ],
+        "local_json_sha256": "5d2ff0b8245d9b5530ca0bd4e722940ded9690f58013584cccfca25bf5b725a7"
+      },
+      {
+        "left_indices": [
+          1056,
+          1088
+        ],
+        "local_json_sha256": "73192a34f7031f39fc0f4f84305f0e3bba3a054fd1d630bd14c85139852f56d5"
+      }
+    ],
+    "published_compact_reproducer_executed": false,
+    "range_count": 34
+  },
+  "algorithm": "Complete signed named support; six exact modular affine lifts; full saturated homogeneous 16D q0 lattice; exact Fraction backward Gram-Schmidt search with R2<Dmin and exact floor/ceil pruning.",
+  "scope": "Primitive maximal p17 valuation-one vertical order7 split(3,4), with both original mass budgets and globally necessary 17-adic congruences.",
+  "conclusion": "Zero complete necessary weighted-sphere q0 lattice leaves, hence zero valid signed budget completions; shared named support reduces to lower order.",
+  "global_T6": "OPEN",
+  "native_claim": "NOT_VERIFIED",
+  "protected_semantic_PROGRESS": "NOT_PUBLISHED",
+  "independent_review": "NOT_PERFORMED"
+}
