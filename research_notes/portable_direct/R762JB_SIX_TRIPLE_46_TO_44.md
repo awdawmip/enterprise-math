@@ -1,0 +1,55 @@
+# R762JB — Exact 46→44 compression of the six-triple Port–Euler terminal class
+
+Date: 2026-11-22 (Asia/Shanghai).
+Frozen scientific input: `awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389` (unchanged).
+Antecedents: R762IR GF(2) triangle-nonessential reduction; R762JA (k=0 ≤46).
+Status: **AUTHOR_PROVED / EXACT_FINITE_CERTIFICATES_VERIFIED / NOT_REVIEWED**.
+Scope: **composite six-axis Port–Euler observer** only; no signed native P000 / BRC dynamical lifting.
+
+## Theorem
+
+Let A={0,1,2,3,4,5}, let P be the 15 unordered two-axis Ports and S the 20 unordered three-axis supports. Each event of support s∈S chooses one of the three unordered edges joining two Ports inside s, with parallel edges permitted. A legal closed history is a connected even-degree multigraph on exactly its positive-degree Port set V, admitting an Euler circuit from any declared p∈V. Denote the existence predicate by N_{p,V}(n)>0.
+
+For every 46-event multiplicity vector n with precisely six supports of count 3 and the other fourteen of count 2, and every active-Port set V and start p with N_{p,V}(n)>0, there exists a six-triple support j such that
+
+\[
+ N_{p,V}(n-2e_j)>0,\qquad |n-2e_j|=44.
+\]
+
+Thus all 20 positive supports, their individual parities, the exact active Port set and p are preserved. The result is independent of the original edge-event ordering; it preserves only the declared composite Port–Euler observation.
+
+## Complete structural proof
+
+Write T for the six triple supports; for each s∈T write Δ_s for the triangle on its three Port vertices. Since all 20 supports have positive multiplicity, inactive Ports M=P\\V form a matching of K6: two inactive Ports sharing an axis would occur together in a support with fewer than two active vertices, making even one event impossible.
+
+**Case 1: A triple has an inactive Port.** A legal three-event support triangle then has exactly two active Port vertices, and all three events use the sole allowed edge. Delete two parallel copies. The surviving edge maintains connectivity, all support types, degrees mod 2 and V.
+
+**Case 2: All triple triangles are fully active, and some Δ_j is nonessential.** Let G(T) be the union of the entire three-edge triangles for all s∈T. Suppose removing Δ_j does not increase G(T)'s number of connected components on all 15 Ports. The three vertices of Δ_j remain mutually connected through G(T\\{j}). Replace the three events of support j by any one of its edges. The resulting degree-parity defect is 0 or a pair of vertices of Δ_j. If it is a pair, choose a path joining them in G(T\\{j}). In each retained triple support, change the GF(2) boundary by that path's local boundary. A local boundary in a triangle is either empty or a two-vertex set. It can always be realized by exactly three edges connecting all three triangle vertices: a three-cycle for the empty boundary; otherwise, one edge between the prescribed odd pair and two parallel edges to the third vertex. Reassigning all retained triple supports this way preserves the required global parity, dominates their old within-support connectivity, and reconnects the three vertices of deleted Δ_j through G(T\\{j}). All fourteen double supports are left unchanged. The result is a connected even-degree graph on the exact original V.
+
+**Case 3: All six fully active triple triangles are essential.** Exhaustively enumerate every T⊂S with |T|=6. For each, count the 15-Port connected components of G(T) and of each G(T\\{j}). Exactly 27,720 of the 38,760 six-support subsets have all six triangles essential. They form **67** axis-permutation S6 orbits. Coverage counts by the number of distinct Ports in their triangle unions are:
+
+| Covered Ports | 10 | 11 | 12 | 13 | 14 | 15 |
+|---|---:|---:|---:|---:|---:|---:|
+| All-essential labelled T | 30 | 2,760 | 14,940 | 8,160 | 1,800 | 30 |
+
+For each orbit's least integer support-bitmask representative T, enumerate the 76 matchings M of K6 and retain those disjoint from ⋃_{s∈T} vertices(Δ_s). There are exactly **302** such representative (T,M) pairs, corresponding to **123,690** labelled (T,M) pairs under axis relabelling. In every one of the 302 cases a published explicit 44-event certificate reduces the least indexed triple support j, leaves every other support count unchanged, and validates the graph's even positive degrees, exact active set, connectivity and support counts. The independent standard-library verifier reenumerates all 38,760 subsets, the 67 orbits, the 302 eligible pairs and every integer certificate. It prints PASS with 302/302 valid witnesses.
+
+The S6 action transports each certificate to every labelled case. A connected Eulerian multigraph admits a circuit starting at any p∈V. Cases 1–3 exhaust all legitimate six-triple 46-event histories.
+
+## Verification and provenance
+
+Local computations on 2026-11-22: a C++17 union-find classifier independently obtained the all-essential count 27,720, the 67 orbit count, 302 representative allowed inactive-matching cases, and 123,690 labelled cases. SciPy/HiGHS integer feasibility with connectivity cuts proposed 302 compressed edge allocations. The Python standard-library checker independently reconstructed all structural classes by a different graph flood-fill implementation and verified **302/302** integer allocations. Each certificate contains exactly 60 entries in {0,1,2,3}: three allowed Port edges per support. Scientific correctness rests on the published integer allocations and the executable integer-only checker, not HiGHS success flags or floating-point optimality.
+
+Certificate encoding: 302 consecutive arrays of sixty two-bit integers; four packed per byte in edge order (supports lexicographic, then their triangle edges lexicographic), 4,530 uncompressed bytes, zlib compression then Base64.
+Raw certificate stream SHA-256: `bc4604217678f2abb252731b7afc32efccb738fcd06a21b0d26fbb884de00411`.
+Compressed stream SHA-256: `2a7315a8e187a6412da439725f309434880a0e5487ad6ca20e1843965cca9c7c`.
+
+Companion files: `R762JB_VERIFY.py` and `R762JB_CERTS.b64`, in the same directory.
+
+## Consequence and frontier
+
+This resolves the **(t,d,s,z)=(6,14,0,0)** 46-event terminal histogram by a 46→44 compression. It supports, but does not alone complete, a uniform k=0 upper bound of 45; the other 46-event histograms (7,12,1,0), (8,10,2,0), (9,8,3,0), (10,6,4,0), (8,11,0,1), (9,9,1,1), (10,7,2,1), and (10,8,0,2), plus t≥11 reductions, remain to be assembled or proved at the stated strength. Previously published author-side ≤46 remains the overall current bound, and its earlier dependencies remain NOT_REVIEWED.
+
+Next useful unit: handle (7,12,1,0) and other 46-event terminal classes with parity-preserving 46→44 constructions or a valid obstruction, reusing the same six-axis S6 orbit and active-matching certificate framework. Do not reinterpret this observer-level compression as deletion of native signed path, event order, phase or residual data.
+
+Current Researcher/Activity/CLAIM: separate native control status, to be reported from actual receipts. No protected PROGRESS/Result/Review publication is asserted here.
