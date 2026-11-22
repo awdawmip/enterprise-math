@@ -1,0 +1,61 @@
+{
+  "schema": "R284EF_DYNAMIC_PORT_CACHE_FRONTIER_V1",
+  "frozen_source_commit": "acba2d8667903434aaa2a10720f43637fcc2421b",
+  "frozen_source_blob_sha1": "b46e0f682b58e47c27094b4bea6fa4e55119a3ee",
+  "frozen_codeword_sha256": "b6ce76b2c08b9ec6b79ec83173befd2589928ca7c636643c3eaecd40405f4ff4",
+  "source_states": 65536,
+  "arcs": 64,
+  "max_port_value": 8436072374,
+  "min_port_value": 7988637418,
+  "port_value_bit_width": 33,
+  "cache_dp_words": 8191,
+  "cache_dp_cases": 24573,
+  "exact_formulas": {
+    "k2": "2+2m",
+    "k3": "m=0:2; m>=1:3+m",
+    "k4": "m=0:2; m>=1:4"
+  },
+  "recovered_states": 65536,
+  "verified_R_W_RW_successors": 196608,
+  "benchmark": {
+    "python": "3.13.5",
+    "seed": 28420261122,
+    "steps": 100000,
+    "symbol_counts": {
+      "1": 39966,
+      "64": 40059,
+      "65": 19975
+    },
+    "diagonal_switches": 80025,
+    "port_cache": {
+      "2": {
+        "oracle_reads": 160052,
+        "python_loop_ms": 19.8955
+      },
+      "3": {
+        "oracle_reads": 80028,
+        "python_loop_ms": 30.8871
+      },
+      "4": {
+        "oracle_reads": 4,
+        "python_loop_ms": 15.8959
+      }
+    },
+    "index_route": {
+      "initial_oracle_reads": 2,
+      "subsequent_oracle_reads": 0,
+      "python_loop_ms": 8.3588
+    },
+    "precomputed_pair_table": {
+      "initial_oracle_reads": 2,
+      "subsequent_oracle_reads": 0,
+      "python_loop_ms": 8.1211
+    },
+    "f_table_build_ms": 772.3925,
+    "inverse_plus_full_successor_check_ms": 127.3137,
+    "notes": "Observed from locally executed standalone R284EF checker; GitHub compact checker uses pinned unchanged R284CO/R284EE modules and reproduces the integer claims. One-run timings differ by implementation and environment."
+  },
+  "status": "AUTHOR_EXACT_CHECKED / EXACT_FINITE_CERTIFIED / NOT_REVIEWED",
+  "scope": "Opaque addressed Port cache vs indexed-table model; no native X6 transfer",
+  "reproducibility": "Exact fixed domain and checks; times are single-run empirical observations; new compact script recomputation not yet executed from published Git blob"
+}
