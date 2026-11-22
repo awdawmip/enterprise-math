@@ -11,6 +11,7 @@
 | 当前工作 | 公开项目入口 |
 |---|---|
 | 研究推进与成果保全 | [现行研究协议](docs/PORTABLE_RESEARCH_PROTOCOL.md) |
+| 研究复用与结构理解维护 | [按需使用原生速记本](docs/PORTABLE_RESEARCH_PROTOCOL.md#按需使用原生速记本) |
 | FREE A 以外的项目原生语义 | [P000](p000_reality_foundation.json) 及其声明的配套契约；研究时的[心跳世界](definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json) |
 | 候选冻结前的 FREE（含 P000） | [A 阶段基础包](definitions/EM_FREE_A_FOUNDATION_STARTUP.json)与[原始基底入口](definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md) |
 | 正式任务或控制操作 | [架构与角色](docs/RESEARCH_ARCHITECTURE.md)、[现行控制优先级](control_plane/current_control_authority.json)、[运行状态机](docs/RESEARCH_RUNTIME_STATE_MACHINE.md)、[V2 发布协议](docs/RESEARCH_TASK_PUBLICATION_PROTOCOL.md) |

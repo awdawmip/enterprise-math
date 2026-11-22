@@ -4,6 +4,14 @@
 
 本目录按对象和适用条件整理研究，提供结论、公式、证明位置、作者、原审核、复用关系与未支付缺口。下列 435 条所属的历史文献整理阶段在暂停探索期间完成；该整理阶段不新增证明、数学审核、工具接受、Lean 证明或 Foundation 晋升，也未执行科学计算。该历史边界不表示当前研究仍暂停。
 
+## 2026-11-22 近期直接研究
+
+以下按两条已保存的成果链提供续接入口，不并入下方历史 435 条整理计数。后续批次可沿各自既有 Activity 的源引用查找；正文中的作者证明、有限核验与正式接纳状态保持分别使用。
+
+- **Riesel 余数观察者与固定根覆盖成本。** [最新总述与五个分支](../research_notes/portable_direct/riesel_observers_20261122/README.md)保存预算 0–5 的锐残余密度阶梯、指定优化谓词的最小周期，以及同一 25 通道观察轨迹上每个有限新增成本 s≥5 的无限根族。固定原根的一份 2056 项窗口有精确成本 1791，给出旧素数集 P 之外的必要覆盖数下界；总数 1811 还要求保留全部 P。原固定根的全程有限覆盖存在性仍未决。来源为作者证明、精确有限证书与所列原生执行，没有独立项目 Review、形式证明核验或 Foundation 晋升。[既有 Activity 与前序批次](../research_activity_records/RA-D2EC212845B63844081F9A14.json)。
+
+- **RH 方法转译的三角矩尺度与相位。** [最新研究正文](../research_notes/portable_direct/rh_triangle_correlation_20261122_b5750a/REPORT.md)及[输入、分支与复算入口](../research_notes/portable_direct/rh_triangle_correlation_20261122_b5750a/README.md)保存尺度条件弱化、细尺度与短尾控制、真实骨架、逐包相位实现及正交代价，并记录独立最小值筛选的 no-go。有限真实窗口已有核验；无界实际匹配窗口的中粗层统一估计、真实骨架预算及匹配参数一致性仍未证明。这是作者推导与同作者核对，没有 RH 证明、正式独立 Review 或项目真值晋升。[既有 Activity 与前序批次](../research_activity_records/RA-60C6D083A81B19084A74C5BA.json)。
+
 ## 2026-11-04 冷线推进与完整母题盘点
 
 [第三批成果与源恢复](research_library/20261104/THIRD_PASS.md)新增 Borsuk 同并图、不同逐输入合并代价的反例，并恢复 T6 精确 q14 计划及缺输入合同。三批合计八个科学服务单元加一个源恢复单元；前两批已分别在 PR1768、PR1769 合并且全部81个累积文件读回一致。[公平续接清单](../research_notes/balanced_resume_20261104/FAIR_CONTINUATION_QUEUE.json)保留其它冷线位置。

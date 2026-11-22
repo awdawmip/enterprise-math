@@ -34,6 +34,12 @@ Before opening current/prior route context, freeze a candidate packet containing
 
 This packet is provenance. Do not rewrite its origin story after seeing existing work.
 
+Preserve the packet as an authorized scientific note with its actual state and
+immutable source locator. Candidate evidence does not need a Task, CLAIM, formal
+Result record or separate registration ceremony merely to be saved. A candidate
+ID identifies the frozen scientific object; an Activity identifies the research
+association. Neither identifier certifies CLEAN context or mathematical acceptance.
+
 ## Phase B — audit
 
 Only after freeze, open current Enterprise Math and external comparison context.
@@ -139,6 +145,8 @@ A raw candidate cannot automatically:
 ## Canonicalization
 
 Canonicalization uses the normal Enterprise Math evidence, ownership and L4 promotion gates.
+The paths below concern adoption as canonical mathematical content, not storage of
+a clearly labelled candidate or audit note at an already authorized Source path.
 
 There is no direct path:
 

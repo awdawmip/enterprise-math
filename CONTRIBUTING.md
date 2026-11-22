@@ -14,6 +14,7 @@ Thank you for helping test the project.
 | FREE before candidate freeze, including P000 | [Phase-A foundation package](definitions/EM_FREE_A_FOUNDATION_STARTUP.json) and [primitive-only substrate](definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md) |
 | Formal task/control work | [Architecture and roles](docs/RESEARCH_ARCHITECTURE.md), [current control precedence](control_plane/current_control_authority.json), [runtime](docs/RESEARCH_RUNTIME_STATE_MACHINE.md), [V2 publication](docs/RESEARCH_TASK_PUBLICATION_PROTOCOL.md) |
 | Research advancement and preservation | [Current research protocol](docs/PORTABLE_RESEARCH_PROTOCOL.md) |
+| Reusing research and maintaining structural understanding | [Native Nollm memory when useful](docs/PORTABLE_RESEARCH_PROTOCOL.md#按需使用原生速记本) |
 | Research identity/activity | [Role identity](docs/RESEARCH_IDENTITY_PROTOCOL.md), [activity persistence](docs/RESEARCH_ACTIVITY_PROTOCOL.md) |
 | BRC residual fitting | [Native X6 semantic alignment](research_notes/BRC_NATIVE_X6_SEMANTIC_ALIGNMENT_20261002_9D72AC.md) |
 | Driver organization/continuation | [Line ownership](docs/CODEX_RESEARCH_ORCHESTRATION.en.md), [Source continuation](docs/RESEARCH_CONTINUATION_PROTOCOL.md) |

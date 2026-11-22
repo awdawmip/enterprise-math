@@ -32,7 +32,7 @@ An authenticated MCP client may explicitly start its own server-issued execution
 
 The actual execution session and its private capability are distinct from the public role ID. A public Source identity/activity record does not prove possession of a session key. A new conversation without the old private session capability creates its own new session; a repeated public request ID does not recover another execution's key. Same-session retries require the original capability.
 
-A task researcher receives the native TASK_RESEARCH activity record and its real immutable Source readback. A Driver receives its own session record and requires separate canonical DA activation; it must not manufacture a researcher RA merely to pass a gate. Source-native registration does not claim a pre-existing GLOBAL_KNOWLEDGE registration. Global knowledge mirrors the verified Source pointer at the appropriate checkpoint.
+A Researcher receives an Activity in the declared research mode and its real immutable Source readback. `TASK_RESEARCH` remains the default and also covers directed/informed research without a published Task. A native transport that advertises `research_mode=FREE_AXIOM_DISCOVERY` can register the explicit FREE role without a `task_id`; it does not certify clean context or perform the later transition to formal Task execution. Preserve actual exposure and the Phase-A freeze boundary. A Driver receives its own session record and requires separate canonical DA activation; it must not manufacture a researcher RA merely to pass a gate. Source-native registration does not claim a pre-existing GLOBAL_KNOWLEDGE registration. Global knowledge mirrors the verified Source pointer at the appropriate checkpoint.
 
 Role registration alone grants no CLAIM, Driver adjudication, Working Truth or Foundation authority. Those destination capabilities are checked separately. Previous contributions and source exposure remain explicit; a new execution ID cannot manufacture clean or independent context.
 
@@ -266,4 +266,3 @@ Role identity is observability/provenance only. It does not weaken or replace:
 The intended invariant is:
 
 > Every active Enterprise Math role resolves its execution identity before substantive work begins and must show a truthful role-appropriate identity and source-status footer in substantive final responses, without turning identity persistence into a research-time GitHub dependency.
-

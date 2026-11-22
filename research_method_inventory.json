@@ -299,12 +299,13 @@
     },
     {
       "method_id": "recent.r061.native_line_trace",
-      "name": "Native line trace formula",
+      "name": "Legacy component-trace formula: positive-path shuffle counts",
       "classification": "DOMAIN_OPERATOR",
       "family_id": null,
-      "status": "CANONICAL_CURRENT_DEFINITION",
+      "status": "RETYPED_POSITIVE_PATH_COMBINATORICS_ONLY",
       "source_refs": [
         "definitions/ENTERPRISE_NATIVE_LINE_TRACE_FORMULA_20260821.md",
+        "definitions/ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.md",
         "commit:037a2dd9d095200c310853858e3c209ed100e727"
       ],
       "triggers": [
@@ -314,18 +315,23 @@
         "line identity"
       ],
       "capabilities": [
-        "line trace identity",
-        "path representative classification"
+        "shortest positive two-generator shuffle counts",
+        "composite-displacement path representatives"
+      ],
+      "note": "Retyped 2026-09-05. The historical N=25 subtotal 72 is a positive-sector subset, not the full signed shell. Support-two traces are composite native path families, not primitive straight lines. Use the centered-X6 rebase for signed displacement and shortest-path multiplicity; the original commit is provenance.",
+      "aliases": [
+        "Native line trace formula"
       ]
     },
     {
       "method_id": "recent.r061.directed_line_gauge",
-      "name": "Arbitrary-point directed native line gauge",
+      "name": "Legacy directed min-zero relative-observer gauge",
       "classification": "DOMAIN_OPERATOR",
       "family_id": null,
-      "status": "CANONICAL_CURRENT_DEFINITION",
+      "status": "RETYPED_RELATIVE_OBSERVER_GAUGE_ONLY",
       "source_refs": [
         "definitions/ENTERPRISE_ARBITRARY_POINT_DIRECTED_LINE_GAUGE_20260821.md",
+        "definitions/ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.md",
         "commit:3f14ae778a8a7f23f93b117c9fc469be354838f3"
       ],
       "triggers": [
@@ -334,18 +340,23 @@
         "cross sector line"
       ],
       "capabilities": [
-        "directed arbitrary-point gauge",
-        "symmetry-obstruction-aware routing"
+        "min-zero relative/carrier observer gauge",
+        "common-depth repair route to native signed distance"
+      ],
+      "note": "Retyped 2026-09-05 and superseded as native point-to-point length. The min-zero decoder forgets common depth; its reversal asymmetry is an observer effect. Native distance uses signed raw coordinate differences and is reversal-symmetric. The original commit is provenance.",
+      "aliases": [
+        "Arbitrary-point directed native line gauge"
       ]
     },
     {
       "method_id": "recent.r061.bidirectional_segment_spectrum",
-      "name": "Unoriented bidirectional segment spectrum",
+      "name": "Legacy bidirectional min-zero observer spectrum",
       "classification": "DOMAIN_OPERATOR",
       "family_id": null,
-      "status": "CANONICAL_CURRENT_DEFINITION",
+      "status": "RETYPED_OBSERVER_DIAGNOSTIC_ONLY",
       "source_refs": [
         "definitions/ENTERPRISE_UNORIENTED_BIDIRECTIONAL_SEGMENT_SPECTRUM_20260821.md",
+        "definitions/ENTERPRISE_X6_CENTERED_THREE_AXIS_SLICE_REBASE_20260905.md",
         "commit:0c48451162065dd62decb09ffa017e03b3862cb0"
       ],
       "triggers": [
@@ -354,8 +365,12 @@
         "reverse gauge"
       ],
       "capabilities": [
-        "bidirectional trace pair",
-        "bidirectional length spectrum"
+        "bidirectional min-zero observer diagnostic",
+        "oriented path provenance distinct from scalar distance"
+      ],
+      "note": "Retyped 2026-09-05 and superseded as native length repair. Native signed distance is already reversal-symmetric; the historical bidirectional spectrum remains only a diagnostic of the relative/min-zero gauge. This does not identify reversed path witnesses. The original commit is provenance.",
+      "aliases": [
+        "Unoriented bidirectional segment spectrum"
       ]
     },
     {

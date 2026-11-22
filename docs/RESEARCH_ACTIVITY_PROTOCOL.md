@@ -30,8 +30,11 @@ With local execution, run:
 python tools/research_activity.py register --mode FREE_AXIOM_DISCOVERY --session-id <stable-actual-session-key> --researcher-id <resolved-Researcher-ID>
 ```
 
-For ordinary direct research use `--mode TASK_RESEARCH`. No Task ID or topic is
-required. The command creates only a local record and returns its path/hash plus
+For ordinary directed or already-informed research use `--mode TASK_RESEARCH`.
+This legacy mode label does not assert that a formal Task exists. No Task ID or
+topic is required. Use `FREE_AXIOM_DISCOVERY` for the explicit FREE role and retain
+its Phase-A information barrier; the mode or a new ID never certifies CLEAN prior
+context. Disclose actual agenda/result exposure in the candidate provenance. The command creates only a local record and returns its path/hash plus
 the required publication action. It does not publish to GitHub.
 
 A connector-only host can create the following equivalent JSON directly at

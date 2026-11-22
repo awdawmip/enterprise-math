@@ -1,0 +1,328 @@
+{
+  "schema": "EM_RESEARCH_FLOW_AUDIT_OBSERVATIONS_V1",
+  "date_hong_kong": "2026-11-22",
+  "scope": "CONTROL_PLANE_MAINTENANCE; live informed-memory operations and isolated registration fixtures are reported separately",
+  "source_pins": {
+    "enterprise_math": "70504ddd76768359b0720eab8f199bf307c38af1",
+    "global_knowledge": "b404bbe78ce384bb9feb8aac47178ba6112b6068",
+    "nollm_main": "bafc6de4e8213d50a5ec64754c7bc87983f853ac",
+    "mcp_main": "c53051318966ab0781b243eb3f379e0544c4821a"
+  },
+  "live_native_observations": {
+    "initial_surface": {
+      "kind": "surface",
+      "order": 8,
+      "surface_calls": 1,
+      "has_more": true,
+      "preview_basis": "stored_statement",
+      "candidates": [
+        {
+          "id": "surface:829208668fc474396dec",
+          "window": [
+            8,
+            -4,
+            0
+          ],
+          "source_cells": 2,
+          "native_atoms": 2,
+          "previews": [
+            "素操作未来树｜固定基线时的残余位数只数实际达到的 F_L",
+            "prime-fiber 永久满容量阈值 66 与缺态窗口"
+          ],
+          "truncated": false
+        },
+        {
+          "id": "surface:a41297951b0705087029",
+          "window": [
+            8,
+            -4,
+            1
+          ],
+          "source_cells": 3,
+          "native_atoms": 3,
+          "previews": [
+            "素操作未来树｜固定基线时的残余位数只数实际达到的 F_L",
+            "prime-fiber 永久满容量阈值 66 与缺态窗口",
+            "【工程验收】Nollm 线上记忆版本与固定引用，2026-11-21"
+          ],
+          "truncated": false
+        },
+        {
+          "id": "surface:dbe31dd691dc7ef02e3a",
+          "window": [
+            8,
+            -4,
+            2
+          ],
+          "source_cells": 3,
+          "native_atoms": 3,
+          "previews": [
+            "素操作未来树｜固定基线时的残余位数只数实际达到的 F_L",
+            "prime-fiber 永久满容量阈值 66 与缺态窗口",
+            "【工程验收】Nollm 线上记忆版本与固定引用，2026-11-21"
+          ],
+          "truncated": false
+        }
+      ]
+    },
+    "fine_surface_before": {
+      "kind": "surface",
+      "order": 0,
+      "surface_calls": 2,
+      "has_more": false,
+      "preview_basis": "stored_statement",
+      "candidates": [
+        {
+          "id": "surface:d78a974d62b14360e1bf",
+          "window": [
+            0,
+            2,
+            1
+          ],
+          "source_cells": 1,
+          "native_atoms": 1,
+          "previews": [
+            "R284CO｜冻结 Port 覆盖谱：63 个必要见证与距离表扰动"
+          ],
+          "truncated": false
+        },
+        {
+          "id": "surface:beb07d5b37fc8a1818bf",
+          "window": [
+            0,
+            3,
+            0
+          ],
+          "source_cells": 1,
+          "native_atoms": 1,
+          "previews": [
+            "有限生成与无结束标志的流｜怎样判断枚举已经完成"
+          ],
+          "truncated": false
+        },
+        {
+          "id": "surface:2949a41d6536fbbb1cfa",
+          "window": [
+            0,
+            7,
+            -1
+          ],
+          "source_cells": 1,
+          "native_atoms": 1,
+          "previews": [
+            "素操作未来树｜固定基线时的残余位数只数实际达到的 F_L"
+          ],
+          "truncated": false
+        },
+        {
+          "id": "surface:c4eeb42ac8409820bd45",
+          "window": [
+            0,
+            7,
+            0
+          ],
+          "source_cells": 1,
+          "native_atoms": 1,
+          "previews": [
+            "prime-fiber 永久满容量阈值 66 与缺态窗口"
+          ],
+          "truncated": false
+        },
+        {
+          "id": "surface:7bdde9481ca78dfb96e5",
+          "window": [
+            0,
+            8,
+            -3
+          ],
+          "source_cells": 1,
+          "native_atoms": 1,
+          "previews": [
+            "【工程验收】Nollm 线上记忆版本与固定引用，2026-11-21"
+          ],
+          "truncated": false
+        }
+      ]
+    },
+    "literal_lookup_before": {
+      "triangle": {
+        "result": []
+      },
+      "Riesel": {
+        "result": []
+      }
+    },
+    "engineeering_recall": {
+      "kind": "entry",
+      "entry": [
+        0,
+        8,
+        -3
+      ],
+      "surface_calls": 3,
+      "kernels": [
+        "coverage_down",
+        "coverage_up",
+        "lateral"
+      ],
+      "items": [
+        {
+          "id": "ENGINEERING.memory-audit.20261121T0818.v3",
+          "cell": [
+            0,
+            8,
+            -3
+          ],
+          "via": [],
+          "text": "【工程验收】Nollm 线上记忆版本与固定引用，2026-11-21\nAUDIT-20261121-ROOT-0818 / FINAL-ONLY-0818\nv1 保存、v2 原位修订和两次回读均成功；旧版本 current=false，当前检索排除旧版独有文字，来源顺序保持。\n对 v1 第一项引用的失败已查明：测试者把只有8行的 AGENTS.md 写成 #L1-L10。完整错误明确报告越界；改读 #L1-L8 后成功。这是测试输入错误，既有接口按设计处理，并非路径被禁止。\n本版保留经过回源的正确入口与两段科研原文，供本次用户要求的工程验收继续核对。它是工程记录，不提出数学命题。"
+        }
+      ],
+      "budget_exhausted": true
+    },
+    "riesel_saved_v1": {
+      "id": "RESEARCH.riesel-observers.20261122.scope.v1",
+      "cell": [
+        0,
+        8,
+        0
+      ],
+      "revises": null
+    },
+    "riesel_revision": {
+      "id": "RESEARCH.riesel-observers.20261122.scope.v2",
+      "cell": [
+        0,
+        8,
+        0
+      ],
+      "revises": "RESEARCH.riesel-observers.20261122.scope.v1"
+    },
+    "riesel_old_readback": {
+      "id": "RESEARCH.riesel-observers.20261122.scope.v1",
+      "text": "Riesel residue observers｜预算阶梯、固定观测与原根覆盖的不同范围\n这是 2026-11-22 已保存研究批次的结构提炼；沿 RA-D2EC212845B63844081F9A14 及原文继续，不另起同题证明。\n固定原根与二十素数字典 P 的条件下，预算 0..5 的锐残余密度为 (72,36,13,8,3,0)/420；具名优化谓词的最小周期与嵌套最优根已有作者证明。嵌套最优条件的结果不能直接扩成所有新增成本为 5 的根。\n在同一个 25 通道观测轨迹下，对每个有限 s≥5，都有无穷多个根达到精确总成本 20+s；量词是每个 s 可有不同根。原始固定根的指定 2056 项窗口有 α=τ=1791，因此任何有限全程覆盖至少需 P 外的 1791 个素数；1811 只在保留 P 的条件下成立。\n原始固定根能否存在有限全程覆盖仍未解决。下一步消费现成阶梯、谓词周期与有限窗证书，推进剩余全程问题；无需重复这些已写明的证明。\n证据状态：作者证明、精确有限证书和 pinned 原生执行；未有独立 Review、形式证明接受或 Foundation 晋升。此笔记不改变原文状态。邻近 prime-fiber 内容同样关注有限观测的辨识边界；这里只建立阅读关系，不声称两套定理互推。",
+      "sources": [
+        "a2ae4d93398425e67dacbb4c99b7f3a6755e5771:research_notes/portable_direct/riesel_observers_20261122/README.md#L1-L33",
+        "a2ae4d93398425e67dacbb4c99b7f3a6755e5771:research_notes/portable_direct/riesel_observers_20261122/README.md#L85-L91"
+      ],
+      "current": false
+    },
+    "riesel_current_readback": {
+      "id": "RESEARCH.riesel-observers.20261122.scope.v2",
+      "text": "Riesel residue observers｜预算阶梯、固定观测与原根覆盖的不同范围\n这是 2026-11-22 已保存研究批次的结构提炼；沿 RA-D2EC212845B63844081F9A14 及原文继续，不另起同题证明。\n研究沿用原文给定的旧同余类与二十素数字典 P。对旧类中满足 3|a 的根，预算 0..5 的残余密度有统一锐下界 (72,36,13,8,3,0)/420，并有根与嵌套字典取等；不表示原始固定根逐项达到该下界。具名优化谓词的最小周期与嵌套最优根已有作者证明。嵌套最优条件的结果不能直接扩成所有新增成本为 5 的根。\n在同一个 25 通道观测轨迹下，对每个有限 s≥5，都有无穷多个根达到精确总成本 20+s；量词是每个 s 可有不同根。原始固定根的指定 2056 项窗口有 α=τ=1791，因此任何有限全程覆盖至少需 P 外的 1791 个素数；1811 只在保留 P 的条件下成立。\n原始固定根能否存在有限全程覆盖仍未解决。下一步消费现成阶梯、谓词周期与有限窗证书，推进剩余全程问题；无需重复这些已写明的证明。\n证据状态：作者证明、精确有限证书和 pinned 原生执行；未有独立 Review、形式证明接受或 Foundation 晋升。此笔记不改变原文状态。邻近 prime-fiber 内容同样关注有限观测的辨识边界；这里只建立阅读关系，不声称两套定理互推。",
+      "sources": [
+        "a2ae4d93398425e67dacbb4c99b7f3a6755e5771:research_notes/portable_direct/riesel_observers_20261122/README.md#L1-L33",
+        "a2ae4d93398425e67dacbb4c99b7f3a6755e5771:research_notes/portable_direct/riesel_observers_20261122/README.md#L85-L91"
+      ],
+      "current": true,
+      "revises": "RESEARCH.riesel-observers.20261122.scope.v1"
+    },
+    "triangle_saved": {
+      "id": "RESEARCH.triangle-correlation.20261122.scope.v1",
+      "cell": [
+        0,
+        -4,
+        3
+      ],
+      "revises": null
+    },
+    "triangle_readback": {
+      "id": "RESEARCH.triangle-correlation.20261122.scope.v1",
+      "text": "Triangle correlation｜三角矩、真实骨架与逐包相位的当前证明边界\n沿用 2026-11-22 的研究批次和 Activity RA-60C6D083A81B19084A74C5BA。原文已经给出按尺度放宽三角矩条件、细尺度与短尾的自动控制范围、真实骨架的构造，以及逐包相位修正的精确实现和正交代价；同时排除了逐包独立选较小矩以降低既有正包络的做法。后续对话先消费这些原文和 no-go，不重复尝试已排除的独立最小值筛选。\n真实有限窗口的严格证书已经保存。无界真实匹配窗口 B≈A^λ（固定 λ>1）上，对匹配参数统一的中粗层估计与真实骨架预算仍待证明；有限窗口证书不能替代这些量词。后续入口是实际 c(d) 的短区间联合和、保留符号与大除数尾的交叉、真实骨架估计及混合符号逐包修正。完整位复杂度仍开放。\n证据状态是文中辅助引理、构造、有限恒等式及同作者交叉核对；尚无 RH 证明、独立 Review 或项目真值晋升。既往正式 Result 的失败状态保留，不能把这批科学文件与 Activity 保存误写成 Result 接受。本文仅提炼已有来源，未追加新证明。",
+      "sources": [
+        "2e8a9aad42950ce4e0980e284772f23ba8e8da21:research_notes/portable_direct/rh_triangle_correlation_20261122_b5750a/REPORT.md#L1-L11",
+        "2e8a9aad42950ce4e0980e284772f23ba8e8da21:research_notes/portable_direct/rh_triangle_correlation_20261122_b5750a/REPORT.md#L259-L281"
+      ],
+      "current": true
+    },
+    "triangle_native_recall": {
+      "kind": "entry",
+      "entry": [
+        0,
+        -4,
+        3
+      ],
+      "surface_calls": 2,
+      "kernels": [
+        "coverage_down",
+        "coverage_up",
+        "lateral"
+      ],
+      "items": [
+        {
+          "id": "RESEARCH.triangle-correlation.20261122.scope.v1",
+          "cell": [
+            0,
+            -4,
+            3
+          ],
+          "via": [],
+          "text": "Triangle correlation｜三角矩、真实骨架与逐包相位的当前证明边界\n沿用 2026-11-22 的研究批次和 Activity RA-60C6D083A81B19084A74C5BA。原文已经给出按尺度放宽三角矩条件、细尺度与短尾的自动控制范围、真实骨架的构造，以及逐包相位修正的精确实现和正交代价；同时排除了逐包独立选较小矩以降低既有正包络的做法。后续对话先消费这些原文和 no-go，不重复尝试已排除的独立最小值筛选。\n真实有限窗口的严格证书已经保存。无界真实匹配窗口 B≈A^λ（固定 λ>1）上，对匹配参数统一的中粗层估计与真实骨架预算仍待证明；有限窗口证书不能替代这些量词。后续入口是实际 c(d) 的短区间联合和、保留符号与大除数尾的交叉、真实骨架估计及混合符号逐包修正。完整位复杂度仍开放。\n证据状态是文中辅助引理、构造、有限恒等式及同作者交叉核对；尚无 RH 证明、独立 Review 或项目真值晋升。既往正式 Result 的失败状态保留，不能把这批科学文件与 Activity 保存误写成 Result 接受。本文仅提炼已有来源，未追加新证明。"
+        }
+      ],
+      "budget_exhausted": true
+    },
+    "riesel_native_recall": {
+      "kind": "entry",
+      "entry": [
+        0,
+        8,
+        0
+      ],
+      "surface_calls": 3,
+      "kernels": [
+        "coverage_down",
+        "coverage_up",
+        "lateral"
+      ],
+      "items": [
+        {
+          "id": "RESEARCH.riesel-observers.20261122.scope.v2",
+          "cell": [
+            0,
+            8,
+            0
+          ],
+          "via": [],
+          "text": "Riesel residue observers｜预算阶梯、固定观测与原根覆盖的不同范围\n这是 2026-11-22 已保存研究批次的结构提炼；沿 RA-D2EC212845B63844081F9A14 及原文继续，不另起同题证明。\n研究沿用原文给定的旧同余类与二十素数字典 P。对旧类中满足 3|a 的根，预算 0..5 的残余密度有统一锐下界 (72,36,13,8,3,0)/420，并有根与嵌套字典取等；不表示原始固定根逐项达到该下界。具名优化谓词的最小周期与嵌套最优根已有作者证明。嵌套最优条件的结果不能直接扩成所有新增成本为 5 的根。\n在同一个 25 通道观测轨迹下，对每个有限 s≥5，都有无穷多个根达到精确总成本 20+s；量词是每个 s 可有不同根。原始固定根的指定 2056 项窗口有 α=τ=1791，因此任何有限全程覆盖至少需 P 外的 1791 个素数；1811 只在保留 P 的条件下成立。\n原始固定根能否存在有限全程覆盖仍未解决。下一步消费现成阶梯、谓词周期与有限窗证书，推进剩余全程问题；无需重复这些已写明的证明。\n证据状态：作者证明、精确有限证书和 pinned 原生执行；未有独立 Review、形式证明接受或 Foundation 晋升。此笔记不改变原文状态。邻近 prime-fiber 内容同样关注有限观测的辨识边界；这里只建立阅读关系，不声称两套定理互推。"
+        },
+        {
+          "id": "prime.threshold",
+          "cell": [
+            0,
+            7,
+            0
+          ],
+          "via": [
+            "lateral"
+          ],
+          "text": "prime-fiber 永久满容量阈值 66 与缺态窗口\n只取 S={2,3}, a=(0,0), L=2, 残余素数 q≥5，整阈值 H≥1。T={1,2,3,4,6,9}，F_H(q)=max({0}∪{t∈T:qt≤H})。相邻 t<u，取到 t 恰需 H/u<q≤H/t。C(27)=5，C(28)=4；七态全有 iff 45≤H≤62 或 H≥66。63..65 缺 6。有限区间给素数见证；H≥226 的尾部用 x=H/u>25 的 Nagura 区间 (x,6x/5) 与 u/t≥4/3。非作者复核针对这些可取值，未提升继承的商定理。换 S、L 或复合残余须重新支付区间可取性的证明。"
+        }
+      ],
+      "budget_exhausted": true
+    },
+    "source_read_by_note": {
+      "reference": "a2ae4d93398425e67dacbb4c99b7f3a6755e5771:research_notes/portable_direct/riesel_observers_20261122/README.md#L85-L91",
+      "source_commit": "a2ae4d93398425e67dacbb4c99b7f3a6755e5771",
+      "path": "research_notes/portable_direct/riesel_observers_20261122/README.md",
+      "start_line": 85,
+      "end_line": 91,
+      "text": "85\tThe all-cost corollary reuses the preceding primitive-prime existence input; it does not replace that theorem by finite experiments. Current normative source reads and frozen scientific dependencies have separate identities in [source_scope.json](source_scope.json). Updating a control entry does not repin the scientific substrate.\n86\t\n87\t## Evidence boundaries\n88\t\n89\tThe universal staircase and equality classification are analytic arguments using exact incidence formulas and complete small factorizations. Exhaustive phase enumeration checks the finite dictionary after the proof makes it exhaustive. The fixed-window result is certified by matching lower and upper witnesses using joint gcds, not by trusting a discovery optimizer. Actual native execution checks the chosen integer and observer semantics. None of these statuses implies independent Review or formal admission.\n90\t\n91\tThe old original root's full finite-cover existence remains unresolved. Unbounded finite costs across different roots are not an infinite cost at one ordinary root. The least periods certify only the named predicates; full integer, cofactor and joint-relation information remain available and are needed for the larger covering question."
+    }
+  },
+  "own_recovery": {
+    "verified_original_identity": true,
+    "metadata_only": true,
+    "research_authority_granted": false,
+    "execution_authorized": false,
+    "has_more_requests": true,
+    "absence_is_completion": false,
+    "new_identity_created": false
+  },
+  "limits": [
+    "Literal nonmatches alone do not prove absence.",
+    "current is current field binding, not latest-source freshness or theorem acceptance.",
+    "No production FREE identity, Task, CLAIM, Result, Review or schedule was created.",
+    "No CI was run."
+  ]
+}
+
