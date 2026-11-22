@@ -1,0 +1,70 @@
+{
+  "schema": "R762IR_PORT_EULER_EXACT_EVIDENCE_V1",
+  "research_unit": "R762IR",
+  "date_local": "2026-11-22",
+  "scientific_frozen_source_commit": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "research_status": "AUTHOR_PROVED_COMPUTER_ASSISTED_FINITE_LEMMA_NOT_REVIEWED",
+  "claim_scope": "Six-axis composite Port-Euler graph; k=0 multiplicities n_S in {0,1,2,3}; same active Port set, start Port, positivity and per-support parity",
+  "structural_census": {
+    "method": "exact C++17 DSU over all labeled 10/11-support subsets; each triangle omitted and all 105 Port-pair connectivity relations compared",
+    "ten_support_subsets": 184756,
+    "ten_support_all_essential": 6,
+    "ten_support_sharp_integer_masks": [
+      1023,
+      64527,
+      466033,
+      746898,
+      895652,
+      971592
+    ],
+    "eleven_support_subsets": 167960,
+    "eleven_support_all_essential": 0,
+    "independent_method": "exact dynamic partition updates on every subset of 20 labeled support triangles",
+    "all_masks": 1048576,
+    "max_essential_triangles": 10,
+    "min_redundant_at_size_11": 4,
+    "min_redundant_at_size_14": 10,
+    "all_essential_subsets_all_sizes": 77310
+  },
+  "results": [
+    "At least 11 support types with multiplicity exactly 3 permits one parity/activeness/connectivity-preserving 3-to-1 reduction, independently of other multiplicities.",
+    "For all n_S in {0,1,2,3}, any realizable Port-Euler observer has a witness with sum h_S <= 50.",
+    "For original sums 54,56,58,60 in the k=0 family, exact 52-event witness exists and repairs R762IM high-tail coverage gap."
+  ],
+  "constructive_case": {
+    "initial_counts": "n_S=2 for support indices {0,1,2,4,5,7}, n_S=3 for the other 14 supports",
+    "initial_events": 54,
+    "active_ports": 15,
+    "removed_support_indices": [
+      10,
+      11,
+      13,
+      16
+    ],
+    "event_totals": [
+      54,
+      52,
+      50,
+      48,
+      46
+    ],
+    "checks": "exact integer event support, active Port set, positive even degrees, connectivity after every reduction"
+  },
+  "software": [
+    "research_notes/portable_direct/R762IR_ESSENTIAL_11_CHECK.cpp",
+    "research_notes/portable_direct/R762IR_ALL_MASKS_CHECK.cpp",
+    "research_notes/portable_direct/R762IR_54_TO46_WITNESS.py"
+  ],
+  "verification": "Executed equivalent local sources with C++17 and Python3; remote source files saved and byte-for-byte read back from GitHub; finite exhaustive component is a computer-assisted lemma.",
+  "predecessors": [
+    "awdawmip/enterprise-math@1242433dd9ff8e123cb8d01936c1895d9d0110b9:R762IQ",
+    "awdawmip/enterprise-math@449ecf17d3407c86a18323288fa5972c742d6ab6:R762IP",
+    "awdawmip/enterprise-math@b5e3a6073c54d1bbccd3a5d798887def7243a34c:R762IM"
+  ],
+  "open_questions": [
+    "Is the k=0 uniform 50-event bound sharp? Audit six irredundant 10-triangle supports with actual even Euler realization.",
+    "Can four-event critical supports (k>0) reduce the whole model's currently reported 54-event upper bound?",
+    "Native P000 TRIADIC_CLOSURE_E signed Cell/Link/time/rotation lift and residual-preserving relation mapping remain independent."
+  ],
+  "control_status": "INDEPENDENT_PORTABLE_NOT_REVIEWED_NO_SHARED_CLAIM_OR_PROGRESS"
+}
