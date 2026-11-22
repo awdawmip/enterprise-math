@@ -1,0 +1,65 @@
+{
+  "schema": "T6_P19_Q9_MIXED_THIRD_DIGIT_EXACT_EMPTY_CERT_V1",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "run_date": "2026-11-23",
+  "scope": "Maximal prime19, p19 valuation-one after cancelling 19^2 atoms; vertical total q=9; q splits (3,6),(4,5); arbitrary 19-free denominators allowed in original shape and disappear only in necessary mixed-digit tests",
+  "mass_each_side_max": 2331,
+  "denominator_cofactor_alphabet": "j1..18 and 19q+r q1..6 r1..18 smooth at primes<=19; source max cofactor 122",
+  "true_observers": "H0..H6 through exact triangular reciprocal-moment inversion",
+  "necessary_moduli_by_k": [
+    null,
+    19,
+    361,
+    6859,
+    6859,
+    6859,
+    6859
+  ],
+  "exact_packed_base": "19^15=15181127029874798299",
+  "atom_types": 64,
+  "split_results": [
+    {
+      "q_split": [
+        3,
+        6
+      ],
+      "vertical_rosters": [
+        751,
+        114
+      ],
+      "q0_multisets": 9571123,
+      "full_side_states": [
+        569718902,
+        675
+      ],
+      "matching_mixed_digits_oriented": 0,
+      "support_disjoint_unordered": 0,
+      "execution_seconds": 12.68,
+      "peak_memory_kb": 395004
+    },
+    {
+      "q_split": [
+        4,
+        5
+      ],
+      "vertical_rosters": [
+        3484,
+        3378
+      ],
+      "q0_multisets": 584072,
+      "full_side_states": [
+        43043867,
+        852346
+      ],
+      "matching_mixed_digits_oriented": 0,
+      "support_disjoint_unordered": 0,
+      "execution_seconds": 11.31,
+      "peak_memory_kb": 91704
+    }
+  ],
+  "support_disjoint_total": 0,
+  "checker": "research_checks/T6_P19_Q9_MIXED_THIRD_DIGIT_CHECK_20261123.cpp",
+  "checker_sha256": "774bffe10621db7a83bf765d5f1fc96e09ff40e5d2abedaf8a720b6e058ad36d",
+  "interpretation": "No full H0..H6 collision can have cancellation-normalized maximal p19 vertical order9. Combined with order10..12 exact mixed-digit emptiness and previously accepted p19 orders0..8, author-side maximal-p19 exclusion is complete at mass<=2331. Independent Source review/admission outstanding.",
+  "strength": "AUTHOR_EXACT_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED"
+}
