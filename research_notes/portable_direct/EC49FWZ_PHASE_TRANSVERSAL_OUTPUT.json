@@ -1,0 +1,84 @@
+{
+  "status": "ALL_PASS",
+  "scientific_pin": "BRC16943",
+  "primitive_directions": 72,
+  "distinct_masks": 50,
+  "gap_histogram": {
+    "2": 10,
+    "4": 26,
+    "6": 10,
+    "8": 4
+  },
+  "offset_projection_count": 55,
+  "r_values": 40,
+  "singleton_offset_missing_column_checks": 121000,
+  "lower_bound_size_checks": 480,
+  "direct_boolean_CRT_checks": 66550,
+  "maximum_distance": 40,
+  "formula_r_1_to_20": "5*(ceil(r/2)+1)",
+  "formula_r_21_to_40": "5*(ceil(r/2)+2)",
+  "r_above_40": "IMPOSSIBLE",
+  "selected": [
+    {
+      "r": 1,
+      "m": 2,
+      "activations": 10,
+      "min_distance": 2
+    },
+    {
+      "r": 2,
+      "m": 2,
+      "activations": 10,
+      "min_distance": 2
+    },
+    {
+      "r": 3,
+      "m": 3,
+      "activations": 15,
+      "min_distance": 4
+    },
+    {
+      "r": 4,
+      "m": 3,
+      "activations": 15,
+      "min_distance": 4
+    },
+    {
+      "r": 19,
+      "m": 11,
+      "activations": 55,
+      "min_distance": 20
+    },
+    {
+      "r": 20,
+      "m": 11,
+      "activations": 55,
+      "min_distance": 20
+    },
+    {
+      "r": 21,
+      "m": 13,
+      "activations": 65,
+      "min_distance": 22
+    },
+    {
+      "r": 22,
+      "m": 13,
+      "activations": 65,
+      "min_distance": 22
+    },
+    {
+      "r": 39,
+      "m": 22,
+      "activations": 110,
+      "min_distance": 40
+    },
+    {
+      "r": 40,
+      "m": 22,
+      "activations": 110,
+      "min_distance": 40
+    }
+  ],
+  "status_scope": "finite auxiliary CRT / Farey Boolean observer; author validation, not independent review"
+}
