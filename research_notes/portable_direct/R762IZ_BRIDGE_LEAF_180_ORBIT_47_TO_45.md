@@ -2,7 +2,7 @@
 
 Date: 2026-11-22 (Asia/Shanghai).
 Status: AUTHOR_PROVED / EXACT_FINITE_CROSSCHECKED / NOT_REVIEWED.
-Scientific inputs remain frozen at \`awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389\`; no P000 revision or native signed lift is asserted.
+Scientific inputs remain frozen at `awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389`; no P000 revision or native signed lift is asserted.
 Predecessors: R762IT (Draft PR #2947), R762IW (Draft PR #2954), R762IY (Draft PR #2958).
 
 ## Mathematical setting
@@ -50,7 +50,7 @@ Both leaves have degree 2 and attach to this connected core, so the resulting 15
 
 ## Exhaustive verification and orbit coverage
 
-The attached standard-library-only \`R762IZ_BRIDGE_LEAF_VERIFY.py\` performs:
+The attached standard-library-only `R762IZ_BRIDGE_LEAF_VERIFY.py` performs:
 
 1. A complete enumeration of \(\binom{20}{9}=167{,}960\) nine-support families using a 15-Port component test. Exactly **240** are all-essential.
 2. An independent \(S_6\) orbit generation: the above bridge-leaf orbit has **180** families; the star-minus-one orbit has **60**; their disjoint union exhausts the 240 all-essential families.
@@ -58,7 +58,7 @@ The attached standard-library-only \`R762IZ_BRIDGE_LEAF_VERIFY.py\` performs:
 
 Execution on 2026-11-22: **PASS** for all 55 construction instances and the complete 240-family census. Reproducible SHA-256 of the deterministic canonical JSON certificate list:
 
-\`eff09ac6cf6b412385bb7ade59eae7e37a98680894f5e941e2f19acc82fc23ed\`.
+`eff09ac6cf6b412385bb7ade59eae7e37a98680894f5e941e2f19acc82fc23ed`.
 
 No external optimization solver, floating point arithmetic or numerical tolerance is used. The author-side finite check is not an independent mathematical review.
 
