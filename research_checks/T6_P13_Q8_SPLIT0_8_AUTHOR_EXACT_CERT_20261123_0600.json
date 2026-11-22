@@ -1,0 +1,660 @@
+{
+  "schema": "T6_P13_Q8_SPLIT_0_8_AUTHOR_EXACT_FINITE_CERT_V1",
+  "date_local": "2026-11-23",
+  "task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "scope": "p13 valuation-one vertical order8 signed split (0,8) complete",
+  "proof_status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "P": 13,
+  "CAP_EACH": 2331,
+  "roster_count": 521235,
+  "atom": "(q,r),denominator13*(13*q+r),exponent cost169q+13r-1, q>=1, 1<=r<=12",
+  "q0": "signed vector u_r, denominator13r, exponent weight13r-1",
+  "mixed_conditions": "signed inverse-power congruences modulo 13^j j=1..6",
+  "prior_dependencies": [
+    "p13 higher-valuation cancellation",
+    "p13 saturated 12D q0 lattice index13^21 and exact LLL Gram–Schmidt D.min>2*2331^2"
+  ],
+  "chunks": [
+    {
+      "range": [
+        0,
+        10000
+      ],
+      "counts": {
+        "raw": 10000,
+        "vertical_over_cap": 0,
+        "gs_nodes": 28876,
+        "sphere_leaves": 0,
+        "budget_valid": 0
+      },
+      "ordered_pairs_sha256": "dec9317028e2b4cacb663198a966465a58927571da488d4970dba28d94c699df",
+      "local_json_sha256": "d9abb05afc3cbe32ac01d68cc5b2a35c11f5e9f1b99bea881691bb9516583cb2",
+      "leaves": []
+    },
+    {
+      "range": [
+        10000,
+        160000
+      ],
+      "counts": {
+        "raw": 150000,
+        "vertical_over_cap": 94,
+        "gs_nodes": 421062,
+        "sphere_leaves": 1,
+        "budget_valid": 0
+      },
+      "ordered_pairs_sha256": "cd74b1d70bd461173120bb5910a4898e9dca29cc85bf6ecde0bc5bb43ac6ac56",
+      "local_json_sha256": "192318a7bc7c51478625fbdc497853443c46ec340137f6d8d80f2e5d9058914c",
+      "leaves": [
+        {
+          "neg": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              8
+            ]
+          ],
+          "u": [
+            -26,
+            35,
+            29,
+            -8,
+            -6,
+            8,
+            -6,
+            3,
+            -7,
+            5,
+            5,
+            4
+          ],
+          "mass_plus": 4877,
+          "mass_minus": 4115,
+          "radius_sq": 5885145,
+          "norm_sq": 5121699
+        }
+      ]
+    },
+    {
+      "range": [
+        160000,
+        310000
+      ],
+      "counts": {
+        "raw": 150000,
+        "vertical_over_cap": 143,
+        "gs_nodes": 422030,
+        "sphere_leaves": 1,
+        "budget_valid": 0
+      },
+      "ordered_pairs_sha256": "6a700664d41ec5b89c9a6d1af729a10fcae9ce35f835ed71bb075ad3262a7067",
+      "local_json_sha256": "b58d408e679db89cf78381e605c850fa51b0b770c4e99af6ddfc888784ade736",
+      "leaves": [
+        {
+          "neg": [
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              9
+            ],
+            [
+              2,
+              4
+            ]
+          ],
+          "u": [
+            76,
+            -15,
+            -2,
+            9,
+            -11,
+            1,
+            7,
+            -1,
+            -3,
+            -3,
+            7,
+            3
+          ],
+          "mass_plus": 3537,
+          "mass_minus": 3767,
+          "radius_sq": 5743810,
+          "norm_sq": 3573014
+        }
+      ]
+    },
+    {
+      "range": [
+        310000,
+        460000
+      ],
+      "counts": {
+        "raw": 150000,
+        "vertical_over_cap": 931,
+        "gs_nodes": 414371,
+        "sphere_leaves": 2,
+        "budget_valid": 0
+      },
+      "ordered_pairs_sha256": "540410c3400251d4a436cdf8b63e5bae95d319b115692f6006a412c7cc028c70",
+      "local_json_sha256": "62414222d0672ba79c64a9c33834b2e3c41048355d3b7960f6c4c06bb8aa39ae",
+      "leaves": [
+        {
+          "neg": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              11
+            ],
+            [
+              1,
+              12
+            ],
+            [
+              2,
+              10
+            ]
+          ],
+          "u": [
+            -56,
+            54,
+            -9,
+            -8,
+            0,
+            -17,
+            -1,
+            -5,
+            3,
+            0,
+            0,
+            -4
+          ],
+          "mass_plus": 1698,
+          "mass_minus": 6003,
+          "radius_sq": 5514217,
+          "norm_sq": 5049822
+        },
+        {
+          "neg": [
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              11
+            ],
+            [
+              1,
+              11
+            ],
+            [
+              1,
+              12
+            ],
+            [
+              2,
+              4
+            ]
+          ],
+          "u": [
+            -10,
+            -47,
+            4,
+            4,
+            -9,
+            8,
+            -6,
+            5,
+            2,
+            0,
+            4,
+            -9
+          ],
+          "mass_plus": 2287,
+          "mass_minus": 5866,
+          "radius_sq": 5507002,
+          "norm_sq": 5050275
+        }
+      ]
+    },
+    {
+      "range": [
+        460000,
+        521235
+      ],
+      "counts": {
+        "raw": 61235,
+        "vertical_over_cap": 928,
+        "gs_nodes": 168868,
+        "sphere_leaves": 2,
+        "budget_valid": 0
+      },
+      "ordered_pairs_sha256": "6748aa2e29aa8e3adcdc31fa65168491baafd0d7e0f29ab635471af2f8a50b1a",
+      "local_json_sha256": "0ab5a1da620e225830275c2026430bc2e283ffbc036eb72c71237a8afd9e5cb5",
+      "leaves": [
+        {
+          "neg": [
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              12
+            ],
+            [
+              3,
+              2
+            ],
+            [
+              3,
+              2
+            ]
+          ],
+          "u": [
+            39,
+            24,
+            12,
+            3,
+            19,
+            2,
+            8,
+            9,
+            3,
+            -1,
+            3,
+            7
+          ],
+          "mass_plus": 6553,
+          "mass_minus": 1763,
+          "radius_sq": 5919370,
+          "norm_sq": 5186916
+        },
+        {
+          "neg": [
+            [
+              1,
+              9
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              2,
+              12
+            ],
+            [
+              3,
+              11
+            ]
+          ],
+          "u": [
+            1,
+            -30,
+            -3,
+            3,
+            -5,
+            22,
+            -9,
+            -3,
+            -1,
+            1,
+            -2,
+            -2
+          ],
+          "mass_plus": 1988,
+          "mass_minus": 4855,
+          "radius_sq": 5672682,
+          "norm_sq": 4529519
+        }
+      ]
+    }
+  ],
+  "total": {
+    "raw": 521235,
+    "vertical_over_cap": 2096,
+    "gs_nodes": 1455207,
+    "sphere_leaves": 6,
+    "budget_valid": 0
+  },
+  "all_sphere_leaves": [
+    {
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          8
+        ]
+      ],
+      "u": [
+        -26,
+        35,
+        29,
+        -8,
+        -6,
+        8,
+        -6,
+        3,
+        -7,
+        5,
+        5,
+        4
+      ],
+      "mass_plus": 4877,
+      "mass_minus": 4115,
+      "radius_sq": 5885145,
+      "norm_sq": 5121699
+    },
+    {
+      "neg": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "u": [
+        76,
+        -15,
+        -2,
+        9,
+        -11,
+        1,
+        7,
+        -1,
+        -3,
+        -3,
+        7,
+        3
+      ],
+      "mass_plus": 3537,
+      "mass_minus": 3767,
+      "radius_sq": 5743810,
+      "norm_sq": 3573014
+    },
+    {
+      "neg": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          10
+        ]
+      ],
+      "u": [
+        -56,
+        54,
+        -9,
+        -8,
+        0,
+        -17,
+        -1,
+        -5,
+        3,
+        0,
+        0,
+        -4
+      ],
+      "mass_plus": 1698,
+      "mass_minus": 6003,
+      "radius_sq": 5514217,
+      "norm_sq": 5049822
+    },
+    {
+      "neg": [
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "u": [
+        -10,
+        -47,
+        4,
+        4,
+        -9,
+        8,
+        -6,
+        5,
+        2,
+        0,
+        4,
+        -9
+      ],
+      "mass_plus": 2287,
+      "mass_minus": 5866,
+      "radius_sq": 5507002,
+      "norm_sq": 5050275
+    },
+    {
+      "neg": [
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "u": [
+        39,
+        24,
+        12,
+        3,
+        19,
+        2,
+        8,
+        9,
+        3,
+        -1,
+        3,
+        7
+      ],
+      "mass_plus": 6553,
+      "mass_minus": 1763,
+      "radius_sq": 5919370,
+      "norm_sq": 5186916
+    },
+    {
+      "neg": [
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          12
+        ],
+        [
+          3,
+          11
+        ]
+      ],
+      "u": [
+        1,
+        -30,
+        -3,
+        3,
+        -5,
+        22,
+        -9,
+        -3,
+        -1,
+        1,
+        -2,
+        -2
+      ],
+      "mass_plus": 1988,
+      "mass_minus": 4855,
+      "radius_sq": 5672682,
+      "norm_sq": 4529519
+    }
+  ],
+  "replay": {
+    "path": "research_checks/T6_P13_Q8_BOUNDED_AUTHOR_AFFINE_CHECK_20261123.py",
+    "commit": "0f26023c42848e86767e296667a6574a3bbcf926",
+    "sha1": "4e62284ccea35856f2f882d6b7209553a27dfb96",
+    "executed_code": "local exact SymPy Fraction variant with precomputed q0 basis and cached named atom vectors",
+    "repo_checker_postpublication_rerun": false,
+    "source_order_hash_meaning": "sha256(str(((),neg))+'\\n' for every named sorted negative-side roster in slice)"
+  },
+  "native_semantic_PROGRESS": false,
+  "result_frozen": false,
+  "independent_review": false,
+  "T6_global": "OPEN"
+}
