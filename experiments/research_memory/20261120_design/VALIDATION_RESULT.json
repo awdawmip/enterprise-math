@@ -1,0 +1,35 @@
+{
+  "schema": "EM_MEMORY_DESIGN_VALIDATION_V1",
+  "at": "2026-11-20T14:42:57+08:00",
+  "scope": "DECLARED_CONTRACT_ONLY",
+  "python_version": "3.12.14",
+  "repository_workdir": "experiments/research_memory/20261120_design/evaluation",
+  "unit_tests": {
+    "command": "python3 -m unittest -v test_validation.py",
+    "returncode": 0,
+    "test_methods": 38,
+    "output": "test_answer_material_cannot_enter_eligible_pool (test_validation.ContractChecks.test_answer_material_cannot_enter_eligible_pool) ... ok\ntest_author_draft_cannot_be_relabelled_as_accepted (test_validation.ContractChecks.test_author_draft_cannot_be_relabelled_as_accepted) ... ok\ntest_candidate_connection_cannot_become_proved_transfer (test_validation.ContractChecks.test_candidate_connection_cannot_become_proved_transfer) ... ok\ntest_comparison_rejects_nonobject_run_without_crashing (test_validation.ContractChecks.test_comparison_rejects_nonobject_run_without_crashing) ... ok\ntest_current_governance_is_not_frozen_to_old_science_cutoff (test_validation.ContractChecks.test_current_governance_is_not_frozen_to_old_science_cutoff) ... ok\ntest_fallback_cannot_be_claimed_as_native_only (test_validation.ContractChecks.test_fallback_cannot_be_claimed_as_native_only) ... ok\ntest_free_a_checks_all_declared_visible_content_channels (test_validation.ContractChecks.test_free_a_checks_all_declared_visible_content_channels) ... ok\ntest_free_a_definition_requires_formed_relevant_question (test_validation.ContractChecks.test_free_a_definition_requires_formed_relevant_question) ... ok\ntest_free_a_exact_definition_before_freeze_is_allowed (test_validation.ContractChecks.test_free_a_exact_definition_before_freeze_is_allowed) ... ok\ntest_free_a_keeps_mandatory_foundation_even_when_it_contains_prior_results (test_validation.ContractChecks.test_free_a_keeps_mandatory_foundation_even_when_it_contains_prior_results) ... ok\ntest_free_a_precise_preview_after_formed_question_is_allowed (test_validation.ContractChecks.test_free_a_precise_preview_after_formed_question_is_allowed) ... ok\ntest_free_a_projected_lexical_view_can_pair_with_current_entry (test_validation.ContractChecks.test_free_a_projected_lexical_view_can_pair_with_current_entry) ... ok\ntest_free_a_projected_view_rejects_extra_result_ranking_influence (test_validation.ContractChecks.test_free_a_projected_view_rejects_extra_result_ranking_influence) ... ok\ntest_free_a_projected_view_rejects_result_in_build (test_validation.ContractChecks.test_free_a_projected_view_rejects_result_in_build) ... ok\ntest_free_a_rejects_result_catalog (test_validation.ContractChecks.test_free_a_rejects_result_catalog) ... ok\ntest_free_a_rejects_result_trained_helper_even_without_returned_text (test_validation.ContractChecks.test_free_a_rejects_result_trained_helper_even_without_returned_text) ... ok\ntest_free_a_rejects_task_input_that_task_baseline_allows (test_validation.ContractChecks.test_free_a_rejects_task_input_that_task_baseline_allows) ... ok\ntest_free_a_rejects_unknown_source_bearing_event (test_validation.ContractChecks.test_free_a_rejects_unknown_source_bearing_event) ... ok\ntest_future_scientific_source_is_rejected (test_validation.ContractChecks.test_future_scientific_source_is_rejected) ... ok\ntest_heldout_questions_cannot_guide_placement (test_validation.ContractChecks.test_heldout_questions_cannot_guide_placement) ... ok\ntest_learned_helper_cannot_change_candidates (test_validation.ContractChecks.test_learned_helper_cannot_change_candidates) ... ok\ntest_learned_helper_is_separate_with_fixed_candidates (test_validation.ContractChecks.test_learned_helper_is_separate_with_fixed_candidates) ... ok\ntest_memory_only_cannot_change_declared_exposure (test_validation.ContractChecks.test_memory_only_cannot_change_declared_exposure) ... ok\ntest_memory_only_cannot_change_helper_training (test_validation.ContractChecks.test_memory_only_cannot_change_helper_training) ... ok\ntest_memory_only_compares_actual_source_versions_and_identity (test_validation.ContractChecks.test_memory_only_compares_actual_source_versions_and_identity) ... ok\ntest_memory_only_comparison_cannot_change_reasoning_model (test_validation.ContractChecks.test_memory_only_comparison_cannot_change_reasoning_model) ... ok\ntest_native_access_requires_preceding_selection (test_validation.ContractChecks.test_native_access_requires_preceding_selection) ... ok\ntest_native_nollm_rejects_oracle_object_entry (test_validation.ContractChecks.test_native_nollm_rejects_oracle_object_entry) ... ok\ntest_native_only_direct_result_read_cannot_hide_as_access (test_validation.ContractChecks.test_native_only_direct_result_read_cannot_hide_as_access) ... ok\ntest_native_selection_then_access_and_baseline_load_is_allowed (test_validation.ContractChecks.test_native_selection_then_access_and_baseline_load_is_allowed) ... ok\ntest_native_title_preview_does_not_support_full_returned_claim (test_validation.ContractChecks.test_native_title_preview_does_not_support_full_returned_claim) ... ok\ntest_private_content_cannot_be_exported_to_public_artifact (test_validation.ContractChecks.test_private_content_cannot_be_exported_to_public_artifact) ... ok\ntest_research_principal_cannot_read_answer_store (test_validation.ContractChecks.test_research_principal_cannot_read_answer_store) ... ok\ntest_synthetic_fixture_cannot_claim_benchmark_winner (test_validation.ContractChecks.test_synthetic_fixture_cannot_claim_benchmark_winner) ... ok\ntest_train_and_test_dependency_overlap_is_rejected (test_validation.ContractChecks.test_train_and_test_dependency_overlap_is_rejected) ... ok\ntest_unknown_cost_remains_valid_and_unmeasured (test_validation.ContractChecks.test_unknown_cost_remains_valid_and_unmeasured) ... ok\ntest_unreported_fallback_event_still_blocks_native_only_credit (test_validation.ContractChecks.test_unreported_fallback_event_still_blocks_native_only_credit) ... ok\ntest_valid_public_development_fixture (test_validation.ContractChecks.test_valid_public_development_fixture) ... ok\n\n----------------------------------------------------------------------\nRan 38 tests in 0.007s\n\nOK\n"
+  },
+  "synthetic_cli": {
+    "command": "python3 validate_evaluation.py fixtures/synthetic_valid_run.json",
+    "returncode": 0,
+    "result": {
+      "passed": true,
+      "scope": "DECLARED_CONTRACT_ONLY",
+      "not_verified": [
+        "runtime isolation",
+        "undeclared leaks",
+        "model prior exposure",
+        "mathematical correctness",
+        "retrieval performance",
+        "cost savings"
+      ],
+      "errors": []
+    }
+  },
+  "performance_comparison": "NOT_RUN",
+  "runtime_isolation_validation": "NOT_RUN",
+  "training": "NOT_RUN",
+  "production_integration": "NOT_DEPLOYED",
+  "public_artifact_content": "Generic design, contract checker and synthetic development metadata only"
+}

@@ -97,6 +97,19 @@
 
 本地 `--read` 从已分类输入检查或重建符合角色要求的精确读取包。读取包缺失、陈旧或不受支持时，普通角色可以读取精确规范来源；FREE A 使用匹配的有效 A 阶段读取包，或精确的获准选段。其错误与回退不得暴露混合原始来源或构建覆盖资料。某个具体输入不可用，只影响依赖它的工作；其他独立工作继续。构建与查询的详细用法见 `docs/FOUNDATION_STARTUP_READING.en.md`。
 
+## 知情研究的可选工作记忆入口
+
+TASK、Driver 与冻结后的 FREE B 可使用已有 Nollm 理解：已知笔记 ID 用
+`em_memory_show`，字面定位用 `em_memory_find`，原生探索用
+`em_memory_walk`。按工具提示翻页，需要判断结论或变化的前提时展开固定 Source。
+这是可选取材入口，不增加启动必读目录或预设研究方法。
+
+已保存的科研材料形成可复用理解后，Host 可带精确来源和所选位置保存；修订使用新
+note ID 与 `revise`。字段 `current` 表示记忆场当前绑定。科研保存、Activity
+关联、记忆维护与正式接纳分别记录各自结果；来源变化后，由 Host 重新判断理解或
+连接是否仍适用。使用时参阅[简短记忆工作流](RESEARCH_MEMORY_WORKFLOW.md)。
+FREE A 保留现有阶段来源边界。
+
 ## 产生并消费一个当前请求
 
 对于只能使用连接器的 TASK_RESEARCH 对话，使用托管 GitHub 连接器读取 `control_plane/chatgpt_dispatch_request.json` 当前 `main` 的 blob，再通过乐观并发控制，用以下最小 JSON 更新该精确路径：
@@ -166,4 +179,5 @@
 `tests/test_researcher_startup_context_envelope.py` 使用仓库当前真实调度回执运行启动包构建器，并验证大块诊断字段不会混入精简启动包。
 
 可在本地执行的启动包、边界及基础测试验证这些变更。现有 `.github/workflows/researcher-startup-context-validation.yml` 是托管检查入口；其实际启用/必需状态是另一项部署事实。不得仅为此次本地验证新增或调度托管检查。任何既有且具有约束力的传输或必需检查依赖，在出现已验证替代路径前，继续保留其作用域。
+
 

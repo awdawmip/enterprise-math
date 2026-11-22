@@ -1,0 +1,93 @@
+{
+  "schema": "EM_MEMORY_RUN_CONTRACT_V1",
+  "run_id": "synthetic-development-task",
+  "mode_id": "M2_FLAT_LEXICAL",
+  "track": "TASK",
+  "sample_id": "synthetic-source-lookup",
+  "case_family_id": "synthetic-family-a",
+  "split": "development",
+  "main_model_revision": "SYNTHETIC_MAIN_MODEL_NOT_CALLED",
+  "cutoff_at": "2026-11-01T00:00:00Z",
+  "source_snapshot_id": "SYNTHETIC_CORPUS_NOT_A_REAL_SNAPSHOT",
+  "index_build_id": "SYNTHETIC_INDEX_NOT_BUILT",
+  "resource_envelope_id": "synthetic-common-envelope",
+  "artifact_classification": "PUBLIC_SYNTHETIC_DEVELOPMENT",
+  "synthetic": true,
+  "claim_scope": "CONTRACT_VALIDATION_ONLY",
+  "prior_result_exposure": "NONE_IN_DECLARED_SCOPE",
+  "sources": [
+    {
+      "id": "synthetic-foundation",
+      "version": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "kind": "foundation",
+      "knowledge_role": "scientific",
+      "classification": "public",
+      "available_at": "2026-10-01T00:00:00Z",
+      "identity": "synthetic://synthetic-foundation"
+    },
+    {
+      "id": "synthetic-definition",
+      "version": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+      "kind": "precise_definition",
+      "knowledge_role": "scientific",
+      "classification": "public",
+      "available_at": "2026-10-01T00:00:00Z",
+      "identity": "synthetic://synthetic-definition"
+    }
+  ],
+  "events": [
+    {
+      "type": "read",
+      "source_id": "synthetic-foundation",
+      "at": "2026-11-02T00:00:00Z",
+      "route": "direct"
+    }
+  ],
+  "helper": {
+    "trained_on_project_results": false,
+    "training_family_ids": [],
+    "training_manifest_digest": null,
+    "training_cutoff_at": null,
+    "result_exposure_scope": "WITHHELD_NONMANDATORY_RESULT_SET"
+  },
+  "isolation": {
+    "answer_store_readable_by": [
+      "evaluator"
+    ],
+    "runtime_access_test": "NOT_RUN"
+  },
+  "attribution": {
+    "entry_basis": "lexical",
+    "label": "direct",
+    "native_source_ids": [],
+    "fallback_source_ids": []
+  },
+  "cost": {
+    "measurement_status": "NOT_MEASURED_NO_MODEL_OR_RETRIEVAL_RUN",
+    "visible_tokens": null,
+    "billed_cost": null,
+    "end_to_end_ms": null
+  },
+  "build": {
+    "source_ids": [
+      "synthetic-foundation",
+      "synthetic-definition"
+    ],
+    "saw_heldout_questions": false,
+    "saw_answer_labels": false,
+    "used_withheld_results_for_index_or_ranking": false
+  },
+  "split_manifest": {
+    "train_family_ids": [],
+    "heldout_family_ids": []
+  },
+  "exports": [],
+  "exposure_profile": {
+    "stage": "TASK",
+    "mandatory_source_ids": [
+      "synthetic-foundation"
+    ],
+    "withheld_nonmandatory_result_set_id": null,
+    "allowed_lookup": "task_support"
+  }
+}

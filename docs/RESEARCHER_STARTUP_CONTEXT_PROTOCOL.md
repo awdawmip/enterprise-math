@@ -123,6 +123,23 @@ source or build coverage. A specific unavailable input affects work depending
 on it; other independent work continues. Detailed build/lookup usage is in
 `docs/FOUNDATION_STARTUP_READING.en.md`.
 
+## Optional working memory for informed research
+
+For TASK, Driver and frozen FREE B work, an available Nollm field can help reuse
+existing understanding: use `em_memory_show` for a known note ID,
+`em_memory_find` for a literal lookup, or `em_memory_walk` for native
+exploration. Follow the tool's shown pagination and expand fixed Source when a
+claim or changed premise needs it. This is an optional material route, not a
+required reading catalog or a prescribed research method.
+
+After saved scientific material has yielded a reusable understanding, the Host
+may save it with its exact sources and chosen placement; use a new note ID with
+`revise` for a correction. Field `current` identifies the current memory
+binding. Scientific saving, Activity association, memory maintenance and formal
+admission retain their own outcomes. Source changes can require a new semantic
+judgment about a note or link. See [the short memory workflow](RESEARCH_MEMORY_WORKFLOW.md)
+when using this route. FREE A keeps its existing phase-specific source boundary.
+
 ## Produce and consume one current request
 
 For a connector-only TASK_RESEARCH conversation, use the managed GitHub connector
@@ -250,4 +267,5 @@ is a hosted check surface; its actual enabled/required status is a separate
 deployment fact. Do not add or dispatch hosted checks merely for this local
 validation. Any existing binding transport or required-check dependency retains
 its scope until a verified replacement exists.
+
 
