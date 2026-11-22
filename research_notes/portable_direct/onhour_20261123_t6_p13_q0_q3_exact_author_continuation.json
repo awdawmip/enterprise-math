@@ -1,0 +1,230 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_AUTHOR_CONTINUATION_V1",
+  "record_kind": "AUTHOR_SCIENTIFIC_AND_CONTROL_CONTINUATION",
+  "date_local": "2026-11-23",
+  "timezone": "Asia/Hong_Kong",
+  "mother_task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "mother_objective": "Exact global T6=2332 proof or cheaper exact H0..H6 exponent-shape collision; OPEN",
+  "logical_research_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "prohibited_maintenance_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "frozen_task": {
+    "repository": "awdawmip/enterprise-math",
+    "path": "research_tasks/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260909.md",
+    "commit": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+    "git_blob_sha1": "87b3a6f38e9350f7a3f56624b27bff2a7778a439",
+    "repinned": false,
+    "side_mass_caps": [
+      2331,
+      2331
+    ]
+  },
+  "P000": {
+    "canonical_blob_sha1": "770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc",
+    "state": "ACTIVE_LOCKED"
+  },
+  "reused_completed_prior": [
+    {
+      "scope": "p17 valuation-one vertical orders q5..16 closed at author proof level",
+      "reference": "research_notes/portable_direct/onhour_20261123_t6_p17_q13_to_q16_exact_finite_closure.md",
+      "commit": "a5892063abd0a16fd6a90f8c280e7822b8267b51",
+      "note": "q0..q4 retain their Source/author evidence; do not claim nonauthor independent admission"
+    },
+    {
+      "scope": "p13 denominators of valuation >=2 cancel",
+      "reference": "research_notes/portable_direct/onhour_20261123_t6_p13_high_valuation_two_digit_cancellation.md",
+      "commit": "e09f7f4eac1a30705f63cc7823c0416de2092d31"
+    }
+  ],
+  "new_completed_units": [
+    {
+      "unit": "p13 valuation-one vertical order0 (q0-only) global mixed GS exclusion",
+      "proof": {
+        "path": "research_notes/portable_direct/onhour_20261123_t6_p13_q0_exact_static_gs_exclusion.md",
+        "commit": "2585f5d1c3d8d94e7b6a0cd2cfbb0af916c959eb"
+      },
+      "checker": {
+        "path": "research_checks/T6_P13_Q0_STATIC_GS_EXACT_CHECK_20261123.py",
+        "commit": "b156cda43bb477cd809c91d724d7877f0d10ed67"
+      },
+      "exact_lattice_index": "247064529073450392704413",
+      "exact_min_GS_square": [
+        "78577530278042129705264382752517501995032553011464356025",
+        "4243983974238642688103181306691645151538473248349"
+      ],
+      "budget_sq": 10867122,
+      "status": "AUTHOR_PROVED / EXACT_GS_EXECUTED / UNREVIEWED / NOT_ADMITTED"
+    },
+    {
+      "unit": "p13 valuation-one order1 split(0,1) global mixed affine exclusion",
+      "proof": {
+        "path": "research_notes/portable_direct/onhour_20261123_t6_p13_q1_split0_1_exact_global_affine_exclusion.md",
+        "commit": "365cc6123791e5b8409ac02a058dd68a411526ff"
+      },
+      "checker": {
+        "path": "research_checks/T6_P13_Q1_SPLIT0_1_GLOBAL_AFFINE_CHECK_20261123.py",
+        "commit": "301c47a33f10212a93f36b64c4f1228a179b2f42"
+      },
+      "certificate": {
+        "path": "research_checks/T6_P13_Q1_SPLIT0_1_GLOBAL_AFFINE_CERT_20261123.json",
+        "commit": "9f9a406ee8e8cca58987de177bfdd7acc8528b0c"
+      },
+      "vertical_states": 12,
+      "GS_nodes": 51,
+      "necessary_sphere_leaves": 0,
+      "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED"
+    },
+    {
+      "unit": "p13 valuation-one order2 splits(0,2) and(1,1) global mixed affine exclusion",
+      "proof": {
+        "path": "research_notes/portable_direct/onhour_20261123_t6_p13_q2_all_splits_exact_affine_exclusion.md",
+        "commit": "e545d3d4a60bde42a5e354c2eb4a28a1e7f59b32"
+      },
+      "checker": {
+        "path": "research_checks/T6_P13_Q2_ALL_SPLITS_GLOBAL_AFFINE_CHECK_20261123.py",
+        "commit": "8d6fc7fbc219e0a06efd3c4364d3ce81c0cdac3a"
+      },
+      "certificate": {
+        "path": "research_checks/T6_P13_Q2_ALL_SPLITS_GLOBAL_AFFINE_CERT_20261123.json",
+        "commit": "cc29216ca6fc3aab7b659c84fca5827d9cc0aa7a"
+      },
+      "splits": {
+        "0,2": {
+          "raw": 90,
+          "nodes": 357,
+          "leaves": 0
+        },
+        "1,1": {
+          "raw": 66,
+          "nodes": 268,
+          "leaves": 0
+        }
+      },
+      "primitive_pairs": 156,
+      "nodes": 625,
+      "necessary_sphere_leaves": 0,
+      "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED"
+    },
+    {
+      "unit": "p13 valuation-one vertical order3 splits(0,3),(1,2) exact affine global exclusion with one original-budget-invalid relaxed candidate",
+      "proof": {
+        "path": "research_notes/portable_direct/onhour_20261123_t6_p13_q3_all_splits_exact_global_affine_exclusion.md",
+        "commit": "aaedecf482ca1c94d914c3e87d893e3bda488499"
+      },
+      "checker": {
+        "path": "research_checks/T6_P13_Q3_ALL_SPLITS_GLOBAL_AFFINE_CHECK_20261123.py",
+        "commit": "c6e40aa90826b16e9439cfa41a7a67c2a316619d"
+      },
+      "certificate": {
+        "path": "research_checks/T6_P13_Q3_ALL_SPLITS_GLOBAL_AFFINE_CERT_20261123.json",
+        "commit": "feaba64ef4e682d2fba0e3a5d2eced3a4fdc5630"
+      },
+      "splits": {
+        "0,3": {
+          "primitive": 520,
+          "GS_nodes": 2075,
+          "sphere_leaves": 0
+        },
+        "1,2": {
+          "primitive": 936,
+          "shared_cancelled": 144,
+          "GS_nodes": 3417,
+          "sphere_leaves": 1
+        }
+      },
+      "total_primitive_pairs": 1456,
+      "total_nodes": 5492,
+      "real_budget_survivors": 0,
+      "unique_nonfeasible_modular_candidate": {
+        "positive_vertical": [
+          [
+            1,
+            5
+          ]
+        ],
+        "negative_vertical": [
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            6
+          ]
+        ],
+        "q0_signed": [
+          39,
+          21,
+          33,
+          -8,
+          1,
+          -19,
+          0,
+          -2,
+          5,
+          -3,
+          -5,
+          -4
+        ],
+        "real_side_masses": [
+          3124,
+          4260
+        ],
+        "cap_each": 2331
+      },
+      "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED"
+    }
+  ],
+  "research_activity": {
+    "id": "RA-5E3FE1E761E4963EC461A892",
+    "count": 319,
+    "verified_commit": "d373a9bd99d97f7683cb9970ae6938bf3e7deb76",
+    "verified_blob": "a6d5431f68c5114544416db08f17843a4a0394eb"
+  },
+  "method": {
+    "signed_p13_vertical_atom_denominator": "13*(r+13*q), r=1..12, q>=1",
+    "signed_q0_denominator": "13*r",
+    "six_globally_necessary_congruences": "For j=1..6 sum_r u_r*r^(-j)+sum_vertical m_(q,r)*(r+13*q)^(-j)=0 mod13^j",
+    "lattice": "full saturated 12D q0 integer lattice, determinant13^21",
+    "two_mass_caps": [
+      2331,
+      2331
+    ],
+    "integer_rational_exact": true,
+    "lower_prime_atoms": "unrestricted p13-free",
+    "native_result_admission": false
+  },
+  "not_done": [
+    "P13 valuation-one higher vertical orders >=4",
+    "P13-free lower-prime completion and smaller maximal primes",
+    "Nonauthor mathematical check of finite solver/GS and original p13 high-valuation lemma",
+    "Global T6=2332 or exact cheaper collision",
+    "Native authorized T6 CLAIM, protected semantic PROGRESS, Result/freeze"
+  ],
+  "next_scientific_unit": {
+    "unit": "p13 valuation-one total vertical order4 splits (0,4),(1,3),(2,2)",
+    "action": "Use full named vertical rosters for order0-4 and both original caps2331; cancel opposite common atoms to previously closed lower order; exact signed 12D saturated q0 affine mixed 13^j necessary lattice and Fraction GS; preserve any sphere survivors and test original budgets, then 13-free completion."
+  },
+  "current_control": {
+    "native_backend_version": "0.6.11",
+    "own_recovery_session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "original_task_read_request_id": "onhour-20261123-0431-t6-current-task-v1",
+    "original_task_read_status": "SUCCEEDED",
+    "observed_dispatch_state": "NEEDS_DISPATCH",
+    "owner": null,
+    "claim": null,
+    "original_continuation_read_request_id": "onhour-20261123-0431-t6-own-exact-continuation-v1",
+    "original_continuation_read_status": "RUNNING / NATIVE_RUNNER",
+    "same_request_reconcile_only": true,
+    "next_control_action": "Consume original pending continuation receipt by exact request ID; do not reissue and do not infer owner from recovery_status. Only upon genuine winning own CLAIM and current Source authorization may publish native semantic PROGRESS.",
+    "formal_T6_claim_verified": false,
+    "protected_semantic_progress_published": false,
+    "scheduler_changed": false
+  },
+  "state": "FOUR_DISTINCT_P13_Q0_Q1_Q2_Q3_AUTHOR_UNITS_GITHUB_VERIFIED_AND_SOURCE_ACTIVITY319 / NATIVE_CONTINUATION_PENDING / GLOBAL_T6_OPEN",
+  "immutable_prior_continuation": {
+    "path": "research_notes/portable_direct/onhour_20261123_t6_p13_q0_q2_exact_author_continuation.json",
+    "commit": "5d943dc8dc105430be008fde5d7bb0c3c19af862"
+  }
+}
