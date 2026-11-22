@@ -210,17 +210,20 @@
     "native_backend_version": "0.6.11",
     "own_recovery_session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
     "original_task_read_request_id": "onhour-20261123-0431-t6-current-task-v1",
-    "original_task_read_status": "SUCCEEDED",
+    "original_task_read_status": "SUCCEEDED / NEEDS_DISPATCH",
     "observed_dispatch_state": "NEEDS_DISPATCH",
     "owner": null,
     "claim": null,
     "original_continuation_read_request_id": "onhour-20261123-0431-t6-own-exact-continuation-v1",
-    "original_continuation_read_status": "RUNNING / NATIVE_RUNNER",
+    "original_continuation_read_status": "QUEUED / NATIVE_INPUT_READY (latest observed original receipt; no terminal, no effects reported)",
     "same_request_reconcile_only": true,
     "next_control_action": "Consume original pending continuation receipt by exact request ID; do not reissue and do not infer owner from recovery_status. Only upon genuine winning own CLAIM and current Source authorization may publish native semantic PROGRESS.",
     "formal_T6_claim_verified": false,
     "protected_semantic_progress_published": false,
-    "scheduler_changed": false
+    "scheduler_changed": false,
+    "latest_observed_continuation_request": "onhour-20261123-0431-t6-own-exact-continuation-v1",
+    "native_current_authorization": "NOT_VERIFIED_NO_WINNING_CLAIM",
+    "native_result_written": false
   },
   "state": "FOUR_DISTINCT_P13_Q0_Q1_Q2_Q3_AUTHOR_UNITS_GITHUB_VERIFIED_AND_SOURCE_ACTIVITY319 / NATIVE_CONTINUATION_PENDING / GLOBAL_T6_OPEN",
   "immutable_prior_continuation": {
