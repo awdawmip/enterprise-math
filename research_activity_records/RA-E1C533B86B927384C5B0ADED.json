@@ -9,43 +9,72 @@
   },
   "checkpoints": [
     {
-      "event_id": "r4-20261122-ec49fwx-independent-phase-source-v1",
       "em_sources": [
         {
-          "repository": "awdawmip/enterprise-math",
           "commit": "877375ab3e15d24d994bea046d534153fc2f6e67",
           "path": "research_notes/portable_direct/EC49FWX_INDEPENDENT_PHASE_TWO_CHANNEL_OPTIMUM_THEOREM.md",
-          "sha256": "38f778282e1bf8732813fc7fa5f5115e29c53d637cb0bf04dcabfb76062fd1f7",
-          "publication_state": "VERIFY_EM_PUBLICATION"
+          "publication_state": "VERIFY_EM_PUBLICATION",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "38f778282e1bf8732813fc7fa5f5115e29c53d637cb0bf04dcabfb76062fd1f7"
         }
       ],
+      "event_id": "r4-20261122-ec49fwx-independent-phase-source-v1",
       "kb_sources": [
         "awdawmip/chatgpt-global-knowledge@655f0cdd564efc9d5cbe82b171bc46288734826a:journal/enterprise-math/2026-11-22/20261122T203100+0800-ec49fwx-independent-two-channel-r4.md"
       ],
-      "state": "VERIFY_EM_PUBLICATION",
-      "repairs_event_id": null
+      "repairs_event_id": null,
+      "state": "VERIFY_EM_PUBLICATION"
     },
     {
-      "event_id": "r4-20261122-ec49fwy-relative-phase-source-v1",
       "em_sources": [
         {
-          "repository": "awdawmip/enterprise-math",
           "commit": "3d62db37e81d4ce2f0b56b04958b71d35014e097",
           "path": "research_notes/portable_direct/EC49FWY_RELATIVE_PHASE_VERIFY.js",
-          "sha256": "796319d3c3c87e69d36822f2cdd9ff45efd9196c1f5865435ca558dbea9050d6",
-          "publication_state": "VERIFY_EM_PUBLICATION"
+          "publication_state": "VERIFY_EM_PUBLICATION",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "796319d3c3c87e69d36822f2cdd9ff45efd9196c1f5865435ca558dbea9050d6"
         },
         {
-          "repository": "awdawmip/enterprise-math",
           "commit": "3d62db37e81d4ce2f0b56b04958b71d35014e097",
           "path": "research_notes/portable_direct/EC49FWY_RELATIVE_PHASE_OUTPUT.json",
-          "sha256": "8165018456084169783253ef1c23263eb5a57e86e310486c1ccc2bd20ec3f452",
-          "publication_state": "VERIFY_EM_PUBLICATION"
+          "publication_state": "VERIFY_EM_PUBLICATION",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "8165018456084169783253ef1c23263eb5a57e86e310486c1ccc2bd20ec3f452"
         }
       ],
+      "event_id": "r4-20261122-ec49fwy-relative-phase-source-v1",
       "kb_sources": [],
-      "state": "VERIFY_EM_PUBLICATION",
-      "repairs_event_id": null
+      "repairs_event_id": null,
+      "state": "VERIFY_EM_PUBLICATION"
+    },
+    {
+      "em_sources": [
+        {
+          "commit": "201000cb4e8132e90e1f993ba1e7297d3878f500",
+          "path": "research_notes/portable_direct/EC49FWZ_ANTIPODAL_TRANSVERSAL_OBSERVER_THEOREM.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "3dfe2a9ce30a071d4da856e085a6b269e561c34d2123402c9065fe4948ac9269",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "15ef61b6c40c7801d410bb77e0c43d2179989892",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/201000cb4e8132e90e1f993ba1e7297d3878f500/research_notes/portable_direct/EC49FWZ_ANTIPODAL_TRANSVERSAL_OBSERVER_THEOREM.md",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "r4-20261122-ec49fwz-proof-readback-v1",
+            "server_signature_authenticated": false,
+            "tool_name": "mcp__GitHub__fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-E1C533B86B927384C5B0ADED/readbacks/3d7a34b7489301ba330d12d70ee1d595c7e6e8564c7faf6e2203b74ad2d473f8.json",
+          "verification_receipt_sha256": "3d7a34b7489301ba330d12d70ee1d595c7e6e8564c7faf6e2203b74ad2d473f8"
+        }
+      ],
+      "event_id": "r4-20261122-ec49fwz-transversal-source-v1",
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@63fe257682893e17f7a1c9c55b4c46e880498576:journal/enterprise-math/2026-11-22/20261122-ec49fwz-phase-transversal-r4.md"
+      ],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
     }
   ],
   "mode": "TASK_RESEARCH",
