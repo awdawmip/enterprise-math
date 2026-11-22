@@ -1,0 +1,783 @@
+{
+  "schema": "T6_P13_Q8_SPLIT1_7_AUTHOR_EXACT_FINITE_COMPLETE_CERT_V1",
+  "date_local": "2026-11-23",
+  "time_zone": "Asia/Hong_Kong",
+  "mother_task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "proof_status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "frozen_original_observers": "H0...H6",
+  "per_side_cap": 2331,
+  "p13_onepower_atoms": "denominator 13*(13q+r), q>=1, r=1..12, cost169q+13r-1",
+  "q0_carrier": "signed u_r on denominator 13r, cost 13r-1",
+  "necessary_global_mixed_congruences": "sum_r u_r*r^-j + sum_(q,r in plus)(13q+r)^-j - sum_(q,r in minus)(13q+r)^-j ≡0 (mod13^j), j=1..6",
+  "prior_higher_valuation_and_12D_q0_lattice": "read from earlier saved proof; lattice index13^21 with min exact Gram-Schmidt square >2*(2331)^2",
+  "roster_sizes": {
+    "positive_first_side": 12,
+    "negative_second_side": 153960
+  },
+  "exact_computation": "local cached complete exact Fraction/SymPy enumeration, every named signed pair checked; post-publication replay not separately run",
+  "slices": [
+    {
+      "range": [
+        0,
+        1
+      ],
+      "raw": 153960,
+      "cancelled": 42614,
+      "evaluated": 111346,
+      "nodes": 290394,
+      "leaves": 0,
+      "valid": 0,
+      "digest": "5f966e2e32eea9add58203751c74fd77d4c98d0311c884829c15ae9d02de97ee",
+      "leaf_data": []
+    },
+    {
+      "range": [
+        1,
+        2
+      ],
+      "raw": 153960,
+      "cancelled": 42614,
+      "evaluated": 111346,
+      "nodes": 288253,
+      "leaves": 3,
+      "valid": 0,
+      "digest": "8788bc31c4029f9f0a8404e16fbeb91e5fd4941b91138bd4e720cc2dbe5c762d",
+      "leaf_data": [
+        {
+          "plus": [
+            [
+              1,
+              2
+            ]
+          ],
+          "minus": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              11
+            ],
+            [
+              1,
+              11
+            ]
+          ],
+          "u": [
+            -46,
+            9,
+            7,
+            -9,
+            -12,
+            5,
+            4,
+            4,
+            -5,
+            -1,
+            -3,
+            9
+          ],
+          "masses": [
+            3237,
+            4649
+          ],
+          "norm_sq": 4154701,
+          "radius_sq": 4921985
+        },
+        {
+          "plus": [
+            [
+              1,
+              2
+            ]
+          ],
+          "minus": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              11
+            ],
+            [
+              3,
+              7
+            ]
+          ],
+          "u": [
+            -16,
+            6,
+            -9,
+            -15,
+            7,
+            3,
+            8,
+            -7,
+            -2,
+            -6,
+            4,
+            3
+          ],
+          "masses": [
+            2776,
+            4569
+          ],
+          "norm_sq": 3245608,
+          "radius_sq": 5187713
+        },
+        {
+          "plus": [
+            [
+              1,
+              2
+            ]
+          ],
+          "minus": [
+            [
+              1,
+              9
+            ],
+            [
+              1,
+              12
+            ],
+            [
+              1,
+              12
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              2,
+              12
+            ]
+          ],
+          "u": [
+            1,
+            16,
+            -30,
+            8,
+            13,
+            7,
+            -2,
+            -1,
+            5,
+            2,
+            -3,
+            -4
+          ],
+          "masses": [
+            3223,
+            4258
+          ],
+          "norm_sq": 3620802,
+          "radius_sq": 4860533
+        }
+      ]
+    },
+    {
+      "range": [
+        2,
+        4
+      ],
+      "raw": 307920,
+      "cancelled": 85228,
+      "evaluated": 222692,
+      "nodes": 573279,
+      "leaves": 1,
+      "valid": 0,
+      "digest": "1cc423d723e9e22289d9b5b7aad7592ec449ae7a890bc29b36e58f08c933977f",
+      "leaf_data": [
+        {
+          "plus": [
+            [
+              1,
+              3
+            ]
+          ],
+          "minus": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              9
+            ],
+            [
+              1,
+              10
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              11
+            ]
+          ],
+          "u": [
+            52,
+            -23,
+            -8,
+            -12,
+            13,
+            -6,
+            0,
+            3,
+            -3,
+            -6,
+            -4,
+            1
+          ],
+          "masses": [
+            2127,
+            5237
+          ],
+          "norm_sq": 3254939,
+          "radius_sq": 5054545
+        }
+      ]
+    },
+    {
+      "range": [
+        4,
+        5
+      ],
+      "raw": 153960,
+      "cancelled": 42614,
+      "evaluated": 111346,
+      "nodes": 284677,
+      "leaves": 1,
+      "valid": 0,
+      "digest": "e4eedae149ea9275f4f4f482641a8ff645b09d5ad5c18f141bfe48a7f984934d",
+      "leaf_data": [
+        {
+          "plus": [
+            [
+              1,
+              5
+            ]
+          ],
+          "minus": [
+            [
+              1,
+              8
+            ],
+            [
+              1,
+              11
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              5
+            ]
+          ],
+          "u": [
+            22,
+            -42,
+            20,
+            3,
+            -14,
+            -5,
+            1,
+            3,
+            9,
+            6,
+            4,
+            1
+          ],
+          "masses": [
+            4350,
+            3848
+          ],
+          "norm_sq": 4863488,
+          "radius_sq": 5064200
+        }
+      ]
+    },
+    {
+      "range": [
+        5,
+        6
+      ],
+      "raw": 153960,
+      "cancelled": 42614,
+      "evaluated": 111346,
+      "nodes": 281461,
+      "leaves": 1,
+      "valid": 0,
+      "digest": "41349e1a0d354c50dd3d18a7186eb1df46a9962db7c5d8fd2b06946bc33e1248",
+      "leaf_data": [
+        {
+          "plus": [
+            [
+              1,
+              6
+            ]
+          ],
+          "minus": [
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              1,
+              12
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              11
+            ]
+          ],
+          "u": [
+            58,
+            1,
+            -20,
+            14,
+            -14,
+            -4,
+            5,
+            10,
+            5,
+            -3,
+            3,
+            -1
+          ],
+          "masses": [
+            4167,
+            4165
+          ],
+          "norm_sq": 4425187,
+          "radius_sq": 4798809
+        }
+      ]
+    },
+    {
+      "range": [
+        6,
+        7
+      ],
+      "raw": 153960,
+      "cancelled": 42614,
+      "evaluated": 111346,
+      "nodes": 280348,
+      "leaves": 1,
+      "valid": 0,
+      "digest": "f612e8b682ed34700e970ab18d1dafb537dae7485b675fd200864a99a1d0e9fe",
+      "leaf_data": [
+        {
+          "plus": [
+            [
+              1,
+              7
+            ]
+          ],
+          "minus": [
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              2
+            ],
+            [
+              3,
+              3
+            ]
+          ],
+          "u": [
+            9,
+            -4,
+            5,
+            14,
+            -4,
+            -7,
+            12,
+            -2,
+            0,
+            2,
+            4,
+            -3
+          ],
+          "masses": [
+            3177,
+            2824
+          ],
+          "norm_sq": 2737866,
+          "radius_sq": 5444513
+        }
+      ]
+    },
+    {
+      "range": [
+        7,
+        8
+      ],
+      "raw": 153960,
+      "cancelled": 42614,
+      "evaluated": 111346,
+      "nodes": 279055,
+      "leaves": 2,
+      "valid": 0,
+      "digest": "82ce28355504092c5ea6d1947e672d73571f2af50e3ca8aa10e1583e79c5ccb9",
+      "leaf_data": [
+        {
+          "plus": [
+            [
+              1,
+              8
+            ]
+          ],
+          "minus": [
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              10
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              5
+            ]
+          ],
+          "u": [
+            -34,
+            -13,
+            29,
+            10,
+            -14,
+            -2,
+            1,
+            -4,
+            6,
+            5,
+            -2,
+            2
+          ],
+          "masses": [
+            3625,
+            3943
+          ],
+          "norm_sq": 3828166,
+          "radius_sq": 4991170
+        },
+        {
+          "plus": [
+            [
+              1,
+              8
+            ]
+          ],
+          "minus": [
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              2,
+              1
+            ],
+            [
+              2,
+              5
+            ]
+          ],
+          "u": [
+            23,
+            -29,
+            -3,
+            6,
+            6,
+            -9,
+            0,
+            -5,
+            9,
+            -2,
+            -6,
+            2
+          ],
+          "masses": [
+            2592,
+            4556
+          ],
+          "norm_sq": 3579867,
+          "radius_sq": 5108105
+        }
+      ]
+    },
+    {
+      "range": [
+        8,
+        10
+      ],
+      "raw": 307920,
+      "cancelled": 85228,
+      "evaluated": 222692,
+      "nodes": 550575,
+      "leaves": 2,
+      "valid": 0,
+      "digest": "2f3057317186561d6796956a2e3d22be316da2869dfb92d5bb43dad3203c7b17",
+      "leaf_data": [
+        {
+          "plus": [
+            [
+              1,
+              10
+            ]
+          ],
+          "minus": [
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              2,
+              11
+            ]
+          ],
+          "u": [
+            107,
+            25,
+            -14,
+            -10,
+            5,
+            -14,
+            5,
+            -3,
+            -4,
+            1,
+            -2,
+            0
+          ],
+          "masses": [
+            3106,
+            4718
+          ],
+          "norm_sq": 4457463,
+          "radius_sq": 4757189
+        },
+        {
+          "plus": [
+            [
+              1,
+              10
+            ]
+          ],
+          "minus": [
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              9
+            ],
+            [
+              1,
+              9
+            ]
+          ],
+          "u": [
+            63,
+            11,
+            13,
+            -10,
+            -9,
+            7,
+            -6,
+            8,
+            9,
+            3,
+            -1,
+            -3
+          ],
+          "masses": [
+            4617,
+            3890
+          ],
+          "norm_sq": 4220264,
+          "radius_sq": 4587365
+        }
+      ]
+    },
+    {
+      "range": [
+        10,
+        12
+      ],
+      "raw": 307920,
+      "cancelled": 85228,
+      "evaluated": 222692,
+      "nodes": 546072,
+      "leaves": 1,
+      "valid": 0,
+      "digest": "ae7e9ebde9d6cdd325f71ca3b6c2e273f5813bf17f87c7c518b207df2d8ae781",
+      "leaf_data": [
+        {
+          "plus": [
+            [
+              1,
+              12
+            ]
+          ],
+          "minus": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              1,
+              8
+            ]
+          ],
+          "u": [
+            25,
+            9,
+            17,
+            -15,
+            3,
+            1,
+            -7,
+            1,
+            2,
+            10,
+            3,
+            -5
+          ],
+          "masses": [
+            3815,
+            3723
+          ],
+          "norm_sq": 4093493,
+          "radius_sq": 4633333
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "raw": 1847520,
+    "common_cancelled": 511368,
+    "vert_over_cap": 0,
+    "evaluated": 1336152,
+    "gs_nodes": 3374114,
+    "sphere_leaves": 12,
+    "budget_valid": 0
+  },
+  "other_q8_split_0_8": {
+    "prior_note_commit": "02c33a26501a3c2fc22188d9e0f0758df042fa1c",
+    "prior_cert_commit": "3db8e02db4d5412f04e44d91cc05a6771cc7c50b",
+    "valid_under_both_caps": 0
+  },
+  "global_T6": "OPEN",
+  "native_progress": "NOT_PUBLISHED",
+  "independent_review": false
+}
