@@ -68,3 +68,15 @@ The structural rank argument covers **every q coprime with 10**; program exhaust
 The sharpened cost arises from retaining the frozen BRC-derived support restriction rather than replacing it by the unrestricted Boolean population. On unrestricted nonempty ten-cycle factors EC49FWO proved five fixed probes; the exact frozen support geometry cuts the cost to two. It is a *static observer* result, not a statement about the full native six-axis Cell system.
 
 Next: (1) identify and read the **frozen, actual** moving-Farey update and its observation map; test descent of the 2-probe mass observer under that update, retaining explicit signed repair coordinates when needed; (2) with the exact native inputs, determine the minimal complete-U observer under *unknown* V, distinguishing fixed physical probes from adaptive CRT-coordinate selection; (3) independently review the rank-one reduction and 50-support census before any formal theorem promotion.
+
+## Located auxiliary height update; remaining provenance bridge
+
+After the proof was saved, the precise **auxiliary** moving-Farey certificate model was read back from the frozen BRC16943 line:
+
+- EC49FVT at \`a31340d5ff2dc5b8202388d7393a8b6817458c8e\`, file \`research_notes/portable_direct/EC49FVT_FAREY_DETERMINANT_ONE_LOCAL_GAP_THEOREM.md\`: \(\mathcal S_H=\{h/d:0<h<d\le H,\ \gcd(h,d)=1,\ C_{11}(h,d-h)\}\), with \(C_{11}(h,n)=1_{P_{10}}(h\bmod10,n\bmod10)\,1_{9h+10n\not\equiv0\pmod{11}}\).
+- EC49FVU at \`ac3bdb073b8ccd821cd23e830bcb9ccaf8d09529\`, file \`research_notes/portable_direct/EC49FVU_RATIONAL_ANCHOR_DETERMINANT_ONE_THEOREM.md\`: exact fixed-rational-anchor nearest-neighbor denominators \(q_\pm(H)\) and their 110b height recurrence.
+- EC49FVX at \`9f976f78caa6b74a972b341c9bc680a6652f55f9\`, file \`research_notes/portable_direct/EC49FVX_SIGNED_DELAY_RESIDUAL_THEOREM.md\`: the 220-periodic two-sided signed residual pair at anchor 1/2 and its delayed reconstruction.
+
+Thus the auxiliary height inclusion \(\mathcal S_H\to\mathcal S_{H+1}\) and the two-sided exact nearest-neighbor readout are now **located and source-pinned**. They are not a verified update of an arbitrary product support \(U\times V\). The frozen line support \(U(t)\) describes one affine phase trace; its relation to the changing *full* certified Farey set requires an explicit state/trace embedding and a proof of which forward observers descend through \((\Delta_W,1_W(22),1_W(33))\). Without this bridge, static mass sufficiency is not future-state sufficiency.
+
+**Refined next discriminating experiment:** choose a frozen primitive affine trace and anchor with an explicitly known certified-neighbor formula; construct \(U\) and the contemporaneous mod-11 exclusion on that *same* trace, then compare two states agreeing under the declared current observation but having distinct next-height signed neighbor residuals, or prove fiber constancy on the chosen finite residue period. Preserve height, anchor, line provenance and signed pair, not only scalar mass.
