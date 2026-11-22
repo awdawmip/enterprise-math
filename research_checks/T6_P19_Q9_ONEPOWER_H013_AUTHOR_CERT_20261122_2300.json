@@ -1,0 +1,225 @@
+{
+  "schema": "T6_P19_Q9_ONEPOWER_FULL_Q0_H013_EXCLUSION_AUTHOR_CERT_V1",
+  "author_status": "AUTHOR_EXACT_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "source_scope": "maximal p=19; v19(denominator)=1; vertical q order=9 with (3,6) or (4,5); q0 indices 1..18; 19-smooth cofactors; both masses<=2331; opposite named-support disjoint",
+  "p": 19,
+  "per_side_budget": 2331,
+  "L": "1698160464000",
+  "p19_vertical_atoms": 64,
+  "splits": [
+    {
+      "q": [
+        3,
+        6
+      ],
+      "vertical_rosters": [
+        751,
+        114
+      ],
+      "q0_max_cost": 1212,
+      "q0_multisets": 9571123,
+      "full_sides": [
+        569718902,
+        675
+      ],
+      "H01_pairs": 4247,
+      "H012_pairs": 12,
+      "H012_support_disjoint": 2,
+      "H013_support_disjoint": 0
+    },
+    {
+      "q": [
+        4,
+        5
+      ],
+      "vertical_rosters": [
+        3484,
+        3378
+      ],
+      "q0_max_cost": 869,
+      "q0_multisets": 584072,
+      "full_sides": [
+        43043867,
+        852346
+      ],
+      "H01_pairs": 20588569,
+      "H012_pairs": 28650,
+      "H012_support_disjoint": 6,
+      "H013_support_disjoint": 0
+    }
+  ],
+  "H012_survivor_count": 8,
+  "H013_survivor_count": 0,
+  "sharp_min_abs_H3_gap": "1/2710237824",
+  "witnesses": [
+    {
+      "split": [
+        3,
+        6
+      ],
+      "A": [
+        570,
+        570,
+        570,
+        285
+      ],
+      "B": [
+        380,
+        380,
+        380,
+        1140
+      ],
+      "H3": "-1/246924000"
+    },
+    {
+      "split": [
+        3,
+        6
+      ],
+      "A": [
+        570,
+        855,
+        342,
+        342
+      ],
+      "B": [
+        380,
+        380,
+        380,
+        1140
+      ],
+      "H3": "-11/6666948000"
+    },
+    {
+      "split": [
+        4,
+        5
+      ],
+      "A": [
+        380,
+        380,
+        760,
+        76,
+        152
+      ],
+      "B": [
+        456,
+        456,
+        1140,
+        95,
+        95
+      ],
+      "H3": "-61/246924000"
+    },
+    {
+      "split": [
+        4,
+        5
+      ],
+      "A": [
+        380,
+        570,
+        570,
+        570
+      ],
+      "B": [
+        456,
+        456,
+        456,
+        760
+      ],
+      "H3": "-1/1975392000"
+    },
+    {
+      "split": [
+        4,
+        5
+      ],
+      "A": [
+        532,
+        532,
+        1064
+      ],
+      "B": [
+        456,
+        798,
+        798
+      ],
+      "H3": "1/2710237824"
+    },
+    {
+      "split": [
+        4,
+        5
+      ],
+      "A": [
+        760,
+        760,
+        76,
+        190,
+        190
+      ],
+      "B": [
+        456,
+        456,
+        1140,
+        95,
+        95
+      ],
+      "H3": "-217/987696000"
+    },
+    {
+      "split": [
+        4,
+        5
+      ],
+      "A": [
+        760,
+        760,
+        76,
+        114,
+        114,
+        285
+      ],
+      "B": [
+        456,
+        456,
+        1140,
+        95,
+        95,
+        95
+      ],
+      "H3": "-17/109744000"
+    },
+    {
+      "split": [
+        4,
+        5
+      ],
+      "A": [
+        798,
+        798,
+        38,
+        133,
+        133,
+        133,
+        152,
+        152
+      ],
+      "B": [
+        399,
+        399,
+        399,
+        456,
+        456,
+        57,
+        57,
+        57
+      ],
+      "H3": "-10313/2710237824"
+    }
+  ],
+  "method": "Exact unsigned-128 arithmetic; complete nondecreasing vertical/q0 multiset generation; keyed H0/H1 join and exact reciprocal-square then cube test; named supports retained. Eight matches independently checked with Python fractions.",
+  "proof_scope_warning": "No claim for higher p19-adic valuations, other vertical orders 10-12, other maximal primes, or full global T6=2332. No native Source CLAIM/PROGRESS or formal Result acceptance."
+}
