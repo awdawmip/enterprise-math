@@ -1,0 +1,146 @@
+{
+  "schema": "X6_TIME_UNIT259_BIPARTITE_EVENT_CLOCK_REPAIR_CERT_V1",
+  "model": "CONDITIONAL_SIGNED_SERIAL_TWO_TRIAD_BRC",
+  "frozen_scientific_commit": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "original_BRC_commit": "f56840285cafeb9f5767ea91e903e1f53808186f",
+  "starting_state": [
+    0,
+    2,
+    0,
+    0
+  ],
+  "center_cell": 12,
+  "port_results": [
+    {
+      "port": [
+        6,
+        0
+      ],
+      "max_depth": 28,
+      "layer_depth_28": 1814,
+      "distinct_full_BRC_states_through_28": 3711,
+      "full_BRC_states_with_both_time_mod4_phases": 3039,
+      "initial_state_time_mod4_mask": 5,
+      "checked_primitive_transitions": 47578,
+      "first_15_layer_sizes": [
+        1,
+        4,
+        6,
+        12,
+        15,
+        25,
+        30,
+        46,
+        56,
+        84,
+        87,
+        127,
+        133,
+        192,
+        208
+      ]
+    },
+    {
+      "port": [
+        8,
+        2
+      ],
+      "max_depth": 28,
+      "layer_depth_28": 1814,
+      "distinct_full_BRC_states_through_28": 3711,
+      "full_BRC_states_with_both_time_mod4_phases": 3039,
+      "initial_state_time_mod4_mask": 5,
+      "checked_primitive_transitions": 47578,
+      "first_15_layer_sizes": [
+        1,
+        4,
+        6,
+        12,
+        15,
+        25,
+        30,
+        46,
+        56,
+        84,
+        87,
+        127,
+        133,
+        192,
+        208
+      ]
+    }
+  ],
+  "clock_repair_tests": [
+    {
+      "m": 1,
+      "modulus": 2,
+      "possible_initial_state_phases": 1,
+      "necessary_extra_bits": 0
+    },
+    {
+      "m": 2,
+      "modulus": 4,
+      "possible_initial_state_phases": 2,
+      "necessary_extra_bits": 1
+    },
+    {
+      "m": 3,
+      "modulus": 8,
+      "possible_initial_state_phases": 4,
+      "necessary_extra_bits": 2
+    },
+    {
+      "m": 4,
+      "modulus": 16,
+      "possible_initial_state_phases": 8,
+      "necessary_extra_bits": 3
+    },
+    {
+      "m": 5,
+      "modulus": 32,
+      "possible_initial_state_phases": 16,
+      "necessary_extra_bits": 4
+    },
+    {
+      "m": 6,
+      "modulus": 64,
+      "possible_initial_state_phases": 32,
+      "necessary_extra_bits": 5
+    },
+    {
+      "m": 7,
+      "modulus": 128,
+      "possible_initial_state_phases": 64,
+      "necessary_extra_bits": 6
+    },
+    {
+      "m": 8,
+      "modulus": 256,
+      "possible_initial_state_phases": 128,
+      "necessary_extra_bits": 7
+    },
+    {
+      "m": 9,
+      "modulus": 512,
+      "possible_initial_state_phases": 256,
+      "necessary_extra_bits": 8
+    },
+    {
+      "m": 10,
+      "modulus": 1024,
+      "possible_initial_state_phases": 512,
+      "necessary_extra_bits": 9
+    }
+  ],
+  "unit_loop": [
+    "A:x0->x1,+e1",
+    "A:x1->x0,-e1"
+  ],
+  "parity_rule": "t mod 2 = kappa(posA) XOR kappa(posB), with kappa(outer x_r)=r mod 2, kappa(P)=1",
+  "repair_rule": "For t mod 2^m use q=kappa(A) XOR kappa(B) and h=floor(t/2) mod 2^(m-1); update q'=1-q, h'=h+q mod 2^(m-1)",
+  "assertions_checked": 133045,
+  "all_passed": true,
+  "native_physical_execution": false,
+  "independent_review": false,
+  "formal_task_admitted": false
+}
