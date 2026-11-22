@@ -67,3 +67,14 @@ for n in (5,6,7,8):
     if n==5:assert Fraction(sum(v*v for v in fibres.values()),36**n)==Fraction(5285,419904)
     print(n, 'signed_port_+',pos[0], 'signed_port_-',negm[0], 'joint_fibres',len(fibres))
 print('PASS: two-step observer obstruction and n=5..8 typed BRC/Z2 checks')
+
+
+# Fixed-source counterexample: equal signed port margins, unequal port-resolved Gram masses.
+v={(Z,neg(E1),0):1}
+for _ in range(5):v=evolve(v,True)
+qpos=[sum(amp*amp for (x,h,k),amp in v.items() if k==1 and h==neg(D[j])) for j in range(6)]
+qneg=[sum(amp*amp for (x,h,k),amp in v.items() if k==1 and h==D[j]) for j in range(6)]
+assert qpos==[135110]+[109490]*5
+assert qneg==[16560]+[12384]*5
+assert Fraction(sum(qpos)+sum(qneg),36**5)==Fraction(5285,419904)
+print('n=5 Gram per positive-last port:',qpos,'per negative-last port:',qneg)
