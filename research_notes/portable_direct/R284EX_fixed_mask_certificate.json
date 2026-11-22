@@ -1,0 +1,243 @@
+{
+  "record": "R284EX_FIXED_MASK_4TAG_EXACT",
+  "model": "one fixed <=q bit XOR fault mask per entire transition; independent <=u read flips; stateless unique-radius (u+q) decoder",
+  "verified_cases": [
+    {
+      "u": 0,
+      "q": 0,
+      "n": 2,
+      "edge_required": 1,
+      "diagonal_required": 1,
+      "fixed_masks": 1,
+      "transient_masks": 1,
+      "prefix_fault_states": 8,
+      "exact_read_decodings": 8,
+      "result": "PASS"
+    },
+    {
+      "u": 0,
+      "q": 1,
+      "n": 6,
+      "edge_required": 4,
+      "diagonal_required": 3,
+      "fixed_masks": 7,
+      "transient_masks": 1,
+      "prefix_fault_states": 154,
+      "exact_read_decodings": 154,
+      "result": "PASS"
+    },
+    {
+      "u": 0,
+      "q": 2,
+      "n": 10,
+      "edge_required": 7,
+      "diagonal_required": 5,
+      "fixed_masks": 56,
+      "transient_masks": 1,
+      "prefix_fault_states": 1904,
+      "exact_read_decodings": 1904,
+      "result": "PASS"
+    },
+    {
+      "u": 1,
+      "q": 0,
+      "n": 7,
+      "edge_required": 5,
+      "diagonal_required": 3,
+      "fixed_masks": 1,
+      "transient_masks": 8,
+      "prefix_fault_states": 26,
+      "exact_read_decodings": 208,
+      "result": "PASS"
+    },
+    {
+      "u": 1,
+      "q": 1,
+      "n": 11,
+      "edge_required": 8,
+      "diagonal_required": 5,
+      "fixed_masks": 12,
+      "transient_masks": 12,
+      "prefix_fault_states": 456,
+      "exact_read_decodings": 5472,
+      "result": "PASS"
+    },
+    {
+      "u": 1,
+      "q": 2,
+      "n": 15,
+      "edge_required": 11,
+      "diagonal_required": 7,
+      "fixed_masks": 121,
+      "transient_masks": 16,
+      "prefix_fault_states": 6050,
+      "exact_read_decodings": 96800,
+      "result": "PASS"
+    },
+    {
+      "u": 2,
+      "q": 0,
+      "n": 12,
+      "edge_required": 9,
+      "diagonal_required": 5,
+      "fixed_masks": 1,
+      "transient_masks": 79,
+      "prefix_fault_states": 42,
+      "exact_read_decodings": 3318,
+      "result": "PASS"
+    },
+    {
+      "u": 2,
+      "q": 1,
+      "n": 16,
+      "edge_required": 12,
+      "diagonal_required": 7,
+      "fixed_masks": 17,
+      "transient_masks": 137,
+      "prefix_fault_states": 918,
+      "exact_read_decodings": 125766,
+      "result": "PASS"
+    },
+    {
+      "u": 2,
+      "q": 2,
+      "n": 20,
+      "edge_required": 15,
+      "diagonal_required": 9,
+      "fixed_masks": 211,
+      "transient_masks": 211,
+      "prefix_fault_states": 13926,
+      "exact_read_decodings": 2938386,
+      "result": "PASS"
+    }
+  ],
+  "edge_lower_bound_witnesses": [
+    {
+      "u": 0,
+      "q": 0,
+      "kind": "distinctness: edge distance at least one"
+    },
+    {
+      "u": 0,
+      "q": 1,
+      "edge_distance": 3,
+      "time_indices": [
+        1,
+        2
+      ],
+      "fixed_fault_mask": "0x2",
+      "read_new": "0x3",
+      "read_old": "0x1",
+      "old_code": "0x0",
+      "new_code": "0x7",
+      "kind": "literal-new-then-old"
+    },
+    {
+      "u": 0,
+      "q": 2,
+      "edge_distance": 6,
+      "time_indices": [
+        2,
+        4
+      ],
+      "fixed_fault_mask": "0xc",
+      "read_new": "0xf",
+      "read_old": "0x3",
+      "old_code": "0x0",
+      "new_code": "0x3f",
+      "kind": "literal-new-then-old"
+    },
+    {
+      "u": 1,
+      "q": 0,
+      "edge_distance": 4,
+      "time_indices": [
+        2,
+        2
+      ],
+      "fixed_fault_mask": "0x0",
+      "read_new": "0x7",
+      "read_old": "0x2",
+      "old_code": "0x0",
+      "new_code": "0xf",
+      "kind": "literal-new-then-old"
+    },
+    {
+      "u": 1,
+      "q": 1,
+      "edge_distance": 7,
+      "time_indices": [
+        3,
+        4
+      ],
+      "fixed_fault_mask": "0x8",
+      "read_new": "0x1f",
+      "read_old": "0x6",
+      "old_code": "0x0",
+      "new_code": "0x7f",
+      "kind": "literal-new-then-old"
+    },
+    {
+      "u": 1,
+      "q": 2,
+      "edge_distance": 10,
+      "time_indices": [
+        4,
+        6
+      ],
+      "fixed_fault_mask": "0x30",
+      "read_new": "0x7f",
+      "read_old": "0xe",
+      "old_code": "0x0",
+      "new_code": "0x3ff",
+      "kind": "literal-new-then-old"
+    },
+    {
+      "u": 2,
+      "q": 0,
+      "edge_distance": 8,
+      "time_indices": [
+        4,
+        4
+      ],
+      "fixed_fault_mask": "0x0",
+      "read_new": "0x3f",
+      "read_old": "0xc",
+      "old_code": "0x0",
+      "new_code": "0xff",
+      "kind": "literal-new-then-old"
+    },
+    {
+      "u": 2,
+      "q": 1,
+      "edge_distance": 11,
+      "time_indices": [
+        5,
+        6
+      ],
+      "fixed_fault_mask": "0x20",
+      "read_new": "0xff",
+      "read_old": "0x1c",
+      "old_code": "0x0",
+      "new_code": "0x7ff",
+      "kind": "literal-new-then-old"
+    },
+    {
+      "u": 2,
+      "q": 2,
+      "edge_distance": 14,
+      "time_indices": [
+        6,
+        8
+      ],
+      "fixed_fault_mask": "0xc0",
+      "read_new": "0x3ff",
+      "read_old": "0x3c",
+      "old_code": "0x0",
+      "new_code": "0x3fff",
+      "kind": "literal-new-then-old"
+    }
+  ],
+  "source": "script identical to checked artifact; all integer-exact",
+  "review": "NOT_REVIEWED"
+}
