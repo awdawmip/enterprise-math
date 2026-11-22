@@ -1,0 +1,51 @@
+{
+  "schema": "R284EC_FULL_PORT_EXCEPTION_GUARD_GLOBAL_BIT_PROBE_OPTIMUM_V1",
+  "date": "2026-11-22",
+  "scientific_status": "AUTHOR_PROVED / EXACT_FINITE_CERTIFIED / NOT_REVIEWED",
+  "frozen_source_commit": "acba2d8667903434aaa2a10720f43637fcc2421b",
+  "immediate_predecessors": [
+    "R284EA",
+    "R284EB"
+  ],
+  "bit_count_relevant": 15,
+  "irrelevant_original_upper_bit": "B3",
+  "cost_model": "Deterministic adaptive original-source-bit queries; independent uniform inputs; 1 unit each; exact Boolean computation free",
+  "enumerated_dp_states": 137781,
+  "dp_table_sha256": "08dd96dace9d90d8d8888500485f69ecb5b4f3dee813fcec09c0b8d7f054b0b5",
+  "root_optimal_total_queries_for_32768_relevant_inputs": 67246,
+  "root_minimax_depth": 15,
+  "optimal_total_queries_all_65536": 134492,
+  "optimal_mean_queries": {
+    "numerator": 33623,
+    "denominator": 16384
+  },
+  "optimal_policy": "read six core bits until first zero, then U,B0,G,B1,Y,R,H,Z,B2 with threshold early stopping",
+  "uniform_inputs_checked": 65536,
+  "positive_exception_states": 446,
+  "optimal_fixed_policy_histogram": {
+    "1": 32768,
+    "2": 16384,
+    "3": 8192,
+    "4": 4096,
+    "5": 2048,
+    "6": 1024,
+    "9": 256,
+    "10": 192,
+    "11": 96,
+    "12": 160,
+    "13": 152,
+    "14": 84,
+    "15": 84
+  },
+  "root_total_queries_for_k_0_through_6": [
+    2734,
+    3758,
+    5806,
+    9902,
+    18094,
+    34478,
+    67246
+  ],
+  "full_state_original_input_retained": true,
+  "independent_review": "NOT_REVIEWED"
+}
