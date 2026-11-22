@@ -1,0 +1,154 @@
+{
+  "schema": "PREFIX1008_R6_K2_NATIVE_LINK_PREFIX_EXACT_V1",
+  "model": "X6 12 signed directions; start incoming -e1; C(h,d)=(1-6*[h=d])/6; absorb {0,e1}; exact two negative steps; sum by final (Cell,port).",
+  "oriented_last_possible_forbidden_step": {
+    "positive_0_to_e1": 5,
+    "negative_e1_to_0": 4
+  },
+  "four_step_safe_return_orbits": {
+    "double_excludes_e1": {
+      "paths": 240,
+      "signed_numerator": 1680
+    },
+    "double_includes_e1": {
+      "paths": 70,
+      "signed_numerator": -890
+    },
+    "single_excludes_e1": {
+      "paths": 30,
+      "signed_numerator": -1050
+    },
+    "single_includes_e1": {
+      "paths": 2,
+      "signed_numerator": 650
+    }
+  },
+  "grade2_first_forbidden_step_at_n5": {
+    "1": {
+      "paths": 7776,
+      "signed_numerator": 0
+    },
+    "2": {
+      "paths": 0,
+      "signed_numerator": 0
+    },
+    "3": {
+      "paths": 792,
+      "signed_numerator": 0
+    },
+    "4": {
+      "paths": 60,
+      "signed_numerator": 0
+    },
+    "5": {
+      "paths": 342,
+      "signed_numerator": 390
+    }
+  },
+  "fifth_step_defect_fibers_by_grade": {
+    "0": 336,
+    "1": 912,
+    "2": 1152
+  },
+  "fifth_step_defect_total_fibers": 2400,
+  "exact_signed_amplitude_sum_all_n_ge_5": "-390/6**5 = -65/1296",
+  "grade1_defect_feed_witness_n6": {
+    "Cell": [
+      -1,
+      0,
+      0,
+      0,
+      0,
+      3
+    ],
+    "incoming_port": "+e1",
+    "negative_steps": 2,
+    "omitted_numerator_if_grade1_seed_discarded": -2,
+    "denominator": 46656
+  },
+  "probability_masses": {
+    "5": {
+      "masked": {
+        "numerator": 5363940,
+        "denominator": 60466176,
+        "reduced": "446995/5038848"
+      },
+      "free": {
+        "numerator": 7452000,
+        "denominator": 60466176,
+        "reduced": "2875/23328"
+      }
+    },
+    "6": {
+      "masked": {
+        "numerator": 73320060,
+        "denominator": 2176782336,
+        "reduced": "6110005/181398528"
+      },
+      "free": {
+        "numerator": 104285880,
+        "denominator": 2176782336,
+        "reduced": "53645/1119744"
+      }
+    },
+    "7": {
+      "masked": {
+        "numerator": 1572120120,
+        "denominator": 78364164096,
+        "reduced": "65505005/3265173504"
+      },
+      "free": {
+        "numerator": 2291182200,
+        "denominator": 78364164096,
+        "reduced": "3535775/120932352"
+      }
+    },
+    "8": {
+      "masked": {
+        "numerator": 37323572580,
+        "denominator": 2821109907456,
+        "reduced": "345588635/26121388032"
+      },
+      "free": {
+        "numerator": 54832070880,
+        "denominator": 2821109907456,
+        "reduced": "63463045/3265173504"
+      }
+    },
+    "9": {
+      "masked": {
+        "numerator": 926564052240,
+        "denominator": 101559956668416,
+        "reduced": "2144824195/235092492288"
+      },
+      "free": {
+        "numerator": 1368153154080,
+        "denominator": 101559956668416,
+        "reduced": "527836865/39182082048"
+      }
+    }
+  },
+  "signed_numerator_sums": {
+    "5": {
+      "masked_k2_numerator_sum": -390,
+      "masked_k1_positive_port_sum": 0
+    },
+    "6": {
+      "masked_k2_numerator_sum": -2340,
+      "masked_k1_positive_port_sum": 0
+    },
+    "7": {
+      "masked_k2_numerator_sum": -14040,
+      "masked_k1_positive_port_sum": 0
+    },
+    "8": {
+      "masked_k2_numerator_sum": -84240,
+      "masked_k1_positive_port_sum": 0
+    },
+    "9": {
+      "masked_k2_numerator_sum": -505440,
+      "masked_k1_positive_port_sum": 0
+    }
+  },
+  "verification": "Exhaustive ordered 5-step free paths, independent masked 4-step loop enumeration, and integer DP free/masked/finite-prefix identity on every terminal Cell-port-negative-count fibre for n=5..9. Integer only; not independent project Review."
+}
