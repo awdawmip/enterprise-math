@@ -163,7 +163,7 @@ The m60..64 order-16 regression reproduces the earlier residues 7049,1456,1847,1
 ## Validation and scope
 
 - Exact source code: VERIFY_PHASES.cpp, CHECK_SURVIVORS.cpp.
-- Recorded outputs: PHASE_OUTPUT.txt and SURVIVOR_SUMMARY.md. Local original full 150-row modular data SHA256: cf8ed8c223898a809205821903195d5f8bb255e186f5a4d69b15d5f5033c55b9.
+- Recorded outputs: PHASE_OUTPUT.txt, SURVIVOR_SUMMARY.md and SURVIVORS.csv (all 155 original modular evidence rows). Full CSV SHA256: cf8ed8c223898a809205821903195d5f8bb255e186f5a4d69b15d5f5033c55b9.
 - Local actual VERIFY_PHASES.cpp SHA256: 670bd356b97dd139e0744ac85f0784b238d2e0eb41629b86c8c5ccd0047c120e; CHECK_SURVIVORS.cpp: 7851e447341f931d544c994fd61ab8fcc41658ded8558d69833db98abab177a1.
 - Symbolic proof uses exact rational identities and finite residue disjointness; modular computations provide separate lower-bound nonzero witnesses.
 - No formal Lean proof and no independent mathematical peer review occurred.
