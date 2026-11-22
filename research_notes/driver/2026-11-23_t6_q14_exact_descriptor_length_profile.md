@@ -30,9 +30,9 @@ Let `L(A,B)=|A|+|B|` count atom *occurrences*, **with repetitions**, over both s
 
 Consequently the *exact total full-atom traversal workload* is
 
-[
+\[
 \boxed{\sum_{\{A,B\}\in\mathcal D} (|A|+|B|)=\sum_{L=2}^{13}L N_L=5{,}967{,}769.}
-]
+\]
 
 The mean complete signed-descriptor length is exactly `5,967,769/809,566` (approximately 7.3715657525). Maximum length **13** occurs exactly **80** times, each with side-length pair (6,7), while length 14 is absent. This refines the earlier sharp maximum-length theorem with a complete cost spectrum.
 
@@ -58,15 +58,15 @@ Every admissible side has a unique sorted atom-index sequence. Independent integ
 
 **Route 2 (support-fiber convolution):** Partition the same original 1,907 full multisets into 1,580 support fibers. Define the finite integer polynomial
 
-[
+\[
 P_s(z)=\sum_{A:\operatorname{supp}(A)=s}z^{|A|}.
-]
+\]
 
 Then the exact generating polynomial is
 
-[
+\[
 \boxed{F(z)=\sum_{\{s,t\}:s\cap t=\varnothing}P_s(z)P_t(z),\qquad N_L=[z^L]F(z).}
-]
+\]
 
 This identity is exact because distinct compatible support fibers contribute their full Cartesian products once, while each original multiset retains its own size. A separately implemented support-fiber polynomial convolution yielded **each of the 12 displayed length bins identically**, the same `809,566` total and `5,967,769` atom-occurrence sum. This is an exhaustive integer finite proof for the stated domain; the coefficient formula is mathematical and does not assume an affine/CRT equivalence between rosters within a support fiber.
 
