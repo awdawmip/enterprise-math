@@ -19,9 +19,9 @@ For either labeled triad T in any finite closed OUTER-to-OUTER event history def
 
 **Theorem.** In the exact directed-port graph, irrespective of path length, event interleaving, or occupancy guard,
 
-$
+$$
 \boxed{W_T=R_T(i-j)+12(U_T-D_T).}
-$
+$$
 
 **Proof.** Use the integer index potential $\phi(x_k)=k$. For every ring edge except boundary crossing, the signed ring contribution equals $\Delta\phi$. A positive boundary crossing `x11 -> x0` contributes (+12) relative to $\Delta\phi=-11$; a negative boundary crossing `x0 -> x11` contributes (-12) relative to $\Delta\phi=+11$. Each completed center passage changes the index potential by (j-i) while adding zero ring winding. Because T returns to its initial OUTER Cell, the ring-edge potential sum is (-R_T(j-i)=R_T(i-j)). Summing signed ring contributions gives the formula. Occupancy restrictions can only delete paths; they cannot invalidate this identity.
 
