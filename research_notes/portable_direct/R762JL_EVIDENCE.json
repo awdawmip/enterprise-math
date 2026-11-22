@@ -1,0 +1,27 @@
+{
+  "research_unit": "R762JL",
+  "date_local": "2026-11-23",
+  "scientific_input_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "predecessor": "R762JK@464b6a6a520f249082e4f6a3420acf561208d9c3",
+  "model": "six-axis composite Port-Euler observer",
+  "claim": "Every full-support 44-event (t,d,s,z)=(4,16,0,0) configuration, with any locally possible inactive pair-Port matching, admits an exact 42-event Euler multigraph after a triple-support 3-to-1 reduction.",
+  "research_status": "AUTHOR_PROVED / EXACT_FINITE_CERTIFICATES_VERIFIED / NOT_REVIEWED",
+  "verification": {
+    "local_result": "PASS",
+    "six_axis_permutation_orbits": 21,
+    "four_support_subsets": 4845,
+    "inactive_port_matching_sets": 76,
+    "exact_integer_certificates_independently_verified": 1596,
+    "labelled_cases_covered_by_symmetry": 368220,
+    "inactive_size_counts_for_1596_representatives": {"0": 21, "1": 315, "2": 945, "3": 315},
+    "validation_checks": ["each support multiplicity", "total 42", "every active vertex has positive even degree", "every inactive vertex has zero degree", "connectivity on all active Ports", "orbit coverage"],
+    "candidate_solver": "SciPy 1.17.0 HiGHS MILP with graph connectedness cuts; NumPy 2.3.5; Python 3.13.5",
+    "exact_verifier": "Python standard library only, source PORT44_T4D16_VERIFY.py",
+    "full_certificate_file_local_sha256": "40522312727e31cd3f5187fd05d197353c771ae17ced138dc41b7b1eb95a04b5",
+    "full_certificate_file_local_bytes": 17505,
+    "certificate_archive_published_in_this_commit": false,
+    "reproduction": "Run PORT44_T4D16_GENERATE.py then validate resulting archive with PORT44_T4D16_VERIFY.py. Local full archive separately preserved as a conversation artifact."
+  },
+  "dependencies": {"prior_uniform_k0_bound_44": "conditional author-side R762JK", "independent_review": false, "formal_native_P000_claim": false},
+  "next_questions": ["complete remaining 44-event histogram classes", "audit inherited R762IR GF(2) lemma", "test Port-to-native signed path/BRC residual faithfulness"]
+}
