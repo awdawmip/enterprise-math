@@ -14,10 +14,10 @@ For the precisely stated finite q14 vertical-descriptor domain:
 
 - There are **1,580** distinct support fibers, containing all **1,907** original rosters. Precisely 1,372 fibers have one roster and 208 have multiple; their full cardinality distribution `n_s : number of fibers` is **1:1372, 2:133, 3:54, 4:9, 5:4, 6:5, 7:3**. The largest fiber has 7 rosters.
 - Among the unordered pairs of distinct support fibers, exactly **621,695** have disjoint supports. The complete original signed-descriptor count is recovered without loss by the **exact** identity
-  [
-  oxed{\#\mathcal D=\sum_{\{s,t\}:s\cap t=\varnothing}n_s n_t
+  \[
+  \boxed{\#\mathcal D=\sum_{\{s,t\}:s\cap t=\varnothing}n_s n_t
   =809{,}566.}
-  ]
+  \]
   Every class pair contributes exactly its Cartesian product of original multisets, with no omitted repeats or duplicate signed descriptor.
 - The support-fiber population by support size 1 through 5 is **9, 253, 719, 542, 57**. The weighted signed pair support-size counts (unordered size pair `(u,v):count`) are: `(1,1):36; (1,2):2486; (1,3):7671; (1,4):5495; (1,5):485; (2,2):34140; (2,3):187617; (2,4):116698; (2,5):8675; (3,3):209216; (3,4):197921; (3,5):9359; (4,4):28846; (4,5):921`. No pair has type (5,5), consistent with the previously proved sharp union-support bound 9.
 
