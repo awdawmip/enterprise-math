@@ -1,0 +1,131 @@
+{
+  "schema": "X6_R107_HIGH_C_PORT_ATLAS_EXACT_V1",
+  "observer": "positive four-weight six-pair BRC star-gap",
+  "family": "w=(9,1,C,41), real C>=59",
+  "ports": "integer p>=11",
+  "reference_box_moment_triples": 945,
+  "reference_valid_oriented": 32,
+  "reference_unoriented": 16,
+  "reference_strict_near": 12,
+  "low_port_limit_candidates": 8,
+  "walls": [
+    {
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "q": 1,
+      "upper_wall": "62"
+    },
+    {
+      "direction": [
+        5,
+        -4,
+        1
+      ],
+      "q": 6,
+      "upper_wall": "62"
+    },
+    {
+      "direction": [
+        9,
+        -5,
+        1
+      ],
+      "q": 10,
+      "upper_wall": "62"
+    },
+    {
+      "direction": [
+        10,
+        -5,
+        1
+      ],
+      "q": 11,
+      "upper_wall": "89"
+    },
+    {
+      "direction": [
+        14,
+        -9,
+        2
+      ],
+      "q": 16,
+      "upper_wall": "89"
+    },
+    {
+      "direction": [
+        15,
+        -9,
+        2
+      ],
+      "q": 17,
+      "upper_wall": "62"
+    },
+    {
+      "direction": [
+        19,
+        -10,
+        2
+      ],
+      "q": 21,
+      "upper_wall": "62"
+    },
+    {
+      "direction": [
+        23,
+        -14,
+        3
+      ],
+      "q": 26,
+      "upper_wall": "62"
+    },
+    {
+      "direction": [
+        24,
+        -14,
+        3
+      ],
+      "q": 27,
+      "upper_wall": "unbounded"
+    },
+    {
+      "direction": [
+        25,
+        -14,
+        3
+      ],
+      "q": 28,
+      "upper_wall": "62"
+    },
+    {
+      "direction": [
+        29,
+        -18,
+        4
+      ],
+      "q": 33,
+      "upper_wall": "62"
+    },
+    {
+      "direction": [
+        34,
+        -19,
+        4
+      ],
+      "q": 38,
+      "upper_wall": "89"
+    }
+  ],
+  "eta_low_port": "1/10, p<=26",
+  "eta_high_port": "6/(C+1), p>=27",
+  "high_port_regions": [
+    "59<=C<62: 12 candidates",
+    "62<=C<89: 4 candidates",
+    "C>=89: 1 candidate"
+  ],
+  "sample_exact_cases": 96,
+  "assertions": "PASS",
+  "scope": "Finite complete integer boxes, exact candidate walls; unbounded-C coverage via companion proof"
+}
