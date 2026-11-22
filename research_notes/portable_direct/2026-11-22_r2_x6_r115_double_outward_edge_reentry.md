@@ -16,13 +16,13 @@ For (w=(A,B,C,D)>0), set (t=(0,u,v,h)) and
 \[
 F_w(a)=\max_{0\le i<j\le3}\frac{|t_i-t_j|}{w_i+w_j},\qquad
 \eta_p(w)=\min_{a\ne0,\,q(a)\le p}F_w(a),
-\\quad N_p(w)=\{\{\pm a\}:q(a)\le p,\,F_w(a)<3\eta_p(w)/2\}.
+\quad N_p(w)=\{\{\pm a\}:q(a)\le p,\,F_w(a)<3\eta_p(w)/2\}.
 \]
 
 All six pair observers are retained. Integer inversion identifies every nonzero direction modulo sign with the relative-height coordinates
 
 \[
-t=$0,\tau,3m,\tau+6n$,\qquad
+t=(0,\tau,3m,\tau+6n),\qquad
 a=(10\tau-12m+3n,-5\tau+7m-2n,\tau+(n-3m)/2),
 \]
 
@@ -35,7 +35,7 @@ Fix a real (r>0). There exists (\varepsilon_0(r)>0) such that, for **every** (0<
 **Type I — intersection of facets (1-2s=0) and (18-Y=0).** Put
 
 \[
-s=\frac12+\frac\varepsilon2,\\quad X=\frac{17}{4},\\quad Y=18+r\varepsilon,\quad
+s=\frac12+\frac\varepsilon2,\quad X=\frac{17}{4},\quad Y=18+r\varepsilon,\quad
 w_I=(s,1-s,X-s,Y-s).
 \]
 
@@ -59,7 +59,7 @@ At $r\ge1$ only the first three (with $\tau=0$) survive.
 **Type II — intersection of facets (1-2s=0) and (9-X=0).** Put
 
 \[
-s=\frac12+\frac\varepsilon2,\\quad X=9+r\varepsilon,\\quad Y=8,\quad
+s=\frac12+\frac\varepsilon2,\quad X=9+r\varepsilon,\quad Y=8,\quad
 w_{II}=(1-s,s,X-s,Y-s).
 \]
 
@@ -91,7 +91,7 @@ Write (L=A+B), (s_* = \min(A,B)), (X_*=C+s_*), (Y_*=D+s_*). In the ordered regio
 \[
 \eta_\infty=\frac1T,\qquad
 T=\max\left(L,\frac{X_*}{6},\frac{Y_*}{12},
-\min\left$\frac{X_*}{3},\frac{Y_*}{6}\right$\right).
+\min\left(\frac{X_*}{3},\frac{Y_*}{6}\right)\right).
 \]
 
 Indeed $\tau\ne0$ costs at least (1/L) and its Port-11 witness realizes that value; when $\tau=0$, even (m,n) are bounded by the two pure witnesses (6/X_*,12/Y_*), and odd (m,n) by (\max(3/X_*,6/Y_*)), attained at ((m,n)=(1,1)). The additional CD gap is dominated by these pair bounds in this ordered region.
@@ -106,7 +106,7 @@ In Type II the same swap gives (X_*=9+(r-1)\varepsilon), $Y_*=8-\varepsilon$. At
 The strict cutoff equals (H_I=18/Y_*). For sufficiently small $\varepsilon>0$, (0<H_I<2). The AB pair forces $|\tau|<H_I<2$, so, modulo sign, $\tau=0$ or (1). The AC and BD observations give
 
 \[
-|3m|<XH_I \quad(X=17/4),\qquad |6n|<Y_*H_I=18.
+|3m|<XH_I \quad(X=17/4),\q\quad |6n|<Y_*H_I=18.
 \]
 
 For small $\varepsilon$ the first inequality gives $|m|\le1$; the second gives $|n|\le2$, with $m\equiv n\pmod2$.
@@ -147,4 +147,4 @@ Numerical results: Type I ((r=1/2,1,2)) has ($\eta,|N|$=(2400/3599,10),(2/3,3),(
 - Earlier **one-facet** transverse theorem: `awdawmip/chatgpt-global-knowledge@05e4affa:journal/enterprise-math/2026-11-22/x6-r114-no-transverse-replacements.md`; current actual blob was read from canonical main on 2026-11-22.
 - Current P000 V5, ACTIVE worldview and joint-relation preservation were read; this result preserves all six observer pairs and is typed as a conditional auxiliary BRC model, not a native Cell/Link/time-evolution transfer.
 - New files: `x6_r115_double_outward_verify.py` and `x6_r115_double_outward_results.json` in the same directory. The proof is author-side and has **not** been independently reviewed or canonically admitted.
-- Next: find and classify the remaining edge-corner path-dependent secondary rays, especially the Type-I `$1-2s,\,9+9X-2Y-18s$` and Type-II `$1-2s,\,9-18s-7X+9Y$` edge combinations. At a larger distance, classify the first genuinely new outsider beyond the original R90 twelve-direction banks; preserve Port-specific thresholds.
+- Next: find and classify the remaining edge-corner path-dependent secondary rays, especially the Type-I `(1-2s,\,9+9X-2Y-18s)` and Type-II `(1-2s,\,9-18s-7X+9Y)` edge combinations. At a larger distance, classify the first genuinely new outsider beyond the original R90 twelve-direction banks; preserve Port-specific thresholds.
