@@ -32,7 +32,7 @@
   },
   "pending_read_request": {
     "request_id": "onhour-20261122-1802-t6-own-exact-source-continuation-v1",
-    "last_status": "QUEUED",
+    "last_status": "QUEUED / NATIVE_INPUT_READY (last bounded observation)",
     "next_action": "Consume exact original receipt; do not submit a second continuation read"
   },
   "highest_prior_immutable_T6": "enterprise-math@9ef728a7107362eb0d4b1719ed98d00b1678357c/research_artifacts/mcp/RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND/MCP-c618a61189764f23846a391a08518a1a/150b2baf7e93fb09d7e7/_checkpoint.json",
@@ -60,13 +60,28 @@
       "minimum_joint_vertical_cost": 4095,
       "maximum_joint_q0_budget": 567,
       "maximum_q0_occurrences": 26,
-      "checker_sha256": "NOTE_LOCAL_CHECKER_UNPUBLISHED",
+      "checker_sha256": "ab7cf5f78e91a7849756a1214cd720dcaf321c3892eaa8241971b56719373f65",
       "status": "PYTHON_EXECUTED_ALL_INT"
+    },
+    "checker": {
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_checks/T6_P17_Q14_SHARP_JOINT_Q0_BUDGET_AUDIT_20261122.py",
+      "commit": "6b835795e95a00ba8b65566cb2d35d7d774e7b9b",
+      "git_blob_sha1": "a0913a8db1a560b06b78fad8a13e9616b5e08c6f",
+      "sha256": "ab7cf5f78e91a7849756a1214cd720dcaf321c3892eaa8241971b56719373f65",
+      "test": "EXECUTED_PYTHON_INT_ENUMERATION"
+    },
+    "integer_certificate": {
+      "repository": "awdawmip/enterprise-math",
+      "path": "research_checks/T6_P17_Q14_SHARP_JOINT_Q0_BUDGET_CERT_20261122.json",
+      "commit": "b97bd4435ae26f907e3b6e7595c3d2fd7f82fcb0",
+      "git_blob_sha1": "6126c6e0c3e6686335ca70e73eebf86c9f753dea",
+      "sha256": "c488444e648ff19f322c17fa2e1d22d88a5f0056a8b4b6b65e1f764acc383982"
     }
   },
   "research_activity": {
     "activity_id": "RA-5E3FE1E761E4963EC461A892",
-    "commit": "01372165af94f0f137078cd9660250ae68b325b1",
+    "commit": "6a5d3384b657436258f80727a25d4287805ebed2",
     "event_id": "onhour-20261122-1800-t6-q14-sharp-budget-portable-v1",
     "count": 268
   },
