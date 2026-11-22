@@ -1,0 +1,45 @@
+{
+  "schema": "R284EN_TRUSTED_INVARIANT_SIDE_INFO_V1",
+  "verification": "exact integer graph enumeration from pinned R284EM distances",
+  "frozen_source_commit": "acba2d8667903434aaa2a10720f43637fcc2421b",
+  "source_certificate": "research_notes/portable_direct/R284EM_history_aware_tag_certificate.json",
+  "results": {
+    "two_port": {
+      "optimal_one_trusted_bit_no_noisy_storage_error_ceiling": 4696,
+      "first_unavoidable_untrusted_bit_error": 4697,
+      "optimal_trusted_bit_name": "a=(i>>12)&1",
+      "zero_untrusted_storage_error_ceiling_by_source_bit": {
+        "a": 4696,
+        "b": 29,
+        "a_xor_b": 4644
+      },
+      "unique_optimal_trusted_bit_at_ceiling_up_to_complement": [
+        5,
+        10
+      ],
+      "truth_table_mask_a": 10,
+      "result_for_error_E_0_to_8656": "n=0 if E<4697; n=2k+1 otherwise",
+      "all_16_trusted_functions_checked_each_E": 8657,
+      "max_k_checked": 8
+    },
+    "four_port": {
+      "optimal_one_trusted_bit_no_noisy_storage_error_ceiling": 4715,
+      "first_unavoidable_untrusted_bit_error": 4716,
+      "optimal_trusted_bit_name": "a=(i>>12)&1",
+      "zero_untrusted_storage_error_ceiling_by_source_bit": {
+        "a": 4715,
+        "b": 29,
+        "a_xor_b": 4663
+      },
+      "unique_optimal_trusted_bit_at_ceiling_up_to_complement": [
+        5,
+        10
+      ],
+      "truth_table_mask_a": 10,
+      "result_for_error_E_0_to_8656": "n=0 if E<4716; n=2k+1 otherwise",
+      "all_16_trusted_functions_checked_each_E": 8657,
+      "max_k_checked": 8
+    }
+  },
+  "review": "NOT_REVIEWED"
+}
