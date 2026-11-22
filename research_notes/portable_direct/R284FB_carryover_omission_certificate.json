@@ -1,0 +1,91 @@
+{
+  "status": "PASS",
+  "case_count": 9,
+  "rows": [
+    {
+      "u": 0,
+      "q": 0,
+      "n": 2,
+      "endpoint_states": 1,
+      "max_stable_errors": 0,
+      "false_generation_reachable": false
+    },
+    {
+      "u": 0,
+      "q": 1,
+      "n": 5,
+      "endpoint_states": 12,
+      "max_stable_errors": 2,
+      "false_generation_reachable": true
+    },
+    {
+      "u": 0,
+      "q": 2,
+      "n": 8,
+      "endpoint_states": 112,
+      "max_stable_errors": 4,
+      "false_generation_reachable": true
+    },
+    {
+      "u": 1,
+      "q": 0,
+      "n": 7,
+      "endpoint_states": 1,
+      "max_stable_errors": 0,
+      "false_generation_reachable": false
+    },
+    {
+      "u": 1,
+      "q": 1,
+      "n": 10,
+      "endpoint_states": 32,
+      "max_stable_errors": 2,
+      "false_generation_reachable": false
+    },
+    {
+      "u": 1,
+      "q": 2,
+      "n": 13,
+      "endpoint_states": 506,
+      "max_stable_errors": 4,
+      "false_generation_reachable": true
+    },
+    {
+      "u": 2,
+      "q": 0,
+      "n": 12,
+      "endpoint_states": 1,
+      "max_stable_errors": 0,
+      "false_generation_reachable": false
+    },
+    {
+      "u": 2,
+      "q": 1,
+      "n": 15,
+      "endpoint_states": 60,
+      "max_stable_errors": 2,
+      "false_generation_reachable": false
+    },
+    {
+      "u": 2,
+      "q": 2,
+      "n": 18,
+      "endpoint_states": 1472,
+      "max_stable_errors": 4,
+      "false_generation_reachable": true
+    }
+  ],
+  "witness": {
+    "codewords": [
+      "00000",
+      "00111",
+      "11011",
+      "11100"
+    ],
+    "physical_after_2_to_3": "11110",
+    "physical_after_3_to_0": "00110",
+    "stable_truth": 0,
+    "decoder_output": 1,
+    "radius": 1
+  }
+}
