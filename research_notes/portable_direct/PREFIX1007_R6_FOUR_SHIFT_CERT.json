@@ -1,0 +1,15 @@
+{
+  "schema": "PREFIX1007_R6_FOUR_SHIFT_SYMBOLIC_IDENTITY_V1",
+  "theorem": "For m=n-4>=1, 36^n M^L_(n,1)=C0(m)A6(m)+C1(m)A6(m+1)+C2(m)A6(m+2)+C3(m)A6(m+3).",
+  "coefficient_formulas": {
+    "0": "6*(36*m + 25)**2",
+    "1": "12*(396*m**3 + 869*m**2 + 443*m + 36)/(m + 1)",
+    "2": "-2*(141*m**4 + 614*m**3 + 418*m**2 - 827*m - 706)/((m + 1)*(m + 2))",
+    "3": "2*(2*m + 3)*(m**2 + 2*m - 6)/(m + 2)"
+  },
+  "algebra": "SymPy exact rational-function simplification of all 11 PREFIX-1005 Laurent-orbit polynomials through the seven-state differential module; cleared-denominator identities equal zero for all m",
+  "crosschecks_n_first": 5,
+  "crosschecks_n_last": 50,
+  "crosschecks_count": 46,
+  "limitation": "Formal polynomial identity for a prior typed BRC terminal observer, not an independent native dynamics run or project Review"
+}
