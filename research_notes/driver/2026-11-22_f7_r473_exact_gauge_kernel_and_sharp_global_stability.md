@@ -58,7 +58,7 @@ These two sharpness examples need **not** obey the original F7 marks or off-axis
 
 ## Research use and proof boundaries
 
-The equation `E∞≤ε` is equivalently a uniform oscillation bound between every pair of fibers. The new theorem makes this precise as distance at most `ε/2` to a sum of two one-dimensional integer potentials, with best-possible universal factor, even for unbounded q with finite defect. This gives a gauge-normalization and model-reduction route for the open original-admissible infinite-lattice F7 minimax problem.
+The equation `E∞≤ε` is equivalently a uniform oscillation bound between every pair of fibers. The new theorem makes this precise as distance at most `ε/2` to a sum of two one-dimensional integer potentials, with best-possible universal factor, even for unbounded q with finite defect. This gives a gauge-normalization and model-reduction route for the **defect operator** in the open original-admissible infinite-lattice F7 minimax problem. Crucially, adding an arbitrary gauge need not preserve F7's evenness, axis/origin or marked-value constraints, so the admissible optimization must retain those constraints explicitly; gauge invariance of the defect alone is not gauge invariance of the feasible set.
 
 For original F7: r469 already proves exact finite-box optimum through B14, r470 gives a repair bound for one B14 witness, and r471–r472 give tail/area density conditions. This theorem neither changes `1/2≤E∞*≤4/7` nor proves B15 feasibility or infeasibility.
 
