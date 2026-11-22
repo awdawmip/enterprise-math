@@ -1,0 +1,110 @@
+{
+  "schema": "EM_T6_Q14_H0_MULTIPLICITY_CERT_V1",
+  "date": "2026-11-22",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "scope": "MAXIMAL_P17_Q14_SPLIT7_7_BUDGET_H0_SUPPORT_DISJOINT_RELAXATION",
+  "source_prior": "enterprise-math@9ef728a7107362eb0d4b1719ed98d00b1678357c",
+  "side_min_mass_by_vertical_count": [
+    2039,
+    2072,
+    2071,
+    2087,
+    2103,
+    2119,
+    2135
+  ],
+  "q0_budget_by_vertical_count": [
+    292,
+    259,
+    260,
+    244,
+    228,
+    212,
+    196
+  ],
+  "h0_capacity_if_q0_j1_side": [
+    19,
+    18,
+    19,
+    19,
+    19,
+    19,
+    19
+  ],
+  "h0_capacity_if_other_q0_side": [
+    9,
+    9,
+    10,
+    11,
+    11,
+    12,
+    12
+  ],
+  "maximum_q0_occurrences_given_other_side_n": [
+    16,
+    15,
+    16,
+    17,
+    16,
+    17,
+    16
+  ],
+  "global_sharp_max_q0_occurrences": 17,
+  "witness": {
+    "positive_vertical": [
+      [
+        7,
+        1
+      ]
+    ],
+    "positive_q0": [
+      [
+        1,
+        10
+      ]
+    ],
+    "negative_vertical": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        1
+      ],
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        1
+      ]
+    ],
+    "negative_q0": [
+      [
+        2,
+        7
+      ]
+    ],
+    "plus_mass": 2199,
+    "minus_mass": 2318,
+    "H0_plus": 11,
+    "H0_minus": 11,
+    "opposing_named_supports_disjoint": true
+  },
+  "previous_budget_only_max": 26,
+  "validation": "EXACT_INTEGER_ANALYTIC_TABLE_AND_INDEPENDENT_PYTHON_ALL_809566_PAIR_CROSSCHECK",
+  "pair_crosscheck": {
+    "vertical_rosters": 1907,
+    "support_disjoint_unordered_pairs": 809566,
+    "sharp_global_max": 17,
+    "extremal_unordered_vertical_pairs": 12
+  },
+  "remaining": [
+    "H1_TO_H6_MIXED_CONGRUENCES",
+    "LOWER_PRIME_COMPLETION",
+    "NONAUTHOR_REVIEW",
+    "TASK_ADMISSION"
+  ]
+}
