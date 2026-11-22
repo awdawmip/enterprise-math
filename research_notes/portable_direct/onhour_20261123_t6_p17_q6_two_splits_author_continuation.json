@@ -1,0 +1,110 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_AUTHOR_CONTINUATION_V1",
+  "record_kind": "AUTHOR_SCIENTIFIC_AND_CONTROL_CONTINUATION",
+  "created_date_local": "2026-11-23",
+  "timezone": "Asia/Hong_Kong",
+  "mother_task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "parent_objective_id": "EM-T6-SHAPE-MOMENT-EXACT-THRESHOLD",
+  "mother_question": "Prove T6=2332 globally or find cheaper exact H0..H6 collision with mass<=2331 per side",
+  "original_research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "P000": {
+    "state": "ACTIVE_LOCKED",
+    "account_projection": "projects/enterprise-math/P000_STARTUP.json",
+    "canonical_blob": "770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc"
+  },
+  "frozen_science": {
+    "repository": "awdawmip/enterprise-math",
+    "path": "research_tasks/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260909.md",
+    "source_commit": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+    "git_blob_sha1": "87b3a6f38e9350f7a3f56624b27bff2a7778a439",
+    "repinned": false
+  },
+  "prior_immutable_author_frontier": {
+    "source": "research_notes/portable_direct/onhour_20261123_t6_p17_q5_full_primitive_mixed_congruence_exclusion.md",
+    "commit": "4a7536c8b9415e9e6052ebee64e69c5f3c38e581",
+    "result": "p17 q5 all primitive split globally necessary mixed congruences: zero q0 sphere leaves",
+    "activity_count_before": 282
+  },
+  "activity": {
+    "id": "RA-5E3FE1E761E4963EC461A892",
+    "event_count": 284,
+    "source_commit": "2bf9847f380f7ce982564ac19e2d837ad5ad11a0",
+    "git_blob_sha1": "7a76e0ecf31fa6d0aa4474ebb86f7c033b932c48"
+  },
+  "completed_units": [
+    {
+      "id": "T6-P17-Q6-SPLIT0_6-GLOBAL-MIXED-EXCLUSION",
+      "statement": "p17 v17=1 vertical order6 split(0,6) 47628 ordered vertical rosters, exact saturated q0 affine GS 224133 recursion nodes, 0 sphere leaves, 0 valid signed q0 completions, lower-prime unrestricted",
+      "evidence_strength": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+      "proof": {
+        "commit": "68623f95daa8d02ac6b5a8e0b9f249f7f68c0e20",
+        "path": "research_notes/portable_direct/onhour_20261123_t6_p17_q6_split0_6_exact_affine_exclusion.md"
+      },
+      "checker": {
+        "commit": "211f0704479eb33b4ffd281e4596ad027b144d09",
+        "path": "research_checks/T6_P17_Q6_SPLIT0_6_AFFINE_CHECK_20261123.py"
+      },
+      "certificate": {
+        "commit": "1f845e37bf25904527b6b73d90dfeab7bc78780f",
+        "path": "research_checks/T6_P17_Q6_SPLIT0_6_AFFINE_CERT_20261123.json"
+      },
+      "local_execution": "Standalone exact script executed twice; compact published wrapper independent execution not asserted"
+    },
+    {
+      "id": "T6-P17-Q6-SPLIT1_5-GLOBAL-MIXED-EXCLUSION",
+      "statement": "p17 v17=1 vertical order6 split(1,5) 480640 raw pairs; 90937 shared named vertical reductions; 389703 primitive pairs; 1293850 GS recursion nodes; exactly 1 relaxed sphere leaf with signed q0 vector but it violates both original budgets (totals 3630,5153); 0 valid completions",
+      "evidence_strength": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+      "proof": {
+        "commit": "8c16823416de48b7eca311d4ee7d12858b527223",
+        "path": "research_notes/portable_direct/onhour_20261123_t6_p17_q6_split1_5_exact_affine_exclusion.md"
+      },
+      "checker": {
+        "commit": "3dddacd83930088a7a4bf424c52c903c141da80a",
+        "path": "research_checks/T6_P17_Q6_SPLIT1_5_EXACT_AFFINE_CHECK_20261123.py"
+      },
+      "certificate": {
+        "commit": "07438216490a1072072c42bd68af4caa024e0592",
+        "path": "research_checks/T6_P17_Q6_SPLIT1_5_AUTHOR_EXACT_CERT_20261123.json"
+      },
+      "local_execution": "Standalone exact script twice; compact published wrapper separate reexecution not asserted"
+    }
+  ],
+  "next_science": {
+    "exact_unit": "T6 p17 valuation-one vertical order6 split(2,4), then split(3,3)",
+    "plan": "Reuse original full q0 saturated lattice and q5 published routines, retain 17-free completions, enumerate each two-sided signed support and exact mass; early necessary weighted sphere prune with exact Fraction Gram-Schmidt. If modular survivor exists, preserve full signed atom and solve lower-prime completion. Do not rerun q5,q6 (0,6)/(1,5), p19 or accepted q1-q4."
+  },
+  "do_not_repeat": [
+    "Accepted p>=29,p23,p19 prior closed scopes and accepted q1-q4",
+    "Author q5 and p17^2/13^2 high valuation notes and two just completed q6 splits",
+    "Do not publish unexecuted compact wrapper as executed; original standalone author execution and its local hash separately preserved",
+    "Do not claim native PROGRESS or adoption from portable Activity; never use maintenance conversation or borrowed owner profile"
+  ],
+  "native": {
+    "version": "0.6.11",
+    "own_session_closed": false,
+    "recovery_status": "RESEARCHER / own SID matches, no T6 own run; projection truncated has_more_requests=true",
+    "exact_original_continuation": {
+      "request_id": "onhour-20261123-0105-t6-current-source-cont-v1",
+      "status": "SUCCEEDED",
+      "error": null,
+      "observed_at_utc": "2026-11-22T17:19:23.302557+00:00"
+    },
+    "exact_original_current_task": {
+      "request_id": "onhour-20261123-0200-t6-current-read-02",
+      "status": "SUCCEEDED",
+      "error": null,
+      "observed_at_utc": "2026-11-22T18:01:48.803183+00:00",
+      "dispatch_state": "NEEDS_DISPATCH",
+      "owner": "taskbook/unassigned",
+      "execution_authorized": false
+    },
+    "winning_T6_claim_verified": false,
+    "current_T6_run_id": null,
+    "protected_native_progress_published": false,
+    "next_control_action": "Refresh exact task/own session Source control only at new genuine boundary; no live CLAIM, no borrowed maintenance identity, no reissue of old failed or unknown writes."
+  },
+  "state": "TWO_NEW_PORTABLE_AUTHOR_UNITS_SAVED_AND_ACTIVITY284; GLOBAL_T6_OPEN"
+}
