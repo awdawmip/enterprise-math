@@ -1,0 +1,48 @@
+{
+  "schema": "ENTERPRISE_MATH_PORT_EULER_R762JP_V1",
+  "date": "2026-11-23",
+  "status": "AUTHOR_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "scientific_model": "six_axis_composite_port_euler; native_signed_P000_lift_not_claimed",
+  "family": "44-event (t,d,s,z)=(6,12,2,0), singleton-support triangles disjoint",
+  "proof": "full_six_axis_permutation_stabilizer_orbit_transport",
+  "counts": {
+    "S6_complementary_singleton_pairs": 10,
+    "stabilizer_size": 72,
+    "T_choices_for_fixed_U": 18564,
+    "T_orbit_representatives": 307,
+    "inactive_port_matchings": 76,
+    "matchings_by_size": [
+      1,
+      15,
+      45,
+      15
+    ],
+    "verified_exact_integer_records": 23332,
+    "records_by_matching_size": [
+      307,
+      4605,
+      13815,
+      4605
+    ],
+    "labelled_instances_covered": 14108640
+  },
+  "certificate": {
+    "encoding": "16 bytes per representative and matching; first byte j, next 15 bytes 2-bit local-edge counts",
+    "raw_bytes": 373312,
+    "raw_sha256": "ec4fbf12a906d2a6179d33974645523e6ffcbd0b165742208e45a2337cc4ff0f",
+    "encoded_b64_lzma_bytes": 222349,
+    "encoded_sha256": "1c9959c35a29f3300a804eeb2f7e218e9d5e4f4e04b7b506056fb5cbb37c9ad3",
+    "local_independent_check": "PASS",
+    "raw_archive_in_this_git_pr": false,
+    "raw_archive_retained_as": "R762JP_Port_Euler_ComplementarySingletons_44to42_Research.zip conversation artifact"
+  },
+  "dependencies": [
+    "R762JO@f712e0bbe7ef895d94d2eb6b8b28847d653f91da"
+  ],
+  "next_open": [
+    "singleton supports intersect on exactly one axis",
+    "singleton supports intersect on exactly two axes",
+    "native signed-path residual faithful lifting",
+    "independent review of predecessor theorem chain"
+  ]
+}
