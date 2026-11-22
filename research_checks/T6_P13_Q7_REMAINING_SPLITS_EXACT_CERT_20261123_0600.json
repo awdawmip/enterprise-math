@@ -1,0 +1,561 @@
+{
+  "schema": "T6_P13_Q7_COMPLETED_AUTHOR_EXACT_FINITE_CERT_V1",
+  "date_local": "2026-11-23",
+  "local_time_label": "06:00 Asia/Hong_Kong",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "parent_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "frozen_mass_cap_each": 2331,
+  "observer": "H0..H6",
+  "atom": "(q,r)-> denominator 13*(13*q+r), index q>=1,r=1..12, cost=169*q+13*r-1; q0 r denominator13*r and weight13*r-1",
+  "congruence": "sum(u_r*r^(-j))+sum(plus(13q+r)^(-j))-sum(minus(13q+r)^(-j)) ==0 modulo13^j, j=1..6",
+  "prior_verified_at_author_scope": {
+    "partial_certificate": "research_checks/T6_P13_Q7_PARTIAL_AUTHOR_EXACT_CERT_20261123.json",
+    "partial_certificate_blob": "92af990d76e900fe7afa817fac910855f1209da6",
+    "completed_0_7": {
+      "raw": 153960,
+      "evaluated": 153960,
+      "nodes": 447638,
+      "sphere_leaves": 2,
+      "budget_valid": 0
+    },
+    "completed_1_6": {
+      "raw": 511368,
+      "common_cancelled": 130896,
+      "evaluated": 380472,
+      "nodes": 1005734,
+      "sphere_leaves": 6,
+      "budget_valid": 0
+    },
+    "partial_2_5_range": [
+      0,
+      15
+    ],
+    "partial_2_5": {
+      "raw": 163620,
+      "common_cancelled": 64220,
+      "evaluated": 99400,
+      "nodes": 254294,
+      "sphere_leaves": 1,
+      "budget_valid": 0
+    },
+    "partial_2_5_ordered_pairs_sha256": "562556516187de6bd43ecb63b15a1dbc8e9e60239be96ae981a07e961da76cea"
+  },
+  "new_completed_slices": [
+    {
+      "split": [
+        2,
+        5
+      ],
+      "range": [
+        15,
+        90
+      ],
+      "counts": {
+        "raw": 818100,
+        "common_cancelled": 272740,
+        "vert_over_cap": 0,
+        "evaluated": 545360,
+        "nodes": 1356499,
+        "sphere_leaves": 3,
+        "budget_valid": 0
+      },
+      "ordered_pairs_sha256": "b5039089b38a46b5744d464fcad5945c257065e9d5920fb8aab8aa65ed5789a2",
+      "local_json_sha256": "8a8a109b0f581034ba4817e5ba43b559bd359052d38171374d2d078bbd9a8138",
+      "relaxed_leaves": [
+        {
+          "plus": [
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              6
+            ]
+          ],
+          "minus": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              2
+            ]
+          ],
+          "u": [
+            128,
+            1,
+            -18,
+            1,
+            -16,
+            4,
+            6,
+            5,
+            0,
+            2,
+            1,
+            3
+          ],
+          "masses": [
+            4306,
+            2718
+          ],
+          "norm_sq": 4833596,
+          "radius_sq": 5223266
+        },
+        {
+          "plus": [
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              9
+            ]
+          ],
+          "minus": [
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              2,
+              10
+            ]
+          ],
+          "u": [
+            -38,
+            10,
+            -6,
+            -3,
+            19,
+            0,
+            3,
+            1,
+            1,
+            1,
+            3,
+            -9
+          ],
+          "masses": [
+            3041,
+            3347
+          ],
+          "norm_sq": 4065592,
+          "radius_sq": 4718656
+        },
+        {
+          "plus": [
+            [
+              1,
+              8
+            ],
+            [
+              1,
+              8
+            ]
+          ],
+          "minus": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              7
+            ]
+          ],
+          "u": [
+            12,
+            -12,
+            -7,
+            4,
+            1,
+            8,
+            4,
+            2,
+            1,
+            0,
+            5,
+            -11
+          ],
+          "masses": [
+            2964,
+            3294
+          ],
+          "norm_sq": 4203277,
+          "radius_sq": 4904233
+        }
+      ]
+    },
+    {
+      "split": [
+        3,
+        4
+      ],
+      "range": [
+        0,
+        100
+      ],
+      "counts": {
+        "raw": 253500,
+        "common_cancelled": 109276,
+        "vert_over_cap": 0,
+        "evaluated": 144224,
+        "nodes": 356780,
+        "sphere_leaves": 0,
+        "budget_valid": 0
+      },
+      "ordered_pairs_sha256": "87e63dc3c769ca7f99a82cc12a75166da236a9e3a2a3f022924063d578bc07c4",
+      "local_json_sha256": "51756053e25a1193b2f8e14fabc6fe07963db02f56d52845098e7d5c22efc6c3",
+      "relaxed_leaves": []
+    },
+    {
+      "split": [
+        3,
+        4
+      ],
+      "range": [
+        100,
+        310
+      ],
+      "counts": {
+        "raw": 532350,
+        "common_cancelled": 226722,
+        "vert_over_cap": 0,
+        "evaluated": 305628,
+        "nodes": 741508,
+        "sphere_leaves": 2,
+        "budget_valid": 0
+      },
+      "ordered_pairs_sha256": "58c1425859ac2a59da2589c5715af61430abb1ad6e1b02b789aec06f15a6449f",
+      "local_json_sha256": "f44666d137bce225ecd41b3d90b5ccda9bea9ecb7a8a005e280f08cc32ea98d2",
+      "relaxed_leaves": [
+        {
+          "plus": [
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              12
+            ]
+          ],
+          "minus": [
+            [
+              1,
+              8
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "u": [
+            -4,
+            -21,
+            -20,
+            17,
+            -1,
+            -9,
+            -4,
+            0,
+            -1,
+            -4,
+            8,
+            -4
+          ],
+          "masses": [
+            2767,
+            4661
+          ],
+          "norm_sq": 4175771,
+          "radius_sq": 4337873
+        },
+        {
+          "plus": [
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              9
+            ]
+          ],
+          "minus": [
+            [
+              1,
+              8
+            ],
+            [
+              1,
+              11
+            ],
+            [
+              2,
+              2
+            ]
+          ],
+          "u": [
+            60,
+            -22,
+            -25,
+            7,
+            -7,
+            3,
+            -11,
+            -4,
+            -4,
+            5,
+            0,
+            3
+          ],
+          "masses": [
+            3182,
+            4760
+          ],
+          "norm_sq": 4102304,
+          "radius_sq": 4373714
+        }
+      ]
+    },
+    {
+      "split": [
+        3,
+        4
+      ],
+      "range": [
+        310,
+        520
+      ],
+      "counts": {
+        "raw": 532350,
+        "common_cancelled": 168338,
+        "vert_over_cap": 0,
+        "evaluated": 364012,
+        "nodes": 874027,
+        "sphere_leaves": 3,
+        "budget_valid": 0
+      },
+      "ordered_pairs_sha256": "6d0920f9ab82be5d8b84b38ec2055da2d4ee9a2abe98813b4a1545eef6c3b3ba",
+      "local_json_sha256": "19557cecd9740f58a0a5436e310b4248f1372f2927cceba70d41b106b833a1d0",
+      "relaxed_leaves": [
+        {
+          "plus": [
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              2
+            ]
+          ],
+          "minus": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "u": [
+            26,
+            9,
+            26,
+            0,
+            13,
+            -7,
+            -5,
+            -7,
+            6,
+            5,
+            5,
+            0
+          ],
+          "masses": [
+            5043,
+            2513
+          ],
+          "norm_sq": 4233740,
+          "radius_sq": 5211200
+        },
+        {
+          "plus": [
+            [
+              1,
+              10
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "minus": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              7
+            ]
+          ],
+          "u": [
+            22,
+            2,
+            14,
+            -8,
+            -14,
+            9,
+            6,
+            -2,
+            -1,
+            -6,
+            -7,
+            -4
+          ],
+          "masses": [
+            2753,
+            4882
+          ],
+          "norm_sq": 4123753,
+          "radius_sq": 4886018
+        },
+        {
+          "plus": [
+            [
+              1,
+              11
+            ],
+            [
+              2,
+              11
+            ]
+          ],
+          "minus": [
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ]
+          ],
+          "u": [
+            -29,
+            21,
+            6,
+            8,
+            -1,
+            -18,
+            -1,
+            4,
+            -1,
+            1,
+            -5,
+            2
+          ],
+          "masses": [
+            2803,
+            3555
+          ],
+          "norm_sq": 3348410,
+          "radius_sq": 4591700
+        }
+      ]
+    }
+  ],
+  "totals": {
+    "split_2_5": {
+      "raw": 981720,
+      "common_cancelled": 336960,
+      "evaluated": 644760,
+      "nodes": 1610793,
+      "sphere_leaves": 4,
+      "budget_valid": 0
+    },
+    "split_3_4": {
+      "raw": 1318200,
+      "common_cancelled": 504336,
+      "evaluated": 813864,
+      "nodes": 1972315,
+      "sphere_leaves": 5,
+      "budget_valid": 0
+    },
+    "all_q7": {
+      "raw": 2965248,
+      "common_cancelled": 972192,
+      "evaluated": 1993056,
+      "nodes": 5036480,
+      "sphere_leaves": 17,
+      "budget_valid": 0
+    }
+  },
+  "replay_existing_code": "research_checks/T6_P13_Q7_BOUNDED_AUTHOR_AFFINE_CHECK_20261123.py",
+  "replay_commands": [
+    "python research_checks/T6_P13_Q7_BOUNDED_AUTHOR_AFFINE_CHECK_20261123.py 2 5 15 90",
+    "python research_checks/T6_P13_Q7_BOUNDED_AUTHOR_AFFINE_CHECK_20261123.py 3 4 0 100",
+    "python research_checks/T6_P13_Q7_BOUNDED_AUTHOR_AFFINE_CHECK_20261123.py 3 4 100 310",
+    "python research_checks/T6_P13_Q7_BOUNDED_AUTHOR_AFFINE_CHECK_20261123.py 3 4 310 520"
+  ],
+  "execution_detail": "Optimized self-contained local exact Fraction variant cached q0 LLL lattice and each named vertical atom coordinate, loop structure and exact GS/leaf checks same as published checker; old [0,15) not reexecuted. New local ephemeral runner not yet published. A failed oversized [0,520) local launch produced no terminal file; three disjoint slices cover entire range.",
+  "native_semantic_progress": false,
+  "independent_review": false,
+  "T6_global_state": "OPEN"
+}
