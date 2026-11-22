@@ -30,7 +30,6 @@ def inverse(S,n,q):
     b=rows.index(lo)
     assert sum(Z)%q==b
     d=tuple(S[next(c for c in range(n*q) if c%n==a and c%q==b)]//(q-2) for a in range(n))
-    assert S==spectrum({i for i in []},n,q,Z) if False else True
     k={(sum(Z))%q:2,(2*Z[0])%q:1,(2*Z[1])%q:1}
     assert all(S[c]==(q-4+k.get(c%q,0))*d[c%n]+2*w*(2-k.get(c%q,0))
                for c in range(n*q))
