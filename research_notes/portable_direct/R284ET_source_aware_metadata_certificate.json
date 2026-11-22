@@ -1,0 +1,112 @@
+{
+  "schema": "R284ET_SOURCE_AWARE_METADATA_CERT_V1",
+  "model": "binary source; t main copies; exactly b blind overwrites; up to s flips outside overwritten positions; h separate metadata bits; up to u metadata flips; metadata may depend on true source and J",
+  "exhaustive": {
+    "t": "1..7",
+    "b": "1..min(3,t)",
+    "s": "0..2",
+    "ordered_source_opposition_pairs": 8082,
+    "model_criterion_pass": true,
+    "constructions_checked": 69
+  },
+  "algebraic_weighted_sweep": {
+    "b": "1..4",
+    "s": "0..3",
+    "u": "0..3",
+    "positive_integer_bit_costs": "1..4 each",
+    "parameter_cases": 1024,
+    "formula_matches_optimal_envelope": true
+  },
+  "formula": "min(c_main*b+c_metadata*(2*u+1), c_main*(2*(s+b)+1))",
+  "examples": [
+    {
+      "b": 2,
+      "s": 0,
+      "u": 1,
+      "main_bit_cost": 1,
+      "metadata_bit_cost": 1,
+      "total_min": 5,
+      "attainers": [
+        [
+          2,
+          3
+        ],
+        [
+          5,
+          0
+        ]
+      ]
+    },
+    {
+      "b": 3,
+      "s": 0,
+      "u": 0,
+      "main_bit_cost": 1,
+      "metadata_bit_cost": 1,
+      "total_min": 4,
+      "attainers": [
+        [
+          3,
+          1
+        ]
+      ]
+    },
+    {
+      "b": 3,
+      "s": 0,
+      "u": 1,
+      "main_bit_cost": 1,
+      "metadata_bit_cost": 1,
+      "total_min": 6,
+      "attainers": [
+        [
+          3,
+          3
+        ]
+      ]
+    },
+    {
+      "b": 3,
+      "s": 0,
+      "u": 1,
+      "main_bit_cost": 2,
+      "metadata_bit_cost": 1,
+      "total_min": 9,
+      "attainers": [
+        [
+          3,
+          3
+        ]
+      ]
+    },
+    {
+      "b": 3,
+      "s": 0,
+      "u": 2,
+      "main_bit_cost": 1,
+      "metadata_bit_cost": 1,
+      "total_min": 7,
+      "attainers": [
+        [
+          7,
+          0
+        ]
+      ]
+    },
+    {
+      "b": 3,
+      "s": 1,
+      "u": 1,
+      "main_bit_cost": 1,
+      "metadata_bit_cost": 1,
+      "total_min": 6,
+      "attainers": [
+        [
+          3,
+          3
+        ]
+      ]
+    }
+  ],
+  "independent_review": false
+}
