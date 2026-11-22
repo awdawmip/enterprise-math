@@ -1,0 +1,12 @@
+# Exact integer cyclic-ring output, R5 frozen five-event scalar m=78..83
+# Command: ./verify_d41_exact 78 83
+# Independent command: ./verify_d41_exact_ubsan 78 83
+# Local builds: g++ -O3 -std=c++17; g++ -O1 -fsanitize=undefined -fno-sanitize-recover=undefined -std=c++17
+# Both produced byte-for-byte identical stdout (verified 2026-11-23 Asia/Shanghai).
+m=78 phi41_divides_A=1 coeff0=0 min=0 max=0
+m=79 phi41_divides_A=1 coeff0=0 min=0 max=0
+m=80 phi41_divides_A=1 coeff0=0 min=0 max=0
+m=81 phi41_divides_A=1 coeff0=0 min=0 max=0
+m=82 phi41_divides_A=1 coeff0=0 min=0 max=0
+m=83 phi41_divides_A=0 coeff0=2 min=-7 max=9
+first_diff=1 delta=-3
