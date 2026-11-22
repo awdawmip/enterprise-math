@@ -1,0 +1,92 @@
+{
+  "schema": "X6_TIME_UNIT265_OPTIMAL_C24_CONTEXT_COUPLING_CERT_V1",
+  "date": "2026-11-22",
+  "parent": "PO-X6-UPPER-STRUCTURE-20260906",
+  "task_id": "RS-X6-NATIVE-TIME-DYNAMICS",
+  "science_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "input": {
+    "repo": "awdawmip/enterprise-math",
+    "path": "research_checks/X6_TIME_UNIT264_OPTIMAL_BRC_OBSERVER_SEPARATOR_RESULTS_20261122_1600.json",
+    "commit": "19d6f70f31261f980739cdda343be2c0af732b3e",
+    "git_blob_sha1": "ef5d50542f9c85ff881f890ac16527c3441af43f"
+  },
+  "sampling": "UNIFORM_OVER_EACH_PORTS_2832_COMPLETE_28_EVENT_OPTIMAL_HISTORIES_NOT_PHYSICAL_PROBABILITY",
+  "event3": {
+    "history_count_per_port": 2832,
+    "rows": [
+      {
+        "state": [
+          0,
+          5,
+          0,
+          3
+        ],
+        "port60": 12,
+        "port82": 1260,
+        "matched": 12
+      },
+      {
+        "state": [
+          10,
+          3,
+          -2,
+          1
+        ],
+        "port60": 1260,
+        "port82": 300,
+        "matched": 300
+      },
+      {
+        "state": [
+          11,
+          4,
+          -1,
+          2
+        ],
+        "port60": 300,
+        "port82": 1260,
+        "matched": 300
+      },
+      {
+        "state": [
+          9,
+          2,
+          -3,
+          0
+        ],
+        "port60": 1260,
+        "port82": 12,
+        "matched": 12
+      }
+    ],
+    "l1_numerator": 4416,
+    "l1_denominator": 2832,
+    "total_variation": {
+      "numerator": 46,
+      "denominator": 59
+    },
+    "max_same_state_pairing_count": 624,
+    "max_coupling_mass": {
+      "numerator": 13,
+      "denominator": 59
+    },
+    "unmatched_per_port": 2208
+  },
+  "event7": {
+    "full_state_overlap": 0,
+    "total_variation": {
+      "numerator": 1,
+      "denominator": 1
+    },
+    "max_coupling_mass": {
+      "numerator": 0,
+      "denominator": 1
+    }
+  },
+  "uniform_sensor_bound": "For any port-independent 0<=f(s)<=1 measured as a function only of the complete event3 BRC state, |E60 f-E82 f|<=46/59, attained by sign-selected state indicator.",
+  "frozen_original_benchmark_change": false,
+  "native_source_executed": false,
+  "physical_C24_C3_executed": false,
+  "review": "UNREVIEWED",
+  "admission": "NOT_ADMITTED"
+}
