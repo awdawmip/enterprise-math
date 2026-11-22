@@ -1,0 +1,111 @@
+{
+  "schema": "T6_P17_Q12_AUTHOR_EXACT_FINITE_CERT_V1",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "researcher": "EM-X6-FB6990",
+  "session": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "logical_conversation": "chatgpt-research-onhour-enterprise-math-20260923",
+  "source_commit": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "budget_each_side": 2331,
+  "scope": "maximal p17 valuation1 q12 all splits, named signed atoms, 16D q0 full homogeneous basis, six globally necessary mixed moments mod17^j",
+  "basis_blob": "d9ac014355a6a1058cc8a0cf2141a01082628881",
+  "arithmetic": "outward fixed point 2^32 signed int128 exact lower sphere bound, corrected affine coefficient propagation",
+  "splits": [
+    {
+      "order": [
+        4,
+        8
+      ],
+      "raw": 6460,
+      "shared": 0,
+      "primitive": 6460,
+      "nodes": 9098,
+      "leaves": 0
+    },
+    {
+      "order": [
+        5,
+        7
+      ],
+      "raw": 261257880,
+      "shared": 91549004,
+      "primitive": 169708876,
+      "nodes": 198159566,
+      "leaves": 0
+    },
+    {
+      "order": [
+        6,
+        6
+      ],
+      "unordered": true,
+      "raw": 1134189378,
+      "shared": 554212211,
+      "primitive": 579977167,
+      "nodes": 645011640,
+      "leaves": 0,
+      "chunks": [
+        {
+          "left": [
+            0,
+            8000
+          ],
+          "raw": 349020000,
+          "shared": 214343938,
+          "primitive": 134676062,
+          "nodes": 148967627,
+          "leaves": 0
+        },
+        {
+          "left": [
+            8000,
+            18000
+          ],
+          "raw": 346275000,
+          "shared": 185935267,
+          "primitive": 160339733,
+          "nodes": 176800839,
+          "leaves": 0
+        },
+        {
+          "left": [
+            18000,
+            30000
+          ],
+          "raw": 283530000,
+          "shared": 110365531,
+          "primitive": 173164469,
+          "nodes": 192415758,
+          "leaves": 0
+        },
+        {
+          "left": [
+            30000,
+            47628
+          ],
+          "raw": 155364378,
+          "shared": 43567475,
+          "primitive": 111796903,
+          "nodes": 126827416,
+          "leaves": 0
+        }
+      ]
+    }
+  ],
+  "total": {
+    "raw": 1395453718,
+    "shared": 645761215,
+    "primitive": 749692503,
+    "nodes": 843180304,
+    "leaves": 0
+  },
+  "reproducer": [
+    "research_checks/T6_P17_Q9_INTERVAL_GENERATOR_20261123.py",
+    "research_checks/T6_P17_Q8_INTERVAL_EXHAUSTIVE_CHECK_20261123.cpp"
+  ],
+  "local_all_cases_executed": true,
+  "postpublication_independent_execution": false,
+  "independent_mathematical_review": false,
+  "native_progress": false,
+  "T6": "OPEN",
+  "next": "q13 splits5,8 and6,7"
+}
