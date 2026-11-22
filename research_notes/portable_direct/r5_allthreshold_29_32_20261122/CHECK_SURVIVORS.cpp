@@ -75,6 +75,6 @@ int main(){
         cout<<m<<','<<d<<','<<prime_<<','<<w<<','<<R.f<<','<<R.g<<','<<pole<<','<<(witness?1:0)<<'\n';
       }
     }
-    cerr<<"completed order "<<d<<'\n';
+    cerr<<"completed order "<<d<<"\n";
   }
 }
