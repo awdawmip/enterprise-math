@@ -126,6 +126,35 @@
       ],
       "repairs_event_id": null,
       "state": "VERIFY_EM_PUBLICATION"
+    },
+    {
+      "event_id": "r4-20261123-ec49fxd-r3-interval-source-v1",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "2c5c38f1bd3ada3f928bce8178b5640c60d7d256",
+          "path": "research_notes/portable_direct/EC49FXD_SHARP_R3_CONSECUTIVE_PHASE_THEOREM.md",
+          "sha256": "ecbf2b91f38a4eac52f89b24a30ad8579eb4b42211e2d9fb47736c7d28f734d2",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "tool_name": "mcp__GitHub__fetch_file",
+            "observation_id": "r4-20261123-ec49fxd-proof-full-readback-v1",
+            "call_id": null,
+            "git_blob_sha1": "cc683bab38112cc88f17dd8cfa344b3e6f06ca74",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/2c5c38f1bd3ada3f928bce8178b5640c60d7d256/research_notes/portable_direct/EC49FXD_SHARP_R3_CONSECUTIVE_PHASE_THEOREM.md",
+            "network_request_by_this_tool": false,
+            "server_signature_authenticated": false
+          },
+          "verification_receipt": "research_activity_records/RA-E1C533B86B927384C5B0ADED/readbacks/a0d21630828c44ba99f7b86854417057eedd12f1fc07f302eee37320de794f2b.json",
+          "verification_receipt_sha256": "a0d21630828c44ba99f7b86854417057eedd12f1fc07f302eee37320de794f2b"
+        }
+      ],
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@9a0ae80fe500e3e8255be891049308adc8b8a939:journal/enterprise-math/2026-11-23/20261123T013625+0800-ec49fxd-r3-interval-r4.md"
+      ],
+      "repairs_event_id": null,
+      "state": "EM_REPRESENTED"
     }
   ],
   "mode": "TASK_RESEARCH",
