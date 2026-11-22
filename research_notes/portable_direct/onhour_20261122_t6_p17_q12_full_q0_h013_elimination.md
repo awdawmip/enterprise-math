@@ -1,6 +1,6 @@
 # T6 one-power maximal-p17 q12 split(6,6): complete canonical q0 and sharp H3 exclusion
 
-Date: 2026-11-22, TASK_RESEARCH, **author-side exact finite computation; UNREVIEWED / NOT_ADMITTED**. Formal Task: \`RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND\`. The original Research logical lane is \`chatgpt-research-onhour-enterprise-math-20260923\`; the previous author's last recorded SID is \`MCP-082892eb480e45dea6d4b9fcc0491034\`, Researcher \`EM-X6-FB6990\`. This portable note gives no live CLAIM, RUN, Source semantic PROGRESS or mathematical acceptance.
+Date: 2026-11-22, TASK_RESEARCH, **author-side exact finite computation; UNREVIEWED / NOT_ADMITTED**. Formal Task: `RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND`. The original Research logical lane is `chatgpt-research-onhour-enterprise-math-20260923`; the previous author's last recorded SID is `MCP-082892eb480e45dea6d4b9fcc0491034`, Researcher `EM-X6-FB6990`. This portable note gives no live CLAIM, RUN, Source semantic PROGRESS or mathematical acceptance.
 
 ## Theorem, precisely scoped
 
@@ -25,7 +25,7 @@ Let \(L=99\,891\,792\,000\), an integer multiple of every admitted cofactor \(a\
 \]
 where \(a\) runs over every vertical cofactor **and** every q0 index with multiplicities. Equal signatures are equivalent to equality of \(H_0,H_1,H_2\): \(H_0=N\), and \(H_k\) is binomially triangular in reciprocal powers. The common outer factor 17 has no effect on equality.
 
-The C++17 checker sorts every complete state by this signature, examines **all** equal-signature unordered pairs, and excludes each pair whose two sides share any vertical or q0 named support. Full multiplicity is retained in the integer moments and cost; bit masks are used **only** for opposite-side support exclusion. For the remaining pairs, equality of \(H_3\) is equivalent to equality of the third reciprocal-power sum. All powers are accumulated in unsigned 128-bit integers; the maximum here lies below \(2^{128}\). The additional Python verifier independently reconstructs the four witnesses from the raw row indices and checks \(H_0,H_1,H_2,H_3\) using exact \`fractions.Fraction\`.
+The C++17 checker sorts every complete state by this signature, examines **all** equal-signature unordered pairs, and excludes each pair whose two sides share any vertical or q0 named support. Full multiplicity is retained in the integer moments and cost; bit masks are used **only** for opposite-side support exclusion. For the remaining pairs, equality of \(H_3\) is equivalent to equality of the third reciprocal-power sum. All powers are accumulated in unsigned 128-bit integers; the maximum here lies below \(2^{128}\). The additional Python verifier independently reconstructs the four witnesses from the raw row indices and checks \(H_0,H_1,H_2,H_3\) using exact `fractions.Fraction`.
 
 | Exact intermediate | Count |
 |---|---:|
@@ -54,18 +54,18 @@ Every line separately satisfies both budgets, preserves same-side repeats and ha
 
 ## Scope correction from the frozen source
 
-The original [frozen p17/q4 schema](https://github.com/awdawmip/enterprise-math/blob/main/research_artifacts/T6_P17_TOTAL_ORDER4_LITERAL_20261012/Q4_FROZEN_COMPLETE_DFS_SCHEMA_SPECIFICATION.json) gives **\`q0_weight_j: 17*j-1 for j=1..16\`**. This q12 certificate therefore uses j=1..16. The prior q13(6,7) author-side calculation expanded its so-called q0 catalog to j=33; for j≥18 those denominators duplicate the \((q\ge1,r)\) cofactor domain and are not part of this frozen canonical q0 alphabet. Its no-H013 conclusion can still imply exclusion of the narrower original j=1..16 subcase, because the broader scan contains that subcase, but the larger-side counts should be labeled **relaxation counts** and must not be promoted as canonical q0 counts without a frozen-plan reconciliation. This is a scope/provenance audit observation, **not** an independent Result review or a mathematical-axiom change.
+The original [frozen p17/q4 schema](https://github.com/awdawmip/enterprise-math/blob/main/research_artifacts/T6_P17_TOTAL_ORDER4_LITERAL_20261012/Q4_FROZEN_COMPLETE_DFS_SCHEMA_SPECIFICATION.json) gives **`q0_weight_j: 17*j-1 for j=1..16`**. This q12 certificate therefore uses j=1..16. The prior q13(6,7) author-side calculation expanded its so-called q0 catalog to j=33; for j≥18 those denominators duplicate the \((q\ge1,r)\) cofactor domain and are not part of this frozen canonical q0 alphabet. Its no-H013 conclusion can still imply exclusion of the narrower original j=1..16 subcase, because the broader scan contains that subcase, but the larger-side counts should be labeled **relaxation counts** and must not be promoted as canonical q0 counts without a frozen-plan reconciliation. This is a scope/provenance audit observation, **not** an independent Result review or a mathematical-axiom change.
 
 ## Reproduction and committed evidence
 
-1. Compile and execute \`g++ -O3 -std=c++17 research_checks/T6_P17_Q12_SPLIT6_6_H013_CANONICAL_CHECK_20261122.cpp -o /tmp/t6q12 && /tmp/t6q12 > /tmp/q12_raw.json\`.
-2. Run \`python research_checks/T6_P17_Q12_SPLIT6_6_H012_WITNESS_VERIFY_20261122.py /tmp/q12_raw.json\`.
+1. Compile and execute `g++ -O3 -std=c++17 research_checks/T6_P17_Q12_SPLIT6_6_H013_CANONICAL_CHECK_20261122.cpp -o /tmp/t6q12 && /tmp/t6q12 > /tmp/q12_raw.json`.
+2. Run `python research_checks/T6_P17_Q12_SPLIT6_6_H012_WITNESS_VERIFY_20261122.py /tmp/q12_raw.json`.
 3. Compare the exact integer totals and all four rational witnesses with the saved raw output and certificate.
 
-- C++ source: [exact scanner](../research_checks/T6_P17_Q12_SPLIT6_6_H013_CANONICAL_CHECK_20261122.cpp).
-- Raw output: [indices and exact scan totals](../research_checks/T6_P17_Q12_SPLIT6_6_H013_RAW_OUTPUT_20261122.json).
-- Rational verifier: [independent witness checker](../research_checks/T6_P17_Q12_SPLIT6_6_H012_WITNESS_VERIFY_20261122.py).
-- Full certificate: [four witnesses and sharp gap](../research_checks/T6_P17_Q12_SPLIT6_6_H013_EXACT_CERT_20261122.json).
+- C++ source: [exact scanner](../../research_checks/T6_P17_Q12_SPLIT6_6_H013_CANONICAL_CHECK_20261122.cpp).
+- Raw output: [indices and exact scan totals](../../research_checks/T6_P17_Q12_SPLIT6_6_H013_RAW_OUTPUT_20261122.json).
+- Rational verifier: [independent witness checker](../../research_checks/T6_P17_Q12_SPLIT6_6_H012_WITNESS_VERIFY_20261122.py).
+- Full certificate: [four witnesses and sharp gap](../../research_checks/T6_P17_Q12_SPLIT6_6_H013_EXACT_CERT_20261122.json).
 
 A C++17 run on the local calculation host examined 6,992,576 side states in 2.12 seconds, with observed peak RSS about 444,304 KiB. The independently written rational witness reconstruction passed for all four. The mathematical completeness of the general model is still subject to nonauthor source-plan review; no affine/native experiment is represented as executed.
 
