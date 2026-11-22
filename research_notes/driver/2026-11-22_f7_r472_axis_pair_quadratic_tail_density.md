@@ -64,9 +64,9 @@ A fresh exact JavaScript read/evaluation of the immutable GitHub table checked e
 | 2 | 6 | 12 | 6 | 0 | 12 |
 | 3 | 15 | 29 | 6 | 0 | 30 |
 | 4 | 28 | 52 | 6 | 0 | 56 |
-| 5 | 45 | 80 or more (not enumerated in this record) | 6 | 0 | not recorded |
+| 5 | 45 | 86 | 6 | 0 | 90 |
 
-For `N≤4`, each pair is **exactly saturated**, with `q(p)+q(Tp)=3/2`, so the quadratic total-excess lower bound is attained on the entire `P_4` window. `N=5` was checked only for minimum pair sum and zero violations; no claim that all corresponding four-input tests cover the full B14 box. For `B=15`, `N=5` is within the box, yet r469's known B15 full-box failure comes from other mixed-input configurations. Thus the new necessary condition is not asserted sufficient for B15.
+For `N≤5`, each pair is **exactly saturated**, with `q(p)+q(Tp)=3/2`, so the quadratic total-excess lower bound is attained on the entire `P_5` window. `N=5` uses inputs within B15, not necessarily B14. For `B=15`, `N=5` is within the box, yet r469's known B15 full-box failure comes from other mixed-input configurations. Thus the new necessary condition is not asserted sufficient for B15.
 
 ## Scientific scope and continuation
 
