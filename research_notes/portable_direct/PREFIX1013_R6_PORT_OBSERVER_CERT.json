@@ -68,5 +68,31 @@
     "squared_joint_port_mass_n5": "5285/419904"
   },
   "validation": "PASS: signed integer BRC DP and independent N[Z2] phase cover agree on every joint Cell-port fibre n=5..8; two-step arbitrary typed state checks exact",
-  "status": "AUTHOR_PROOF_EXACT_COMPUTATION_NOT_REVIEWED"
+  "status": "AUTHOR_PROOF_EXACT_COMPUTATION_NOT_REVIEWED",
+  "fixed_source_gram_counterexample_n5": {
+    "invariance": "S5 permutes axes 2..6; each positive and negative terminal squared mass splits into class j=1 and class j>=2",
+    "positive_last_per_port_squared_numerator": [
+      135110,
+      109490,
+      109490,
+      109490,
+      109490,
+      109490
+    ],
+    "negative_last_per_port_squared_numerator": [
+      16560,
+      12384,
+      12384,
+      12384,
+      12384,
+      12384
+    ],
+    "positive_class_difference": 25620,
+    "negative_class_difference": 4176,
+    "denominator": "36^5",
+    "total_squared_numerator": 761040,
+    "normalized_mass": "5285/419904",
+    "exact_basis": "fixed initial (0,-e1), one negative step n=5, signed BRC DP and independent N[Z2] fibre crosscheck",
+    "observation": "all positive last ports have same signed amplitude 25/1296 yet their per-port squared masses differ; negative signed margins are zero yet squared masses are positive"
+  }
 }
