@@ -1,0 +1,22 @@
+{
+  "exact_crosschecks": [
+    {"difference":4176,"identity":"difference=sos_norm/12","m":1,"n":5,"qminus_distinguished":16560,"qminus_other_per_port":12384,"sos_norm":50112},
+    {"difference":55296,"identity":"difference=sos_norm/12","m":2,"n":6,"qminus_distinguished":246870,"qminus_other_per_port":191574,"sos_norm":663552},
+    {"difference":844320,"identity":"difference=sos_norm/12","m":3,"n":7,"qminus_distinguished":4299380,"qminus_other_per_port":3455060,"sos_norm":10131840},
+    {"difference":14416128,"identity":"difference=sos_norm/12","m":4,"n":8,"qminus_distinguished":83992020,"qminus_other_per_port":69575892,"sos_norm":172993536},
+    {"difference":269703504,"identity":"difference=sos_norm/12","m":5,"n":9,"qminus_distinguished":1790819940,"qminus_other_per_port":1521116436,"sos_norm":3236442048},
+    {"difference":5443777536,"identity":"difference=sos_norm/12","m":6,"n":10,"qminus_distinguished":40858323910,"qminus_other_per_port":35414546374,"sos_norm":65325330432},
+    {"difference":117049899744,"identity":"difference=sos_norm/12","m":7,"n":11,"qminus_distinguished":983156336340,"qminus_other_per_port":866106436596,"sos_norm":1404598796928},
+    {"difference":2652662419200,"identity":"difference=sos_norm/12","m":8,"n":12,"qminus_distinguished":24683499734700,"qminus_other_per_port":22030837315500,"sos_norm":31831949030400},
+    {"difference":62807150612448,"identity":"difference=sos_norm/12","m":9,"n":13,"qminus_distinguished":641427403428720,"qminus_other_per_port":578620252816272,"sos_norm":753685807349376},
+    {"difference":1542538177542144,"identity":"difference=sos_norm/12","m":10,"n":14,"qminus_distinguished":17148204095459940,"qminus_other_per_port":15605665917917796,"sos_norm":18510458130505728}
+  ],
+  "laurent_identity_6T2": "6|S-z1|^2=5|S|^2+|S-6z1|^2-30",
+  "next_problem": "Prove or refute analogous uniform sign Q^+_{n,1}-Q^+_{n,*}; find difference's sum-of-squares or exact A6 shifts; generalize beyond grade k=1.",
+  "proof": "S6 symmetry of Haar/constant-term Gram bilinear functional with |S|^(2n-6); exchange axes 1,2 makes integral of (5|S|^2-30)(A-B) zero and integral A(A-B)=integral (A-B)^2/2. Strict because S^(n-3)(A-B) is a nonzero Laurent polynomial.",
+  "schema": "PREFIX1015_R6_NEGATIVE_PORT_SOS_V1",
+  "scope": "n>=5, single bidirectionally blocked {0,e1}, grade k=1, signed BRC numerator, each final negative-direction port, chosen chart anchor; S5 class j>=2",
+  "source": "PREFIX-1014@599f5d5306abae0101769432d6ff8da77517bf3e; frozen P000 V5 f42f2906d77f24085c123f3ccfe9667d41caa96d",
+  "theorem": "Q^-_{n,1}-Q^-_{n,2}=(1/12)||S^(n-3)*(|S-6z1|^2-|S-6z2|^2)||_2^2>0",
+  "verification": "All integer arithmetic. No floating point. PREFIX-1014 native BRC independent values matched for n=5..8; this run verifies post-observer SOS identity for n=5..14. This is not an independent BRC trajectory replay nor formal review."
+}
