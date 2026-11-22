@@ -1,0 +1,53 @@
+{
+  "schema": "T6_P17_Q6_SPLIT2_4_EXACT_AFFINE_AUTHOR_V1",
+  "date": "2026-11-23",
+  "author_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "researcher_id": "EM-X6-FB6990",
+  "frozen_task_commit": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "q0_lattice_blob_sha1": "d9ac014355a6a1058cc8a0cf2141a01082628881",
+  "q5_base_checker_blob_sha1": "2c1aa73268aa11300a32b9923e3bdbddb6190813",
+  "budget_per_side": 2331,
+  "p": 17,
+  "valuation": 1,
+  "vertical_order": 6,
+  "split": [
+    2,
+    4
+  ],
+  "q0_residues": "r=1..16",
+  "necessary_moduli": [
+    17,
+    289,
+    4913,
+    83521,
+    1419857,
+    24137569
+  ],
+  "basis_determinant": "17^21",
+  "exact_min_GS_D2": {
+    "numerator": "8350069911612335617606677214061177705401058080646556447012234889468081355909",
+    "denominator": "480650972868542992444263969893692042421717754534280313801217347854273"
+  },
+  "maximum_necessary_weighted_sphere_radius_squared": 4360450,
+  "counts": {
+    "order2_states": 152,
+    "order4_states": 6460,
+    "raw_pairs": 981920,
+    "opposite_shared_support_excluded": 262720,
+    "primitive_pairs": 719200,
+    "exact_GS_recursion_nodes": 1917830,
+    "complete_sphere_leaves": 0,
+    "actual_budget_valid_q0_completions": 0
+  },
+  "computation": {
+    "engine": "Python 3.11+, sympy for exact basis inversion/determinant; fractions.Fraction for complete GS recursion",
+    "original_execution": "LOCAL_EXACT_EXECUTED_IN_TWO_SEGMENTS_0..127_AND_128..151",
+    "original_program_path": "local:t6_p17_q6_split24_20261123.py",
+    "replay_path": "research_checks/T6_P17_Q6_SPLIT2_4_EXACT_REPRODUCER_20261123.py",
+    "reproducer_separately_executed": false,
+    "original_local_cert_sha256": "57be59d0010745f398ca89e7e02396e91b3d08badc66a163aea12e69cb52db5f"
+  },
+  "proof_strength": "AUTHOR_EXACT_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "native_semantic_progress_published": false,
+  "global_t6": "OPEN"
+}
