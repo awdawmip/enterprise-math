@@ -1,0 +1,141 @@
+{
+  "schema": "T6_P17_Q11_AUTHOR_EXACT_FINITE_CERT_V1",
+  "status": "AUTHOR_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "researcher": "EM-X6-FB6990",
+  "session": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "frozen_task_commit": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "full_named_signed_atoms": true,
+  "budget_each_side": 2331,
+  "full_global_mixed_mod_17j": true,
+  "source_basis_blob": "d9ac014355a6a1058cc8a0cf2141a01082628881",
+  "interval_exact_lower_bound": true,
+  "signed_128bit": true,
+  "GS_original_coefficient_propagation": true,
+  "splits": [
+    {
+      "order": [
+        3,
+        8
+      ],
+      "ranges": [
+        [
+          0,
+          1088
+        ]
+      ],
+      "raw": 1088,
+      "shared": 0,
+      "primitive": 1088,
+      "nodes": 1966,
+      "leaves": 0
+    },
+    {
+      "order": [
+        4,
+        7
+      ],
+      "ranges": [
+        [
+          0,
+          6460
+        ]
+      ],
+      "raw": 56182620,
+      "shared": 16327532,
+      "primitive": 39855088,
+      "nodes": 55898532,
+      "leaves": 0
+    },
+    {
+      "order": [
+        5,
+        6
+      ],
+      "ranges": [
+        [
+          0,
+          7500
+        ],
+        [
+          7500,
+          15000
+        ],
+        [
+          15000,
+          22500
+        ],
+        [
+          22500,
+          30040
+        ]
+      ],
+      "chunks": [
+        {
+          "range": [
+            0,
+            7500
+          ],
+          "raw": 357210000,
+          "shared": 212939308,
+          "primitive": 144270692,
+          "nodes": 170617052,
+          "leaves": 0
+        },
+        {
+          "range": [
+            7500,
+            15000
+          ],
+          "raw": 357210000,
+          "shared": 184083347,
+          "primitive": 173126653,
+          "nodes": 202706199,
+          "leaves": 0
+        },
+        {
+          "range": [
+            15000,
+            22500
+          ],
+          "raw": 357210000,
+          "shared": 160585257,
+          "primitive": 196624743,
+          "nodes": 236361223,
+          "leaves": 0
+        },
+        {
+          "range": [
+            22500,
+            30040
+          ],
+          "raw": 359115120,
+          "shared": 100171100,
+          "primitive": 258944020,
+          "nodes": 318277316,
+          "leaves": 0
+        }
+      ],
+      "raw": 1430745120,
+      "shared": 657779012,
+      "primitive": 772966108,
+      "nodes": 927961790,
+      "leaves": 0
+    }
+  ],
+  "total": {
+    "raw": 1486928828,
+    "shared": 674106544,
+    "primitive": 812822284,
+    "nodes": 983862288,
+    "complete_sphere_leaves": 0
+  },
+  "published_code": [
+    "research_checks/T6_P17_Q9_INTERVAL_GENERATOR_20261123.py",
+    "research_checks/T6_P17_Q8_INTERVAL_EXHAUSTIVE_CHECK_20261123.cpp"
+  ],
+  "new_script_separately_reexecuted": false,
+  "math_review": "NOT_PERFORMED",
+  "T6": "OPEN",
+  "next": "q12 splits(4,8),(5,7),(6,6)"
+}
