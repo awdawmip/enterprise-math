@@ -20,9 +20,9 @@ A candidate active set V⊆P is *locally eligible* if every S≠z contains at le
 
 For every all-essential 9-support family T, every omitted z∉T, and every locally eligible V, let j=min(T) in the lexicographic order of the twenty triples. There exists a connected even-degree event allocation on **exactly V**, having n'_j=1 and n'_S=n_S for all S≠j. In particular
 
-[
+$
 \sum_S n'_S=45,\qquad n'_S\le n_S,\quad n'_S\equiv n_S\pmod 2.
-]
+$
 
 Every positive support remains positive. Since the allocation graph is connected and Eulerian, it has an Euler circuit from **any** requested p∈V. The deleted two copies of support j can be reinserted as a parallel edge pair using j's surviving event-edge, recovering the original 47-event histogram with the same active Port set. The theorem is stronger than the conditional statement "if an original 47-event closed realization exists" for this all-essential class: local eligibility alone is sufficient.
 
