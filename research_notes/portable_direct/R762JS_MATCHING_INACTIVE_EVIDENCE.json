@@ -1,0 +1,142 @@
+{
+  "schema": "R762JS_MATCHING_INACTIVE_GF2_RAINBOW_V1",
+  "scientific_pin": "Enterprise Math Draft PR #2985 @47504c177ac2b318f5419a5fdb1304fafccf21fc",
+  "scope": "six-axis composite Port–Euler 44→42 (6,12,2,0), missing Ports form a matching of size 2 or 3",
+  "arithmetic": "exact GF(2) bitmasks, integer graph degrees and component partitions; no floating point",
+  "finite_lemma_domain": "All subsets D of FULL singleton labels with |D|<=3",
+  "models": [
+    {
+      "inactive_matching": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "active_ports": 13,
+      "forced_colors": 8,
+      "fully_active_colors": 12,
+      "forced_components": 6,
+      "singleton_patterns": 299,
+      "all_even_masks_per_pattern": 4096,
+      "rank_cosets": [
+        {
+          "k": 0,
+          "rank": 12,
+          "cosets": 1,
+          "patterns": 1
+        },
+        {
+          "k": 1,
+          "rank": 12,
+          "cosets": 1,
+          "patterns": 12
+        },
+        {
+          "k": 2,
+          "rank": 11,
+          "cosets": 2,
+          "patterns": 4
+        },
+        {
+          "k": 2,
+          "rank": 12,
+          "cosets": 1,
+          "patterns": 62
+        },
+        {
+          "k": 3,
+          "rank": 11,
+          "cosets": 2,
+          "patterns": 48
+        },
+        {
+          "k": 3,
+          "rank": 12,
+          "cosets": 1,
+          "patterns": 172
+        }
+      ],
+      "parity_patterns_passed": 299,
+      "rainbow_tree_patterns_passed": 299,
+      "rainbow_tree_colors": 5,
+      "sampled_full_Euler_witnesses_passed": 1140
+    },
+    {
+      "inactive_matching": [
+        [
+          0,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "active_ports": 12,
+      "forced_colors": 12,
+      "fully_active_colors": 8,
+      "forced_components": 3,
+      "singleton_patterns": 93,
+      "all_even_masks_per_pattern": 2048,
+      "rank_cosets": [
+        {
+          "k": 0,
+          "rank": 11,
+          "cosets": 1,
+          "patterns": 1
+        },
+        {
+          "k": 1,
+          "rank": 11,
+          "cosets": 1,
+          "patterns": 8
+        },
+        {
+          "k": 2,
+          "rank": 10,
+          "cosets": 2,
+          "patterns": 12
+        },
+        {
+          "k": 2,
+          "rank": 11,
+          "cosets": 1,
+          "patterns": 16
+        },
+        {
+          "k": 3,
+          "rank": 9,
+          "cosets": 4,
+          "patterns": 24
+        },
+        {
+          "k": 3,
+          "rank": 10,
+          "cosets": 2,
+          "patterns": 32
+        }
+      ],
+      "parity_patterns_passed": 93,
+      "rainbow_tree_patterns_passed": 93,
+      "rainbow_tree_colors": 2,
+      "sampled_full_Euler_witnesses_passed": 1140
+    }
+  ],
+  "total_finite_parity_patterns": 392,
+  "total_finite_rainbow_patterns": 392,
+  "total_full_witness_examples_checked": 2280,
+  "local_sample_event_stream_sha256": "8920eaa42ce3f705546131ec82fdf915a28b5bafc180ad20ad5620ff0b1ceb4e",
+  "validation_scope": "Full finite exhaustive quotient/DP and rainbow checks for the 392 different D patterns; 2280 deterministic sample inventories checked via explicit full 42-event construction. Universal proof combines exact finite lemmas with mathematical construction; sample stream is an extra cross-check.",
+  "review": "NOT_REVIEWED",
+  "native_p000_lift": "OPEN",
+  "remaining": "other 44-event histogram terminal classes and signed P000 BRC/Cell/Link/Port/time/branch faithful lift",
+  "authority": "Portable GitHub research; no protected CLAIM/PROGRESS/Result/Review asserted."
+}
