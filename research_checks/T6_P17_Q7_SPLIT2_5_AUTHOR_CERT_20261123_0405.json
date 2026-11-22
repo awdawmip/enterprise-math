@@ -1,0 +1,123 @@
+{
+  "schema": "T6_P17_Q7_SPLIT2_5_AUTHOR_EXACT_FINITE_CERT_V1",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "frozen_task": {
+    "commit": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+    "path": "research_tasks/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260909.md",
+    "git_blob_sha1": "87b3a6f38e9350f7a3f56624b27bff2a7778a439"
+  },
+  "model": {
+    "maximal_prime": 17,
+    "valuation": 1,
+    "vertical_split": [
+      2,
+      5
+    ],
+    "max_side_exponent_mass": 2331,
+    "named_atom_denominator": "17(r+17q)",
+    "named_atom_mass": "289q+17r-1",
+    "q0_r_domain": "1..16",
+    "mixed_congruences": "for j=1..6: sum_r u_r*r^(-j)+sum_(q>=1,r) m_(q,r)*(r+17q)^(-j) == 0 (mod 17^j)",
+    "lower_prime_completion": "unrestricted"
+  },
+  "lattice": {
+    "dimension": 16,
+    "pinned_q0_basis_git_blob_sha1": "d9ac014355a6a1058cc8a0cf2141a01082628881",
+    "index": "17^21",
+    "Dmin_numerator": "8350069911612335617606677214061177705401058080646556447012234889468081355909",
+    "Dmin_denominator": "480650972868542992444263969893692042421717754534280313801217347854273"
+  },
+  "coverage": {
+    "states_left": 152,
+    "states_right": 30040,
+    "raw_pairs": 4566080,
+    "shared_named_vertical": 1359386,
+    "primitive_pairs": 3206694,
+    "exact_fraction_GS_nodes": 7848081,
+    "full_weighted_sphere_leaves": 0,
+    "budget_valid_q0": 0,
+    "max_R_squared": 3774069
+  },
+  "method": "Six successive exact modular affine-particular lifts with complete saturated q0 homogeneous lattice; exact rational Gram-Schmidt, R2<Dmin, exhaustive backward floor/ceil search in 16 coefficients; excludes only with provable exact squared-radius overrun.",
+  "execution": {
+    "standalone_python_completed": true,
+    "disjoint_full_left_ranges": [
+      {
+        "range": [
+          0,
+          16
+        ],
+        "local_json_sha256": "c32fb53447d1350dba2c8a0b60471dd79e3c6737ec6cb102dcf71615313ca093"
+      },
+      {
+        "range": [
+          16,
+          32
+        ],
+        "local_json_sha256": "b67be17017f09baa103018eed7ae169e7146b2f52577835e4c971f7dc3b3537e"
+      },
+      {
+        "range": [
+          32,
+          48
+        ],
+        "local_json_sha256": "721ea90b3fb833a7e9df0c6a170360be6d071599797f7f7574565bf9fe13e360"
+      },
+      {
+        "range": [
+          48,
+          64
+        ],
+        "local_json_sha256": "8cb54cd902bbad320ed47c3f5b44a4c81205dd0c5e8620d78a230bc9ee0d8f31"
+      },
+      {
+        "range": [
+          64,
+          80
+        ],
+        "local_json_sha256": "5438c59e44425a149181caf8de413a16f684eb4488bbabb971a7e016ae365bfa"
+      },
+      {
+        "range": [
+          80,
+          96
+        ],
+        "local_json_sha256": "0de17e54c6563e080580667006a2b64738723d300e442d610d300eb57cfad205"
+      },
+      {
+        "range": [
+          96,
+          112
+        ],
+        "local_json_sha256": "3b57b4b70d83433472388a744c69b0e4f3f29ac5c4d2d21098e5d6932c4cd90b"
+      },
+      {
+        "range": [
+          112,
+          128
+        ],
+        "local_json_sha256": "b535b764bb3f4c964241b17db51a2aabc6f0dc7e5536c0b9f3fd20fac2163f7b"
+      },
+      {
+        "range": [
+          128,
+          144
+        ],
+        "local_json_sha256": "b18ae5a6089103d2ab5e9a8998c10a676c711deca54ac485e31cb59971a60d25"
+      },
+      {
+        "range": [
+          144,
+          152
+        ],
+        "local_json_sha256": "7d735de73cb0edc813e08cce3cf05f304b7f9cfc022005813b502a52dc39e114"
+      }
+    ],
+    "published_compact_reproducer_executed": false
+  },
+  "conclusion": "No primitive signed maximal-p17 valuation-one vertical order7 split(2,5) satisfying all globally necessary mixed 17-adic congruences and two original mass budgets. Shared support reduces to lower vertical order.",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "winning_claim": "NOT_VERIFIED",
+  "protected_native_progress": "NOT_PUBLISHED",
+  "T6_mother_objective": "OPEN"
+}
