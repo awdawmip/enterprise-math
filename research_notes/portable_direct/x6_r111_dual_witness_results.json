@@ -1,0 +1,106 @@
+{
+  "id": "X6-R111-DUAL-WITNESS",
+  "status": "PASS",
+  "weight": [
+    1,
+    1,
+    6,
+    16
+  ],
+  "eta_for_all_integer_p_ge_10": "3/7",
+  "strict_cutoff": "9/14",
+  "moment_box": {
+    "u": [
+      -1,
+      1
+    ],
+    "v": [
+      -4,
+      4
+    ],
+    "h": [
+      -10,
+      10
+    ]
+  },
+  "near_directions_all_ports": [
+    {
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "port": 1,
+      "score": "1/2"
+    },
+    {
+      "direction": [
+        5,
+        -4,
+        1
+      ],
+      "port": 6,
+      "score": "1/2"
+    },
+    {
+      "direction": [
+        9,
+        -5,
+        1
+      ],
+      "port": 10,
+      "score": "3/7"
+    },
+    {
+      "direction": [
+        10,
+        -5,
+        1
+      ],
+      "port": 11,
+      "score": "1/2"
+    },
+    {
+      "direction": [
+        15,
+        -9,
+        2
+      ],
+      "port": 17,
+      "score": "3/7"
+    },
+    {
+      "direction": [
+        19,
+        -10,
+        2
+      ],
+      "port": 21,
+      "score": "4/7"
+    },
+    {
+      "direction": [
+        25,
+        -14,
+        3
+      ],
+      "port": 28,
+      "score": "4/7"
+    }
+  ],
+  "finite_q28_direction_count": 38598,
+  "p_crosschecks": [
+    10,
+    11,
+    17,
+    21,
+    27,
+    28
+  ],
+  "new_cone_example": {
+    "R110_U_st": "1/2",
+    "new_U_b": "3/7",
+    "required_max": "8/17"
+  },
+  "scope": "Analytic infinite-lattice proof and all-p atlas at fixed weight; finite crosscheck q<=28"
+}
