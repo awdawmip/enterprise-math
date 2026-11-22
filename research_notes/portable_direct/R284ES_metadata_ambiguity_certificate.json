@@ -1,0 +1,167 @@
+{
+  "schema": "R284ES_EXACT_METADATA_AMBIGUITY_CERT_V1",
+  "model": "source-independent metadata; exactly b blind addresses; <=s background flips; <=u metadata flips",
+  "exhaustive_pair_scenarios": 5402,
+  "cases": [
+    {
+      "t": 4,
+      "b": 3,
+      "s": 0,
+      "u": 0,
+      "metadata_bits": 2,
+      "total_bits": 6,
+      "conflict_edges": 6,
+      "codewords": [
+        "00",
+        "01",
+        "10",
+        "11"
+      ]
+    },
+    {
+      "t": 4,
+      "b": 3,
+      "s": 0,
+      "u": 1,
+      "metadata_bits": 5,
+      "total_bits": 9,
+      "conflict_edges": 6,
+      "codewords": [
+        "00000",
+        "11100",
+        "10011",
+        "01111"
+      ]
+    },
+    {
+      "t": 5,
+      "b": 3,
+      "s": 0,
+      "u": 1,
+      "metadata_bits": 4,
+      "total_bits": 9,
+      "conflict_edges": 15,
+      "codewords": [
+        "0000",
+        "0001",
+        "0010",
+        "0101",
+        "0110",
+        "0111",
+        "1001",
+        "1010",
+        "1011",
+        "1111"
+      ]
+    },
+    {
+      "t": 6,
+      "b": 3,
+      "s": 0,
+      "u": 1,
+      "metadata_bits": 3,
+      "total_bits": 9,
+      "conflict_edges": 10,
+      "codewords": [
+        "000",
+        "000",
+        "000",
+        "000",
+        "000",
+        "000",
+        "000",
+        "000",
+        "000",
+        "000",
+        "111",
+        "111",
+        "111",
+        "111",
+        "111",
+        "111",
+        "111",
+        "111",
+        "111",
+        "111"
+      ]
+    },
+    {
+      "t": 7,
+      "b": 3,
+      "s": 0,
+      "u": 1,
+      "metadata_bits": 0,
+      "total_bits": 7,
+      "conflict_edges": 0,
+      "codewords": [
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        ""
+      ]
+    }
+  ],
+  "odd_cycle_t5_b3": [
+    [
+      2,
+      3,
+      4
+    ],
+    [
+      0,
+      1,
+      4
+    ],
+    [
+      1,
+      2,
+      3
+    ],
+    [
+      0,
+      3,
+      4
+    ],
+    [
+      0,
+      1,
+      2
+    ]
+  ],
+  "sharp_global_total_b3_s0": {
+    "metadata_flips_0": 6,
+    "metadata_flips_at_least_1": 7
+  },
+  "independent_review": false
+}
