@@ -12333,6 +12333,59 @@
           }
         }
       ]
+    },
+    {
+      "event_id": "onhour-20261122-1000-x6-unit258-context-guard-fallback-v1",
+      "state": "EM_REPRESENTED",
+      "notes": "Unit258: original signed whole-triad BRC optimum with context-restricted negative A:x0->x11 refusal. Exact shortest-path BFS and independent depth-DP: no refusal=28/2832 per Port; initial-only refusal=28/632 for (6,0), 28/2200 for (8,2); E4 denial=30/10712 for (6,0), 28/928 for (8,2); E16 denial=30/9212 for (6,0), 30/1036 for (8,2). All 2832+2832 unguarded shortest histories enumerated; unique minimal context covers E4 (four contexts) for (6,0) and E16 (sixteen contexts) for (8,2). Scope exact finite hypothetical BRC guard model only, real native physical Source step and C24/C3 sensor not executed; no new current winning CLAIM; protected Native semantic PROGRESS and review/admission still missing. Journal and three project Source files immutable verified; identity and original requests retained.",
+      "repairs_event_id": null,
+      "kb_sources": [
+        "https://github.com/awdawmip/chatgpt-global-knowledge/blob/d4710044e513b86360f6729c29e7de45c83701f7/journal/enterprise-math/2026-11-22/20261122T100000%2B0800-x6-onhour-unit258-contextual-guard-fallback.md"
+      ],
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "path": "research_notes/X6_TIME_UNIT258_CONTEXTUAL_GUARD_FALLBACK_20261122_1000.md",
+          "commit": "6e1759c7c29fe1272199205c333821299cdc7561",
+          "sha256": "7abea543351c5121f7912d837b1b46240d7c5644a090dffeee3700703d7dd143",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "IMMUTABLE_COMMIT_SCOPED_READBACK",
+            "tool_name": "mcp__GitHub__fetch_file",
+            "git_blob_sha1": "d6e5e521323307090e5bdcfa604514aa6f2bb97b",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/6e1759c7c29fe1272199205c333821299cdc7561/research_notes/X6_TIME_UNIT258_CONTEXTUAL_GUARD_FALLBACK_20261122_1000.md",
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "path": "research_checks/X6_TIME_UNIT258_CONTEXTUAL_GUARD_FALLBACK_20261122_1000_CHECK.js",
+          "commit": "00aa6ed5f963be3fd8eedc0769724eab9c690acb",
+          "sha256": "deb87c95f24255ce7cad1f4c45f0c9fdbe8cd7ff3f227afde0bf56161b359f0b",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "IMMUTABLE_COMMIT_SCOPED_READBACK",
+            "tool_name": "mcp__GitHub__fetch_file",
+            "git_blob_sha1": "d312fb083a38d989d9835dd786970079275e6505",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/00aa6ed5f963be3fd8eedc0769724eab9c690acb/research_checks/X6_TIME_UNIT258_CONTEXTUAL_GUARD_FALLBACK_20261122_1000_CHECK.js",
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "path": "research_checks/X6_TIME_UNIT258_CONTEXTUAL_GUARD_FALLBACK_20261122_1000_RESULTS.json",
+          "commit": "7231d07b14f7cc68aae32de6b601aa8f93546f44",
+          "sha256": "90973529d576255131db9d0c780d6337b483523988f68125cb83244d73d49190",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "IMMUTABLE_COMMIT_SCOPED_READBACK",
+            "tool_name": "mcp__GitHub__fetch_file",
+            "git_blob_sha1": "4cb299bf7bb2092c3f5c11b7f353f00f526c793f",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/7231d07b14f7cc68aae32de6b601aa8f93546f44/research_checks/X6_TIME_UNIT258_CONTEXTUAL_GUARD_FALLBACK_20261122_1000_RESULTS.json",
+            "server_signature_authenticated": false
+          }
+        }
+      ]
     }
   ],
   "mode": "TASK_RESEARCH",
