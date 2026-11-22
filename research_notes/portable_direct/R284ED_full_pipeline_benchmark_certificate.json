@@ -1,0 +1,129 @@
+{
+  "schema": "R284ED_FULL_FROZEN_PORT_PIPELINE_BENCHMARK_V1",
+  "status": "AUTHOR_EXACT_CHECKED / EMPIRICAL_BENCHMARK / NOT_REVIEWED",
+  "frozen_source_commit": "acba2d8667903434aaa2a10720f43637fcc2421b",
+  "frozen_source_git_blob_sha1": "b46e0f682b58e47c27094b4bea6fa4e55119a3ee",
+  "frozen_codeword_sha256": "b6ce76b2c08b9ec6b79ec83173befd2589928ca7c636643c3eaecd40405f4ff4",
+  "ordered_residue_label_distance_sha256": "4d15e6ffb1fa38e92f105fa54e5b7c8061301fadcb761ebc4feeb1c57b2a1cc8",
+  "whole_universe_verified": 65536,
+  "arcs": 64,
+  "event_positions": 194,
+  "preprocessing_single_samples_ms": {
+    "source_tuple_population": 95.837822,
+    "arc_construction": 0.239503,
+    "R284DS_heap_envelope_construction": 0.681104,
+    "extra_index_materialization": 49.025563
+  },
+  "full_pipeline_runs": {
+    "direct64": {
+      "runs_ms": [
+        935.288433,
+        956.236118,
+        895.443089,
+        881.79617,
+        910.080665
+      ],
+      "median_ms": 910.080665,
+      "minimum_ms": 881.79617
+    },
+    "div_env": {
+      "runs_ms": [
+        145.069271,
+        148.19524,
+        145.704237,
+        141.892886,
+        142.729949
+      ],
+      "median_ms": 145.069271,
+      "minimum_ms": 141.892886
+    },
+    "table_env": {
+      "runs_ms": [
+        185.453246,
+        187.583427,
+        202.87229,
+        179.933964,
+        188.570927
+      ],
+      "median_ms": 187.583427,
+      "minimum_ms": 179.933964
+    },
+    "shift_T_env": {
+      "runs_ms": [
+        207.863946,
+        211.855296,
+        207.610126,
+        209.298626,
+        200.948226
+      ],
+      "median_ms": 207.863946,
+      "minimum_ms": 200.948226
+    },
+    "shift_bits_env": {
+      "runs_ms": [
+        219.51514,
+        233.148812,
+        203.1433,
+        211.192568,
+        207.996037
+      ],
+      "median_ms": 211.192568,
+      "minimum_ms": 203.1433
+    }
+  },
+  "packed_state_runs": {
+    "div_packed_env": {
+      "runs_ms": [
+        140.146631,
+        141.398739,
+        140.222115,
+        140.104541,
+        140.843691
+      ],
+      "median_ms": 140.222115,
+      "minimum_ms": 140.104541
+    },
+    "table_packed_T_env": {
+      "runs_ms": [
+        151.284823,
+        150.095204,
+        148.221841,
+        149.104243,
+        148.216642
+      ],
+      "median_ms": 149.104243,
+      "minimum_ms": 148.216642
+    },
+    "table_packed_bits_env": {
+      "runs_ms": [
+        149.850618,
+        150.581862,
+        148.371152,
+        149.960936,
+        148.175291
+      ],
+      "median_ms": 149.850618,
+      "minimum_ms": 148.175291
+    },
+    "shift_packed_T_env": {
+      "runs_ms": [
+        175.548638,
+        175.676667,
+        173.307413,
+        172.194252,
+        172.812246
+      ],
+      "median_ms": 173.307413,
+      "minimum_ms": 172.194252
+    }
+  },
+  "timing_protocol": "five warm sequential runs per method, method-order rotation, GC disabled during run; same prepared state data within each comparison",
+  "scope": "determinant+quotient+64-arc distance/unique winner or determinant+quotient+precomputed 193-interval event envelope/unique winner; source and arc prep excluded from measured loops",
+  "environment": {
+    "python": "3.13.5",
+    "implementation": "CPython",
+    "platform": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "machine": "x86_64"
+  },
+  "unreviewed": true
+}
