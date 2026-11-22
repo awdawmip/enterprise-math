@@ -1,0 +1,147 @@
+{
+  "status": "ALL PASS",
+  "scientific_pin": "BRC16943",
+  "lineage": "EC49FWO@940ad416fa1eb47904b93860ea5364e869e3de74",
+  "primitive_directions": 72,
+  "distinct_frozen_U": 50,
+  "support_size_histogram": {
+    "4": 10,
+    "5": 16,
+    "6": 18,
+    "7": 4,
+    "8": 2
+  },
+  "ten_cycle_signature_classes": 38,
+  "cross_mass_ten_cycle_pairs": [
+    {
+      "U": [
+        23,
+        287
+      ],
+      "sizes": [
+        4,
+        6
+      ],
+      "different_positions": [
+        3,
+        8
+      ]
+    },
+    {
+      "U": [
+        833,
+        965
+      ],
+      "sizes": [
+        4,
+        6
+      ],
+      "different_positions": [
+        2,
+        7
+      ]
+    }
+  ],
+  "exact_product_census": [
+    {
+      "q": 3,
+      "total_products": 350,
+      "distinct_indexed_defect_arrays": 278,
+      "cross_mass_ambiguous_arrays": 2,
+      "witnesses": [
+        {
+          "U_pair": [
+            833,
+            965
+          ],
+          "V_mask": 7,
+          "masses": [
+            12,
+            18
+          ]
+        },
+        {
+          "U_pair": [
+            23,
+            287
+          ],
+          "V_mask": 7,
+          "masses": [
+            12,
+            18
+          ]
+        }
+      ]
+    },
+    {
+      "q": 7,
+      "total_products": 6350,
+      "distinct_indexed_defect_arrays": 5078,
+      "cross_mass_ambiguous_arrays": 2,
+      "witnesses": [
+        {
+          "U_pair": [
+            833,
+            965
+          ],
+          "V_mask": 127,
+          "masses": [
+            28,
+            42
+          ]
+        },
+        {
+          "U_pair": [
+            23,
+            287
+          ],
+          "V_mask": 127,
+          "masses": [
+            28,
+            42
+          ]
+        }
+      ]
+    },
+    {
+      "q": 11,
+      "total_products": 102350,
+      "distinct_indexed_defect_arrays": 81878,
+      "cross_mass_ambiguous_arrays": 2,
+      "witnesses": [
+        {
+          "U_pair": [
+            833,
+            965
+          ],
+          "V_mask": 2047,
+          "masses": [
+            44,
+            66
+          ]
+        },
+        {
+          "U_pair": [
+            23,
+            287
+          ],
+          "V_mask": 2047,
+          "masses": [
+            44,
+            66
+          ]
+        }
+      ]
+    }
+  ],
+  "optimal_fixed_physical_probe_count_q11": 2,
+  "number_optimal_two_probes_q11": 484,
+  "example_fixed_probe_sites": [
+    22,
+    33
+  ],
+  "optimal_adaptive_worst_case_probe_count": 1,
+  "zero_probe_when_V_nonfull": true,
+  "scope_limits": "Static indexed CRT reflection-defect array plus local Boolean probes; no native moving-Farey update or X6 transfer",
+  "review": "AUTHOR_PROVED / EXACT_INTEGER_FINITE_CROSSCHECK / PARENT_DEPENDENT / NOT_REVIEWED"
+}
