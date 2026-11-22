@@ -85,6 +85,16 @@ Thus \(c\) is either zero or at least 18. In particular for every \(1\le r\le18\
 
 For frozen masks with \(|D|=6\) or \(8\), any two independently shifted/reflected row supports must overlap: as subsets of five opposite row pairs, sizes three and four have pairwise intersection at least one and three, respectively. Consequently their adaptive cost is \(r\) for every \(r\le18\), irrespective of independent phase drift. The previous 50-mask census has 10 masks of size six and four of size eight. This fiberwise result is strictly stronger than the worst-case \(2r\) bound; the latter remains sharp because the authentic \(U=299\) supports are disjoint.
 
+## Complete uniform finite-state overlap census
+
+The separate exact census script `EC49FWX_ADAPTIVE_FIBER_OVERLAP_CENSUS.js` derives the overlap distribution without iterating all 7,260,000 pairs individually. It enumerates the 50 P10 masks and 100 ordered modulo-10 left/right phase pairs (5,000 row-phase configurations), then weights each by the exact number of modulo-11 choices: 121 for full \(V\), 121 for one-hole states whose left/right observed holes coincide, and 1,210 for one-hole states whose observed holes differ. These weights sum to 1,452 per row-phase configuration, hence exactly \(50\cdot100\cdot1452=7,260,000\) reference-and-independent-phase states. The resulting exact counts are:
+
+- \(c=0\): 2,671,680 states, equivalently \(46/125=36.8\%\);
+- \(c>0\): 4,588,320 states, equivalently \(79/125=63.2\%\);
+- the smallest positive overlap is \(c=18\).
+
+Thus, under the **uniform enumeration of these finite auxiliary states** and for \(1\le r\le18\), a spectrum-conditioned layout needs \(2r\) physical activations in exactly 36.8% of cases, and only \(r\) in 63.2%. At \(r=19\), the exact activation histogram is \(\{19:2603920,\;20:1984400,\;38:2671680\}\); at \(r=20\), it is \(\{20:2603920,\;22:1984400,\;40:2671680\}\). The complete overlap histogram and all \(r=1,\ldots,20\) activation histograms appear in `EC49FWX_ADAPTIVE_FIBER_OVERLAP_OUTPUT.json`, from the reproducible integer verifier. This artificial counting measure is not a frequency claim about natural Farey anchors or field hardware.
+
 ## Quantitative comparison and compression boundary
 
 | Required min channel-bit distance \(r\) | Independent fixed | Independent adaptive | Previously proved linked-mirror fixed (EC49FWW) |
