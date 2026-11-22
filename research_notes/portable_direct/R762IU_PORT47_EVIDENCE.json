@@ -1,0 +1,76 @@
+{
+  "schema": "ENTERPRISE_MATH_PORT_EULER_EXACT_FINITE_EVIDENCE_V1",
+  "unit": "R762IU",
+  "date_local": "2026-11-22",
+  "source_scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "previous_science": {
+    "pr": 2947,
+    "commit": "9687b5b5bf25c68cbc101dc6645e808bfcd1cab2",
+    "scope": "k=0 <=48"
+  },
+  "mathematical_result": "k=0 <=47 under frozen six-axis composite Port-Euler observer and R762IR/R762IS/R762IT reductions",
+  "required_checks": {
+    "support_count": 20,
+    "port_count": 15,
+    "all_essential_8": 4920,
+    "orbits_8": 16,
+    "all_essential_9": 240,
+    "orbits_9": 2,
+    "all_essential_10": 6,
+    "matching_inactive_sets": 76
+  },
+  "exhaustive_cases": {
+    "eight_triples": 1216,
+    "nine_triples_one_single": 1672,
+    "ten_triples_two_single": 3420,
+    "ten_triples_one_absent": 10,
+    "total": 6318
+  },
+  "runtime": {
+    "language": "Python 3",
+    "libs": "NumPy + SciPy MILP HiGHS",
+    "verification": "independent integer constraints on candidate per-support edge allocations, parity, active-set equality, connectivity",
+    "numerical_proof_dependency": "candidate MILP numerical results independently checked with exact integer arithmetic"
+  },
+  "batches": [
+    {
+      "first": 0,
+      "exclusive_end": 1400,
+      "passed": 1400,
+      "sha256": "2cb73bf611758eacc78c2994033682430c62af6614c6631ecac25a6fb43abd52"
+    },
+    {
+      "first": 1400,
+      "exclusive_end": 2800,
+      "passed": 1400,
+      "sha256": "7346dc12c86dddac12b2c2901737884c203a5bc538a761e9c2586a7f72dea84b"
+    },
+    {
+      "first": 2800,
+      "exclusive_end": 4200,
+      "passed": 1400,
+      "sha256": "342a8edcfa8b796cd4e8ca3165c6f52c71e8340e7fad6adfa3784cfc820a2f64"
+    },
+    {
+      "first": 4200,
+      "exclusive_end": 5600,
+      "passed": 1400,
+      "sha256": "a2daf4a210327a48884674b52dcc3b77d083952edb8e0c60ae53f40bd7384bd0"
+    },
+    {
+      "first": 5600,
+      "exclusive_end": 6318,
+      "passed": 718,
+      "sha256": "74e118cad217609d2b225f43756dd27bc202264a396123ea16d4e6a21448b4ba"
+    }
+  ],
+  "digest_semantics": "Each batch SHA-256 updates with bytes of final 20 support counts, inactive-port index tuple, and 60 verified nonnegative edge multiplicities for each case, in deterministic enumeration order.",
+  "proof_status": "AUTHOR_PROVED_EXACT_FINITE_RUN_NOT_REVIEWED",
+  "native_transfer": "PENDING_SIGNED_TRIADIC_CLOSURE_E_P000_LIFT",
+  "owner_state": "Independent portable; native task read-only SUCCEEDED at 2026-11-22T06:21:48Z, no live CLAIM; no privileged progress",
+  "unresolved": [
+    "Optimality of <=47 for k=0",
+    "k>0 four-event supports; earlier upper bound 54",
+    "native signed closure and residual fidelity"
+  ]
+}
