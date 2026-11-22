@@ -3,7 +3,7 @@
 from fractions import Fraction
 import json
 
-D_VALUES = ["3","29","30","31","32","101/3","34","47","48","70","71","72","100"]
+D_VALUES = ["3","29","30","31","32","101/3","34","45","46","47","48","51","70","71","72","100"]
 PORTS = (11,17,18)
 U=(10,-5,1); V=(4,-1,0); B=(6,-4,1); E=(16,-9,2)
 
@@ -35,6 +35,12 @@ def expected(d,p):
 def optimum(d):
     return min(Fraction(1,4),Fraction(12,1)/(d+1))
 
+def expected_optimizers(d):
+    if d<45: return {U}
+    if d<47: return {U,V}
+    if d==47: return {U,V,B}
+    return {B}
+
 def replay():
     rows=[]; total=0
     for dtext in D_VALUES:
@@ -44,13 +50,16 @@ def replay():
             vals=[score(a,d) for a in items]
             eta=min(vals)
             near={a for a,v in zip(items,vals) if 2*v<3*eta}
+            optimizers={a for a,v in zip(items,vals) if v==eta}
             assert eta==optimum(d),(d,p,eta)
+            assert optimizers==expected_optimizers(d),(d,p,optimizers,expected_optimizers(d))
             assert near==expected(d,p),(d,p,near,expected(d,p))
             assert len(items)=={11:2541,17:8942,18:10563}[p],(d,p,len(items))
             cases[str(p)]={"checked_unoriented":len(items),
                             "eta":str(eta),
                             "near":[list(a) for a in sorted(near)],
-                            "near_count":len(near)}
+                            "near_count":len(near),
+                            "optimizers":[list(a) for a in sorted(optimizers)]}
             total+=len(items)
         rows.append({"D":dtext,"port_results":cases})
     return {"scope":"R125 finite replay; analytic theorem covers all real D>=3 and integer p>=11",
