@@ -1,0 +1,177 @@
+{
+  "schema": "X6_TIME_UNIT261_TWO_TRIAD_NEGATIVE_WRAP_COMPACT_CERT_V1",
+  "date": "2026-11-22",
+  "task_id": "RS-X6-NATIVE-TIME-DYNAMICS",
+  "publication_id": "TP2-91D4A7C2F63805BE21A3",
+  "frozen_p000": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json",
+  "original_unit245": "awdawmip/enterprise-math@f56840285cafeb9f5767ea91e903e1f53808186f:research_checks/X6_TIME_UNIT245_DIRECTED_CENTER_PORT_PAIR_RESULTS_20261121_2200.json",
+  "scope": "CONDITIONAL_TWO_LABEL_DIRECTED_BRC_WITHOUT_A_X0_TO_X11",
+  "coordinate_basis": "Unit245: x[2r]=basis[r],x[2r+1]=basis[r]+basis[(r+1)%6],basis=[+E1,+E2,+E3,-E1,-E2,-E3]; P=0",
+  "route_encoding": "A..M for A destination x0..x11,P; a..m for B; one char per chronological native Cell event",
+  "populations": {
+    "i_gte_j_globally_excluded": 21,
+    "i_lt_j_exactly_classified": 15,
+    "cost_unchanged": 5,
+    "cost_increased": 10
+  },
+  "basis_event": {
+    "source": "x0",
+    "target": "x11",
+    "vector": [
+      0,
+      0,
+      -1,
+      0,
+      0,
+      0
+    ],
+    "unit256_zero_based": "-e2",
+    "P000_one_based": "-E3"
+  },
+  "search": {
+    "max_exact_min_length": 68,
+    "winding_bound": 80,
+    "explored_states": 540585,
+    "candidate_edges": 1831584,
+    "js_assertions": 3608,
+    "independent_python_cases_passed": 15
+  },
+  "cases": [
+    {
+      "ingress": 0,
+      "egress": 2,
+      "original_min_events": 38,
+      "restricted_min_events": 38,
+      "extra_events": 0,
+      "shortest_histories": "19171456",
+      "route": "MdCBAMCBAMCBAMCBAMCBAMefghijklabcdCBAc"
+    },
+    {
+      "ingress": 0,
+      "egress": 4,
+      "original_min_events": 36,
+      "restricted_min_events": 36,
+      "extra_events": 0,
+      "shortest_histories": "1222508",
+      "route": "MdefEDCBAMEDCBAMghijklabcdefEDCBAedc"
+    },
+    {
+      "ingress": 0,
+      "egress": 6,
+      "original_min_events": 38,
+      "restricted_min_events": 38,
+      "extra_events": 0,
+      "shortest_histories": "422400",
+      "route": "MdefghGFEDCBAMijklabcdefghGFEDCBAgfedc"
+    },
+    {
+      "ingress": 0,
+      "egress": 8,
+      "original_min_events": 38,
+      "restricted_min_events": 38,
+      "extra_events": 0,
+      "shortest_histories": "97194",
+      "route": "MdefghijIHGFEDCBAMIHGFEDCBAMIkJlKaLbAc"
+    },
+    {
+      "ingress": 0,
+      "egress": 10,
+      "original_min_events": 46,
+      "restricted_min_events": 52,
+      "extra_events": 6,
+      "shortest_histories": "4539240",
+      "route": "MKLAMKLAMKLAMdefghijklKJIHGFEDCBAMKJIHGFEDCBAMKaLbAc"
+    },
+    {
+      "ingress": 2,
+      "egress": 4,
+      "original_min_events": 46,
+      "restricted_min_events": 46,
+      "extra_events": 0,
+      "shortest_histories": "1258893216",
+      "route": "BdCMefEDCMEDCMEDCMEDCMEDCMghijklabcdefEDCBAedc"
+    },
+    {
+      "ingress": 2,
+      "egress": 6,
+      "original_min_events": 38,
+      "restricted_min_events": 44,
+      "extra_events": 6,
+      "shortest_histories": "165909216",
+      "route": "BdCMefghGFEDCMGFEDCMijklabcdefghGFEDCBAgfedc"
+    },
+    {
+      "ingress": 2,
+      "egress": 8,
+      "original_min_events": 38,
+      "restricted_min_events": 44,
+      "extra_events": 6,
+      "shortest_histories": "20628744",
+      "route": "BdCMefghijIHGFEDCMIHGFEDCMIHGFEDCMIkJlKaLbAc"
+    },
+    {
+      "ingress": 2,
+      "egress": 10,
+      "original_min_events": 36,
+      "restricted_min_events": 38,
+      "extra_events": 2,
+      "shortest_histories": "223092",
+      "route": "BdCMefghijklKJIHGFEDCMKJIHGFEDCMKaLbAc"
+    },
+    {
+      "ingress": 4,
+      "egress": 6,
+      "original_min_events": 48,
+      "restricted_min_events": 54,
+      "extra_events": 6,
+      "shortest_histories": "121144183512",
+      "route": "BdCeDfEMghGFEMGFEMGFEMGFEMGFEMijklabcdefghGFEDCBAgfedc"
+    },
+    {
+      "ingress": 4,
+      "egress": 8,
+      "original_min_events": 38,
+      "restricted_min_events": 52,
+      "extra_events": 14,
+      "shortest_histories": "23652242330",
+      "route": "BdCeDfEMghijIHGFEMIHGFEMIHGFEMIHGFEMIHGFEMIkJlKaLbAc"
+    },
+    {
+      "ingress": 4,
+      "egress": 10,
+      "original_min_events": 32,
+      "restricted_min_events": 44,
+      "extra_events": 12,
+      "shortest_histories": "7062146",
+      "route": "BdCeDfEMghijklKJIHGFEMKJIHGFEMKJIHGFEMKaLbAc"
+    },
+    {
+      "ingress": 6,
+      "egress": 8,
+      "original_min_events": 44,
+      "restricted_min_events": 62,
+      "extra_events": 18,
+      "shortest_histories": "15071217509920",
+      "route": "BdCeDfEgFhGMijIHGMIHGMIHGMIHGMIHGMklabcdefghijIHGFEDCBAihgfedc"
+    },
+    {
+      "ingress": 6,
+      "egress": 10,
+      "original_min_events": 34,
+      "restricted_min_events": 52,
+      "extra_events": 18,
+      "shortest_histories": "55206932",
+      "route": "BdCeDfEgFhGMijklKJIHGMKJIHGMKJIHGMKJIHGMKJIHGMKaLbAc"
+    },
+    {
+      "ingress": 8,
+      "egress": 10,
+      "original_min_events": 40,
+      "restricted_min_events": 68,
+      "extra_events": 28,
+      "shortest_histories": "388331784",
+      "route": "BdCeDfEgFhGiHjIMklKJIMKJIMKJIMKJIMKJIMKJIMKJIMKJIMKJIMKJIMKaLbAc"
+    }
+  ],
+  "status": "EXACT_FINITE_EXECUTED_CONDITIONAL / AUTHOR_PROVED / UNREVIEWED / NOT_ADMITTED / NO_NATIVE_SOURCE_EXECUTION"
+}
