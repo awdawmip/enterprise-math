@@ -1,0 +1,141 @@
+{
+  "schema": "EM_AUTHOR_PORTABLE_TASK_CONTINUATION_V1",
+  "created_at": "2026-11-22T22:05+08:00",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "parent_objective": "EXACT_GLOBAL_T6_THRESHOLD_OR_CHEAPER_COLLISION",
+  "actor": {
+    "role": "TASK_RESEARCH",
+    "researcher_id": "EM-X6-FB6990",
+    "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+    "maintenance_conversation_id_prohibited": "chatgpt-hourly-enterprise-math-20260921",
+    "identity_status": "previous canonical Research lane provenance reused; no new identity registration",
+    "winning_claim": null,
+    "run": null,
+    "role_bound_execution_authorized": false
+  },
+  "previous_author_continuation": {
+    "repository": "awdawmip/enterprise-math",
+    "source_commit": "fcae517f53dcdd472715b3983131dbcefa0e29e7",
+    "path": "research_notes/portable_direct/onhour_20261122_t6_q13_full_q0_author_continuation.json"
+  },
+  "immutable_frontier": [
+    {
+      "kind": "earlier_q14_h012_exact_empty",
+      "source_commit": "03ed8d2e200839ca620d46828e749159df94dcd4",
+      "path": "research_notes/portable_direct/onhour_20261122_t6_q14_h012_exact_emptiness.md"
+    },
+    {
+      "kind": "earlier_q13_h013_exact_empty_with_wider_q0",
+      "source_commit": "c1b929efff46baaed9b82cec70120efaa797eef2",
+      "path": "research_notes/portable_direct/onhour_20261122_t6_p17_q13_full_q0_h3_elimination.md"
+    },
+    {
+      "kind": "current_q12_h013_exact_proof",
+      "source_commit": "5728631c5479268cd25a58494fdf4524e658be8d",
+      "path": "research_notes/portable_direct/onhour_20261122_t6_p17_q12_full_q0_h013_elimination.md",
+      "git_blob_sha1": "e4fec6e106520bd3ae358d15e18bb0f5d56e37e0",
+      "sha256": "4c17505fda31b92e8a4fcd68f0d3ae75222351f3975073221b8734215a654eb3"
+    },
+    {
+      "kind": "current_cpp_exact_checker",
+      "source_commit": "f769cc063e310499695db4258a34e342208966b6",
+      "path": "research_checks/T6_P17_Q12_SPLIT6_6_H013_CANONICAL_CHECK_20261122.cpp",
+      "sha256": "a91f23b010c5d3ac05edebf16a7010b6736b3fe532038b7ae21b08b5efa89db4"
+    },
+    {
+      "kind": "current_raw_integer_certificate",
+      "source_commit": "e19f40b749b87cd09801568058c2379b946e0df4",
+      "path": "research_checks/T6_P17_Q12_SPLIT6_6_H013_RAW_OUTPUT_20261122.json",
+      "sha256": "a3d754bf89a7c20d30b101c549cba7791dc98db5e4559216102df8290b530780"
+    },
+    {
+      "kind": "current_rational_verifier",
+      "source_commit": "8b99fe1ea623495042a07ec1f6c6a8802af02a8c",
+      "path": "research_checks/T6_P17_Q12_SPLIT6_6_H012_WITNESS_VERIFY_20261122.py",
+      "sha256": "30701b27dc69a65e23cd7c4bf9b7088b96614f3a3d3626756dce0c234d1f1f74"
+    },
+    {
+      "kind": "current_four_aliases_and_gap",
+      "source_commit": "97620571a7115f2b202cde9a8ca3bf979e3be6c2",
+      "path": "research_checks/T6_P17_Q12_SPLIT6_6_H013_EXACT_CERT_20261122.json",
+      "sha256": "780d8aec083b89c468f08a8cee170985f914ecdc6a593d9bf93782734f28f11a"
+    },
+    {
+      "kind": "research_activity_274",
+      "source_commit": "6d8249ffb93615d9d855db02c90730a569194697",
+      "path": "research_activity_records/RA-5E3FE1E761E4963EC461A892.json",
+      "git_blob_sha1": "b0a937a435a619f0060e7e98945295009859b17c"
+    },
+    {
+      "kind": "account_journal",
+      "repository": "awdawmip/chatgpt-global-knowledge",
+      "source_commit": "0b8d72276c22341a4b261510d7a5ee33a5c1120e",
+      "path": "journal/enterprise-math/2026-11-22/20261122T2205+0800-onhour-t6-p17-q12-h013-exclusion.md"
+    }
+  ],
+  "current_scientific_conclusion": {
+    "scope": "ONE_POWER_MAXIMAL_P17_TOTAL_Q12_SPLIT6_6_CANONICAL_Q0_J1_TO16",
+    "result": "Exactly 4 opposing-support-disjoint unordered H012 signed pairs, none H013; sharp positive absolute H3 gap=1/647101056",
+    "counts": {
+      "vertical_rosters_each_side": 11105,
+      "q0_multisets": 54000,
+      "full_side_configurations": 6992576,
+      "signature_groups": 6988554,
+      "matched_pairs_before_support": 4025,
+      "after_support": 4,
+      "H013": 0
+    },
+    "status": "AUTHOR_EXACT_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+    "global_T6_status": "OPEN",
+    "scope_issue": "Frozen Q4 schema defines q0 j=1..16; prior q13 j<=33 is larger relaxation, not automatically canonical q0 alphabet"
+  },
+  "completed_scientific_units": [
+    "Consume earlier saved q14(7,7) and q13(6,7) one-power exact exclusions without reproducing previous work",
+    "New q12(6,6) exact enumeration and crosschecks: 4 H012 aliases, 0 H013 and sharp H3 gap, with independent rational witness verification",
+    "Compare frozen q4 j=1..16 definition to earlier q13 widened j<=33 source domain, retaining previous exclusion but limiting canonical count claims",
+    "Published five coherent project artifacts, account journal and appended one original Research Activity source-linked event to 274"
+  ],
+  "evidence_open": [
+    "Independent nonauthor review of frozen q12 Source/model and enumerator completeness",
+    "Remaining p17 vertical order split/valuation and mixed congruences",
+    "Canonical owner+typed continuation and authentic winning Research CLAIM/RUN before protected semantic PROGRESS",
+    "Original X6 native signed-triad action and C24/C3 sensor readbacks remain separate pending experiments"
+  ],
+  "do_not_repeat": [
+    "Existing q14 and q13 exact calculations",
+    "Completed q12 complete finite scan absent a found defect",
+    "Prior typed prepare failures or unknown rejected mutations",
+    "Treating source-side research file and Activity association as protected Native semantic PROGRESS",
+    "Do not collapse original j1..16 q0 scope into widened relaxation or promote one-power subclass to global T6"
+  ],
+  "next_scientific_action": "Identify via canonical Source/Driver which p17 one-power vertical partition or higher-17-adic valuation class remains smallest open; perform genuine discriminating finite rational H0..H3 or exact modular test with original q0 domain; nonauthor review of q12 proof/model must precede Result admission",
+  "control": {
+    "stable_research_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+    "maintenance_conversation_id_prohibited": "chatgpt-hourly-enterprise-math-20260921",
+    "own_session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+    "previous_original_continuation_request": "onhour-20261122-1959-t6-own-current-continuation-v1",
+    "previous_original_continuation_status": "SUCCEEDED / historical as-of",
+    "previous_original_task_read": "onhour-20261122-2100-t6-current-task-v1",
+    "previous_original_task_status": "SUCCEEDED / NEEDS_DISPATCH / no winning CLAIM / execution_authorized=false as of 2026-11-22T13:03:34Z",
+    "new_original_task_read": "onhour-20261122-2205-t6-task-current-read-v1",
+    "new_original_task_read_status": "QUEUED / READY_FOR_NATIVE; preserve request_id, read original receipt only; not absent/failed or owned",
+    "terminal_prepare_failures": [
+      {
+        "request_id": "onhour-20261122-1920-t6-own-typed-cont-prep-v1",
+        "error": "NATIVE_INPUT_SCOPE_METADATA_BUDGET_EXCEEDED"
+      },
+      {
+        "request_id": "onhour-20261122-1925-t6-own-typed-cont-prep-bounded-scope-v1",
+        "error": "GITHUB_PRIMARY_RATE_LIMIT"
+      }
+    ],
+    "claim_id": null,
+    "run_id": null,
+    "native_semantic_progress": "NOT_PUBLISHED",
+    "scheduler_mutated": false,
+    "next_control_action": "Consume original onhour-20261122-2205-t6-task-current-read-v1 via em_control_result/reconcile; if success assess fresh exact Source, own legal typed continuation and owner without replay of rejected prepares, maintaining identity isolation"
+  },
+  "provenance_status": "GITHUB_IMMUTABLE_READBACK_VERIFIED_FOR_NEW_SCIENTIFIC_FILES_ACTIVITY_AND_GLOBAL_JOURNAL",
+  "formal_admission": false
+}
