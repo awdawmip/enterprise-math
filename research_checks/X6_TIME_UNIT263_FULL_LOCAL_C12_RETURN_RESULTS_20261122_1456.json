@@ -1,0 +1,129 @@
+{
+  "schema": "X6_TIME_UNIT263_LOCAL_C12_VS_C6_RETURN_CERT_V1",
+  "research_task": "RS-X6-NATIVE-TIME-DYNAMICS",
+  "source_science_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "input_original_unit245": "f56840285cafeb9f5767ea91e903e1f53808186f:research_checks/X6_TIME_UNIT245_DIRECTED_CENTER_PORT_PAIR_RESULTS_20261121_2200.json",
+  "coupling": "ONE F_loc INTERNAL SHELL_CLOSURE STEP PER OWN WHOLE_TRIAD MOVE, conditional, NOT physical admission",
+  "all_frame_mode_step_assertions": 23040,
+  "full_local_fiber_states": 1920,
+  "period_of_each": 12,
+  "C12_orbits": 160,
+  "sharp_minima": {
+    "original_spatial_winding": 28,
+    "full_local_C12_per_label": 36,
+    "full_local_C12_and_global_C12": 36
+  },
+  "cases": {
+    "6,0": {
+      "0": {
+        "events": 28,
+        "counts": [
+          16,
+          12
+        ],
+        "windings": [
+          -12,
+          12
+        ],
+        "local_mod12": [
+          4,
+          0
+        ],
+        "full_local_C12_return": false,
+        "global_C12_return": false
+      },
+      "1": {
+        "events": 30,
+        "counts": [
+          18,
+          12
+        ],
+        "windings": [
+          -12,
+          12
+        ],
+        "local_mod12": [
+          6,
+          0
+        ],
+        "full_local_C12_return": false,
+        "global_C12_return": false
+      },
+      "4": {
+        "events": 36,
+        "counts": [
+          24,
+          12
+        ],
+        "windings": [
+          -12,
+          12
+        ],
+        "local_mod12": [
+          0,
+          0
+        ],
+        "full_local_C12_return": true,
+        "global_C12_return": true
+      }
+    },
+    "8,2": {
+      "0": {
+        "events": 28,
+        "counts": [
+          12,
+          16
+        ],
+        "windings": [
+          -12,
+          12
+        ],
+        "local_mod12": [
+          0,
+          4
+        ],
+        "full_local_C12_return": false,
+        "global_C12_return": false
+      },
+      "1": {
+        "events": 30,
+        "counts": [
+          12,
+          18
+        ],
+        "windings": [
+          -12,
+          12
+        ],
+        "local_mod12": [
+          0,
+          6
+        ],
+        "full_local_C12_return": false,
+        "global_C12_return": false
+      },
+      "4": {
+        "events": 36,
+        "counts": [
+          12,
+          24
+        ],
+        "windings": [
+          -12,
+          12
+        ],
+        "local_mod12": [
+          0,
+          0
+        ],
+        "full_local_C12_return": true,
+        "global_C12_return": true
+      }
+    }
+  },
+  "source_execution": false,
+  "native_signed_triad_event_admitted": false,
+  "c24_c3_physical_sensor_readings": false,
+  "independent_mathematical_review": false,
+  "status": "CONDITIONAL_EXACT_FINITE_EXECUTED_NOT_ADMITTED"
+}
