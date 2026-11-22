@@ -39,7 +39,7 @@ No solution has 12 or more q0 occurrences. Completeness follows from the disjoin
 Positive vertical: [(7,1)], with denominator 17*120 and mass 2039.
 Positive q0: j=2 repeated six times and j=4 once: mass 6*33+67=265. Positive total mass 2304; H0=1+7=8.
 
-Negative vertical: [(1,4),(2,1),(2,1),(2,1)], with cofactors 21,35,35,35 and total vertical mass 214? (see verified checker for exact total).
+Negative vertical: [(1,4),(2,1),(2,1),(2,1)], with cofactors 21,35,35,35 and total vertical mass 2138.
 Negative q0: j=1 repeated three times and j=8 once, mass 3*16+135=183. Negative total mass 2321; H0=4+4=8.
 
 Both have the **same exact scaled reciprocal sum** 391/120, hence H1=937/120 on both sides. Signed vertical supports are distinct, as are signed q0 supports. q0 counts 7+4=11. Both complete side masses are <=2331.
