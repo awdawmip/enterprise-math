@@ -1,0 +1,97 @@
+{
+  "schema": "T6_P17_Q9_AUTHOR_EXACT_FINITE_CERT_V1",
+  "status": "AUTHOR_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "researcher": "EM-X6-FB6990",
+  "session": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "frozen_science": {
+    "commit": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+    "blob": "87b3a6f38e9350f7a3f56624b27bff2a7778a439"
+  },
+  "proof_scope": "p17 maximal, v17=1, total vertical q9, four legal splits, full named denominator and signed q0 modular necessity, each side mass<=2331",
+  "basis_blob": "d9ac014355a6a1058cc8a0cf2141a01082628881",
+  "q0_lattice": "16x16 saturated index 17^21",
+  "min_GS_squared_exact": [
+    "8350069911612335617606677214061177705401058080646556447012234889468081355909",
+    "480650972868542992444263969893692042421717754534280313801217347854273"
+  ],
+  "max_radius_squared": 4104685,
+  "interval_scale": "2^32",
+  "integer_arithmetic": "signed int128 exact lower bound with outward fixed point intervals",
+  "correct_GS_propagation": "z_j = original c_j+n_j, not full conditional orthogonalized coordinate",
+  "inputs_sha256": {
+    "q1": "8b3910304571b914d946b12776c13a7d67339fa2c9cff64868e3104ac5945ea7",
+    "q2": "6df0ade311609510d60f964e2d74899f5cecef1305ac3bd30353c22665ac346f",
+    "q3": "532819f8ded2b425ffe14e5220c8434436cbec1c6dff54a190573cda68d9d9cb",
+    "q4": "2f3656fa0b7a9b693926453a399658f0fe3f8d7b3669c38fd4050445f44c387b",
+    "q5": "c8f35cf3b4fad727df83fb427eebdab35e57d79bbe96e0c0bc9beaf9cca3b97d",
+    "q6": "55ad7b048c042f476c6891efc90cb6963a431291d92e55aed8c7889c983677d3",
+    "q7": "9239e2dece6f7b56ddfa7dc12bd072848fe044e2b2594195e7d0a373cc15d95b",
+    "q8": "5eb581b31376f57e9da74d4fb8bd3669e76f0b829ea20df9b79872ef8219de39",
+    "GS": "4c9fc59b470752c01440db46cdacec6e5c41737d05d74522f8c1dfeb1229169b"
+  },
+  "splits": [
+    {
+      "side_orders": [
+        1,
+        8
+      ],
+      "raw": 16,
+      "shared": 0,
+      "primitive": 16,
+      "interval_nodes": 48,
+      "complete_sphere_leaves": 0
+    },
+    {
+      "side_orders": [
+        2,
+        7
+      ],
+      "raw": 1321944,
+      "shared": 243838,
+      "primitive": 1078106,
+      "interval_nodes": 2527035,
+      "complete_sphere_leaves": 0
+    },
+    {
+      "side_orders": [
+        3,
+        6
+      ],
+      "raw": 51819264,
+      "shared": 17889480,
+      "primitive": 33929784,
+      "interval_nodes": 61318004,
+      "complete_sphere_leaves": 0
+    },
+    {
+      "side_orders": [
+        4,
+        5
+      ],
+      "raw": 194058400,
+      "shared": 84995374,
+      "primitive": 109063026,
+      "interval_nodes": 164410949,
+      "complete_sphere_leaves": 0
+    }
+  ],
+  "total": {
+    "raw": 247199624,
+    "shared": 103128692,
+    "primitive": 144070932,
+    "interval_nodes": 228256036,
+    "complete_sphere_leaves": 0
+  },
+  "code": [
+    "research_checks/T6_P17_Q9_INTERVAL_GENERATOR_20261123.py",
+    "research_checks/T6_P17_Q8_INTERVAL_EXHAUSTIVE_CHECK_20261123.cpp"
+  ],
+  "local_execution": "COMPLETED_ALL_FOUR",
+  "published_reproducer_reexecution": "NOT_PERFORMED",
+  "independent_nonauthor_review": "NOT_PERFORMED",
+  "native_progress": "NOT_PUBLISHED",
+  "mother_T6": "OPEN",
+  "next": "p17 valuation-one order10 legal splits (2,8),(3,7),(4,6),(5,5) then higher orders"
+}
