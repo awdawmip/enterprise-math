@@ -1,6 +1,6 @@
 # CBRC F7 r471 — exact fiber-swap oscillation reduction and global audit of the r469 finite-box witness
 
-Date: 2026-11-22 (Asia/Taipei). This new derivation/check belongs to the existing Driver logical lane \`EM-DVR-DEBB5E\`. The original F7 researcher \`EM-CBRCF7-83A1D4\`, its model and existing scientific evidence are preserved. This is not a native independent Result review or admission.
+Date: 2026-11-22 (Asia/Taipei). This new derivation/check belongs to the existing Driver logical lane `EM-DVR-DEBB5E`. The original F7 researcher `EM-CBRCF7-83A1D4`, its model and existing scientific evidence are preserved. This is not a native independent Result review or admission.
 
 ## Original model and notation
 
@@ -47,8 +47,8 @@ This is exact: the original first pair selects $t\in I_r$, the second selects $s
 ## Theorem 2 — the specified r469 quarter-valued witness has exact global error one
 
 Freeze the *existing* r469 1,190-row table at
-\`enterprise-math@ba281507cfcba49b9fb592c0e7f98b5a4ccd5621:research_artifacts/F7_R469_B14_Exact_Quarter_Witness_20261122.json\`,
-Git blob \`81afd124e5d9faaa877f8cbffd4bdb25a377b10b\`.
+`enterprise-math@ba281507cfcba49b9fb592c0e7f98b5a4ccd5621:research_artifacts/F7_R469_B14_Exact_Quarter_Witness_20261122.json`,
+Git blob `81afd124e5d9faaa877f8cbffd4bdb25a377b10b`.
 It defines $4q_*(0,0)=0$, $4q_*(x,0)=4$ for nonzero $x$, and
 $4q_*(x,y)=2+n(|x|,y)$ off axis, with $n\in\{1,2\}$ on the table and zero elsewhere.
 
@@ -67,7 +67,7 @@ For fixed $(r,u)\in R^2$, the integer function $4h_r(v)-4h_u(v)$ is zero off the
 An explicit maximizer is $z=(40,33,-59,-33)$ with $k=-33$: its transformed arguments $(7,0)$ and $(-26,0)$ each have $q_*=1$, while its two original off-axis arguments are outside the table and each have $q_*=1/2$. Thus $D_{q_*}(z)=1$.
 
 The original independent JavaScript calculation evaluated 95,874 fiber values for $B=14$, 117,242 for $B=15$, and 1,090,050 for $B=32$. The standalone reproducibility program is
-\`research_checks/CBRC_F7_R471_FIBER_OSCILLATION_20261122.mjs\` at commit \`09b143759b94dca22d81c98bf1d040f3613b8647\`.
+`research_checks/CBRC_F7_R471_FIBER_OSCILLATION_20261122.mjs` at commit `09b143759b94dca22d81c98bf1d040f3613b8647`.
 It uses the existing table, integer arithmetic and no CI. Its file was published/read back; the stated exact calculations were executed in the live JavaScript computation, not attributed to a separate Node run.
 
 ## Theorem 3 — every finite off-axis perturbation of the half-valued baseline has global error at least one
