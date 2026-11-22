@@ -18,7 +18,7 @@ A candidate active set V⊆P is *locally eligible* if every S≠z contains at le
 
 ## Theorem — all-essential 47→45, including inactive Ports
 
-For every all-essential 9-support family T, every omitted z∉T, and every locally eligible V, let j=min(T) in the lexicographic order of the twenty triples. There exists a connected even-degree event allocation on **exactly V**, having n'_j=1 and n'_S=n_S for all S≠j. In particular
+For every all-essential 9-support family T, every omitted z∉T, and every locally eligible V, **there exists a support j∈T** and a connected even-degree event allocation on **exactly V**, having n'_j=1 and n'_S=n_S for all S≠j. In particular
 
 $$
 \sum_S n'_S=45,\qquad n'_S\le n_S,\quad n'_S\equiv n_S\pmod 2.
@@ -38,7 +38,7 @@ The corresponding lexicographically minimal representative pairs (support bitmas
 
 For each representative, enumerate all 2^15 possible inactive-Port masks and retain those with at least two active Ports in every support except z. **Exactly 92** masks qualify for each representative, split by numbers of inactive Ports as `[1,15,48,25,3]` for k=0,1,2,3,4. Thus **9×92=828** representative allocation checks cover **2,640×92=242,880** labeled (T,z,V) instances by axis-permutation equivariance.
 
-The accompanying 12,420-byte certificate stream specifies a 60-entry edge multiplicity vector for each representative mask, in deterministic enumeration order. Four consecutive entries, each in {0,1,2,3}, are packed in one byte; 15 bytes represent one allocation. The stream is zlib-compressed and base64-encoded in `R762IW_CERTS.b64`. The companion `R762IW_VERIFY_CERTS.py` is **standard-library only**: it independently enumerates the exact finite domains and orbits, decodes each certificate and checks every per-support edge sum, forbidden Port degree zero, positive even degrees of exactly V, and connectivity. It returns PASS for all 828 and checks the byte SHA256
+For each orbit representative, the certificate reduces its lexicographically first triple support. Under an axis permutation the chosen reduced support is transported with the other support labels; it need not be the lexicographically first support of the permuted family. Thus the theorem asserts existence of a reducible support, not a globally fixed label.\n\nThe accompanying 12,420-byte certificate stream specifies a 60-entry edge multiplicity vector for each representative mask, in deterministic enumeration order. Four consecutive entries, each in {0,1,2,3}, are packed in one byte; 15 bytes represent one allocation. The stream is zlib-compressed and base64-encoded in `R762IW_CERTS.b64`. The companion `R762IW_VERIFY_CERTS.py` is **standard-library only**: it independently enumerates the exact finite domains and orbits, decodes each certificate and checks every per-support edge sum, forbidden Port degree zero, positive even degrees of exactly V, and connectivity. It returns PASS for all 828 and checks the byte SHA256
 
 `15d611b1e80d16b45ab9ec471c233e826d60bb6f189377041c566acaa2631035`.
 
