@@ -1,0 +1,97 @@
+{
+  "schema": "T6_P17_Q14_JOINT_Q0_BUDGET_CERTIFICATE_V1",
+  "project": "awdawmip/enterprise-math",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "status": "EXACT_AUTHOR_PORTABLE_UNREVIEWED_NOT_ADMITTED",
+  "parent_frozen_source": {
+    "checkpoint": "9ef728a7107362eb0d4b1719ed98d00b1678357c",
+    "model": "maximal-p17 cancellation-normalized q14 split(7,7)"
+  },
+  "model": {
+    "p": 17,
+    "vertical_order_each_side": 7,
+    "side_budget": 2331,
+    "cofactor": "17*q+r",
+    "denominator": "17*(17*q+r)",
+    "vertical_atom_mass": "289*q+17*r-1",
+    "admissibility": "cofactor smooth with largest prime <=17",
+    "q0_masses": "17*j-1 for j=1..16",
+    "normalization": "repeat same-side allowed; opposite identical named atoms cancelled; sign exchange quotiented once"
+  },
+  "enumeration": {
+    "smooth_atoms": 60,
+    "side_rosters": 1907,
+    "opposite_disjoint_unordered_pairs": 809566,
+    "prior_counts_are_from": "Original 2026-11-16 owner checkpoint, independently reproduced for this audit"
+  },
+  "exact_new_result": {
+    "unique_min_joint_vertical_cost": 4095,
+    "unique_unordered_minimizer": [
+      [
+        [
+          7,
+          1
+        ]
+      ],
+      [
+        [
+          7,
+          2
+        ]
+      ]
+    ],
+    "side_costs": [
+      2039,
+      2056
+    ],
+    "remaining_q0_budgets": [
+      292,
+      275
+    ],
+    "sharp_total_q0_budget": 567,
+    "sharp_max_total_q0_occurrences": 26,
+    "attaining_q0_assignment": [
+      {
+        "vertical_side": [
+          [
+            7,
+            1
+          ]
+        ],
+        "q0_atom": 1,
+        "count": 18,
+        "q0_cost": 288
+      },
+      {
+        "vertical_side": [
+          [
+            7,
+            2
+          ]
+        ],
+        "q0_atom": 2,
+        "count": 8,
+        "q0_cost": 264
+      }
+    ],
+    "number_of_unordered_extremizers": 1
+  },
+  "validated_by": {
+    "method": "pure-integer Python exhaustive enumeration",
+    "environment": "Python script local container",
+    "code_commit": "6b835795e95a00ba8b65566cb2d35d7d774e7b9b",
+    "code_path": "research_checks/T6_P17_Q14_SHARP_JOINT_Q0_BUDGET_AUDIT_20261122.py",
+    "code_blob_sha1": "a0913a8db1a560b06b78fad8a13e9616b5e08c6f",
+    "code_sha256": "ab7cf5f78e91a7849756a1214cd720dcaf321c3892eaa8241971b56719373f65",
+    "full_local_output_sha256": "2fd4738655dbd87257922a8ef933292742caf55f37481e3b2701d2b4ac284e86"
+  },
+  "not_claimed": [
+    "q0 exact mixed congruence feasibility",
+    "affine candidate",
+    "native Source result",
+    "independent Driver review",
+    "T6=2332",
+    "Task conclusion",
+    "X6 original signed triad physical experiment"
+  ]
+}
