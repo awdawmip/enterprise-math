@@ -1,0 +1,105 @@
+{
+  "schema": "X6_NATIVE_TIME_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-22",
+  "cycle": "20261122_1600",
+  "task_id": "RS-X6-NATIVE-TIME-DYNAMICS",
+  "publication_id": "TP2-91D4A7C2F63805BE21A3",
+  "parent_objective": "PO-X6-UPPER-STRUCTURE-20260906",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_lane_excluded": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "original_session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "current_winning_claim_verified": false,
+  "scientific_input_frozen_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "original_BRC_pin": "awdawmip/enterprise-math@f56840285cafeb9f5767ea91e903e1f53808186f:research_checks/X6_TIME_UNIT245_DIRECTED_CENTER_PORT_PAIR_RESULTS_20261121_2200.json",
+  "previous_immutable_frontier": "awdawmip/enterprise-math@75b99f59af676d920f1012526a5ce1199bb912f4:research_notes/X6_TIME_UNIT263_FULL_LOCAL_C12_AUTHOR_CONTINUATION_20261122_1456.json",
+  "unit": {
+    "id": "Unit264",
+    "title": "Exact separation of original 28-event BRC Port-observation states at C24 event3 and C3 event7",
+    "theorem": "At two original minimum directed Ports (6,0) and (8,2), each admitting 2832 optimal 28-event histories, full BRC state supports coincide for times 0..3; intersections of cardinalities 3,2,1 at t4,t5,t6; disjoint at every t7..27; reconverge at t28. Even joint labeled positions at t7 are disjoint. Thus no two 28-event optimal histories have matched event7 C3 spatial contexts across those Port conditions.",
+    "proof": {
+      "commit": "be24fc503e3b2a6352daa185db89f2af965262af",
+      "path": "research_notes/X6_TIME_UNIT264_OPTIMAL_BRC_OBSERVER_SEPARATOR_20261122_1600.md",
+      "git_blob_sha1": "6c11d85761cc6afcc2be6bfd8d97a6436743b3e1",
+      "sha256": "bc993ddffa997a5bbc437e119aa7b1fbe0430b3c9a9ff6e737b7bd64b34d9947"
+    },
+    "checker": {
+      "commit": "9947d9fd1e4d24c27df5a19dce2ca2e69be1bb3d",
+      "path": "research_checks/X6_TIME_UNIT264_OPTIMAL_BRC_OBSERVER_SEPARATOR_CHECK_20261122_1600.js",
+      "git_blob_sha1": "b9f2f318806adb8462ab13fc3c2ae39e0511fecd",
+      "sha256": "e523743e2f611df516c333868638dd7714cafff0076ef81e1fce1e53b83b41e4"
+    },
+    "certificate": {
+      "commit": "19d6f70f31261f980739cdda343be2c0af732b3e",
+      "path": "research_checks/X6_TIME_UNIT264_OPTIMAL_BRC_OBSERVER_SEPARATOR_RESULTS_20261122_1600.json",
+      "git_blob_sha1": "ef5d50542f9c85ff881f890ac16527c3441af43f",
+      "sha256": "063736a0786a9022c8e56504a5f435091aab95736b558ea97c06b5cdaa877410"
+    },
+    "execution": {
+      "local_python_exhaustive_5664_histories_executed": true,
+      "connector_js_exact_dag_executed": true,
+      "optimal_histories_checked": 5664,
+      "full_state_intersection_t7": 0,
+      "position_intersection_t7": 0,
+      "all_event_layers_weighted_crosscheck": true,
+      "native_signed_triad_event_executed": false,
+      "original_C24_C3_physical_sensor_executed": false,
+      "original_R063_benchmark_executed": false
+    },
+    "status": "AUTHOR_PROVED / EXACT_FINITE_EXECUTED / GITHUB_VERIFIED / UNREVIEWED / NOT_ADMITTED / NO_NATIVE_SOURCE_EXECUTION"
+  },
+  "activity": {
+    "id": "RA-5E3FE1E761E4963EC461A892",
+    "event_id": "onhour-20261122-1600-x6-unit264-optimal-original-observer-separation-v1",
+    "event_total": 266,
+    "commit": "488038971ab5562f246e312071e6e3311f8e0a4d",
+    "git_blob_sha1": "293f8539b51839d35ba2cbc74bdfa7383af40fc1",
+    "audited_strictly": false
+  },
+  "global_knowledge": {
+    "journal_path": "journal/enterprise-math/2026-11-22/20261122T1600+0800-x6-onhour-unit264-optimal-observer-separator.md",
+    "journal_commit": "07a7c4e306041f4af67f9034808ed7c25aad4a9d",
+    "readback_verified": true
+  },
+  "control": {
+    "observed_gateway_version": "0.6.11",
+    "current_control_source": "47397399c1541d11038c18c3f394690af3228e79",
+    "last_terminal_task_request_id": "onhour-20261122-1500-x6-task-current-read-v1",
+    "last_terminal_task_receipt": "SUCCEEDED / error=null",
+    "last_task_observed_at": "2026-11-22T06:59:13.988225+00:00",
+    "last_task_owner": "taskbook/unassigned",
+    "last_task_dispatch_state": "NEEDS_DISPATCH",
+    "last_task_execution_authorized": false,
+    "pending_original_task_read_request_id": "onhour-20261122-1605-x6-current-task-owner-read-v1",
+    "pending_last_status": "QUEUED / error=null",
+    "prior_own_run_id": "RUN-d653f1346f38369bc27f5fc5",
+    "prior_own_claim_id": "MCP-369991930c5b4fddf26dbefa",
+    "prior_own_historical_run_generation": 5,
+    "prior_successful_continuation_request": "onhour-20261122-1103-x6-own-continuation-after-task-terminal-v1",
+    "previous_failed_continuation_requests": [
+      "onhour-20261122-0004-x6-own-source-continuation-v1",
+      "onhour-20261122-0756-x6-own-source-continuation-read-v1"
+    ],
+    "protected_semantic_PROGRESS": "NOT_PUBLISHED for Units233-264",
+    "engineering_support": "https://github.com/awdawmip/enterprise-math/issues/2903",
+    "engineering_support_latest_comment": "https://github.com/awdawmip/enterprise-math/issues/2903#issuecomment-7076347065",
+    "source_execution_authorized": false
+  },
+  "evidence_gaps": [
+    "Verified current winning Task CLAIM/open under the same true research lane, no borrowed maintenance identity",
+    "Real Source-admitted intact signed triad event A:x0->x11, delta=(0,0,-1,0,0,0), three force token IDs, TRIADIC_CLOSURE_E, vacancy, pre/post environment and ordered frame/mode if defined",
+    "Original 28-event BRC benchmark with real C24 after event3 and C3 after event7; log complete BRC state, distinguish the two Port spatial contexts; no substitute 30/36-event decorated route",
+    "Separate original R063 six-file native benchmark #2416; not completed by this X6 observer study",
+    "Independent mathematical review and current Source semantic progress publication"
+  ],
+  "do_not_repeat": [
+    "Prior Units233-263 saved author-science evidence, Activity265 and Source historical progress",
+    "Unit245 36-case compact certificates and Unit257 5664 optimal history count; consumed without changing science pin",
+    "Unit262 H6 and Unit263 H12 conditional coupling results; no automatic physical identification",
+    "Old terminal failed Source requests and already SUCCEEDED old read requests",
+    "Unknown or queued current read mutation or read collection; consume exact original request ID only",
+    "Do not borrow maintenance session, create duplicate task/claim, overwrite Result or modify scheduler"
+  ],
+  "next_exact_action": "Consume request onhour-20261122-1605-x6-current-task-owner-read-v1 until terminal, without resubmission. If fresh Source and canonical selector plus original session permit, reauthorize original Research run with exact frontier; do not repeat failed continuation mutations absent change. Actual scientific next unit is admitted signed intact-triad A:x0->x11 (-E3) with complete source tokens and real ordered frame/mode; execute unchanged 28-event route and event3 C24/event7 C3, preserving distinct BRC contexts. If physical Source executor/authorization remains unavailable, keep #2903 support and verified Unit264 state; do not label conditional observer theorem native completion.",
+  "checkpoint_category": "GITHUB_AUTHOR_SCIENCE_ACTIVITY_AND_JOURNAL_ONLY_NOT_NATIVE_SEMANTIC_PROGRESS"
+}
