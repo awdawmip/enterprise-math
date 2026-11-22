@@ -1,0 +1,93 @@
+{
+  "schema": "PREFIX1007_R6_EXACT_VERIFICATION_V1",
+  "science_pin": "awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d:p000_reality_foundation.json",
+  "observer": "PREFIX-1005 X6 signed Z2 BRC terminal joint Cell-port first interior Link absorption",
+  "new_exact_identity": "Four shifts A_6(n-4+s), s=0,1,2,3 with rational-polynomial coefficients in PREFIX-1007 theorem 1007.3",
+  "method": "Python Fraction and exact integer enumeration; separate SymPy rational identity; no floating-point science",
+  "original_local_checkers": [
+    "PREFIX1007_R6_COLLISION_HOLONOMIC_REDUCTION.py",
+    "PREFIX1007_R6_FOUR_SHIFT_IDENTITY_CHECK.py",
+    "PREFIX1007_R6_SEVEN_STATE_CHECK.py"
+  ],
+  "verification": {
+    "eleven_orbits_plus_three_nontrivial_shifts_direct_compositions": {
+      "m": "0..8",
+      "count": 126
+    },
+    "marked_against_independent_A6_differential_ops": {
+      "m": "0..31",
+      "count": 448
+    },
+    "seven_state_against_prior_prefix1006_transfer": {
+      "count": 121
+    },
+    "four_shift_polynomial_identity": "Symbolic exact identity for all m>=1, four rational coefficient differences are identically zero",
+    "four_shift_vs_prior_orbit": {
+      "n": "5..60",
+      "count": 56
+    },
+    "sympy_four_shift_vs_Aonly": {
+      "n": "5..50",
+      "count": 46
+    },
+    "shift_two_identity": {
+      "m": "0..29",
+      "count": 30
+    },
+    "prior_masked": {
+      "n": [
+        5,
+        6,
+        8,
+        20,
+        30
+      ]
+    },
+    "sign_redistribution": {
+      "delta_1": [
+        3,
+        2,
+        -2,
+        -1,
+        -1,
+        -1
+      ],
+      "delta_2": [
+        -3,
+        2,
+        2,
+        1,
+        -1,
+        -1
+      ],
+      "H5": "600",
+      "H6": "52200",
+      "all_m": "analytic series identity"
+    }
+  },
+  "selected_masses": {
+    "5": "5285/419904",
+    "6": "9715/1259712",
+    "8": "259181485/78364164096",
+    "20": "89379684726508120031933065/371319292745659279662190166016",
+    "30": "13933171984643229314612138251752792090355/169700270766282144060148445395050707866877952"
+  },
+  "large_n": {
+    "100": {
+      "numerator_digits": 148,
+      "denominator_digits": 153,
+      "sha256_fraction": "2ddc59a0bd0a37c003b855008c66c295c17546abb3992b9e51fea33411018e6b"
+    },
+    "200": {
+      "numerator_digits": 302,
+      "denominator_digits": 308,
+      "sha256_fraction": "1ad032c39fd2e6b87632b29a324447efd1bb831011025316d931cb0d6cfbd4f4"
+    },
+    "300": {
+      "numerator_digits": 458,
+      "denominator_digits": 465,
+      "sha256_fraction": "893857af433e6b8ed8571bf9e8fbf352e5e682311953725f46aeb226dbed30b3"
+    }
+  },
+  "scope": "Author-proved final scalar only, BRC Stage46 candidate. No current formal CLAIM, Activity CAS, Review or physical calibration."
+}
