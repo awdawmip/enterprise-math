@@ -1,0 +1,103 @@
+{
+  "schema": "T6_P19_Q10_Q12_VALUATION_ONE_NECESSARY_FIRST_DIGIT_CERT_V1",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "scope": "p19 valuation-one signed normalized components, q10..12, q0 j1..18, side mass<=2331; only first six reciprocal cofactor moments mod19, lower-prime completion open",
+  "arithmetic": "EXACT_MOD_19_BASE19_PACKED_SIGNATURE_INTEGER_ENUMERATION",
+  "author_status": "AUTHOR_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "higher_valuation_dependency": "research_checks/T6_P19_HIGH_VALUATION_MOD19_CERT_20261123.json",
+  "first_digit_condition": "sum_A (a/19)^(-k) == sum_B (b/19)^(-k) mod 19 for k=1..6",
+  "splits": [
+    {
+      "q_split": [
+        4,
+        6
+      ],
+      "vertical_atoms": 64,
+      "vertical_rosters": [
+        3484,
+        114
+      ],
+      "q0_multisets": 584072,
+      "full_side_states": [
+        43043867,
+        675
+      ],
+      "matching_first_six_mod19_oriented": 33666,
+      "disjoint_unordered": 3640,
+      "first_witness": {
+        "A": [
+          380,
+          380,
+          380,
+          380
+        ],
+        "B": [
+          741,
+          741,
+          741,
+          19
+        ],
+        "side_exponent_masses": [
+          1516,
+          2238
+        ]
+      }
+    },
+    {
+      "q_split": [
+        5,
+        5
+      ],
+      "vertical_atoms": 64,
+      "vertical_rosters": [
+        3378,
+        3378
+      ],
+      "q0_multisets": 14383,
+      "full_side_states": [
+        852346,
+        852346
+      ],
+      "matching_first_six_mod19_oriented": 59175434,
+      "disjoint_unordered": 212688
+    },
+    {
+      "q_split": [
+        5,
+        6
+      ],
+      "vertical_atoms": 64,
+      "vertical_rosters": [
+        3378,
+        114
+      ],
+      "q0_multisets": 14383,
+      "full_side_states": [
+        852346,
+        675
+      ],
+      "matching_first_six_mod19_oriented": 19709,
+      "disjoint_unordered": 2127
+    },
+    {
+      "q_split": [
+        6,
+        6
+      ],
+      "vertical_atoms": 64,
+      "vertical_rosters": [
+        114,
+        114
+      ],
+      "q0_multisets": 37,
+      "full_side_states": [
+        675,
+        675
+      ],
+      "matching_first_six_mod19_oriented": 10767,
+      "disjoint_unordered": 582
+    }
+  ],
+  "disjoint_total": 219037,
+  "interpretation": "Nonempty necessary modulo19 survivors; original full mixed-digit, exact budget completion and non-19 denominators remain undecided. The isolated p19 exact H0..H3 equality filter is not a valid global necessary condition."
+}
