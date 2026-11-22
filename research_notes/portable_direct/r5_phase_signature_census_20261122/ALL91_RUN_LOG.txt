@@ -1,0 +1,31 @@
+R5 ALL91 exact modular first-jet certificates
+Date: 2026-11-22. Frozen input: enterprise-math@75d986aa23b68a7ecf9b29dc1006f0e322b35a15
+
+Local command:
+g++ -std=c++17 -O2 -Wall -Wextra -fsanitize=undefined -fno-sanitize-recover=all VERIFY_ALL91.cpp -o verify_all91
+./verify_all91 > ALL91_CERTIFICATE.csv 2> ALL91_RUN_LOG.txt
+
+Actual local stderr:
+done d=7 p=10039 n=91
+done d=9 p=10009 n=91
+done d=11 p=10099 n=91
+done d=13 p=10037 n=91
+done d=16 p=10177 n=91
+done d=17 p=10099 n=91
+done d=19 p=10223 n=91
+done d=23 p=10259 n=91
+done d=25 p=10151 n=91
+done d=27 p=10099 n=91
+done d=31 p=10169 n=91
+done d=37 p=10139 n=91
+SUMMARY rows=1092 misses=0 min=2492 max=79808
+
+Total: 91 triple-phase threshold representatives x 12 necessary primitive orders = 1092 exact nonzero Euler jet witnesses; 6 independently sourced anchor checks passed; undefined-behavior sanitizer silent.
+
+Full canonical 1092-row CSV SHA256: d6a91c4a44a0075e30a12aab9d69a3d1d5a1decb15f640f5e39b7c5217e52fe5
+All numeric jet data encoded as uint16le pairs in ALL91_JETS_U16LE.b64, full binary SHA256: 2a728abf89c6d6756b738458ac0e47499f2e0b6ef64d44aa217354ca4ff5175a
+Unpack and independently verify full 1092-row exact CSV SHA256 with VERIFY_ALL91_PACKED.py.
+
+Original 21-case exact CSV comparison: 252/252 overlapping entries equal in prime, primitive root, R0, DR0, original pole order, and witness class.
+
+Mathematical status: AUTHOR_EXACT_DERIVATION / EXACT_MODULAR_WITNESSES / NOT_REVIEWED.
