@@ -1,0 +1,107 @@
+{
+  "schema": "PREFIX1021_R6_EXACT_RESULTS_V1",
+  "date": "2026-11-23",
+  "model": "P000 V5 frozen; X6 Stage46 candidate signed W=J12-6I12; bidirectional Link {0,e1}",
+  "arithmetic": "Python exact integers and SymPy exact symbolic polynomials (no floats)",
+  "checks": [
+    {
+      "H": 1,
+      "det_flux_matrix": 1,
+      "jacobian_det": -4,
+      "norms": [
+        "2",
+        "71"
+      ]
+    },
+    {
+      "H": 2,
+      "det_flux_matrix": 1,
+      "jacobian_det": 8,
+      "norms": [
+        "3",
+        "107",
+        "3851"
+      ]
+    },
+    {
+      "H": 3,
+      "det_flux_matrix": 1,
+      "jacobian_det": -16,
+      "norms": [
+        "680",
+        "24479",
+        "881243",
+        "31724747"
+      ]
+    },
+    {
+      "H": 4,
+      "det_flux_matrix": 1,
+      "jacobian_det": 32,
+      "norms": [
+        "7024",
+        "252863",
+        "9103067",
+        "327710411",
+        "11797574795"
+      ]
+    }
+  ],
+  "fixed_seed_grade_norms": [
+    {
+      "n": 0,
+      "k0": "1",
+      "k1": "0"
+    },
+    {
+      "n": 1,
+      "k0": "5",
+      "k1": "30"
+    },
+    {
+      "n": 2,
+      "k0": "30",
+      "k1": "1050"
+    },
+    {
+      "n": 3,
+      "k0": "300",
+      "k1": "2555"
+    },
+    {
+      "n": 4,
+      "k0": "4380",
+      "k1": "35010"
+    },
+    {
+      "n": 5,
+      "k0": "79200",
+      "k1": "761040"
+    },
+    {
+      "n": 6,
+      "k0": "1646460",
+      "k1": "16787520"
+    },
+    {
+      "n": 7,
+      "k0": "37697880",
+      "k1": "386364960"
+    },
+    {
+      "n": 8,
+      "k0": "925252200",
+      "k1": "9330533460"
+    }
+  ],
+  "crosschecks": [
+    "Each grade-0 and grade-1 Cell-port packet matches independent direct (Cell,incoming-port,k) DP for n=0..8",
+    "n=5 k=1 mass 761040 matches PREFIX-1013/1014",
+    "Every B_H witness matrix H<=4 has determinant +1",
+    "For every H<=4, constructed integer packet yields q_t=1 for 0<=t<H and exact full N_t sequence"
+  ],
+  "claims": "All-H differential lower bound and all-n exact grade causal closure are analytic proofs in companion paper; tested numerical ranges as listed",
+  "review": "NOT_REVIEWED",
+  "code": "PREFIX1021_R6_GRADED_QUADRATIC_CHECK.py",
+  "code_local_sha256": "7947716df1f9af982a505b5bf2137e0bd8905e2378a458e4d8c9d4e17cf6f04e"
+}
