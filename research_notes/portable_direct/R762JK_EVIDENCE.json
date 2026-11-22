@@ -1,0 +1,211 @@
+{
+  "schema": "ENTERPRISE_MATH_PORT_EULER_45_TERMINAL_EVIDENCE_V1",
+  "id": "R762JK",
+  "date_local": "2026-11-22",
+  "model": "SIX_AXIS_COMPOSITE_PORT_EULER_K0",
+  "frozen_science": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "antecedents": [
+    "R762IR@74e40c74cdebeab4e72cc3d814c35386ca060e44: GF(2) nonessential and t>=11",
+    "R762JE@425bc56e0c42277aa063ce8eb94a07ead196415f: preceding uniform 45"
+  ],
+  "theorem": "For any legal length-45 n in {0,1,2,3}^20, there exists triple support j with N_{p,V}(n-2e_j)>0; conditional uniform k=0 upper bound <=44",
+  "histogram_census": {
+    "total": 27,
+    "low_t_le_10": 12,
+    "high_t_ge_11": 15
+  },
+  "finite_checks": {
+    "representative_witnesses": 29726,
+    "all_passed": 29726,
+    "labelled_configurations_transportable_by_S6": 9742956,
+    "locally_impossible_by_positive_support_test": 484,
+    "independent_integer_properties": [
+      "each of 20 exact support counts",
+      "43 total events",
+      "inactive degree zero",
+      "active positive even degrees",
+      "connected active multigraph by BFS"
+    ],
+    "candidate_generator": "SciPy/HiGHS mixed-integer program",
+    "actual_validation": "integer arithmetic after candidate generation; no solver floating-point result is proof without verification",
+    "cases": [
+      {
+        "h": [
+          5,
+          15,
+          0,
+          0
+        ],
+        "essential": 14544,
+        "orbits": 39,
+        "checks": 283,
+        "labelled": 107004
+      },
+      {
+        "h": [
+          6,
+          13,
+          1,
+          0
+        ],
+        "essential": 27720,
+        "orbits": 67,
+        "checks": 4228,
+        "labelled": 1731660
+      },
+      {
+        "h": [
+          7,
+          11,
+          2,
+          0
+        ],
+        "essential": 23700,
+        "orbits": 55,
+        "checks": 10530,
+        "labelled": 4450680,
+        "batches": [
+          {
+            "orbit_start": 0,
+            "orbit_end": 25,
+            "checks": 5928
+          },
+          {
+            "orbit_start": 25,
+            "orbit_end": 55,
+            "checks": 4602
+          }
+        ]
+      },
+      {
+        "h": [
+          7,
+          12,
+          0,
+          1
+        ],
+        "essential": 23700,
+        "orbits": 55,
+        "checks": 1782,
+        "labelled": 750120,
+        "impossible": 363
+      },
+      {
+        "h": [
+          8,
+          9,
+          3,
+          0
+        ],
+        "essential": 4920,
+        "orbits": 16,
+        "checks": 5500,
+        "labelled": 1518000
+      },
+      {
+        "h": [
+          8,
+          10,
+          1,
+          1
+        ],
+        "essential": 4920,
+        "orbits": 16,
+        "checks": 3311,
+        "labelled": 912780,
+        "impossible": 121
+      },
+      {
+        "h": [
+          9,
+          7,
+          4,
+          0
+        ],
+        "essential": 240,
+        "orbits": 2,
+        "checks": 990,
+        "labelled": 99000
+      },
+      {
+        "h": [
+          9,
+          8,
+          2,
+          1
+        ],
+        "essential": 240,
+        "orbits": 2,
+        "checks": 1485,
+        "labelled": 148500
+      },
+      {
+        "h": [
+          9,
+          9,
+          0,
+          2
+        ],
+        "essential": 240,
+        "orbits": 2,
+        "checks": 165,
+        "labelled": 16500
+      },
+      {
+        "h": [
+          10,
+          5,
+          5,
+          0
+        ],
+        "essential": 6,
+        "orbits": 1,
+        "checks": 252,
+        "labelled": 1512
+      },
+      {
+        "h": [
+          10,
+          6,
+          3,
+          1
+        ],
+        "essential": 6,
+        "orbits": 1,
+        "checks": 840,
+        "labelled": 5040
+      },
+      {
+        "h": [
+          10,
+          7,
+          1,
+          2
+        ],
+        "essential": 6,
+        "orbits": 1,
+        "checks": 360,
+        "labelled": 2160
+      }
+    ]
+  },
+  "execution": {
+    "date": "2026-11-22",
+    "local_components": [
+      "Python",
+      "NumPy",
+      "SciPy/HiGHS"
+    ],
+    "generator_files_local": [
+      "r762jf.py",
+      "r762jg.py",
+      "r762jx.py",
+      "r762ji.py"
+    ],
+    "published_reproduction": "R762JK_PORT_EULER_45_CHECK.py",
+    "published_reproduction_smoke_test": "45-event t=5,z=0 and t=10,z=2 reproduced exact matching counts; all other full test groups executed via equivalent local batch scripts",
+    "packed_complete_witness_table_published": false,
+    "formal_review": "NOT_REVIEWED"
+  },
+  "residual_scope": "Port activity/positivity/parity/Euler only. Ordered native signed Cell, branch, phase, time and BRC are not preserved by this observer."
+}
