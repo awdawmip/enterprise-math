@@ -1,0 +1,119 @@
+{
+  "schema": "X6_NATIVE_TIME_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-22",
+  "cycle": "20261122_1000",
+  "task_id": "RS-X6-NATIVE-TIME-DYNAMICS",
+  "publication_id": "TP2-91D4A7C2F63805BE21A3",
+  "parent_objective": "PO-X6-UPPER-STRUCTURE-20260906",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_lane_excluded": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "own_session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "frozen_scientific_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "exact_original_BRC": "f56840285cafeb9f5767ea91e903e1f53808186f:research_checks/X6_TIME_UNIT245_DIRECTED_CENTER_PORT_PAIR_RESULTS_20261121_2200.json",
+  "previous_immutable_frontier": "Unit257 / Activity259, continuation ff4f4b2484f5c5a72c21561aed82b1ede3a1b488:research_notes/X6_TIME_UNIT257_ALL_OPTIMAL_NATIVE_NEGATIVE_CUT_AUTHOR_CONTINUATION_20261122_0900.json",
+  "latest_scientific_unit": {
+    "id": "Unit258",
+    "title": "Context-dependent denial covers and next-shortest BRC fallback under a signed negative intact-triad admission guard",
+    "statement": "For original two Port BRC optima (6,0),(8,2), rejecting A:x0->x11 -e2 only at initial prestate leaves 28-step solutions in counts 632/2200, while E4 early-state denial raises optimum to 30 for (6,0) but keeps 28/928 for (8,2); E16 raises both to 30. For 28-step shortest histories the unique minimum context denial cover sizes are four (6,0) and sixteen (8,2), respectively.",
+    "proof": "6e1759c7c29fe1272199205c333821299cdc7561:research_notes/X6_TIME_UNIT258_CONTEXTUAL_GUARD_FALLBACK_20261122_1000.md",
+    "checker": "00aa6ed5f963be3fd8eedc0769724eab9c690acb:research_checks/X6_TIME_UNIT258_CONTEXTUAL_GUARD_FALLBACK_20261122_1000_CHECK.js",
+    "certificate": "7231d07b14f7cc68aae32de6b601aa8f93546f44:research_checks/X6_TIME_UNIT258_CONTEXTUAL_GUARD_FALLBACK_20261122_1000_RESULTS.json",
+    "executed": {
+      "exact_BFS_and_path_layer_DP": "all four guard scenarios both directed Port instances, identical exact integer counts",
+      "shortest_DAG_path_enumeration": "2,832 + 2,832 complete ordered labeled histories",
+      "covers": "2^10 exhaustive subsets for unique size-4 E4 Port(6,0) cover; one context per path and positive frequency proves unique all-16 Port(8,2) cover",
+      "minimum_length_counts": {
+        "no_refusal": {
+          "6_0": [
+            28,
+            2832
+          ],
+          "8_2": [
+            28,
+            2832
+          ]
+        },
+        "initial_refusal": {
+          "6_0": [
+            28,
+            632
+          ],
+          "8_2": [
+            28,
+            2200
+          ]
+        },
+        "four_context_refusal": {
+          "6_0": [
+            30,
+            10712
+          ],
+          "8_2": [
+            28,
+            928
+          ]
+        },
+        "sixteen_context_refusal": {
+          "6_0": [
+            30,
+            9212
+          ],
+          "8_2": [
+            30,
+            1036
+          ]
+        }
+      }
+    },
+    "status": "AUTHOR_PROVED / EXACT_FINITE_EXECUTED / GITHUB_VERIFIED / UNREVIEWED / NOT_ADMITTED / NO_NATIVE_PHYSICAL_EXECUTION"
+  },
+  "activity": {
+    "id": "RA-5E3FE1E761E4963EC461A892",
+    "event_total": 260,
+    "commit": "cd13d151fdc4f72cdcacb042d01b4763f6adce62",
+    "event_id": "onhour-20261122-1000-x6-unit258-context-guard-fallback-v1",
+    "verified": true
+  },
+  "global_knowledge": {
+    "journal": "d4710044e513b86360f6729c29e7de45c83701f7:journal/enterprise-math/2026-11-22/20261122T100000+0800-x6-onhour-unit258-contextual-guard-fallback.md",
+    "write_readback": true
+  },
+  "control": {
+    "observed_at": "2026-11-22 10:00 +08:00",
+    "gateway_version": "0.6.11",
+    "own_recovery_request": "onhour-20261122-1000-x6-own-recovery-read-v2",
+    "own_recovery_status": "SUCCEEDED metadata only; original SID and historical runs confirmed, has_more_requests=true, no new live winning CLAIM",
+    "original_native_continuation_request_id": "onhour-20261122-0004-x6-own-source-continuation-v1",
+    "original_native_continuation_terminal": "FAILED / SOURCE_TREE_TRUNCATED",
+    "newer_native_continuation_request_id": "onhour-20261122-0756-x6-own-source-continuation-read-v1",
+    "newer_native_continuation_terminal": "FAILED / SOURCE_TREE_TRUNCATED",
+    "original_task_read_request_id": "onhour-20261122-0300-x6-task-observe-v1",
+    "original_task_read_terminal": "FAILED / SOURCE_TREE_TRUNCATED",
+    "this_turn_exact_task_request_id": "onhour-20261122-1000-x6-exact-task-read-v1",
+    "this_turn_exact_task_latest_observed": "QUEUED / CURRENT_CONTROL_FOLLOW_RETRY (after RUNNING SOURCE_AND_NATIVE); awaiting same request ID terminal receipt; do not resubmit",
+    "historic_own_run_id": "RUN-d653f1346f38369bc27f5fc5",
+    "historic_own_claim_id": "MCP-369991930c5b4fddf26dbefa",
+    "historic_generation": 5,
+    "historic_lease_expired": true,
+    "current_live_winning_claim_verified": false,
+    "semantic_native_progress": "NOT_PUBLISHED for Units233-258",
+    "support_issue": "https://github.com/awdawmip/enterprise-math/issues/2903",
+    "do_not_retry_terminal_failed_requests": true
+  },
+  "evidence_gaps": [
+    "Actual Source-authorized or rejected signed negative intact-triad A:x0->x11 (-e2) in native environment with three force token IDs, closure, target occupancy, time-ordered environment response and witness.",
+    "If initial state rejected, attempt authorized B-first original 28-event alternative with each actual guard; observe whether rejection depends on any of E4/E16 BRC contexts and hidden environment state.",
+    "Actual Source-native 28-event path or real revised minimal path and independently calibrated C24/C3 at original prescribed midtrace points.",
+    "Read terminal for existing own exact task request onhour-20261122-1000-x6-exact-task-read-v1; check current winning legitimate CLAIM/OPEN only from authenticated canonical Source, then protected Native semantic PROGRESS for completed author work; independent Review and Result remain pending.",
+    "Separate R063 native six-file benchmark is a distinct frozen Task and not covered by this conditional BRC test."
+  ],
+  "do_not_repeat": [
+    "Units233–257 prior proofs, existing finite certificates, original 36 Unit245 paths and Unit257 all-optimal 5,664 enumeration.",
+    "Unit258 four-scenario exact conditional BRC count, hitting-cover theorem, persisted checker and journal.",
+    "Original terminal FAILED Source continuation IDs 0004 and 0756, and old task read 0300.",
+    "Do not pretend raw GitHub author science or Activity grants formal CLAIM/Run/Review/Result; keep owner and maintenance identities separate."
+  ],
+  "next_exact_action": "Consume original onhour-20261122-1000-x6-exact-task-read-v1 same-ID terminal receipt. For science, obtain live Source negative movement A:x0->x11,-e2 admission/rejection in actual initial environment. If refused, use original B-first 28-event witness under true signed guard and retain full environment and triad observation before interpreting E4/E16. If admitted, execute next original BRC event with true guards and C24/C3 readings. Separately obtain current legal Source CLAIM / RUN before protected semantic PROGRESS.",
+  "checkpoint_category": "GITHUB_AUTHOR_SCIENCE_AND_ACTIVITY_ONLY_NOT_NATIVE_SEMANTIC_PROGRESS"
+}
