@@ -1,0 +1,97 @@
+{
+  "schema": "X6_NATIVE_TIME_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-22",
+  "cycle": "20261122_1300",
+  "task_id": "RS-X6-NATIVE-TIME-DYNAMICS",
+  "publication_id": "TP2-91D4A7C2F63805BE21A3",
+  "parent_objective": "PO-X6-UPPER-STRUCTURE-20260906",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_lane_excluded": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "own_session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "frozen_scientific_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "exact_original_BRC": "f56840285cafeb9f5767ea91e903e1f53808186f:research_checks/X6_TIME_UNIT245_DIRECTED_CENTER_PORT_PAIR_RESULTS_20261121_2200.json",
+  "previous_immutable_frontier": "Unit260 / Activity262 / 770356d83574d51720fa9bb4103cc109d569f875:research_notes/X6_TIME_UNIT260_GLOBAL_WINDING_CUT_AUTHOR_CONTINUATION_20261122_1157.json",
+  "latest_scientific_unit": {
+    "id": "Unit261",
+    "title": "Sharp full two-triad survival under global deletion of A's negative wrap edge",
+    "theorem": "If A:x0->x11 is deleted in all BRC precontexts, Unit260 excludes all 21 i>=j even directed centre Port pairs at any length. For every one of the remaining 15 i<j Port pairs the original two-labelled-triad, empty-target, W_A=-12,W_B=12 return remains executable in the same conditional BRC graph; exact shortest lengths in lexicographic i,j order: 38,36,38,38,52;46,44,44,38;54,52,44;62,52;68. Five equal the original unrestricted minimum, ten have additional 2..28 primitive events.",
+    "axis_precision": "A:x0->x11 has vector (0,0,-1,0,0,0), called -e2 in Unit256's explicit zero-based slice, -E_3 in P000 one-based native notation.",
+    "proof": {
+      "commit": "bf0963a06a161811c7b3f0f6cdbdc22e54759416",
+      "path": "research_notes/X6_TIME_UNIT261_TWO_TRIAD_NEGATIVE_WRAP_DELETION_20261122_1300.md",
+      "git_blob_sha1": "d9d998d0542fd73d7394d25335c5c3db415e3982",
+      "sha256": "5e5e6135e1170a4af255122e19c916eba9e81ef60d31225fea95b022e54694cf"
+    },
+    "checker": {
+      "commit": "b718fdd1f59b93f243207423834131315573050f",
+      "path": "research_checks/X6_TIME_UNIT261_TWO_TRIAD_NEGATIVE_WRAP_VERIFY_20261122_1300.js",
+      "git_blob_sha1": "70e1547ac198d41f7e3237539875ff09db42537f",
+      "sha256": "fd621adf2a5af62baf20455d8834142b18dda751ef97649ae84967ec1003bbe7"
+    },
+    "certificate": {
+      "commit": "9ccb8be9641f10f685be5b5bb3ab4512463de18e",
+      "path": "research_checks/X6_TIME_UNIT261_TWO_TRIAD_NEGATIVE_WRAP_COMPACT_CERT_20261122_1300.json",
+      "git_blob_sha1": "06449a5f279de163f7593890e8810d2048001697",
+      "sha256": "d69f92eccf073c1ac1d51c03f4c0174073c9428486744fbca44744d02698747d"
+    },
+    "execution": {
+      "node_full_assertions": 3608,
+      "per_case_total_discovered_states": 540585,
+      "candidate_edges_examined": 1831584,
+      "independent_python_exact_distances_and_shortest_history_counts": 15,
+      "case_count": 15,
+      "all_passed": true,
+      "source_physical_admission": false
+    },
+    "status": "AUTHOR_PROVED / EXACT_FINITE_EXECUTED / GITHUB_VERIFIED / UNREVIEWED / NOT_ADMITTED / NO_NATIVE_PHYSICAL_EXECUTION"
+  },
+  "activity": {
+    "id": "RA-5E3FE1E761E4963EC461A892",
+    "event_id": "onhour-20261122-1300-x6-unit261-two-triad-wrap-deletion-v1",
+    "event_total": 263,
+    "commit": "86b8b04aa5b3e05b5a21d4ad5772ff448140faae",
+    "event_written": true,
+    "readback_required": true
+  },
+  "global_knowledge": {
+    "journal_commit": "f535c34bd7f28670eb1db667b701da79f9e78704",
+    "journal_path": "journal/enterprise-math/2026-11-22/20261122T1300+0800-x6-onhour-unit261-two-triad-deletion.md",
+    "verified": true
+  },
+  "control": {
+    "last_observed_gateway_version": "0.6.11",
+    "original_current_task_read_request": "onhour-20261122-1157-x6-current-task-owner-read-v1",
+    "original_current_task_read_terminal": "SUCCEEDED / error=null, observed at 2026-11-22T04:06:15.704407Z, state owner=taskbook/unassigned, dispatch_state=NEEDS_DISPATCH, lease_until=null, execution_authorized=false",
+    "original_own_continuation_request": "onhour-20261122-1103-x6-own-continuation-after-task-terminal-v1",
+    "original_own_continuation_terminal": "SUCCEEDED/error=null as-of 2026-11-22T03:18:18.239300Z, execution_authorized=false",
+    "earlier_terminal_failed_requests": [
+      "onhour-20261122-0004-x6-own-source-continuation-v1",
+      "onhour-20261122-0756-x6-own-source-continuation-read-v1"
+    ],
+    "earlier_terminal_failure": "SOURCE_TREE_TRUNCATED",
+    "original_research_run_id": "RUN-d653f1346f38369bc27f5fc5",
+    "original_research_claim_id": "MCP-369991930c5b4fddf26dbefa",
+    "historic_generation": 5,
+    "historic_claim_not_currently_authorized": true,
+    "current_live_winning_claim_verified": false,
+    "protected_native_semantic_progress": "NOT_PUBLISHED for Units233-261",
+    "existing_support_issue": "https://github.com/awdawmip/enterprise-math/issues/2903"
+  },
+  "evidence_gaps": [
+    "Actual Source-accepted fully signed -E_3 intact triad primitive movement A:x0->x11 with three force identities and TRIADIC_CLOSURE_E, target vacancy, environmental update, and chronological observer record",
+    "Actual scope of signed edge rejection (universal versus one physical precontext) and full conditional graph embedding into Source",
+    "Full original 28-event native Port path with independent in-trace C24/C3 precision readings; no R063 substitute",
+    "Current authenticated winning claim before any protected Native semantic PROGRESS"
+  ],
+  "do_not_repeat": [
+    "Unit245 original 36 routes and 1312 events and Units233–260 earlier mathematical/Activity evidence",
+    "Unit260 all-length orientation theorem, Unit261 15 exact two-triad BFS searches, saved proof/checker/certificate and Activity263",
+    "Terminal failed control requests and original 1103/1157 successful read requests; do not reissue",
+    "Do not call zero-based -e2 one-based -E2 in native Source; carry explicit -E3 vector",
+    "Do not turn conditional two-triad BRC witnesses into Source physical execution",
+    "Do not borrow maintenance lane identity or reassign owner manually, do not edit scheduler"
+  ],
+  "next_exact_action": "Reuse same Research identity. At new control observation consume original receipts rather than recreate; if current exact Source requires new write auth, use the authorized canonical selector/typed succession only, no hostile takeover. Execute a genuine intact-triad signed displacement (0,0,-1,0,0,0) from x0 to x11 with full actual force, occupancy, environment and clock evidence. Under global rejection the 21/15 graph split is certified; under local refusal follow Unit258 contextual alternatives; test the original unchanged benchmark and C24/C3 in-trace sensor on Source admissible routes.",
+  "checkpoint_category": "GITHUB_AUTHOR_SCIENCE_AND_ACTIVITY_ONLY_NOT_NATIVE_SEMANTIC_PROGRESS"
+}
