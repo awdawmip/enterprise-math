@@ -119,7 +119,7 @@
     "previous_original_task_read": "onhour-20261122-2100-t6-current-task-v1",
     "previous_original_task_status": "SUCCEEDED / NEEDS_DISPATCH / no winning CLAIM / execution_authorized=false as of 2026-11-22T13:03:34Z",
     "new_original_task_read": "onhour-20261122-2205-t6-task-current-read-v1",
-    "new_original_task_read_status": "QUEUED / READY_FOR_NATIVE; preserve request_id, read original receipt only; not absent/failed or owned",
+    "new_original_task_read_status": "RUNNING / SOURCE_MATERIALIZATION at last exact original-id read, error=null; not terminal, not owner authority; do not resubmit",
     "terminal_prepare_failures": [
       {
         "request_id": "onhour-20261122-1920-t6-own-typed-cont-prep-v1",
@@ -134,7 +134,8 @@
     "run_id": null,
     "native_semantic_progress": "NOT_PUBLISHED",
     "scheduler_mutated": false,
-    "next_control_action": "Consume original onhour-20261122-2205-t6-task-current-read-v1 via em_control_result/reconcile; if success assess fresh exact Source, own legal typed continuation and owner without replay of rejected prepares, maintaining identity isolation"
+    "next_control_action": "Consume original onhour-20261122-2205-t6-task-current-read-v1 via em_control_result/reconcile; if success assess fresh exact Source, own legal typed continuation and owner without replay of rejected prepares, maintaining identity isolation",
+    "new_original_task_read_last_observation": "2026-11-22T14:15:35Z (from original receipt updated timestamp; server observer phase SOURCE_MATERIALIZATION)"
   },
   "provenance_status": "GITHUB_IMMUTABLE_READBACK_VERIFIED_FOR_NEW_SCIENTIFIC_FILES_ACTIVITY_AND_GLOBAL_JOURNAL",
   "formal_admission": false
