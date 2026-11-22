@@ -1,0 +1,140 @@
+{
+  "schema": "R284EL_SHARP_TEMPORAL_TAG_MEMORY_CERTIFICATE_V1",
+  "scope": "4 logical labels, up to k adversarial Hamming flips between perfect refreshes",
+  "conditional_port_evidence": "R284EK four-label confusion graph K4 at numeric E=8656; R284EJ same-tag min L_infinity distance 17313",
+  "cases": [
+    {
+      "fault_budget": 0,
+      "minimum_storage_bits": 2,
+      "codewords_msb_first": [
+        "00",
+        "01",
+        "10",
+        "11"
+      ],
+      "pairwise_hamming_distances": [
+        1,
+        1,
+        2,
+        2,
+        1,
+        1
+      ],
+      "minimum_distance": 1,
+      "tested_received_words_counting_error_patterns": 4,
+      "distinct_receivable_words": 4,
+      "no_cross_label_collision": true
+    },
+    {
+      "fault_budget": 1,
+      "minimum_storage_bits": 5,
+      "codewords_msb_first": [
+        "00000",
+        "10011",
+        "11100",
+        "01111"
+      ],
+      "pairwise_hamming_distances": [
+        3,
+        3,
+        4,
+        4,
+        3,
+        3
+      ],
+      "minimum_distance": 3,
+      "tested_received_words_counting_error_patterns": 24,
+      "distinct_receivable_words": 24,
+      "no_cross_label_collision": true
+    },
+    {
+      "fault_budget": 2,
+      "minimum_storage_bits": 8,
+      "codewords_msb_first": [
+        "00000000",
+        "11000111",
+        "11111000",
+        "00111111"
+      ],
+      "pairwise_hamming_distances": [
+        5,
+        5,
+        6,
+        6,
+        5,
+        5
+      ],
+      "minimum_distance": 5,
+      "tested_received_words_counting_error_patterns": 148,
+      "distinct_receivable_words": 148,
+      "no_cross_label_collision": true
+    },
+    {
+      "fault_budget": 3,
+      "minimum_storage_bits": 11,
+      "codewords_msb_first": [
+        "00000000000",
+        "11100001111",
+        "11111110000",
+        "00011111111"
+      ],
+      "pairwise_hamming_distances": [
+        7,
+        7,
+        8,
+        8,
+        7,
+        7
+      ],
+      "minimum_distance": 7,
+      "tested_received_words_counting_error_patterns": 928,
+      "distinct_receivable_words": 928,
+      "no_cross_label_collision": true
+    },
+    {
+      "fault_budget": 4,
+      "minimum_storage_bits": 14,
+      "codewords_msb_first": [
+        "00000000000000",
+        "11110000011111",
+        "11111111100000",
+        "00001111111111"
+      ],
+      "pairwise_hamming_distances": [
+        9,
+        9,
+        10,
+        10,
+        9,
+        9
+      ],
+      "minimum_distance": 9,
+      "tested_received_words_counting_error_patterns": 5884,
+      "distinct_receivable_words": 5884,
+      "no_cross_label_collision": true
+    },
+    {
+      "fault_budget": 5,
+      "minimum_storage_bits": 17,
+      "codewords_msb_first": [
+        "00000000000000000",
+        "11111000000111111",
+        "11111111111000000",
+        "00000111111111111"
+      ],
+      "pairwise_hamming_distances": [
+        11,
+        11,
+        12,
+        12,
+        11,
+        11
+      ],
+      "minimum_distance": 11,
+      "tested_received_words_counting_error_patterns": 37608,
+      "distinct_receivable_words": 37608,
+      "no_cross_label_collision": true
+    }
+  ],
+  "proof_obligation_not_dispatched_to_computation": "For any 4 binary words of length n and distance at least 2k+1, sum of six distances >=6(2k+1); each coordinate contributes <=4, hence n>=ceil(3(2k+1)/2)=3k+2. The explicit 3-block code achieves this."
+}
