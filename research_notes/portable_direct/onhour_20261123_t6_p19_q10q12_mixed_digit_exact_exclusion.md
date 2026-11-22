@@ -53,7 +53,7 @@ Next real scientific action is to apply the same full-moment necessary mod19, mo
 
 ## Evidence
 
-- Author executed checker: \`research_checks/T6_P19_Q10_Q12_MIXED_THIRD_DIGIT_CHECK_20261123.cpp\` (compiled exact file SHA256 \`085929e64930816c3af7a3b70a5d19c2d591f38f92c695b3d82f4d5f484453c7\`).
+- Author executed checker: \`research_checks/T6_P19_Q10_Q12_MIXED_THIRD_DIGIT_CHECK_20261123.cpp\` (compiled exact file SHA256 \`d6a30c8bb40a35e56331a8828b3e4ab0d02f1664e6dc9e6ba9b525d3f0fdb169\`).
 - Complete numerical summary: \`research_checks/T6_P19_Q10_Q12_MIXED_THIRD_DIGIT_CERT_20261123.json\`.
 - Necessary higher-valuation theorem and exact six-dimensional Vandermonde: \`research_notes/portable_direct/onhour_20261123_t6_p19_v19_squared_mod19_universal_cancellation.md\`.
 - First-digit counterexample-survivor count 219,037: \`research_notes/portable_direct/onhour_20261123_t6_p19_q10_q12_first_digit_mod19_survivors.md\`, directly consumed by this stronger mixed-digit elimination.
