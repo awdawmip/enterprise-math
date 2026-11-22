@@ -1,0 +1,102 @@
+{
+  "schema": "T6_P19_Q10_Q12_MIXED_THIRD_DIGIT_EXACT_EMPTY_CERT_V1",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "run_date": "2026-11-23",
+  "scope": "maximal prime19; exact v19=1 cancellation-normalized p19-components; total vertical q=10..12; sides positive integer exponent mass<=2331; cofactor alphabet 19-smooth and q0 j1..18; signed named-support disjoint",
+  "observers": "Full original H0..H6; via rational triangular transform to S1..S6",
+  "necessary_p_adic_moduli": {
+    "S1": 19,
+    "S2": 361,
+    "S3": 6859,
+    "S4": 6859,
+    "S5": 6859,
+    "S6": 6859
+  },
+  "p19_squared_cancellation_dependency": "T6_P19_V19_SQUARED_MOD19_UNIVERSAL_CANCEL_CERT_V1",
+  "cofactor_form": "For v19(a)=1, a=19c, c in {1..18} union {19q+r | 1<=q<=6,1<=r<=18, c smooth with all prime factors<=19}; a-1 <=2331",
+  "atom_count_vertical": 64,
+  "exact_packed_signature_radix": "19^15=15181127029874798299<2^64",
+  "computation": "C++17 -O3 unsigned uint64 exact modular cofactor inverses, sorted nondecreasing complete side multisets and named-support disjoint join, four split processes",
+  "split_results": [
+    {
+      "q_split": [
+        4,
+        6
+      ],
+      "vertical_rosters": [
+        3484,
+        114
+      ],
+      "q0_multisets": 584072,
+      "full_side_states": [
+        43043867,
+        675
+      ],
+      "oriented_equal_signature_pairs": 0,
+      "support_disjoint_unordered_pairs": 0,
+      "execution_seconds": 0.96,
+      "peak_memory_kb": 26376
+    },
+    {
+      "q_split": [
+        5,
+        5
+      ],
+      "vertical_rosters": [
+        3378,
+        3378
+      ],
+      "q0_multisets": 14383,
+      "full_side_states": [
+        852346,
+        852346
+      ],
+      "oriented_equal_signature_pairs": 852346,
+      "support_disjoint_unordered_pairs": 0,
+      "execution_seconds": 0.92,
+      "peak_memory_kb": 78276
+    },
+    {
+      "q_split": [
+        5,
+        6
+      ],
+      "vertical_rosters": [
+        3378,
+        114
+      ],
+      "q0_multisets": 14383,
+      "full_side_states": [
+        852346,
+        675
+      ],
+      "oriented_equal_signature_pairs": 0,
+      "support_disjoint_unordered_pairs": 0,
+      "execution_seconds": 0.02,
+      "peak_memory_kb": 2756
+    },
+    {
+      "q_split": [
+        6,
+        6
+      ],
+      "vertical_rosters": [
+        114,
+        114
+      ],
+      "q0_multisets": 37,
+      "full_side_states": [
+        675,
+        675
+      ],
+      "oriented_equal_signature_pairs": 675,
+      "support_disjoint_unordered_pairs": 0,
+      "execution_seconds": 0,
+      "peak_memory_kb": 2176
+    }
+  ],
+  "total_support_disjoint": 0,
+  "meaning": "Exhaustive necessary mixed-digit residue obstruction excludes all nontrivial original H0..H6 collisions in p19 cancellation-normalized vertical total q10-12, independent of lower-prime completion. p19 q9 remains open; this does not close global maximal p19.",
+  "proof_strength": "AUTHOR_EXACT_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "script_sha256": "085929e64930816c3af7a3b70a5d19c2d591f38f92c695b3d82f4d5f484453c7"
+}
