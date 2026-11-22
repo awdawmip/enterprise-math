@@ -1,0 +1,126 @@
+{
+  "status": "ALL PASS",
+  "frozen_pin": "BRC16943",
+  "model": "complete indexed reflection spectrum, frozen P10 U, V full or exactly one exclusion modulo 11",
+  "ten_supports": 50,
+  "possible_mod11_factors": 12,
+  "static_product_states": 600,
+  "distinct_spectrum_fibers": 478,
+  "two_state_spectrum_fibers": 122,
+  "finite_optimum_witnesses": [
+    {
+      "columns": 1,
+      "physical_probes": 3,
+      "minimum_hamming_distance": 0,
+      "optimal_layouts": "21296"
+    },
+    {
+      "columns": 2,
+      "physical_probes": 6,
+      "minimum_hamming_distance": 1,
+      "optimal_layouts": "42592000"
+    },
+    {
+      "columns": 3,
+      "physical_probes": 9,
+      "minimum_hamming_distance": 2,
+      "optimal_layouts": "18399744000"
+    },
+    {
+      "columns": 4,
+      "physical_probes": 12,
+      "minimum_hamming_distance": 3,
+      "optimal_layouts": "2355167232000"
+    }
+  ],
+  "one_error_correcting_fixed_probes": 12,
+  "all_one_error_layouts": "2355167232000",
+  "anchors_rephase_110_tests": [
+    {
+      "a": 1,
+      "b": 2,
+      "rephase_t0": 2,
+      "h1": 0,
+      "n1": 1,
+      "U_mask": 447,
+      "V_mask": 1919,
+      "mod11_excluded": 7,
+      "determinant_direction": "b*h-a*d=-1",
+      "period_tested": 110
+    },
+    {
+      "a": 1,
+      "b": 3,
+      "rephase_t0": 2,
+      "h1": 0,
+      "n1": 1,
+      "U_mask": 327,
+      "V_mask": 1791,
+      "mod11_excluded": 8,
+      "determinant_direction": "b*h-a*d=-1",
+      "period_tested": 110
+    },
+    {
+      "a": 2,
+      "b": 3,
+      "rephase_t0": 2,
+      "h1": 1,
+      "n1": 1,
+      "U_mask": 394,
+      "V_mask": 1983,
+      "mod11_excluded": 6,
+      "determinant_direction": "b*h-a*d=-1",
+      "period_tested": 110
+    },
+    {
+      "a": 3,
+      "b": 7,
+      "rephase_t0": 8,
+      "h1": 20,
+      "n1": 27,
+      "U_mask": 23,
+      "V_mask": 2045,
+      "mod11_excluded": 1,
+      "determinant_direction": "b*h-a*d=-1",
+      "period_tested": 110
+    },
+    {
+      "a": 5,
+      "b": 11,
+      "rephase_t0": 8,
+      "h1": 34,
+      "n1": 41,
+      "U_mask": 211,
+      "V_mask": 1535,
+      "mod11_excluded": 9,
+      "determinant_direction": "b*h-a*d=-1",
+      "period_tested": 110
+    },
+    {
+      "a": 8,
+      "b": 13,
+      "rephase_t0": 8,
+      "h1": 51,
+      "n1": 32,
+      "U_mask": 371,
+      "V_mask": 2043,
+      "mod11_excluded": 2,
+      "determinant_direction": "b*h-a*d=-1",
+      "period_tested": 110
+    },
+    {
+      "a": 11,
+      "b": 37,
+      "rephase_t0": 4,
+      "h1": 30,
+      "n1": 71,
+      "U_mask": 287,
+      "V_mask": 2039,
+      "mod11_excluded": 3,
+      "determinant_direction": "b*h-a*d=-1",
+      "period_tested": 110
+    }
+  ],
+  "scope": "determinant-one minus-side Farey trace affine bridge; no native X6 dynamics, no claim of lower-bound sharpness on restricted actual anchor subset",
+  "review": "AUTHOR_PROVED/EXACT_FINITE_CROSSCHECK/PARENT_DEPENDENT/NOT_REVIEWED"
+}
