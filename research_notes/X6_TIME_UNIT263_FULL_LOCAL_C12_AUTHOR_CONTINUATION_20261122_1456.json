@@ -1,0 +1,100 @@
+{
+  "schema": "X6_NATIVE_TIME_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-22",
+  "cycle": "20261122_1456",
+  "task_id": "RS-X6-NATIVE-TIME-DYNAMICS",
+  "publication_id": "TP2-91D4A7C2F63805BE21A3",
+  "parent_objective": "PO-X6-UPPER-STRUCTURE-20260906",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_lane_excluded": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "original_session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "scientific_input_frozen_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "original_BRC_pin": "awdawmip/enterprise-math@f56840285cafeb9f5767ea91e903e1f53808186f:research_checks/X6_TIME_UNIT245_DIRECTED_CENTER_PORT_PAIR_RESULTS_20261121_2200.json",
+  "previous_immutable_frontier": "awdawmip/enterprise-math@604d75a99de4de56dd7c9857bb89cd40ce9f22d5:research_notes/X6_TIME_UNIT262_DECORATED_C6_C12_AUTHOR_CONTINUATION_20261122_1400.json",
+  "unit": {
+    "id": "Unit263",
+    "title": "Exact distinction between a per-event C6 signed frame update and a full local two-mode C12 triad fiber",
+    "theorem": "Under the explicitly conditional one-F_loc-per-whole-triad-move coupling from the existing SHELL/CLOSURE finite internal source, original directed BRC pairs (6,0) and (8,2) have exact minima 28 spatial/winding, 36 full two-label local C12 return, and 36 with global C12 return. Unit262's 30-event frame closure applies to a different per-event R_can coupling; its 30-event paths leave one triad frame signed-reversed under F_loc.",
+    "proof": {
+      "commit": "d9bce6f1492cfb6bcea7d594057b0f6526d9bef3",
+      "path": "research_notes/X6_TIME_UNIT263_FULL_LOCAL_C12_VS_FRAME_C6_SOURCE_DISCRIMINANT_20261122_1456.md",
+      "git_blob_sha1": "71491f956aeee6f7134f96bec12be1d954d5c4ce",
+      "sha256": "57986c4ba51964881acaa371eb875b2d8d0466793a9e73736f19e199c7116efe"
+    },
+    "checker": {
+      "commit": "1dbce622b649b28fbc82d492ab324d37355fb723",
+      "path": "research_checks/X6_TIME_UNIT263_FULL_LOCAL_C12_RETURN_CHECK_20261122_1456.py",
+      "git_blob_sha1": "86b8d5f3e110dcbdb3be481e18fbc2e093b85016",
+      "sha256": "792b1576b870099daccb2710c69f59b23b8484614234ab0ed885d0e438286f85"
+    },
+    "certificate": {
+      "commit": "debd372785f977057ad612b33992d420a833c425",
+      "path": "research_checks/X6_TIME_UNIT263_FULL_LOCAL_C12_RETURN_RESULTS_20261122_1456.json",
+      "git_blob_sha1": "f5bffcd9fcb4e6dcc61a7dbf55c30c17a6c066c7",
+      "sha256": "6159b99258f5ba435439791b1be234d53fc2fc4c71005b7b16d4117d130b162a"
+    },
+    "execution": {
+      "local_python_executed": true,
+      "exact_full_fiber_transition_checks": 23040,
+      "two_port_complete_BRC_traces_replayed": 6,
+      "failures": 0,
+      "native_signed_triad_event_executed": false,
+      "physical_frame_mode_observed": false,
+      "original_C24_C3_physical_sensor_executed": false,
+      "original_R063_benchmark_executed": false
+    },
+    "status": "AUTHOR_PROVED / EXACT_FINITE_EXECUTED / GITHUB_VERIFIED / UNREVIEWED / NOT_ADMITTED / NO_NATIVE_SOURCE_EXECUTION"
+  },
+  "activity": {
+    "id": "RA-5E3FE1E761E4963EC461A892",
+    "event_id": "onhour-20261122-1456-x6-unit263-local-c12-discriminant-v1",
+    "event_total": 265,
+    "commit": "469f3281fa480c3c4e645d98ab1e3f8c1b91495a",
+    "git_blob_sha1": "fc5a9eec6faf145d6356d4aee4f3c95a4bccd11c",
+    "audited_strictly": false
+  },
+  "global_knowledge": {
+    "journal_path": "journal/enterprise-math/2026-11-22/20261122T1456+0800-x6-onhour-unit263-full-local-c12-discriminant.md",
+    "journal_commit": "a90eafbae0319fa9ac7d82687e60693c3616b741",
+    "readback_verified": true
+  },
+  "control": {
+    "observed_gateway_version": "0.6.11",
+    "control_source_from_status": "1595eb14160bfdd0b32db2409fa15189799e121f",
+    "current_task_request_id": "onhour-20261122-1500-x6-task-current-read-v1",
+    "current_task_request_terminal": "SUCCEEDED / error=null",
+    "task_observed_at": "2026-11-22T06:59:13.988225+00:00",
+    "task_owner": "taskbook/unassigned",
+    "dispatch_state": "NEEDS_DISPATCH",
+    "execution_authorized": false,
+    "current_winning_claim_verified": false,
+    "prior_own_run_id": "RUN-d653f1346f38369bc27f5fc5",
+    "prior_own_claim_id": "MCP-369991930c5b4fddf26dbefa",
+    "prior_own_run_historical_generation": 5,
+    "prior_successful_continuation_request": "onhour-20261122-1103-x6-own-continuation-after-task-terminal-v1",
+    "terminal_failed_requests": [
+      "onhour-20261122-0004-x6-own-source-continuation-v1",
+      "onhour-20261122-0756-x6-own-source-continuation-read-v1"
+    ],
+    "terminal_failure": "SOURCE_TREE_TRUNCATED",
+    "protected_semantic_PROGRESS": "NOT_PUBLISHED for Units233-263",
+    "engineering_support": "https://github.com/awdawmip/enterprise-math/issues/2903",
+    "identity_and_permission": "Original session provenance is retained; current Source read is not execution authorization."
+  },
+  "evidence_gaps": [
+    "Actual Source-admitted -E3 intact signed three-token displacement A:x0->x11 with force IDs, TRIADIC_CLOSURE_E, empty destination, environment and time response",
+    "Native full ordered signed frame and SHELL/CLOSURE observer at the pre/post move, to decide H6 vs H12 coupling; if no such observer, mark this distinction underdetermined",
+    "Execute the unchanged original 28-event native benchmark with actual C24/C3 in-trace sensor observations; do not substitute conditional 30/36-event decorated witnesses",
+    "Original R063 six-file replay remains separate unexecuted support #2416",
+    "Valid current winning Task CLAIM/open/Source CAS before protected semantic PROGRESS; previously completed author GitHub science/activity is independent"
+  ],
+  "do_not_repeat": [
+    "Unit245 original 36-case 1312-event certificate and Units233-262 published author proofs and Source activity",
+    "Unit262 six signed BRC paths and C6-coupling exact 28/30/36 theorem: retain its exact model scope, do not label it false",
+    "Native earlier terminal failed Source requests; successful 1103 and 1500 read requests",
+    "Do not borrow maintenance identity or owner, do not reissue failed or unknown native writes, do not alter schedule"
+  ],
+  "next_exact_action": "Consume the exact current Task and own continuation receipts without replay. With current genuine Source authorization, execute first signed intact-triad event A:x0->x11 delta=(0,0,-1,0,0,0), recording three force tokens, triadic closure, vacancy, environment, signed frame, SHELL/CLOSURE mode and event order. This first observation distinguishes conditional H6/H12 only if the observer has the necessary type. Maintain original 28-event and C24/C3 benchmark acceptance. If no native executor/authority, maintain existing support #2903 and continue independent directly relevant science without asserting physical execution.",
+  "checkpoint_category": "GITHUB_AUTHOR_SCIENCE_ACTIVITY_AND_JOURNAL_ONLY_NOT_NATIVE_SEMANTIC_PROGRESS"
+}
