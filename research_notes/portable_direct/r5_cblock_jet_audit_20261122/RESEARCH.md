@@ -1,5 +1,8 @@
 # R5 independent source audit: the S4 block Euler-jet numerator was miscomputed
 
+> **Follow-up resolution (same research batch, 2026-11-22):** The d31/r59 last missing phase has now been repaired with an independently executed characteristic-zero three-point joint-event DP and a nonzero c2 Euler-jet polynomial. Thus all 228/228 prior six-order phase obligations have corrected witnesses conditional on the original six-cone degree bound. See [EXTENSION_D31_R59_REPAIRED.md](EXTENSION_D31_R59_REPAIRED.md) and [VERIFY_D31_EXACT_THREE.cpp](VERIFY_D31_EXACT_THREE.cpp). The original 227/228 count below describes the earlier audit snapshot, not the current frontier.
+
+
 Date: 2026-11-22 (Asia/Shanghai). Scope: frozen five-event scalar observer, \`awdawmip/enterprise-math@75d986aa23b68a7ecf9b29dc1006f0e322b35a15\`. Status: **EXACT_COUNTEREXAMPLE_TO_AN_INTERMEDIATE_FORMULA / PARTIALLY_REPAIRED_CYCLOTOMIC_WITNESSES / NOT_REVIEWED**. This is an independent portable audit, not a formal Result/Review or native X6 claim. Historical source/Activity identities are preserved; the prior files are not overwritten.
 
 ## Proven source defect and correct formula
