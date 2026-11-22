@@ -1,0 +1,132 @@
+{
+  "schema": "PREFIX1022_R6_BRC_HANKEL_INTEGER_EVIDENCE_V1",
+  "scientific_pin": "enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d:p000_reality_foundation.json",
+  "candidate_kernel": "W(h,d)=1-6[h=d], 12 named ports, signed X6 cell torsor",
+  "absorbing_link": "{0,e1} both orientations",
+  "seed": "(chosen cell 0, incoming neighbour port -e1)",
+  "grade": "exactly one negative outgoing native direction",
+  "operations": "native integer BRC n=1..8; independent integer Laurent coefficient norm n=5..11; exact Bareiss 1x1 to 3x3 Hankel determinants",
+  "negative_port_n5_to_n11": {
+    "axis1": {
+      "5": "16560",
+      "6": "246870",
+      "7": "4299380",
+      "8": "83992020",
+      "9": "1790819940",
+      "10": "40858323910",
+      "11": "983156336340"
+    },
+    "axis2": {
+      "5": "12384",
+      "6": "191574",
+      "7": "3455060",
+      "8": "69575892",
+      "9": "1521116436",
+      "10": "35414546374",
+      "11": "866106436596"
+    },
+    "delta": {
+      "5": "4176",
+      "6": "55296",
+      "7": "844320",
+      "8": "14416128",
+      "9": "269703504",
+      "10": "5443777536",
+      "11": "117049899744"
+    }
+  },
+  "native_grade1_port_masses_n5_to_n8": {
+    "5": {
+      "positive": [
+        135110,
+        109490,
+        109490,
+        109490,
+        109490,
+        109490
+      ],
+      "negative": [
+        16560,
+        12384,
+        12384,
+        12384,
+        12384,
+        12384
+      ]
+    },
+    "6": {
+      "positive": [
+        2918820,
+        2532792,
+        2532792,
+        2532792,
+        2532792,
+        2532792
+      ],
+      "negative": [
+        246870,
+        191574,
+        191574,
+        191574,
+        191574,
+        191574
+      ]
+    },
+    "7": {
+      "positive": [
+        66735540,
+        59610948,
+        59610948,
+        59610948,
+        59610948,
+        59610948
+      ],
+      "negative": [
+        4299380,
+        3455060,
+        3455060,
+        3455060,
+        3455060,
+        3455060
+      ]
+    },
+    "8": {
+      "positive": [
+        1607486710,
+        1458235054,
+        1458235054,
+        1458235054,
+        1458235054,
+        1458235054
+      ],
+      "negative": [
+        83992020,
+        69575892,
+        69575892,
+        69575892,
+        69575892,
+        69575892
+      ]
+    }
+  },
+  "hankel_leading_principal_minors_at_n5": {
+    "Q_minus_axis1": {
+      "1": "16560",
+      "2": "10252935900",
+      "3": "359622707860774000"
+    },
+    "Q_minus_axis2": {
+      "1": "12384",
+      "2": "6086865564",
+      "3": "170254317911251888"
+    },
+    "delta_minus": {
+      "1": "4176",
+      "2": "468232704",
+      "3": "2618665390743552"
+    }
+  },
+  "finite_check_status": "PASS",
+  "all_H_and_n_proof_status": "Separate Laurent-domain Gram proof in paper; not inferred from finite checks",
+  "review": "NOT_REVIEWED"
+}
