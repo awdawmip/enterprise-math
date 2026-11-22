@@ -60,6 +60,31 @@ After both indexed spectra are known, the known reference determines the two can
 
 For sharpness take the genuinely frozen 10-bit mask \(U=299\), whose one-residues are \(\{0,1,3,5,8\}\), the one-hole factor \(V=\mathbb Z/11\setminus\{0\}\), and baseline independent phases \(s_L=s_R=0\). The left half-turn-alias difference support \(A\) occupies rows \(\{1,6\}\bmod10\); the right half-turn-alias difference support \(B\) occupies rows \(\{4,9\}\bmod10\). Both have exactly 20 points, and \(A\cap B=\varnothing\). The two phase choices on each channel generate **four** distinct paired words with identical two indexed spectra. Any paired activation hits at most one of the two difference supports, whereas discriminating the pairs differing only on the left and those differing only on the right requires at least \(r\) sites in each support. Thus at least \(2r\) activations are needed after seeing the spectra. This is a genuine finite-family witness, not a hypothetical mask.
 
+## Corollary — exact adaptive cost within an observed joint spectral fiber
+
+The worst-case adaptive bound \(2r\) hides a useful CRT geometry. Let \(A,B\) be the *actual two-channel alias-difference supports* determined from the known reference and the two indexed spectra, and set \(c=|A\cap B|\). For any \(r\) not exceeding the size of either support, the exact minimum paired activations for this *particular* spectrum pair is
+\[
+\boxed{\quad N_{\rm adaptive}(A,B;r)=2r-\min(r,c).\quad}
+\]
+To prove the lower bound, each pair of candidate states that differs in only one channel requires at least \(r\) hits in \(A\), respectively \(B\). Counting an activation in \(A\cap B\) twice can save at most \(\min(r,c)\) sites. For attainment, choose \(\min(r,c)\) common sites and complete each support's requirement with its own exclusive sites. The capacities \(|A|,|B|\ge r\) ensure these completions exist.
+
+The CRT support structure makes \(c\) explicit. Write \(D=D(U)\) and
+\[
+D_L=s_L+D,\qquad D_R=-s_R-D\pmod {10},\qquad
+k=|D_L\cap D_R|.
+\]
+Both \(D_L,D_R\) are unions of opposite row pairs; \(k\in\{0,2,4,6,8\}\). If \(V\) is full, \(c=11k\). If \(V=\mathbb Z/11\setminus\{z\}\), let \(j_L=s_L+z\), \(j_R=-s_R-z\bmod11\) be the two *observed missing columns*. Then
+\[
+\boxed{c=
+\begin{cases}
+10k,& j_L=j_R,\\
+9k,& j_L\ne j_R.
+\end{cases}}
+\]
+Thus \(c\) is either zero or at least 18. In particular for every \(1\le r\le18\), the spectrum-adaptive cost for a particular observed state is **either \(r\) or \(2r\)**: \(r\) if the difference row supports overlap, \(2r\) if disjoint. At \(r=19,20\) a single shared row pair with different missing columns gives \(c=18\), hence \(N=2r-18\), a two-activation (respectively four-activation) gap over a fully shared code.
+
+For frozen masks with \(|D|=6\) or \(8\), any two independently shifted/reflected row supports must overlap: as subsets of five opposite row pairs, sizes three and four have pairwise intersection at least one and three, respectively. Consequently their adaptive cost is \(r\) for every \(r\le18\), irrespective of independent phase drift. The previous 50-mask census has 10 masks of size six and four of size eight. This fiberwise result is strictly stronger than the worst-case \(2r\) bound; the latter remains sharp because the authentic \(U=299\) supports are disjoint.
+
 ## Quantitative comparison and compression boundary
 
 | Required min channel-bit distance \(r\) | Independent fixed | Independent adaptive | Previously proved linked-mirror fixed (EC49FWW) |
