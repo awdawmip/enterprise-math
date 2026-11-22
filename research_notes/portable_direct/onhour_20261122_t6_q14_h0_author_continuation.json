@@ -1,0 +1,148 @@
+{
+  "schema": "ENTERPRISE_MATH_RESEARCH_AUTHOR_CONTINUATION_V1",
+  "recorded_at": "2026-11-22T19:20:00+08:00",
+  "parent_objective_id": "EM-T6-SHAPE-MOMENT-EXACT-THRESHOLD",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "publication_id": "TP2-34B106D2512A298C9647",
+  "logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+  "own_researcher_id": "EM-X6-FB6990",
+  "own_session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "current_t6_claim_id": null,
+  "current_t6_run_id": null,
+  "execution_authorization": "NOT_YET_VERIFIED",
+  "scientific_input_pin": "CURRENT_PUBLISHED_T6_PIN_RETAINED; predecessor q14 Source immutable enterprise-math@9ef728a7107362eb0d4b1719ed98d00b1678357c; P000 ACTIVE_LOCKED",
+  "predecessor": {
+    "researcher_id": "EM-EMF6D046-5A2844",
+    "session_id": "MCP-c618a61189764f23846a391a08518a1a",
+    "last_claim_id": "MCP-15545e58c653dff063e817f2",
+    "last_claim_comment_id": 6909474181,
+    "status": "HANDOFF_READY_UNASSIGNED_AS_OF_TASK_READ",
+    "source_checkpoint": "enterprise-math@9ef728a7107362eb0d4b1719ed98d00b1678357c:research_artifacts/mcp/RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND/MCP-c618a61189764f23846a391a08518a1a/150b2baf7e93fb09d7e7/_checkpoint.json",
+    "frozen_census": {
+      "admissible_named_vertical_atoms": 60,
+      "side_rosters": 1907,
+      "disjoint_unordered_vertical_pairs": 809566,
+      "authorship": "PREDECESSOR; CONSUMED NOT REAUTHORED"
+    }
+  },
+  "received_original_requests": [
+    {
+      "request_id": "onhour-20261122-1758-t6-selected-own-prepare-v1",
+      "status": "FAILED",
+      "error": "CANONICAL_REJECTED: TYPED_CONTINUATION_REQUIRED_FOR_PREDECESSOR",
+      "disposition": "TERMINAL_DO_NOT_REPLAY"
+    },
+    {
+      "request_id": "onhour-20261122-1802-t6-own-exact-source-continuation-v1",
+      "status": "SUCCEEDED",
+      "error": null
+    },
+    {
+      "request_id": "onhour-20261122-1909-t6-current-task-owner-v1",
+      "status": "SUCCEEDED",
+      "error": null,
+      "owner_as_of": "taskbook/unassigned",
+      "task_state_as_of": "HANDOFF_READY"
+    }
+  ],
+  "current_pending_request": {
+    "request_id": "onhour-20261122-1920-t6-own-typed-cont-prep-v1",
+    "operation": "takeover_prepare",
+    "last_observed_status": "RUNNING",
+    "do_not_replay": true,
+    "next_action": "Consume original target_request_id via em_control_result or reconcile before any CLAIM"
+  },
+  "latest_scientific_result": {
+    "proposition": "For maximal p17 q14 split7+7 cancellation-normalized named smooth cofactor atoms under original per-side 2331 mass budget, imposing true H0 equal occurrence counts reduces maximum q0 signed atom occurrences from 26 (budget-only) to exactly 17 (H0+budget bound), with explicit attainable H0-only witness.",
+    "status": "AUTHOR_PROVED / EXACT_INTEGER_VERIFIED / UNREVIEWED / NOT_ADMITTED",
+    "author_note": {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "27c5aa2456fd2ebd3bddc0fa2fa6465d045e0fe3",
+      "path": "research_notes/portable_direct/onhour_20261122_t6_q14_h0_joint_multiplicity_ceiling.md",
+      "git_blob_sha1": "4c95b7a1a95b6f55700471821e2f93a6a8af658f",
+      "sha256": "f48b034d60ce195a9415926062e8d459912edbf7e336ca74bf2d27a54bcc564a"
+    },
+    "integer_certificate": {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "fad409d5ffacfbcc66acd7f8879a244ea66a63d1",
+      "path": "research_checks/T6_P17_Q14_SHARP_H0_Q0_OCCURRENCE_CERT_20261122.json",
+      "git_blob_sha1": "3af9347e78b9169bd23f916d871d9670ca07fa0c",
+      "sha256": "7a68544d4226a1a58fbd4dd3646ddd6b7e1c42638cfa32d608f2c363a00ad750"
+    },
+    "h0_witness": {
+      "positive_vertical": [
+        [
+          7,
+          1
+        ]
+      ],
+      "positive_q0": [
+        [
+          1,
+          10
+        ]
+      ],
+      "negative_vertical": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "negative_q0": [
+        [
+          2,
+          7
+        ]
+      ],
+      "masses": [
+        2199,
+        2318
+      ],
+      "H0_counts": [
+        11,
+        11
+      ],
+      "q0_occurrences": 17
+    }
+  },
+  "author_activity": {
+    "activity_id": "RA-5E3FE1E761E4963EC461A892",
+    "count": 269,
+    "event_id": "onhour-20261122-1900-t6-q14-sharp-h0-ceiling-v1",
+    "commit": "d0c877165f2556cc2ff99371d4472094b5b672c6"
+  },
+  "global_journal": {
+    "repository": "awdawmip/chatgpt-global-knowledge",
+    "commit": "0b43e8f2be54d6fc4c04b141fdb16a1111e3aeb1",
+    "path": "journal/enterprise-math/2026-11-22/20261122T1900+0800-onhour-t6-q14-sharp-h0-bound.md"
+  },
+  "unresolved_science": [
+    "H1..H6 and exact mixed congruences remain untested",
+    "q0 affine stage requires actual resource and nonauthor preparation review",
+    "lower prime and H0 completion; exact global T6 threshold remain unresolved",
+    "X6 original native three-factor motion and C24/C3 physical sensor benchmark still NOT EXECUTED"
+  ],
+  "current_unfinished_unit": "Current original typed continuation prepare still RUNNING at last read; consume original receipt then, if authorized, proceed with own CLAIM and already-open or open RUN. Scientific next unit: independently justified H1 constraints and genuine q14 nonauthor design review to decide original q0 affine stage.",
+  "do_not_repeat": [
+    "predecessor full q14 roster and disjoint pair census",
+    "accepted p19 and p17 q0-q4 work",
+    "failed ordinary prepare mutation, any pending typed prepare",
+    "X6 previous Units233-265 conditional results",
+    "maintenance Researcher/Driver identity"
+  ],
+  "scheduler_changed": false,
+  "notification_changed": false
+}
