@@ -1,0 +1,100 @@
+{
+  "schema": "PREFIX1014_R6_FOUR_PORT_GRAM_EXACT_V1",
+  "date": "2026-11-22",
+  "scientific_pin": "awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d:p000_reality_foundation.json",
+  "predecessor": "awdawmip/enterprise-math@2148ee631e6db1425e0df0c7cd802d64ac4b1592:research_notes/portable_direct/2026-11-22_r6_prefix1013_future_observer_gram_obstruction.md",
+  "candidate": "Stage46 signed BRC; six native axes; w(h,d)=1-6*[h=d]; blocked Link {0,e1}; fixed initial (0,-e1); grade k=1",
+  "observer": "Coherently summed joint Cell-terminal-port signed amplitude squared; four S5 port-class numerator masses normalized by 36^n",
+  "formula": "Q^(sign)_{n,j}=sum_{sigma in Sigma} K^(sign)_{j,sigma}(n) H_{n-4}(sigma), n>=5",
+  "signature_set": [
+    "000000",
+    "000011",
+    "000022",
+    "000033",
+    "000112",
+    "000123",
+    "001111",
+    "001113",
+    "001122",
+    "011112",
+    "111111"
+  ],
+  "columns": [
+    "n",
+    "Qplus_axis1",
+    "Qplus_each_other_axis",
+    "Qminus_axis1",
+    "Qminus_each_other_axis"
+  ],
+  "checked_direct_BRC": [
+    [
+      "5",
+      "135110",
+      "109490",
+      "16560",
+      "12384"
+    ],
+    [
+      "6",
+      "2918820",
+      "2532792",
+      "246870",
+      "191574"
+    ],
+    [
+      "7",
+      "66735540",
+      "59610948",
+      "4299380",
+      "3455060"
+    ],
+    [
+      "8",
+      "1607486710",
+      "1458235054",
+      "83992020",
+      "69575892"
+    ]
+  ],
+  "evaluated_exact": [
+    [
+      "10",
+      "1064532083910",
+      "982562886810",
+      "40858323910",
+      "35414546374"
+    ],
+    [
+      "12",
+      "806995257050910",
+      "753291967337382",
+      "24683499734700",
+      "22030837315500"
+    ],
+    [
+      "16",
+      "599785033054949810820",
+      "568703304877554892692",
+      "13115358251905639320",
+      "12099444174708643224"
+    ],
+    [
+      "20",
+      "546603450641366641962015310",
+      "523608038144842202757757750",
+      "9309183293108914043121660",
+      "8743165099121150271132924"
+    ],
+    [
+      "30",
+      "677651055203849923631964793135399800872160",
+      "658391304488465309605671701221623098765040",
+      "7437065117530900694116692027052316442360",
+      "7141777762708534050771165046847302176504"
+    ]
+  ],
+  "exact_validation": "Locally executed independent six-axis signed BRC Cell-port DP versus finite Laurent polynomial/eleven H_m collision recurrence at n=5,6,7,8: all 12 ports identical; exact integer arithmetic.",
+  "scope": "All n>=5: Laurent derivation conditioned on inherited PREFIX-1004 port-packet identities; direct DP checked only n5..8; later numbers are formula evaluations, not independently direct-DP checked.",
+  "admission": "AUTHOR_PROOF_EXACT_COMPUTATION_NOT_REVIEWED",
+  "next": "Analyze all-n signs of port-class contrasts, reduction to A6 shifts, and finite-horizon Gram repair."
+}
