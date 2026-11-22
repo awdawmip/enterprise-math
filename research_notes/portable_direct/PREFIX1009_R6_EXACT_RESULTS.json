@@ -1,0 +1,137 @@
+{
+  "schema": "PREFIX1009_R6_LINK_RENEWAL_V1",
+  "science": "Stage46 candidate signed BRC, X6, incoming -e1, closed {0,e1}, integer 1 or -5 weights; charts are relative",
+  "theorem": "For all k>=0, n>=2k+1, sum_{Cell,port} Psi^L_(n,k) = [k=0] - L_k/6^(2k+1); L_k is complete signed sum of masked 2k-step loops returning to chosen Cell anchor.",
+  "exact_rooted_return_loops": [
+    {
+      "k": 0,
+      "signed_loop_numerator": 1,
+      "masked_stable_signed_amplitude": "5/6",
+      "return_cell_named_port_numerators": {
+        "6": 1
+      }
+    },
+    {
+      "k": 1,
+      "signed_loop_numerator": -25,
+      "masked_stable_signed_amplitude": "25/216",
+      "return_cell_named_port_numerators": {
+        "1": -5,
+        "2": -5,
+        "3": -5,
+        "4": -5,
+        "5": -5,
+        "6": 25,
+        "7": -5,
+        "8": -5,
+        "9": -5,
+        "10": -5,
+        "11": -5
+      }
+    },
+    {
+      "k": 2,
+      "signed_loop_numerator": 390,
+      "masked_stable_signed_amplitude": "-65/1296",
+      "return_cell_named_port_numerators": {
+        "1": -77,
+        "2": -77,
+        "3": -77,
+        "4": -77,
+        "5": -77,
+        "6": 1160,
+        "7": -77,
+        "8": -77,
+        "9": -77,
+        "10": -77,
+        "11": -77
+      }
+    },
+    {
+      "k": 3,
+      "signed_loop_numerator": -2365,
+      "masked_stable_signed_amplitude": "2365/279936",
+      "return_cell_named_port_numerators": {
+        "1": -3988,
+        "2": -3988,
+        "3": -3988,
+        "4": -3988,
+        "5": -3988,
+        "6": 37515,
+        "7": -3988,
+        "8": -3988,
+        "9": -3988,
+        "10": -3988,
+        "11": -3988
+      }
+    },
+    {
+      "k": 4,
+      "signed_loop_numerator": -49550,
+      "masked_stable_signed_amplitude": "24775/5038848",
+      "return_cell_named_port_numerators": {
+        "1": -144345,
+        "2": -144345,
+        "3": -144345,
+        "4": -144345,
+        "5": -144345,
+        "6": 1393900,
+        "7": -144345,
+        "8": -144345,
+        "9": -144345,
+        "10": -144345,
+        "11": -144345
+      }
+    },
+    {
+      "k": 5,
+      "signed_loop_numerator": 1645010,
+      "masked_stable_signed_amplitude": "-822505/181398528",
+      "return_cell_named_port_numerators": {
+        "1": -4839258,
+        "2": -4839258,
+        "3": -4839258,
+        "4": -4839258,
+        "5": -4839258,
+        "6": 50037590,
+        "7": -4839258,
+        "8": -4839258,
+        "9": -4839258,
+        "10": -4839258,
+        "11": -4839258
+      }
+    },
+    {
+      "k": 6,
+      "signed_loop_numerator": -22026080,
+      "masked_stable_signed_amplitude": "688315/408146688",
+      "return_cell_named_port_numerators": {
+        "1": -182005316,
+        "2": -182005316,
+        "3": -182005316,
+        "4": -182005316,
+        "5": -182005316,
+        "6": 1798027080,
+        "7": -182005316,
+        "8": -182005316,
+        "9": -182005316,
+        "10": -182005316,
+        "11": -182005316
+      }
+    }
+  ],
+  "independent_grade3_full_state_checks": [
+    {
+      "n": 7,
+      "grade3_numerator_sum": 2365,
+      "expected": 2365
+    },
+    {
+      "n": 8,
+      "grade3_numerator_sum": 14190,
+      "expected": 14190
+    }
+  ],
+  "method": "12-port integer dynamic programming without negative count for loop returns; independent negative-graded direct evolution for n=7,8; theorem itself follows from first-hit and BRC orientation-row sum cancellation.",
+  "review": "AUTHOR_PROOF / EXACT_INTEGER_CHECKED / NOT_REVIEWED"
+}
