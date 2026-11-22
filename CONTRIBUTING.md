@@ -101,13 +101,23 @@ In `src/enterprise_math/core.py`:
 - no hidden call to a floating root implementation;
 - behavior must follow the written specification.
 
-Run:
+Run the relevant checks locally first. The routine GitHub workflows for quality, reference integrity, bilingual synchronization, and Lean are manual; ordinary research does not wait for them.
+
+For a Python integration change that warrants the full local suite, use the repository runner, which includes both unittest and pytest-style tests:
 
 ```bash
-PYTHONPATH=src python -m unittest discover -s tests -v
-python tools/check_bilingual_pairs.py
-python tools/check_references.py
+python -m pip install pytest==8.4.2 sympy==1.14.0 jsonschema==4.25.1
+PYTHONPATH=src python scripts/run_unittest_shard.py --index 0 --count 1
 ```
+
+For a committed branch diff involving bilingual files, compare against the actual base. Set `BASE_REF` to the intended, locally available target branch or immutable base commit (for example, an up-to-date `origin/main`). The first command verifies that it resolves to a commit:
+
+```bash
+base=$(git rev-parse --verify "${BASE_REF:?Set BASE_REF to the locally available comparison base}^{commit}") &&
+python tools/check_bilingual_pairs.py --base "$base"
+```
+
+The base-free bilingual command only checks structure. Run `python tools/check_references.py` for citation or lineage changes, and `lake build --wfail -KCI EnterpriseMath` for changes to the Lean proof layer. For narrower changes, run the affected test or proof directly.
 
 ## Pull requests
 

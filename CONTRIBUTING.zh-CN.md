@@ -101,13 +101,23 @@ v0.1 参考核心只允许整数运算。
 - 禁止偷偷调用浮点根函数；
 - 行为必须服从文字规范。
 
-运行：
+先在本地运行与改动相关的核验。质量、引用完整性、双语同步和 Lean 的常规 GitHub 工作流都改为手动触发，日常研究无需等待它们。
+
+如果 Python 集成改动确实需要全套本地回归，用仓库的运行器同时覆盖 unittest 和 pytest 风格的测试：
 
 ```bash
-PYTHONPATH=src python -m unittest discover -s tests -v
-python tools/check_bilingual_pairs.py
-python tools/check_references.py
+python -m pip install pytest==8.4.2 sympy==1.14.0 jsonschema==4.25.1
+PYTHONPATH=src python scripts/run_unittest_shard.py --index 0 --count 1
 ```
+
+双语文件修改提交后，用实际基准提交检查两边是否一起修改。把 `BASE_REF` 设为本地可解析的目标分支或固定基准提交（例如已更新的 `origin/main`）。首条命令会核验它确实指向提交：
+
+```bash
+base=$(git rev-parse --verify "${BASE_REF:?请设置本地可解析的比较基准 BASE_REF}^{commit}") &&
+python tools/check_bilingual_pairs.py --base "$base"
+```
+
+双语命令不带基准时只检查结构。更改引用或谱系时运行 `python tools/check_references.py`；修改 Lean 证明层时运行 `lake build --wfail -KCI EnterpriseMath`。范围更小的改动，直接验证受影响的测试或证明。
 
 ## Pull Request
 
