@@ -69,6 +69,31 @@ The exact independent JavaScript computation that motivated this certificate eva
 `research_checks/CBRC_F7_R471_FIBER_OSCILLATION_20261122.mjs`, Git commit `09b143759b94dca22d81c98bf1d040f3613b8647`.
 It uses only the original static table, built-in integer arithmetic and no solver/CI. The standalone file was published/read back; the exact calculations above were performed in the current JavaScript execution environment, not reported as a separate `node` invocation.
 
+## Theorem 3: an infinite-tail obstruction to every finite perturbation of the half-valued off-axis baseline
+
+For arbitrary distinct nonzero integers (r,u), take the original input
+[
+z=(2r-u,r-u,\;2u-r,u-r).
+]
+The shear parameter is (k=u-r), so the transformed pair is ((r,0),(u,0)). Since both axis values equal 1, the **exact** original-model identity is
+[
+\boxed{D_q(z)=2-q(2r-u,r-u)-q(2u-r,u-r).}
+]
+Thus any admissible global candidate satisfying (E_\infty(q)\le\varepsilon) must obey, for every such pair,
+[
+\boxed{2-\varepsilon\le q(2r-u,r-u)+q(2u-r,u-r)\le 2+\varepsilon.}
+]
+At least one of the paired off-axis values is \(\ge1-\varepsilon/2\). For \(\varepsilon=4/7\), this means at least one value is \(\ge5/7\) for **each** distinct nonzero (r,u); for \(\varepsilon=1/2\) it must be \(\ge3/4\).
+
+In particular, setting (r=N,u=-N\) gives the explicit escaping family
+[
+\boxed{q(3N,2N)+q(-3N,-2N)\ge 2-\varepsilon
+\quad\text{for every integer }N\ge1.}
+]
+If an admissible (q\) equals (1/2\) at every off-axis point outside any finite exceptional set, then for all sufficiently large (N\) both terms on the left are exactly (1/2\). Therefore \(E_\infty(q)\ge1\). More quantitatively, to have the known best-upper-bound target \(E_\infty(q)\le4/7\), one member of each escaping pair must differ positively from the half-baseline by at least \(3/14\), at arbitrarily large scales. This is an analytic obstruction to **finite-support repairs**, not an impossibility claim for infinite-tail constructions.
+
+Theorem 3 supplies an independent human proof of the global lower bound 1 for the particular r469 finite table; the finite representative computation in Theorem 2 gives its matching upper bound 1.
+
 ## Scientific significance and remaining scope
 
 The fiber-swap formula exposes an exact one-dimensional oscillation family and replaces a four-index verification loop by interval extrema. It can be used to search for improved whole-domain constructions or derive global obstructions without enumerating all quadruples.
