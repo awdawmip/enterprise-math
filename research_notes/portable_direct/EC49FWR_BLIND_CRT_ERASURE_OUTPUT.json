@@ -1,0 +1,95 @@
+{
+  "status": "ALL PASS",
+  "pin": "BRC16943",
+  "primitive_directions": 72,
+  "frozen_supports": 50,
+  "ten_defect_signatures": 38,
+  "ten_equal_spectrum_doubletons": 12,
+  "distinct_support_differences": [
+    [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    [
+      1,
+      2,
+      6,
+      7
+    ],
+    [
+      1,
+      4,
+      6,
+      9
+    ],
+    [
+      2,
+      4,
+      7,
+      9
+    ],
+    [
+      2,
+      7
+    ],
+    [
+      3,
+      4,
+      8,
+      9
+    ],
+    [
+      3,
+      8
+    ]
+  ],
+  "model": "full indexed reflection spectrum known; unknown nonempty odd CRT factor; distinct physical membership site probes",
+  "analytic_extension": "fixed 3q for zero erasures; fixed 6q for one erasure; >=2 erasures or one arbitrary error impossible; adaptive 1 or 2",
+  "finite_checks": [
+    {
+      "q": 3,
+      "states": 350,
+      "indexed_spectra": 278,
+      "doubleton_fibers": 72,
+      "fixed_no_erasure": 9,
+      "fixed_one_erasure": 18,
+      "optimal_one_erasure_layouts": "216",
+      "min_distance_3q": 1,
+      "min_distance_6q": 2,
+      "fixed_one_unknown_bit_error": "IMPOSSIBLE"
+    },
+    {
+      "q": 7,
+      "states": 6350,
+      "indexed_spectra": 5078,
+      "doubleton_fibers": 1272,
+      "fixed_no_erasure": 21,
+      "fixed_one_erasure": 42,
+      "optimal_one_erasure_layouts": "279936",
+      "min_distance_3q": 1,
+      "min_distance_6q": 2,
+      "fixed_one_unknown_bit_error": "IMPOSSIBLE"
+    },
+    {
+      "q": 11,
+      "states": 102350,
+      "indexed_spectra": 81878,
+      "doubleton_fibers": 20472,
+      "fixed_no_erasure": 33,
+      "fixed_one_erasure": 66,
+      "optimal_one_erasure_layouts": "362797056",
+      "min_distance_3q": 1,
+      "min_distance_6q": 2,
+      "fixed_one_unknown_bit_error": "IMPOSSIBLE"
+    }
+  ],
+  "review": "AUTHOR_PROVED/EXACT_FINITE_CROSSCHECK/PARENT_DEPENDENT/NOT_REVIEWED"
+}
