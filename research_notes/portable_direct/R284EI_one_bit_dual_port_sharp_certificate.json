@@ -1,0 +1,86 @@
+{
+  "schema": "R284EI_SHARP_ONE_SOURCE_BIT_DUAL_PORT_REPAIR_V1",
+  "source_repo": "awdawmip/enterprise-math",
+  "frozen_source_commit": "acba2d8667903434aaa2a10720f43637fcc2421b",
+  "frozen_source_path": "research_notes/portable_direct/R284CO_spectral_witness_checker.py",
+  "frozen_source_blob_sha1": "b46e0f682b58e47c27094b4bea6fa4e55119a3ee",
+  "frozen_codeword_sha256": "b6ce76b2c08b9ec6b79ec83173befd2589928ca7c636643c3eaecd40405f4ff4",
+  "source_states": 65536,
+  "source_bit": "(i >> 12) & 1",
+  "read_offsets": [
+    0,
+    65
+  ],
+  "maximal_uniform_all_phase_integer_width": 9394,
+  "first_failing_width": 9395,
+  "first_failure_phase": 58,
+  "finite_domain_same_bit_minimum_Linf": {
+    "distance": 9394,
+    "minimizer_pairs": [
+      [
+        17336,
+        33446
+      ],
+      [
+        17401,
+        33511
+      ]
+    ],
+    "comparisons_same_bit": 99223
+  },
+  "full_port_near_pairs": {
+    "bound_inclusive": 100,
+    "full_port_close_pairs": 11264,
+    "xor_histogram": {
+      "4096": 11264
+    }
+  },
+  "selected_direct_checks": [
+    {
+      "width": 69,
+      "phase": 67,
+      "same_bit_dual_read_collision_count": 0,
+      "example_collision": null
+    },
+    {
+      "width": 70,
+      "phase": 25,
+      "same_bit_dual_read_collision_count": 0,
+      "example_collision": null
+    },
+    {
+      "width": 74,
+      "phase": 0,
+      "same_bit_dual_read_collision_count": 0,
+      "example_collision": null
+    },
+    {
+      "width": 94,
+      "phase": 0,
+      "same_bit_dual_read_collision_count": 0,
+      "example_collision": null
+    },
+    {
+      "width": 101,
+      "phase": 0,
+      "same_bit_dual_read_collision_count": 0,
+      "example_collision": null
+    },
+    {
+      "width": 9395,
+      "phase": 58,
+      "same_bit_dual_read_collision_count": 2,
+      "example_collision": [
+        17336,
+        33446
+      ]
+    }
+  ],
+  "update_invariance_offsets": [
+    1,
+    64,
+    65
+  ],
+  "evidence_class": "AUTHOR_EXACT_CHECKED / EXACT_FINITE_CERTIFIED / NOT_REVIEWED",
+  "independent_review": "NOT_REVIEWED"
+}
