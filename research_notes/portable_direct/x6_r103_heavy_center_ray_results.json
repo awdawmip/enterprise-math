@@ -1,0 +1,293 @@
+{
+  "schema": "X6_R103_EXACT_INTEGER_AUTHOR_CHECK_V1",
+  "status": "PASS",
+  "date": "2026-11-22",
+  "scientific_scope": "conditional positive four-channel BRC star observer, weight=(T,1,1,1), integer Port q; not native X6",
+  "input_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json",
+  "verifier": {
+    "path": "research_notes/portable_direct/x6_r103_heavy_center_ray_verify.py",
+    "git_commit": "d9eed2b9634fcf6e7a6916848e1c37580eebc7d5",
+    "execution": "local Python 3 standard library run; exit code 0",
+    "arithmetic": "integer 2(T+1)F exact comparisons; fractions.Fraction display",
+    "unoriented_vectors_q_le_45": 157020,
+    "parameter_port_cases": 42,
+    "T_values": [
+      1,
+      10,
+      11,
+      12,
+      25,
+      100
+    ],
+    "p_values": [
+      11,
+      27,
+      28,
+      38,
+      39,
+      40,
+      45
+    ],
+    "assertion": "exact minimal value AND full optimal unoriented direction set for each selected T,p"
+  },
+  "proof": {
+    "path": "research_notes/portable_direct/2026-11-22_x6_r103_heavy_center_ray_port28_39_exact_atlas.md",
+    "git_commit": "f1c0c668f41861f3149e8e959aa364d12a9c4ece",
+    "statement_scope": "all real T>=1, integer p>=11; symbolic author proof"
+  },
+  "evidence_status": "AUTHOR_PROOF_AND_FINITE_EXACT_CHECK_ONLY;NOT_INDEPENDENTLY_REVIEWED",
+  "cases": [
+    {
+      "T": 1,
+      "p": 11,
+      "eta": "1/2",
+      "tie_count": 1
+    },
+    {
+      "T": 1,
+      "p": 27,
+      "eta": "1/2",
+      "tie_count": 1
+    },
+    {
+      "T": 1,
+      "p": 28,
+      "eta": "1/2",
+      "tie_count": 1
+    },
+    {
+      "T": 1,
+      "p": 38,
+      "eta": "1/2",
+      "tie_count": 1
+    },
+    {
+      "T": 1,
+      "p": 39,
+      "eta": "1/2",
+      "tie_count": 1
+    },
+    {
+      "T": 1,
+      "p": 40,
+      "eta": "1/2",
+      "tie_count": 1
+    },
+    {
+      "T": 1,
+      "p": 45,
+      "eta": "1/2",
+      "tie_count": 1
+    },
+    {
+      "T": 10,
+      "p": 11,
+      "eta": "1/2",
+      "tie_count": 1
+    },
+    {
+      "T": 10,
+      "p": 27,
+      "eta": "1/2",
+      "tie_count": 1
+    },
+    {
+      "T": 10,
+      "p": 28,
+      "eta": "1/2",
+      "tie_count": 1
+    },
+    {
+      "T": 10,
+      "p": 38,
+      "eta": "1/2",
+      "tie_count": 1
+    },
+    {
+      "T": 10,
+      "p": 39,
+      "eta": "1/2",
+      "tie_count": 1
+    },
+    {
+      "T": 10,
+      "p": 40,
+      "eta": "1/2",
+      "tie_count": 1
+    },
+    {
+      "T": 10,
+      "p": 45,
+      "eta": "1/2",
+      "tie_count": 1
+    },
+    {
+      "T": 11,
+      "p": 11,
+      "eta": "1/2",
+      "tie_count": 1
+    },
+    {
+      "T": 11,
+      "p": 27,
+      "eta": "1/2",
+      "tie_count": 1
+    },
+    {
+      "T": 11,
+      "p": 28,
+      "eta": "1/2",
+      "tie_count": 2
+    },
+    {
+      "T": 11,
+      "p": 38,
+      "eta": "1/2",
+      "tie_count": 2
+    },
+    {
+      "T": 11,
+      "p": 39,
+      "eta": "1/2",
+      "tie_count": 3
+    },
+    {
+      "T": 11,
+      "p": 40,
+      "eta": "1/2",
+      "tie_count": 3
+    },
+    {
+      "T": 11,
+      "p": 45,
+      "eta": "1/2",
+      "tie_count": 3
+    },
+    {
+      "T": 12,
+      "p": 11,
+      "eta": "1/2",
+      "tie_count": 1
+    },
+    {
+      "T": 12,
+      "p": 27,
+      "eta": "1/2",
+      "tie_count": 1
+    },
+    {
+      "T": 12,
+      "p": 28,
+      "eta": "1/2",
+      "tie_count": 2
+    },
+    {
+      "T": 12,
+      "p": 38,
+      "eta": "1/2",
+      "tie_count": 2
+    },
+    {
+      "T": 12,
+      "p": 39,
+      "eta": "6/13",
+      "tie_count": 1
+    },
+    {
+      "T": 12,
+      "p": 40,
+      "eta": "6/13",
+      "tie_count": 1
+    },
+    {
+      "T": 12,
+      "p": 45,
+      "eta": "6/13",
+      "tie_count": 1
+    },
+    {
+      "T": 25,
+      "p": 11,
+      "eta": "1/2",
+      "tie_count": 1
+    },
+    {
+      "T": 25,
+      "p": 27,
+      "eta": "1/2",
+      "tie_count": 1
+    },
+    {
+      "T": 25,
+      "p": 28,
+      "eta": "1/2",
+      "tie_count": 2
+    },
+    {
+      "T": 25,
+      "p": 38,
+      "eta": "1/2",
+      "tie_count": 2
+    },
+    {
+      "T": 25,
+      "p": 39,
+      "eta": "3/13",
+      "tie_count": 1
+    },
+    {
+      "T": 25,
+      "p": 40,
+      "eta": "3/13",
+      "tie_count": 1
+    },
+    {
+      "T": 25,
+      "p": 45,
+      "eta": "3/13",
+      "tie_count": 1
+    },
+    {
+      "T": 100,
+      "p": 11,
+      "eta": "1/2",
+      "tie_count": 1
+    },
+    {
+      "T": 100,
+      "p": 27,
+      "eta": "1/2",
+      "tie_count": 1
+    },
+    {
+      "T": 100,
+      "p": 28,
+      "eta": "1/2",
+      "tie_count": 2
+    },
+    {
+      "T": 100,
+      "p": 38,
+      "eta": "1/2",
+      "tie_count": 2
+    },
+    {
+      "T": 100,
+      "p": 39,
+      "eta": "6/101",
+      "tie_count": 1
+    },
+    {
+      "T": 100,
+      "p": 40,
+      "eta": "6/101",
+      "tie_count": 1
+    },
+    {
+      "T": 100,
+      "p": 45,
+      "eta": "6/101",
+      "tie_count": 1
+    }
+  ]
+}
