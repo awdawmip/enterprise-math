@@ -1,0 +1,181 @@
+{
+  "model": "X6 signed typed BRC Stage46 Link {0,e1}; numerator W=J_12-6I_12",
+  "checks": [
+    {
+      "H": 1,
+      "rank": 2,
+      "det_B": 1,
+      "last_row_plus": [
+        1,
+        0
+      ],
+      "last_row_minus": [
+        0,
+        1
+      ],
+      "states_last_step_max": 11,
+      "gram_identity": "PASS",
+      "B_diagonal_identity": "PASS",
+      "first_basis_H_norm": 35,
+      "last_basis_H_norm": 35
+    },
+    {
+      "H": 2,
+      "rank": 4,
+      "det_B": 1,
+      "last_row_plus": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "last_row_minus": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "states_last_step_max": 143,
+      "gram_identity": "PASS",
+      "B_diagonal_identity": "PASS",
+      "first_basis_H_norm": 1260,
+      "last_basis_H_norm": 1295
+    },
+    {
+      "H": 3,
+      "rank": 6,
+      "det_B": 1,
+      "last_row_plus": [
+        -25,
+        0,
+        0,
+        1,
+        1,
+        0
+      ],
+      "last_row_minus": [
+        0,
+        -25,
+        1,
+        0,
+        0,
+        1
+      ],
+      "states_last_step_max": 864,
+      "gram_identity": "PASS",
+      "B_diagonal_identity": "PASS",
+      "first_basis_H_norm": 44735,
+      "last_basis_H_norm": 46655
+    },
+    {
+      "H": 4,
+      "rank": 8,
+      "det_B": 1,
+      "last_row_plus": [
+        0,
+        10,
+        -47,
+        0,
+        0,
+        2,
+        1,
+        0
+      ],
+      "last_row_minus": [
+        10,
+        0,
+        0,
+        -47,
+        2,
+        0,
+        0,
+        1
+      ],
+      "states_last_step_max": 3647,
+      "gram_identity": "PASS",
+      "B_diagonal_identity": "PASS",
+      "first_basis_H_norm": 1610360,
+      "last_basis_H_norm": 1679615
+    },
+    {
+      "H": 5,
+      "rank": 10,
+      "det_B": 1,
+      "last_row_plus": [
+        390,
+        0,
+        0,
+        -32,
+        -59,
+        0,
+        0,
+        3,
+        1,
+        0
+      ],
+      "last_row_minus": [
+        0,
+        390,
+        -32,
+        0,
+        0,
+        -59,
+        3,
+        0,
+        0,
+        1
+      ],
+      "states_last_step_max": 11819,
+      "gram_identity": "PASS",
+      "B_diagonal_identity": "PASS",
+      "first_basis_H_norm": 57820860,
+      "last_basis_H_norm": 60466175
+    }
+  ],
+  "dissipation": [
+    {
+      "t": 0,
+      "norm": 14,
+      "phi_plus": 2,
+      "phi_minus": 3,
+      "norm_after": 491
+    },
+    {
+      "t": 1,
+      "norm": 491,
+      "phi_plus": -1,
+      "phi_minus": 0,
+      "norm_after": 17675
+    },
+    {
+      "t": 2,
+      "norm": 17675,
+      "phi_plus": -50,
+      "phi_minus": -76,
+      "norm_after": 628024
+    },
+    {
+      "t": 3,
+      "norm": 628024,
+      "phi_plus": 71,
+      "phi_minus": 20,
+      "norm_after": 22603423
+    },
+    {
+      "t": 4,
+      "norm": 22603423,
+      "phi_plus": 780,
+      "phi_minus": 1208,
+      "norm_after": 811655564
+    },
+    {
+      "t": 5,
+      "norm": 811655564,
+      "phi_plus": -2798,
+      "phi_minus": -1320,
+      "norm_after": 29210029100
+    }
+  ],
+  "arithmetic": "exact Python integers",
+  "claim": "B_H rows full rank 2H for every integer H>=1 by triangular witness proof; numeric verified H=1..5"
+}
