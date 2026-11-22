@@ -1,0 +1,78 @@
+{
+  "schema": "T6_P17_Q7_SPLIT1_6_AUTHOR_EXACT_FINITE_CERT_V1",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "frozen_source": {
+    "task_commit": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+    "p17_q0_basis_blob_sha1": "d9ac014355a6a1058cc8a0cf2141a01082628881"
+  },
+  "model": {
+    "mass_per_side": 2331,
+    "vertical_side_orders": [
+      1,
+      6
+    ],
+    "named_denominator": "17(r+17q)",
+    "cost": "289q+17r-1",
+    "q0_r": "1..16",
+    "affine_congruences": "for j 1..6: sum_r u_r*r^-j + sum_vertical m_qr*(r+17q)^-j = 0 mod 17^j",
+    "lower_prime_completion": "unrestricted"
+  },
+  "original_execution": {
+    "platform": "local Python 3, exact fractions / sympy 1.14",
+    "ranges": [
+      {
+        "left_index": [
+          0,
+          8
+        ],
+        "counts": {
+          "raw_pairs": 381024,
+          "shared_vertical_pairs": 90695,
+          "primitive_pairs": 290329,
+          "gs_nodes": 995517,
+          "sphere_leaves": 0,
+          "budget_valid_kernels": 0
+        },
+        "sha256": "50284ac1368dd28713bf93e50e20dbf9533743086b926420a1b189808ff1c7c9"
+      },
+      {
+        "left_index": [
+          8,
+          16
+        ],
+        "counts": {
+          "raw_pairs": 381024,
+          "shared_vertical_pairs": 37328,
+          "primitive_pairs": 343696,
+          "gs_nodes": 1057318,
+          "sphere_leaves": 0,
+          "budget_valid_kernels": 0
+        },
+        "sha256": "1268e98fa1662b86c42f37cff47aca464d69bc8428393fd8e31aea08a7c7d9b3"
+      }
+    ],
+    "published_compact_checker_executed": false
+  },
+  "exact_sphere": {
+    "max_R2": 4442237,
+    "Dmin_numerator": "8350069911612335617606677214061177705401058080646556447012234889468081355909",
+    "Dmin_denominator": "480650972868542992444263969893692042421717754534280313801217347854273",
+    "strictly_below_Dmin": true,
+    "backward_GS_coordinate_options": "floor and ceil only; exact Fraction"
+  },
+  "counts": {
+    "left_rosters": 16,
+    "right_rosters": 47628,
+    "raw_pairs": 762048,
+    "shared_vertical_pairs": 128023,
+    "primitive_pairs": 634025,
+    "gs_nodes": 2052835,
+    "sphere_leaves": 0,
+    "budget_valid_kernels": 0
+  },
+  "conclusion": "No primitive signed maximal-p17 v17=1 order7 split(1,6) can meet globally necessary mixed congruences and original budgets; shared vertical support reduces to lower order.",
+  "global_T6": "OPEN",
+  "native_winning_claim": "NOT_VERIFIED",
+  "independent_review": "NOT_PERFORMED"
+}
