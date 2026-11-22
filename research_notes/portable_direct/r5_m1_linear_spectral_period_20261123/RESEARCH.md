@@ -2,7 +2,7 @@
 
 Date: 2026-11-23 (Asia/Shanghai). Status: **AUTHOR_EXACT_CYCLOTOMIC_PROOF / VERIFIED_FINITE_FIELD_WITNESSES / NOT_REVIEWED**. This is an independent portable scientific result, not a canonical Task Result or a native X6 dynamics result.
 
-Frozen scientific input (unchanged): \`awdawmip/enterprise-math@75d986aa23b68a7ecf9b29dc1006f0e322b35a15\`, the corrected genuine-intersection five-event scalar counting observer. Prior immutable scope comparison: \`@c27732cc27700ab4e65268acdf4a285cbdf910f6:research_notes/portable_direct/r5_m1_o1_exact_period_20261122/RESEARCH.md\` determined the degree-\(\ge2\) period (discarding an \(O(N)\) remainder). Here **we retain the coefficient of N**, obtaining a different, strictly larger period.
+Frozen scientific input (unchanged): `awdawmip/enterprise-math@75d986aa23b68a7ecf9b29dc1006f0e322b35a15`, the corrected genuine-intersection five-event scalar counting observer. Prior immutable scope comparison: `@c27732cc27700ab4e65268acdf4a285cbdf910f6:research_notes/portable_direct/r5_m1_o1_exact_period_20261122/RESEARCH.md` determined the degree-\(\ge2\) period (discarding an \(O(N)\) remainder). Here **we retain the coefficient of N**, obtaining a different, strictly larger period.
 
 ## Exact theorem
 
@@ -94,17 +94,17 @@ This proof uses finite fields to **disprove cyclotomic divisibility**, not to in
 
 ## Verification and boundaries
 
-The companion \`VERIFY_M1_LINEAR_PERIOD.py\` reconstructs every table value with two distinct exact modular expressions, checks all moduli are prime and roots of exact prescribed order, enumerates every denominator root order up to 314, and validates both least common multiples. Executed in a local Python 3 standard-library environment:
-\`\`\`text
+The companion `VERIFY_M1_LINEAR_PERIOD.py` reconstructs every table value with two distinct exact modular expressions, checks all moduli are prime and roots of exact prescribed order, enumerates every denominator root order up to 314, and validates both least common multiples. Executed in a local Python 3 standard-library environment:
+```text
 PASS: 18/18 primitive nonzero finite-field witnesses, double independent event formulas
 Lambda_1 = 814202665467037976682352800; Lambda_2 = 229746052653717600; ratio=3543924503
-\`\`\`
+```
 No floating-point approximation is used.
 
 The proof is for the frozen **scalar partition-cost observer**; it does not assert an unproved native X6 embedding, BRC phase-cancellation representation, a heartbeat dynamical law, a formally accepted Result or an independent Review. Native X6/P000 and the ACTIVE worldview are unchanged; signed cyclotomic phases must be retained for this observer, since a positive-mass-only reduction could lose cancellation information.
 
 ## New research question
 
-For all \(m\ge1\), classify \(M_m^{(\ge1)}\) by identifying threshold-dependent vanishing and nonvanishing for the new order-\(\ge2\) frequencies, notably orders 49,41,47,59,61,73 as well as order 54 and 62. Reuse the 43-adic first-jet all-\(m\) conclusion at immutable \`enterprise-math@d2545049efd91c126fb928ad2f0187f7e9ebd390\` within its exact seven cancellation classes. A subsequent task is to give an observer-preserving bridge from scalar frequency/jet data to typed BRC or X6 native states, if such a map is constructible.
+For all \(m\ge1\), classify \(M_m^{(\ge1)}\) by identifying threshold-dependent vanishing and nonvanishing for the new order-\(\ge2\) frequencies, notably orders 49,41,47,59,61,73 as well as order 54 and 62. Reuse the 43-adic first-jet all-\(m\) conclusion at immutable `enterprise-math@d2545049efd91c126fb928ad2f0187f7e9ebd390` within its exact seven cancellation classes. A subsequent task is to give an observer-preserving bridge from scalar frequency/jet data to typed BRC or X6 native states, if such a map is constructible.
 
 Contribution: independent author-side calculation on an informed frozen scientific input. Historical R5 author/activity IDs remain provenance and do not certify this Sites runtime's identity. No formal CLAIM/RUN has been invoked in this contribution.
