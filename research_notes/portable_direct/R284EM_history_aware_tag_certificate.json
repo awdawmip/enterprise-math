@@ -1,0 +1,116 @@
+{
+  "schema": "R284EM_HISTORY_AWARE_TAG_RESOURCE_CERTIFICATE_V1",
+  "pinned_source_commit": "acba2d8667903434aaa2a10720f43637fcc2421b",
+  "pinned_source_git_blob_sha1": "b46e0f682b58e47c27094b4bea6fa4e55119a3ee",
+  "frozen_residue_sha256": "b6ce76b2c08b9ec6b79ec83173befd2589928ca7c636643c3eaecd40405f4ff4",
+  "state_count": 65536,
+  "arc_count": 64,
+  "port_offsets": [
+    0,
+    65,
+    1,
+    64
+  ],
+  "numeric_error_max": 8656,
+  "exhaustive_candidate_pairs": 308913,
+  "same_label_confusable_pairs_at_max_error": [
+    0,
+    0
+  ],
+  "two_port": {
+    "min_cross_label_linf": {
+      "0-1": 60,
+      "0-2": 9394,
+      "0-3": 9526,
+      "1-2": 9289,
+      "1-3": 9421,
+      "2-3": 60
+    },
+    "confusable_pair_counts": {
+      "0-1": 16384,
+      "0-2": 14,
+      "0-3": 14,
+      "1-2": 14,
+      "1-3": 14,
+      "2-3": 16384
+    },
+    "witnesses": {
+      "0-1": [
+        42800,
+        46896
+      ],
+      "0-2": [
+        17401,
+        33511
+      ],
+      "0-3": [
+        21497,
+        33511
+      ],
+      "1-2": [
+        17401,
+        37607
+      ],
+      "1-3": [
+        21497,
+        37607
+      ],
+      "2-3": [
+        58928,
+        63024
+      ]
+    },
+    "triangle_onset_integer_error": 4697
+  },
+  "four_port": {
+    "min_cross_label_linf": {
+      "0-1": 60,
+      "0-2": 9432,
+      "0-3": 9564,
+      "1-2": 9327,
+      "1-3": 9459,
+      "2-3": 60
+    },
+    "confusable_pair_counts": {
+      "0-1": 16384,
+      "0-2": 8,
+      "0-3": 8,
+      "1-2": 8,
+      "1-3": 8,
+      "2-3": 16384
+    },
+    "witnesses": {
+      "0-1": [
+        42800,
+        46896
+      ],
+      "0-2": [
+        17401,
+        33511
+      ],
+      "0-3": [
+        21497,
+        33511
+      ],
+      "1-2": [
+        17401,
+        37607
+      ],
+      "1-3": [
+        21497,
+        37607
+      ],
+      "2-3": [
+        58928,
+        63024
+      ]
+    },
+    "triangle_onset_integer_error": 4716
+  },
+  "optimal_storage": {
+    "two_port": "n=0 if E<=29; n=2k+1 if 30<=E<=4696; n=3k+2 if 4697<=E<=8656",
+    "four_port": "n=0 if E<=29; n=2k+1 if 30<=E<=4715; n=3k+2 if 4716<=E<=8656"
+  },
+  "arithmetic": "exact integers",
+  "review": "NOT_REVIEWED"
+}
