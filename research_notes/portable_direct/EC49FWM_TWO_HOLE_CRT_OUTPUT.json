@@ -1,0 +1,43 @@
+{
+  "status": "ALL PASS",
+  "science_pin": "BRC16943",
+  "cases": [
+    {
+      "n": 10,
+      "q": 11,
+      "supports": 1024,
+      "two_hole_pairs": 55,
+      "inverse_instances": 56320,
+      "direct_full_cycle_instances": 770,
+      "example": {
+        "holes": [
+          2,
+          7
+        ],
+        "min_center": 9,
+        "middle_centers": [
+          3,
+          4
+        ],
+        "row_levels": [
+          450,
+          500,
+          550
+        ]
+      }
+    },
+    {
+      "n": 4,
+      "q": 5,
+      "supports": 16,
+      "two_hole_pairs": 10,
+      "inverse_instances": 160,
+      "direct_full_cycle_instances": 20,
+      "example": null
+    }
+  ],
+  "ambiguity_preserved": "Two distinct U supports with identical indexed reflection spectra",
+  "scope": "odd q>=5; gcd(n,q)=1; U nonempty for inverse; exactly two distinct unknown holes",
+  "native_Farey_dynamics": "NOT_TESTED",
+  "independent_mathematical_review": "NOT_REVIEWED"
+}
