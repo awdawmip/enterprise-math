@@ -1,0 +1,99 @@
+{
+  "schema": "X6_NATIVE_TIME_AUTHOR_CONTINUATION_V1",
+  "date": "2026-11-22",
+  "cycle": "20261122_0900",
+  "task_id": "RS-X6-NATIVE-TIME-DYNAMICS",
+  "publication_id": "TP2-91D4A7C2F63805BE21A3",
+  "parent_objective": "PO-X6-UPPER-STRUCTURE-20260906",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_lane_excluded": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "own_session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "frozen_scientific_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "exact_original_BRC": "f56840285cafeb9f5767ea91e903e1f53808186f:research_checks/X6_TIME_UNIT245_DIRECTED_CENTER_PORT_PAIR_RESULTS_20261121_2200.json",
+  "previous_immutable_frontier": "Unit256 / Activity258, continuation 098f6a3e61d163662b7e4d2e4e758600ab1ae569:research_notes/X6_TIME_UNIT256_SIGNED_NATIVE_PROBE_AUTHOR_CONTINUATION_20261122_075626.json",
+  "latest_scientific_unit": {
+    "id": "Unit257",
+    "title": "Universal negative native edge cuts across every 28-event optimal signed whole-triad BRC history",
+    "statement": "Exhaustive two-Port (6,0) and (8,2) labeled serial 28-event shortest histories: 2832 each, 5664 total. A:x0->x11 (-e2) is not universally first (first-A counts 2200/632, first-B 632/2200) but x0->x11 -e2 is a mandatory directed edge in all shortest histories. 10 unavoidable negative links per Port, 8 common. x0->x11 native movement has 10 or 16 exact BRC precontexts (respectively), so initial-environment rejection alone cannot prove environment-independent prohibition.",
+    "proof": "f20c9f085ecf7c081f033c660455e98d6ed82031:research_notes/X6_TIME_UNIT257_ALL_OPTIMAL_NATIVE_NEGATIVE_CUT_20261122_0900.md",
+    "checker": "d1c5c23d7b88740f38b8c2912daf25f657ecc9ff:research_checks/X6_TIME_UNIT257_ALL_OPTIMAL_BRC_NEGATIVE_CUT_CHECK_20261122_0900.js",
+    "certificate": "995dd77bcc7fb9a5563fe534e16607a3fd24fa58:research_checks/X6_TIME_UNIT257_ALL_OPTIMAL_BRC_NEGATIVE_CUT_RESULTS_20261122_0900.json",
+    "executed": {
+      "Python_local": "independent FIFO shortest-path DAG with all 2832+2832 28-event history enumeration; exact cut analysis; output preserved in current local execution",
+      "JavaScript": "separate V8 exact BFS/count/enumeration reimplementation executed and checker persisted in canonical GitHub",
+      "paths_per_Port": [
+        2832,
+        2832
+      ],
+      "total_paths": 5664,
+      "first_A_per_Port": [
+        2200,
+        632
+      ],
+      "first_B_per_Port": [
+        632,
+        2200
+      ],
+      "mandatory_negative_links_per_Port": [
+        10,
+        10
+      ],
+      "common_mandatory_negative_links": 8,
+      "x0_to_x11_event_multiplicity_per_shortest_history": [
+        2,
+        1
+      ],
+      "x0_to_x11_distinct_BRC_precontexts": [
+        10,
+        16
+      ]
+    },
+    "status": "AUTHOR_PROVED / EXACT_FINITE_EXECUTED / GITHUB_VERIFIED / UNREVIEWED / NOT_ADMITTED / NO_PHYSICAL_NATIVE_EXECUTION"
+  },
+  "activity": {
+    "id": "RA-5E3FE1E761E4963EC461A892",
+    "event_total": 259,
+    "commit": "2780b3da18eb10bbc6736397e4dce14731101f5e",
+    "event_id": "onhour-20261122-0900-x6-unit257-all-optimal-native-negative-cut-v1",
+    "verified": true
+  },
+  "global_knowledge": {
+    "journal": "aa80832e9076cad6858321b9a378dda0345f82b7:journal/enterprise-math/2026-11-22/20261122T090000+0800-x6-onhour-unit257-all-optimal-native-cut.md",
+    "read_main_snapshot": "2fc50ed7ecb06ac6d9666a92edb885475f5b3e91",
+    "write_readback": true
+  },
+  "control": {
+    "status_observation": "2026-11-22 09:00 +08:00, em_status 0.6.11. Read own SID recovery_status: real registration and multiple historical runs, no live ownership proven, has_more_requests=true. em_execution_get of own historical run is as-of, not current authorization; no fresh winning Source CLAIM established.",
+    "original_native_continuation_request_id": "onhour-20261122-0004-x6-own-source-continuation-v1",
+    "original_native_continuation_terminal": "FAILED / SOURCE_TREE_TRUNCATED",
+    "newer_native_continuation_request_id": "onhour-20261122-0756-x6-own-source-continuation-read-v1",
+    "newer_native_continuation_terminal": "FAILED / SOURCE_TREE_TRUNCATED",
+    "original_task_read_request_id": "onhour-20261122-0300-x6-task-observe-v1",
+    "original_task_read_terminal": "FAILED / SOURCE_TREE_TRUNCATED",
+    "historic_own_run_id": "RUN-d653f1346f38369bc27f5fc5",
+    "historic_own_claim_id": "MCP-369991930c5b4fddf26dbefa",
+    "historic_generation": 5,
+    "historic_lease_until": "2026-11-21T08:04:47+00:00",
+    "current_live_winning_claim_verified": false,
+    "semantic_native_progress": "NOT_PUBLISHED for Units233-257",
+    "support_issue": "https://github.com/awdawmip/enterprise-math/issues/2903",
+    "support_update": "https://github.com/awdawmip/enterprise-math/issues/2903#issuecomment-7071984728",
+    "do_not_retry_terminal_failed_requests": true
+  },
+  "evidence_gaps": [
+    "Actual Source-authorized or rejected signed negative intact-triad movement x0->x11 (-e2) in native environment, recording triad token closure, Cell occupancy, time-ordered resource and environment response.",
+    "If first probe rejected, determine actual environment dependence of refusal using BRC precontext set; do not infer a global edge ban from one context.",
+    "Native authorization and event readbacks for each original 28-event sequence; calibrated independent C24/C3 observation at Unit251–252 prescribed times.",
+    "Fresh Source winning CLAIM/open and protected semantic PROGRESS for completed Units233–257, later independent review/Result under own roles.",
+    "Separate R063 native six-file benchmark belongs to its own frozen task and may not be replaced by this conditional BRC computation."
+  ],
+  "do_not_repeat": [
+    "Units233–256 and their immutable mathematical proofs/certificates; Unit245 original 36 BRC shortest witnesses; Unit256 exact two-witness first-event probe.",
+    "Unit257 2,832+2,832 all-optimal-history enumeration and universal negative edge-cut certificate, finite checker rerun without material change.",
+    "Terminal FAILED Source requests onhour-20261122-0004-x6-own-source-continuation-v1 and onhour-20261122-0756-x6-own-source-continuation-read-v1.",
+    "Never borrow maintenance or other researcher/driver identity, never relabel portable Activity or GitHub proof as Native PROGRESS/Result, never change schedule or hosted CI."
+  ],
+  "next_exact_action": "Obtain Source-authenticated admission/rejection of complete triad A x0->x11 (-e2) at actual initial state with force token IDs, triadic closure, empty target, environment and observer/time receipt. If rejected, test/review whether guard is invariant across 10/16 reachable BRC precontexts before excluding all 28-event optima; if admitted, execute remaining exact originally frozen Port history event-by-event and C24/C3 midtrace readings. Separately when Source reopens, verify own current legal winning CLAIM/open and publish Units233–257 protected native semantic PROGRESS, with Source readback, no repeated failed requests.",
+  "checkpoint_category": "GITHUB_AUTHOR_SCIENCE_AND_ACTIVITY_ONLY_NOT_NATIVE_SEMANTIC_PROGRESS"
+}
