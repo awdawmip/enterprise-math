@@ -1,8 +1,8 @@
 # X6 R105 — Sharp 3/2 cutoff in the actual six-pair BRC family; complete Port spectrum
 
 Date: 2026-11-22 (Asia/Shanghai). Scientific status: AUTHOR_SYMBOLIC_PROOF / EXACT_INTEGER_AUTHOR_CHECK_PASS / NOT_INDEPENDENTLY_REVIEWED.
-Frozen input: \`awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json\`.
-Predecessor: R104 \`research_notes/portable_direct/2026-11-22_x6_r104_thirteen_class_robust_gap_and_finite_box.md\`.
+Frozen input: `awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json`.
+Predecessor: R104 `research_notes/portable_direct/2026-11-22_x6_r104_thirteen_class_robust_gap_and_finite_box.md`.
 Scope: the same **conditional auxiliary positive-count BRC six-pair star-gap observer**. It is not a native X6 signed/phase/path/heartbeat observer realization. P000 and ACTIVE worldview remain unchanged.
 
 ## Observer and definitions
@@ -83,7 +83,7 @@ The necessary and sufficient integrality conditions are
 \[
 v\equiv0\pmod3,\quad h-u\equiv0\pmod6,\quad h-u-6v\equiv0\pmod{12}.
 \]
-Enumerating this finite integer box gives 32 nonzero *oriented* integral vectors; exact evaluation of the other three pair terms removes four, leaving exactly 28 oriented or **14 unoriented** admissible vectors. Their exact scores and Port costs are the table above. The companion \`x6_r105_sharp_threshold_verify.js\` reproduces the full finite calculation with integer arithmetic, common denominator 35700, integer score threshold 5355, and exact row assertions.
+Enumerating this finite integer box gives 32 nonzero *oriented* integral vectors; exact evaluation of the other three pair terms removes four, leaving exactly 28 oriented or **14 unoriented** admissible vectors. Their exact scores and Port costs are the table above. The companion `x6_r105_sharp_threshold_verify.js` reproduces the full finite calculation with integer arithmetic, common denominator 35700, integer score threshold 5355, and exact row assertions.
 
 Finally, the infinite-lattice minimum \(\eta_p=1/10\) is constant, the exhaustive closed sublevel table is independent of \(p\), and intersection with the exact cost condition \(q\le p\) gives both indicator formulas. The scores of the two equality-shell directions are exactly \(3/20\), entering at Port 37 and Port 44 respectively. Therefore the 14-direction and sharpness statements hold for **all** \(p\ge44\). QED.
 
