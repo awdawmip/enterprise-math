@@ -12386,6 +12386,59 @@
           }
         }
       ]
+    },
+    {
+      "event_id": "onhour-20261122-1103-x6-unit259-bipartite-event-clock-v1",
+      "state": "EM_REPRESENTED",
+      "notes": "Unit259 conditional BRC temporal observability: q=kappa(posA) XOR kappa(posB)=serial event time mod2 for every reachable state with even-ring directed Port; signed intact-triad 2-event return x0->x1->x0 fixes all four BRC state fields while shifting event clock by2. Exact minimum extra memory for t mod2^m is m-1 bits, via half-clock h=floor(t/2) mod2^(m-1) with carry h'=h+q. Exact 133045 assertions executed across two original Ports, 3711 states per Port through depth28; 3039 with both mod4 phases. Original Task read request 1000 SUCCEEDED; native physical move/sensor unexecuted, live CLAIM unverified, semantic PROGRESS not published. AUTHOR_PROVED / EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED.",
+      "repairs_event_id": null,
+      "kb_sources": [
+        "https://github.com/awdawmip/chatgpt-global-knowledge/blob/7b07fbca080bd4a67651cf87c68738b07f84651e/journal/enterprise-math/2026-11-22/20261122T1103%2B0800-x6-onhour-unit259-bipartite-event-clock.md"
+      ],
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "path": "research_notes/X6_TIME_UNIT259_BIPARTITE_EVENT_CLOCK_REPAIR_20261122_1103.md",
+          "commit": "420ef0e7bf0d53e719264fc3f2bb5512efe24b67",
+          "sha256": "1c615e0c98401f3b42ba928541658d1b4699f8ede52d94594a77bf746b826f55",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "IMMUTABLE_COMMIT_SCOPED_READBACK",
+            "tool_name": "mcp__GitHub__fetch_file",
+            "git_blob_sha1": "5ab752b6f3ba5e76953caacaa2afe14b0eda5e7b",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/420ef0e7bf0d53e719264fc3f2bb5512efe24b67/research_notes/X6_TIME_UNIT259_BIPARTITE_EVENT_CLOCK_REPAIR_20261122_1103.md",
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "path": "research_checks/X6_TIME_UNIT259_BIPARTITE_CLOCK_CHECK_20261122_1103.js",
+          "commit": "a19da467cb6173a2019ab8cf09504e14669f0001",
+          "sha256": "1d2043b642b5e6c3a6f8d19cb246cb9a59f5b73ec43ebcdea58c668b3a6edcdc",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "IMMUTABLE_COMMIT_SCOPED_READBACK",
+            "tool_name": "mcp__GitHub__fetch_file",
+            "git_blob_sha1": "157a0616cc090849c5f5f60750013450a17cbd0f",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/a19da467cb6173a2019ab8cf09504e14669f0001/research_checks/X6_TIME_UNIT259_BIPARTITE_CLOCK_CHECK_20261122_1103.js",
+            "server_signature_authenticated": false
+          }
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "path": "research_checks/X6_TIME_UNIT259_BIPARTITE_CLOCK_RESULTS_20261122_1103.json",
+          "commit": "78c1d008df24c24565e55a4c90779f69a2ccf06f",
+          "sha256": "1b6f2dc09dd4c5bcebdc92fb47a6faa47c6a86f03f1b6312109741ec502e2cd1",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "verification": {
+            "kind": "IMMUTABLE_COMMIT_SCOPED_READBACK",
+            "tool_name": "mcp__GitHub__fetch_file",
+            "git_blob_sha1": "6d363adfc8da6034e040ac9c1ff40468a7220176",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/78c1d008df24c24565e55a4c90779f69a2ccf06f/research_checks/X6_TIME_UNIT259_BIPARTITE_CLOCK_RESULTS_20261122_1103.json",
+            "server_signature_authenticated": false
+          }
+        }
+      ]
     }
   ],
   "mode": "TASK_RESEARCH",
