@@ -1,6 +1,6 @@
 # EC49FWX — Independent left/right phase drift: exact two-channel activation costs
 
-**Date:** 2026-11-22. **Frozen scientific pin:** \`BRC16943\`. **Parents:** EC49FWV at \`e2a255177cb437976b356e1a6ba21f3a4fb862e0\` and EC49FWW at \`61af64c051725e4caafd186efaeb6de7d23268ca\`. **Status:** AUTHOR_PROVED / EXACT_INTEGER_CROSSCHECK / PARENT_DEPENDENT / NOT_REVIEWED.
+**Date:** 2026-11-22. **Frozen scientific pin:** `BRC16943`. **Parents:** EC49FWV at `e2a255177cb437976b356e1a6ba21f3a4fb862e0` and EC49FWW at `61af64c051725e4caafd186efaeb6de7d23268ca`. **Status:** AUTHOR_PROVED / EXACT_INTEGER_CROSSCHECK / PARENT_DEPENDENT / NOT_REVIEWED.
 
 ## Observer and quantifier order
 
@@ -73,10 +73,10 @@ The linked-phase identity in EC49FWW reduces fixed hardware activation cost beca
 
 ## Recalculation and provenance
 
-Adjacent \`EC49FWX_INDEPENDENT_PHASE_VERIFY.js\` reconstructs all 72 primitive directions and 50 masks from the frozen P10 predicate. For 600 known reference words and all 110 independent one-side phase values, it verifies both channel alias-difference cardinalities and the exact fixed layout at \(r\in\{1,2,3,10,11,20\}\), totaling **66,000 one-side phase cases** and **792,000 channel-layout checks**. It also checks the explicit \(U=299\) disjoint-support witness and equality of all 110 reflection centers for both half-turn aliases (220 checks). The proof establishes the full range \(1\le r\le20\) analytically; the output JSON records complete closed-form optimal values for that range.
+Adjacent `EC49FWX_INDEPENDENT_PHASE_VERIFY.js` reconstructs all 72 primitive directions and 50 masks from the frozen P10 predicate. For 600 known reference words and all 110 independent one-side phase values, it verifies both channel alias-difference cardinalities and the exact fixed layout at \(r\in\{1,2,3,10,11,20\}\), totaling **66,000 one-side phase cases** and **792,000 channel-layout checks**. It also checks the explicit \(U=299\) disjoint-support witness and equality of all 110 reflection centers for both half-turn aliases (220 checks). The proof establishes the full range \(1\le r\le20\) analytically; the output JSON records complete closed-form optimal values for that range.
 
-Frozen assumptions and proof lineage: EC49FWV (\`e2a255177cb437976b356e1a6ba21f3a4fb862e0\`), EC49FWW (\`61af64c051725e4caafd186efaeb6de7d23268ca\`), P10 source pin \`BRC16943\`. The computation uses ordinary exact integer arithmetic on this **auxiliary finite Boolean/CRT combinatorial model**, not a substituted implementation of native heartbeat/BRC-Shor arithmetic. All parent-derived P10 census/spectral-fiber facts retain their earlier author-proof/unreviewed status.
+Frozen assumptions and proof lineage: EC49FWV (`e2a255177cb437976b356e1a6ba21f3a4fb862e0`), EC49FWW (`61af64c051725e4caafd186efaeb6de7d23268ca`), P10 source pin `BRC16943`. The computation uses ordinary exact integer arithmetic on this **auxiliary finite Boolean/CRT combinatorial model**, not a substituted implementation of native heartbeat/BRC-Shor arithmetic. All parent-derived P10 census/spectral-fiber facts retain their earlier author-proof/unreviewed status.
 
 **Next unit:** classify **partially coupled drift** with a restricted set of relative phase differences \(s_L-s_R\), and derive activation/error-cost interpolation between EC49FWW and the independent case. Separately test whether the actual same-anchor Farey implementation constrains the physically realizable drift pair beyond the independent observer model. Preserve typed phase/branch/height provenance rather than treating equal current defect spectra as equivalent future states.
 
-**Control:** independent portable research continuation of the EC49FWW frontier. The original \`RS-EC49AS\` has no canonical publication directory at the checked source snapshot. No shared CLAIM, Source Result or independent Review is asserted; current-session Researcher/Activity binding remains to be resolved.
+**Control:** independent portable research continuation of the EC49FWW frontier. The original `RS-EC49AS` has no canonical publication directory at the checked source snapshot. No shared CLAIM, Source Result or independent Review is asserted; current-session Researcher/Activity binding remains to be resolved.
