@@ -1,6 +1,6 @@
 # EC49FWY — Relative-phase alias bifurcation and sharp two-channel observation costs
 
-**Date:** 2026-11-22. **Frozen science pin:** \`BRC16943\` (unchanged). **Parents:** EC49FWW \`61af64c051725e4caafd186efaeb6de7d23268ca\`, EC49FWX \`877375ab3e15d24d994bea046d534153fc2f6e67\`. **Status:** AUTHOR_PROVED / EXACT_FINITE_CROSSCHECK / PARENT_DEPENDENT / NOT_REVIEWED.
+**Date:** 2026-11-22. **Frozen science pin:** `BRC16943` (unchanged). **Parents:** EC49FWW `61af64c051725e4caafd186efaeb6de7d23268ca`, EC49FWX `877375ab3e15d24d994bea046d534153fc2f6e67`. **Status:** AUTHOR_PROVED / EXACT_FINITE_CROSSCHECK / PARENT_DEPENDENT / NOT_REVIEWED.
 
 ## Precise observer and provenance
 
@@ -101,8 +101,8 @@ Adaptive cost is at most \(2r\) by independently selecting \(r\) hits in each si
 
 ## Exact finite verification and limits
 
-Adjacent \`EC49FWY_RELATIVE_PHASE_VERIFY.js\` independently reconstructs the 72 primitive directions and 50 P10 masks, confirms gap histogram \(\{2:10,4:26,6:10,8:4\}\), explicitly constructs the optimal fixed layout for **every one of 110 relative offsets**, and for every \(r=1,\dots,20\) checks every one-pair disagreement block \(i=0,\dots,4\) against every excluded column \(j=0,\dots,10\): **121,000 exact integer distance checks, all PASS**. These single-pair cases are sufficient because every actual gap is a union of such blocks and each is realizable by the frozen family. It additionally checks the two/two alias parity identity for all 110 offsets. JSON output is saved beside the verifier. The proof is analytical for the specified finite auxiliary family; there has been no independent proof review, formal verification or native X6 temporal simulation.
+Adjacent `EC49FWY_RELATIVE_PHASE_VERIFY.js` independently reconstructs the 72 primitive directions and 50 P10 masks, confirms gap histogram \(\{2:10,4:26,6:10,8:4\}\), explicitly constructs the optimal fixed layout for **every one of 110 relative offsets**, and for every \(r=1,\dots,20\) checks every one-pair disagreement block \(i=0,\dots,4\) against every excluded column \(j=0,\dots,10\): **121,000 exact integer distance checks, all PASS**. These single-pair cases are sufficient because every actual gap is a union of such blocks and each is realizable by the frozen family. It additionally checks the two/two alias parity identity for all 110 offsets. JSON output is saved beside the verifier. The proof is analytical for the specified finite auxiliary family; there has been no independent proof review, formal verification or native X6 temporal simulation.
 
 **Next specific problem:** determine \(N_{\mathrm{fixed}}(D;r)\) exactly for structured **antipodal-free multi-offset** classes, beginning with parity-only uncertainty \(D=2\mathbb Z/110\) and finite offset intervals; then test same-anchor Farey trajectory constraints on physically reachable \(D\), retaining signs, affine seeds, height and complete joint-residual provenance.
 
-**Authority:** independent portable scientific continuation. Original \`RS-EC49AS\` at the current checked Source pin has no canonical publication directory; no Task CLAIM, Result, Review or promotion asserted. Existing native researcher/session/Activity provenance is reused without asserting execution authorization.
+**Authority:** independent portable scientific continuation. Original `RS-EC49AS` at the current checked Source pin has no canonical publication directory; no Task CLAIM, Result, Review or promotion asserted. Existing native researcher/session/Activity provenance is reused without asserting execution authorization.
