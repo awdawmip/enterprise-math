@@ -1,0 +1,102 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_AUTHOR_CONTINUATION_V1",
+  "record_kind": "AUTHOR_SCIENTIFIC_AND_CONTROL_CONTINUATION",
+  "created_date_local": "2026-11-23",
+  "timezone": "Asia/Hong_Kong",
+  "mother_task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "mother_question": "Prove T6=2332 globally or produce an exact cheaper collision of two exponent shapes with H0..H6 equal and per-side exponent mass<=2331",
+  "parent_objective_id": "EM-T6-SHAPE-MOMENT-EXACT-THRESHOLD",
+  "state": "AUTHOR_EXACT_P17_Q5_PRIMITIVE_MIXED_EXCLUSION / UNREVIEWED / NOT_ADMITTED / GLOBAL_T6_OPEN",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "activity_id": "RA-5E3FE1E761E4963EC461A892",
+  "activity_count_readback": 282,
+  "activity_commit": "ba90a67d7c50bfe459894ab49d16c632c2c42601",
+  "P000": {
+    "account_projection": "projects/enterprise-math/P000_STARTUP.json",
+    "canonical_blob_sha1": "770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc",
+    "state": "ACTIVE_LOCKED"
+  },
+  "frozen_science": {
+    "repository": "awdawmip/enterprise-math",
+    "path": "research_tasks/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260909.md",
+    "source_commit": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+    "git_blob_sha1": "87b3a6f38e9350f7a3f56624b27bff2a7778a439",
+    "repinned": false
+  },
+  "previous_immutable_author_frontier": {
+    "path": "research_notes/portable_direct/onhour_20261123_t6_p17_p13_high_valuation_author_continuation.json",
+    "source_commit": "fc6356aa2be94d629bc39fa02e12a87002751e4e",
+    "reused_as_source_not_recomputed": true
+  },
+  "completed_units": [
+    {
+      "id": "T6-P17-Q5-PRIMITIVE-FULL-MIXED-SIGNED-SUPPORT-ELIMINATION",
+      "statement": "No primitive maximal-p17 valuation-one vertical-order-five signed configuration with side mass<=2331 satisfies the six globally necessary mixed mod17^j congruences, even with arbitrary 17-free completion; common named vertical atoms transfer to lower-order frontier.",
+      "strength": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+      "evidence": [
+        {
+          "path": "research_notes/portable_direct/onhour_20261123_t6_p17_q5_full_primitive_mixed_congruence_exclusion.md",
+          "source_commit": "4a7536c8b9415e9e6052ebee64e69c5f3c38e581",
+          "blob": "b772250dda257f3db18361be9ab00b9a924f4665"
+        },
+        {
+          "path": "research_checks/T6_P17_Q5_EXACT_MODULAR_LATTICE_CHECK_20261123.py",
+          "source_commit": "c99f673ba13ffd30ceabb7695e5305b446e5f35f",
+          "blob": "2c1aa73268aa11300a32b9923e3bdbddb6190813",
+          "sha256": "3209834b799c34e702d21d2cd84cc5364e63c1867e5ec405c1f3e3a9484a522d"
+        },
+        {
+          "path": "research_checks/T6_P17_Q5_AUTHOR_EXACT_CERT_20261123.json",
+          "source_commit": "24357e01f1773c3d4016509176d6b741b99c7e89",
+          "blob": "e9e9d17c26576e5d298f2d580b2401572333f4f0",
+          "sha256": "d6e71d2581ea253224514e9c0b119da8255c2929fd7a8d2c8ee935c5f372fa5a"
+        }
+      ],
+      "counts": {
+        "primitive_pairs": 244120,
+        "common_named_pairs": 54656,
+        "raw_pairs": 298776,
+        "sphere_leaves": 0
+      }
+    }
+  ],
+  "do_not_repeat": [
+    "Earlier accepted maximal p>=29 and p23, historical p19 q0..8",
+    "Former author p19 q9..12 and p17 q12..14 at their actual author/evidence scope",
+    "Previously completed p17 p13 high valuation proofs",
+    "T6 p17 q5 primitive complete signed lattice census",
+    "Any denied/unknown native mutation; maintenance lane Researcher/Driver identities"
+  ],
+  "outstanding": [
+    "p17 q6 and higher primitive signed vertical orders and any lower-order cancellation predecessor coverage",
+    "Independent review and full lower-prime completion if any new modular kernel",
+    "Native T6 winning CLAIM and protected semantic PROGRESS, subject to current authorization",
+    "Separate original X6 physical experiment"
+  ],
+  "next_scientific_action": "Enumerate p17 valuation-one vertical order6 splits (0,6),(1,5),(2,4),(3,3) with exact source-pinned q0 lattice and full mixed mod17^j, skip only common named vertical atoms by explicit lower-order transfer; preserve any kernel for 17-free completion.",
+  "native": {
+    "service_version_last_read": "0.6.11",
+    "own_recovery_status_read": true,
+    "own_session_public_reference_only": true,
+    "original_previous_continuation": {
+      "request_id": "onhour-20261123-0105-t6-current-source-cont-v1",
+      "status": "SUCCEEDED",
+      "error": null
+    },
+    "original_current_task_read": {
+      "request_id": "onhour-20261123-0200-t6-current-read-02",
+      "status": "SUCCEEDED",
+      "error": null,
+      "execution_authorized": false
+    },
+    "winning_t6_claim_verified": false,
+    "current_t6_run_id": null,
+    "execution_authorized": false,
+    "protected_progress_published": false,
+    "next_control_action": "Consume existing exact receipts; only if current owner/typed contract and this actual lane capability authorize, prepare/CLAIM/open, no fresh dispatch while predecessor scope unresolved.",
+    "transfer": "No HANDOFF or release: no verified winning T6 claim."
+  }
+}
