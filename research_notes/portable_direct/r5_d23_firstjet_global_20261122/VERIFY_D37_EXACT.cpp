@@ -13,7 +13,7 @@ int main(){int M=148;vector<J>A(M+1);
 for(int mask=1;mask<8;mask++){
  vector<int>ids,U;for(int i=0;i<3;i++)if(mask>>i&1)ids.push_back(i);
  for(int id:ids)for(int p:E[id])U.push_back(p);
- sort(U.begin(),U.end());U.erase(unique(U.begin(),U.end());)
+ sort(U.begin(),U.end());U.erase(unique(U.begin(),U.end()),U.end());
  int n=ids.size(),total=1;for(int j=0;j<n;j++)total*=M;
  vector<int>mv(U.size()),belongs(U.size());
  for(size_t t=0;t<U.size();t++)for(int j=0,place=1;j<n;j++,place*=M){if(find(E[ids[j]].begin(),E[ids[j]].end(),U[t])!=E[ids[j]].end()){mv[t]+=place;belongs[t]|=1<<j;}}
