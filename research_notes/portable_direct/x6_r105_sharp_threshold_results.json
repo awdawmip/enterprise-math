@@ -1,0 +1,188 @@
+{
+  "schema": "X6_R105_SHARP_THRESHOLD_EXACT_V1",
+  "scientific_scope": "conditional auxiliary positive-count six-pair BRC star-gap observer; fixed w=(9,1,59,41); every integer Port p>=11",
+  "frozen_science": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json",
+  "weights": [
+    9,
+    1,
+    59,
+    41
+  ],
+  "denominators": [
+    10,
+    68,
+    50,
+    60,
+    42,
+    100
+  ],
+  "common_denominator": 35700,
+  "minimum_numerator": 3570,
+  "minimum_fraction": "1/10",
+  "threshold_numerator": 5355,
+  "threshold_fraction": "3/20",
+  "moment_box": {
+    "u": [
+      -1,
+      1
+    ],
+    "v": [
+      -10,
+      10
+    ],
+    "h": [
+      -7,
+      7
+    ]
+  },
+  "oriented_nonzero_congruence_candidates": 32,
+  "oriented_rejected_by_six_pairs": 4,
+  "oriented_closed_threshold_directions": 28,
+  "unoriented_closed_threshold_directions": 14,
+  "unoriented_strict_threshold_directions": 12,
+  "strict_N_port_thresholds": [
+    11,
+    16,
+    17,
+    21,
+    26,
+    27,
+    28,
+    33,
+    38
+  ],
+  "closed_extra_port_thresholds": [
+    37,
+    44
+  ],
+  "directions": [
+    {
+      "a": [
+        1,
+        0,
+        0
+      ],
+      "q": 1,
+      "score_numerator": 5100
+    },
+    {
+      "a": [
+        5,
+        -4,
+        1
+      ],
+      "q": 6,
+      "score_numerator": 5100
+    },
+    {
+      "a": [
+        9,
+        -5,
+        1
+      ],
+      "q": 10,
+      "score_numerator": 5100
+    },
+    {
+      "a": [
+        10,
+        -5,
+        1
+      ],
+      "q": 11,
+      "score_numerator": 3570
+    },
+    {
+      "a": [
+        14,
+        -9,
+        2
+      ],
+      "q": 16,
+      "score_numerator": 3570
+    },
+    {
+      "a": [
+        15,
+        -9,
+        2
+      ],
+      "q": 17,
+      "score_numerator": 5100
+    },
+    {
+      "a": [
+        19,
+        -10,
+        2
+      ],
+      "q": 21,
+      "score_numerator": 5100
+    },
+    {
+      "a": [
+        23,
+        -14,
+        3
+      ],
+      "q": 26,
+      "score_numerator": 5100
+    },
+    {
+      "a": [
+        24,
+        -14,
+        3
+      ],
+      "q": 27,
+      "score_numerator": 3570
+    },
+    {
+      "a": [
+        25,
+        -14,
+        3
+      ],
+      "q": 28,
+      "score_numerator": 5100
+    },
+    {
+      "a": [
+        29,
+        -18,
+        4
+      ],
+      "q": 33,
+      "score_numerator": 5100
+    },
+    {
+      "a": [
+        33,
+        -19,
+        4
+      ],
+      "q": 37,
+      "score_numerator": 5355
+    },
+    {
+      "a": [
+        34,
+        -19,
+        4
+      ],
+      "q": 38,
+      "score_numerator": 4165
+    },
+    {
+      "a": [
+        39,
+        -23,
+        5
+      ],
+      "q": 44,
+      "score_numerator": 5355
+    }
+  ],
+  "implication": "At every p>=44 there are 14 unoriented vectors with F<=3 eta/2; at every p>=38 exactly 12 with F<3 eta/2. Hence the universal 13-class guarantee fails for any strict cutoff factor lambda>3/2, even in this BRC family.",
+  "verification": "EXACT_INTEGER_ENUMERATION_OF_PROVEN_COMPLETE_945_MOMENT_BOX; AUTHOR_CHECK"
+}
