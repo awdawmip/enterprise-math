@@ -1,0 +1,72 @@
+{
+  "schema": "PREFIX1013_R6_BRC_PORT_OBSERVER_CERT_V1",
+  "source_pin": "enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d:p000_reality_foundation.json",
+  "candidate_kernel": "Stage46 signed BRC w(h,d)=1-6*indicator(h==d)",
+  "observer": "joint Cell/incoming-port signed character then square; signed total separately",
+  "masked_link": "0<->e1, absorbed without renormalization",
+  "two_step": {
+    "states": [
+      "(e2,-e1)",
+      "(3e2,-e1)"
+    ],
+    "initial_S": [
+      1,
+      1
+    ],
+    "initial_D": [
+      0,
+      0
+    ],
+    "after_step_1_S": [
+      6,
+      6
+    ],
+    "after_step_1_D": [
+      1,
+      0
+    ],
+    "after_step_2_S": [
+      35,
+      36
+    ],
+    "after_step_2_squared_numerator_all_grades": [
+      1295,
+      1296
+    ],
+    "after_step_2_squared_numerator_one_negative": [
+      1079,
+      1080
+    ],
+    "after_step_2_signed_one_negative": [
+      -1,
+      0
+    ]
+  },
+  "port_marginal": {
+    "theorem_n": "all integers n>=5",
+    "each_final_incoming_minus_ej_signed_amplitude": "25/1296",
+    "each_final_incoming_plus_ej_signed_amplitude": "0",
+    "total_signed_amplitude": "25/216",
+    "checked_n": [
+      5,
+      6,
+      7,
+      8
+    ],
+    "per_positive_last_port_signed_numerator": [
+      150,
+      900,
+      5400,
+      32400
+    ],
+    "joint_fibres_at_n": [
+      2096,
+      4262,
+      6868,
+      13603
+    ],
+    "squared_joint_port_mass_n5": "5285/419904"
+  },
+  "validation": "PASS: signed integer BRC DP and independent N[Z2] phase cover agree on every joint Cell-port fibre n=5..8; two-step arbitrary typed state checks exact",
+  "status": "AUTHOR_PROOF_EXACT_COMPUTATION_NOT_REVIEWED"
+}
