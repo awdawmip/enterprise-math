@@ -13,7 +13,7 @@ Frozen science remains research_tasks/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_2026090
 | q14 (7,7), unordered | 37,814,556 | 18,231,969 | 19,582,587 | 20,498,934 | 0 |
 | q15 (7,8) | 8,697 | 0 | 8,697 | 8,952 | 0 |
 | q16 (8,8), unordered | **0** | 0 | **0** | 0 | 0 |
-| **New combined** | **452,122,337** | **201,099,010** | **251,023,327** | **270,311,867** | **0** |
+| **New combined** | **452,121,637** | **201,099,010** | **251,022,627** | **270,311,867** | **0** |
 
 For q13 (6,7) the complete 47,628×8,697 oriented side product was processed in disjoint left-roster ranges [0,23814),[23814,47628), both terminal zero leaves; no unvisited pair. For q16 the only legal order8 side roster is the same singleton (8,1) on both sides. The diagonal is self-pairing, cancels by identical full named denominator; therefore there is **no distinct primitive unordered pair**, giving a structural empty case rather than a numerically tested negative. Other five cases ran actual C++17 -O3 local full exact integer outward-interval enumeration and all returned zero terminal sphere leaves.
 
