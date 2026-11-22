@@ -1,0 +1,84 @@
+{
+  "schema": "EM_PORT_PARITY_CENSUS_R762IQ_V1",
+  "date": "2026-11-22",
+  "timezone": "Asia/Shanghai",
+  "scientific_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "predecessor": "449ecf17d3407c86a18323288fa5972c742d6ab6",
+  "domain": "n_S in {0,1,2,3}; sum_S n_S in {54,56,58,60}; exact local admissibility F(M) subset zeros; all 15 Port masks",
+  "histograms": 181946,
+  "pairs_total": 14260096,
+  "degree_parity_possible": 14259376,
+  "degree_parity_impossible": 720,
+  "by_missing_supports": [
+    {
+      "m": 0,
+      "histograms": 155156,
+      "pairs": 11791856,
+      "possible": 11791856,
+      "impossible": 0
+    },
+    {
+      "m": 1,
+      "histograms": 26600,
+      "pairs": 2447200,
+      "possible": 2447200,
+      "impossible": 0
+    },
+    {
+      "m": 2,
+      "histograms": 190,
+      "pairs": 21040,
+      "possible": 20320,
+      "impossible": 720
+    }
+  ],
+  "by_event_count": [
+    {
+      "count": 60,
+      "possible": 76,
+      "impossible": 0
+    },
+    {
+      "count": 58,
+      "possible": 15960,
+      "impossible": 0
+    },
+    {
+      "count": 56,
+      "possible": 677540,
+      "impossible": 0
+    },
+    {
+      "count": 54,
+      "possible": 13565800,
+      "impossible": 720
+    }
+  ],
+  "obstruction_structure": "All 720: two absent supports with one shared axis, all others n=3, exactly two free components: an odd-charge isolated Port and one large component.",
+  "failure_by_inactive": [
+    {
+      "size": 3,
+      "count": 360,
+      "six_axis_orbits": 1
+    },
+    {
+      "size": 4,
+      "count": 360,
+      "six_axis_orbits": 1
+    }
+  ],
+  "test_commands": [
+    "g++ -std=c++17 -O3 R762IQ_EXHAUSTIVE_PARITY_FILTER.cpp -o /tmp/r762iq && /tmp/r762iq",
+    "python3 R762IQ_INDEPENDENT_ORBIT_CHECK.py"
+  ],
+  "local_test_results": [
+    "PASS R762IQ_EXHAUSTIVE_PARITY_FILTER",
+    "PASS R762IQ_INDEPENDENT_TWO_ZERO_SCAN; failures=720"
+  ],
+  "limitations": [
+    "Parities not equivalent to connected Euler realization",
+    "No 52-event global theorem acceptance",
+    "Independent mathematical review not completed"
+  ],
+  "next": "Validate connectivity, exact active-set equality and 52-event witness for parity feasible high-tail pairs."
+}
