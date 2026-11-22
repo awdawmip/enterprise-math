@@ -1,0 +1,63 @@
+{
+  "schema": "PREFIX1017_BRC_DERIVED_ASYMPTOTIC_CHECK_V1",
+  "date": "2026-11-22",
+  "science_input": "frozen P000 V5; Stage46 candidate k=1 single-Link BRC; PREFIX-1016 three-shift terminal observer",
+  "proof_status": "AUTHOR_ASYMPTOTIC_PROOF_NOT_REVIEWED",
+  "exact_check": {
+    "method": "A_d(r)=sum_{k=0}^r binom(r,k)^2*A_{d-1}(r-k), A_1(r)=1; exact Fraction coefficients",
+    "all_integer_steps": {
+      "m_min": 1,
+      "m_max": 300,
+      "n_min": 5,
+      "n_max": 304,
+      "all_positive": true
+    },
+    "known_prefix_contrasts": {
+      "5": "25620",
+      "6": "386028",
+      "7": "7124592",
+      "8": "149251656",
+      "10": "81969197100"
+    }
+  },
+  "symbolic_check": {
+    "general_coefficient": "Delta/(C*36^m*m^(-5/2))=226800/m+(1178064*alpha/5-2263140)/m^2+O(m^-3)",
+    "alpha": "-5/8",
+    "next_coefficient": "-2410398",
+    "normalized": "m*Delta/A6(m+3)=175/36-73/(6*m)+O(m^-2)"
+  },
+  "observed_ratios": [
+    {
+      "m": 20,
+      "ratio": "4.2969469141497582248573622382323",
+      "two_term": "4.2527777777777777777777777777778"
+    },
+    {
+      "m": 50,
+      "ratio": "4.6253083008464666289704702117940",
+      "two_term": "4.6177777777777777777777777777778"
+    },
+    {
+      "m": 100,
+      "ratio": "4.7413623398271891384681313213550",
+      "two_term": "4.7394444444444444444444444444444"
+    },
+    {
+      "m": 200,
+      "ratio": "4.8007615567896199762555136571033",
+      "two_term": "4.8002777777777777777777777777778"
+    },
+    {
+      "m": 300,
+      "ratio": "4.8207711999388864956315318415487",
+      "two_term": "4.8205555555555555555555555555556"
+    }
+  ],
+  "scope": {
+    "integer_checks": "complete finite range 5..304 only",
+    "asymptotic": "all sufficiently large n, ineffective threshold",
+    "open_question": "strict delta>0 for all n>=5",
+    "independence": "not independently reviewed; no new native Stage46 trajectory executed"
+  },
+  "reproducer": "research_notes/portable_direct/PREFIX1017_R6_POSITIVE_PORT_ASYMPTOTIC_CHECK.py"
+}
