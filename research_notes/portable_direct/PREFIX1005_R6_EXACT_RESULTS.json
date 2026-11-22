@@ -1,0 +1,158 @@
+{
+  "schema": "PREFIX1005_X6_BRC_ORBIT_COLLISION_V1",
+  "source": "PREFIX-1004 exact joint-port Laurent packets; frozen P000 V5 @f42f2906",
+  "native_carrier": "N-weighted Z2 phase cover, signed character on joint terminal Cell/last incoming port",
+  "observer": "single Link {0,e1} absorbing mask; first interior (one negative step)",
+  "identity": "36^n M^L_(n,1) = sum_{orbits O} coeff_O(n) H_(n-4)(delta_O), for all n>=5",
+  "raw_distinct_laurent_shifts": 1281,
+  "orbit_count": 11,
+  "orbits": [
+    {
+      "representative": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "raw_shift_count": 1,
+      "coefficient_polynomial": "30*(722*n**2 - 4610*n + 8055)"
+    },
+    {
+      "representative": [
+        -1,
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "raw_shift_count": 30,
+      "coefficient_polynomial": "60*(378*n**2 - 2371*n + 5924)"
+    },
+    {
+      "representative": [
+        -2,
+        0,
+        0,
+        0,
+        0,
+        2
+      ],
+      "raw_shift_count": 30,
+      "coefficient_polynomial": "-60*(57*n**2 - 235*n + 185)"
+    },
+    {
+      "representative": [
+        -2,
+        0,
+        0,
+        0,
+        1,
+        1
+      ],
+      "raw_shift_count": 120,
+      "coefficient_polynomial": "-480*(63*n**2 - 340*n + 458)"
+    },
+    {
+      "representative": [
+        -1,
+        -1,
+        0,
+        0,
+        1,
+        1
+      ],
+      "raw_shift_count": 90,
+      "coefficient_polynomial": "-720*(69*n**2 - 451*n + 749)"
+    },
+    {
+      "representative": [
+        -3,
+        0,
+        0,
+        0,
+        0,
+        3
+      ],
+      "raw_shift_count": 30,
+      "coefficient_polynomial": "60*(n - 4)*(2*n + 1)"
+    },
+    {
+      "representative": [
+        -3,
+        0,
+        0,
+        0,
+        1,
+        2
+      ],
+      "raw_shift_count": 240,
+      "coefficient_polynomial": "1440*(2*n**2 - 9*n + 2)"
+    },
+    {
+      "representative": [
+        -3,
+        0,
+        0,
+        1,
+        1,
+        1
+      ],
+      "raw_shift_count": 120,
+      "coefficient_polynomial": "1440*(2*n**2 - 10*n + 5)"
+    },
+    {
+      "representative": [
+        -2,
+        -1,
+        0,
+        0,
+        1,
+        2
+      ],
+      "raw_shift_count": 360,
+      "coefficient_polynomial": "6480*(2*n**2 - 11*n + 8)"
+    },
+    {
+      "representative": [
+        -2,
+        -1,
+        0,
+        1,
+        1,
+        1
+      ],
+      "raw_shift_count": 240,
+      "coefficient_polynomial": "8640*(2*n**2 - 12*n + 11)"
+    },
+    {
+      "representative": [
+        -1,
+        -1,
+        -1,
+        1,
+        1,
+        1
+      ],
+      "raw_shift_count": 20,
+      "coefficient_polynomial": "1440*(2*n**2 - 13*n + 14)"
+    }
+  ],
+  "exact_old_certificate_rechecks": {
+    "5": "5285/419904",
+    "6": "9715/1259712",
+    "7": "1341545/272097792",
+    "8": "259181485/78364164096",
+    "9": "2182586395/940369969152",
+    "10": "172091043715/101559956668416",
+    "12": "130785910556945/131621703842267136",
+    "14": "3036179298003535/4738381338321616896",
+    "16": "5427336630506440015/12281884428929630994432",
+    "20": "89379684726508120031933065/371319292745659279662190166016"
+  },
+  "verification": "symbolic exact group-ring expansion; integer multinomial collision sums; exact comparisons to PREFIX-1004 certificate",
+  "formal_review": "NOT_REVIEWED",
+  "future_operation_scope": "fixed final scalar only; no intermediate/history/field gate compression authorization"
+}
