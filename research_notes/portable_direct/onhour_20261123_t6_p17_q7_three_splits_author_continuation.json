@@ -1,0 +1,148 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_AUTHOR_CONTINUATION_V1",
+  "record_kind": "AUTHOR_SCIENTIFIC_AND_CONTROL_CONTINUATION",
+  "created_date_local": "2026-11-23",
+  "timezone": "Asia/Hong_Kong",
+  "mother_task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "parent_objective_id": "EM-T6-SHAPE-MOMENT-EXACT-THRESHOLD",
+  "mother_question": "Prove global T6=2332 or find an exact cheaper H0..H6 collision with exponent-mass <=2331 on both sides.",
+  "original_research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "scientific_frozen_pin": {
+    "repository": "awdawmip/enterprise-math",
+    "path": "research_tasks/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260909.md",
+    "source_commit": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+    "git_blob_sha1": "87b3a6f38e9350f7a3f56624b27bff2a7778a439",
+    "repinned": false
+  },
+  "P000": {
+    "state": "ACTIVE_LOCKED",
+    "account_projection": "projects/enterprise-math/P000_STARTUP.json",
+    "canonical_blob": "770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc"
+  },
+  "researcher_id": "EM-X6-FB6990",
+  "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "scientific_activity": {
+    "activity_id": "RA-5E3FE1E761E4963EC461A892",
+    "event_count": 289,
+    "readback_commit": "9a266e709896965cd091741edbf8d8130da8adbd",
+    "git_blob_sha1": "bc16c2b7b291223f74affa92564b7842c939d24f"
+  },
+  "provenance_correction": {
+    "verified_prior_activity_count": 286,
+    "observation": "Current source already contained p17 q6 split(2,4) and split(3,3) authored checkpoints at this run's first complete Activity read; this run independently recomputed same scopes, saved auxiliary corroboration files but did NOT count them as new science or independent review."
+  },
+  "completed_units": [
+    {
+      "id": "T6-P17-Q7-SPLIT0_7-GLOBAL-MIXED-EXCLUSION",
+      "raw_pairs": 8697,
+      "shared_vertical_pairs": 0,
+      "primitive_pairs": 8697,
+      "GS_nodes": 40799,
+      "sphere_leaves": 0,
+      "author_result": "ZERO_Q0_SPHERE_LEAVES",
+      "proof": {
+        "commit": "b2835aa339aa2b166a2dc65422cff08aa20a2412",
+        "path": "research_notes/portable_direct/onhour_20261123_t6_p17_q7_split0_7_exact_global_mixed_exclusion.md"
+      },
+      "checker": {
+        "commit": "dcdbb78a7e8df536c2e4e13dd476aba76f38b20a",
+        "path": "research_checks/T6_P17_Q7_SPLIT0_7_MIXED_AFFINE_CHECK_20261123_0320.py"
+      },
+      "certificate": {
+        "commit": "6d4b314959d279eca38442c0ae44f34dd36ef050",
+        "path": "research_checks/T6_P17_Q7_SPLIT0_7_AUTHOR_CERT_20261123_0320.json"
+      },
+      "state": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED"
+    },
+    {
+      "id": "T6-P17-Q7-SPLIT1_6-GLOBAL-MIXED-EXCLUSION",
+      "raw_pairs": 762048,
+      "shared_vertical_pairs": 128023,
+      "primitive_pairs": 634025,
+      "GS_nodes": 2052835,
+      "sphere_leaves": 0,
+      "author_result": "ZERO_Q0_SPHERE_LEAVES",
+      "proof": {
+        "commit": "3b14546a7531ca99d5d417ec95c29196cc2c0c92",
+        "path": "research_notes/portable_direct/onhour_20261123_t6_p17_q7_split1_6_exact_global_mixed_exclusion.md"
+      },
+      "checker": {
+        "commit": "82dce380b0f8f01faac205d03f63092a3dfe3063",
+        "path": "research_checks/T6_P17_Q7_SPLIT1_6_MIXED_AFFINE_CHECK_20261123_0340.py"
+      },
+      "certificate": {
+        "commit": "0ccd04dec2ba18a78d0068faba0033efe1777ac0",
+        "path": "research_checks/T6_P17_Q7_SPLIT1_6_AUTHOR_CERT_20261123_0340.json"
+      },
+      "state": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED"
+    },
+    {
+      "id": "T6-P17-Q7-SPLIT2_5-GLOBAL-MIXED-EXCLUSION",
+      "raw_pairs": 4566080,
+      "shared_vertical_pairs": 1359386,
+      "primitive_pairs": 3206694,
+      "GS_nodes": 7848081,
+      "sphere_leaves": 0,
+      "author_result": "ZERO_Q0_SPHERE_LEAVES",
+      "proof": {
+        "commit": "a33e403c79b7b800c98a208a2bb11af6dcfca40d",
+        "path": "research_notes/portable_direct/onhour_20261123_t6_p17_q7_split2_5_exact_global_mixed_exclusion.md"
+      },
+      "checker": {
+        "commit": "a0fe32c389037394aa1ae1a90f7bd29c7a3e1a20",
+        "path": "research_checks/T6_P17_Q7_SPLIT2_5_MIXED_AFFINE_CHECK_20261123_0405.py"
+      },
+      "certificate": {
+        "commit": "be65c19b24eae434e16ab6b076a7241eccc396e0",
+        "path": "research_checks/T6_P17_Q7_SPLIT2_5_AUTHOR_CERT_20261123_0405.json"
+      },
+      "state": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED"
+    }
+  ],
+  "reusable_exact_method": {
+    "q0_basis_blob": "d9ac014355a6a1058cc8a0cf2141a01082628881",
+    "source_checker": "research_checks/T6_P17_Q5_EXACT_MODULAR_LATTICE_CHECK_20261123.py",
+    "source_checker_blob": "2c1aa73268aa11300a32b9923e3bdbddb6190813",
+    "mass_per_side": 2331,
+    "mixed_congruences": "j=1..6 mod 17^j, unrestricted p17-free completion",
+    "lower_bound_method": "Exact Fraction GS necessary weighted sphere full lattice"
+  },
+  "unresolved_evidence": [
+    "Independent nonauthor review of finite coverage and exact certificate execution",
+    "Formal T6 Source Result/Review admission",
+    "Native winning CLAIM/RUN and protected semantic PROGRESS",
+    "Remaining p17 q7 split(3,4), p17 higher orders, low-prime layers, global H0..H6 completion"
+  ],
+  "do_not_repeat": [
+    "Accepted prior p>=29,p23,p19 and q1-q4 campaigns",
+    "Author p17 q5 and four q6 splits; prior q6 (2,4),(3,3) already Activity-linked",
+    "Newly completed three q7 splits (0,7),(1,6),(2,5)",
+    "Never publish compact reproducer as executed; original standalone local exact Python was executed and chunk hashes preserved",
+    "Portable Activity is not Source winning CLAIM or native semantic PROGRESS; do not borrow maintenance Researcher/Driver identity"
+  ],
+  "next_science": {
+    "exact_unit": "T6 p17 valuation-one q7 split(3,4) complete named roster/global mixed affine test",
+    "inputs": "Order 3 side 1088 rosters, order 4 side 6460 rosters; signed q0 lattice and each original mass budget; eliminate shared named support as lower order",
+    "next_exact_action": "Enumerate 1088 x 6460 exact named side pairs with original mass; exclude common named support; compute six mixed residue affine classes and exact q0 sphere with complete saturated lattice; preserve original budget and lower-prime completion obligations; checkpoint per complete chunk and consolidate before an exclusion assertion. If a lattice candidate appears, preserve signed integer vector and test both budgets.",
+    "next_after": "If order7 (3,4) excluded, evaluate q8 minimal primitive split; preserve completed q7 evidence and actual control owner."
+  },
+  "native_control": {
+    "version": "0.6.11",
+    "current_task_request_id": "onhour-20261123-0315-t6-current-task-read-v1",
+    "current_task_request_status": "SUCCEEDED",
+    "current_task_error": null,
+    "task_snapshot": {
+      "owner": "taskbook/unassigned",
+      "claim_id": null,
+      "execution_authorized": false
+    },
+    "old_continuation_request_id": "onhour-20261123-0105-t6-current-source-cont-v1",
+    "old_continuation_status": "SUCCEEDED",
+    "winning_T6_claim_verified": false,
+    "current_T6_run_id": null,
+    "protected_semantic_progress_published": false,
+    "next_control_action": "No mutation based on account recovery projection. If a new genuine Task unit boundary requires execution right, consume current exact continuation and current Source/head and only then apply proper canonical selection or typed predecessor prepare and own winning claim."
+  },
+  "state": "THREE_NEW_Q7_AUTHOR_UNITS_GITHUB_VERIFIED_AND_ACTIVITY289; T6_GLOBAL_OPEN; PROTECTED_NATIVE_PROGRESS_UNPUBLISHED"
+}
