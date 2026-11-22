@@ -1,0 +1,20 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/R284EY_SINGLE_MASK_CHANGE_COLLAPSES_FIXED_FAULT_GAIN_20261123.md",
+    "ref": "68a982c9c9ab4a01f1c46dce0b9c9ec5c124a6e9",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "call_id": null,
+  "observation_id": "r1-20261123-0316-r284eyez-source-1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# R284EY — 单次任意持久故障掩码变更消除固定掩码冗余优势\n\n日期：2026-11-23（Asia/Shanghai）。范围：独立 portable TASK_RESEARCH，沿用冻结 R284CO Port 科学输入及 R284EW、R284EX 四代标签模型。新结果为离散 Hamming 编码定理；没有执行 BRC 运算、重新枚举 Port、改变 P000 或宣称独立审核。\n\n## 定义及观察契约\n\n四个互异稳定标签 c₀,c₁,c₂,c₃∈{0,1}ⁿ 周期发布。每次 cᵢ→cᵢ₊₁ 只将两码字的差异位逐个正确持久翻转；写者可以在任一前缀暂停并被反复读取。读出 Y=Xⱼ⊕F(t)⊕Rₜ，其中 wt(Rₜ)≤u，F 在整条发布边内最多发生**一次状态改变**，改变前后掩码 F₋、F₊ 分别任意满足 wt(F₋),wt(F₊)≤q；允许在同一写入前缀的两次读出之间改变掩码，不限制该次改变的地址数量。u,q 是非负整数。\n\n无状态译码器 D(Y) 在且仅在存在唯一稳定码字 cᵢ 满足 d_H(Y,cᵢ)≤v:=u+q 时返回 i，其余返回 RETRY。所有稳定端点必须正确，过渡中成功读出只可属于该边的旧/新代；读出序列不得在出现新代后再出现旧代，包括同一前缀的两次读取。这是明确的“最多一次任意掩码跳变”模型，不是一次仅一个地址翻转模型。\n\n## 主定理（所有非负整数参数严格最优）\n\nn_min^{one-switch}(u,q)=**5(u+q)+2**。\n\n相较于 [R284EX 的全发布固定故障掩码界](https://github.com/awdawmip/enterprise-math/blob/ffc26a5003a42ccac2c094bf9d751e04103215a5/research_notes/portable_direct/R284EX_FIXED_MASK_TORN_TAG_SHARP_FOUR_CYCLE_20261123.md) n_fixed=5u+4q+2，允许上述单次任意变更，即损失全部 q 位相关性节约。旧的 [R284EW 四银行分离接口](https://github.com/awdawmip/enterprise-math/blob/1e1f5752966d021f66d0d67a394b0b0b95938558/research_notes/portable_direct/R284EW_EARLY_VISIBLE_ABA_FOUR_TAG_SHARP_BANKS_20261123.md) 在 H=2 且每银行 L 位、标签故障不侵入银行的前提下，联合成本为 4L+5(u+q)+2。\n\n## 必要性（直接证明）\n\n置 v=u+q。每个重量≤v 的总掩码 E 均可分为 F⊕R，wt(F)≤q、wt(R)≤u，故端点 v-纠错球两两不得相交，四码字的六对距离至少 2v+1。\n\n考虑有向环边 a→b，d=d_H(a,b)。将差异位顺序记成 a=0ᵈ,b=1ᵈ；在前缀进度 j，读数前的理想码字 Xⱼ 与 a,b 分别距离 j,d−j。若 2v+1≤d≤4v，则可选择 j，使 max(0,d−2v)≤j≤min(d,2v)，从而 Xⱼ 同时距 a,b 不超过2v。\n\n两个半径 v 的球相交判据说明可选择 Y₊ 满足 d_H(Y₊,Xⱼ)≤v、d_H(Y₊,b)≤v，及 Y₋ 满足 d_H(Y₋,Xⱼ)≤v、d_H(Y₋,a)≤v。把每次 Y⊕Xⱼ 拆成≤q的 F 和≤u的 R，即可在同一前缀先读出 b，再让 F 在两次读出之间至多变更一次后读出 a。端点码字的 v-球彼此不交，返回标签唯一，违反无回退。若两个 F 偶然相同，零次变更本来就被允许。d≤2v 时端点唯一纠错失败。因此四条环边均要求 d≥4v+1；两条对角线至少 d≥2v+1。\n\n每个二进制坐标对四码字六对距离之和贡献至多4，所以\n\n4n≥4(4v+1)+2(2v+1)=20v+6，故 n≥⌈5v+3/2⌉=5v+2。\n\n**锐边界的显式反例：** 设 d=4v、j=2v，Xⱼ 的前2v位为1。第一次把之后v个0向b翻转，第二次把之前v个1向a翻转；两组总翻转各恰为v，并可任意拆成q位F与u位R。得到同一前缀的“新→旧”读数。若 v=0，则相邻码字互异已要求d≥1。\n\n## 充分性（显式码及逐位写入顺序）\n\nv≥1 时分三段 A|B|C，长度分别 v、3v+1、v+1，定义 c₀=0A|0B|0C，c₁=0A|1B|1C，c₂=1A|0B|1C，c₃=1A|1B|0C。环边距离交替为4v+2、4v+1，对角线距离均为2v+1，总长度正好5v+2。\n\n对变化于B/C的边：先写B的2v位，随后交错写C一位、余下B一位，重复v+1次。对变化于B/A的边：先写B的2v+1位，随后交错写A一位、余下B一位，重复v次。每个写入前缀到其余两名非端点码字的距离均≥2v+1；其证明可直接按已写B位数x、已写A/C位数z，令δ=x−z，得到非端点距离分别为2v+1+δ、4v+1−δ或2v+1+δ、4v+2−δ，且δ分别在[0,2v]或[0,2v+1]中。\n\n任意F⊕R重量≤v，故成功读出只可能属于环边旧/新端点。旧代只能在进度j≤2v被读出，新代只能在进度j≥d−2v≥2v+1被读出，故前缀单调性排除“新→旧”回退。所有端点均在相互不交的半径v球内唯一译码。v=0 时选两位Gray循环 00→01→11→10→00，每边仅一位变化，n=2。达到全部下界。\n\n## 计算与验证证据\n\nPython标准库整数穷举，已实际运行 u,q∈{0,1,2} 九组配置的全部四条边、全部写入前缀和每个重量≤u+q的合并读错；总计 **781,188 次**解码，全部 PASS。9组的精确计数依次为8、208、3318、208、3318、48372、3318、48372、674066。独立按同一前缀构造 d=4v 的 F₋/F₊ 及 R₋/R₊ 新旧反序见证。计算覆盖所有单读可达状态（每次的合并误差球正好为半径v），一般整数结论由上面的解析论证支撑；未做独立审稿和形式化证明。\n\n复算程序：同目录 R284EY_one_mask_change_checker.py；证书：R284EY_one_mask_change_certificate.json。源边界保持 [R284EX](https://github.com/awdawmip/enterprise-math/blob/ffc26a5003a42ccac2c094bf9d751e04103215a5/research_notes/portable_direct/R284EX_FIXED_MASK_TORN_TAG_SHARP_FOUR_CYCLE_20261123.md) 的原冻结 pin，而非更改科学输入。研究等级 AUTHOR_PROVED / EXACT_FINITE_CHECKED / NOT_REVIEWED。\n\n## 下一问题\n\n单次变化幅度另满足 wt(F₋⊕F₊)≤h（特别是1≤h<2q），或只准在一次成功写入以后变化时，重新求最小环边距离与四标签位数；比较可信地址观测是否能使容量位于5u+4q+2与5u+5q+2之间。区分主定理中“掩码仅变化一次”和“仅有一个地址发生变化”。本文件是独立非覆盖式科学成果，不代表共享CLAIM、Result或Review。\n",
+      "display_title": "R284EY_SINGLE_MASK_CHANGE_COLLAPSES_FIXED_FAULT_GAIN_20261123.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/68a982c9c9ab4a01f1c46dce0b9c9ec5c124a6e9/research_notes/portable_direct/R284EY_SINGLE_MASK_CHANGE_COLLAPSES_FIXED_FAULT_GAIN_20261123.md",
+      "encoding": "utf-8",
+      "sha": "53f711d4f488eae2bcc44d913e5e42a04ffe7537"
+    }
+  },
+  "tool_name": "mcp__GitHub__fetch_file"
+}
