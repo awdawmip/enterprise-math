@@ -1,0 +1,95 @@
+{
+  "frozen_residue_sha256": "b6ce76b2c08b9ec6b79ec83173befd2589928ca7c636643c3eaecd40405f4ff4",
+  "nature": "Exact graph-derived finite checker, not a new Port exhaustive enumeration",
+  "proof": "General unbounded t,e,k follows from product-ball intersection, P4/K3 graph lower bounds, and explicit codes; finite tests do not establish the universal step.",
+  "results": {
+    "four_port": {
+      "bipartite_phase": [
+        30,
+        4715
+      ],
+      "critical_edges_at_threshold": [
+        "0-1",
+        "1-2",
+        "2-3"
+      ],
+      "critical_edges_next": [
+        "0-1",
+        "0-2",
+        "1-2",
+        "2-3"
+      ],
+      "old_a_reliable_threshold": "t >= 2e+1",
+      "opt_new_storage_when_old_reliable": [
+        "0",
+        "0",
+        "2k+1"
+      ],
+      "opt_new_storage_when_old_unreliable": [
+        "0",
+        "2k+1",
+        "3k+2"
+      ],
+      "opt_total_if_t_is_chosen_freely": [
+        "0",
+        "min(2k+1,2e+1)",
+        "min(3k+2,2e+2k+2)"
+      ],
+      "triangle_onset": 4716,
+      "zero_storage_without_old": "E <= 29"
+    },
+    "two_port": {
+      "bipartite_phase": [
+        30,
+        4696
+      ],
+      "critical_edges_at_threshold": [
+        "0-1",
+        "1-2",
+        "2-3"
+      ],
+      "critical_edges_next": [
+        "0-1",
+        "0-2",
+        "1-2",
+        "2-3"
+      ],
+      "old_a_reliable_threshold": "t >= 2e+1",
+      "opt_new_storage_when_old_reliable": [
+        "0",
+        "0",
+        "2k+1"
+      ],
+      "opt_new_storage_when_old_unreliable": [
+        "0",
+        "2k+1",
+        "3k+2"
+      ],
+      "opt_total_if_t_is_chosen_freely": [
+        "0",
+        "min(2k+1,2e+1)",
+        "min(3k+2,2e+2k+2)"
+      ],
+      "triangle_onset": 4697,
+      "zero_storage_without_old": "E <= 29"
+    }
+  },
+  "review": "NOT_REVIEWED",
+  "schema": "R284EO_TWO_TIER_ERROR_PROTECTION_GRAPH_CHECK_V1",
+  "scope": {
+    "E_range": [
+      0,
+      8656
+    ],
+    "port_types": [
+      "two_port",
+      "four_port"
+    ],
+    "tested_k": "0..5 on selected E; 0..3 on all E",
+    "tested_old_e": "0..3 on selected E",
+    "tested_old_t": "0..7 on selected E"
+  },
+  "source_certificate": "research_notes/portable_direct/R284EM_history_aware_tag_certificate.json",
+  "source_frozen_commit": "acba2d8667903434aaa2a10720f43637fcc2421b",
+  "tested_five_tuples": 195062
+}
