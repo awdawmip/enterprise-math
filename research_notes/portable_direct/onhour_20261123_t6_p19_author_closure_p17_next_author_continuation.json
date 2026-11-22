@@ -1,0 +1,179 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_AUTHOR_CONTINUATION_V1",
+  "record_kind": "AUTHOR_SCIENTIFIC_AND_CONTROL_CONTINUATION",
+  "created_date_local": "2026-11-23",
+  "local_timezone": "Asia/Hong_Kong",
+  "mother_task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "parent_objective_id": "EM-T6-SHAPE-MOMENT-EXACT-THRESHOLD",
+  "mother_question": "T6=2332 global exact threshold OR exact cheaper collision with H0..H6 identical and side masses<=2331",
+  "state": "AUTHOR_P19_MAXIMAL_PRIME_FINITE_EXCLUSION_WITH_PRIOR_P19_Q0_Q8; GLOBAL_OPEN",
+  "scientific_input_policy": "ORIGINAL_FROZEN_SOURCE_PIN_NOT_REBASED",
+  "p000": {
+    "account_blob_sha1": "770e1b157fc10aab7b25d80c2cd52d6fcd07c9dc",
+    "worldview": "ACTIVE_LOCKED"
+  },
+  "lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_lane_excluded": "chatgpt-hourly-enterprise-math-20260921",
+  "researcher_id": "EM-X6-FB6990",
+  "session_id": "MCP-082892eb480e45dea6d4b9fcc0491034",
+  "activity_id": "RA-5E3FE1E761E4963EC461A892",
+  "native": {
+    "winning_claim_id": null,
+    "current_run_id": null,
+    "winning_claim_verified": false,
+    "execution_authorized": false,
+    "semantic_progress_published": false,
+    "original_pending_result": {
+      "request_id": "onhour-20261123-0008-own-t6-cont-read-v1",
+      "operation": "continuation",
+      "status": "SUCCEEDED",
+      "error": null,
+      "action": "CONSUMED_SUCCESS_AS_HISTORICAL_SOURCE_PACKET_NOT_AUTHORITY"
+    },
+    "old_task_result": {
+      "request_id": "onhour-20261122-2205-t6-task-current-read-v1",
+      "status": "SUCCEEDED",
+      "as_of": "2026-11-22T14:17:14Z",
+      "owner": "taskbook/unassigned"
+    }
+  },
+  "existing_closed_frontier": [
+    "T1..T5 exact values",
+    "T6<=2332 degree6 L360 witness",
+    "maximal primes p>=29 eliminated before 2332",
+    "entire p23 layer eliminated",
+    "maximal p19 cancellation-normalized vertical orders0..8 per original canonical Task Publication; preserved at prior Source evidence strength"
+  ],
+  "new_author_completed_units": [
+    {
+      "id": "T6-P19-V19-GE2-CANCEL",
+      "statement": "H0..H6 matching and side mass<=2331 force c_q=0 for every denominator19²q q=1..6, exact signed multiplicity.",
+      "result": "PROVED_WITH_MOD19_6X6_VANDERMONDE_DET11",
+      "sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "path": "research_notes/portable_direct/onhour_20261123_t6_p19_v19_squared_mod19_universal_cancellation.md",
+          "source_commit": "c126a969570e871cca0bf9188dc0966716e54afb",
+          "git_blob_sha1": "39fa8b7ebf5ed174c3d3815d5fd46ce047fa3080",
+          "sha256": "272cc7b380d0c83ca9ac13a85518915112f4045a9e119296a0474446a4ed5f05"
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "path": "research_checks/T6_P19_HIGH_VALUATION_MOD19_CERT_20261123.json",
+          "source_commit": "482c7452dd4eed5c41b50386c0b06cf3f32ef6f6",
+          "git_blob_sha1": "899c576e4e7697d514860ba4f91629b4491487be",
+          "sha256": "0031abdfff802a0190eb3c3104dcf9161871915d1daeb265ef1db302eeb211ea"
+        }
+      ]
+    },
+    {
+      "id": "T6-P19-Q10Q12-THIRD-DIGIT",
+      "statement": "H0..H6 equality implies cofactor reciprocal mixed congruences mod19,mod361,mod6859. Orders10..12 q-splits(4,6)(5,5)(5,6)(6,6) produce zero disjoint equal-signature pairs.",
+      "result": "AUTHOR_EXACT_FINITE_EXECUTED_ZERO",
+      "split_counts": {
+        "q4_6": {
+          "oriented_matches": 0,
+          "disjoint": 0
+        },
+        "q5_5": {
+          "oriented_matches": 852346,
+          "disjoint": 0
+        },
+        "q5_6": {
+          "oriented_matches": 0,
+          "disjoint": 0
+        },
+        "q6_6": {
+          "oriented_matches": 675,
+          "disjoint": 0
+        }
+      },
+      "sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "path": "research_notes/portable_direct/onhour_20261123_t6_p19_q10q12_mixed_digit_exact_exclusion.md",
+          "source_commit": "cd42d29ab39f23a8fb4866806882942337a00f71",
+          "git_blob_sha1": "1d7076fc05b4854745e502ed698a49be393c66f6",
+          "sha256": "fd5ff043171430bf452004dfb57d4ff2940fe30f23ff6d19c4b97f6f11b2efae"
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "path": "research_checks/T6_P19_Q10_Q12_MIXED_THIRD_DIGIT_CHECK_20261123.cpp",
+          "source_commit": "4a7e0e2c9d6ea79e84f25fcf9375d786555d1340",
+          "git_blob_sha1": "ccf7514e698c3ee407aa9853b9dcd552597c2b1b",
+          "sha256": "d6a30c8bb40a35e56331a8828b3e4ab0d02f1664e6dc9e6ba9b525d3f0fdb169"
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "path": "research_checks/T6_P19_Q10_Q12_MIXED_THIRD_DIGIT_CERT_20261123.json",
+          "source_commit": "46f65c9832a95e7a8a54a529c40b408ad0dbefc5",
+          "git_blob_sha1": "6c43a107c0024b8b55c23898f3571f65f5de934c",
+          "sha256": "e47d229c6c52fc4496a0d4038779f14d7fa99e9da2688e88b69596a791493eec"
+        }
+      ]
+    },
+    {
+      "id": "T6-P19-Q9-THIRD-DIGIT",
+      "statement": "Same full-shape necessary mixed congruences on order9 splits(3,6),(4,5) yield zero equal-signature pairs, completing author-side maximal p19 closure when combined with prior closed q0..8.",
+      "result": "AUTHOR_EXACT_FINITE_EXECUTED_ZERO",
+      "split_counts": {
+        "q3_6": {
+          "side_states": [
+            569718902,
+            675
+          ],
+          "oriented_matches": 0,
+          "disjoint": 0
+        },
+        "q4_5": {
+          "side_states": [
+            43043867,
+            852346
+          ],
+          "oriented_matches": 0,
+          "disjoint": 0
+        }
+      },
+      "sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "path": "research_notes/portable_direct/onhour_20261123_t6_p19_q9_mixed_digit_and_maximal19_author_boundary.md",
+          "source_commit": "5c5eefef3987ce716457f1532dc3c17dbdf9e200",
+          "git_blob_sha1": "4134b4a1e0f59fc922415fdcb02ec5f7b03c67d3",
+          "sha256": "543280cb5520c056b7fbf39ea5ffbc3e878cda414907196ccbd431cd5f74ba2e"
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "path": "research_checks/T6_P19_Q9_MIXED_THIRD_DIGIT_CHECK_20261123.cpp",
+          "source_commit": "0f80cf2542d23b08716ab32f5ae7b4fd1b99114e",
+          "git_blob_sha1": "8cc56bc55718afb7e349e5ef8e28ee568ad07590",
+          "sha256": "7c4dad83164c8644d4b52f4b9b3d57147f4f29a7eacbbea44c9c2b68fdd96fb2"
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "path": "research_checks/T6_P19_Q9_MIXED_THIRD_DIGIT_CERT_20261123.json",
+          "source_commit": "db50aa9ce0ec317b3c6c076d4499ed262a1a43e8",
+          "git_blob_sha1": "2c14c99e32b0b01410410db682b5db72efc4f85b",
+          "sha256": "90de5f4dfb3678f0bdcf7bd127f7f90cb0cb6a1244ea77ee92173445460e1708"
+        }
+      ]
+    }
+  ],
+  "math_strength": "AUTHOR_PROVED / EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "unresolved_evidence": [
+    "Independent verification of 19-adic reduction, mass/atom alphabet coverage and exact enumerator source",
+    "Formal native T6 CLAIM/RUN and semantic Source PROGRESS",
+    "p17 and remaining smaller-prime maximal layers with valid full mixed congruences",
+    "Global T6=2332 acceptance or cheaper exact collision"
+  ],
+  "do_not_repeat": [
+    "Original Source accepted p19 orders0..8 and p23/higher",
+    "The newly executed p19 q9..12 finite mixed-digit checks",
+    "Original q14 Source preflight and accepted q1..q4 evidence",
+    "Old Source unknown/rejected prepare writes",
+    "Use of maintenance lane or borrowed owner session"
+  ],
+  "next_scientific_action": "Read exact current p17 Source/frozen pin and previously saved p17 q12..14 author results; identify smallest unfinished p17 maximal-prime vertical order from actual Source. Derive/check true necessary p17-adic mixed-digit constraints against original full H0..H6 and side mass2331. Retain lower-prime completion when candidates survive.",
+  "next_control_action": "With original continuation success consumed, fresh-check current Task owner/claim and actual operation_contract before any authenticated typed prepare/claim/open. Do not treat author GitHub results or old Source projection as execution authorization; if no winning own claim keep portable evidence and real support route.",
+  "global_journal": "https://github.com/awdawmip/chatgpt-global-knowledge/blob/8f8dd5622fc161d701a81bc4ab596072009c719e/journal/enterprise-math/2026-11-23/20261123T0020+0800-onhour-t6-p19-global-necessary-mixed-digit-closure.md"
+}
