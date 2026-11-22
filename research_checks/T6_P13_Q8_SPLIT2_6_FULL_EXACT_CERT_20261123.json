@@ -1,0 +1,941 @@
+{
+  "schema": "T6_P13_Q8_SPLIT2_6_AUTHOR_EXACT_FINITE_COMPLETE_CERT_V1",
+  "mother_task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "frozen_task": {
+    "source_commit": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+    "path": "research_tasks/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260909.md",
+    "side_mass_cap": 2331
+  },
+  "scope": {
+    "maximal_prime": 13,
+    "p_valuation": 1,
+    "vertical_order": 8,
+    "split": [
+      2,
+      6
+    ],
+    "first_side_roster_size": 90,
+    "second_side_roster_size": 42614,
+    "first_side_complete_range": [
+      0,
+      90
+    ],
+    "unvisited": [],
+    "other_q8_splits_remaining": [
+      "(3,5)",
+      "(4,4)"
+    ]
+  },
+  "proof_input": {
+    "original_observers": "H0..H6",
+    "q0_signed_u_denominators": "13r, r=1..12",
+    "higher_q_denominators": "13*(13q+r), q>=1,r=1..12",
+    "q0_basis_index": "247064529073450392704413",
+    "q0_min_GS_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+    "modular_necessity": "sum(u_r*r^-j)+sumplus((13q+r)^-j)-summinus((13q+r)^-j)=0 mod13^j for j=1..6",
+    "prior_lemma": "p13 higher-valuation atom cancellation, existing author source"
+  },
+  "execution": {
+    "arithmetic": "exact SymPy HNF/LLL, Python Fraction GS and integer mass/modular check",
+    "local_executed_script_sha256": "070a47daa286f82fec3a3439f4225ee214e22c390f23a4f6d4801c2c926db992",
+    "reproducible_script": "research_checks/T6_P13_Q8_SPLIT2_6_FAST_EXACT_CENSUS_20261123.py",
+    "published_script_separately_rerun": false,
+    "independent_review": false,
+    "native_semantic_progress": false
+  },
+  "counts": {
+    "raw": 3835260,
+    "common_cancelled": 1433862,
+    "vert_over_cap": 0,
+    "evaluated": 2401398,
+    "nodes": 5640848,
+    "sphere_leaves": 15,
+    "budget_valid": 0
+  },
+  "slices": [
+    {
+      "range": [
+        0,
+        1
+      ],
+      "raw": 42614,
+      "common_cancelled": 10908,
+      "evaluated": 31706,
+      "nodes": 79117,
+      "sphere_leaves": 0,
+      "ordered_pairs_sha256": "e9993e0b5ceacf6362f6d2a43918e99d327753558db76ae950b4e02ccac3e4cb"
+    },
+    {
+      "range": [
+        1,
+        9
+      ],
+      "raw": 340912,
+      "common_cancelled": 154248,
+      "evaluated": 186664,
+      "nodes": 451097,
+      "sphere_leaves": 3,
+      "ordered_pairs_sha256": "de42223a087e97d4dc0bca875857263bdf089bb9668c154c67f81434c3f08157"
+    },
+    {
+      "range": [
+        9,
+        17
+      ],
+      "raw": 340912,
+      "common_cancelled": 145875,
+      "evaluated": 195037,
+      "nodes": 468271,
+      "sphere_leaves": 0,
+      "ordered_pairs_sha256": "37d74bddd118ccf6a4787b5cf755efe295f8e8d680f211fc369b1c16549a50dc"
+    },
+    {
+      "range": [
+        17,
+        25
+      ],
+      "raw": 340912,
+      "common_cancelled": 145875,
+      "evaluated": 195037,
+      "nodes": 460864,
+      "sphere_leaves": 2,
+      "ordered_pairs_sha256": "7338c03af5253151c48d418c754254f9a01f286662a01ae89a0216261134efcf"
+    },
+    {
+      "range": [
+        25,
+        33
+      ],
+      "raw": 340912,
+      "common_cancelled": 154248,
+      "evaluated": 186664,
+      "nodes": 438802,
+      "sphere_leaves": 0,
+      "ordered_pairs_sha256": "1a63d7c9db15c8c162ff85953514aafe9fe52895b83712a9d8f10365fe4f638d"
+    },
+    {
+      "range": [
+        33,
+        41
+      ],
+      "raw": 340912,
+      "common_cancelled": 145875,
+      "evaluated": 195037,
+      "nodes": 459206,
+      "sphere_leaves": 1,
+      "ordered_pairs_sha256": "62ab98355c07160fc1ecf547a1195f3a7ab3921add2281725e12ad07b2f4d63c"
+    },
+    {
+      "range": [
+        41,
+        49
+      ],
+      "raw": 340912,
+      "common_cancelled": 145875,
+      "evaluated": 195037,
+      "nodes": 453656,
+      "sphere_leaves": 1,
+      "ordered_pairs_sha256": "fcf9c53ecb7f440d2f7e1a264f995ff4a058da2eb59037054ffb69518aecc17c"
+    },
+    {
+      "range": [
+        49,
+        57
+      ],
+      "raw": 340912,
+      "common_cancelled": 145875,
+      "evaluated": 195037,
+      "nodes": 448847,
+      "sphere_leaves": 0,
+      "ordered_pairs_sha256": "9607771c2b5a061b15d96cfa67013c6777fb079cd8570fbe0b7b2b3da85b96b6"
+    },
+    {
+      "range": [
+        57,
+        65
+      ],
+      "raw": 340912,
+      "common_cancelled": 137502,
+      "evaluated": 203410,
+      "nodes": 467442,
+      "sphere_leaves": 0,
+      "ordered_pairs_sha256": "0136b397076d54a1af4626f9cc02c616d9b893b7e6575e06146af19c8e235d5d"
+    },
+    {
+      "range": [
+        65,
+        73
+      ],
+      "raw": 340912,
+      "common_cancelled": 137502,
+      "evaluated": 203410,
+      "nodes": 457938,
+      "sphere_leaves": 2,
+      "ordered_pairs_sha256": "a300c02aff7177f69f030c79b2413c2421fd98e6cf26ece01acb98160aa3a73a"
+    },
+    {
+      "range": [
+        73,
+        81
+      ],
+      "raw": 340912,
+      "common_cancelled": 87264,
+      "evaluated": 253648,
+      "nodes": 595079,
+      "sphere_leaves": 2,
+      "ordered_pairs_sha256": "c61fbf52c20e46dd723236c51e41d95cafa52b2930ab16f16064bcbc496b4b2b"
+    },
+    {
+      "range": [
+        81,
+        86
+      ],
+      "raw": 213070,
+      "common_cancelled": 12675,
+      "evaluated": 200395,
+      "nodes": 485425,
+      "sphere_leaves": 1,
+      "ordered_pairs_sha256": "a89e97b427641d021e27c15b08df1a12bd254fe7a60ed3a7cafabd4b96311745"
+    },
+    {
+      "range": [
+        86,
+        90
+      ],
+      "raw": 170456,
+      "common_cancelled": 10140,
+      "evaluated": 160316,
+      "nodes": 375104,
+      "sphere_leaves": 3,
+      "ordered_pairs_sha256": "5fd5d53e8109cb1b5ce102c6813f3ba737ef1156f45230c1952eb4bf920e7705"
+    }
+  ],
+  "relaxed_leaves": [
+    {
+      "plus": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "minus": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          8
+        ]
+      ],
+      "u": [
+        48,
+        2,
+        22,
+        1,
+        -10,
+        -6,
+        -6,
+        8,
+        1,
+        -4,
+        0,
+        -6
+      ],
+      "masses": [
+        2828,
+        4564
+      ]
+    },
+    {
+      "plus": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "minus": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          3,
+          11
+        ]
+      ],
+      "u": [
+        67,
+        15,
+        0,
+        4,
+        4,
+        9,
+        -11,
+        -13,
+        -1,
+        1,
+        4,
+        0
+      ],
+      "masses": [
+        3430,
+        3858
+      ]
+    },
+    {
+      "plus": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "minus": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          2,
+          11
+        ]
+      ],
+      "u": [
+        -64,
+        18,
+        11,
+        2,
+        1,
+        0,
+        13,
+        1,
+        7,
+        -6,
+        2,
+        3
+      ],
+      "masses": [
+        4269,
+        2942
+      ]
+    },
+    {
+      "plus": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          9
+        ]
+      ],
+      "minus": [
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          12
+        ]
+      ],
+      "u": [
+        52,
+        14,
+        9,
+        7,
+        6,
+        3,
+        1,
+        8,
+        0,
+        10,
+        -1,
+        5
+      ],
+      "masses": [
+        5746,
+        1555
+      ]
+    },
+    {
+      "plus": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          11
+        ]
+      ],
+      "minus": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          12
+        ]
+      ],
+      "u": [
+        -14,
+        -6,
+        -26,
+        11,
+        8,
+        3,
+        -1,
+        2,
+        -3,
+        3,
+        -1,
+        -4
+      ],
+      "masses": [
+        2402,
+        3996
+      ]
+    },
+    {
+      "plus": [
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ]
+      ],
+      "minus": [
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          3,
+          10
+        ]
+      ],
+      "u": [
+        30,
+        -17,
+        -3,
+        -7,
+        -7,
+        -1,
+        -2,
+        3,
+        9,
+        -9,
+        -7,
+        -1
+      ],
+      "masses": [
+        2205,
+        5272
+      ]
+    },
+    {
+      "plus": [
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          11
+        ]
+      ],
+      "minus": [
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "u": [
+        -27,
+        8,
+        10,
+        -19,
+        -3,
+        8,
+        0,
+        11,
+        4,
+        6,
+        1,
+        -1
+      ],
+      "masses": [
+        4253,
+        3014
+      ]
+    },
+    {
+      "plus": [
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ]
+      ],
+      "minus": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "u": [
+        -50,
+        49,
+        4,
+        -5,
+        -5,
+        1,
+        10,
+        5,
+        2,
+        1,
+        3,
+        -5
+      ],
+      "masses": [
+        4252,
+        3258
+      ]
+    },
+    {
+      "plus": [
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          10
+        ]
+      ],
+      "minus": [
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          8
+        ]
+      ],
+      "u": [
+        1,
+        -36,
+        10,
+        12,
+        1,
+        0,
+        1,
+        -5,
+        -6,
+        -5,
+        2,
+        -3
+      ],
+      "masses": [
+        2038,
+        4595
+      ]
+    },
+    {
+      "plus": [
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          11
+        ]
+      ],
+      "minus": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          5
+        ]
+      ],
+      "u": [
+        -82,
+        5,
+        -11,
+        16,
+        -7,
+        10,
+        6,
+        0,
+        0,
+        -3,
+        -5,
+        -3
+      ],
+      "masses": [
+        2860,
+        4603
+      ]
+    },
+    {
+      "plus": [
+        [
+          2,
+          3
+        ]
+      ],
+      "minus": [
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "u": [
+        32,
+        2,
+        -21,
+        4,
+        -1,
+        5,
+        -12,
+        -7,
+        6,
+        6,
+        -5,
+        3
+      ],
+      "masses": [
+        3334,
+        4759
+      ]
+    },
+    {
+      "plus": [
+        [
+          2,
+          7
+        ]
+      ],
+      "minus": [
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          2,
+          10
+        ]
+      ],
+      "u": [
+        -13,
+        -15,
+        4,
+        4,
+        -10,
+        6,
+        -11,
+        -1,
+        -3,
+        10,
+        -4,
+        3
+      ],
+      "masses": [
+        3001,
+        4632
+      ]
+    },
+    {
+      "plus": [
+        [
+          2,
+          9
+        ]
+      ],
+      "minus": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          11
+        ]
+      ],
+      "u": [
+        51,
+        18,
+        19,
+        16,
+        -9,
+        1,
+        -7,
+        -7,
+        6,
+        0,
+        4,
+        -4
+      ],
+      "masses": [
+        4395,
+        3921
+      ]
+    },
+    {
+      "plus": [
+        [
+          2,
+          10
+        ]
+      ],
+      "minus": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          2,
+          11
+        ]
+      ],
+      "u": [
+        -54,
+        16,
+        6,
+        -6,
+        6,
+        4,
+        11,
+        12,
+        1,
+        -1,
+        3,
+        -1
+      ],
+      "masses": [
+        4555,
+        2716
+      ]
+    },
+    {
+      "plus": [
+        [
+          2,
+          10
+        ]
+      ],
+      "minus": [
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          2,
+          11
+        ]
+      ],
+      "u": [
+        -22,
+        -30,
+        -19,
+        -1,
+        4,
+        5,
+        3,
+        -1,
+        -8,
+        3,
+        1,
+        0
+      ],
+      "masses": [
+        1907,
+        4257
+      ]
+    }
+  ],
+  "verdict": "ALL_90_FIRST_SIDE_ROSTER_ROWS_EXHAUSTED; 0 valid under original both-side mass caps; p13 q8 (2,6) eliminated at author-level; full p13 q8/T6 still open"
+}
