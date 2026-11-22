@@ -55,7 +55,7 @@ Expected concluding line:
 
 ## Consequence and remaining research frontier
 
-Combine R762JB, R762JC and R762JD: **all five 46-event terminal histograms with z=0 and maximum support multiplicity 3 are author-proved reducible to 44 events**:
+Combine R762JB, R762JC and R762JD: **all five 46-event terminal histograms with z=0 and 6<=t<=10 are author-proved reducible to 44 events (the t=11,12,13 full-support cases require separate high-triple reduction)**:
 
 (6,14,0,0), (7,12,1,0), (8,10,2,0), (9,8,3,0), (10,6,4,0).
 
