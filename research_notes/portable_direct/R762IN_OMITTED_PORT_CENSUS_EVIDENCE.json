@@ -1,0 +1,46 @@
+{
+  "schema": "R762IN_OMITTED_PORT_CENSUS_V1",
+  "frozen_science": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "status": "PASS",
+  "checked_at_local_date": "2026-11-22",
+  "exact_method": "All 32768 Port masks M and all 190 pairs T of zero supports, checking every positive support triangle has at most one inactive Port (F(M) subset T), then independent connected-even-degree multigraph verification of explicit 54-event 9-active witness.",
+  "total_port_masks": 32768,
+  "total_two_zero_support_choices": 190,
+  "distribution_of_maximum_necessary_incidence_allowed_inactive_ports": {
+    "4": 180,
+    "6": 10
+  },
+  "six_inactive_arrangements": "All 10 complementary disjoint triple-support pairs; constructive witness for 012/345",
+  "valid_inactive_masks_by_size_for_at_most_two_forced_zero_supports": {
+    "0": 1,
+    "1": 15,
+    "2": 105,
+    "3": 395,
+    "4": 330,
+    "5": 60,
+    "6": 10
+  },
+  "explicit_euler_witness": {
+    "zero_supports": [
+      "012",
+      "345"
+    ],
+    "other_18_support_counts": 3,
+    "total_events": 54,
+    "active_ports": 9,
+    "inactive_ports": [
+      "01",
+      "02",
+      "12",
+      "34",
+      "35",
+      "45"
+    ],
+    "active_degree_each": 12,
+    "connected": true,
+    "all_degrees_even": true,
+    "after_removing_parallel_pair": 52,
+    "observer_preserved": true
+  },
+  "caveat": "The census of maximum inactive sets tests a necessary support-incidence condition, not Euler existence for every candidate. The 6-inactive example is separately constructively verified. Neither example refutes the prior 52-event existential result; it refutes a completeness premise used in its proof."
+}
