@@ -1,25 +1,7 @@
 name: lean
 
+# Default to local validation. The hosted suite is available on demand.
 on:
-  push:
-    branches:
-      - main
-    paths:
-      - '**/*.lean'
-      - 'lakefile.toml'
-      - 'lakefile.lean'
-      - 'lake-manifest.json'
-      - 'lean-toolchain'
-      - '.github/workflows/lean.yml'
-  pull_request:
-    types: [opened, synchronize, reopened]
-    paths:
-      - '**/*.lean'
-      - 'lakefile.toml'
-      - 'lakefile.lean'
-      - 'lake-manifest.json'
-      - 'lean-toolchain'
-      - '.github/workflows/lean.yml'
   workflow_dispatch:
 
 concurrency:

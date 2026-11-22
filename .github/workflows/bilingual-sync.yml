@@ -1,11 +1,7 @@
 name: bilingual-sync
 
+# Default to local validation. The hosted suite is available on demand.
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    types: [opened, synchronize, reopened]
   workflow_dispatch:
 
 concurrency:
