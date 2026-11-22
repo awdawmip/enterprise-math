@@ -1,0 +1,99 @@
+{
+  "schema": "EM_R762IW_COMPOSITE_PORT_EULER_CERTIFICATE_V1",
+  "date": "2026-11-22",
+  "science_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "predecessor": {
+    "id": "R762IV",
+    "commit": "f65fb8c707ddf92014a7e13362e6785755fee810"
+  },
+  "model": "SIX_AXIS_COMPOSITE_PORT_EULER",
+  "theorem": "All nine-triple all-essential T, one zero support z, any locally eligible active Port V: some triple support 3->1 (chosen smallest for each orbit representative and transported under S6) yields 45-event connected even-degree witness preserving support presence, parity, active set and arbitrary Euler start.",
+  "exhaustive": {
+    "triple_subsets": 167960,
+    "essential_triple_subsets": 240,
+    "absent_support_choices_per_essential_subset": 11,
+    "labeled_T_z_pairs": 2640,
+    "S6_pair_orbits": 9,
+    "pair_orbit_sizes": [
+      60,
+      60,
+      360,
+      180,
+      360,
+      360,
+      720,
+      360,
+      180
+    ],
+    "representatives": [
+      [
+        511,
+        9
+      ],
+      [
+        511,
+        10
+      ],
+      [
+        511,
+        11
+      ],
+      [
+        511,
+        15
+      ],
+      [
+        2029,
+        1
+      ],
+      [
+        2029,
+        11
+      ],
+      [
+        2029,
+        13
+      ],
+      [
+        2029,
+        15
+      ],
+      [
+        2029,
+        19
+      ]
+    ],
+    "locally_eligible_inactive_masks_per_pair": 92,
+    "inactive_mask_sizes_distribution": [
+      1,
+      15,
+      48,
+      25,
+      3
+    ],
+    "exact_integer_certificates": 828,
+    "symmetry_covered_labeled_cases": 242880,
+    "all_certificates_pass": true
+  },
+  "certification": {
+    "verifier": "R762IW_VERIFY_CERTS.py",
+    "certificate": "R762IW_CERTS.b64",
+    "certificate_encoding": "zlib(base64) of 828 x 15 bytes; each byte packs four 2-bit edge counts, ordered by pair-orbit then admissible inactive mask",
+    "bytes_uncompressed": 12420,
+    "bytes_encoded_chars": 6208,
+    "uncompressed_sha256": "15d611b1e80d16b45ab9ec471c233e826d60bb6f189377041c566acaa2631035",
+    "certificate_git_blob_sha1": "70beb60ea1871b8c0756ca6b70c1ac0fecbade70",
+    "verification": "2026-11-22 locally executed Python stdlib exact checker: PASS R762IW",
+    "candidate_generation": "Local SciPy/HiGHS integer MILP, connectivity-cut loop; candidates accepted only after independent integer exact checks",
+    "native_P000_lift": "NOT_ESTABLISHED",
+    "independent_review": "NOT_REVIEWED"
+  },
+  "control": {
+    "native_gateway_status": "BACKEND_IDENTITY_CHECK_UNAVAILABLE",
+    "operation_sent": false,
+    "authority": "CURRENT_CLAIM_UNCONFIRMED",
+    "protected_writes": 0,
+    "publication": "PORTABLE_GITHUB_DRAFT"
+  },
+  "next": "Extend 47->45 to non-essential T without relying on unreviewed R762IR, then remaining 47-event histograms and native signed lifting."
+}
