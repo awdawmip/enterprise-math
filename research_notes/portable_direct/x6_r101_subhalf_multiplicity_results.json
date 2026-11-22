@@ -1,0 +1,58 @@
+{
+  "schema": "EM_X6_R101_EXACT_SUBHALF_TIE_CHECK_V1",
+  "date": "2026-11-22",
+  "status": "PASS",
+  "directions_per_weight": 110740,
+  "weights_tested": 39,
+  "port_budgets_per_weight": 30,
+  "subhalf_checks": 1064,
+  "low_wall_witness": {
+    "S": 6,
+    "T": 27,
+    "p": 17,
+    "ties": [
+      [
+        6,
+        -4,
+        1
+      ],
+      [
+        9,
+        -5,
+        1
+      ],
+      [
+        15,
+        -9,
+        2
+      ]
+    ]
+  },
+  "high_wall_witness": {
+    "S": 12,
+    "T": 12,
+    "p": 27,
+    "ties": [
+      [
+        9,
+        -5,
+        1
+      ],
+      [
+        15,
+        -9,
+        2
+      ],
+      [
+        24,
+        -14,
+        3
+      ]
+    ]
+  },
+  "source_script": "research_notes/portable_direct/x6_r101_subhalf_multiplicity_verify.py",
+  "proof": "research_notes/portable_direct/2026-11-22_x6_r101_strict_subhalf_tie_walls.md",
+  "scope": "Exact rational weights; exhaustive unoriented differences with q<=40; selected 39 rational weight pairs; symbolic general theorem conditional on R98 and R99.",
+  "review": "NOT_INDEPENDENTLY_REVIEWED",
+  "frozen_science": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json"
+}
