@@ -1,0 +1,41 @@
+{
+  "classification_cases": 99,
+  "directed_repair_monotonic_checks": 4956,
+  "formulas": {
+    "directed_only_wrong_positions": "t >= 2*s+1",
+    "known_torn_address_erasable": "t >= 2*s+2",
+    "unknown_torn_address": "t >= 2*s+3"
+  },
+  "independent_review": "NOT_REVIEWED",
+  "model": "binary repetition; stable torn bit can settle to 0 or 1; one torn operation",
+  "proof_scope": "all integers s>=0 via Hamming balls; finite checker supplements proof",
+  "research_id": "R284EQ",
+  "sharp_minimum_t_by_s": {
+    "directed": {
+      "0": 1,
+      "1": 3,
+      "2": 5,
+      "3": 7
+    },
+    "known-address": {
+      "0": 2,
+      "1": 4,
+      "2": 6,
+      "3": 8
+    },
+    "unknown-address": {
+      "0": 3,
+      "1": 5,
+      "2": 7,
+      "3": 9
+    }
+  },
+  "tested_s": [
+    0,
+    3
+  ],
+  "tested_t": [
+    1,
+    9
+  ]
+}
