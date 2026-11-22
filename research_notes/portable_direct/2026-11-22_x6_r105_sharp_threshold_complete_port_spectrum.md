@@ -1,31 +1,39 @@
-# X6 R105 — The factor 3/2 is sharp in the actual six-pair BRC family; complete Port-threshold spectrum for the R104 witness
+# X6 R105 — Sharp 3/2 cutoff in the actual six-pair BRC family; complete Port spectrum
 
-Date: 2026-11-22 (Asia/Shanghai). Status: AUTHOR_PROOF / EXACT_INTEGER_AUTHOR_CHECK_PASS / NOT_INDEPENDENTLY_REVIEWED.
-Frozen scientific input: `awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json`.
-Direct dependency: R104 `research_notes/portable_direct/2026-11-22_x6_r104_thirteen_class_robust_gap_and_finite_box.md`. Same conditional auxiliary positive-count **BRC star-gap** observer, not a statement that native X6 Cell/Link/triadic events or heartbeat trajectories are modeled faithfully. P000 and ACTIVE worldview are unchanged.
+Date: 2026-11-22 (Asia/Shanghai). Scientific status: AUTHOR_SYMBOLIC_PROOF / EXACT_INTEGER_AUTHOR_CHECK_PASS / NOT_INDEPENDENTLY_REVIEWED.
+Frozen input: \`awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json\`.
+Predecessor: R104 \`research_notes/portable_direct/2026-11-22_x6_r104_thirteen_class_robust_gap_and_finite_box.md\`.
+Scope: the same **conditional auxiliary positive-count BRC six-pair star-gap observer**. It is not a native X6 signed/phase/path/heartbeat observer realization. P000 and ACTIVE worldview remain unchanged.
 
-## Definitions
+## Observer and definitions
 
-For a nonzero integer vector (a=(x,y,z)), up to sign, let
-[
-q(a)=max(sum_i a_i^+,sum_i(-a_i)^+),quad
-u=x+3y+6z, v=3x+12y+30z, h=7x+39y+126z.
-]
-Use the R104 six-pair norm at **fixed** (w=(A,B,C,D)=(9,1,59,41)):
-[
-F(a)=max{ |u|/10, |v|/68, |h|/50,|v-u|/60, |h-u|/42, |h-v|/100}.
-]
-Let (eta_p=min_{a
-e0,q(a)le p}F(a)), (p) any integer (ge11). Let
-(N_p={{pm a}:q(a)le p, F(a)<3eta_p/2}) and
-(C_p={{pm a}:q(a)le p, F(a)le3eta_p/2}).
+Let \(a=(x,y,z)\in\mathbb Z^3\setminus\{0\}\), identifying \(a\) with \(-a\). Define
 
-## Theorem R105 — exact entire Port spectrum
+\[
+q(a)=\max\bigl(\sum_i\max(a_i,0),\ \sum_i\max(-a_i,0)\bigr),\quad
+u=x+3y+6z,\quad v=3x+12y+30z,\quad h=7x+39y+126z.
+\]
 
-For **every integer** (pge11), (eta_p=1/10).
-The entire set (igcup_{pge11} C_p) is the following **14** unoriented directions; each enters both sets, where applicable, precisely at the displayed Port cost. The scores are exact.
+Take the fixed positive weights \(w=(A,B,C,D)=(9,1,59,41)\). Its exact six-pair norm is
 
-| Direction | q | F |
+\[
+F(a)=\max\left\{\frac{|u|}{10},\frac{|v|}{68},\frac{|h|}{50},
+\frac{|v-u|}{60},\frac{|h-u|}{42},\frac{|h-v|}{100}\right\}.
+\]
+
+For every integer \(p\ge11\), put
+\[
+\eta_p=\min_{\substack{a\ne0\\q(a)\le p}}F(a),\qquad
+N_p=\{\{\pm a\}:q(a)\le p,\ F(a)<3\eta_p/2\},\qquad
+C_p=\{\{\pm a\}:q(a)\le p,\ F(a)\le3\eta_p/2\}.
+\]
+
+## Theorem R105 — exact all-Port sublevel spectrum
+
+For every integer \(p\ge11\), one has \(\boxed{\eta_p=1/10}\).
+The union of \(C_p\) over **all** such \(p\) consists of exactly the following **14** unoriented directions, with the displayed exact Port threshold and score:
+
+| Direction \(a\) | \(q(a)\) | \(F(a)\) |
 |---|---:|---:|
 | (1,0,0) | 1 | 1/7 |
 | (5,-4,1) | 6 | 1/7 |
@@ -42,47 +50,43 @@ The entire set (igcup_{pge11} C_p) is the following **14** unoriented direction
 | (34,-19,4) | 38 | 7/60 |
 | (39,-23,5) | 44 | 3/20 |
 
-Consequently, for all (pge11):
-[
-|N_p|=4+[pge16]+[pge17]+[pge21]+[pge26]
-+[pge27]+[pge28]+[pge33]+[pge38],
-]
-[
-|C_p|=|N_p|+[pge37]+[pge44].
-]
-The complete minimizer directions are (10,-5,1) for (pge11), (14,-9,2) additionally for (pge16), and (24,-14,3) additionally for (pge27).
+With \([P]\) denoting the indicator of a proposition \(P\), the **complete** formulas for all \(p\ge11\) are
 
-For all (pge38), (|N_p|=12), permanently. For all (pge44), (|C_p|=14), permanently. Thus the **thirteenth and fourteenth** feasible order statistics in the score, for (pge44), are both exactly (3/20=(3/2)eta_p).
+\[
+|N_p|=4+[p\ge16]+[p\ge17]+[p\ge21]+[p\ge26]+[p\ge27]+[p\ge28]+[p\ge33]+[p\ge38],
+\]
+\[
+|C_p|=|N_p|+[p\ge37]+[p\ge44].
+\]
 
-**Sharpness corollary.** R104 proved (|{F<3eta_p/2}|le13) for *all* positive BRC weights and (pge11). The present single BRC example has **14** directions at (Fle3eta_p/2) for (pge44). Therefore, for every (lambda>3/2), the claimed uniform bound (|{F<lambdaeta_p}|le13) is false within this same BRC family. The constant (3/2) is a sharp universal cutoff, not merely a limitation of the R104 residue proof. No conclusion is drawn here about whether 13 can occur **strictly** below the sharp cutoff.
+The full set of minimizers contains \(s=(10,-5,1)\) from Port 11; additionally \((14,-9,2)\) from Port 16; additionally \((24,-14,3)\) from Port 27. At every \(p\ge38\), **exactly 12** directions satisfy the *strict* \(3/2\) cutoff. At every \(p\ge44\), **exactly 14** satisfy the *non-strict* cutoff. Both the 13th and 14th best feasible scores for \(p\ge44\) are exactly \(3/20\).
 
-## Proof
+**Sharpness in the concrete BRC class.** The R104 universal theorem bounds the number with \(F<3\eta_p/2\) by 13. Here there are 14 directions with \(F\le3\eta_p/2\) at every \(p\ge44\). Consequently, for every \(\lambda>3/2\), a proposed universal bound of 13 directions satisfying \(F<\lambda\eta_p\) is **false even within the actual positive six-pair BRC family**. The \(3/2\) threshold is optimal. This leaves open whether the *strict* sublevel maximum within this family is 12 or 13.
 
-First (s=(10,-5,1)) has (q(s)=11), moment triple ((1,0,1)), and (F(s)=1/10), so (eta_ple1/10).
-For any nonzero (a), if (u
-e0), then (F(a)ge|u|/10ge1/10).
-If (u=0) and (h
-e0), the exact lattice congruence (h-uequiv0pmod6) yields (|h-u|ge6), hence (F(a)ge6/42>1/10).
-If (u=h=0), nonzero (a) implies (v
-e0) (the moment matrix is invertible); (vequiv0pmod3) and (h-u-6vequiv0pmod{12}) give (vin6mathbb Z), hence (F(a)ge|v|/60ge1/10). This proves (eta_p=1/10) simultaneously for all (pge11).
+## Proof — infinite lattice reduced to an exact finite box
 
-Next if (F(a)le3/20), its first three summands force
-[
-|u|lelfloor10(3/20)floor=1,quad
-|v|lelfloor68(3/20)floor=10,quad
-|h|lelfloor50(3/20)floor=7.
-]
-All integer moment triples are therefore contained in an **unconditional finite box of 945 triples**, independent of Port. By the exact inverse
-[
-x=(h+19u-8v)/2,quad y=(-h-14u+7v)/3,quad z=(h+11u-6v)/12
-]
-and congruences (vequiv0pmod3, h-uequiv0pmod6, h-u-6vequiv0pmod{12}),
-there are exactly **32** nonzero *oriented* integral candidates in that box. Direct exact evaluation of all six rational summands at threshold (3/20) eliminates four oriented candidates, leaving **28 oriented =14 unoriented**. The complete directions, their scores and their exact Port costs are the displayed table; the companion JavaScript checker verifies every integer congruence, inverse, score, count and row of the finite exhaustive step without floating point.
+First \(s=(10,-5,1)\) has \(q(s)=11\) and \((u,v,h)(s)=(1,0,1)\), so \(F(s)=1/10\). Thus \(\eta_p\le1/10\) for every \(p\ge11\).
 
-Since (eta_p) is already fixed and the exhaustive closed sublevel set is independent of Port, intersection with (qle p) gives exactly the displayed indicator formulas for every (pge11). Two boundary vectors enter at Port 37 and 44; strict sublevel vectors stabilize at Port 38. The sharpness claim follows at once. QED.
+Conversely, for any nonzero integer \(a\), if \(u\ne0\) the first term of \(F\) is at least \(1/10\). If \(u=0,h\ne0\), the exact moment congruence \(h-u\equiv0\pmod6\) implies \(|h-u|\ge6\), so \(F(a)\ge6/42>1/10\). If \(u=h=0\), invertibility of the moment matrix implies \(v\ne0\). The exact congruences \(v\equiv0\pmod3\) and \(h-u-6v\equiv0\pmod{12}\) give \(v\in6\mathbb Z\), so \(F(a)\ge|v|/60\ge1/10\). This proves the minimum for the *entire* lattice, independent of Port.
 
-## Verification scope and next question
+Now \(F(a)\le3/20\) implies three simultaneous necessary integer bounds
+\[
+|u|\le\lfloor(3/20)10\rfloor=1,\quad
+|v|\le\lfloor(3/20)68\rfloor=10,\quad
+|h|\le\lfloor(3/20)50\rfloor=7.
+\]
+Thus every possible vector in the closed sublevel lies among precisely \(3\cdot21\cdot15=945\) integer moment triples, independently of \(p\). The exact inverse is
+\[
+x=(h+19u-8v)/2,\quad y=(-h-14u+7v)/3,\quad z=(h+11u-6v)/12.
+\]
+The necessary and sufficient integrality conditions are
+\[
+v\equiv0\pmod3,\quad h-u\equiv0\pmod6,\quad h-u-6v\equiv0\pmod{12}.
+\]
+Enumerating this finite integer box gives 32 nonzero *oriented* integral vectors; exact evaluation of the other three pair terms removes four, leaving exactly 28 oriented or **14 unoriented** admissible vectors. Their exact scores and Port costs are the table above. The companion \`x6_r105_sharp_threshold_verify.js\` reproduces the full finite calculation with integer arithmetic, common denominator 35700, integer score threshold 5355, and exact row assertions.
 
-The symbolic reduction to the 945-element moment box is valid on the entire infinite integer lattice. The finite check proves coverage of the last 14 cases by exact integer arithmetic, not by a bounded-Port guess. We make no claim of independent scientific review, formal verification or native physical realization.
+Finally, the infinite-lattice minimum \(\eta_p=1/10\) is constant, the exhaustive closed sublevel table is independent of \(p\), and intersection with the exact cost condition \(q\le p\) gives both indicator formulas. The scores of the two equality-shell directions are exactly \(3/20\), entering at Port 37 and Port 44 respectively. Therefore the 14-direction and sharpness statements hold for **all** \(p\ge44\). QED.
 
-Remaining: determine whether **13 strict** (3/2)-near-optimal vectors can occur for *any* positive four-weight BRC norm and any Port; if not, prove the stronger uniform bound 12. An exact parameter-chamber feasibility certificate or structural obstruction distinguishing this six-pair norm from a generic cube norm would settle the question. Separately retain P000 observer-fidelity and original R063 native benchmark obligations.
+## Verification boundary and next direction
+
+The 945-box coverage follows mathematically from the exact inequalities and covers every integer difference, regardless of Port. The executable finite enumeration checks its stated arithmetic, not independent mathematical review or native X6 fidelity. The next discriminating problem is deciding whether 13 *strictly* near-optimal directions are attainable for some arbitrary positive \(w\), or proving a 12-direction universal bound specific to this six-pair BRC norm. Keep separate the original R063 native benchmark and Cell/Link/Port/time observer-preservation obligations.
