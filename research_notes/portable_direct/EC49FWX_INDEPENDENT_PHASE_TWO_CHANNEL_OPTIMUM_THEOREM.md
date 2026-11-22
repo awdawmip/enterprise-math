@@ -81,7 +81,7 @@ Both \(D_L,D_R\) are unions of opposite row pairs; \(k\in\{0,2,4,6,8\}\). If \(V
 9k,& j_L\ne j_R.
 \end{cases}}
 \]
-Thus \(c\) is either zero or at least 18. In particular for every \(1\le r\le18\), the spectrum-adaptive cost for a particular observed state is **either \(r\) or \(2r\)**: \(r\) if the difference row supports overlap, \(2r\) if disjoint. At \(r=19,20\) a single shared row pair with different missing columns gives \(c=18\), hence \(N=2r-18\), a two-activation (respectively four-activation) gap over a fully shared code.
+Thus \(c\) is either zero or at least 18. In particular for every \(1\le r\le18\), the spectrum-adaptive cost for a particular observed state is **either \(r\) or \(2r\)**: \(r\) if the difference row supports overlap, \(2r\) if disjoint. At \(r=19,20\) a single shared row pair with different missing columns gives \(c=18\), hence \(N=2r-18\), one extra activation at \(r=19\) and two at \(r=20\) compared with a fully shared code.
 
 For frozen masks with \(|D|=6\) or \(8\), any two independently shifted/reflected row supports must overlap: as subsets of five opposite row pairs, sizes three and four have pairwise intersection at least one and three, respectively. Consequently their adaptive cost is \(r\) for every \(r\le18\), irrespective of independent phase drift. The previous 50-mask census has 10 masks of size six and four of size eight. This fiberwise result is strictly stronger than the worst-case \(2r\) bound; the latter remains sharp because the authentic \(U=299\) supports are disjoint.
 
