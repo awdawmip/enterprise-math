@@ -1,0 +1,60 @@
+{
+  "scope": "n=5..11 exact integer Laurent check, j=1..6; positive-port terminal k=1 numerator",
+  "model": "frozen X6 candidate Stage46 signed W=J12-6I12, Link {0,e1}",
+  "values": {
+    "5": {
+      "axis1": "135110",
+      "other_each": "109490"
+    },
+    "6": {
+      "axis1": "2918820",
+      "other_each": "2532792"
+    },
+    "7": {
+      "axis1": "66735540",
+      "other_each": "59610948"
+    },
+    "8": {
+      "axis1": "1607486710",
+      "other_each": "1458235054"
+    },
+    "9": {
+      "axis1": "40552191300",
+      "other_each": "37154147448"
+    },
+    "10": {
+      "axis1": "1064532083910",
+      "other_each": "982562886810"
+    },
+    "11": {
+      "axis1": "28900330619000",
+      "other_each": "26836839882872"
+    }
+  },
+  "hankel_finite_only": {
+    "0": {
+      "order2": "497128617000",
+      "order3": "59581568378641261000",
+      "order4": "480224313296628175018185990000"
+    },
+    "1": {
+      "order2": "111767381256",
+      "order3": "-162880156241080473416",
+      "order4": "-3907255130288416178191654446288"
+    }
+  },
+  "all_port_symmetry_checked": true,
+  "known_prefix1014_checked": [
+    5,
+    6,
+    7,
+    8,
+    10
+  ],
+  "counterexample": "other-axis positive-port n0=5 h=3 Hankel determinant is negative; so the PREFIX1022 strict-positive-Hankel claim cannot be transferred",
+  "analytic_constants": {
+    "lim_m_to_inf_m^(5/2)_Qplus_over_36^m": "7063875/(4*pi^(5/2))",
+    "contrast_leading_coefficient_dependent_on_prefix1017": "1530900/pi^(5/2)"
+  },
+  "proof_status": "author analytic Laplace argument; no external mathematical review"
+}
