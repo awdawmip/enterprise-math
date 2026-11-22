@@ -1,0 +1,149 @@
+{
+  "schema": "X6_TIME_UNIT262_SIGNED_TRIAD_FRAME_AND_C12_CLOSURE_V1",
+  "task_id": "RS-X6-NATIVE-TIME-DYNAMICS",
+  "source_original_unit245": "awdawmip/enterprise-math@f56840285cafeb9f5767ea91e903e1f53808186f:research_checks/X6_TIME_UNIT245_DIRECTED_CENTER_PORT_PAIR_RESULTS_20261121_2200.json",
+  "p000_pin": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "model": "conditional two-triad BRC + full ordered signed frame R_can per own move + independent C12 global event phase",
+  "minimums": {
+    "spatial_winding_return": 28,
+    "spatial_and_both_C6_frames": 30,
+    "spatial_both_C6_frames_and_global_C12": 36
+  },
+  "cases": [
+    {
+      "ingress": 6,
+      "egress": 0,
+      "records": [
+        {
+          "loops": 0,
+          "events": 28,
+          "per_triad_events": [
+            16,
+            12
+          ],
+          "winding": [
+            -12,
+            12
+          ],
+          "per_triad_phase_mod6": [
+            4,
+            0
+          ],
+          "global_phase_mod12": 4,
+          "local_frame_return": false,
+          "global_C12_return": false,
+          "route": "LKJIHGMALKJIHGMdefghijklabAc"
+        },
+        {
+          "loops": 1,
+          "events": 30,
+          "per_triad_events": [
+            18,
+            12
+          ],
+          "winding": [
+            -12,
+            12
+          ],
+          "per_triad_phase_mod6": [
+            0,
+            0
+          ],
+          "global_phase_mod12": 6,
+          "local_frame_return": true,
+          "global_C12_return": false,
+          "route": "LALKJIHGMALKJIHGMdefghijklabAc"
+        },
+        {
+          "loops": 4,
+          "events": 36,
+          "per_triad_events": [
+            24,
+            12
+          ],
+          "winding": [
+            -12,
+            12
+          ],
+          "per_triad_phase_mod6": [
+            0,
+            0
+          ],
+          "global_phase_mod12": 0,
+          "local_frame_return": true,
+          "global_C12_return": true,
+          "route": "LALALALALKJIHGMALKJIHGMdefghijklabAc"
+        }
+      ]
+    },
+    {
+      "ingress": 8,
+      "egress": 2,
+      "records": [
+        {
+          "loops": 0,
+          "events": 28,
+          "per_triad_events": [
+            12,
+            16
+          ],
+          "winding": [
+            -12,
+            12
+          ],
+          "per_triad_phase_mod6": [
+            0,
+            4
+          ],
+          "global_phase_mod12": 4,
+          "local_frame_return": false,
+          "global_C12_return": false,
+          "route": "LKJdefghimIHGFEDCBAcdefghimc"
+        },
+        {
+          "loops": 1,
+          "events": 30,
+          "per_triad_events": [
+            12,
+            18
+          ],
+          "winding": [
+            -12,
+            12
+          ],
+          "per_triad_phase_mod6": [
+            0,
+            0
+          ],
+          "global_phase_mod12": 6,
+          "local_frame_return": true,
+          "global_C12_return": false,
+          "route": "dcLKJdefghimIHGFEDCBAcdefghimc"
+        },
+        {
+          "loops": 4,
+          "events": 36,
+          "per_triad_events": [
+            12,
+            24
+          ],
+          "winding": [
+            -12,
+            12
+          ],
+          "per_triad_phase_mod6": [
+            0,
+            0
+          ],
+          "global_phase_mod12": 0,
+          "local_frame_return": true,
+          "global_C12_return": true,
+          "route": "dcdcdcdcLKJdefghimIHGFEDCBAcdefghimc"
+        }
+      ]
+    }
+  ],
+  "exact_integer_assertions": 605,
+  "failures": 0,
+  "admission": "AUTHOR_PROVED / FINITE_CHECK_EXECUTED / UNREVIEWED / NOT_ADMITTED / NO_NATIVE_SOURCE_EXECUTION"
+}
