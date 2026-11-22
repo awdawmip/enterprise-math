@@ -1,0 +1,55 @@
+{
+  "schema": "ENTERPRISE_MATH_R762JR_ONE_INACTIVE_COMPLETE_EVIDENCE_V1",
+  "date": "2026-11-23",
+  "model": "frozen six-axis composite Port-Euler observer",
+  "status": "AUTHOR_PROVED_EXACT_FINITE_CROSSCHECKED_NOT_REVIEWED",
+  "predecessor": {
+    "pr": "https://github.com/awdawmip/enterprise-math/pull/2983",
+    "pin": "44bd1c27ea903d643964a92bc5e811684fb76680",
+    "reused": "R762JQ 1100/1140 successful rainbow patterns"
+  },
+  "domain": {
+    "inactive_ports": 1,
+    "ports": 15,
+    "supports": 20,
+    "histogram_44": [
+      6,
+      12,
+      2,
+      0
+    ],
+    "compressed_counts": "3 singles, 12 doubles, 5 triples, 0 absent",
+    "exceptional_singleton_sets": 40
+  },
+  "full_verification": {
+    "status": "PASS",
+    "exceptional_patterns": 40,
+    "fully_connected_flexible": 32,
+    "star_isolated": 8,
+    "distinct_five_triple_inventories_per_D": 6188,
+    "certificates_checked": 247520,
+    "sha256_witness_stream": "41bfe6d509c22ef4b0559bb8549ecb26cbb8287dd7fbef1786639d87c5cfd0c8"
+  },
+  "reduced_verification": {
+    "status": "PASS",
+    "patterns": 40,
+    "bridge_parity_masks_per_D": 16,
+    "certificates_checked": 640,
+    "sha256_witness_stream": "0a8016b0aef84f0c4445af37c918b405621b2ea35f7238fde520eb8e1fcf480c"
+  },
+  "verification_program": {
+    "path": "research_notes/portable_direct/R762JR_EXCEPTION_BRIDGE_PARITY_VERIFY.py",
+    "git_blob_sha1": "4612d34703b20b901f7c0e0feeae800e6617a736",
+    "sha256": "3b8ebf6fd37cd7f0a94485a10d8168943e0b9af0a5438226ab892830cd9c7ef8",
+    "runtime": "Python 3 standard library",
+    "full_command": "python R762JR_EXCEPTION_BRIDGE_PARITY_VERIFY.py --full"
+  },
+  "claimed_improvement": "One-inactive-Port entire (6,12,2,0) class can be reduced 44→42, using R762JQ 1100 rainbow patterns plus R762JR 40 exceptional patterns",
+  "unproved": [
+    "two or more inactive Ports",
+    "entire k=0 global bound below 44",
+    "signed native P000 path/branch/time/BRC lift",
+    "independent mathematical review"
+  ],
+  "native_control": "No new CLAIM/PROGRESS or review acceptance asserted"
+}
