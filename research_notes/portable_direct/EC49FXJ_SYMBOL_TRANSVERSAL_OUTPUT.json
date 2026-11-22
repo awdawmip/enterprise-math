@@ -1,0 +1,148 @@
+{
+  "schema": "EC49FXJ_SYMBOL_TRANSVERSAL_VALIDATION_V1",
+  "frozen_scientific_pin": "BRC16943",
+  "parent": "EC49FXI",
+  "model": "P10/one-hole auxiliary Farey–CRT, known reference and complete indexed reflection spectra",
+  "metric": "two-bit physical activation symbol (union) Hamming distance",
+  "transversal_samples": 4,
+  "transversal_definitions": [
+    "lower representative per mod55 class",
+    "even representative",
+    "odd representative",
+    "alternating modular representative"
+  ],
+  "rows": [
+    {
+      "required_symbol_distance": 1,
+      "activations": 10,
+      "minimum_observed_symbol_distance": 1,
+      "checks": 12100
+    },
+    {
+      "required_symbol_distance": 2,
+      "activations": 15,
+      "minimum_observed_symbol_distance": 2,
+      "checks": 12100
+    },
+    {
+      "required_symbol_distance": 3,
+      "activations": 20,
+      "minimum_observed_symbol_distance": 3,
+      "checks": 12100
+    },
+    {
+      "required_symbol_distance": 4,
+      "activations": 25,
+      "minimum_observed_symbol_distance": 4,
+      "checks": 12100
+    },
+    {
+      "required_symbol_distance": 5,
+      "activations": 30,
+      "minimum_observed_symbol_distance": 5,
+      "checks": 12100
+    },
+    {
+      "required_symbol_distance": 6,
+      "activations": 35,
+      "minimum_observed_symbol_distance": 6,
+      "checks": 12100
+    },
+    {
+      "required_symbol_distance": 7,
+      "activations": 40,
+      "minimum_observed_symbol_distance": 7,
+      "checks": 12100
+    },
+    {
+      "required_symbol_distance": 8,
+      "activations": 45,
+      "minimum_observed_symbol_distance": 8,
+      "checks": 12100
+    },
+    {
+      "required_symbol_distance": 9,
+      "activations": 50,
+      "minimum_observed_symbol_distance": 9,
+      "checks": 12100
+    },
+    {
+      "required_symbol_distance": 10,
+      "activations": 55,
+      "minimum_observed_symbol_distance": 10,
+      "checks": 12100
+    },
+    {
+      "required_symbol_distance": 11,
+      "activations": 65,
+      "minimum_observed_symbol_distance": 11,
+      "checks": 12100
+    },
+    {
+      "required_symbol_distance": 12,
+      "activations": 70,
+      "minimum_observed_symbol_distance": 12,
+      "checks": 12100
+    },
+    {
+      "required_symbol_distance": 13,
+      "activations": 75,
+      "minimum_observed_symbol_distance": 13,
+      "checks": 12100
+    },
+    {
+      "required_symbol_distance": 14,
+      "activations": 80,
+      "minimum_observed_symbol_distance": 14,
+      "checks": 12100
+    },
+    {
+      "required_symbol_distance": 15,
+      "activations": 85,
+      "minimum_observed_symbol_distance": 15,
+      "checks": 12100
+    },
+    {
+      "required_symbol_distance": 16,
+      "activations": 90,
+      "minimum_observed_symbol_distance": 16,
+      "checks": 12100
+    },
+    {
+      "required_symbol_distance": 17,
+      "activations": 95,
+      "minimum_observed_symbol_distance": 17,
+      "checks": 12100
+    },
+    {
+      "required_symbol_distance": 18,
+      "activations": 100,
+      "minimum_observed_symbol_distance": 18,
+      "checks": 12100
+    },
+    {
+      "required_symbol_distance": 19,
+      "activations": 105,
+      "minimum_observed_symbol_distance": 19,
+      "checks": 12100
+    },
+    {
+      "required_symbol_distance": 20,
+      "activations": 110,
+      "minimum_observed_symbol_distance": 20,
+      "checks": 12100
+    }
+  ],
+  "full_110_site_minimum_symbol_distance": 20,
+  "total_inequality_checks": 245025,
+  "algorithm": "Exact integer modulo 5/11; each of 4 antipodal transversals covers every residue mod55 once; proof extends to all 2^55 transversals since the predicate depends only on d mod55",
+  "status": "PASS",
+  "independent_mathematical_review": "NOT_REVIEWED",
+  "scientific_status": "AUTHOR_PROVED / EXACT_INTEGER_CROSSCHECK / PARENT_DEPENDENT / NOT_REVIEWED",
+  "artifact_paths": [
+    "research_notes/portable_direct/EC49FXJ_SYMBOL_TRANSVERSAL_THEOREM.md",
+    "research_notes/portable_direct/EC49FXJ_SYMBOL_TRANSVERSAL_VERIFY.js",
+    "research_notes/portable_direct/EC49FXJ_SYMBOL_TRANSVERSAL_OUTPUT.json"
+  ],
+  "parent_proof_sha": "bbed8fc4a93c35146ebac71b4d71bdd46765c50c"
+}

@@ -1,0 +1,73 @@
+# EC49FXJ — Exact whole-activation symbol-distance theorem for every antipodal phase transversal
+
+Date: 2026-11-23 (Asia/Shanghai). Research role: TASK_RESEARCH / independent portable scientific continuation. Frozen scientific pin: **BRC16943** (unchanged). Scientific parent: EC49FXI, immutable source `bbed8fc4a93c35146ebac71b4d71bdd46765c50c:research_notes/portable_direct/EC49FXI_R8_INTERVAL_SHARP_THEOREM.md`. The earlier EC49FWZ antipodal-transversal result established fixed-site **channel-bit** distance bounds. This theorem uses a **different metric** and does not change either predecessor.
+
+## Precise model and theorem
+
+Work in the inherited 110-periodic P10/one-hole **auxiliary** Farey–CRT double Boolean observer: known reference, complete separately indexed reflection spectra, two Boolean channels read at one physical activation t in Z/110. A relative-phase feasibility set D contains **exactly one** representative from each antipodal pair {d,d+55} in Z/110, so |D|=55. The full spectra leave the simultaneous 55-shift candidate pair, as in the pinned predecessor chain.
+
+For a fixed activation set S subset Z/110, for relative phase d in D, reflection color i in Z/5 and missing mod11 column j in Z/11, define
+
+  A(t;i,j) = [t mod 5 = i and t mod 11 != j],
+  B(t;d,i,j) = [(d-t) mod 5 = i and (d-t) mod 11 != j].
+
+The distinction at a *physical activation*, when either or both channel bits change, is the **symbol** indicator A OR B. Thus
+
+  G_S(d,i,j) = sum_{t in S} [A(t;i,j) OR B(t;d,i,j)].
+
+The requirement is G_S(d,i,j)>=r for all d in D, i in Z/5 and j in Z/11. A whole-activation error is an arbitrary replacement of one two-bit symbol; minimum symbol distance 2e+1 corrects e such errors. A known whole-activation erasure requires distance >=e+1.
+
+**Theorem.** For every antipodal transversal D and each positive integer r, the exact minimum number of fixed physical activation sites is
+
+  N_symbol(D;r) = 5(r+1), 1<=r<=10;
+  N_symbol(D;r) = 5(r+2), 11<=r<=20;
+  N_symbol(D;r) = impossible, r>=21.
+
+In particular, for one unknown entire two-bit activation error (r=3), the sharp cost is 20 activations; for two such errors (r=5), it is 30. The result is **independent of which of the 2^55 antipodal transversals is selected**. The symbol maximum with all 110 activations is exactly 20.
+
+**Classification of all optimal fixed layouts.** Set m=r+1 for 1<=r<=10, and m=r+2 for 11<=r<=20. Every optimal S contains exactly m sites in each of the five residue classes modulo 5. For the first range, those sites must occupy m distinct columns modulo 11 in each class; either physical lift of each selected mod55 residue is allowed. For the second range, **every** size-m subset of the 22 physical positions in each color is optimal. Consequently the exact numbers of optimal sets (positions labeled modulo 110) are
+
+  ( 2^m * binomial(11,m) )^5, 1<=r<=10;
+  ( binomial(22,m) )^5, 11<=r<=20.
+
+## Proof (load-bearing inequalities)
+
+Write m_i for the number of selected physical positions t with t mod5=i, and a_{i,j} for their number also satisfying t mod11=j. There are 22 physical sites in each color and exactly two sites for each mod11 column, so 0<=a_{i,j}<=2 and sum_j a_{i,j}=m_i.
+
+**Self-reflection rows.** For every i,j, there is exactly one residue d0 in Z/55 with d0=2i (mod5) and d0=2j (mod11). Because D contains one representative of every residue modulo55, select its representative d in D. For this d, the two channel-support sets have the same mod5 color i, and a selected position contributes zero to the *union* precisely when its mod11 column is j. Thus the **exact** row identity is
+
+  G_S(d,i,j) = m_i - a_{i,j}.
+
+The required distance implies the necessary condition
+
+  m_i - max_j(a_{i,j}) >= r         for every color i.     (★)
+
+If 1<=m_i<=11, max_j a_{i,j}>=1, so m_i>=r+1. If m_i>=12, pigeonhole forces max_j a_{i,j}=2, so m_i>=r+2. In particular, for r<=10 every m_i>=r+1; for r>=11 a value m_i<=11 is impossible, hence every m_i>=r+2. Since m_i<=22, r>=21 is impossible. Summing across colors yields the stated lower bounds.
+
+**Matching construction.** For r=1,...,20 choose m=r+1 (r<=10), otherwise m=r+2. Within each residue class i modulo5, take the m sites
+
+  S_i = { i+5a : a=0,1,...,m-1 } subset {0,...,109}.
+
+Then |S|=5m. For m<=11 the selected columns in each color are distinct modulo11, with max_j a_{i,j}=1. For m>=13, max_j a_{i,j}=2.
+
+For a self-reflection row (d=2i mod5), both channel support sets lie in that same color, and the OR count is at least m-max_j a_{i,j}=r (indeed it equals m, except when the two exclusions coincide, when it equals m-a_{i,j}). For a non-self-reflection row, the two channels occupy *distinct* mod5 colors i and d-i, so the union count is exactly
+
+  G_S(d,i,j) = (m_i-a_{i,j}) + (m_{d-i}-a_{d-i,d-j}).
+
+With m_i=m in every color, this is at least 2m-2c = 2r, where c=1 for m<=11 and c=2 for m>=13. Hence G_S>=r in all cases. This proves attainment.
+
+**All optimal layouts.** Equality in the bound on |S| forces m_i=m for all five colors. When r<=10, condition (★) forces max_j a_{i,j}<=1, equivalent to distinct selected columns; this condition also suffices by the preceding self/non-self argument. For r>=11 the bound forces m_i=m>=13; max_j a_{i,j}<=2 automatically for every selection of physical sites, and the same argument proves sufficiency. Counting independent color choices gives the displayed formulas.
+
+**Metric relation to predecessor EC49FWZ.** The inherited bitwise difference is F=sum(A+B), while the whole-activation symbol distance is G=sum(A OR B). Pointwise G<=F<=2G. For these transversals and this one-hole model, the exact symbol optimum at r equals the inherited bit-distance optimum at 2r; that equality follows from the explicit optimal formulas, rather than from the general G/F inequalities alone. It is not asserted for arbitrary D or native Farey dynamics.
+
+## Computational verification
+
+The attached standalone exact-integer JavaScript program enumerates r=1,...,20, every d in each of four structurally distinct antipodal transversals, all i=0,...,4, all missing columns j=0,...,10, and the explicit optimal layout for each r. It evaluates 242,000 symbol-distance inequalities and additionally 3,025 cases for all 110 activated positions; every case passes and the minimum observed distance is exactly r (maximum full-site distance 20). Every arithmetic operation uses exact small integers.
+
+The finite program's four sampled transversals are **not** an exhaustive enumeration of 2^55 sets. Universality is proved by the self-reflection argument and the observation that modulo5/11 predicates depend only on d modulo55. The program is a reproducible crosscheck, not an independent mathematical review.
+
+## Scope / open questions
+
+Status: **AUTHOR_PROVED / EXACT_INTEGER_CROSSCHECK / PARENT_DEPENDENT / NOT_REVIEWED**. The result is for the P10/one-hole auxiliary observer inherited from EC49FWT–FXI. Native same-anchor Farey reachability, signed/height/branch provenance and whether this auxiliary observer fully captures native X6 dynamics remain separate obligations. The P000 six-axis discrete ontology and ACTIVE worldview are unchanged.
+
+Next discriminating problem: obtain the sharp whole-activation symbol-distance function for proper intervals D_k (especially k=1,...,54), and determine the native same-anchor relative phase set without quotienting away structural residuals. An observation-error model with partial channel corruption should retain its own metric rather than silently adopting whole-symbol distance.
