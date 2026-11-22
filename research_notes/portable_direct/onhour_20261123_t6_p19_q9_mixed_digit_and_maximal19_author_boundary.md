@@ -33,7 +33,7 @@ Because a side's vertical order cannot exceed6 under this mass cap, the only ord
 
 Thus no order-nine candidate satisfies even these necessary conditions, establishing the proposition for the complete p19 maximal-prime candidate family at vertical order nine.
 
-**Execution:** exact C++17, \`g++ -std=c++17 -O3\`, enabled assertions; (3,6) took 12.68 s and peak RSS 395,004 KiB; (4,5) 11.31 s and 91,704 KiB. Source file SHA256 \`774bffe10621db7a83bf765d5f1fc96e09ff40e5d2abedaf8a720b6e058ad36d\`. Numeric results were extracted from the executed source, with no float equality test. This is an author finite exhaustive proof, pending independent verification of the enumerator and pin mapping.
+**Execution:** exact C++17, \`g++ -std=c++17 -O3\`, enabled assertions; (3,6) took 12.68 s and peak RSS 395,004 KiB; (4,5) 11.31 s and 91,704 KiB. Source file SHA256 \`7c4dad83164c8644d4b52f4b9b3d57147f4f29a7eacbbea44c9c2b68fdd96fb2\`. Numeric results were extracted from the executed source, with no float equality test. This is an author finite exhaustive proof, pending independent verification of the enumerator and pin mapping.
 
 ## Consequence for the entire maximal p19 layer
 
