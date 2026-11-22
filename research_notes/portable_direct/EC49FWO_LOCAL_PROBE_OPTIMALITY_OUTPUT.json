@@ -1,0 +1,126 @@
+{
+  "exact_finite_cases": [
+    {
+      "all_smaller_probe_sets_rejected": true,
+      "distinct_cross_mass_discrepancies": 3,
+      "distinct_defect_signatures": 231,
+      "example_probe_positions": [
+        0,
+        5
+      ],
+      "minimum_fixed_probe_count": 2,
+      "n": 4,
+      "q": 5,
+      "total_products": 465
+    },
+    {
+      "all_smaller_probe_sets_rejected": true,
+      "distinct_cross_mass_discrepancies": 7,
+      "distinct_defect_signatures": 965,
+      "example_probe_positions": [
+        0,
+        5,
+        10
+      ],
+      "minimum_fixed_probe_count": 3,
+      "n": 6,
+      "q": 5,
+      "total_products": 1953
+    },
+    {
+      "all_smaller_probe_sets_rejected": true,
+      "distinct_cross_mass_discrepancies": 15,
+      "distinct_defect_signatures": 763,
+      "example_probe_positions": [
+        0,
+        3,
+        6,
+        9
+      ],
+      "minimum_fixed_probe_count": 4,
+      "n": 8,
+      "q": 3,
+      "total_products": 1785
+    },
+    {
+      "all_smaller_probe_sets_rejected": true,
+      "distinct_cross_mass_discrepancies": 31,
+      "distinct_defect_signatures": 3101,
+      "example_probe_positions": [
+        0,
+        3,
+        6,
+        9,
+        12
+      ],
+      "minimum_fixed_probe_count": 5,
+      "n": 10,
+      "q": 3,
+      "total_products": 7161
+    }
+  ],
+  "odd_cases": [
+    {
+      "cross_mass_pairs": 15,
+      "n": 1,
+      "one_fixed_probe_suffices": true,
+      "q": 5
+    },
+    {
+      "cross_mass_pairs": 18,
+      "n": 3,
+      "one_fixed_probe_suffices": true,
+      "q": 5
+    },
+    {
+      "cross_mass_pairs": 18,
+      "n": 5,
+      "one_fixed_probe_suffices": true,
+      "q": 3
+    }
+  ],
+  "scope": "fully indexed spectra, unknown nonempty product factors, fixed local physical bits",
+  "status": "ALL PASS",
+  "structured_lower_witness": [
+    {
+      "different_coordinates": [
+        0,
+        2
+      ],
+      "lower_mass": 5,
+      "n": 4,
+      "q": 5,
+      "upper_mass": 15
+    },
+    {
+      "different_coordinates": [
+        0,
+        3
+      ],
+      "lower_mass": 10,
+      "n": 6,
+      "q": 5,
+      "upper_mass": 20
+    },
+    {
+      "different_coordinates": [
+        0,
+        4
+      ],
+      "lower_mass": 9,
+      "n": 8,
+      "q": 3,
+      "upper_mass": 15
+    },
+    {
+      "different_coordinates": [
+        0,
+        5
+      ],
+      "lower_mass": 44,
+      "n": 10,
+      "q": 11,
+      "upper_mass": 66
+    }
+  ]
+}
