@@ -1,0 +1,517 @@
+{
+  "schema": "X6_TIME_UNIT258_CONTEXTUAL_GUARD_FALLBACK_V1",
+  "task_id": "RS-X6-NATIVE-TIME-DYNAMICS",
+  "frozen_input_commit": "a72226e2430ffa4786321ac86e7f0c599d5f0389",
+  "original_witness_commit": "f56840285cafeb9f5767ea91e903e1f53808186f",
+  "parent_unit": "Unit257",
+  "model": "CONDITIONAL_SIGNED_WHOLE_TRIAD_BRC",
+  "context_definition": "[1_based_event_index,pos_A,pos_B,winding_A,winding_B]; P=12",
+  "guard_definitions": {
+    "none": "none",
+    "initial": "reject A 0->11 only at prestate (0,2,0,0)",
+    "early4": "reject A 0->11 iff pos_A=0,w_A=0,(pos_B,w_B) in [(2,0),(3,1),(4,2),(5,3)]",
+    "early16": "same with all 16 early contexts listed in c82.unique_cover; block only if w_A=0"
+  },
+  "cases": {
+    "none": [
+      {
+        "port": [
+          6,
+          0
+        ],
+        "minimum_events": 28,
+        "number_optimal_histories": 2832
+      },
+      {
+        "port": [
+          8,
+          2
+        ],
+        "minimum_events": 28,
+        "number_optimal_histories": 2832
+      }
+    ],
+    "initial": [
+      {
+        "port": [
+          6,
+          0
+        ],
+        "minimum_events": 28,
+        "number_optimal_histories": 632
+      },
+      {
+        "port": [
+          8,
+          2
+        ],
+        "minimum_events": 28,
+        "number_optimal_histories": 2200
+      }
+    ],
+    "early4": [
+      {
+        "port": [
+          6,
+          0
+        ],
+        "minimum_events": 30,
+        "number_optimal_histories": 10712
+      },
+      {
+        "port": [
+          8,
+          2
+        ],
+        "minimum_events": 28,
+        "number_optimal_histories": 928
+      }
+    ],
+    "early16": [
+      {
+        "port": [
+          6,
+          0
+        ],
+        "minimum_events": 30,
+        "number_optimal_histories": 9212
+      },
+      {
+        "port": [
+          8,
+          2
+        ],
+        "minimum_events": 30,
+        "number_optimal_histories": 1036
+      }
+    ]
+  },
+  "context_cover": {
+    "port60": {
+      "shortest_histories": 2832,
+      "shortest_dag_states": 3711,
+      "distinct_contexts": 10,
+      "context_occurrences": [
+        {
+          "prestate": [
+            1,
+            0,
+            2,
+            0,
+            0
+          ],
+          "histories": 2200
+        },
+        {
+          "prestate": [
+            2,
+            0,
+            3,
+            0,
+            1
+          ],
+          "histories": 520
+        },
+        {
+          "prestate": [
+            3,
+            0,
+            4,
+            0,
+            2
+          ],
+          "histories": 100
+        },
+        {
+          "prestate": [
+            4,
+            0,
+            5,
+            0,
+            3
+          ],
+          "histories": 12
+        },
+        {
+          "prestate": [
+            9,
+            0,
+            2,
+            -6,
+            0
+          ],
+          "histories": 168
+        },
+        {
+          "prestate": [
+            10,
+            0,
+            3,
+            -6,
+            1
+          ],
+          "histories": 504
+        },
+        {
+          "prestate": [
+            11,
+            0,
+            4,
+            -6,
+            2
+          ],
+          "histories": 630
+        },
+        {
+          "prestate": [
+            12,
+            0,
+            5,
+            -6,
+            3
+          ],
+          "histories": 330
+        },
+        {
+          "prestate": [
+            20,
+            0,
+            1,
+            -6,
+            11
+          ],
+          "histories": 960
+        },
+        {
+          "prestate": [
+            21,
+            0,
+            2,
+            -6,
+            12
+          ],
+          "histories": 240
+        }
+      ],
+      "minimal_blocking_contexts": 4,
+      "number_minimal_context_covers": 1,
+      "unique_cover": [
+        [
+          1,
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          3,
+          0,
+          1
+        ],
+        [
+          3,
+          0,
+          4,
+          0,
+          2
+        ],
+        [
+          4,
+          0,
+          5,
+          0,
+          3
+        ]
+      ]
+    },
+    "port82": {
+      "shortest_histories": 2832,
+      "shortest_dag_states": 3711,
+      "distinct_contexts": 16,
+      "context_occurrences": [
+        {
+          "prestate": [
+            1,
+            0,
+            2,
+            0,
+            0
+          ],
+          "histories": 632
+        },
+        {
+          "prestate": [
+            2,
+            0,
+            3,
+            0,
+            1
+          ],
+          "histories": 520
+        },
+        {
+          "prestate": [
+            3,
+            0,
+            4,
+            0,
+            2
+          ],
+          "histories": 420
+        },
+        {
+          "prestate": [
+            4,
+            0,
+            5,
+            0,
+            3
+          ],
+          "histories": 332
+        },
+        {
+          "prestate": [
+            5,
+            0,
+            6,
+            0,
+            4
+          ],
+          "histories": 256
+        },
+        {
+          "prestate": [
+            6,
+            0,
+            7,
+            0,
+            5
+          ],
+          "histories": 192
+        },
+        {
+          "prestate": [
+            7,
+            0,
+            8,
+            0,
+            6
+          ],
+          "histories": 140
+        },
+        {
+          "prestate": [
+            8,
+            0,
+            12,
+            0,
+            6
+          ],
+          "histories": 100
+        },
+        {
+          "prestate": [
+            9,
+            0,
+            2,
+            0,
+            6
+          ],
+          "histories": 72
+        },
+        {
+          "prestate": [
+            10,
+            0,
+            3,
+            0,
+            7
+          ],
+          "histories": 56
+        },
+        {
+          "prestate": [
+            11,
+            0,
+            4,
+            0,
+            8
+          ],
+          "histories": 42
+        },
+        {
+          "prestate": [
+            12,
+            0,
+            5,
+            0,
+            9
+          ],
+          "histories": 30
+        },
+        {
+          "prestate": [
+            13,
+            0,
+            6,
+            0,
+            10
+          ],
+          "histories": 20
+        },
+        {
+          "prestate": [
+            14,
+            0,
+            7,
+            0,
+            11
+          ],
+          "histories": 12
+        },
+        {
+          "prestate": [
+            15,
+            0,
+            8,
+            0,
+            12
+          ],
+          "histories": 6
+        },
+        {
+          "prestate": [
+            16,
+            0,
+            12,
+            0,
+            12
+          ],
+          "histories": 2
+        }
+      ],
+      "minimal_blocking_contexts": 16,
+      "number_minimal_context_covers": 1,
+      "unique_cover": [
+        [
+          1,
+          0,
+          2,
+          0,
+          0
+        ],
+        [
+          2,
+          0,
+          3,
+          0,
+          1
+        ],
+        [
+          3,
+          0,
+          4,
+          0,
+          2
+        ],
+        [
+          4,
+          0,
+          5,
+          0,
+          3
+        ],
+        [
+          5,
+          0,
+          6,
+          0,
+          4
+        ],
+        [
+          6,
+          0,
+          7,
+          0,
+          5
+        ],
+        [
+          7,
+          0,
+          8,
+          0,
+          6
+        ],
+        [
+          8,
+          0,
+          12,
+          0,
+          6
+        ],
+        [
+          9,
+          0,
+          2,
+          0,
+          6
+        ],
+        [
+          10,
+          0,
+          3,
+          0,
+          7
+        ],
+        [
+          11,
+          0,
+          4,
+          0,
+          8
+        ],
+        [
+          12,
+          0,
+          5,
+          0,
+          9
+        ],
+        [
+          13,
+          0,
+          6,
+          0,
+          10
+        ],
+        [
+          14,
+          0,
+          7,
+          0,
+          11
+        ],
+        [
+          15,
+          0,
+          8,
+          0,
+          12
+        ],
+        [
+          16,
+          0,
+          12,
+          0,
+          12
+        ]
+      ]
+    }
+  },
+  "verification": "two exact independent counting algorithms (layer-by-layer DP and FIFO BFS); complete shortest-DAG history enumeration; exhaustive 1024 subsets for 10-context cover; singleton-path proof for 16-context cover",
+  "native_physical_execution": false,
+  "independent_review": false,
+  "admitted": false
+}
