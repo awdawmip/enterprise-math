@@ -1,0 +1,103 @@
+{
+  "status": "PASS",
+  "arithmetic": "fractions.Fraction; all assertions exact; displayed witness energies outward rounded",
+  "scope": "General scalar source class |Delta^2 q_n|<=1/n; not the actual arithmetic road",
+  "complete_partition_domain": {
+    "X_min": 2,
+    "X_max": 12,
+    "partitions": 4094,
+    "integer_source_checks": 90112,
+    "cell_energy_checks": 24575
+  },
+  "power_sum_identity_checks": 256,
+  "dyadic_join_example": {
+    "blocks": [
+      [
+        8,
+        [
+          8,
+          9,
+          13,
+          16
+        ]
+      ],
+      [
+        16,
+        [
+          16,
+          21,
+          22,
+          31,
+          32
+        ]
+      ]
+    ],
+    "integer_source_checks": 32,
+    "energy": {
+      "lower": "0.000012888649063234191163455708",
+      "upper": "0.000012888649063234191163455709",
+      "digits": 30
+    },
+    "analytic_lower": {
+      "lower": "0.000000986285754425628919263178",
+      "upper": "0.000000986285754425628919263179",
+      "digits": 30
+    }
+  },
+  "equal_step_witnesses": [
+    {
+      "s": 2,
+      "X": 16,
+      "intervals": 2,
+      "step": 8,
+      "energy": {
+        "lower": "0.000012097479894789158072665748",
+        "upper": "0.000012097479894789158072665749",
+        "digits": 30
+      },
+      "analytic_lower": {
+        "lower": "0.000006198883056640625000000000",
+        "upper": "0.000006198883056640625000000000",
+        "digits": 30
+      }
+    },
+    {
+      "s": 4,
+      "X": 256,
+      "intervals": 4,
+      "step": 64,
+      "energy": {
+        "lower": "0.000012320304266085402900727201",
+        "upper": "0.000012320304266085402900727202",
+        "digits": 30
+      },
+      "analytic_lower": {
+        "lower": "0.000006200396455824375152587890",
+        "upper": "0.000006200396455824375152587891",
+        "digits": 30
+      }
+    },
+    {
+      "s": 8,
+      "X": 4096,
+      "intervals": 8,
+      "step": 512,
+      "energy": {
+        "lower": "0.000012380353868632590968531112",
+        "upper": "0.000012380353868632590968531113",
+        "digits": 30
+      },
+      "analytic_lower": {
+        "lower": "0.000006200396825306597747839987",
+        "upper": "0.000006200396825306597747839988",
+        "digits": 30
+      }
+    }
+  ],
+  "analytic_theorems": {
+    "single_block_lower": "M^2/161280*(X/k^4-1/X^3)",
+    "single_block_balanced_upper": "2*M^2*X/(15*k^4)",
+    "all_k_zero_observation_shape": "Phi=(k-r)*m^5+r*(m+1)^5-X; m=floor(X/k), r=X-m*k; minimax bracket M^2*Phi/(161280*X^4) to M^2*Phi/(120*X^4)",
+    "power_window_mesh_threshold": "alpha>1/4 for uniform vanishing error in the stated source class and per-block mesh-scale family"
+  }
+}
