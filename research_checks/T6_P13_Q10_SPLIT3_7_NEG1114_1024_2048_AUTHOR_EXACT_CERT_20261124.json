@@ -1,0 +1,119 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT3_7_NEG1114_AUTHOR_EXACT_SLICE_V1",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "signed_split": [
+    3,
+    7
+  ],
+  "negative_q_pattern": [
+    1,
+    1,
+    1,
+    4
+  ],
+  "positive_q_patterns": [
+    [
+      3
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      1,
+      1,
+      1
+    ]
+  ],
+  "interval": [
+    1024,
+    2048
+  ],
+  "source_order": "negative CWR q1(12,3) then q4(12,1); positive q3 single, q1q2 product, q1^3 CWR",
+  "budget_each_side": 2331,
+  "lattice_index": "13^21",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "stats": {
+    "both_original_side_mass_valid": 0,
+    "common_named_atom_canceled": 219068,
+    "gs_nodes": 647400,
+    "gs_searches": 313412,
+    "negative_rosters": 1024,
+    "positive_rosters": 520,
+    "raw_signed_pairs": 532480,
+    "relaxed_sphere_witnesses": 1,
+    "vertical_original_mass_excess": 0
+  },
+  "negative_roster_sha256": "0d49e0f0ee0f860c77faddbf11f9c59c59754c741509a1e147284a8042c72917",
+  "pair_digest_sha256": "9334e24fb4654ca3fe76714c0aef60e6f8909d78b4c0583d9fee5d804d379b92",
+  "reference_replay": "awdawmip/enterprise-math@e13f8fd6b1322770128b54231cdb3cc7f76a80c0:research_checks/T6_P13_Q10_SPLIT3_7_NEG1114_AUTHOR_REPLAY_20261124.py",
+  "validation": "Independent local reconstruction of the source arithmetic algorithm; exact 512:1024 regression matched published roster/pair SHA256 and all numerical counters. Three new disjoint slices actually executed. Author scope only.",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "next_unfinished": "q1114 negative indices [2048,4368)",
+  "witnesses": [
+    {
+      "budget_valid": false,
+      "masses": [
+        1989,
+        4930
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "neg": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          3
+        ]
+      ],
+      "negative_roster_index": 1118,
+      "pos": [
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          12
+        ]
+      ],
+      "positive_roster_index": 393,
+      "radius_sq": "3171853",
+      "u": [
+        41,
+        -6,
+        -11,
+        -3,
+        -8,
+        4,
+        4,
+        -2,
+        -2,
+        -1,
+        -8,
+        -4
+      ]
+    }
+  ]
+}
