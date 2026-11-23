@@ -1,0 +1,67 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT2_8_NEG11111111_AUTHOR_EXACT_SLICE_V1",
+  "as_of": "2026-11-23",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "author_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "researcher_session": "MCP-7f3df4435e40430b832e8d5ff2137718",
+  "research_activity": "RA-A468735D7C934B25C4B9614F",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "source_kernel": "awdawmip/enterprise-math@a15dc9dd00e5d45516463ed4c4905341d8d2357b:research_checks/T6_P13_Q10_SPLIT2_8_NEG1111112_SLICE_REPLAY_20261123_2000.py",
+  "replay_script_path": "research_checks/T6_P13_Q10_SPLIT2_8_NEG11111111_SLICE_REPLAY_20261123_2300.py",
+  "source_order": "negative q1 CWR(12,8); positive q2 single then q1 CWR(12,2)",
+  "negative_pattern": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "positive_patterns": [
+    [
+      2
+    ],
+    [
+      1,
+      1
+    ]
+  ],
+  "negative_index_interval": [
+    15360,
+    17408
+  ],
+  "p": 13,
+  "budget_each_side": 2331,
+  "lattice_index": "13^21",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "stats": {
+    "negative_rosters": 2048,
+    "raw_signed_pairs": 184320,
+    "common_named_atom_canceled": 118134,
+    "vertical_original_mass_excess": 0,
+    "gs_searches": 66186,
+    "gs_nodes": 141745,
+    "relaxed_sphere_witnesses": 0,
+    "both_original_side_mass_valid": 0
+  },
+  "roster_sha256": "bb52da60476665370ac6247b520fffc1f8d4d41b073ce60e6fa7cdef87390945",
+  "pair_digest_sha256": "dc2d4bca969d90af0299e1fed3598a49f94b70f43c2d77fcc1933b3bc787315c",
+  "witnesses": [],
+  "execution_provenance": {
+    "method": "Local Python 3 exact Fraction + SymPy HNF/LLL, transcribed kernel; frozen source, no independent author validation",
+    "command": "python t6_p13_q10_q11111111_replay.py --start 15360 --end 17408 --output t6_q11111111_15360_17408.json",
+    "observed_elapsed_seconds": 9.501,
+    "scope": "AUTHOR_LOCAL_EXACT_EXECUTED",
+    "replay_of_existing_range": false
+  },
+  "prior_completed_range": [
+    0,
+    15360
+  ],
+  "next_unfinished_index": 17408,
+  "formal_claim": false,
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "global_T6": "OPEN"
+}
