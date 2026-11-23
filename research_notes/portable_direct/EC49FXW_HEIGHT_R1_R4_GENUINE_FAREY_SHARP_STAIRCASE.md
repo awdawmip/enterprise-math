@@ -5,18 +5,17 @@ Date: 2026-11-23 (Asia/Shanghai). Scientific input remains **BRC16943**. Continu
 ## Precise observation model
 
 Retain the frozen Boolean predicate
-[
-C_{11}(h,n)=P_{10}(hmod10,nmod10),1_{9h+10n
-otequiv0pmod{11}}.
-]
+$$
+C_{11}(h,n)=P_{10}(h\bmod 10,n\bmod 10)\,\mathbf 1_{\{9h+10n\not\equiv 0\pmod{11}\}}.
+$$
 For every reduced positive Farey anchor `a/b` with `0<a<b`, `b<=H`, use the original determinant-one left-branch rephasing to generate its normalized ten-by-eleven product trace `W=U ⊗ V`. Distinct normalized traces form `W_H`. The observer is given the **full indexed reflection-defect spectrum** of the hidden trace and the external denominator bound `H`, but not its anchor or affine origin. It chooses a single fixed set `S⊆(Z/10)×(Z/11)` of **physical Boolean sites before seeing the spectrum**. For `1<=r<=4`, define `N_H(r)` to be the minimum `|S|` such that all distinct equal-spectrum traces in `W_H` have Hamming distance at least `r` on `S`.
 
 ## Theorem: four universal height plateaus
 
-For every integer `H>=22` and every integer `1<=r<=4`,
-[
-oxed{N_H(r)=3r+mathbf1_{Hge52}+mathbf1_{Hge58}+mathbf1_{Hge64}.}
-]
+For every integer \`H>=22\` and every integer \`1<=r<=4\`,
+$$
+\boxed{N_H(r)=3r+\mathbf 1_{\{H\ge 52\}}+\mathbf 1_{\{H\ge 58\}}+\mathbf 1_{\{H\ge 64\}}.}
+$$
 
 | Denominator height | r=1 | r=2 | r=3 | r=4 |
 |---|---:|---:|---:|---:|
@@ -32,9 +31,9 @@ The `r=1` column agrees with EC49FXV; **the new sharp classification is for r=2,
 1. The exact genuine-anchor census reconstructs the 600 normalized product traces, 478 indexed spectra and 122 equal-spectrum doubletons (see reproducible companion program). Every doubleton shares the same 11-factor `V`, either full or with one excluded column `z`. Its difference support has the form `G×(Z/11\{z})`; take `z=null` for full `V`.
 
 2. Among the genuine doubleton row supports are three *pairwise disjoint* sets
-[
-A={1,4,6,9},quad B_*={2,7},quad C={3,8}.
-]
+$$
+A=\{1,4,6,9\},\qquad B_*=\{2,7\},\qquad C=\{3,8\}.
+$$
 All three appear by denominator height 22. Consequently any admissible layout needs at least `r` sites in each of `A,B_*,C`, hence `|S|>=3r`. Each minimal group has genuine doubletons whose deleted columns together cover all eleven possibilities, first by heights `52,58,64`, respectively. For any such full-hole group, exactly `r` selected sites cannot work: choose the hole equal to the column of one of those sites, which decreases the pairwise distance to at most `r-1`. Thus each full-hole group requires `r+1` sites. The three groups are disjoint, giving the stated lower bound at every height `H>=22`.
 
 3. For the four plateau right endpoints `H=51,57,63,64`, the companion certificate gives explicit site sets for each `r=1,2,3,4` of exactly the lower-bound cardinality. The verifier recomputes the first actual anchor witnessing every trace, every indexed spectrum and every equal-spectrum doubleton, then checks every selected site against *all* doubletons present by its endpoint: 78, 94, 108, 111 constraints respectively, or 1,564 exact layout/distance tests across the 16 layouts. All pass. Monotonicity of `W_H` proves every intervening height by retaining the later-height upper layout and the lower bounds. At `H>=64`, a simpler uniform upper layout is `S={(j,v):j∈{1,2,3},0<=v<=r}`. Every one of the seven possible genuine difference supports contains at least one entire minimal group `A,B_*,C`, and hence at least one of rows `1,2,3`. The `r+1` different columns survive any one deletion with at least `r` observations. This covers all 600 ambient traces, which are exhausted by height 139, and all larger heights.
