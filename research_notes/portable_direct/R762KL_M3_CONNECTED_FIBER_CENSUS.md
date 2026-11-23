@@ -10,10 +10,10 @@ Frozen P000: `awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:
 Work **only in the unsigned auxiliary Port–Euler observation model** of R762KH–KK. Fix inactive Ports `01,23,45`. The twelve active pair Ports in increasing order are
 `02,03,04,05,12,13,14,15,24,25,34,35`.
 There are twelve forced three-axis supports, each allowed one fixed edge internal to one of the three four-Port components, and eight flexible supports
-`024,025,034,035,124,125,134,135`, forming a Boolean cube. In this experiment **every support has multiplicity exactly one** (twenty events in total). At cube support `ijk`, define its projected Ports
+`024,025,034,035,124,125,134,135`, forming a Boolean cube. In the choice census **each of the eight flexible supports has multiplicity exactly one**. The twelve forced-support multiplicities are represented by their GF(2) boundary parameter `b`; their positive values can vary. The special baseline with every one of the twenty supports occurring once has forced boundary `b=0` and twenty events total. At cube support `ijk`, define its projected Ports
 `A=(i,j)`, `B=(i,k)`, `C=(j,k)`. Choose exactly one of the edges `AB, AC, BC`; order the corresponding choices `0,1,2`.
 
-Let `F` be the GF(2) span of forced-edge boundary masks, a nine-dimensional subset of `GF(2)^12` with `|F|=512`. For `b in F`, let `Q(b)` be the number of distinct eight-support choices whose flexible boundary equals `b` and whose union with the twelve forced edges is connected. The forced edges are counted once each, so all support multiplicities and event edge identities are explicit. Any resulting even-degree connected multigraph supports an Euler circuit, with any active Port as start.
+Let `F` be the GF(2) span of forced-edge boundary masks, a nine-dimensional subset of `GF(2)^12` with `|F|=512`. For `b in F`, let `Q(b)` be the number of distinct eight-support choices whose flexible boundary equals `b` and whose union with the twelve forced edges is connected. The forced edges have positive integer multiplicities. For any actual forced inventory whose aggregate boundary is `b`, a connected flexible choice realizing `b` gives an even-degree connected graph and hence an Euler circuit with any active Port as start. The fiber count does not conflate different forced multiplicity inventories.
 
 ## Theorem KL.1 — exact connected realization fiber census
 
@@ -45,13 +45,13 @@ Thus this is an exhaustive finite classification of the stated 20-event auxiliar
 
 ## Theorem KL.2 — explicit residual/non-injectivity certificate
 
-Let `b=783` in the prescribed twelve-Port bit order. The following two *distinct* legal choice vectors (cube order above) both realize that boundary and both connect all three components:
+For the **actual twenty-event all-supports-once inventory**, the forced-edge boundary is `b=0` (the twelve forced edges form three four-cycles). The following two *distinct* legal choice vectors (cube order above) both realize `b=0` and connect all three components:
 
-`(1,2,2,1,0,0,2,2)` and `(2,1,1,2,0,0,2,2)`.
+`(0,0,2,2,0,0,2,2)` and `(1,0,1,0,1,0,1,0)`.
 
-They have the **same** frozen support-count inventory (one event per each of twenty supports), forced boundary, active Port set, even-degree requirement and connectivity/Euler-existence result. But their `024` event uses `AC` versus `BC`, hence their edge identities and provenance differ.
+They have the **same** frozen support-count inventory (one event per each of twenty supports), forced boundary, active Port set, even-degree requirement and connectivity/Euler-existence result. But their `024` event uses `AB` versus `AC`, hence their edge identities and provenance differ.
 
-Therefore the auxiliary observer `(support multiplicities, forced/flexible boundary, connectedness)` has a nontrivial fiber, and **cannot by itself answer a future query for the legal edge selected at a named support**. This is a concrete scoped residual-fidelity obstruction to discarding edge-event provenance. It does not assert that native signed Cell/Link/Port or BRC dynamics have the same fiber until a typed source-preserving bridge is proved.
+Therefore the auxiliary observer `(support multiplicities, forced/flexible boundary, connectedness)` has a nontrivial fiber, and **cannot by itself answer a future query for the legal edge selected at a named support**. This is a concrete scoped residual-fidelity obstruction to discarding edge-event provenance; importantly the two witnesses are **actual complete twenty-event Euler solutions**. It does not assert that native signed Cell/Link/Port or BRC dynamics have the same fiber until a typed source-preserving bridge is proved.
 
 ## Reproduction and evidence
 
