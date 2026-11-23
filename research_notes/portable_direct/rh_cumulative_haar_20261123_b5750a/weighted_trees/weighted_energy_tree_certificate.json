@@ -1,0 +1,253 @@
+{
+  "status": "Author exact rational finite checks; not an independent Project Review",
+  "scope": "Fixed-sign affine true skeleton, unchanged original nodes and endpoints",
+  "proof_file": "WEIGHTED_ENERGY_SHALLOW_TREES.md",
+  "source_scientific_freeze": "9fc068244e4f1117f1e75df5eb0285c6697d21d7",
+  "observation_semantics": "Scalar interpolation construction on the native X6 road; no scalar replacement of X6",
+  "data_cost": "Q squared and tau are computed from already supplied true nodes; the theorem gives no free acquisition or certification of arithmetic q values",
+  "inflation_cells": {
+    "exact_case_count": 4704,
+    "endpoint_scheme": "half weights at both cell ends",
+    "worst_observed_energy_ratio": {
+      "numerator": "2542784",
+      "denominator": "398425",
+      "decimal_for_reading": 6.382089477316936
+    },
+    "worst_witness_x_h_left_right_alpha": [
+      9,
+      9,
+      "-3",
+      "1",
+      "2"
+    ],
+    "false_pointwise_claim_counterexample": {
+      "nodes": [
+        4,
+        8
+      ],
+      "old_values": [
+        -100,
+        100
+      ],
+      "new_values": [
+        -100,
+        150
+      ],
+      "integer_midpoint": 6,
+      "old_value": 0,
+      "new_value": 25
+    }
+  },
+  "fixed_sign_tree_cases": {
+    "exact_case_count": 315,
+    "zero_positive_energy_cases": 34,
+    "positive_and_negative_skeleton_cases_included": true,
+    "all_closed_window_integers_scanned": true,
+    "all_actual_chord_edges_checked": true,
+    "maximum_observed_depth": 6,
+    "worst_observed_squared_energy_ratio_case": {
+      "zero": false,
+      "depth": 6,
+      "ratio": {
+        "numerator": "35320856333220230944251029460541713",
+        "denominator": "33536412118554580144270512425122849",
+        "decimal_for_reading": 1.0532091569115223
+      },
+      "tau": "4",
+      "delta": "1",
+      "occupied_buckets": 3,
+      "per_bucket_depth_bound": 6,
+      "nodes": [
+        20,
+        21,
+        22,
+        25,
+        26,
+        27,
+        30,
+        31,
+        32,
+        36,
+        38,
+        39,
+        40
+      ],
+      "values": [
+        "2",
+        "-14",
+        "-7/5",
+        "-33",
+        "-26/3",
+        "18/5",
+        "9",
+        "36",
+        "-15/2",
+        "-19/3",
+        "33/5",
+        "-39/2",
+        "5"
+      ]
+    }
+  },
+  "prior_pointwise_obstruction_family": [
+    {
+      "s": 8,
+      "X": 4096,
+      "h": 512,
+      "K": 18,
+      "number_of_internal_nodes": 7,
+      "previous_pointwise_required_depth_at_R_11_over_10": 3,
+      "new_actual_tree_depth": 5,
+      "per_bucket_depth_bound": 6,
+      "occupied_bucket_counts": {
+        "0": 2,
+        "351": 1,
+        "815": 4
+      },
+      "relative_root_energy_guarantee": "11/10, by analytic theorem",
+      "exact_depth_formula_for_s_at_least_128": "2 log2(s) - 1, by the two occupied bucket proof",
+      "all_integer_energy_direct_scan": false
+    },
+    {
+      "s": 16,
+      "X": 65536,
+      "h": 4096,
+      "K": 36,
+      "number_of_internal_nodes": 15,
+      "previous_pointwise_required_depth_at_R_11_over_10": 7,
+      "new_actual_tree_depth": 7,
+      "per_bucket_depth_bound": 8,
+      "occupied_bucket_counts": {
+        "0": 6,
+        "240": 1,
+        "815": 8
+      },
+      "relative_root_energy_guarantee": "11/10, by analytic theorem",
+      "exact_depth_formula_for_s_at_least_128": "2 log2(s) - 1, by the two occupied bucket proof",
+      "all_integer_energy_direct_scan": false
+    },
+    {
+      "s": 32,
+      "X": 1048576,
+      "h": 32768,
+      "K": 71,
+      "number_of_internal_nodes": 31,
+      "previous_pointwise_required_depth_at_R_11_over_10": 15,
+      "new_actual_tree_depth": 9,
+      "per_bucket_depth_bound": 10,
+      "occupied_bucket_counts": {
+        "0": 14,
+        "131": 1,
+        "815": 16
+      },
+      "relative_root_energy_guarantee": "11/10, by analytic theorem",
+      "exact_depth_formula_for_s_at_least_128": "2 log2(s) - 1, by the two occupied bucket proof",
+      "all_integer_energy_direct_scan": false
+    },
+    {
+      "s": 64,
+      "X": 16777216,
+      "h": 262144,
+      "K": 141,
+      "number_of_internal_nodes": 63,
+      "previous_pointwise_required_depth_at_R_11_over_10": 31,
+      "new_actual_tree_depth": 11,
+      "per_bucket_depth_bound": 12,
+      "occupied_bucket_counts": {
+        "0": 30,
+        "21": 1,
+        "815": 32
+      },
+      "relative_root_energy_guarantee": "11/10, by analytic theorem",
+      "exact_depth_formula_for_s_at_least_128": "2 log2(s) - 1, by the two occupied bucket proof",
+      "all_integer_energy_direct_scan": false
+    },
+    {
+      "s": 128,
+      "X": 268435456,
+      "h": 2097152,
+      "K": 282,
+      "number_of_internal_nodes": 127,
+      "previous_pointwise_required_depth_at_R_11_over_10": 63,
+      "new_actual_tree_depth": 13,
+      "per_bucket_depth_bound": 13,
+      "occupied_bucket_counts": {
+        "0": 63,
+        "815": 64
+      },
+      "relative_root_energy_guarantee": "11/10, by analytic theorem",
+      "exact_depth_formula_for_s_at_least_128": "2 log2(s) - 1, by the two occupied bucket proof",
+      "all_integer_energy_direct_scan": false
+    },
+    {
+      "s": 256,
+      "X": 4294967296,
+      "h": 16777216,
+      "K": 564,
+      "number_of_internal_nodes": 255,
+      "previous_pointwise_required_depth_at_R_11_over_10": 127,
+      "new_actual_tree_depth": 15,
+      "per_bucket_depth_bound": 15,
+      "occupied_bucket_counts": {
+        "0": 127,
+        "815": 128
+      },
+      "relative_root_energy_guarantee": "11/10, by analytic theorem",
+      "exact_depth_formula_for_s_at_least_128": "2 log2(s) - 1, by the two occupied bucket proof",
+      "all_integer_energy_direct_scan": false
+    },
+    {
+      "s": 512,
+      "X": 68719476736,
+      "h": 134217728,
+      "K": 1127,
+      "number_of_internal_nodes": 511,
+      "previous_pointwise_required_depth_at_R_11_over_10": 255,
+      "new_actual_tree_depth": 17,
+      "per_bucket_depth_bound": 17,
+      "occupied_bucket_counts": {
+        "0": 255,
+        "815": 256
+      },
+      "relative_root_energy_guarantee": "11/10, by analytic theorem",
+      "exact_depth_formula_for_s_at_least_128": "2 log2(s) - 1, by the two occupied bucket proof",
+      "all_integer_energy_direct_scan": false
+    },
+    {
+      "s": 1024,
+      "X": 1099511627776,
+      "h": 1073741824,
+      "K": 2253,
+      "number_of_internal_nodes": 1023,
+      "previous_pointwise_required_depth_at_R_11_over_10": 511,
+      "new_actual_tree_depth": 19,
+      "per_bucket_depth_bound": 19,
+      "occupied_bucket_counts": {
+        "0": 511,
+        "815": 512
+      },
+      "relative_root_energy_guarantee": "11/10, by analytic theorem",
+      "exact_depth_formula_for_s_at_least_128": "2 log2(s) - 1, by the two occupied bucket proof",
+      "all_integer_energy_direct_scan": false
+    },
+    {
+      "s": 4096,
+      "X": 281474976710656,
+      "h": 68719476736,
+      "K": 9012,
+      "number_of_internal_nodes": 4095,
+      "previous_pointwise_required_depth_at_R_11_over_10": 2047,
+      "new_actual_tree_depth": 23,
+      "per_bucket_depth_bound": 23,
+      "occupied_bucket_counts": {
+        "0": 2047,
+        "815": 2048
+      },
+      "relative_root_energy_guarantee": "11/10, by analytic theorem",
+      "exact_depth_formula_for_s_at_least_128": "2 log2(s) - 1, by the two occupied bucket proof",
+      "all_integer_energy_direct_scan": false
+    }
+  ],
+  "script_sha256": "d68b41e733433e8655791555a45e2705bb33f06ed84ebc187d9da8b47eab2f9c",
+  "proof_sha256_at_run": "a61166e1961c9ea14cafd2992ad533d500e834513f004c904b003f8a7e730292"
+}
