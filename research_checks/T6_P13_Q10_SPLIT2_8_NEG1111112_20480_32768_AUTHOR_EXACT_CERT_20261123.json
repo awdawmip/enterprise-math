@@ -1,0 +1,120 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT2_8_NEG1111112_AUTHOR_EXACT_SLICE_CERT_V1",
+  "as_of": "2026-11-23",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "parameters": {
+    "prime": 13,
+    "valuation": 1,
+    "vertical_order": 10,
+    "signed_split": [
+      2,
+      8
+    ],
+    "negative_pattern": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2
+    ],
+    "negative_source_interval": [
+      20480,
+      32768
+    ],
+    "positive_rosters": 90,
+    "cap_each_side": 2331,
+    "observer": "H0..H6",
+    "mixed_moduli": [
+      13,
+      169,
+      2197,
+      28561,
+      371293,
+      4826809
+    ],
+    "signed_q0_length": 12
+  },
+  "published_replay": {
+    "commit": "a15dc9dd00e5d45516463ed4c4905341d8d2357b",
+    "path": "research_checks/T6_P13_Q10_SPLIT2_8_NEG1111112_SLICE_REPLAY_20261123_2000.py",
+    "git_blob_sha1": "096df77ac608297ad1078844c03dcac2da39678b"
+  },
+  "methodology": "Signed exact H0..H6 q0 13-adic affine integer lattice, HNF/LLL, exact rational GS and nearest integer pair recursion. Source ordering: q1 CWR(12,6), q2 r=1..12; positive q2 singleton then q1 CWR(12,2). Named common atom cancellation uses prior lower-order exclusion, not a q10 GS search.",
+  "segments": [
+    {
+      "range": [
+        20480,
+        24576
+      ],
+      "rosters": 4096,
+      "raw_pairs": 368640,
+      "canceled": 216376,
+      "gs_searches": 152264,
+      "gs_nodes": 326519,
+      "sphere_witnesses": 0,
+      "budget_valid": 0,
+      "roster_sha256": "61ae37e315909ab3b5527fa09343bf840630e36d25ba64d05ad34a0130785b0f",
+      "pair_digest_sha256": "63ece87f9f790ec6e7fa785c219f75c8a19586d87e56b7653ed587d31c808583",
+      "local_complete_json_sha256": "aae1265dc05bb1fdaa8da0832583ece1669b8a80768d94c661e60224559655d2"
+    },
+    {
+      "range": [
+        24576,
+        28672
+      ],
+      "rosters": 4096,
+      "raw_pairs": 368640,
+      "canceled": 202396,
+      "gs_searches": 166244,
+      "gs_nodes": 354942,
+      "sphere_witnesses": 0,
+      "budget_valid": 0,
+      "roster_sha256": "bfa6e6623614482a4a18c05e504de25ed2ad2d06691339651edb9e5f008287c5",
+      "pair_digest_sha256": "778c83a3c9711868cccdc043ae69c732f0bea6f7bfc77b5779c36e6c72cc888b",
+      "local_complete_json_sha256": "7a133e36732c0a4560b882ffb4243c26c96b3cc43e905f9b7442347d4c59f3a3"
+    },
+    {
+      "range": [
+        28672,
+        32768
+      ],
+      "rosters": 4096,
+      "raw_pairs": 368640,
+      "canceled": 198596,
+      "gs_searches": 170044,
+      "gs_nodes": 366208,
+      "sphere_witnesses": 0,
+      "budget_valid": 0,
+      "roster_sha256": "4cbffb21d81d84344d728f4ae357b24407878ad7807a8f5311d8d469cbc99553",
+      "pair_digest_sha256": "1ab238382c60f6290e7c6302f3baca9c6f241c5d373497a04856cea251f4bfff",
+      "local_complete_json_sha256": "83899b65a4e007003fa2041606e77a6a7b0a877f5a0d259a4645c489c324c6c1"
+    }
+  ],
+  "total": {
+    "negative_rosters": 12288,
+    "raw_signed_pairs": 1105920,
+    "common_named_cancellations": 617368,
+    "exact_gs_searches": 488552,
+    "exact_gs_nodes": 1047669,
+    "modular_ball_witnesses": 0,
+    "both_side_budget_valid": 0
+  },
+  "witness_list": [],
+  "next_unfinished_negative_interval": [
+    32768,
+    148512
+  ],
+  "prior_evidence": [
+    "p13 q10 q1111112 [0,4096) at f01f93ba16129c2f2ea4b6042bf5f2414a13d016",
+    "[4096,12288) at 6b771974e79b9a51ab7e53b20f38d76139c61124",
+    "[12288,20480) at 7597d65d74933cfa7c7f134799bc3116512acc5f"
+  ],
+  "native_claim": "NOT_VERIFIED",
+  "formal_result": "NOT_PUBLISHED",
+  "independent_review": "NOT_PERFORMED"
+}
