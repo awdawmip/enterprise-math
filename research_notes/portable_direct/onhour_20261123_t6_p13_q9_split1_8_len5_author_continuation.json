@@ -1,0 +1,93 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_AUTHOR_CONTINUATION_V1",
+  "date_local": "2026-11-23",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "mother_status": "OPEN",
+  "frozen_science": {
+    "source_commit": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+    "task_path": "research_tasks/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260909.md",
+    "task_blob_sha1": "87b3a6f38e9350f7a3f56624b27bff2a7778a439",
+    "cap_per_side": 2331,
+    "p000": "ACTIVE_LOCKED_UNCHANGED"
+  },
+  "research_logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_conversation_id": "chatgpt-hourly-enterprise-math-20260921",
+  "science": {
+    "new_completed_scope": "maximal-p13 valuation1, q-order9 signed split(1,8), full negative named-roster length5, with positive q1 atom",
+    "negative_q_patterns": [
+      [
+        1,
+        1,
+        1,
+        1,
+        4
+      ],
+      [
+        1,
+        1,
+        1,
+        2,
+        3
+      ],
+      [
+        1,
+        1,
+        2,
+        2,
+        2
+      ]
+    ],
+    "full_new_raw_pairs": 1166256,
+    "common_atom_canceled": 239616,
+    "disjoint_pairs": 926640,
+    "exact_gs_nodes": 2288002,
+    "ball_leaves": 10,
+    "both_mass_caps_satisfied": 0,
+    "prior_completed": "signed split(1,8) negative lengths1..4 492804 raw pairs; split(0,9) full order9 already complete 1669720 rosters; earlier p19/p17/p13 scopes preserved",
+    "cumulative_signed_split1_8_lengths1to5": {
+      "raw_pairs": 1659060,
+      "common_canceled": 299376,
+      "disjoint_pairs": 1359684,
+      "ball_leaves": 16,
+      "valid": 0
+    },
+    "evidence_strength": "AUTHOR_EXACT_FINITE_EXECUTED / GITHUB_VERIFIED / UNREVIEWED / NOT_ADMITTED",
+    "checker_postpublication_rerun": "NOT_PERFORMED",
+    "proof": {
+      "commit": "af9350c68226efe73307787d511325d2e36b003f",
+      "path": "research_notes/portable_direct/onhour_20261123_t6_p13_q9_split1_8_negative_length5_exact_author.md",
+      "git_blob_sha1": "6adfc84abf29a3ce7fd826fb844b1f70edfb8be9"
+    },
+    "certificate": {
+      "commit": "693b1b81da2c2bc4b4c112374eb49e3a1e298027",
+      "path": "research_checks/T6_P13_Q9_SPLIT1_8_NEG_LEN5_AUTHOR_EXACT_CERT_20261123_1000.json",
+      "git_blob_sha1": "96e92a5a3f6fa34297df0905a0f151235c62b2f4"
+    },
+    "checker": {
+      "commit": "e20f1274795859dca37fc4953c2a0145d5a48a4c",
+      "path": "research_checks/T6_P13_Q9_SPLIT1_8_NEG_LEN5_EXACT_REPLAY_20261123_1000.py",
+      "git_blob_sha1": "030321972eb195d00285c4f3b0e3a53cc67d0fa2"
+    },
+    "next_minimal_unit": "p13 signed q-order9 split(1,8), negative vertical length6, starting pattern(1,1,1,1,1,3), then (1,1,1,1,2,2); canonical residues/nondecreasing same-q blocks; continue exact 12D affine lattice and two-side 2331 mass validation; retain any interrupted half-open interval.",
+    "do_not_repeat": "Do not recalculate prior signed negative lengths1..5 or complete split(0,9). No source acceptance or independent review has occurred.",
+    "formal_source_separation": "Native T6 Source p17 q14(7,7) canonical roster/cost preflight is a separate owned execution scope, not fulfilled by this p13 portable result."
+  },
+  "control": {
+    "native_source_task_read_request_id": "onhour-20261123-1000-t6-read-v1",
+    "native_source_task_read_terminal": "SUCCEEDED/error=null read-only as-of snapshot; execution_authorized=false",
+    "old_native_continuation_request_id": "onhour-20261123-0818-t6-exact-continuation-ro-v1",
+    "old_native_continuation_terminal": "SUCCEEDED/error=null",
+    "own_winning_native_claim": "NOT_VERIFIED",
+    "native_run": "NOT_VERIFIED",
+    "native_semantic_progress": "NOT_PUBLISHED",
+    "historical_activity": "RA-5E3FE1E761E4963EC461A892",
+    "historical_activity_last_count": 328,
+    "new_activity": "NOT_WRITTEN: current Sites subject cannot establish authorship of original bridge SID; no borrowing",
+    "client_checkpoint_line": "chatgpt-research-onhour-enterprise-math-20260923",
+    "client_checkpoint_previous_revision": 4,
+    "maintenance_lane_modified": false,
+    "schedule_modified": false,
+    "notification_modified": false
+  },
+  "next_exact_action": "After consuming this immutable GitHub continuation and verifying the earlier receipt, continue negative length6 pattern(1,1,1,1,1,3) exact rosters and preserve a bounded certificate; original native Task/owner/claims remain distinct."
+}
