@@ -6,11 +6,13 @@
 
 ## 2026-11-22–23 近期直接研究
 
-以下按两条已保存的成果链提供续接入口，不并入下方历史 435 条整理计数。后续批次可沿各自既有 Activity 的源引用查找；正文中的作者证明、有限核验与正式接纳状态保持分别使用。 成果批次改变已有结论或未决范围时，将最新正文与实际差异写回已有条目，并修订有后续复用价值的速记理解；原始科学文件先保存，入口同步不阻断研究。
+以下按已保存的成果链提供续接入口，不并入下方历史 435 条整理计数。后续批次可沿各自既有 Activity 的源引用查找；正文中的作者证明、有限核验与正式接纳状态保持分别使用。 成果批次改变已有结论或未决范围时，将最新正文与实际差异写回已有条目，并修订有后续复用价值的速记理解；原始科学文件先保存，入口同步不阻断研究。
 
 - **Riesel 余数观察者与固定根覆盖成本。** [最新总述与五个分支](../research_notes/portable_direct/riesel_observers_20261122/README.md)保存预算 0–5 的锐残余密度阶梯、指定优化谓词的最小周期，以及同一 25 通道观察轨迹上每个有限新增成本 s≥5 的无限根族。固定原根的一份 2056 项窗口有精确成本 1791，给出旧素数集 P 之外的必要覆盖数下界；总数 1811 还要求保留全部 P。原固定根的全程有限覆盖存在性仍未决。来源为作者证明、精确有限证书与所列原生执行，没有独立项目 Review、形式证明核验或 Foundation 晋升。[既有 Activity 与前序批次](../research_activity_records/RA-D2EC212845B63844081F9A14.json)。
 
 - **RH 完整道路、三角矩与全窗口采样认证。** 2026-11-23 的[全窗口采样正文](../research_notes/portable_direct/rh_global_sampling_20261123_b5750a/REPORT.md)及[输入与复算入口](../research_notes/portable_direct/rh_global_sampling_20261123_b5750a/README.md)接续既有[三角矩与相位](../research_notes/portable_direct/rh_triangle_correlation_20261122_b5750a/REPORT.md)、[保留符号的树包络](../research_notes/portable_direct/rh_short_correlation_20261122_b5750a/REPORT.md)和[有理势自适应采样](../research_notes/portable_direct/rh_adaptive_sampling_20261122_b5750a/REPORT.md)。在正文参数范围内，全窗口分配以 `O(B^(1/4)/r)` 个实际观察点控制 `O(r²)` 的正能量平方根误差，并给出整数预算优化、浅树近似与端点能量认证。采样点值本身的前缀计算成本另行保留；当前算术问题是无界匹配窗口、统一匹配参数下实际完整道路的正能量预算。原三角矩 no-go、真实骨架及联合前缀仍按各自范围复用。这些是作者解析证明、同一研究内的定向交叉核对及严格有限证书；正式 Result、独立 Project Review 与项目晋升保持原状态。[既有 Activity 与全部接续批次](../research_activity_records/RA-60C6D083A81B19084A74C5BA.json)。当前速记：`RESEARCH.triangle-correlation.20261123.scope.v2`。
+
+- **X6 条件六对 BRC：R90 单通道相图与后续精确优化。** [R90 评分公式与全整数格相图](../research_notes/portable_direct/2026-11-22_x6_r90_one_channel_ray_exact_phase_diagram.md)写明：权重 `(1,1,1,T)`、整数 Port ≥11 时，最优值依次为 `1/(1+T)`（0<T≤1）、`1/2`（1≤T≤23）、`12/(1+T)`（T≥23）；T=23 恰有三个最优方向。[R121 小 Port 精确优化器](../research_notes/portable_direct/2026-11-23_r2_x6_r121_small_port_exact_optimizer.md)覆盖四个任意正权重和 Port 1–10，18 行候选可按预算筛选。[R130 的另一条参数射线](../research_notes/portable_direct/2026-11-23_r2_x6_r130_class_iv_port10_D_ray.md)给出 Port 10 的完整优化器和严格近优集。这些公开来源保留各自的作者证明与精确复算状态；对象是条件观察器。
 
 ## 2026-11-04 冷线推进与完整母题盘点
 
