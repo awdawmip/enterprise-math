@@ -1,0 +1,210 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT1_9_NEG_LEN6_PATTERN111114_AUTHOR_EXACT_CERT_V1",
+  "as_of": "2026-11-23T14:25:00+08:00",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "frozen_scientific_source": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "scope": "p13 maximal prime, valuation1, q10 signed split (1,9), negative q atoms (1,1,1,1,1,4), all named residues 1..12, 12 positive q1 choices; original H0..H6 and side mass caps 2331",
+  "denominator": "13*(13q+r)",
+  "q0_weight": "13r-1",
+  "vertical_weight": "169q+13r-1",
+  "method": "Exact p13 saturated 12D q0 lattice/GS reusing the published signed split1_9 length1..3 exact kernel with canonical grouped residue combinations, negative-roster intervals [0,13104),[13104,26208),[26208,39312),[39312,52416). Exact rational near-neighbor enumeration with dmin>2*(2331)^2, six modular checks per sphere leaf, original two sided mass validation.",
+  "interval_rows": [
+    {
+      "range": [
+        0,
+        13104
+      ],
+      "raw_pairs": 157248,
+      "common_cancel": 51612,
+      "vertical_overbudget": 0,
+      "gs_searches": 105636,
+      "gs_nodes": 255032,
+      "ball_leaves": 1,
+      "budget_valid": 0,
+      "pair_digest_sha256": "dc3ff301471f2db971609b093541bc568950a4c6d467c38b634e3d83ccc0991f"
+    },
+    {
+      "range": [
+        13104,
+        26208
+      ],
+      "raw_pairs": 157248,
+      "common_cancel": 50748,
+      "vertical_overbudget": 0,
+      "gs_searches": 106500,
+      "gs_nodes": 255733,
+      "ball_leaves": 1,
+      "budget_valid": 0,
+      "pair_digest_sha256": "3ec1dd2dbfb92137af85636dd3f836f2459fa457d7d060099a0b6a5cd21f5e0c"
+    },
+    {
+      "range": [
+        26208,
+        39312
+      ],
+      "raw_pairs": 157248,
+      "common_cancel": 48324,
+      "vertical_overbudget": 10,
+      "gs_searches": 108914,
+      "gs_nodes": 260290,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "pair_digest_sha256": "6a1b164889550473aedbc0d9882a99324824bcd9d5e6951b1881719de673a06f"
+    },
+    {
+      "range": [
+        39312,
+        52416
+      ],
+      "raw_pairs": 157248,
+      "common_cancel": 45876,
+      "vertical_overbudget": 2428,
+      "gs_searches": 108944,
+      "gs_nodes": 260006,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "pair_digest_sha256": "d1b7705f894595c836b73a21a3f80182bdceac8645a551a58bfdc308be325ced"
+    }
+  ],
+  "totals": {
+    "negative_rosters": 52416,
+    "raw_pairs": 628992,
+    "common_cancel": 196560,
+    "vertical_overbudget": 2438,
+    "gs_searches": 429994,
+    "gs_nodes": 1031061,
+    "ball_leaves": 2,
+    "budget_valid": 0
+  },
+  "sphere_witnesses": [
+    {
+      "positive": [
+        [
+          1,
+          10
+        ]
+      ],
+      "negative": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          9
+        ]
+      ],
+      "u": [
+        -85,
+        -24,
+        -3,
+        -7,
+        7,
+        -7,
+        2,
+        -3,
+        -3,
+        5,
+        -7,
+        -3
+      ],
+      "masses": [
+        1571,
+        6651
+      ],
+      "index": 8684,
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    },
+    {
+      "positive": [
+        [
+          1,
+          4
+        ]
+      ],
+      "negative": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "u": [
+        27,
+        0,
+        32,
+        12,
+        -14,
+        7,
+        3,
+        6,
+        -6,
+        3,
+        1,
+        -3
+      ],
+      "masses": [
+        4328,
+        3936
+      ],
+      "index": 17465,
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    }
+  ],
+  "local_detailed_sha256": "3d9fb74f13c174850bdff2d7c23fad2072f3028d4e1205839ae2dd50ba4f3665",
+  "scientific_status": "AUTHOR_EXACT_FINITE_EXECUTED/UNREVIEWED/NOT_ADMITTED",
+  "native_semantic_progress": "NOT_PUBLISHED",
+  "independent_replay": "NOT_PERFORMED",
+  "next_unfinished": "same p13 q10 split(1,9) negative length6 q-pattern (1,1,1,1,2,3), 196560 negative rosters and 2358720 raw signed pairs"
+}
