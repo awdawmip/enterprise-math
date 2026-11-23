@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/R284FJ_q34_reset_free_checker.py",
+    "ref": "ebba9f0269813e06e0b3c90fc559115a7c9ade86",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r1-20261123-1210-r284fi-fj-fk-source-4",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "\"\"\"R284FJ: complete finite obstructions for q=3,4 and u=0.\nRun with Python 3 standard library; about 20 seconds on a typical CPU.\n\"\"\"\nfrom itertools import combinations, combinations_with_replacement\nfrom math import comb\n\ndef words(pats):\n    return (0,)+tuple(sum(((p>>(j-1))&1)<<k for k,p in enumerate(pats)) for j in (1,2,3))\n\ndef groups(c,n,i):\n    gs=[[] for _ in range(4)]\n    for k in range(n):\n        for lag in range(1,5):\n            e=(i-lag)%4\n            if (c[e]^c[(e+1)%4])&(1<<k):\n                gs[e].append(k)\n                break\n        else:raise AssertionError('nonactive bit')\n    return gs\n\ndef stable(c,n,i,q):\n    masks={0}\n    for g in groups(c,n,i):\n        options=[sum(1<<k for k in sub)\n                 for r in range(min(q,len(g))+1)\n                 for sub in combinations(g,r)]\n        masks={m^v for m in masks for v in options}\n    return {c[i]^m for m in masks}\n\ndef distance_ok(c,q):\n    return all((c[i]^c[(i+1)%4]).bit_count()>=2*q+1 for i in range(4)) and all((c[i]^c[i+2]).bit_count()>=2*q+1 for i in range(2))\n\ndef classify(q,n):\n    out={'q':q,'n':n,'classes':0,'distance_pass':0,'stable_disjoint':0}\n    for pats in combinations_with_replacement(range(1,8),n):\n        out['classes']+=1\n        c=words(pats)\n        if not distance_ok(c,q):continue\n        out['distance_pass']+=1\n        seen=set()\n        for phase in range(4):\n            s=stable(c,n,phase,q)\n            if seen.intersection(s):break\n            seen.update(s)\n        else:out['stable_disjoint']+=1\n    assert out['classes']==comb(n+6,6)\n    return out\n\ndef main():\n    expected={3:[(12376,3,0),(18564,47,0),(27132,306,0)],\n              4:[(38760,3,0),(54264,47,0),(74613,306,0),(100947,1270,0)]}\n    for q,rows in expected.items():\n        for r,row in enumerate(rows):\n            n=3*q+2+r\n            c=classify(q,n)\n            print(c,flush=True)\n            assert (c['classes'],c['distance_pass'],c['stable_disjoint'])==row\n        # Two blocks of 2q+1 bits, Gray orbit; majority robust and monotone.\n        print('sharp',q,4*q+2,flush=True)\n    print('R284FJ verified',flush=True)\n\nif __name__=='__main__':main()\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/ebba9f0269813e06e0b3c90fc559115a7c9ade86/research_notes/portable_direct/R284FJ_q34_reset_free_checker.py",
+      "encoding": "utf-8",
+      "sha": "b69d2e6074a54a044a44c2dc0bbd5703d0f1fd3c"
+    }
+  },
+  "tool_name": "mcp__GitHub__fetch_file"
+}
