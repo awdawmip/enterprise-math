@@ -79,7 +79,7 @@ The C++ program writes `R284FV_q{q}_n{n}_stable.txt` into the third command-line
 - R284FT exact integral prefix-flow lemma: `awdawmip/enterprise-math@b654d9bbb0ac5f7083afe24076a8bb24dc4ab1f0:research_notes/portable_direct/R284FT_Q3U1_SHARP_TWENTYTWO_BIT_FLOW_PREFIX_CYCLE_20261123.md`
 - R284FP analytic n>=4q+8 (q>=3,u=1): `awdawmip/enterprise-math@de49ae0239abee14619a730fe6ea60614a2cde5b:research_notes/portable_direct/R284FP_HIGH_OMISSION_NOISY_CYCLE_PLUS_ONE_BOUND_20261123.md`
 - R284FM stable state cut: `awdawmip/enterprise-math@1d1c5dd412719c7aaf016187b6493b77253cd9f9:research_notes/portable_direct/R284FM_NOISY_OBSERVER_FLOW_CUT_AND_ADDITIVE_LOWER_BOUND_20261123.md`
-- R284FE Gray construction: `awdawmip/enterprise-math@9974b3b5a1031bb5c841ab5a4950a9c55baed9e0:research_notes/portable_direct/R284FE_...` (consult that exact pinned source for full file name).
+- R284FE Gray construction: `awdawmip/enterprise-math@9974b3b5a1031bb5c841ab5a4950a9c55baed9e0:research_notes/portable_direct/R284FE_GRAY_EPOCH_SHARP_SEPARABLE_CAPACITY_20261123.md`.
 - Scientific task lineage retained as R284CO; activity and any formal ownership are separate and must be checked against current native receipts.
 
 ## Next
