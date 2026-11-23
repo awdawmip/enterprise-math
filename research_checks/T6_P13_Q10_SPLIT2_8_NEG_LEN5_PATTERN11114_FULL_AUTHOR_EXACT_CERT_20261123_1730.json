@@ -1,0 +1,109 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT2_8_NEG_LEN5_11114_COMPLETE_AUTHOR_EXACT_V1",
+  "as_of": "2026-11-23",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "logical_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "frozen_scientific_source": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "observer": "Original H0..H6; all six mixed p13 congruences, j=1..6",
+  "model": "maximal p13 v13=1, q order 10 signed split(2,8), negative length5 pattern(1,1,1,1,4)",
+  "positive_q_patterns": [
+    [
+      2
+    ],
+    [
+      1,
+      1
+    ]
+  ],
+  "negative_q_pattern": [
+    1,
+    1,
+    1,
+    1,
+    4
+  ],
+  "negative_roster_total": 16380,
+  "positive_roster_total": 90,
+  "source_order": "negative product(combinations_with_replacement(range(1,13),4),range(1,13)), positive [(2,r)] r=1..12 then q(1,1) with r1<=r2",
+  "budget_each_side": 2331,
+  "q0_weight": "13r-1",
+  "vertical_weight": "13(13q+r)-1",
+  "saturated_q0_lattice_index": "13^21",
+  "six_moduli": [
+    13,
+    169,
+    2197,
+    28561,
+    371293,
+    4826809
+  ],
+  "gs_min_diagonal_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "method": "Exact rational HNF/LLL saturated 12D q0 lattice, exact modular particular solutions and GS sphere search. Every GS squared diagonal exceeds 2*2331^2, so the floor/ceil integer branches at each coordinate are exhaustive for the original mass-driven necessary sphere. Enumerate every signed named vertical roster, cancel exact common atoms into lower-order accounted class and preserve original both-side masses.",
+  "complete_raw_pair_digest_sha256": "f6dd02eef8a3ed3962d3eab5e685d4a020070635b963a5904a959f5d1aea731d",
+  "stats": {
+    "negative_rosters_visited": 16380,
+    "raw_signed_pairs": 1474200,
+    "common_named_atom_canceled": 567216,
+    "vertical_original_mass_excess": 0,
+    "gs_searches": 906984,
+    "gs_nodes": 1982636,
+    "relaxed_sphere_witnesses": 0,
+    "both_original_side_mass_valid": 0
+  },
+  "exact_contiguous_slices": [
+    {
+      "start": 0,
+      "end": 4096,
+      "pair_digest_sha256": "acc598b45006ffec944e430b23553cb7096619556cc5f654d6945a95ec7455a7",
+      "gs_nodes": 485040
+    },
+    {
+      "start": 4096,
+      "end": 8192,
+      "pair_digest_sha256": "4992ac98b3a4df42cd475a35fc62a6aef4653899757fc0800fa51ed187ef5ff2",
+      "gs_nodes": 495603
+    },
+    {
+      "start": 8192,
+      "end": 9216,
+      "pair_digest_sha256": "2e490be0ae1279642f6911814624f7b5fd2efa6d65df198b0b1a76b82112fc47",
+      "gs_nodes": 121706
+    },
+    {
+      "start": 9216,
+      "end": 10240,
+      "pair_digest_sha256": "dcd0e79139dd19c8ce5ef7cbce72dc673a2405a81f5d42c5a90ca603d330bb87",
+      "gs_nodes": 117602
+    },
+    {
+      "start": 10240,
+      "end": 11264,
+      "pair_digest_sha256": "eaafadb6f198ea9d839353586b396750064deb867de475434323dbe49146fa6f",
+      "gs_nodes": 129550
+    },
+    {
+      "start": 11264,
+      "end": 12288,
+      "pair_digest_sha256": "34c37b23bc1e8f9af3435b6aa2a8d62060b24281dd8a61d1eba476d643645b5f",
+      "gs_nodes": 118072
+    },
+    {
+      "start": 12288,
+      "end": 14336,
+      "pair_digest_sha256": "6e6ebfadd97f8359ae68b986be131426296e20c30209c9aaa45557e756fabc9b",
+      "gs_nodes": 254784
+    },
+    {
+      "start": 14336,
+      "end": 16380,
+      "pair_digest_sha256": "036e3ca7e3914a83a0c4a1dda7652f0608ce2c84464961afac14ccc7d21dccd0",
+      "gs_nodes": 260279
+    }
+  ],
+  "full_signed_witnesses": [],
+  "independent_witness_modular_and_mass_check": "VACUOUS_NO_WITNESSES; partition/total/digest independently reconstructed",
+  "replay_method_reference": "research_checks/T6_P13_Q9_SPLIT1_8_NEG_LEN1TO4_EXACT_REPLAY_20261123_0900.py",
+  "scientific_strength": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "native_semantic_progress": "NOT_PUBLISHED",
+  "next_unfinished": "p13 q10 signed split(2,8) negative length5 patterns(1,1,1,2,3),(1,1,2,2,2); then negative length6..8; T6 global OPEN"
+}
