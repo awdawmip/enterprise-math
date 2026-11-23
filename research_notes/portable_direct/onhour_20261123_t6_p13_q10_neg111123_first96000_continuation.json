@@ -1,0 +1,48 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_AUTHOR_CONTINUATION_V1",
+  "as_of": "2026-11-23T15:38:00+08:00",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "mother_state": "OPEN",
+  "scientific_pin": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "previous_continuation": "research_notes/portable_direct/onhour_20261123_t6_p13_q10_neg111123_first48000_continuation.json",
+  "completed_portable_segments": [
+    {
+      "path": "research_checks/T6_P13_Q10_SPLIT1_9_NEG111123_48000_64000_AUTHOR_EXACT_CERT_20261123.json",
+      "commit": "ffbe6e172be08294bc21bf972a7bc653660cfadc",
+      "verified": true
+    },
+    {
+      "path": "research_checks/T6_P13_Q10_SPLIT1_9_NEG111123_64000_96000_AUTHOR_EXACT_CERT_20261123.json",
+      "commit": "17fdee38357476ab2a78b20a10bcab37d8065bb3",
+      "verified": true
+    }
+  ],
+  "cumulative_q_pattern": {
+    "negative_rosters_completed": 96000,
+    "negative_rosters_total": 196560,
+    "raw_pairs": 1152000,
+    "common_cancel": 317664,
+    "exact_gs_searches": 834336,
+    "gs_nodes": 2007972,
+    "relaxed_sphere_leaves": 4,
+    "budget_legal": 0
+  },
+  "immutable_frontier": "negative rosters indices [0,96000) exact author checked; segment records verified on main",
+  "next_exact_action": "negative q-pattern111123 indices [96000,196560); positive q1 residues1..12; original side weights, six mixed13-adic congruences, exact q0 lattice, signed witnesses, unique ordered-pair hash",
+  "do_not_repeat": [
+    "q10 split0_10 fully completed before this turn",
+    "split1_9 negative lengths1..5 and length6 pattern111114 completed before this turn",
+    "current neg111123 rosters [0,96000) completed in this turn",
+    "Native p17 q14 source work unchanged"
+  ],
+  "control": {
+    "native_claim": "NOT_VERIFIED",
+    "native_semantic_progress": "NOT_PUBLISHED",
+    "research_activity": "PENDING_AUTHOR_ATTRIBUTION",
+    "native_continuation_original_request": "onhour-20261123-1528-t6-source-continuation-ro-v1",
+    "native_continuation_last_observed": "RUNNING; consume original receipt",
+    "last_confirmed_client_checkpoint_revision": 26,
+    "revision27": "NOT_SENT"
+  },
+  "publication": "PORTABLE_GITHUB_AUTHOR_SCIENCE/UNREVIEWED/NOT_ADMITTED"
+}
