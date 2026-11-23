@@ -1,0 +1,138 @@
+{
+  "schema": "EC49FXZ_BOOLEAN_ONLY_DECISION_BOUNDS_V1",
+  "frozen_scientific_pin": "BRC16943",
+  "result": "ALL_PASS",
+  "premise": "original frozen C11 physical Boolean probes; all 600 normalized states possible; no free indexed spectrum",
+  "exact_domain": {
+    "genuine_anchor_square": "1<=a,c<=79; gcd(a,c)=1",
+    "masks": 50,
+    "column_factors": 12,
+    "states": 600,
+    "sites": 110
+  },
+  "proven_bounds": {
+    "unconditional_adaptive_identification_lower": 11,
+    "constructive_upper": 16
+  },
+  "lower_reason": "for fixed U and full V, all 11 single-column deletions differ on disjoint columns",
+  "algorithm": "deterministic recursive minimax cardinality split; ties lexicographic (t,j)",
+  "decision_tree": {
+    "internal_nodes": 599,
+    "leaves": 600,
+    "root": {
+      "t": 8,
+      "j": 0,
+      "no": 303,
+      "yes": 297
+    },
+    "max_depth": 16,
+    "average_depth": 10.95,
+    "leaf_depth_histogram": {
+      "7": 50,
+      "8": 61,
+      "9": 137,
+      "10": 56,
+      "11": 50,
+      "12": 50,
+      "13": 50,
+      "14": 57,
+      "15": 83,
+      "16": 6
+    }
+  },
+  "exact_checks": {
+    "original_C11_integer_equalities": 66000,
+    "full_vs_hole_disjoint_column_pairs": 550,
+    "complete_tree_paths": 600
+  },
+  "deepest_sample": {
+    "u": 721,
+    "z": 10,
+    "depth": 16,
+    "path": [
+      [
+        8,
+        0,
+        0
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        5,
+        0,
+        0
+      ],
+      [
+        3,
+        1,
+        0
+      ],
+      [
+        2,
+        2,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        0,
+        2,
+        1
+      ],
+      [
+        0,
+        3,
+        1
+      ],
+      [
+        0,
+        4,
+        1
+      ],
+      [
+        0,
+        5,
+        1
+      ],
+      [
+        0,
+        6,
+        1
+      ],
+      [
+        0,
+        7,
+        1
+      ],
+      [
+        0,
+        8,
+        1
+      ],
+      [
+        0,
+        9,
+        1
+      ],
+      [
+        0,
+        10,
+        0
+      ]
+    ]
+  },
+  "proof_scope": "finite exhaustive constructive upper bound, analytic lower bound; exact optimum within [11,16] is open",
+  "status": "AUTHOR_PROVED / EXACT_INTEGER_CROSSCHECK / PARENT_DEPENDENT / NOT_REVIEWED",
+  "native_X6_transfer": "NOT_CLAIMED"
+}
