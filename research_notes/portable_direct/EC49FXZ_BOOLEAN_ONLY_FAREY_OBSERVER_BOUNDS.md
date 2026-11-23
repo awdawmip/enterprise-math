@@ -21,9 +21,18 @@ Let `Q` be the minimum, over deterministic adaptive binary-site decision trees i
 
 ## Theorem: exact proved interval
 
-**11 <= Q <= 16.** The lower bound is analytic. The upper bound is a completely specified finite constructive decision tree with 600 distinct leaves, built from the frozen masks.
+**14 <= Q <= 16.** The lower bound is analytic. The upper bound is a completely specified finite constructive decision tree with 600 distinct leaves, built from the frozen masks.
 
 **Lower bound.** Fix any permissible nonempty U and consider the state with full mod-11 factor `W_{U,-1}`. For each `j=0,...,10`, compare to `W_{U,j}`, which deletes only column `j`. A physical Boolean query distinguishes this pair only if it queries column `j` at a row with `U(t)=1`. These eleven required distinguishing-coordinate sets are pairwise disjoint in the `j` coordinate. The full-factor state's decision-tree path must contain at least one query from each set, hence at least eleven queries. This holds for each of the 50 permissible U.
+
+**Strengthened disjoint-support lower bound (14).** The frozen 50-mask atlas contains the four masks
+`U=833`, `U_1=857`, `U_2=867`, `U_3=965`. Their supports satisfy `U subset U_k` for `k=1,2,3`, with pairwise disjoint extra-row sets
+```
+supp(U1) minus supp(U) = {3,4},
+supp(U2) minus supp(U) = {1,5},
+supp(U3) minus supp(U) = {2,7}.
+```
+Along the transcript of the full-factor state `W_{833,-1}`, eleven positive readings in **distinct columns** are still mandatory to reject all eleven deletion variants `W_{833,j}`. To reject each full-factor supermask `W_{U_k,-1}`, the transcript additionally must contain a **negative** reading on one of the extra rows in the corresponding set, because these two full-factor traces differ only on those rows. The three extra-row sets are disjoint, so these need three different query sites. They are on rows with `U(t)=0`, disjoint from the eleven obligatory positive readings. Hence every valid decision tree uses at least `11+3=14` site queries along `W_{833,-1}`, establishing `Q>=14`. Membership of these four masks is audited by direct frozen-slope enumeration in the companion program.
 
 **Constructive upper bound.** Start with the exact 600 candidates `(U,z)`. For each non-singleton candidate set `S`, inspect all 110 sites `(t,j)` and choose one that minimizes `max(#zeros,#ones)`, breaking ties by the smaller `t`, then smaller `j`. Query that site and recurse on the two nonempty response classes. When only one candidate remains, output that candidate. This is an actual observation procedure; its precomputed candidate atlas and query tree are free offline computation, while each executed Boolean query is charged one unit. Each split strictly decreases the candidate set. The companion Node.js program reconstructs the frozen 50 masks, runs this exact algorithm, checks every single 600-state path and proves no path exceeds 16.
 
@@ -33,8 +42,8 @@ A second source-level program in the author's local verification rebuilt 600 gen
 
 ## Meaning, limitation and next question
 
-This establishes an **end-to-end physical Boolean-query budget** without charging an arbitrary zero cost for the indexed spectrum, and improves the naive 110-bit full scan to a 16-bit adaptive guarantee. The lower bound 11 is stronger than the information-theoretic `ceil(log2 600)=10` because the full-column state has eleven independent one-hole alternatives.
+This establishes an **end-to-end physical Boolean-query budget** without charging an arbitrary zero cost for the indexed spectrum, and improves the naive 110-bit full scan to a 16-bit adaptive guarantee. The lower bound 14 is stronger than the information-theoretic `ceil(log2 600)=10`; in addition to eleven column-wise one-hole alternatives, the full-factor state `U=833` has three disjoint extra-row obligations against strictly larger support masks.
 
-The **exact optimum Q remains open within [11,16]**. In particular, the deterministic balanced-split rule is a constructive bound, not a claim of globally optimal decision-tree design. Additional actual measurement modalities for obtaining the indexed spectrum require their own explicit per-operation cost and interface before end-to-end comparison. Query feedback is assumed noiseless, `r=1` identification, with a fixed publicly known normalized atlas. No branch, height, affine-origin or full native X6 reconstruction is claimed.
+The **exact optimum Q remains open within [14,16]**. In particular, the deterministic balanced-split rule is a constructive bound, not a claim of globally optimal decision-tree design. Additional actual measurement modalities for obtaining the indexed spectrum require their own explicit per-operation cost and interface before end-to-end comparison. Query feedback is assumed noiseless, `r=1` identification, with a fixed publicly known normalized atlas. No branch, height, affine-origin or full native X6 reconstruction is claimed.
 
 Next: use bounded-depth decision-tree search, symmetry on the 50 ten-bit masks and 11 column factors, or a new lower-bound adversary to close `Q`. Also study noisy or erased Boolean queries with explicit repeated-sampling cost and retain the anchor/provenance residual for any subsequent native bridge. No independent Project Review, formal CLAIM/Result or theorem promotion is represented by this draft.
