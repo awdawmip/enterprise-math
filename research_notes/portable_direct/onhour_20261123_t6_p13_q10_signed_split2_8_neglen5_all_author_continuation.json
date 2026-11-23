@@ -1,0 +1,61 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_AUTHOR_CONTINUATION_V1",
+  "as_of": "2026-11-23",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_lane_never_used": "chatgpt-hourly-enterprise-math-20260921",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "mother_goal": "Original signed H0..H6 T6=2332 global lower bound; still OPEN",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "prior_continuation": "research_notes/portable_direct/onhour_20261123_t6_p13_q10_signed_split2_8_neg11123_complete_author_continuation.json@1ef6c6ddfc706928f94d21bc769c769374706b73",
+  "completed_this_run": [
+    {
+      "scope": "p13 q10 split(2,8) negative q=(1,1,1,2,3), newly [8192,52416) and full coverage [0,52416) joined with earlier verified section",
+      "new_raw": 3980160,
+      "new_gs_nodes": 5832923,
+      "full_raw": 4717440,
+      "full_gs_nodes": 6902083,
+      "full_relaxed_candidates": 7,
+      "full_budget_valid": 0,
+      "certificate": "research_checks/T6_P13_Q10_SPLIT2_8_NEG_LEN5_PATTERN11123_REST8192_52416_AUTHOR_EXACT_CERT_20261123.json@2f6c1038af45485bd459df176cec0a92588414d3",
+      "replay": "research_checks/T6_P13_Q10_SPLIT2_8_NEG11123_SLICE_REPLAY_20261123.py@d8f5ae0f455969c28eaf9c5f3b03186468ff96a8"
+    },
+    {
+      "scope": "p13 q10 split(2,8) negative q=(1,1,2,2,2), all [0,28392) source-ordered negative rosters x90 pos",
+      "raw": 2555280,
+      "common_cancel": 677976,
+      "exact_gs_searches": 1877304,
+      "gs_nodes": 4090363,
+      "relaxed_candidates": 3,
+      "budget_valid": 0,
+      "certificate": "research_checks/T6_P13_Q10_SPLIT2_8_NEG_LEN5_PATTERN11222_FULL_AUTHOR_EXACT_CERT_20261123.json@8eb5bff1949f4b6b147482fae77be3bf7150fc39",
+      "replay": "research_checks/T6_P13_Q10_SPLIT2_8_NEG11222_SLICE_REPLAY_20261123.py@beb92203d49913d9396d24377ac9fa43a31186f6"
+    }
+  ],
+  "cumulative_new_raw_pairs_this_run": 6535440,
+  "cumulative_new_exact_gs_nodes": 9923286,
+  "source_math_status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "do_not_repeat": [
+    "Old split(2,8) negative lengths1..4 and q11114",
+    "Negative length5 q11123, all [0,52416) now author complete",
+    "Negative length5 q11222, all [0,28392) now author complete",
+    "Separate formal Native p17 q14 Source official unfinished unit and its genuine owner/Result"
+  ],
+  "next_unfinished": {
+    "scope": "p13 q10 split(2,8) negative length6 q=(1,1,1,1,1,3)",
+    "negative_rosters": 52416,
+    "positive_rosters": 90,
+    "raw_signed_pairs": 4717440,
+    "method": "Negative q1 CWR 12 choose 5 combinations with replacement, q3 one residue (12); plus q2 singleton or q1 two; six mixed congruences and integer exact q0 Gram-Schmidt, original two-sided mass budgets",
+    "after": "other length6 q111122, length7 q1111112, length8 q11111111 and lower primes/H0"
+  },
+  "control": {
+    "last_confirmed_client_revision": 48,
+    "own_native_claim": "NOT_VERIFIED",
+    "own_native_run": "NOT_VERIFIED",
+    "protected_progress": "NOT_PUBLISHED",
+    "activity_registration": "OLDER_AUTHOR_ATTRIBUTION_UNRESOLVED",
+    "native_control_request": "onhour-20261123-1755-t6-exact-research-cont-ro-v1",
+    "native_control_request_last_status": "QUEUED / original receipt only"
+  },
+  "publication": "Portable direct GitHub scientific evidence + client checkpoint, not Native Task execution ownership"
+}
