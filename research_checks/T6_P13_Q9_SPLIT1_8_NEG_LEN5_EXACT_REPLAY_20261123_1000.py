@@ -34,7 +34,7 @@ def run(pattern, start, end):
         if idx >= end:
             break
         stats["roster_count"] += 1
-        sha.update(json.dumps(negative,separators=(",",":")).encode()+b"\\n")
+        sha.update(json.dumps(negative,separators=(",",":")).encode()+b"\n")
         for r in range(1,13):
             positive = ((1,r),)
             stats["raw_pairs"] += 1
@@ -68,7 +68,7 @@ def main():
     result.update(schema="EM_T6_P13_Q9_SPLIT1_8_NEG_LEN5_REPLAY_V1",
                   frozen_task_commit="d84bd940cfb093cdc60e569f15cad58772a51dca",
                   status="AUTHOR_EXACT_CHECKER_NOT_INDEPENDENT_REVIEW")
-    Path(args.output).write_text(json.dumps(result,sort_keys=True,indent=2)+"\\n",encoding="utf-8")
+    Path(args.output).write_text(json.dumps(result,sort_keys=True,indent=2)+"\n",encoding="utf-8")
     print(json.dumps({**result["metrics"],"roster_sha256":result["roster_sha256"]},sort_keys=True))
 
 if __name__=="__main__":
