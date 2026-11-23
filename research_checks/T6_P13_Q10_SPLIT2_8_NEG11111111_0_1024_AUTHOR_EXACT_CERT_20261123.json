@@ -1,0 +1,77 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT2_8_NEG11111111_AUTHOR_EXACT_SLICE_V1",
+  "as_of": "2026-11-23",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "author_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "derivation_from_existing_replay": {
+    "commit": "a15dc9dd00e5d45516463ed4c4905341d8d2357b",
+    "path": "research_checks/T6_P13_Q10_SPLIT2_8_NEG1111112_SLICE_REPLAY_20261123_2000.py",
+    "blob": "096df77ac608297ad1078844c03dcac2da39678b",
+    "exact_changes": [
+      "Replace negative roster pattern (1,1,1,1,1,1,2) with (1,1,1,1,1,1,1,1) in all_rosters() and output metadata.",
+      "Set end cap 75582 = C(19,8) and change source_order to negative q1 CWR(12,8).",
+      "Preserve all particular(), 12D lattice, exact Gram-Schmidt, congruence and mass-budget routines without change."
+    ],
+    "source_execution_note": "Local exact Python transcription and parametric substitution; scientific claim author-check only, independent run owed."
+  },
+  "parameters": {
+    "p": 13,
+    "v13": 1,
+    "order": 10,
+    "signed_split": [
+      2,
+      8
+    ],
+    "positive_patterns": [
+      [
+        2
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "negative_pattern": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "negative_index_interval": [
+      0,
+      1024
+    ],
+    "total_negative_rosters": 75582,
+    "moduli": [
+      13,
+      169,
+      2197,
+      28561,
+      371293,
+      4826809
+    ],
+    "budget_each_side": 2331
+  },
+  "stats": {
+    "negative_rosters": 1024,
+    "raw_signed_pairs": 92160,
+    "common_named_atom_canceled": 42179,
+    "vertical_original_mass_excess": 0,
+    "gs_searches": 49981,
+    "gs_nodes": 109684,
+    "relaxed_sphere_witnesses": 0,
+    "both_original_side_mass_valid": 0
+  },
+  "roster_sha256": "8fe2a0c7a1541162f03d87b6a0a747ccc5ef717b47e9742dd5be3c5f9c4703b3",
+  "pair_digest_sha256": "8b344dbd7fa77b5d340d799269ba44a264d4e0fd9f2f26502ed37b97b089bbdc",
+  "witnesses": [],
+  "next_negative_index": 1024,
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "native_claim": "NOT_ASSERTED",
+  "global_T6": "OPEN"
+}
