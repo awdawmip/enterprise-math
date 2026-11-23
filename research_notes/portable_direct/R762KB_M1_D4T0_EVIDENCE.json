@@ -1,0 +1,67 @@
+{
+  "schema": "ENTERPRISE_MATH_R762KB_D4T0_EVIDENCE_V1",
+  "date": "2026-11-23",
+  "model": "Unsigned composite Port-Euler, six axes, inactive pair Port 01",
+  "theorem": "For any fifth nonforced singleton color d and any seven triple colors T from remaining fifteen, all 14 active Ports admit a connected positive-even-degree 42-event multigraph with exact 20 color counts",
+  "predecessor": {
+    "repo": "awdawmip/enterprise-math",
+    "source_commit": "109e3e99b873ad27eb8de319ccb5a2b17e72b8b5",
+    "path": "research_notes/portable_direct/R762KA_M1_FIXED_PORT_ORBIT_REDUCTION.md"
+  },
+  "scientific_pin": {
+    "repo": "awdawmip/enterprise-math",
+    "source_commit": "4e318b1a978a4c4e26817752354cdd3e63ebee87",
+    "path": "p000_reality_foundation.json"
+  },
+  "cases": [
+    {
+      "fifth_singleton_type": "outer",
+      "d_choices": 12,
+      "t_choices_per_d": 6435,
+      "targets": 77220,
+      "minimal_nonzero_parity_repair_colors": 3,
+      "explicit_template": "D=023; parity-repair=045,125,134; zero-parity bridging=024,035,123"
+    },
+    {
+      "fifth_singleton_type": "inner",
+      "d_choices": 4,
+      "t_choices_per_d": 6435,
+      "targets": 25740,
+      "minimal_nonzero_parity_repair_colors": 5,
+      "explicit_template": "D=234; parity-repair=025,034,123,124,125; zero-parity bridging=035,045"
+    }
+  ],
+  "exact_verification": {
+    "input_domain": "16*C(15,7)",
+    "total_targets": 102960,
+    "verified_targets": 102960,
+    "failures": 0,
+    "events_per_target": 42,
+    "active_ports_per_target": 14,
+    "checks": [
+      "legal edge support",
+      "exact 20-color multiplicities",
+      "positive even degree for every active Port",
+      "graph connectivity"
+    ],
+    "method": "Standard-library Python integer/graph exact enumeration; 48 H permutations and complete all labeled cases",
+    "result": "PASS"
+  },
+  "additional_long_form_local_evidence": {
+    "full_certificate_stream_sha256": "ce4b87442a987fcc1d4983f8630ed33584b4f57b166db85f6fb6d3d72f8b0e65",
+    "scope": "Local author-side generator; raw stream not uploaded; compact published verifier reconstructs each inventory's validity"
+  },
+  "consequence": {
+    "marked_44_to_42_feasible": 514800,
+    "count_interpretation": "(labeled 44-event source inventory, specified singleton support to remove two events) pairs"
+  },
+  "status": {
+    "author_proof": "COMPLETE",
+    "exact_finite_check": "PASS",
+    "independent_review": "NOT_REVIEWED",
+    "native_signed_P000_lift": "OPEN",
+    "native_progress": "NOT_WRITTEN",
+    "shared_task_claim": "NONE_FOR_THIS_SCIENTIFIC_NOTE"
+  },
+  "next": "Extend parity-and-connectivity templates to the other 14 forced-color profiles; independently derive a provenance-faithful native signed triadic Cell/Link/Port lift"
+}
