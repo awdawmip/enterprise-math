@@ -31,7 +31,7 @@ For total vertical order \(q=5\), the vertical mass is at least **1477**: if at 
 
 ## Exact finite certificate and completeness
 
-The [C++17 checker](../..//research_checks/T6_P17_Q12_Q13_FOUR_FIVE_ADIC_FULL_OBSERVER_20261124.cpp) generates every smooth named vertical atom with q=1,...,7, every nondecreasing multiset of vertical atoms summing to each q=5,6,7, and every nonnegative q0 multiplicity vector of total mass <=854. The actual 2331 mass cap is applied to each combined state. Signatures use modular inverses modulo \(17^k\) and exact integer arithmetic; four-/five-component mixed-radix encodings uniquely represent the respective residue tuples (the full five-component product \(17^{15}\) fits in unsigned 64-bit integers). Complete counts:
+The [C++17 checker](../../research_checks/T6_P17_Q12_Q13_FOUR_FIVE_ADIC_FULL_OBSERVER_20261124.cpp) generates every smooth named vertical atom with q=1,...,7, every nondecreasing multiset of vertical atoms summing to each q=5,6,7, and every nonnegative q0 multiplicity vector of total mass <=854. The actual 2331 mass cap is applied to each combined state. Signatures use modular inverses modulo \(17^k\) and exact integer arithmetic; four-/five-component mixed-radix encodings uniquely represent the respective residue tuples (the full five-component product \(17^{15}\) fits in unsigned 64-bit integers). Complete counts:
 
 | Quantity | Exact |
 |---|---:|
