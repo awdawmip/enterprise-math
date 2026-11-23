@@ -7,7 +7,32 @@
     "task_registration": false,
     "working_truth": false
   },
-  "checkpoints": [],
+  "checkpoints": [
+    {
+      "event_id": "r2-20261124-0110-r152-source-checkpoint-v1",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "3ca5bdf90307911f5946b4f315f7a04617857654",
+          "path": "research_notes/portable_direct/2026-11-24_r2_x6_r152_complete_middle_B_bridge_to_tail.md",
+          "sha256": "6a67c68be790fcd451947c19d1144c76344ebab3a384f420c884f6060f089954",
+          "publication_state": "VERIFY_EM_PUBLICATION"
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "d4aa517e46d947825051c81d23225d3074688662",
+          "path": "research_notes/portable_direct/x6_r152_full_bridge_tail_verify.py",
+          "sha256": "11abb7e4e333dfd5380a939bc0ace68803c53f8ee23b5b3f2828d7e165082cf1",
+          "publication_state": "VERIFY_EM_PUBLICATION"
+        }
+      ],
+      "kb_sources": [
+        "https://github.com/awdawmip/chatgpt-global-knowledge/blob/7bcdc44b41df83b0edbd5a9d735091be9540e704/journal/enterprise-math/2026-11-24/20261124T0110-r2-x6-r152-complete-middle-B-bridge-tail.md"
+      ],
+      "state": "VERIFY_EM_PUBLICATION",
+      "repairs_event_id": null
+    }
+  ],
   "mode": "TASK_RESEARCH",
   "recorded_at": "2026-11-23T17:15:15.774179+00:00",
   "registration_key": "session:MCP-64304dfe6e36491eaebcbe7c86f2593d:TASK_RESEARCH",
