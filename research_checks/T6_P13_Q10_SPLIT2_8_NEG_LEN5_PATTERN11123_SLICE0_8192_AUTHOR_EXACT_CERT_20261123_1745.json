@@ -1,0 +1,120 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT2_8_NEG_LEN5_11123_AUTHOR_EXACT_SLICE_V1",
+  "as_of": "2026-11-23",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "logical_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "pos_q_patterns": [
+    [
+      2
+    ],
+    [
+      1,
+      1
+    ]
+  ],
+  "negative_q_pattern": [
+    1,
+    1,
+    1,
+    2,
+    3
+  ],
+  "negative_roster_total": 52416,
+  "positive_roster_total": 90,
+  "source_order": "negative product(combinations_with_replacement(range(1,13),3) for q1, range(1,13) for q2, range(1,13) for q3); positive single (2,r), then CWR((1,r),2)",
+  "q0_weight": "13r-1",
+  "vertical_weight": "13(13q+r)-1",
+  "budget_each_side": 2331,
+  "six_moduli": [
+    13,
+    169,
+    2197,
+    28561,
+    371293,
+    4826809
+  ],
+  "saturated_lattice_index": "13^21",
+  "gs_min_diagonal_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "stats": {
+    "negative_roster_start": 0,
+    "negative_roster_end": 8192,
+    "negative_rosters_visited": 8192,
+    "raw_signed_pairs": 737280,
+    "common_named_atom_canceled": 252464,
+    "vertical_original_mass_excess": 0,
+    "gs_searches": 484816,
+    "gs_nodes": 1069160,
+    "relaxed_sphere_witnesses": 1,
+    "both_original_side_mass_valid": 0,
+    "pair_digest_sha256": "c884115747b8b7d7dda3c538e8a8af6fd58007b2e5efa060af182641e1ec46f1"
+  },
+  "witnesses": [
+    {
+      "pos": [
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          8
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "u": [
+        -36,
+        -34,
+        -9,
+        15,
+        -4,
+        -1,
+        -8,
+        5,
+        -1,
+        -3,
+        1,
+        -2
+      ],
+      "masses": [
+        1966,
+        5188
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false,
+      "negative_roster_index": 6722,
+      "positive_roster_index": 75
+    }
+  ],
+  "research_status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "native_progress": "NOT_PUBLISHED",
+  "next_action": "Continue source-order negative roster indices [8192,52416) for same q-pattern without repeating [0,8192)."
+}
