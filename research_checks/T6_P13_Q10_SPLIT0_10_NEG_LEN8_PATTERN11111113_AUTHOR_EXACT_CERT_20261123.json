@@ -1,0 +1,253 @@
+{
+  "schema": "T6_P13_Q10_NEG_LEN8_11111113_AUTHOR_EXACT_V1",
+  "task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "frozen_science": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "date": "2026-11-23",
+  "negative_q_pattern": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    3
+  ],
+  "canonical_order": "q1 7-combination-with-replacement residues1..12 then one q3 residue 1..12 (fastest)",
+  "original_full_denominator": "13(13q+r)",
+  "exponent_mass": "169q+13r-1",
+  "side_caps": [
+    2331,
+    2331
+  ],
+  "mixed_congruences": "sum_r u_r*r^(-j)-sum_neg(13q+r)^(-j)=0 mod13^j,j1..6",
+  "q0_dim": 12,
+  "q0_index": "13^21",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "segments": [
+    {
+      "range": [
+        0,
+        8000
+      ],
+      "rosters": 8000,
+      "over": 21,
+      "gs": 7979,
+      "nodes": 21971,
+      "leaves": 0,
+      "roster_sha256": "2f8dbe1e51b9cd248759072eba5b91ef4b006ed7fd09287fee1f096e52940b10",
+      "json_sha256": "55ec2531d860dad5a4f6bd1a65ef56f3efda1e2f798b08e07e72aa96b6341a1e"
+    },
+    {
+      "range": [
+        8000,
+        190000
+      ],
+      "rosters": 182000,
+      "over": 70397,
+      "gs": 111603,
+      "nodes": 304886,
+      "leaves": 2,
+      "roster_sha256": "abe3be2bcee5af5f7fcabeb97831f3b69840f1643a40c7b4bb43c31b88c24347",
+      "json_sha256": "1dcf943a280033d59f739312c4701c6c2f882a2aa580ae855f0eaf7a2de005d8"
+    },
+    {
+      "range": [
+        190000,
+        381888
+      ],
+      "rosters": 191888,
+      "over": 152440,
+      "gs": 39448,
+      "nodes": 107572,
+      "leaves": 1,
+      "roster_sha256": "2f3f2a2e0f88cf74d08a5baeb8b30255ab56aa09008860ff9ae29077cbb8bb5a",
+      "json_sha256": "436199240431db28f8c222e5d08f2eb987b44b56db57708344e212c42c1d258a"
+    }
+  ],
+  "totals": {
+    "rosters": 381888,
+    "vertical_overbudget": 222858,
+    "exact_gs_searches": 159030,
+    "exact_gs_nodes": 434429,
+    "relaxed_leaves": 3,
+    "two_mass_valid": 0
+  },
+  "exact_witnesses": [
+    {
+      "index": 120211,
+      "negative": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          8
+        ]
+      ],
+      "u": [
+        -45,
+        1,
+        19,
+        24,
+        -1,
+        -5,
+        -10,
+        3,
+        9,
+        -1,
+        -4,
+        0
+      ],
+      "masses": [
+        3324,
+        4866
+      ],
+      "r2": 5436162
+    },
+    {
+      "index": 187909,
+      "negative": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "u": [
+        -95,
+        0,
+        -14,
+        10,
+        8,
+        7,
+        -1,
+        5,
+        -3,
+        0,
+        -6,
+        -4
+      ],
+      "masses": [
+        2076,
+        5693
+      ],
+      "r2": 5481961
+    },
+    {
+      "index": 190232,
+      "negative": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          3,
+          9
+        ]
+      ],
+      "u": [
+        27,
+        -15,
+        -17,
+        -21,
+        14,
+        10,
+        -7,
+        -1,
+        0,
+        3,
+        -8,
+        -1
+      ],
+      "masses": [
+        2377,
+        6435
+      ],
+      "r2": 5433705
+    }
+  ],
+  "local_script_sha256": "c913367d8dd42352d08aff6c95030d9f591f6e0650ec74651bfa52c96a184c73",
+  "exact_witness_mass_and_mod_recheck": "PASS_FOR_ALL_3",
+  "published_checker": "research_checks/T6_P13_Q10_SPLIT0_10_NEG_LEN8_PATTERN11111113_EXACT_REPLAY_20261123.py",
+  "published_checker_reexecution": "NOT_EXECUTED",
+  "scope": "Exact finite author exclusion of this named qorder10 split(0,10) negative length8 pattern; previous high-valuation cancellation and saturated q0 result are dependencies.",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "next": "Next negative qorder10 length8 pattern(1,1,1,1,1,1,2,2): 965328 named rosters. Global T6 open, native p17 q14 Source owner separate."
+}
