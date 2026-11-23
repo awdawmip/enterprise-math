@@ -1,0 +1,66 @@
+{
+  "schema": "T6_P13_Q9_POS1111_AUTHOR_EXACT_SLICE_V1",
+  "date": "2026-11-23",
+  "task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "frozen_science_commit": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "model": {
+    "maximal_prime": 13,
+    "v13": 1,
+    "qorder": 9,
+    "signed_split": [
+      4,
+      5
+    ],
+    "plus_pattern": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "positive_roster_index_interval": [
+      56,
+      202
+    ],
+    "positive_total": 1365,
+    "negative_total": 10908,
+    "cap_each_side": 2331,
+    "q0_index": "247064529073450392704413",
+    "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+    "formula": "sum_{r=1}^{12} u_r r^{-j}+sum_+(13q+r)^{-j}-sum_-(13q+r)^{-j}==0 mod 13^j, j=1..6",
+    "atom_mass": "169q+13r-1",
+    "q0_mass": "13r-1"
+  },
+  "statistics": {
+    "positive_rosters": 146,
+    "raw_pairs": 1592568,
+    "common_cancelled": 981318,
+    "disjoint_exact_searched": 611250,
+    "overbudget": 0,
+    "exact_gs_nodes": 1264761,
+    "sphere_leaves": 0,
+    "valid_original_budget": 0
+  },
+  "checksum": {
+    "positive_roster_jsonl_sha256": "f503d6450a7c8ab542d2d65f315f3e6fa7265b13bbb2cf35e57e173310bd1254",
+    "ordered_raw_pair_jsonl_sha256": "93db7510991188a7e280f8f7a8dc9af12966f64d8a1beddeafc720a1f68f3453",
+    "local_full_json_sha256": "09d561ead8ade7b8c8ed00d99cb87e60029b64712dfb46809e41290380094c66",
+    "local_full_json_bytes": 71843,
+    "local_source_script_sha256": "c12cd97d926311a7107e422e57c9a12f0e0b38691617bd9d919fb05789d07066"
+  },
+  "independent_reproduction": {
+    "previous_published_slice_0_8_recomputed": true,
+    "raw_pairs": 87264,
+    "common_cancelled": 34385,
+    "disjoint": 52879,
+    "gs_nodes": 115472,
+    "sphere_leaves": 0,
+    "compares_equal": true,
+    "independent_researcher_review": false
+  },
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "remaining_positive_interval": [
+    202,
+    1365
+  ],
+  "interrupted_attempt": "An attempted combined [56,400) exact run completed positive [56,202) only; next positive index 202 had no complete interval result when process was interrupted. Only separately executed [56,202) is counted."
+}
