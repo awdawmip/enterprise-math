@@ -1,0 +1,102 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_AUTHOR_CONTINUATION_V1",
+  "as_of": "2026-11-23T14:17:00+08:00",
+  "mode": "TASK_RESEARCH_PORTABLE_AUTHOR",
+  "logical_conversation": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_conversation_excluded": "chatgpt-hourly-enterprise-math-20260921",
+  "mother_objective": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "mother_state": "OPEN",
+  "goal": "Exact global T6=2332 lower bound or cheaper original signed H0..H6 collision",
+  "frozen_pin": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "predecessor": "research_notes/portable_direct/onhour_20261123_t6_p13_q10_split0_full_split1_len1to3_author_continuation.json",
+  "new_units": [
+    {
+      "name": "p13 q10 split(1,9) negative length4 all six q partitions",
+      "raw_pairs": 643968,
+      "gs_nodes": 1387851,
+      "ball_leaves": 4,
+      "budget_valid": 0,
+      "source_commit": "fc42d9af77254593f2831b287ba6334f2e190314",
+      "path": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN4_AUTHOR_EXACT_CERT_20261123_1402.json"
+    },
+    {
+      "name": "p13 q10 split(1,9) negative length5 all five q partitions",
+      "raw_pairs": 2238912,
+      "gs_nodes": 4415946,
+      "ball_leaves": 14,
+      "budget_valid": 0,
+      "source_commit": "981d54012e045fff8d7c4306edb5c7a5940e3ad0",
+      "path": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN5_ALL_PATTERNS_AUTHOR_EXACT_CERT_20261123_1417.json"
+    }
+  ],
+  "cumulative_negative_length1_to_5": {
+    "raw_pairs": 2990208,
+    "common_cancellations": 492804,
+    "GS_searches": 2497404,
+    "GS_nodes": 6054163,
+    "ball_leaves": 19,
+    "budget_legal": 0
+  },
+  "next_unfinished": {
+    "q10_split": [
+      1,
+      9
+    ],
+    "negative_length": 6,
+    "first_q_partition": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      4
+    ],
+    "first_rosters": 52416,
+    "first_raw_pairs": 628992,
+    "other_patterns": [
+      {
+        "q": [
+          1,
+          1,
+          1,
+          1,
+          2,
+          3
+        ],
+        "negative_rosters": 196560,
+        "raw_pairs": 2358720
+      },
+      {
+        "q": [
+          1,
+          1,
+          1,
+          2,
+          2,
+          2
+        ],
+        "negative_rosters": 132496,
+        "raw_pairs": 1589952
+      }
+    ],
+    "action": "Visit all 12 positive q1 residues x each canonical negative length6 source-order roster, cancel actual equal named atoms, exact 12D q0 affine Gram–Schmidt search under six mixed congruences and original two-side 2331 caps; preserve witnesses and digests."
+  },
+  "do_not_repeat": [
+    "p13 order10 split(0,10) all 5,098,938 previously complete",
+    "p13 q10 split(1,9) negative length1..3 107,328 prior pairs",
+    "p13 q10 split(1,9) negative length4 643,968 new pairs",
+    "p13 q10 split(1,9) negative length5 2,238,912 new pairs",
+    "accepted p19/p17 source results and separate native p17 q14 preflight"
+  ],
+  "control": {
+    "native_exact_continuation_request": "onhour-20261123-1403-t6-exact-current-cont-ro-v1",
+    "last_receipt": "QUEUED/CURRENT_CONTROL_FOLLOW_RETRY",
+    "winning_own_claim": "NOT_VERIFIED",
+    "own_run": "NOT_VERIFIED",
+    "protected_native_progress": "NOT_PUBLISHED",
+    "historical_research_activity": "328; author attribution unresolved; do not borrow identity",
+    "prior_client_checkpoint_revision": 26
+  },
+  "evidence_status": "AUTHOR_EXACT_FINITE_EXECUTED/UNREVIEWED/NOT_ADMITTED",
+  "independent_replay": "NOT_PERFORMED"
+}
