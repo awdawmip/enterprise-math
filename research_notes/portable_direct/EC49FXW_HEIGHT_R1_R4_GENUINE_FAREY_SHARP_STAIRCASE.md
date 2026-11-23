@@ -12,7 +12,7 @@ For every reduced positive Farey anchor `a/b` with `0<a<b`, `b<=H`, use the orig
 
 ## Theorem: four universal height plateaus
 
-For every integer \`H>=22\` and every integer \`1<=r<=4\`,
+For every integer `H>=22` and every integer `1<=r<=4`,
 $$
 \boxed{N_H(r)=3r+\mathbf 1_{\{H\ge 52\}}+\mathbf 1_{\{H\ge 58\}}+\mathbf 1_{\{H\ge 64\}}.}
 $$
