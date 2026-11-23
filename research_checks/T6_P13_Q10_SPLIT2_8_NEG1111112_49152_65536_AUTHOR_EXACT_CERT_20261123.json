@@ -1,0 +1,277 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT2_8_NEG1111112_AUTHOR_EXACT_SLICE_CERT_V1",
+  "as_of": "2026-11-23",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "scope": {
+    "prime": 13,
+    "valuation": 1,
+    "vertical_order": 10,
+    "split": [
+      2,
+      8
+    ],
+    "negative_pattern": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2
+    ],
+    "source_negative_interval": [
+      49152,
+      65536
+    ],
+    "positive_rosters": 90,
+    "side_mass_caps": [
+      2331,
+      2331
+    ],
+    "original_observers": "H0..H6",
+    "moduli": [
+      13,
+      169,
+      2197,
+      28561,
+      371293,
+      4826809
+    ],
+    "signed_q0_vector_length": 12
+  },
+  "exact_replay": {
+    "commit": "a15dc9dd00e5d45516463ed4c4905341d8d2357b",
+    "path": "research_checks/T6_P13_Q10_SPLIT2_8_NEG1111112_SLICE_REPLAY_20261123_2000.py",
+    "blob": "096df77ac608297ad1078844c03dcac2da39678b"
+  },
+  "method": "Exact 13-adic six congruences H1..H6 and 12D signed q0 using HNF, LLL, exact rational GS recursive integer enumeration. Named common atom cancellations belong to previously completed lower-order exclusions, not GS searches. Full original side mass caps preserved.",
+  "source_order": "negative q1 CWR(12,6) x q2 r=1..12, positive q2 singleton followed by q1 CWR(12,2), zero-based negative indices, half-open interval",
+  "segments": [
+    {
+      "range": [
+        49152,
+        53248
+      ],
+      "rosters": 4096,
+      "raw_pairs": 368640,
+      "canceled": 165112,
+      "gs_searches": 203528,
+      "gs_nodes": 435371,
+      "sphere_witnesses": 1,
+      "budget_valid": 0,
+      "roster_sha256": "3f754758af3b1fef0e0be822d58bd84f9d3aa1cfa54171eeeebb587f7153a28b",
+      "pair_sha256": "be37a45c1fed322bbedb9d08ca3d92d0afda0c9cdc1970b7e469334cc2be2440",
+      "local_json_sha256": "5292f1cb335a4f3fab5a83d1e187caa98bc8d37c0faf5bf246acf4171013e1a9"
+    },
+    {
+      "range": [
+        53248,
+        57344
+      ],
+      "rosters": 4096,
+      "raw_pairs": 368640,
+      "canceled": 166220,
+      "gs_searches": 202420,
+      "gs_nodes": 439548,
+      "sphere_witnesses": 0,
+      "budget_valid": 0,
+      "roster_sha256": "7e90f8d3cd3e767cf9ae6d781f46897bb5e7413249cf435249f6e3a71d4a9773",
+      "pair_sha256": "bde85160651fed27be722e93c07265385567120911c6aa7fed7699d65a8ff1ab",
+      "local_json_sha256": "f7d1fc8fef462b205e743286df61d64a95bde26596263c7161472c4eba3c3e10"
+    },
+    {
+      "range": [
+        57344,
+        61440
+      ],
+      "rosters": 4096,
+      "raw_pairs": 368640,
+      "canceled": 182244,
+      "gs_searches": 186396,
+      "gs_nodes": 402353,
+      "sphere_witnesses": 1,
+      "budget_valid": 0,
+      "roster_sha256": "7eaa412e2e719a0d58234ed24d1970cd223c124064b19041de791efeb3cdd71b",
+      "pair_sha256": "7b05d69410b2ea0bfb69afa0229b23142c8bba79948ee849ea55ec69036c1171",
+      "local_json_sha256": "0f91df89adcddcda3269974e1304aa81ef167d0cb049c800e2633d3405fef969"
+    },
+    {
+      "range": [
+        61440,
+        65536
+      ],
+      "rosters": 4096,
+      "raw_pairs": 368640,
+      "canceled": 171660,
+      "gs_searches": 196980,
+      "gs_nodes": 422913,
+      "sphere_witnesses": 0,
+      "budget_valid": 0,
+      "roster_sha256": "279a2bff7cf2b3682281724b35d76b9ab1fb2184ea2bfce1cfea6dbb8e958a1b",
+      "pair_sha256": "0232b50d0aa46b31213f4699d68b29d335e27aae3f2aca683866a085a1d77166",
+      "local_json_sha256": "ef43afcf53a572ecaaf84a6e22b0bd1560d6ad2a7bc6ab1409f577968cff232f"
+    }
+  ],
+  "totals": {
+    "negative_rosters": 16384,
+    "raw_signed_pairs": 1474560,
+    "common_named_cancellations": 685236,
+    "exact_gs_searches": 789324,
+    "exact_gs_nodes": 1700185,
+    "modular_ball_witnesses": 2,
+    "both_original_side_mass_valid": 0
+  },
+  "witnesses": [
+    {
+      "negative_roster_index": 50515,
+      "positive_roster_index": 4,
+      "pos": [
+        [
+          2,
+          5
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          8
+        ]
+      ],
+      "signed_q0_u": [
+        -40,
+        -2,
+        -8,
+        6,
+        -1,
+        -6,
+        11,
+        -7,
+        0,
+        7,
+        -2,
+        4
+      ],
+      "original_masses": [
+        3221,
+        4412
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "radius_sq": 3801697,
+      "budget_valid": false
+    },
+    {
+      "negative_roster_index": 58640,
+      "positive_roster_index": 41,
+      "pos": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          9
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          9
+        ]
+      ],
+      "signed_q0_u": [
+        43,
+        -5,
+        11,
+        -12,
+        8,
+        3,
+        2,
+        7,
+        3,
+        2,
+        9,
+        0
+      ],
+      "original_masses": [
+        4954,
+        2524
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "radius_sq": 3677857,
+      "budget_valid": false
+    }
+  ],
+  "prior_completed_science": "q1111112 negative [0,49152) preserved in prior disjoint immutable certificates, no reruns",
+  "next_unfinished_negative_interval": [
+    65536,
+    148512
+  ],
+  "independent_review": "NOT_PERFORMED",
+  "native_claim": "NOT_VERIFIED",
+  "native_semantic_progress": "NOT_PUBLISHED"
+}
