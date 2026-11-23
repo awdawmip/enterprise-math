@@ -1,0 +1,172 @@
+{
+  "schema": "T6_P13_Q10_SPLIT1_9_NEG111123_PORTABLE_AUTHOR_CUMULATIVE_V1",
+  "scientific_pin": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "canonical_kernel_blob": "126761746979e471eb04ee07ba37c3aeb83a11f6",
+  "scope": "Maximal p13 v13=1 q10 signed (1,9): negative q=(1,1,1,1,2,3), 12 positive q1 residues, original H0..H6; exact mixed congruence six powers and mass cap 2331 each side",
+  "negative_pattern": [
+    1,
+    1,
+    1,
+    1,
+    2,
+    3
+  ],
+  "negative_roster_range": [
+    0,
+    50000
+  ],
+  "negative_roster_total": 196560,
+  "side_mass_cap": 2331,
+  "exact_arithmetic": "integers/rationals (SymPy 1.14.0 / Fraction)",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "canonical_order": "itertools.product(combinations_with_replacement(range(1,13),4), range(1,13), range(1,13)), nested positive residue 1..12; pair digest each repr((pos,neg))+'\\n'",
+  "intervals": [
+    {
+      "indices": [
+        0,
+        2000
+      ],
+      "raw_pairs": 24000,
+      "common_cancel": 3984,
+      "gs_searches": 20016,
+      "gs_nodes": 49224,
+      "ball_leaves": 0,
+      "pair_sha256": "30b2fc5f306a1f3044eebd06d7780813b1f4cdeb7fff1f951dc1ca8b270ff608"
+    },
+    {
+      "indices": [
+        2000,
+        10000
+      ],
+      "raw_pairs": 96000,
+      "common_cancel": 22992,
+      "gs_searches": 73008,
+      "gs_nodes": 176891,
+      "ball_leaves": 1,
+      "pair_sha256": "e6bc6234f9a4f712ba1d71247590fcf7c52659ba0ccd71c8400b2c17cdeac821"
+    },
+    {
+      "indices": [
+        10000,
+        30000
+      ],
+      "raw_pairs": 240000,
+      "common_cancel": 70800,
+      "gs_searches": 169200,
+      "gs_nodes": 407169,
+      "ball_leaves": 0,
+      "pair_sha256": "38d74efbb76404f2cc3e3b2a704829a479aa29a23e64b8d1dd29749bf999ce10"
+    },
+    {
+      "indices": [
+        30000,
+        32000
+      ],
+      "raw_pairs": 24000,
+      "common_cancel": 7760,
+      "gs_searches": 16240,
+      "gs_nodes": 38818,
+      "ball_leaves": 0,
+      "pair_sha256": "eaa217d0ed923b02d1e0b1c1895ac914e3e52ce2876657581f8eb376c25d25f4"
+    },
+    {
+      "indices": [
+        32000,
+        50000
+      ],
+      "raw_pairs": 216000,
+      "common_cancel": 63040,
+      "gs_searches": 152960,
+      "gs_nodes": 366903,
+      "ball_leaves": 0,
+      "pair_sha256": "22423879d6dcc43a8dea78297f792ab325ca7a063873de1732f52b2bfd5be63e"
+    }
+  ],
+  "statistics": {
+    "rosters": 50000,
+    "raw_pairs": 600000,
+    "common_cancel": 168576,
+    "vertical_overbudget": 0,
+    "gs_searches": 431424,
+    "gs_nodes": 1039005,
+    "ball_leaves": 1,
+    "budget_valid": 0
+  },
+  "witnesses": [
+    {
+      "negative_index": 3907,
+      "pos": [
+        [
+          1,
+          2
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          8
+        ]
+      ],
+      "u": [
+        -37,
+        33,
+        18,
+        4,
+        9,
+        -13,
+        -2,
+        3,
+        1,
+        6,
+        -4,
+        -4
+      ],
+      "masses": [
+        3682,
+        4614
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false,
+      "radius_sq": "4847669"
+    }
+  ],
+  "previous_completed_scopes": [
+    "q10 split(0,10) entire 5098938",
+    "q10 split(1,9) negative lengths1..5 plus length6 111114"
+  ],
+  "unvisited_range": [
+    50000,
+    196560
+  ],
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "native_claim": "NOT_VERIFIED",
+  "native_progress": "NOT_PUBLISHED",
+  "execution_note": "Local exact bounded run; abortive attempt for [0,40000) produced no saved evidence and is not counted. The five disjoint successful interval certificates were consolidated. Not an independent review."
+}
