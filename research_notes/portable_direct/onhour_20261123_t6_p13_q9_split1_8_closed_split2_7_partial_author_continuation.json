@@ -1,0 +1,129 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_AUTHOR_CONTINUATION_V1",
+  "record_kind": "AUTHOR_SCIENTIFIC_AND_CONTROL_CONTINUATION",
+  "date_local": "2026-11-23",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "mother_objective_id": "EM-T6-SHAPE-MOMENT-EXACT-THRESHOLD",
+  "mother_status": "OPEN",
+  "frozen_science": {
+    "repository": "awdawmip/enterprise-math",
+    "source_commit": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+    "task_path": "research_tasks/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260909.md",
+    "task_blob_sha1": "87b3a6f38e9350f7a3f56624b27bff2a7778a439",
+    "original_observers": "H_0,..,H_6",
+    "side_mass_cap": 2331,
+    "p000": "ACTIVE_LOCKED"
+  },
+  "research_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_id": "chatgpt-hourly-enterprise-math-20260921",
+  "scientific_completed": {
+    "p13_valuation1_order9_signed_split1_8": {
+      "status": "COMPLETE_AUTHOR_EXACT_FINITE_EXCLUSION",
+      "all_negative_lengths": "1..8",
+      "raw_pairs": 6254820,
+      "common_atom_canceled": 1847520,
+      "disjoint_pairs": 4407300,
+      "gs_nodes": 10729231,
+      "ball_leaves": 29,
+      "budget_valid": 0,
+      "report": "research_notes/portable_direct/onhour_20261123_t6_p13_q9_split1_8_all_negative_lengths_author_exact_exclusion.md",
+      "report_commit": "1cc5a93fc7701b42aa99111678481bbdb4cc0ce4",
+      "prior_continuation": "research_notes/portable_direct/onhour_20261123_t6_p13_q9_split1_8_complete_author_continuation.json",
+      "prior_continuation_commit": "c6a528ca9d57efe71fe5e798158cb140a9edd5ef"
+    },
+    "p13_valuation1_order9_signed_split2_7": {
+      "status": "PARTIAL_AUTHOR_EXACT_FINITE; 12 OF 15 NEGATIVE_Q_PATTERNS_COMPLETE",
+      "preflight": {
+        "negative_rosters": 153960,
+        "positive_rosters": 90,
+        "total_raw_pairs": 13856400,
+        "common_atom_pairs": 5547384,
+        "total_disjoint_pairs": 8309016,
+        "checker": "research_checks/T6_P13_Q9_SPLIT2_7_EXACT_ROSTER_PREFLIGHT_20261123.py",
+        "checker_commit": "c437519513a67bc573653ba277cb1ba8da38d0af",
+        "report": "research_notes/portable_direct/onhour_20261123_t6_p13_q9_split2_7_exact_roster_preflight.md",
+        "report_commit": "2e0d36a3b8edc40c59536270db7d1f068515c074"
+      },
+      "completed_patterns": [
+        "7",
+        "34",
+        "25",
+        "16",
+        "223",
+        "133",
+        "115",
+        "124",
+        "1114",
+        "1222",
+        "1123",
+        "11113"
+      ],
+      "completed_counts": {
+        "negative_rosters": 41328,
+        "raw_pairs": 3719520,
+        "common_atom_pairs": 1063944,
+        "disjoint_pairs": 2655576,
+        "gs_nodes": 6052725,
+        "ball_leaves": 9,
+        "budget_valid": 0
+      },
+      "certificate": "research_checks/T6_P13_Q9_SPLIT2_7_TWELVE_PATTERNS_AUTHOR_EXACT_CERT_20261123.json",
+      "certificate_commit": "c45f7ec556be67bdc2bb8749dfd660184425b409",
+      "certificate_blob": "ea782492b7ae79c4fb3de2794d91ea495068c374",
+      "checker": "research_checks/T6_P13_Q9_SPLIT2_7_PATTERN_EXACT_REPLAY_20261123.py",
+      "checker_commit": "3ba68f730f4efa2bd621ec6fd90c15d7a2fb78d6",
+      "report": "research_notes/portable_direct/onhour_20261123_t6_p13_q9_split2_7_twelve_patterns_author_progress.md",
+      "report_commit": "ff10fde81f2cd9fdd622d73cf3a72a9c0c441cba",
+      "remaining_patterns": [
+        {
+          "pattern": "11122",
+          "negative_rosters": 28392,
+          "raw_pairs": 2555280,
+          "common_pairs": 866736,
+          "disjoint_pairs": 1688544
+        },
+        {
+          "pattern": "1111111",
+          "negative_rosters": 31824,
+          "raw_pairs": 2864160,
+          "common_pairs": 1493856,
+          "disjoint_pairs": 1370304
+        },
+        {
+          "pattern": "111112",
+          "negative_rosters": 52416,
+          "raw_pairs": 4717440,
+          "common_pairs": 2122848,
+          "disjoint_pairs": 2594592
+        }
+      ],
+      "remaining_count": {
+        "negative_rosters": 112632,
+        "raw_pairs": 10136880,
+        "common_atom_pairs": 4483440,
+        "disjoint_pairs": 5653440
+      },
+      "exact_next_action": "Start named negative q partition (1,1,1,2,2) at canonical roster index [0,28392), cover completely via disjoint exact segments (e.g. 0..4000,..,28392), 90 positive q-order2 named rosters each. Consume its existing no-preflight work only; use frozen 12D q0 lattice, six mixed 13-adic congruences and actual side masses; checkpoint before proceeding (1,1,1,1,1,1,1), then (1,1,1,1,1,2).",
+      "do_not_repeat": "The 12 completed patterns above and split(1,8) entire length1..8; ordinary Source p17 q14 preflight is a distinct owner path."
+    }
+  },
+  "scientific_strength": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "post_publication_independent_execution": "NOT_PERFORMED",
+  "control": {
+    "original_source_continuation_request_id": "onhour-20261123-0627-own-t6-source-cont-ro-v1",
+    "original_source_continuation_terminal": "SUCCEEDED/error=null",
+    "original_source_continuation_issue": "https://github.com/awdawmip/kimi-query-bridge/issues/7027",
+    "asof_publication_id": "TP2-34B106D2512A298C9647",
+    "winning_own_native_claim": "NOT_VERIFIED",
+    "current_native_run": "NOT_VERIFIED",
+    "native_protected_semantic_progress": "NOT_PUBLISHED",
+    "historical_research_activity": "RA-5E3FE1E761E4963EC461A892",
+    "historical_activity_events_last_known": 328,
+    "activity_checkpoint_new_events": "NOT_WRITTEN_AUTHOR_IDENTITY_ATTRIBUTION_UNRESOLVED",
+    "researcher_role_identity": "UNCONFIRMED_CURRENT_LANE",
+    "native_formal_frontier": "p17 q14 preflight remains separate, not replaced by portable p13 science",
+    "schedule_modified": false,
+    "notifications_modified": false
+  },
+  "next_exact_action": "Resume signed split(2,7) (1,1,1,2,2) negative q partition complete exact 90×28,392 search with declared disjoint index segments; write and readback incremental source at cohort boundary. Consume original request receipts under original ID, never invent winning CLAIM or borrow maintenance/profile identity. Preserve original T6 source pin and independent review pending."
+}
