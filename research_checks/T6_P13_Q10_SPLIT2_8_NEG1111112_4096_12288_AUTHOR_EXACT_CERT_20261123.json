@@ -1,0 +1,188 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT2_8_NEG1111112_AUTHOR_EXACT_SLICE_CERT_V1",
+  "as_of": "2026-11-23",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "scientific_input": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "role": "TASK_RESEARCH",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "original_observers": "H0..H6, six 13^k congruences k=1..6, signed 12D q0, full integer named atom denominator and multiplicity",
+  "parameters": {
+    "prime": 13,
+    "valuation": 1,
+    "vertical_order": 10,
+    "signed_split": [
+      2,
+      8
+    ],
+    "negative_pattern": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2
+    ],
+    "positive_patterns": [
+      [
+        2
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "cap_each_side": 2331,
+    "negative_index_interval": [
+      4096,
+      12288
+    ],
+    "negative_rosters": 8192,
+    "positive_rosters": 90
+  },
+  "ordering": "negative q1 combinations_with_replacement(1..12,6) times q2 r in 1..12; positive q2 r=1..12 followed by q1 CWR(1..12,2); zero-based end exclusive",
+  "published_exact_replayer": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "a15dc9dd00e5d45516463ed4c4905341d8d2357b",
+    "path": "research_checks/T6_P13_Q10_SPLIT2_8_NEG1111112_SLICE_REPLAY_20261123_2000.py",
+    "git_blob_sha1": "096df77ac608297ad1078844c03dcac2da39678b"
+  },
+  "algorithm": "Signed affine q0 lattice via 13-adic H1..H6, exact HNF/LLL, rational Gram-Schmidt radius and exhaustive near-center integer branching. Exact residual checks, plus the two original side budgets. Original common named atoms reduce to already covered lower order.",
+  "verification": "Local exact Python/SymPy adaptation was actually executed for each complete interval; as control, prior range [0,512) reproduced existing repo certificate's roster SHA256 01ad36..., pair SHA256 ecd1b01..., 30684 GS searches, 68067 GS nodes, one witness. No independent nonauthor review yet.",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "segments": [
+    {
+      "range": [
+        4096,
+        5120
+      ],
+      "rosters": 1024,
+      "raw_pairs": 92160,
+      "canceled": 39472,
+      "gs_searches": 52688,
+      "gs_nodes": 114825,
+      "sphere_witnesses": 0,
+      "budget_valid": 0,
+      "roster_sha256": "1df067af45673de8700c3ab18c59ba9c5d397fd2872f9c4893b41376240e8cd7",
+      "pair_sha256": "6535ae4f89f4691d93e7041c241cb16329cdcd4d46fe5e9aea3812457f70cdf0",
+      "local_complete_json_sha256": "2e70d128a78c0be3ac8e3ccbf58bf538af6124cc669a2897e172f36167492396"
+    },
+    {
+      "range": [
+        5120,
+        8192
+      ],
+      "rosters": 3072,
+      "raw_pairs": 276480,
+      "canceled": 140796,
+      "gs_searches": 135684,
+      "gs_nodes": 295181,
+      "sphere_witnesses": 0,
+      "budget_valid": 0,
+      "roster_sha256": "a9b96d8c41761ff39e99d9445813e72a95bb43a3ba5a73165e47c833a7a4abc9",
+      "pair_sha256": "449bac9bfd21ce305fb2342677c30004b540b149f4bc9dbd9513698884779a4d",
+      "local_complete_json_sha256": "e1185736a36303d1bd41c337af2af873259ce052e33628d7bcc6b951f73de8ea"
+    },
+    {
+      "range": [
+        8192,
+        12288
+      ],
+      "rosters": 4096,
+      "raw_pairs": 368640,
+      "canceled": 185356,
+      "gs_searches": 183284,
+      "gs_nodes": 396309,
+      "sphere_witnesses": 1,
+      "budget_valid": 0,
+      "roster_sha256": "0a0e601309c091b6b22023a65b18405f9f8cc49221b7dfd3e6825333781c002f",
+      "pair_sha256": "6c3e765a7c871d3838eb5613998681aef9663e1dfdcbb771e156df418f9a4b5e",
+      "local_complete_json_sha256": "a39b7aa932ac93b470aa7d61f93d83fe67ff5c702e0b06d8349c481f4ce4dc61"
+    }
+  ],
+  "total": {
+    "rosters": 8192,
+    "raw_pairs": 737280,
+    "common_named_cancellations": 365624,
+    "exact_gs_searches": 371656,
+    "exact_gs_nodes": 806315,
+    "modular_ball_witnesses": 1,
+    "both_original_side_mass_valid": 0
+  },
+  "witnesses": [
+    {
+      "negative_roster_index": 10982,
+      "positive_roster_index": 0,
+      "pos": [
+        [
+          2,
+          1
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "signed_q0_u": [
+        -94,
+        12,
+        -5,
+        -9,
+        10,
+        4,
+        -2,
+        -1,
+        -6,
+        -1,
+        0,
+        -5
+      ],
+      "original_masses": [
+        1598,
+        5317
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "radius_sq": 4378637,
+      "budget_valid": false
+    }
+  ],
+  "previous_completed": "[0,4096) in original certificate f01f93ba16129c2f2ea4b6042bf5f2414a13d016; not recomputed as new work",
+  "next_exact_action": "Continue negative index [12288,148512) with same source/replayer, full signed original side budgets. Preserve already completed ranges and separate Native q14 owner.",
+  "native_claim": "NOT_VERIFIED",
+  "native_progress": "NOT_PUBLISHED",
+  "research_activity": "AUTHOR_ATTRIBUTION_UNRESOLVED"
+}
