@@ -1,0 +1,101 @@
+{
+  "schema": "R762JX_FULL_EULER_SPANNING_TRIPLES_EVIDENCE_V1",
+  "observed_date": "2026-11-23",
+  "scientific_scope": "Unsigned six-axis composite Port–Euler observer; 4 fixed labeled (M,D) slices; 7 triple + 8 double + 5 singleton colors, 42 events",
+  "publication": "Researcher author result; not independently reviewed; no formal native PROGRESS/CLAIM",
+  "frozen_task_id": "RS-X6-TRIADIC-CLOSURE-DYNAMICS",
+  "frozen_task_publication": "TP2-8B7E13C5904A2D6F1142",
+  "source_predecessor": "R762JW@726e0089ddb4bbe0cfb7e64b967c356a4cb6a998",
+  "original_frozen_science": "R762JT@6fda34681d94d915894ec5f1c32d1e3654102865",
+  "theorem": "If five singleton edges neutralize forced quotient parity and connect quotient components and flexible triple-support candidates span each flexible component, exact positive even-degree connected 42-event Euler realization exists.",
+  "verification": {
+    "method": "Python standard-library exact enumeration and constructive graph validation; each passing case independently checked by verify()",
+    "python_file": "R762JX_FULL_LIFT_GENERATE_VERIFY.py",
+    "command": "python R762JX_FULL_LIFT_GENERATE_VERIFY.py",
+    "generated_json": "R762JX_EXACT_EVIDENCE.json",
+    "python_sha256_local": "67d586b44d95152a7d7b2e586905b3ae6abe998b6e8cf53c1f780a04f9163f20",
+    "full_generated_json_sha256_local": "c39ca1782bbd982fa1bde80681ebbca9111dab438de17d0f700ffccef7b6499b",
+    "canonical_serialized_certificates_sha256": "4ae7e97ce5cdc80c3ddd6fb6a08e8e2829f107d73534cfb4dceb367e10891b59",
+    "floating_point_used": false,
+    "checked_inventories": 25740,
+    "triple_spanning_pass": 2184,
+    "exact_valid_42_event_multigraph_witnesses": 2184,
+    "failed_42_event_witness_checks": 0,
+    "marked_44_to_42_reinflations": 10920,
+    "triple_spanning_fail_not_existence_counterexamples": 23556
+  },
+  "rows": [
+    {
+      "inactive_ports": [],
+      "singletons": [
+        "012",
+        "013",
+        "014",
+        "015",
+        "023"
+      ],
+      "component_count": 2,
+      "seven_triple_choices": 6435,
+      "criterion_pass": 448,
+      "full_euler_witness_pass": 448
+    },
+    {
+      "inactive_ports": [
+        "01"
+      ],
+      "singletons": [
+        "023",
+        "024",
+        "025",
+        "034",
+        "035"
+      ],
+      "component_count": 3,
+      "seven_triple_choices": 6435,
+      "criterion_pass": 428,
+      "full_euler_witness_pass": 428
+    },
+    {
+      "inactive_ports": [
+        "01",
+        "23"
+      ],
+      "singletons": [
+        "024",
+        "025",
+        "034",
+        "035",
+        "045"
+      ],
+      "component_count": 5,
+      "seven_triple_choices": 6435,
+      "criterion_pass": 813,
+      "full_euler_witness_pass": 813
+    },
+    {
+      "inactive_ports": [
+        "01",
+        "23",
+        "45"
+      ],
+      "singletons": [
+        "024",
+        "025",
+        "034",
+        "035",
+        "124"
+      ],
+      "component_count": 6,
+      "seven_triple_choices": 6435,
+      "criterion_pass": 495,
+      "full_euler_witness_pass": 495
+    }
+  ],
+  "remaining": [
+    "Criterion fails for 23,556 other seven-triple selections in these four fixed labeled slices, Euler existence unresolved there.",
+    "General 44→42 terminal-class theorem remains open.",
+    "Native signed P000/BRC provenance-preserving Cell/path/time lift remains open.",
+    "Independent mathematical review and strict Activity source audit remain pending."
+  ],
+  "next_action": "Allow double-color connectivity/parity backbone in lieu of pure triple-color spanning; test extremal c=6 quotient configurations with exact 42-event solver and retain any counterexample."
+}
