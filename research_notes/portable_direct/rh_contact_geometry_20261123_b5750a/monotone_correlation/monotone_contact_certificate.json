@@ -1,0 +1,197 @@
+{
+  "status": "PASS",
+  "schema": "RH_MONOTONE_CONTACT_POOL_V1",
+  "scope": "Author checks for arbitrary scalar roads; no real matching arithmetic bound or independent review.",
+  "random_checks": {
+    "rational_roads": 40,
+    "packets": 286,
+    "positive_contact_pools": 72,
+    "independent_lower_hull_matches_pava": true,
+    "kkt_and_exact_energy_identities": true,
+    "directed_haar_distance_bound": true,
+    "proper_cone_inclusion_example": true
+  },
+  "single_peak_family": [
+    {
+      "s": 2,
+      "window": [
+        32,
+        64
+      ],
+      "peak_support": [
+        40,
+        56
+      ],
+      "peak_width": 16,
+      "fine_step": 4,
+      "sample_count": 9,
+      "all_integer_source_bound": "abs(Delta^2 q_n) <= 4/n",
+      "positive_contact_pools": [
+        {
+          "endpoints": [
+            40,
+            56
+          ],
+          "width": 16,
+          "dirichlet_energy": {
+            "lower_integer": "6347656250000000000000000000000000",
+            "upper_integer": "6347656250000000000000000000000000",
+            "denominator_power_of_10": 35
+          },
+          "trace_weight": {
+            "lower_integer": "1875478590356866177817593499092831",
+            "upper_integer": "1875478590356866177817593499092832",
+            "denominator_power_of_10": 35
+          },
+          "budget": {
+            "lower_integer": "119048933958199513240374587344759",
+            "upper_integer": "119048933958199513240374587344760",
+            "denominator_power_of_10": 35
+          }
+        }
+      ],
+      "ordinary_isotonic_distance_square": {
+        "lower_integer": "6347656250000000000000000000000000",
+        "upper_integer": "6347656250000000000000000000000000",
+        "denominator_power_of_10": 35
+      },
+      "contact_pool_budget": {
+        "lower_integer": "119048933958199513240374587344759",
+        "upper_integer": "119048933958199513240374587344760",
+        "denominator_power_of_10": 35
+      },
+      "actual_positive_energy": {
+        "lower_integer": "71087065613115257527155628935891",
+        "upper_integer": "71087065613115257527155628935892",
+        "denominator_power_of_10": 35
+      },
+      "fine_interpolation_error_square": {
+        "lower_integer": "849803635997102073862327798976",
+        "upper_integer": "849803635997102073862327798977",
+        "denominator_power_of_10": 35
+      },
+      "old_coarse_budget_normalized_by_X_square": "1/8"
+    },
+    {
+      "s": 4,
+      "window": [
+        1024,
+        2048
+      ],
+      "peak_support": [
+        1408,
+        1664
+      ],
+      "peak_width": 256,
+      "fine_step": 16,
+      "sample_count": 65,
+      "all_integer_source_bound": "abs(Delta^2 q_n) <= 4/n",
+      "positive_contact_pools": [
+        {
+          "endpoints": [
+            1408,
+            1664
+          ],
+          "width": 256,
+          "dirichlet_energy": {
+            "lower_integer": "30066013336181640625000000000000000",
+            "upper_integer": "30066013336181640625000000000000000",
+            "denominator_power_of_10": 35
+          },
+          "trace_weight": {
+            "lower_integer": "464894382655064979107097099054710",
+            "upper_integer": "464894382655064979107097099054711",
+            "denominator_power_of_10": 35
+          },
+          "budget": {
+            "lower_integer": "139775207088231144560049979146464",
+            "upper_integer": "139775207088231144560049979146465",
+            "denominator_power_of_10": 35
+          }
+        }
+      ],
+      "ordinary_isotonic_distance_square": {
+        "lower_integer": "30066013336181640625000000000000000",
+        "upper_integer": "30066013336181640625000000000000000",
+        "denominator_power_of_10": 35
+      },
+      "contact_pool_budget": {
+        "lower_integer": "139775207088231144560049979146464",
+        "upper_integer": "139775207088231144560049979146465",
+        "denominator_power_of_10": 35
+      },
+      "actual_positive_energy": {
+        "lower_integer": "70680706486556845556801724806988",
+        "upper_integer": "70680706486556845556801724806989",
+        "denominator_power_of_10": 35
+      },
+      "fine_interpolation_error_square": {
+        "lower_integer": "4484968196111758716580549507",
+        "upper_integer": "4484968196111758716580549508",
+        "denominator_power_of_10": 35
+      },
+      "old_coarse_budget_normalized_by_X_square": "1/4"
+    },
+    {
+      "s": 8,
+      "window": [
+        32768,
+        65536
+      ],
+      "peak_support": [
+        47104,
+        51200
+      ],
+      "peak_width": 4096,
+      "fine_step": 64,
+      "sample_count": 513,
+      "all_integer_source_bound": "abs(Delta^2 q_n) <= 4/n",
+      "positive_contact_pools": [
+        {
+          "endpoints": [
+            47104,
+            51200
+          ],
+          "width": 4096,
+          "dirichlet_energy": {
+            "lower_integer": "121800696942955255508422851562500000",
+            "upper_integer": "121800696942955255508422851562500000",
+            "denominator_power_of_10": 35
+          },
+          "trace_weight": {
+            "lower_integer": "115861446787819537118240275945166",
+            "upper_integer": "115861446787819537118240275945167",
+            "denominator_power_of_10": 35
+          },
+          "budget": {
+            "lower_integer": "141120049675755441027834095846856",
+            "upper_integer": "141120049675755441027834095846857",
+            "denominator_power_of_10": 35
+          }
+        }
+      ],
+      "ordinary_isotonic_distance_square": {
+        "lower_integer": "121800696942955255508422851562500000",
+        "upper_integer": "121800696942955255508422851562500000",
+        "denominator_power_of_10": 35
+      },
+      "contact_pool_budget": {
+        "lower_integer": "141120049675755441027834095846856",
+        "upper_integer": "141120049675755441027834095846857",
+        "denominator_power_of_10": 35
+      },
+      "actual_positive_energy": {
+        "lower_integer": "70580162346899200576939119429850",
+        "upper_integer": "70580162346899200576939119429851",
+        "denominator_power_of_10": 35
+      },
+      "fine_interpolation_error_square": {
+        "lower_integer": "17688275909936386942679856",
+        "upper_integer": "17688275909936386942679857",
+        "denominator_power_of_10": 35
+      },
+      "old_coarse_budget_normalized_by_X_square": "1/2"
+    }
+  ],
+  "script_sha256": "66e224e1acdfc6bfc35a645336a19a620f24d80f794a9330ecb55ad93a6416ed"
+}
