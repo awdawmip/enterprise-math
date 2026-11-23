@@ -1,0 +1,93 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_AUTHOR_CONTINUATION_V1",
+  "as_of": "2026-11-23T14:25:00+08:00",
+  "logical_research_conversation": "chatgpt-research-onhour-enterprise-math-20260923",
+  "forbidden_maintenance_conversation": "chatgpt-hourly-enterprise-math-20260921",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "mother_state": "OPEN",
+  "goal": "Exact T6=2332 global lower bound or cheaper original signed H0..H6 collision",
+  "frozen_scientific_pin": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "previous_continuation": "research_notes/portable_direct/onhour_20261123_t6_p13_q10_signed_neglen1to5_author_continuation_1417.json",
+  "new_complete_unit": {
+    "scope": "p13 q10 split(1,9), negative length six q-pattern (1,1,1,1,1,4), all canonical named residue assignments and 12 positive q1 residues",
+    "raw_pairs": 628992,
+    "common_cancel": 196560,
+    "vertical_overbudget": 2438,
+    "exact_gs_searches": 429994,
+    "gs_nodes": 1031061,
+    "relaxed_sphere_leaves": 2,
+    "budget_valid": 0,
+    "source_certificate": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN6_PATTERN111114_AUTHOR_EXACT_CERT_20261123_1425.json",
+    "source_commit": "f925028ad7ced0cdd4041a0575ee0d75a5dd7a17",
+    "evidence_strength": "AUTHOR_EXACT_FINITE_EXECUTED/UNREVIEWED/NOT_ADMITTED"
+  },
+  "completed_during_this_run": {
+    "negative_length4_all_six_q_patterns": {
+      "raw_pairs": 643968,
+      "budget_valid": 0,
+      "commit": "fc42d9af77254593f2831b287ba6334f2e190314"
+    },
+    "negative_length5_all_five_q_patterns": {
+      "raw_pairs": 2238912,
+      "budget_valid": 0,
+      "commit": "981d54012e045fff8d7c4306edb5c7a5940e3ad0"
+    },
+    "negative_length6_first_pattern": {
+      "raw_pairs": 628992,
+      "budget_valid": 0,
+      "commit": "f925028ad7ced0cdd4041a0575ee0d75a5dd7a17"
+    },
+    "new_raw_pairs_total": 3511872,
+    "new_gs_searches_total": 2826334,
+    "new_gs_nodes_total": 6834858,
+    "new_sphere_leaves_total": 20,
+    "new_budget_legal_total": 0
+  },
+  "cumulative_author_p13_q10_split1_9": {
+    "negative_lengths1to5_all_plus_length6_first_pattern_raw_pairs": 3619200,
+    "gs_searches": 2927398,
+    "gs_nodes": 7085224,
+    "sphere_leaves": 21,
+    "budget_legal": 0
+  },
+  "next_unfinished": {
+    "q_pattern": [
+      1,
+      1,
+      1,
+      1,
+      2,
+      3
+    ],
+    "negative_length": 6,
+    "negative_rosters": 196560,
+    "raw_pairs": 2358720,
+    "action": "Exact positive q1 residue (1..12) versus each named negative q=(1,1,1,1,2,3) residue multiset, source-order disjoint intervals; cancel identical named atoms, original side masses 2331 and six mixed 13-adic congruences, retain signed full q0 vectors and digest. After this complete q=(1,1,1,2,2,2), 132,496 negative rosters / 1,589,952 raw pairs; then lengths7..9 and other q10 splits."
+  },
+  "do_not_repeat": [
+    "All q10 split(0,10) 5,098,938 excluded rosters from previous turns",
+    "q10 split(1,9) negative lengths1..3 previous complete 107,328 pairs",
+    "q10 split(1,9) negative length4 643,968 pairs this turn",
+    "q10 split(1,9) negative length5 2,238,912 pairs this turn",
+    "q10 split(1,9) negative length6 pattern111114 628,992 pairs this turn",
+    "Official Native p17 q14 preflight author and Result boundaries"
+  ],
+  "control_state": {
+    "last_confirmed_client_checkpoint_revision": 26,
+    "next_checkpoint_request": "onhour-20261123-1418-t6-p13-q10-neglen5-full-r27-v1",
+    "next_checkpoint_last_result": "BACKEND_IDENTITY_CHECK_UNAVAILABLE / operation_sent=false; NOT COMMITTED",
+    "canonical_continuation_request": "onhour-20261123-1403-t6-exact-current-cont-ro-v1",
+    "last_confirmed_native_receipt": "QUEUED / CURRENT_CONTROL_FOLLOW_RETRY",
+    "readback_recheck": "BACKEND_IDENTITY_CHECK_UNAVAILABLE / operation_sent=false",
+    "own_claim": "NOT_VERIFIED",
+    "own_run": "NOT_VERIFIED",
+    "protected_native_semantic_progress": "NOT_PUBLISHED",
+    "historical_activity": "RA328 author attribution unresolved, no new Activity event claimed"
+  },
+  "open_obligations": [
+    "Independent mathematical review and Result promotion not performed",
+    "Other p13, lower primes/H0 and global T6 remain open",
+    "No authenticated Research lane execution capability borrowed from other transports"
+  ],
+  "publication": "Portable GitHub author science; not Native task ownership or Result"
+}
