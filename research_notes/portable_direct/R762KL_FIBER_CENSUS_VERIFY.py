@@ -73,6 +73,7 @@ assert Counter(connected.values())=={2:132,3:112,4:135,5:36,6:35,7:12,8:3}
 assert sum(1 for f in F if direct.get(f,0)==0)==47
 assert len(witness[783])==2 and witness[783][0]!=witness[783][1]
 assert witness[783]==[(1,2,2,1,0,0,2,2),(2,1,1,2,0,0,2,2)]
+assert (0,0,2,2,0,0,2,2) in witness[0]
 # Confirm each of the three disconnected assignments is a constant edge type, boundary zero.
 assert {b:direct[b]-connected[b] for b in F if direct[b]!=connected[b]}=={0:3}
 
@@ -90,6 +91,8 @@ result={
     "holes":len(F)-len(connected),
     "connected_fiber_histogram":{str(k):v for k,v in sorted(Counter(connected.values()).items())},
     "forced_boundary_zero":{"total":direct[0],"connected":connected[0]},
+    "full_euler_witness_boundary":0,
+    "full_euler_witness_choice_vectors":[[0,0,2,2,0,0,2,2],[1,0,1,0,1,0,1,0]],
     "witness_boundary":783,
     "witness_choice_vectors":[list(x) for x in witness[783]],
     "all_passed":True
