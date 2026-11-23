@@ -1,0 +1,151 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT3_7_NEG115_AUTHOR_EXACT_SEGMENTS_V1",
+  "as_of": "2026-11-24",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "author_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "session": "MCP-7f3df4435e40430b832e8d5ff2137718",
+  "activity": "RA-A468735D7C934B25C4B9614F",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "p": 13,
+  "q_vertical_total": 10,
+  "signed_split": [
+    3,
+    7
+  ],
+  "negative_q_pattern": [
+    1,
+    1,
+    5
+  ],
+  "positive_q_patterns": [
+    [
+      3
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      1,
+      1,
+      1
+    ]
+  ],
+  "p13_moduli": [
+    13,
+    169,
+    2197,
+    28561,
+    371293,
+    4826809
+  ],
+  "budget_each_side": 2331,
+  "lattice_index": "13^21",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "source_order": "negative q1^2 CWR(12,2) then q5 r=1..12; positive q3 then q1q2 then q1^3 CWR",
+  "kernel": "awdawmip/enterprise-math@de78443d23578a66d3ae79f2a045e4be8e756c50:research_checks/T6_P13_Q10_SPLIT2_8_NEG11111111_SLICE_REPLAY_20261123_2300.py",
+  "arithmetic": "Exact integers and Fraction, high-13-valuation saturated HNF/LLL q0 lattice, mixed H1..H6 modulo powers, both side original mass budgets. Source-ordered signed pairs, no floating feasibility.",
+  "segments": [
+    {
+      "interval": [
+        0,
+        256
+      ],
+      "negative_rosters": 256,
+      "positive_rosters": 520,
+      "raw_signed_pairs": 133120,
+      "common_named_atom_canceled": 41136,
+      "vertical_original_mass_excess": 0,
+      "gs_searches": 91984,
+      "gs_nodes": 194307,
+      "relaxed_sphere_witnesses": 0,
+      "both_original_side_mass_valid": 0,
+      "roster_sha256": "2cbdcc48f7a056e906a8a594594666e36e8a89167202e11f0dab3024868cc1ef",
+      "pair_digest_sha256": "ef1a686be060c159e5a325e2362074d6f99ff3eef4d2212c727c8e429bc9ec6d"
+    },
+    {
+      "interval": [
+        256,
+        936
+      ],
+      "negative_rosters": 680,
+      "positive_rosters": 520,
+      "raw_signed_pairs": 353600,
+      "common_named_atom_canceled": 104880,
+      "vertical_original_mass_excess": 0,
+      "gs_searches": 248720,
+      "gs_nodes": 518162,
+      "relaxed_sphere_witnesses": 1,
+      "both_original_side_mass_valid": 0,
+      "roster_sha256": "29fd4bd1f7b650b714c50fd86d1db744126eec952eeb47b1f671ccd1fb3e4a50",
+      "pair_digest_sha256": "ab4b33319e4358a6b8d0816f559ffc4c201d6d9396c4df43a8f6ff69aed42376"
+    }
+  ],
+  "stats": {
+    "negative_rosters": 936,
+    "raw_signed_pairs": 486720,
+    "common_named_atom_canceled": 146016,
+    "vertical_original_mass_excess": 0,
+    "gs_searches": 340704,
+    "gs_nodes": 712469,
+    "relaxed_sphere_witnesses": 1,
+    "both_original_side_mass_valid": 0
+  },
+  "witnesses": [
+    {
+      "pos": [
+        [
+          3,
+          1
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          5,
+          1
+        ]
+      ],
+      "u": [
+        40,
+        -18,
+        -1,
+        -3,
+        -3,
+        3,
+        5,
+        -8,
+        -4,
+        8,
+        -5,
+        -1
+      ],
+      "masses": [
+        2712,
+        4426
+      ],
+      "radius_sq": 4077225,
+      "budget_valid": false,
+      "negative_roster_index": 744,
+      "positive_roster_index": 0,
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "proof_scope": "This only excludes finite negative q-pattern 1,1,5 at p13 q10 split(3,7) under prior exact q0 lattice completeness and lower-order common atom cancellation. Not whole T6 or accepted result.",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "next_unfinished": "Another negative 3-atom q partition of 7, e.g. (1,2,4), subject to live Source non-duplication and current routing."
+}
