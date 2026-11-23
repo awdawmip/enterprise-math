@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/R284FY_q15_q20_reproduce.sh",
+    "ref": "cb2806f0ba2d3fa7c7d60b0977fe26c5870c8bc0",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "OBS-R284FY-20261123-2220-RUNNER",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env bash\n# Reproduce R284FY using the ORIGINAL pinned R284FV implementation files.\n# Usage from research_notes/portable_direct:\n#   bash R284FY_q15_q20_reproduce.sh . ./R284FY_calculation\nset -euo pipefail\nsrc=\"${1:-.}\"\nout=\"${2:-./R284FY_calculation}\"\nmkdir -p \"$out\"\nout=\"$(cd \"$out\" && pwd)\"\ng++ -O3 -std=c++17 \"$src/R284FV_stable_cut_scan.cpp\" -o \"$out/R284FY_stable_cut_scan\"\nprintf 'q,n,all_histograms,stable_survivors,edge0_survivors,edge01_survivors,sha256_of_stable_list\\n' > \"$out/R284FY_results.csv\"\nfor q in $(seq \"${Q_MIN:-15}\" \"${Q_MAX:-20}\"); do\n  for n in $((4*q+8)) $((4*q+9)); do\n    \"$out/R284FY_stable_cut_scan\" \"$q\" \"$n\" \"$out\"\n    python3 - \"$src\" \"$out\" \"$q\" \"$n\" <<'PY'\nimport hashlib, importlib.util, math, pathlib, sys\nsrc, out, q, n = sys.argv[1], pathlib.Path(sys.argv[2]), int(sys.argv[3]), int(sys.argv[4])\nfile = out / f'R284FV_q{q}_n{n}_stable.txt'\nraw = file.read_bytes()\nhist = [tuple(map(int, line.split())) for line in raw.decode('utf-8').splitlines()]\nassert all(len(x) == 7 and sum(x) == n and min(x) >= 0 for x in hist)\nassert len(hist) == (7 if n == 4*q+8 else 66)\nspec = importlib.util.spec_from_file_location('pinned_R284FV', pathlib.Path(src) / 'R284FV_prefix_count_lattice.py')\nmod = importlib.util.module_from_spec(spec)\nspec.loader.exec_module(mod)\nmod.Q = q\none = [x for x in hist if mod.safe_path(x, 0)]\ntwo = [x for x in one if mod.safe_path(x, 1)]\nA, B = 2*q+5, 2*q+3\nF0 = (0,0,0,0,A,B,0)\nF = [(0,0,0,0,A,B,1),(0,0,0,0,A,B+1,0),(0,0,0,0,A+1,B,0),\n     (0,0,0,1,A-1,B,1),(0,0,0,1,A,B,0),\n     (0,0,1,0,A-1,B,1),(0,0,1,0,A,B,0),\n     (0,1,0,0,A-1,B,1),(0,1,0,0,A,B,0),(1,0,0,0,A,B,0)]\nassert sorted(one) == sorted([F0] if n == 4*q+8 else F), (q, n)\nassert not two, (q, n)\nwith (out / 'R284FY_results.csv').open('a', encoding='utf-8') as f:\n    f.write(f'{q},{n},{math.comb(n+6, 6)},{len(hist)},{len(one)},{len(two)},{hashlib.sha256(raw).hexdigest()}\\n')\nprint('EXACT_PASS', q, n, 'stable', len(hist), 'first', len(one), 'two_edges', len(two))\nPY\n  done\ndone\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/cb2806f0ba2d3fa7c7d60b0977fe26c5870c8bc0/research_notes/portable_direct/R284FY_q15_q20_reproduce.sh",
+      "encoding": "utf-8",
+      "sha": "38854a5b82e0df78393012f2dc345cb4762f95b9"
+    }
+  },
+  "tool_name": "mcp__GitHub__fetch_file"
+}
