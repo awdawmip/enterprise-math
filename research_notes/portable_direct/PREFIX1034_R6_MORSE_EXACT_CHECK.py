@@ -14,13 +14,13 @@ for eps in product([-1,1],repeat=5):
     if s==0:
         continue # degenerate Y=0 critical set; out of this local theorem
     H=2*(Matrix(eps)*Matrix([eps])-s*Matrix.diag(*eps))
-    # All s != 0 are nondegenerate. Determine inertia by numeric exact char
-    # polynomial roots sorted, using Sturm counts through diagonalisation by row ops.
+    # All s != 0 are nondegenerate. SymPy exactly certifies eigenvalue signs.
     eigs=H.eigenvals()
     negatives=0
     for eigenvalue,multiplicity in eigs.items():
         assert eigenvalue.is_real
-        negatives+= multiplicity if eigenvalue.evalf(20)<0 else 0
+        assert eigenvalue.is_negative in (True, False)
+        negatives+= multiplicity if eigenvalue.is_negative else 0
     assert abs(H.det())==32*s**4
     records[(s*s, negatives, abs(H.det()))]+=1
 
