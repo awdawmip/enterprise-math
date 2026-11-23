@@ -1,0 +1,342 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT1_9_NEG1111122_SUFFIX_AUTHOR_EXACT_V1",
+  "as_of": "2026-11-23T17:04:00+08:00",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "frozen_scientific_pin": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "logical_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "source_order": "product(combinations_with_replacement(range(1,13),5), combinations_with_replacement(range(1,13),2)); 12 positive residues each",
+  "negative_q_pattern": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    2,
+    2
+  ],
+  "source_order_interval": [
+    262144,
+    340704
+  ],
+  "negative_named_rosters_total": 340704,
+  "both_side_cap": 2331,
+  "denominator": "13*(13*q+r)",
+  "q0_weight": "13*r-1",
+  "vertical_weight": "169*q+13*r-1",
+  "moduli": [
+    13,
+    169,
+    2197,
+    28561,
+    371293,
+    4826809
+  ],
+  "saturated_q0_lattice_index": "13^21",
+  "gs_min_diagonal_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "method": "Original frozen signed H0..H6 p13 layer; exact sympy HNF/LLL, weighted rational GS with dmin>2*2331^2; nearest two integer branches, 6 exact modular tests, both original positive/negative mass checks. Named common-atom pairs assigned to previously completed cancellation scope.",
+  "source_runner": "Local /mnt/data/t6_suffix_exact.py; exact earlier replay kernel research_checks/T6_P13_Q9_SPLIT1_8_NEG_LEN1TO4_EXACT_REPLAY_20261123_0900.py (same lattice/GS, changed q-pattern and source-order ranges)",
+  "segments": [
+    {
+      "source_order_interval": [
+        262144,
+        270336
+      ],
+      "raw_pairs": 98304,
+      "common_cancel": 31858,
+      "vertical_overbudget": 1705,
+      "gs_searches": 64741,
+      "gs_nodes": 154405,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "pair_digest_sha256": "55703489e4a9c6d68a870abf88a50952cee16b810a2775053182e2459900e57d"
+    },
+    {
+      "source_order_interval": [
+        270336,
+        278528
+      ],
+      "raw_pairs": 98304,
+      "common_cancel": 30816,
+      "vertical_overbudget": 8749,
+      "gs_searches": 58739,
+      "gs_nodes": 139961,
+      "ball_leaves": 1,
+      "budget_valid": 0,
+      "pair_digest_sha256": "15890624a306822c0a9ca2e40aeaa15e4ec54c17dbf08b2cdfc4955dfdfe2542"
+    },
+    {
+      "source_order_interval": [
+        278528,
+        286720
+      ],
+      "raw_pairs": 98304,
+      "common_cancel": 25356,
+      "vertical_overbudget": 2241,
+      "gs_searches": 70707,
+      "gs_nodes": 168386,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "pair_digest_sha256": "7409b921a3533a3e8494598d2151f1c0ed7dabb4f443db579ee99ba85fd0e53b"
+    },
+    {
+      "source_order_interval": [
+        286720,
+        294912
+      ],
+      "raw_pairs": 98304,
+      "common_cancel": 31056,
+      "vertical_overbudget": 3013,
+      "gs_searches": 64235,
+      "gs_nodes": 153036,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "pair_digest_sha256": "08054e565e9a7fe55603a87ec121201f16048929cdf3ff4845379dc980946d63"
+    },
+    {
+      "source_order_interval": [
+        294912,
+        303104
+      ],
+      "raw_pairs": 98304,
+      "common_cancel": 30958,
+      "vertical_overbudget": 7425,
+      "gs_searches": 59921,
+      "gs_nodes": 142772,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "pair_digest_sha256": "ec3e2c57184a7a255edc2568c937074888c8be894f56c3c5265296784879dbe6"
+    },
+    {
+      "source_order_interval": [
+        303104,
+        311296
+      ],
+      "raw_pairs": 98304,
+      "common_cancel": 24742,
+      "vertical_overbudget": 9252,
+      "gs_searches": 64310,
+      "gs_nodes": 153282,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "pair_digest_sha256": "966121c50d0a0949e41294ee9c4d1fac61cafcda609244718c4159e10d5f5178"
+    },
+    {
+      "source_order_interval": [
+        311296,
+        319488
+      ],
+      "raw_pairs": 98304,
+      "common_cancel": 30970,
+      "vertical_overbudget": 9808,
+      "gs_searches": 57526,
+      "gs_nodes": 137204,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "pair_digest_sha256": "b476a572b6e8c04ad444bbccc20d52386edc19f0c1b55a6b5e09201016fc6725"
+    },
+    {
+      "source_order_interval": [
+        319488,
+        327680
+      ],
+      "raw_pairs": 98304,
+      "common_cancel": 25828,
+      "vertical_overbudget": 15643,
+      "gs_searches": 56833,
+      "gs_nodes": 135828,
+      "ball_leaves": 1,
+      "budget_valid": 0,
+      "pair_digest_sha256": "b0ad92b2fe65ff10f8bafdac10df20c06957b9b8c4637261326aad04a1d43f66"
+    },
+    {
+      "source_order_interval": [
+        327680,
+        335872
+      ],
+      "raw_pairs": 98304,
+      "common_cancel": 25898,
+      "vertical_overbudget": 29202,
+      "gs_searches": 43204,
+      "gs_nodes": 102570,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "pair_digest_sha256": "6b0ccc0dbfd586716f390a9f4db71da3beee4adae10718d9d5c08ad365166448"
+    },
+    {
+      "source_order_interval": [
+        335872,
+        340704
+      ],
+      "raw_pairs": 57984,
+      "common_cancel": 12156,
+      "vertical_overbudget": 31704,
+      "gs_searches": 14124,
+      "gs_nodes": 33572,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "pair_digest_sha256": "4e3544cf69a87334186eed061faf6a4691ccd7adf63be4e4caef98a292b5b9b4"
+    }
+  ],
+  "totals": {
+    "raw_pairs": 942720,
+    "common_cancel": 269638,
+    "vertical_overbudget": 118742,
+    "gs_searches": 554340,
+    "gs_nodes": 1321016,
+    "ball_leaves": 2,
+    "budget_valid": 0
+  },
+  "full_signed_witnesses": [
+    {
+      "negative_roster_index": 270990,
+      "pos": [
+        [
+          1,
+          2
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          8
+        ]
+      ],
+      "u": [
+        -6,
+        54,
+        -6,
+        15,
+        6,
+        2,
+        -5,
+        -4,
+        -6,
+        4,
+        6,
+        2
+      ],
+      "masses": [
+        4525,
+        3996
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    },
+    {
+      "negative_roster_index": 321840,
+      "pos": [
+        [
+          1,
+          5
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "u": [
+        -16,
+        29,
+        -18,
+        -4,
+        12,
+        3,
+        2,
+        -4,
+        2,
+        -6,
+        -2,
+        0
+      ],
+      "masses": [
+        2369,
+        4649
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    }
+  ],
+  "independent_recheck": "Direct independent source-order roster vertical mass classification: 78560 rosters, 13523 negative masses >2331, 269638 named cancellations, 118742 remaining overbudget pairs, 554340 exact GS pairs. All two complete signed witnesses separately reevaluated for q0 and vertical original side mass and six moduli 13^1..13^6; PASS.",
+  "cumulative_with_prior_prefix": {
+    "prefix_interval": [
+      0,
+      262144
+    ],
+    "prior_prefix_cert": "research_checks/T6_P13_Q10_SPLIT1_9_NEG1111122_196608TO262144_EXACT_AUTHOR_CERT_20261123_1618.json",
+    "all_negative_rosters": 340704,
+    "raw_pairs": 4088448,
+    "common_cancel": 1277640,
+    "vertical_overbudget": 141940,
+    "gs_searches": 2668868,
+    "gs_nodes": 6370377,
+    "ball_leaves": 16,
+    "budget_valid": 0
+  },
+  "scientific_status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "native_semantic_progress": "NOT_PUBLISHED",
+  "next_unfinished": "p13 q10 split(1,9) negative length7 remaining pattern (1,1,1,1,1,1,3), 148512 negative rosters x12 positive residues. Do not re-run closed pattern1111122."
+}
