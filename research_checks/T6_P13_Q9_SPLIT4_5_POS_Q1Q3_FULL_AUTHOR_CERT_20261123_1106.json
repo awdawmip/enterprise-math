@@ -1,0 +1,254 @@
+{
+  "schema": "EM_T6_P13_Q9_SPLIT4_5_POS_Q1Q3_COMPLETE_V1",
+  "source_commit": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "cap_per_side": 2331,
+  "p13_q0_lattice_index": "247064529073450392704413",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "negative_named_rosters": 10908,
+  "negative_roster_sha256": "8923ff59c75c4efc039018e9a280ad37742021ab20d09ffdba514e858c38699d",
+  "positive_named_rosters": 144,
+  "raw_pairs": 1570752,
+  "common_canceled": 376272,
+  "disjoint_pairs": 1194480,
+  "gs_nodes": 2542123,
+  "ball_leaves": 3,
+  "budget_valid": 0,
+  "rows": [
+    {
+      "pattern": [
+        5
+      ],
+      "raw_pairs": 1728,
+      "common_canceled": 0,
+      "gs_nodes": 4027,
+      "ball_leaves": 0,
+      "overbudget": 0,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        4
+      ],
+      "raw_pairs": 20736,
+      "common_canceled": 1728,
+      "gs_nodes": 42792,
+      "ball_leaves": 0,
+      "overbudget": 0,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        2,
+        3
+      ],
+      "raw_pairs": 20736,
+      "common_canceled": 1728,
+      "gs_nodes": 42676,
+      "ball_leaves": 0,
+      "overbudget": 0,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        3
+      ],
+      "raw_pairs": 134784,
+      "common_canceled": 30240,
+      "gs_nodes": 229543,
+      "ball_leaves": 1,
+      "overbudget": 0,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        2,
+        2
+      ],
+      "raw_pairs": 134784,
+      "common_canceled": 11232,
+      "gs_nodes": 271111,
+      "ball_leaves": 1,
+      "overbudget": 0,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        2
+      ],
+      "raw_pairs": 628992,
+      "common_canceled": 134784,
+      "gs_nodes": 1052921,
+      "ball_leaves": 1,
+      "overbudget": 0,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "raw_pairs": 628992,
+      "common_canceled": 196560,
+      "gs_nodes": 899053,
+      "ball_leaves": 0,
+      "overbudget": 0,
+      "budget_valid": 0
+    }
+  ],
+  "witnesses": [
+    {
+      "pos": [
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          11
+        ]
+      ],
+      "u": [
+        32,
+        17,
+        -24,
+        -12,
+        -8,
+        -10,
+        2,
+        -6,
+        6,
+        -2,
+        5,
+        1
+      ],
+      "masses": [
+        3289,
+        4693
+      ],
+      "budget_valid": false
+    },
+    {
+      "pos": [
+        [
+          1,
+          1
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          5
+        ]
+      ],
+      "u": [
+        -42,
+        3,
+        25,
+        -3,
+        12,
+        -4,
+        -3,
+        -3,
+        4,
+        -4,
+        -5,
+        4
+      ],
+      "masses": [
+        3642,
+        3768
+      ],
+      "budget_valid": false
+    },
+    {
+      "pos": [
+        [
+          1,
+          4
+        ],
+        [
+          3,
+          12
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "u": [
+        25,
+        16,
+        -9,
+        11,
+        -11,
+        -11,
+        0,
+        4,
+        1,
+        -4,
+        -7,
+        4
+      ],
+      "masses": [
+        3291,
+        4452
+      ],
+      "budget_valid": false
+    }
+  ],
+  "original_author_execution": "Exact local Python Fraction/SymPy using same saturated q0 and affine GS as saved earlier scripts, length4/5 each split into five nonoverlapping canonical negative roster intervals.",
+  "scopes_not_done": "positive q4 patterns (2,2),(1,1,2),(1,1,1,1); other p13 orders, lower-prime completion",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "native_semantic_progress": "NOT_PUBLISHED"
+}
