@@ -1,0 +1,173 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT2_8_NEG11111111_AUTHOR_EXACT_SEGMENTS_V1",
+  "as_of": "2026-11-23",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "author_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "method": "Locally transcribed original exact 12D HNF-LLL Gram-Schmidt, signed six 13-adic mixed congruences, masses <=2331 both sides, negative (q1)^8; source order CWR(12,8) and 90 positive rosters (q2 single and q1 double). Original script basis: research_checks/T6_P13_Q10_SPLIT2_8_NEG1111112_SLICE_REPLAY_20261123_2000.py@a15dc9dd00e5d45516463ed4c4905341d8d2357b. Exact negative pattern substitution and cap=75582. Independent script execution/review owed.",
+  "negative_index_interval": [
+    1024,
+    9216
+  ],
+  "positive_patterns": [
+    [
+      2
+    ],
+    [
+      1,
+      1
+    ]
+  ],
+  "negative_pattern": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "stats": {
+    "negative_rosters": 8192,
+    "raw_signed_pairs": 737280,
+    "common_named_atom_canceled": 406486,
+    "vertical_original_mass_excess": 0,
+    "gs_searches": 330794,
+    "gs_nodes": 712428,
+    "relaxed_sphere_witnesses": 1,
+    "both_original_side_mass_valid": 0
+  },
+  "segments": [
+    {
+      "interval": [
+        1024,
+        5120
+      ],
+      "rosters": 4096,
+      "raw_pairs": 368640,
+      "canceled": 191919,
+      "excess": 0,
+      "gs_searches": 176721,
+      "gs_nodes": 381823,
+      "witnesses": 0,
+      "roster_sha256": "ddeb92f9db81c84ca1923b533f010301a0d248df28057b1b67ff63252f2a4de8",
+      "pair_sha256": "47f1c9ceda4408fb9c4c72f676669fa001eb1b53a5cf8e6978aec2ad1066e944"
+    },
+    {
+      "interval": [
+        5120,
+        9216
+      ],
+      "rosters": 4096,
+      "raw_pairs": 368640,
+      "canceled": 214567,
+      "excess": 0,
+      "gs_searches": 154073,
+      "gs_nodes": 330605,
+      "witnesses": 1,
+      "roster_sha256": "fe87094ce5b8483c80fc89dda8b8dd59cdc7901935757fd849ebc4c9b8dbf4ee",
+      "pair_sha256": "e0491c994383474079f06a0a0f938103784a2819b59483b43784604cf6a4fd0c"
+    }
+  ],
+  "witnesses": [
+    {
+      "negative_roster_index": 9119,
+      "positive_roster_index": 30,
+      "pos": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          8
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          1,
+          12
+        ]
+      ],
+      "u": [
+        3,
+        0,
+        -16,
+        -4,
+        3,
+        9,
+        8,
+        -7,
+        4,
+        -7,
+        3,
+        3
+      ],
+      "masses": [
+        3462,
+        4534
+      ],
+      "radius_sq": 3532514,
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    }
+  ],
+  "combined_with_prior_first1024": {
+    "existing_certificate": "enterprise-math@5a702b848f09b2d26d26db01fd8551936ab71d1b:research_checks/T6_P13_Q10_SPLIT2_8_NEG11111111_0_1024_AUTHOR_EXACT_CERT_20261123.json",
+    "interval": [
+      0,
+      9216
+    ],
+    "rosters": 9216,
+    "raw_pairs": 829440,
+    "canceled": 448665,
+    "excess": 0,
+    "gs_searches": 380775,
+    "gs_nodes": 822112,
+    "witnesses": 1,
+    "both_budget_valid": 0
+  },
+  "remaining": [
+    9216,
+    75582
+  ],
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "native_claim": "NOT_ASSERTED",
+  "global_T6": "OPEN"
+}
