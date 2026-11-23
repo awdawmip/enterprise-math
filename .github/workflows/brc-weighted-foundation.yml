@@ -1,35 +1,6 @@
 name: brc-weighted-foundation
 
 on:
-  pull_request:
-    paths:
-      - 'definitions/ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json'
-      - 'definitions/ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.md'
-      - 'definitions/ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json'
-      - 'definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md'
-      - 'definitions/00_CURRENT_NATIVE_FOUNDATION.md'
-      - 'research_method_inventory_addenda/20260902_brc_weighted_foundation.json'
-      - 'src/enterprise_math/brc_weighted.py'
-      - 'src/enterprise_math/__init__.py'
-      - 'tests/test_brc_weighted_foundation_tool.py'
-      - 'experiments/check_brc_weighted_foundation.py'
-      - 'experiments/brc_foundation_retrofit_check.py'
-      - '.github/workflows/brc-weighted-foundation.yml'
-  push:
-    branches: [main]
-    paths:
-      - 'definitions/ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json'
-      - 'definitions/ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.md'
-      - 'definitions/ENTERPRISE_BRC_WEIGHTED_LOG_THEOREM_LEDGER_20260902.json'
-      - 'definitions/00_FREE_AXIOM_DISCOVERY_SUBSTRATE.md'
-      - 'definitions/00_CURRENT_NATIVE_FOUNDATION.md'
-      - 'research_method_inventory_addenda/20260902_brc_weighted_foundation.json'
-      - 'src/enterprise_math/brc_weighted.py'
-      - 'src/enterprise_math/__init__.py'
-      - 'tests/test_brc_weighted_foundation_tool.py'
-      - 'experiments/check_brc_weighted_foundation.py'
-      - 'experiments/brc_foundation_retrofit_check.py'
-      - '.github/workflows/brc-weighted-foundation.yml'
   workflow_dispatch:
 
 jobs:

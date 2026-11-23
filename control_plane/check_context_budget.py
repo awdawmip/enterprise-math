@@ -42,17 +42,6 @@ def check() -> dict[str, object]:
 
     require(policy.get("reading_autonomy", {}).get("mode") == "ADAPTIVE_SOFT_GUIDANCE", "reading budgets must be adaptive guidance")
     warnings: list[str] = []
-    defaults = policy.get("bounded_defaults", {})
-    expected_maxima = {
-        "startup_source_reads_soft_max": 3,
-        "search_results_max": 20,
-        "file_line_range_soft_max": 200,
-        "issue_comment_page_size_max": 20,
-        "matching_test_files_soft_max": 3,
-    }
-    for key, maximum in expected_maxima.items():
-        value = defaults.get(key)
-        require(isinstance(value, int) and value > 0, f"invalid advisory context default: {key}={value!r}")
 
     guard = policy.get("static_hot_start_guard", {})
     require(
@@ -115,8 +104,6 @@ def check() -> dict[str, object]:
     )
     packet_max = cold.get("compact_packet_hard_max_bytes")
     require(isinstance(packet_max, int) and 0 < packet_max <= 8192, "compact packet budget must be <= 8192 bytes")
-    remote_reads = cold.get("normal_remote_source_reads_before_math_max")
-    require(isinstance(remote_reads, int) and 0 < remote_reads, "invalid advisory source-read target")
     soft = cold.get("cold_start_raw_soft_max_bytes")
     hard = cold.get("cold_start_raw_hard_max_bytes")
     require(isinstance(soft, int) and 0 < soft, "invalid advisory raw-byte target")
@@ -173,7 +160,6 @@ def check() -> dict[str, object]:
             "hard_max_bytes": hard,
             "component_hard_max_sum_bytes": component_sum,
             "compact_packet_hard_max_bytes": packet_max,
-            "remote_source_reads_before_math_max": remote_reads,
         },
     }
 

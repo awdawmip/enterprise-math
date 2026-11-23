@@ -1,17 +1,6 @@
 name: brc-finite-recurrent-research
 
 on:
-  pull_request:
-    paths:
-      - 'research_notes/BRC_FINITE_RECURRENT_RATIONAL_GAUGE_STABILITY_20260902.md'
-      - 'experiments/brc_finite_recurrent_rational_gauge_check.py'
-      - '.github/workflows/brc-finite-recurrent-research.yml'
-  push:
-    branches: [main]
-    paths:
-      - 'research_notes/BRC_FINITE_RECURRENT_RATIONAL_GAUGE_STABILITY_20260902.md'
-      - 'experiments/brc_finite_recurrent_rational_gauge_check.py'
-      - '.github/workflows/brc-finite-recurrent-research.yml'
   workflow_dispatch:
 
 jobs:

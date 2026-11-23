@@ -1,5 +1,5 @@
 name: Research problem
-description: Propose or work on a proof, definition, computation, formalization, or prior-art question
+description: Share an open question, observation, proof, computation, or prior-art lead
 title: "[Research] "
 body:
   - type: input
@@ -10,20 +10,19 @@ body:
   - type: dropdown
     id: status
     attributes:
-      label: Claim status
+      label: Claim status, if applicable
+      description: Leave this empty for an open question or an exploration without a settled claim.
       options:
         - DEFINITION
         - PROVED
         - CONJECTURE
         - COMPUTATIONAL
         - PHYSICAL-HYPOTHESIS
-    validations:
-      required: true
   - type: textarea
     id: statement
     attributes:
-      label: Precise statement
-      description: State the exact question or claim.
+      label: Question, claim, or observation
+      description: Describe the question or observation and its relevant assumptions. An open exploration does not need a theorem statement.
     validations:
       required: true
   - type: textarea
@@ -34,5 +33,5 @@ body:
   - type: textarea
     id: next
     attributes:
-      label: Smallest next step
-      description: What could another contributor do next?
+      label: Continuation, if known
+      description: Add a useful next question or contribution when one is known.

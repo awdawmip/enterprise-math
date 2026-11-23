@@ -1,20 +1,6 @@
 name: brc-finite-recurrent-foundation
 
 on:
-  pull_request:
-    paths:
-      - "definitions/ENTERPRISE_BRC_FINITE_RECURRENT_FOUNDATION_20260902.md"
-      - "definitions/ENTERPRISE_BRC_FINITE_RECURRENT_THEOREM_LEDGER_20260902.json"
-      - "definitions/ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json"
-      - "definitions/ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.md"
-      - "definitions/00_CURRENT_NATIVE_FOUNDATION.md"
-      - "research_method_inventory_addenda/20260902_brc_weighted_finite_recurrent.json"
-      - "src/enterprise_math/brc_weighted_recurrent.py"
-      - "src/enterprise_math/__init__.py"
-      - "tests/test_brc_weighted_recurrent.py"
-      - "experiments/check_brc_finite_recurrent_foundation.py"
-      - "experiments/brc_finite_recurrent_rational_gauge_check.py"
-      - ".github/workflows/brc-finite-recurrent-foundation.yml"
   workflow_dispatch:
 
 jobs:

@@ -2,6 +2,8 @@ import json
 import unittest
 from pathlib import Path
 
+from control_plane import check_context_budget
+
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -17,10 +19,8 @@ class ContextReadBudgetContractTests(unittest.TestCase):
         self.assertEqual("FORBIDDEN", invariants["HIGH_FANOUT_DIRECTORY_ENUMERATION_FOR_DISCOVERY"])
         self.assertEqual("FORBIDDEN", invariants["ISSUE_240_ALL_COMMENTS_IN_CONVERSATIONAL_CONTEXT"])
         self.assertFalse(invariants["TRUNCATION_OR_COMPACTION_IS_A_STOP_BOUNDARY"])
-        self.assertLessEqual(policy["bounded_defaults"]["search_results_max"], 20)
-        self.assertLessEqual(policy["bounded_defaults"]["file_line_range_soft_max"], 200)
-        self.assertLessEqual(policy["bounded_defaults"]["issue_comment_page_size_max"], 20)
-        self.assertLessEqual(policy["bounded_defaults"]["matching_test_files_soft_max"], 3)
+        self.assertNotIn("bounded_defaults", policy)
+        self.assertNotIn("page_size_max", policy["issue_240_policy"])
         self.assertIn("tests/", policy["high_fanout_paths"])
         self.assertIn("research_tasks/", policy["high_fanout_paths"])
 
@@ -32,7 +32,7 @@ class ContextReadBudgetContractTests(unittest.TestCase):
         self.assertIn("LOCATE_EXISTING_REGRESSION_TEST_HOME", tests["purpose"])
         self.assertIn("DIRECTORY_ENUMERATION_TO_FIND_ONE_TEST", tests["not_for"])
         self.assertEqual("SEARCH_BY_TARGET_COMPONENT_SYMBOL_OR_ERROR_TEXT", tests["safe_sequence"][0])
-        self.assertIn("OPEN_ONE_TO_THREE_MATCHING_TEST_FILES", tests["safe_sequence"])
+        self.assertIn("OPEN_MATCHING_TEST_FILES_NEEDED_FOR_THE_CHANGE", tests["safe_sequence"])
 
         issue = guidance["issue_240"]
         self.assertIn("VERIFY_RUNTIME_EVENT_LINEAGE_FOR_A_SPECIFIC_TASK_OR_CLAIM", issue["purpose"])
@@ -40,6 +40,12 @@ class ContextReadBudgetContractTests(unittest.TestCase):
         self.assertIn("LOADING_THE_FULL_SCHEDULER_HISTORY_INTO_CONTEXT", issue["not_for"])
         self.assertEqual("GITHUB_SERVER_CREATED_AT", issue["authoritative_clock"])
         self.assertEqual("DESCRIPTIVE_ONLY", issue["body_declared_clock"])
+
+    def test_actual_checker_accepts_policy_without_read_count_targets(self):
+        result = check_context_budget.check()
+        self.assertEqual(result["reading_budget_mode"], "ADAPTIVE_SOFT_GUIDANCE")
+        self.assertNotIn("remote_source_reads_before_math_max", result["researcher_cold_start"])
+        self.assertEqual(result["researcher_cold_start"]["compact_packet_hard_max_bytes"], 8192)
 
     def test_router_and_github_budget_expose_the_hard_guard(self):
         agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")

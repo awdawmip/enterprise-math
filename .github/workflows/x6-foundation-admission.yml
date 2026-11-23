@@ -1,15 +1,6 @@
 name: X6 signed spatial Foundation admission
 
 on:
-  pull_request:
-    paths:
-      - 'p000_reality_foundation.json'
-      - 'definitions/00_CURRENT_NATIVE_FOUNDATION.md'
-      - 'definitions/ENTERPRISE_X6_NATIVE_SPATIAL_CELL_TORSOR_20260905.md'
-      - 'scripts/check_x6_foundation_admission.py'
-      - 'experiments/x6_signed_native_spatial_v16_20260905/**'
-      - 'experiments/x6_native_coordinate_completion_v7_20260905/**'
-      - '.github/workflows/x6-foundation-admission.yml'
   workflow_dispatch:
 
 jobs:

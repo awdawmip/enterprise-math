@@ -1,16 +1,6 @@
 name: brc-newton-schedule-strata-foundation
 
 on:
-  pull_request:
-    paths:
-      - 'definitions/ENTERPRISE_BRC_NEWTON_SCHEDULE_STRATA_FOUNDATION_20260904.md'
-      - 'definitions/ENTERPRISE_BRC_NEWTON_SCHEDULE_STRATA_THEOREM_LEDGER_20260904.json'
-      - 'definitions/ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json'
-      - 'research_method_inventory_addenda/20260904_brc_newton_schedule_strata_foundation.json'
-      - 'src/enterprise_math/brc_newton_schedule_strata.py'
-      - 'tests/test_brc_newton_schedule_strata_foundation.py'
-      - 'experiments/check_brc_newton_schedule_strata_foundation.py'
-      - '.github/workflows/brc-newton-schedule-strata-foundation.yml'
   workflow_dispatch:
 
 jobs:

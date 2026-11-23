@@ -67,7 +67,7 @@ Workflow:
 [A-Za-z0-9][A-Za-z0-9._-]{0,127}
 ```
 
-A real request-producing push must use a fresh `request_id`. Reusing an already-materialized id from a different request-producing source fails closed. A workflow-only validation replay is not a new request and therefore has no durable receipt-write authority at all; it validates the envelope and runs local regression fixtures without reading the live event stream or writing a receipt.
+A real request-producing push must use a fresh `request_id`. Reusing an already-materialized id from a different request-producing source fails closed. Automatic bridge runs are limited to changes to the request file on `main`. Validate transport-code changes locally or through the on-demand `researcher-startup-context-validation` workflow; routine PRs and workflow maintenance do not start a dispatch run.
 
 `session_observations` is optional. If supplied, it must already satisfy the exact owner-scope liveness contract accepted by `research_control_dispatch.py`. Generic conversation activity must never be converted into an observation by this bridge.
 
@@ -136,7 +136,7 @@ github.event.before .. GITHUB_SHA
 
 If `control_plane/chatgpt_dispatch_request.json` differs between the endpoints of that range, the run is request-producing and may persist a receipt. This range check is intentionally not limited to `GITHUB_SHA^1`, because one GitHub push may contain multiple commits and the effective request change may precede the final commit. A zero/invalid `before` value uses the first parent only as a defensive fallback.
 
-If the request bytes are unchanged across the push range, the run validates locally. A missing receipt by itself gives a maintenance push no authority to dispatch. For a stranded request, first read the immutable receipt and packet paths. Rerun the original request-producing run if its code still applies. After a repair that requires current code, an authorized maintainer can explicitly run the workflow on `main` with `original_request_commit` equal to the last first-parent commit that changed the current request file. An existing pair is left for readback, a partial pair stops recovery, and a replaced request fails the original-commit check. The recovery evaluates current control and events; its receipt records both the request file’s commit and the execution source SHA.
+The execution guard still checks the complete push range. If the request bytes are unchanged, it retains envelope validation and returns `execute=false`. A missing receipt by itself gives a maintenance push no authority to dispatch. For a stranded request, first read the immutable receipt and packet paths. Rerun the original request-producing run if its code still applies. After a repair that requires current code, an authorized maintainer can explicitly run the workflow on `main` with `original_request_commit` equal to the last first-parent commit that changed the current request file. An existing pair is left for readback, a partial pair stops recovery, and a replaced request fails the original-commit check. The recovery evaluates current control and events; its receipt records both the request file’s commit and the execution source SHA.
 
 Freeze:
 
@@ -149,7 +149,7 @@ VALIDATION_REPLAY != IMMUTABLE_RECEIPT_WRITE_AUTHORITY
 
 ## Execution contract
 
-A read-only job validates the envelope and runs routing and packet regression fixtures. For a request-producing push or an explicit recovery bound to a missing original pair, a separate job reads the current Issue #240 comment stream, runs `research_control_dispatch.py`, accepts router exit code `0` or `2`, and builds the receipt and packet. The authorized job:
+A read-only job validates the envelope and determines whether the original request is eligible to execute. Routing and packet regression fixtures run locally or in the dedicated on-demand validation workflow when their implementation changes. For a request-producing push or an explicit recovery bound to a missing original pair, a separate job reads the current Issue #240 comment stream, runs `research_control_dispatch.py`, accepts router exit code `0` or `2`, and builds the receipt and packet. The authorized job:
 
 1. gives that source commit an independent workflow concurrency key, so a newer request cannot replace an older pending request;
 2. persists the request result at `control_plane/chatgpt_dispatch_receipts/<request_id>.json` using a fresh-main retry loop;

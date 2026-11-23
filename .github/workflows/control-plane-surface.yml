@@ -1,26 +1,7 @@
 name: control-plane-surface
 
 on:
-  pull_request:
-    paths:
-      - '.github/workflows/control-plane-surface.yml'
-      - 'AGENTS.md'
-      - 'control_plane/**'
-      - 'research_task_registry.json'
-      - '**/*legacy*'
-      - '**/*session*liveness*'
-      - '**/*conversation*liveness*'
-  push:
-    branches:
-      - main
-    paths:
-      - '.github/workflows/control-plane-surface.yml'
-      - 'AGENTS.md'
-      - 'control_plane/**'
-      - 'research_task_registry.json'
-      - '**/*legacy*'
-      - '**/*session*liveness*'
-      - '**/*conversation*liveness*'
+  workflow_dispatch:
 
 permissions:
   contents: read

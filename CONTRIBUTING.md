@@ -104,7 +104,7 @@ In `src/enterprise_math/core.py`:
 - no hidden call to a floating root implementation;
 - behavior must follow the written specification.
 
-For software changes, run the checks needed for the affected behavior. For mathematics, review the actual argument or computation. A complete written proof does not require Lean, and a calculation script does not require packaging, a public API or a full software test suite solely because it is executable. A formal-verification claim still needs the corresponding actual checker result. The routine GitHub workflows for quality, reference integrity, bilingual synchronization, and Lean are manual; ordinary research does not wait for them.
+For software changes, run the checks needed for the affected behavior. For mathematics, review the actual argument or computation. A complete written proof does not require Lean, and a calculation script does not require packaging, a public API or a full software test suite solely because it is executable. A formal-verification claim still needs the corresponding actual checker result. Pure validation defaults to local commands relevant to the current change; invoke a GitHub check workflow manually only for a concrete remote-validation need. Formal shared writes and mathematical acceptance follow their actual contracts.
 
 For a Python integration change that warrants the full local suite, use the repository runner, which includes both unittest and pytest-style tests:
 
@@ -113,27 +113,20 @@ python -m pip install pytest==8.4.2 sympy==1.14.0 jsonschema==4.25.1
 PYTHONPATH=src python scripts/run_unittest_shard.py --index 0 --count 1
 ```
 
-For a committed branch diff involving bilingual files, compare against the actual base. Set `BASE_REF` to the intended, locally available target branch or immutable base commit (for example, an up-to-date `origin/main`). The first command verifies that it resolves to a commit:
+For a committed diff involving an established bilingual pair, check the affected pair against the actual base. Set `BASE_REF` to the intended, locally available target branch or immutable base commit (for example, an up-to-date `origin/main`). The example checks the contribution guide pair; replace `CONTRIBUTING.md` with the affected registered path(s). The first command verifies that the base resolves to a commit:
 
 ```bash
 base=$(git rev-parse --verify "${BASE_REF:?Set BASE_REF to the locally available comparison base}^{commit}") &&
-python tools/check_bilingual_pairs.py --base "$base"
+python tools/check_bilingual_pairs.py --base "$base" --paths CONTRIBUTING.md
 ```
 
-The base-free bilingual command only checks structure. Run `python tools/check_references.py` when integrating changes to the canonical source/lineage corpus. For Lean changes, check the affected proof and dependencies; use `lake build --wfail -KCI EnterpriseMath` when the full proof layer is affected. Ordinary scholarly citations and prose-only research edits need no repository-wide build.
+`--paths` limits the check to those pairs and their counterparts; omit it for an intended whole-corpus audit. The base-free bilingual command only checks structure. Run `python tools/check_references.py` when integrating changes to the canonical source/lineage corpus. For Lean changes, check the affected proof and dependencies; use `lake build --wfail -KCI EnterpriseMath` when the full proof layer is affected. Ordinary scholarly citations and prose-only research edits need no repository-wide build.
 
 ## Pull requests
 
-Prefer one conceptual change per pull request.
+Use a pull request when it serves review or integration; an authorized direct commit can also preserve work. Describe the coherent change and its purpose, link the relevant evidence or checks actually performed, and include existing result/task/source references when useful. The template is an aid, not a form that every research note must complete.
 
-A good pull request explains:
-
-- the exact claim or definition changed;
-- whether it is proof, counterexample, computation, or interpretation;
-- tests or proof evidence;
-- nearby prior work when relevant;
-- the `SRC-*` / `EM-COMP-*` lineage changes when external work is used;
-- which open-problem ID it addresses.
+State the mathematical claim and its scope when they change. Apply source/lineage registration to canonical corpus integration as described above, and synchronize established bilingual pairs when integrating their changes. Existing notes may provide the explanation; unrelated fields and `N/A` justifications are unnecessary.
 
 ## Credit
 

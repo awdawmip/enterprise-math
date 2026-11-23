@@ -362,9 +362,6 @@ def build_packet(receipt: dict[str, Any], root: Path = ROOT) -> dict[str, Any]:
         "read_plan": {
             "reading_budget_mode": "ADAPTIVE_SOFT_GUIDANCE",
             "additional_reads_require_approval": False,
-            "remote_source_reads_before_substantive_math_soft_target": budget.get(
-                "normal_remote_source_reads_before_math_max"
-            ),
             "first_dependency_ref": None,
             "if_first_dependency_unknown": "TASK_UNDERSTANDING_THEN_BOUNDED_TARGETED_SEARCH_ONLY",
             "dependency_ref_verification": "SOURCE_READ_REQUIRED_PRESERVE_DECLARED_REF",

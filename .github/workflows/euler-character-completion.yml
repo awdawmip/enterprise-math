@@ -1,16 +1,6 @@
 name: euler-character-completion
 
 on:
-  pull_request:
-    paths:
-      - "research_notes/EULER_CHARACTER_COMPLETION_UNIQUENESS_20260904.md"
-      - "research_notes/CELL_ROOTED_VIETE_AND_MEAN_RENORMALIZATION_20260904.md"
-      - "research_notes/EULER_CHARACTER_COMPLETION_THEOREM_LEDGER_20260904.json"
-      - "EnterpriseMath/Precision/EulerCharacterCompletion.lean"
-      - "src/enterprise_math/euler_character_completion.py"
-      - "tests/test_euler_character_completion.py"
-      - "research_method_inventory_addenda/20260904_euler_character_completion.json"
-      - ".github/workflows/euler-character-completion.yml"
   workflow_dispatch:
 
 jobs:

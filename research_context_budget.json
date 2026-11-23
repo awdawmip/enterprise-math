@@ -15,13 +15,6 @@
     "ISSUE_240_ALL_COMMENTS_IN_CONVERSATIONAL_CONTEXT": "FORBIDDEN",
     "TRUNCATION_OR_COMPACTION_IS_A_STOP_BOUNDARY": false
   },
-  "bounded_defaults": {
-    "startup_source_reads_soft_max": 3,
-    "search_results_max": 20,
-    "file_line_range_soft_max": 200,
-    "issue_comment_page_size_max": 20,
-    "matching_test_files_soft_max": 3
-  },
   "static_hot_start_guard": {
     "files": [
       "AGENTS.md",
@@ -48,7 +41,6 @@
     "compact_packet_builder": "control_plane/researcher_startup_packet.py",
     "compact_packet_store": "control_plane/chatgpt_startup_packets/<request_id>.json",
     "compact_packet_hard_max_bytes": 8192,
-    "normal_remote_source_reads_before_math_max": 2,
     "cold_start_raw_soft_max_bytes": 65536,
     "cold_start_raw_hard_max_bytes": 81920,
     "component_hard_max_bytes": {
@@ -125,8 +117,8 @@
       ],
       "safe_sequence": [
         "SEARCH_BY_TARGET_COMPONENT_SYMBOL_OR_ERROR_TEXT",
-        "OPEN_ONE_TO_THREE_MATCHING_TEST_FILES",
-        "EXPAND_ONLY_IF_THE_REGRESSION_HOME_REMAINS_UNRESOLVED"
+        "OPEN_MATCHING_TEST_FILES_NEEDED_FOR_THE_CHANGE",
+        "EXPAND_WHEN_THE_CHANGE_OR_EVIDENCE_REQUIRES_IT"
       ]
     },
     "issue_240": {
@@ -154,7 +146,7 @@
   "issue_240_policy": {
     "direct_all_pages_helper": "FORBIDDEN_IN_CONVERSATIONAL_CONTEXT",
     "preferred": "CANONICAL_REDUCER_OR_BOUNDED_API_PAGE",
-    "page_size_max": 20,
+    "page_size_selection": "TASK_EVENT_CHAIN_AND_ACTUAL_PROVIDER_LIMITS",
     "event_body_clock_authority": "GITHUB_SERVER_CREATED_AT"
   },
   "recovery": {
@@ -166,7 +158,8 @@
     "mode": "ADAPTIVE_SOFT_GUIDANCE",
     "decision_owner": "MODEL_USING_TASK_NEEDS_AND_AVAILABLE_CONTEXT",
     "approval_required_to_exceed_guidance": false,
-    "legacy_max_field_semantics": "All read-count, search/page-size, raw-byte, component-byte and static-router max/hard fields are advisory compatibility names, not research eligibility or stopping gates. Only compact_packet_hard_max_bytes limits serialized packet format; oversized task material is read externally without truncation. Actual provider/transport limits and source firewalls remain binding.",
+    "quantity_limits": "NO_ASSISTANT_IMPOSED_COUNTS_OR_RECOMMENDED_QUOTAS; HONOR_CURRENT_USER_TASK_BUDGET_AND_ACTUAL_PROVIDER_LIMITS",
+    "legacy_max_field_semantics": "Raw-byte, component-byte and static-router max/hard fields are advisory measurement targets, not reading quotas, research eligibility or stopping gates. Historical read-count and page-size recommendations do not constrain current reading. Only compact_packet_hard_max_bytes limits serialized packet format; oversized task material is read externally without truncation. Actual provider/transport limits and source firewalls remain binding.",
     "research_sequence": "No prescribed thinking sequence; choose, reorder or replace research actions around the objective, actual evidence and acceptance criteria. Avoid wasteful bulk reads but expand targeted reading autonomously when useful."
   }
 }

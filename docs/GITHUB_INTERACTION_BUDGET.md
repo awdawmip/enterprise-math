@@ -51,7 +51,7 @@ Keep the frozen work and resume the upload from its last verified frontier. Insp
 
 Use the executable recovery sequence and fixed probe evidence in [GitHub write transport recovery](../research_notes/GITHUB_WRITE_TRANSPORT_RECOVERY_20260907.md). A `Resource not found` response for one request is an endpoint/request observation, not a diagnosis of repository-wide permissions or workflow behavior.
 
-## 3. Startup read budget
+## 3. Startup reads
 
 Do not execute a universal repository preflight.
 
@@ -61,7 +61,10 @@ For explicit TASK_RESEARCH, normal remote startup is:
 2. exact task entry;
 3. first exact dependency needed to start.
 
-Soft budget: `<= 3` routine source reads before substantive work.
+Choose the required reads from the task, evidence and valid context already available.
+There is no fixed or recommended count of startup reads, search results, file lines,
+test files or event pages. An explicit current user budget and actual tool limits
+retain their scope.
 
 FREE Phase A follows its primitive-substrate route.
 
@@ -83,8 +86,8 @@ In particular:
 
 - do **not** enumerate high-fanout directories such as `tests/`, `research_tasks/`, `research_returns/`, task/result/review record directories, or `driver_reviews/` merely to discover one file;
 - do **not** request a recursive repository tree in conversational context merely to discover paths;
-- do **not** load all Issue #240 comments into conversational context. Prefer the canonical reducer when executable; otherwise use bounded GitHub API pages with at most 20 comments and expand only when the target event is not yet resolved;
-- use an exact path when already known; otherwise use bounded code/file search (`topn <= 20`), then exact-file line ranges (soft `<= 200` lines per read);
+- do **not** load all Issue #240 comments into conversational context. Prefer the canonical reducer when executable; otherwise choose GitHub API pages for the target event chain within the actual provider limits;
+- use an exact path when already known; otherwise use targeted code/file search, then exact-file reads sized to the evidence needed;
 - a known large file is read by triggered ranges, not by repeatedly asking for the entire file;
 - if a response is truncated, stop widening the same collection and narrow the query/range instead.
 
@@ -106,11 +109,11 @@ A test read is legitimate when the implementation target is already known and th
 - what fixture/helper/style the neighboring tests use;
 - whether a focused new test file is preferable to extending an existing one.
 
-The safe sequence is:
+A useful route is:
 
 1. search by the target component, function, symbol, or failure text;
-2. inspect at most the small set of matching test files needed to identify the regression surface (soft default: `1-3` files);
-3. expand only if the regression home is still genuinely unresolved.
+2. inspect the matching test files needed to identify and verify the affected regression surface;
+3. expand when the change or evidence requires it, reusing already inspected files.
 
 Do **not** enumerate the whole `tests/` directory to find one test. Do **not** load the full test suite into context merely to learn naming conventions. The test suite is execution evidence, not a discovery catalog.
 
@@ -124,7 +127,7 @@ Issue #240 is the append-only scheduler runtime surface. A read is legitimate wh
 - reading GitHub server author metadata to establish control-plane authority;
 - diagnosing why canonical reducer state diverged from a visible event sequence.
 
-The safe sequence is:
+A useful route is:
 
 1. use the canonical reducer when it can answer the question directly;
 2. otherwise filter by known `task_id`, `claim_id`, `result_id`, or comment id;
@@ -221,13 +224,12 @@ GLOBAL_KNOWLEDGE append-only journaling is a separate loss-prevention channel.
 
 ## 10. Remote operation defaults
 
-- explicit TASK startup: `<= 3` routine source reads before work;
+- explicit TASK startup: reuse valid context and read the task-relevant sources needed for substantive work;
 - discovery: `UNBOUNDED_COLLECTION_READ_FOR_DISCOVERY = FORBIDDEN`;
-- `tests/` purpose: locate the smallest relevant regression surface and match local conventions, normally by bounded search + `1-3` matching files;
+- `tests/` purpose: locate and inspect the relevant regression surface and local conventions;
 - Issue #240 purpose: verify a specific scheduler event lineage, server time, or actor authority, normally by reducer/filter + a bounded local event window;
-- bounded search: `topn <= 20`;
-- ranged file read: soft `<= 200` lines, expand only on a concrete trigger;
-- Issue #240 conversational reads: bounded API pages `<= 20` comments, never the all-pages helper;
+- search results and file ranges: choose by the current question, evidence and actual tool capacity;
+- Issue #240 conversational reads: targeted API pages within actual provider limits, preserving the complete event chain needed for the question;
 - ordinary L1/L2/L3: `0` routine source writes, `0` CI/status reads;
 - checkpoint: one bounded publication batch, then resume parent task;
 - allowed CI/validation: one snapshot per unchanged validation object;

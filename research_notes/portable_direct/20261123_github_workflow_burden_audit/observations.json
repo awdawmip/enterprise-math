@@ -1,0 +1,966 @@
+{
+  "audit_date_hong_kong": "2026-11-23",
+  "scope": "GitHub process maintenance; no new research registration or deployment",
+  "source_snapshots": {
+    "enterprise_math": "e35d84b8bb7721d28d2a60ca9ade3720927b9468",
+    "global_knowledge": "347d1a10e36f4a603683f151bda708c7440e9a9c",
+    "mcp": "ea5909eb168f191973689cce93edc8898c88a5c2"
+  },
+  "enterprise_math": {
+    "workflow_files": 106,
+    "events_before": {
+      "workflow_dispatch": 100,
+      "pull_request": 89,
+      "push": 19
+    },
+    "events_after": {
+      "workflow_dispatch": 103,
+      "push": 10
+    },
+    "remaining_push_routes": {
+      ".github/workflows/chatgpt-control-dispatch-bridge.yml": {
+        "branches": [
+          "main"
+        ],
+        "paths": [
+          "control_plane/chatgpt_dispatch_request.json"
+        ]
+      },
+      ".github/workflows/composite-rh-handoff-publication-once.yml": {
+        "branches": [
+          "handoff/composite-rh-20260909-c4a91d"
+        ],
+        "paths": [
+          "handoff_requests/composite_rh_20260909/request.json"
+        ]
+      },
+      ".github/workflows/control-plane-e2e-canary-authoritative.yml": {
+        "branches": [
+          "main"
+        ],
+        "paths": [
+          ".github/workflows/control-plane-e2e-canary-authoritative.yml"
+        ]
+      },
+      ".github/workflows/control-plane-e2e-canary-final.yml": {
+        "branches": [
+          "main"
+        ],
+        "paths": [
+          ".github/workflows/control-plane-e2e-canary-final.yml"
+        ]
+      },
+      ".github/workflows/control-plane-e2e-canary-pinned.yml": {
+        "branches": [
+          "main"
+        ],
+        "paths": [
+          ".github/workflows/control-plane-e2e-canary-pinned.yml"
+        ]
+      },
+      ".github/workflows/control-plane-e2e-canary.yml": {
+        "branches": [
+          "main"
+        ],
+        "paths": [
+          ".github/workflows/control-plane-e2e-canary.yml",
+          "control_plane/branch_protection_contract.json",
+          "control_plane/check_branch_protection_contract.py",
+          "control_plane/e2e_canary.py",
+          "control_plane/.canary_probe"
+        ]
+      },
+      ".github/workflows/control-plane-publication-closeout-once.yml": {
+        "branches": [
+          "main"
+        ],
+        "paths": [
+          ".github/workflows/control-plane-publication-closeout-once.yml"
+        ]
+      },
+      ".github/workflows/control-router-import-hotfix.yml": {
+        "branches": [
+          "main"
+        ],
+        "paths": [
+          ".github/workflows/control-router-import-hotfix.yml"
+        ]
+      },
+      ".github/workflows/nollm-complete-preview-archive.yml": {
+        "branches": [
+          "tool/nollm-full-archive-20260916-c6c82"
+        ],
+        "paths": [
+          ".github/workflows/nollm-complete-preview-archive.yml",
+          "tools/nollm_visual_toolkit/publication/build_archive.py",
+          "tools/nollm_visual_toolkit/publication/scale_audit.py"
+        ]
+      },
+      ".github/workflows/one-shot-remove-stale-research-scheduler-index.yml": {
+        "branches": [
+          "main"
+        ],
+        "paths": [
+          ".github/workflows/one-shot-remove-stale-research-scheduler-index.yml"
+        ]
+      }
+    },
+    "live": {
+      "source_commit": "e35d84b8bb7721d28d2a60ca9ade3720927b9468",
+      "observations_finished_at_utc": "2026-11-23 00:05:23 UTC",
+      "recent_runs_sample": {
+        "endpoint": "https://api.github.com/repos/awdawmip/enterprise-math/actions/runs?per_page=100&created=%3E%3D2026-11-16",
+        "reported_total_count": 2500,
+        "sample_size": 100,
+        "newest": {
+          "id": 44975464654,
+          "name": "control-plane-surface",
+          "event": "push",
+          "status": "completed",
+          "conclusion": "success",
+          "created": "2026-11-22T02:18:23Z",
+          "updated": "2026-11-22T02:18:50Z",
+          "head": "d39eedce95fbe62e853b67596d2521e531054bc7",
+          "branch": "main",
+          "path": ".github/workflows/control-plane-surface.yml",
+          "url": "https://github.com/awdawmip/enterprise-math/actions/runs/44975464654"
+        },
+        "oldest": {
+          "id": 44960996134,
+          "name": "quality",
+          "event": "push",
+          "status": "completed",
+          "conclusion": "cancelled",
+          "created": "2026-11-21T23:16:46Z",
+          "updated": "2026-11-21T23:17:04Z",
+          "head": "1e01cff1c7109e5ea82f11b30d878a421564aaa3",
+          "branch": "main",
+          "path": ".github/workflows/quality.yml",
+          "url": "https://github.com/awdawmip/enterprise-math/actions/runs/44960996134"
+        },
+        "by_name": {
+          "control-plane-surface": {
+            "count": 1,
+            "conclusions": {
+              "success": 1
+            }
+          },
+          "quality": {
+            "count": 33,
+            "conclusions": {
+              "success": 4,
+              "cancelled": 29
+            }
+          },
+          "bilingual-sync": {
+            "count": 33,
+            "conclusions": {
+              "success": 13,
+              "cancelled": 20
+            }
+          },
+          "reference-integrity": {
+            "count": 33,
+            "conclusions": {
+              "success": 7,
+              "cancelled": 26
+            }
+          }
+        }
+      },
+      "newer_runs": {
+        "endpoint": "https://api.github.com/repos/awdawmip/enterprise-math/actions/runs?per_page=100&created=%3E%3D2026-11-22T02%3A18%3A51Z",
+        "total_count": 0
+      },
+      "branch": {
+        "name": "main",
+        "commit": "c577f07bcd434340c500b91e4b67a5402c82c514",
+        "protected": false,
+        "protection": {
+          "enabled": false,
+          "required_status_checks": {
+            "enforcement_level": "off",
+            "contexts": [],
+            "checks": []
+          }
+        }
+      },
+      "branch_protection_admin_endpoint": {
+        "result": "403 Resource not accessible by integration",
+        "scope": "administration endpoint; no retry; branch metadata read separately succeeded"
+      },
+      "workflow_registry_endpoint": {
+        "result": "400 URL not supported by GitHub fetch tool",
+        "scope": "remote registry state not verified; source workflow inventory contains 106 YAML files"
+      }
+    },
+    "validation": {
+      "bridge_replay_tests_passed": 10,
+      "startup_packet_and_envelope_tests_passed": 41,
+      "context_contract_tests_passed": 4,
+      "combined_final_workflow_dependency": "2 envelope and 4 context tests passed",
+      "all_workflows_parsed": true,
+      "real_dispatch_requests_issued": 0,
+      "hosted_ci_runs_requested": 0
+    },
+    "changes": [
+      {
+        "path": ".github/workflows/brc-critical-degeneracy-foundation.yml",
+        "before_blob": "4d65690606bda952962d13031e3c3ed95f9b5852",
+        "after_blob": "bdf3fd25fb41bcf9f7ad6e59aa6d8a839c7576c3",
+        "size_bytes": 2174
+      },
+      {
+        "path": ".github/workflows/brc-critical-degeneracy-matrix-asymptotic-research.yml",
+        "before_blob": "de931b9a752c3a71bea6bd782032ede7f72b8349",
+        "after_blob": "2647ab4c18c203936b2bccafc35aceda94f4f76a",
+        "size_bytes": 447
+      },
+      {
+        "path": ".github/workflows/brc-critical-log-correction-research.yml",
+        "before_blob": "84b5702745bca95917a223d1e55f634392aa7694",
+        "after_blob": "640981831f25b15753a5f0dc6d9066246504ed72",
+        "size_bytes": 457
+      },
+      {
+        "path": ".github/workflows/brc-critical-orbit-foundation.yml",
+        "before_blob": "9954314b7078f1e8eef6fc3efc939916fb2b640d",
+        "after_blob": "9c384b8cce1f537168d9ccde0bf16278e847b9e9",
+        "size_bytes": 1624
+      },
+      {
+        "path": ".github/workflows/brc-critical-powered-rational-gauge-research.yml",
+        "before_blob": "1580c2f8c9e8338f197efd3467201e25b8a502a4",
+        "after_blob": "1791b5ced8fb539ec4d4dc20b3ebea719b6f4e60",
+        "size_bytes": 461
+      },
+      {
+        "path": ".github/workflows/brc-critical-primitive-orbit-euler-research.yml",
+        "before_blob": "70560847e4e8b04559a059b15f797e58f37f40b9",
+        "after_blob": "a13ac0328bb45e03c96ab16e3404147f45c4fa36",
+        "size_bytes": 458
+      },
+      {
+        "path": ".github/workflows/brc-critical-ratio-histogram-jet-research.yml",
+        "before_blob": "a2c072b232650993696b2ee19f8d6a897696b434",
+        "after_blob": "a5c2705968cedf172ef4aaefe4f7b581f4f3cddb",
+        "size_bytes": 459
+      },
+      {
+        "path": ".github/workflows/brc-critical-ratio-jet-foundation.yml",
+        "before_blob": "e27959dceabcfb8d97cee3c57991f21c12f32da9",
+        "after_blob": "6918502a75f60112a044ad772095298156daee9f",
+        "size_bytes": 2130
+      },
+      {
+        "path": ".github/workflows/brc-critical-ratio-spectral-response-research.yml",
+        "before_blob": "640ec8755b38be9075861e9c0198f08fa90760fc",
+        "after_blob": "5287e5b2cffcfb1468900614efcaee4d3a6aead2",
+        "size_bytes": 468
+      },
+      {
+        "path": ".github/workflows/brc-critical-residual-entropy-research.yml",
+        "before_blob": "f2845da8ac2fac751f3903fdef450942443c8647",
+        "after_blob": "51d71f5918154947e8991ac29a21e47f38a92538",
+        "size_bytes": 469
+      },
+      {
+        "path": ".github/workflows/brc-cycle-interaction-polynomial-research.yml",
+        "before_blob": "4343ca5d21af5c85603a2877bdf8f74434eb6f6e",
+        "after_blob": "53cc35a028bc3dcfdd81a9fa72c784dc6d040e3e",
+        "size_bytes": 421
+      },
+      {
+        "path": ".github/workflows/brc-factorized-selector-mobius-research.yml",
+        "before_blob": "6ef3018b78cb52505b7714594120c1fc3b85ce26",
+        "after_blob": "ba21767f793d10a004f3af17a44acb9f8ace8504",
+        "size_bytes": 442
+      },
+      {
+        "path": ".github/workflows/brc-feedback-circuit-atoms-research.yml",
+        "before_blob": "16e17191cc27213d7b6d9252000e46683fdeb2ac",
+        "after_blob": "ecf5a0f1ed868f071dcb49281063850742ad21e8",
+        "size_bytes": 394
+      },
+      {
+        "path": ".github/workflows/brc-feedback-condensation-research.yml",
+        "before_blob": "0522933513b6e2506c4e9b933b39763355909b8f",
+        "after_blob": "63ef1b851d98788814ac07a2ab86ad74a69fd619",
+        "size_bytes": 392
+      },
+      {
+        "path": ".github/workflows/brc-feedback-mobius-interaction-research.yml",
+        "before_blob": "e53039fbbe12277710d9c7bc11db69185e887b8e",
+        "after_blob": "a3eaddaa3633c54c61b85b7a4f7db65998991eb0",
+        "size_bytes": 410
+      },
+      {
+        "path": ".github/workflows/brc-feedback-modular-condensation-research.yml",
+        "before_blob": "b49260bdc443fa97a01eb53aab325b0d2b8b3c40",
+        "after_blob": "06a3ae68effc57f093bc2b198af604fc8f4ac78c",
+        "size_bytes": 416
+      },
+      {
+        "path": ".github/workflows/brc-finite-recurrent-foundation.yml",
+        "before_blob": "7e012d8d4d2b9eab8e8423e34da59cb84f96d703",
+        "after_blob": "4ce37fd0167bcf897b09c0f497ef97d20002e041",
+        "size_bytes": 1076
+      },
+      {
+        "path": ".github/workflows/brc-finite-recurrent-research.yml",
+        "before_blob": "17a03a14b37300c0e67569f98fd0ce0b0b89ef38",
+        "after_blob": "375a67c83e98f6df96034de374b15d6aa7653b9e",
+        "size_bytes": 415
+      },
+      {
+        "path": ".github/workflows/brc-foundation-retrofit.yml",
+        "before_blob": "05f1c13921982795f309a392723b1694b6b82e6f",
+        "after_blob": "ce7a14857945c2855df2d2bc280834c694166015",
+        "size_bytes": 372
+      },
+      {
+        "path": ".github/workflows/brc-full-powered-ratio-jet-research.yml",
+        "before_blob": "89b26d6b08627293891b7511f13a291a50da316c",
+        "after_blob": "0b2709b9ba072aca33de61b3b22f43ee8fd54d8b",
+        "size_bytes": 441
+      },
+      {
+        "path": ".github/workflows/brc-global-powered-strict-gauge-research.yml",
+        "before_blob": "035fbf199b1b0e6df324b9698e8cfd33100b81f4",
+        "after_blob": "7f55ccddba315b4519b4ad803e6bdb2c36420147",
+        "size_bytes": 459
+      },
+      {
+        "path": ".github/workflows/brc-holonomy-parity-thickness-research.yml",
+        "before_blob": "8c0d8803b5551a49ab71307ecaf7600aacb004a6",
+        "after_blob": "f0c92133b77b7c75f35b435a192b382fa47ad2b1",
+        "size_bytes": 412
+      },
+      {
+        "path": ".github/workflows/brc-loop-response-criticality-research.yml",
+        "before_blob": "086a659b4e9ac72548ddda023172743acc2254c3",
+        "after_blob": "61441c3290cfa6172f77be8a9d101828d2867ec1",
+        "size_bytes": 414
+      },
+      {
+        "path": ".github/workflows/brc-moment-length-port-transfer-research.yml",
+        "before_blob": "39190a555bb2719a3d86d44f36772212a24edfed",
+        "after_blob": "849026b35da998917f46563f910e8580d39dd3ef",
+        "size_bytes": 411
+      },
+      {
+        "path": ".github/workflows/brc-multiple-root-first-newton-edge-research.yml",
+        "before_blob": "d9d8c1ad735b920f90872a1055f905c36ac609f3",
+        "after_blob": "244a857f906d966701b1fe31515fd4f456260c53",
+        "size_bytes": 461
+      },
+      {
+        "path": ".github/workflows/brc-newton-constructible-schedule-strata-research.yml",
+        "before_blob": "a439c741ddd4697ed552df68986fd23590cde67d",
+        "after_blob": "ddd71b478194ab5b72b5b9d3906586155e772832",
+        "size_bytes": 444
+      },
+      {
+        "path": ".github/workflows/brc-newton-cubic-root-rank-research.yml",
+        "before_blob": "811b8b8df8c1f489cdcd0605ed8dbb44b8d17fde",
+        "after_blob": "8d688964096470d9411fbb8f13ca0629d6b1599e",
+        "size_bytes": 410
+      },
+      {
+        "path": ".github/workflows/brc-newton-fiber-quotient-foundation.yml",
+        "before_blob": "d68097f341c0cfebbaa2754e6440caeff0506958",
+        "after_blob": "6ebd1fc3c3b0dea34f69caa9981afaf384bb14ef",
+        "size_bytes": 1544
+      },
+      {
+        "path": ".github/workflows/brc-newton-fiber-sum-quotient-research.yml",
+        "before_blob": "072671cc0244af9ca8593cce8379425be3f3be4d",
+        "after_blob": "46611cc83f2a530d5c1c168c0a815857f8afec25",
+        "size_bytes": 457
+      },
+      {
+        "path": ".github/workflows/brc-newton-handoff-resonance-foundation.yml",
+        "before_blob": "37bbe9e8075c8e26612c3151023dff996bf1c627",
+        "after_blob": "16b81e782c5468df990685fcad4c163160c5d36e",
+        "size_bytes": 1733
+      },
+      {
+        "path": ".github/workflows/brc-newton-nonsplit-cubic-smallest-real-research.yml",
+        "before_blob": "bb07d63069b1e30450fab5c65d7aa64f820dfb91",
+        "after_blob": "d808877f979813c8c5eea7bf22259c4177b6630c",
+        "size_bytes": 448
+      },
+      {
+        "path": ".github/workflows/brc-newton-nonsplit-quadratic-positive-selector-research.yml",
+        "before_blob": "2009944c70cb0fb022d0fcde9e60af2497ec24e7",
+        "after_blob": "91874f1e87792328e14cc811100cbbc69742ae56",
+        "size_bytes": 472
+      },
+      {
+        "path": ".github/workflows/brc-newton-nonsplit-quadratic-selector-chamber-research.yml",
+        "before_blob": "fcfb7d624ead8243c9df261c33681ee27e612e04",
+        "after_blob": "71abb069c4e5874a2af3d4312fb4c14a3eae834b",
+        "size_bytes": 456
+      },
+      {
+        "path": ".github/workflows/brc-newton-observer-lattice-foundation.yml",
+        "before_blob": "4fd8ae1e76e28d0b22e14d0f318075d583b92448",
+        "after_blob": "d2b73c7a1a4852e5c6fdfdcd27dffa07d3239c04",
+        "size_bytes": 1549
+      },
+      {
+        "path": ".github/workflows/brc-newton-observer-lattice-research.yml",
+        "before_blob": "3905ed140cc8b2b9f1fa5855be12f0b463840469",
+        "after_blob": "2f0c117cfae4c5c9d6e6ebbd80a153e9ee25c8e9",
+        "size_bytes": 405
+      },
+      {
+        "path": ".github/workflows/brc-newton-one-parameter-chamber-compiler-research.yml",
+        "before_blob": "6a1288c17e84350a602baa925c846c22c6098bf1",
+        "after_blob": "c97148b777dc092465eee373fa96c7f79144b947",
+        "size_bytes": 446
+      },
+      {
+        "path": ".github/workflows/brc-newton-one-parameter-selector-event-research.yml",
+        "before_blob": "f17114246b6f762fc9f456d7318d8c20477ab810",
+        "after_blob": "73c832fbb0d677b58e6f1e21519a1db06163ab3a",
+        "size_bytes": 431
+      },
+      {
+        "path": ".github/workflows/brc-newton-quadratic-open-interval-selector-research.yml",
+        "before_blob": "40b501025dbb81c3f2a7d50efe50c92bb02b243a",
+        "after_blob": "7732b039a6c9fc22ee6f9eaba176ede9d409bd44",
+        "size_bytes": 473
+      },
+      {
+        "path": ".github/workflows/brc-newton-quadratic-positive-selector-foundation.yml",
+        "before_blob": "693a7f722688172186d64722b8e95d950a3d8b80",
+        "after_blob": "6b2d8e7a0bdf284902367246fa5559ba0938f008",
+        "size_bytes": 1726
+      },
+      {
+        "path": ".github/workflows/brc-newton-quadratic-selector-foundation.yml",
+        "before_blob": "b0bb1b4ac1d0e4b2b38722831c4428847c2c57b8",
+        "after_blob": "d765da3ac9b4473051a3a42938e8c90669e7ef0e",
+        "size_bytes": 1642
+      },
+      {
+        "path": ".github/workflows/brc-newton-recursion-foundation.yml",
+        "before_blob": "3d52df6f9a55a4e65f55afdff45726508939256b",
+        "after_blob": "50ba8a4504c9fc287d936aafc6a0afd1610bee11",
+        "size_bytes": 1618
+      },
+      {
+        "path": ".github/workflows/brc-newton-resultant-event-generator-research.yml",
+        "before_blob": "ca01bf2507809b8f859c4f8ca36d8130dbbd4831",
+        "after_blob": "6d6e7e95250911912b3a6719aa4236e6f233495b",
+        "size_bytes": 431
+      },
+      {
+        "path": ".github/workflows/brc-newton-scale-resonance-research.yml",
+        "before_blob": "2d98a7b11180767a0ac2ddc01a3866b79394c988",
+        "after_blob": "2ede86d0a7383e96448d44c424c11d747b684b74",
+        "size_bytes": 457
+      },
+      {
+        "path": ".github/workflows/brc-newton-schedule-strata-foundation.yml",
+        "before_blob": "471cd214cd6ba05ba3f6e7b6f6a466811128a518",
+        "after_blob": "a0088a32e114177cefdb45f8dbb3470edf93a6af",
+        "size_bytes": 1592
+      },
+      {
+        "path": ".github/workflows/brc-newton-selector-chambers-foundation.yml",
+        "before_blob": "edd566057f7173a0b6a69477ba9dc3f5d056e3b2",
+        "after_blob": "7ddfcffb3ebcb2438b38cea67ce72c041d8b101a",
+        "size_bytes": 1616
+      },
+      {
+        "path": ".github/workflows/brc-newton-selector-event-avoiding-path-research.yml",
+        "before_blob": "f4bef525cfaef862954e2b24a9c5e7614f99e8f7",
+        "after_blob": "4e7ebba530f436511fe7f96695de34ee8bfd0a81",
+        "size_bytes": 443
+      },
+      {
+        "path": ".github/workflows/brc-newton-selector-finite-multiplicity-wall-charge-research.yml",
+        "before_blob": "3288c54803a5b64e763eb132c4da850b6d74538b",
+        "after_blob": "3866549799965aa4b22c0366d568e944c18c28d3",
+        "size_bytes": 466
+      },
+      {
+        "path": ".github/workflows/brc-newton-selector-ordinary-fold-wall-research.yml",
+        "before_blob": "af6841c7315e5b0bae530aab773fe5f1a5a92013",
+        "after_blob": "36b8f390091d703f9d9d7c950add3cc08a53aa53",
+        "size_bytes": 428
+      },
+      {
+        "path": ".github/workflows/brc-newton-selector-simple-wall-crossing-research.yml",
+        "before_blob": "56a7b3573974c9892ea459ce4ff5f983a008cc7d",
+        "after_blob": "9f1684c4d6e6406f75076595c435434b0b2b0efc",
+        "size_bytes": 434
+      },
+      {
+        "path": ".github/workflows/brc-newton-split-affine-selector-chambers-research.yml",
+        "before_blob": "7185776dfd4bfd6791a503f55f5591d5f9e92ce7",
+        "after_blob": "47cfa148087ff1e305a9c647341ee3ff770a262b",
+        "size_bytes": 439
+      },
+      {
+        "path": ".github/workflows/brc-newton-sturm-signature-root-rank-research.yml",
+        "before_blob": "40c3d3a196dc93fb3ec8839a5d80c7d211ac168f",
+        "after_blob": "5f92b3956214c567c1a818dee6d8e04de0b40f73",
+        "size_bytes": 439
+      },
+      {
+        "path": ".github/workflows/brc-port-contextual-equivalence-research.yml",
+        "before_blob": "7e94dadcca90e8a0b1496f2ea491253bc03da928",
+        "after_blob": "84069e4ea0b2ea46adcb90ccad08516227e4fa89",
+        "size_bytes": 410
+      },
+      {
+        "path": ".github/workflows/brc-prime-universal-transfer-research.yml",
+        "before_blob": "a984b32b4c1b8de432608423c52039d28453e1cd",
+        "after_blob": "0a2351113150cb2229c603a9ea748f07fa1bc56f",
+        "size_bytes": 630
+      },
+      {
+        "path": ".github/workflows/brc-prime-valuation-holonomy-research.yml",
+        "before_blob": "d3a31a92af6dc9cb717acdec413913d2cbd68388",
+        "after_blob": "6d275910bb42a1125ce812881f7e10d2e8d7ad39",
+        "size_bytes": 370
+      },
+      {
+        "path": ".github/workflows/brc-rational-root-newton-recursion-research.yml",
+        "before_blob": "683f7628476e5f8365014f09adc29027ad76ee98",
+        "after_blob": "9ec66eb0a1f35126c79bc1e4aea6120636982bb2",
+        "size_bytes": 457
+      },
+      {
+        "path": ".github/workflows/brc-recurrent-interaction-foundation.yml",
+        "before_blob": "2ea20efe8de8e4ef5c31870baa4fdbb8302c8500",
+        "after_blob": "97b74170b6889700d45435f3abf6593327a91298",
+        "size_bytes": 2746
+      },
+      {
+        "path": ".github/workflows/brc-recurrent-logdet-research.yml",
+        "before_blob": "7608dc7c81b6428a38f2a1a908833f3a4e2f1c73",
+        "after_blob": "4eb99d21fc1fb38658a19598a559e0f421c31488",
+        "size_bytes": 402
+      },
+      {
+        "path": ".github/workflows/brc-recurrent-moment-completeness-research.yml",
+        "before_blob": "7eef40055be9bcebef499a35a4e03ab3b9c27e6a",
+        "after_blob": "4319d004d50f6cb5abbcb75b9e3d3c364279eb89",
+        "size_bytes": 554
+      },
+      {
+        "path": ".github/workflows/brc-recurrent-moment-lift-research.yml",
+        "before_blob": "7fb6eae3eb317b0be974c2d4bb13874aa6f63a51",
+        "after_blob": "add50da52bd9e1f95b4c574072cbc56ff4415f44",
+        "size_bytes": 406
+      },
+      {
+        "path": ".github/workflows/brc-recurrent-port-foundation.yml",
+        "before_blob": "fd5762cbc0e49126a2be595a75028936e915ecdb",
+        "after_blob": "d4863c5ef9ae2ccc6abf196c3e9b8c467c771f19",
+        "size_bytes": 1486
+      },
+      {
+        "path": ".github/workflows/brc-recurrent-schur-collapse-research.yml",
+        "before_blob": "3ac80c35ea79029450545f987070b533bd135994",
+        "after_blob": "37ed83b8d4de8cd42b788218017fb2efc66288e5",
+        "size_bytes": 401
+      },
+      {
+        "path": ".github/workflows/brc-reducible-critical-jet-foundation.yml",
+        "before_blob": "e7d7be4b03d573067adb93850ed1a19a2776ea5a",
+        "after_blob": "648148886af5c8c4395eb302efaacb713138e53f",
+        "size_bytes": 1905
+      },
+      {
+        "path": ".github/workflows/brc-selected-root-evaluation-algebra-research.yml",
+        "before_blob": "f7953135548f9b12f3ffc08838cb74a11fa0fd9b",
+        "after_blob": "f79c382ff8564dbb373aeed490889b34c70ab7aa",
+        "size_bytes": 463
+      },
+      {
+        "path": ".github/workflows/brc-single-generator-root-handoff-research.yml",
+        "before_blob": "fb5ea32b2ff10981a6369a6de472ae174e779de8",
+        "after_blob": "bb9e6021aec3c435fdfaaa06d76b06e532f47a4c",
+        "size_bytes": 465
+      },
+      {
+        "path": ".github/workflows/brc-unique-critical-cycle-asymptotic-research.yml",
+        "before_blob": "ecd135562772a9d997cbfbb1c68a055978f67fef",
+        "after_blob": "9bebd175aace3d6f5891ca2350df2afd6a83ccc8",
+        "size_bytes": 439
+      },
+      {
+        "path": ".github/workflows/brc-unique-winner-characteristic-jet-research.yml",
+        "before_blob": "5cdc1f796183e1f48a0c02e0880f17c019770f67",
+        "after_blob": "9cd791e3fe264c582cdf115a7434a4b6ed098609",
+        "size_bytes": 488
+      },
+      {
+        "path": ".github/workflows/brc-universal-histogram-foundation.yml",
+        "before_blob": "9fed6d25c2ce6139cc5320fbdb2e11ff74c8f309",
+        "after_blob": "b9b6720057515a58464cc13dfd523af2f869d375",
+        "size_bytes": 2602
+      },
+      {
+        "path": ".github/workflows/brc-weighted-foundation.yml",
+        "before_blob": "583c78fa300a372d24195d730e46e3e36e1f7e0e",
+        "after_blob": "35b9c3ec4d9df5de7e65ae5cc53f6b337b0b45e5",
+        "size_bytes": 1317
+      },
+      {
+        "path": ".github/workflows/brc-weighted-research.yml",
+        "before_blob": "2dc21c0801dfdde8828729883f52af04289704a7",
+        "after_blob": "e8ae201b7a910fe8e54ebb4d75bb18bf6f2f4574",
+        "size_bytes": 1638
+      },
+      {
+        "path": ".github/workflows/chatgpt-control-dispatch-bridge.yml",
+        "before_blob": "f19d052418317ff64e4d2f1c2891e7ebd9fcb744",
+        "after_blob": "9c94d00b4af801eed13180dc636fee9a5a93bdb4",
+        "size_bytes": 15487
+      },
+      {
+        "path": ".github/workflows/cloudflare-supervisor.yml",
+        "before_blob": "9bdf4cbdd4c70414a5c6fff863bb125285738565",
+        "after_blob": "0b1282177d2942f073878179825f6d1494d26bd9",
+        "size_bytes": 13838
+      },
+      {
+        "path": ".github/workflows/control-plane-pr-focused-validation.yml",
+        "before_blob": "8fbe830b278fa69bd3732ee3d4afcc9a1ea73035",
+        "after_blob": "e11701edde779fa9002168bd5d661d3d84b6a199",
+        "size_bytes": 1378
+      },
+      {
+        "path": ".github/workflows/control-plane-surface.yml",
+        "before_blob": "2829b556046c3958905f15dae52e92383a7cb874",
+        "after_blob": "d534ae14d282944eebd282fa90036142888b1f79",
+        "size_bytes": 559
+      },
+      {
+        "path": ".github/workflows/coordinate-contract-a8d47f21.yml",
+        "before_blob": "8630d9ef4568cfae61daaa8c2caccef912a53309",
+        "after_blob": "6cb81568db9cb7fe875ed5e572e655b7d97d0d15",
+        "size_bytes": 2856
+      },
+      {
+        "path": ".github/workflows/euler-cell-polygon-pi.yml",
+        "before_blob": "16d61a7b0b6d3ae3c7186764c77839dedfdeaf66",
+        "after_blob": "7f53e87cca051195fa46e833c212b9eff072225e",
+        "size_bytes": 1321
+      },
+      {
+        "path": ".github/workflows/euler-character-completion.yml",
+        "before_blob": "ef59fc65592b18100a600dc09974aaad3029ca85",
+        "after_blob": "a934f99af48211d3a65a2c2bfce833573fde6270",
+        "size_bytes": 1368
+      },
+      {
+        "path": ".github/workflows/euler-fcc-chirality.yml",
+        "before_blob": "8afdb796b381693db3f6461078fe3b2ef82c8e91",
+        "after_blob": "8eb66722ab70ed6c5e57ba973eecd84ba8e56aed",
+        "size_bytes": 2041
+      },
+      {
+        "path": ".github/workflows/euler-pythagorean-spinor.yml",
+        "before_blob": "1e7b2c5b0a351ff95cc4c320aa93b18cd01b87f3",
+        "after_blob": "0844cf2db5a4d721b56f31c668665095c6d4df92",
+        "size_bytes": 549
+      },
+      {
+        "path": ".github/workflows/euler-rotation-refinement.yml",
+        "before_blob": "97b731f67e90f8d9fb965eb34ebeb08b3e6885ff",
+        "after_blob": "e866b07010dbbc3278b6b8b33e7a54f0b1213429",
+        "size_bytes": 1674
+      },
+      {
+        "path": ".github/workflows/exact-arithmetic-runtime.yml",
+        "before_blob": "9a1ae0bfcf2e00efc3f1801cf34a668b9ce78292",
+        "after_blob": "d2d6cc39085315f041d583ba658b3136797be8b9",
+        "size_bytes": 836
+      },
+      {
+        "path": ".github/workflows/researcher-startup-context-validation.yml",
+        "before_blob": "ff13c8eb3c4086bffe4a9795ab5fb51f004e4fb8",
+        "after_blob": "11d27c193adbbe33a21013cb71320ebbe5d9b39a",
+        "size_bytes": 610
+      },
+      {
+        "path": ".github/workflows/rh-log3-n2-arb-cert.yml",
+        "before_blob": "605c0af6d444552e783684392536056452a6a3f3",
+        "after_blob": "9940bb39187b957df28a67af6fd3dba9f7229b4e",
+        "size_bytes": 611
+      },
+      {
+        "path": ".github/workflows/rh-log3-n8-arb-cert.yml",
+        "before_blob": "fb35c4a32886c3cf35b76f9bae0c320f48160718",
+        "after_blob": "05631cb690e87f1d4a4675c20d601c407bf6b99d",
+        "size_bytes": 631
+      },
+      {
+        "path": ".github/workflows/rh-log3-negative-index-mu.yml",
+        "before_blob": "cf34d9fd9e19bf6716113e4650f96247c44e1479",
+        "after_blob": "f3251e5639d50abdf1d8c43a0407e1a6e278a241",
+        "size_bytes": 616
+      },
+      {
+        "path": ".github/workflows/rh-log3-negative-symbol-capacity.yml",
+        "before_blob": "52be3f136b2f736284e80de6638efc1567de1d70",
+        "after_blob": "698090d1e15a34fa4608ad4ca03cedb7ed553415",
+        "size_bytes": 613
+      },
+      {
+        "path": ".github/workflows/x6-centered-three-axis-slice-foundation.yml",
+        "before_blob": "804f20722e3ae984410fbb2657ebd896b476f123",
+        "after_blob": "fbafce8318392ad7487bbc6e11d6929bcdda6687",
+        "size_bytes": 1076
+      },
+      {
+        "path": ".github/workflows/x6-foundation-admission.yml",
+        "before_blob": "5ed26b64100991cb2a48210af7c89d511a2055e5",
+        "after_blob": "b0b1e38f634f908a5167751d49a1a2e5d7a68449",
+        "size_bytes": 780
+      },
+      {
+        "path": ".github/workflows/x6-native-coordinate-v7.yml",
+        "before_blob": "96a0a18dab2a98b87b28bf75ab16e6506932fec2",
+        "after_blob": "19ea64a9839ca2ef2eca487615332550062462c3",
+        "size_bytes": 670
+      },
+      {
+        "path": ".github/workflows/x6-signed-spatial-v16.yml",
+        "before_blob": "1b691afa28b20c73a5d73ddc3b1bb6e2c330908a",
+        "after_blob": "8fb5ff6656f3560c658f60ffe951aa39e0929179",
+        "size_bytes": 535
+      },
+      {
+        "path": "docs/CHATGPT_CONTROL_DISPATCH_BRIDGE.md",
+        "before_blob": "54f03ce70ccb6e97e02267d2c049da927d8b4171",
+        "after_blob": "751871f561aa1cba17166ac17de76cd434f46ade",
+        "size_bytes": 21561
+      },
+      {
+        "path": "tests/test_chatgpt_dispatch_bridge_replay_guard.py",
+        "before_blob": "3416c6ad723340ceb3439633341bab9264cabdc9",
+        "after_blob": "afa66f5e627c2af4c45e54bcb303893032a365f6",
+        "size_bytes": 7736
+      },
+      {
+        "path": ".github/PULL_REQUEST_TEMPLATE/pull_request_en.md",
+        "before_blob": "10d3e907a3aa434ebe94c4183e1f34e3ea9a46eb",
+        "after_blob": "6439e5ebc423c06546c4aa9a94252009667b5ada",
+        "size_bytes": 682
+      },
+      {
+        "path": ".github/PULL_REQUEST_TEMPLATE/pull_request_zh.md",
+        "before_blob": "bbfbc46cfafaab3b592563deb7adb418c2cea662",
+        "after_blob": "96e702848dbbf6a7221dc791893c199d22d06c69",
+        "size_bytes": 601
+      },
+      {
+        "path": ".github/ISSUE_TEMPLATE/research-en.yml",
+        "before_blob": "0cab996ef60d327114d489b7563fcfc73dff2f40",
+        "after_blob": "b6d018efc2bb2468ef59ded7caa33742d84192db",
+        "size_bytes": 1198
+      },
+      {
+        "path": ".github/ISSUE_TEMPLATE/research-zh.yml",
+        "before_blob": "473ae9ed78ba956912d07bfa5596598ed596483e",
+        "after_blob": "32f4ffb53d2911f92b233a220700393cf8dda544",
+        "size_bytes": 1128
+      },
+      {
+        "path": "CONTRIBUTING.md",
+        "before_blob": "0c8fa8f86ace4fa1501254b8d2e8ae8d2857b0e5",
+        "after_blob": "220df77224485f122d7b4be93f844c73d4e5c739",
+        "size_bytes": 9396
+      },
+      {
+        "path": "CONTRIBUTING.zh-CN.md",
+        "before_blob": "9c4c785aabae0beef2d2f5bcd3cae4d412d30389",
+        "after_blob": "479da8c751a048011ae5d4ecbc8b593e9042d719",
+        "size_bytes": 8234
+      },
+      {
+        "path": "docs/GITHUB_INTERACTION_BUDGET.md",
+        "before_blob": "4e63cf335107e6a2c43e07e8144b40f66c3fc9bb",
+        "after_blob": "e329eac685daabd88de6d69b5d4ef0d95d5ae70f",
+        "size_bytes": 12614
+      },
+      {
+        "path": "research_context_budget.json",
+        "before_blob": "c756c35029b727670b6a5deaeee87b3395db07e8",
+        "after_blob": "8a95a237b7b58bc8d92d1e8ef88a1a3fa66aed05",
+        "size_bytes": 7323
+      },
+      {
+        "path": "control_plane/check_context_budget.py",
+        "before_blob": "ab794360cadc969f5b1c642c7cac32cd034a0b5a",
+        "after_blob": "3321052e5a91eda6fe68fe6c2ada4a30de491893",
+        "size_bytes": 7393
+      },
+      {
+        "path": "control_plane/researcher_startup_packet.py",
+        "before_blob": "eb5b2b26d24627b0899afa59fc9c54ea46c444df",
+        "after_blob": "8f64095d1d3619bb80621b3ea56e252ce02bd0a7",
+        "size_bytes": 21345
+      },
+      {
+        "path": "tests/test_researcher_startup_context_envelope.py",
+        "before_blob": "36a19bbc3fea5e64c0b9246c81f7f680e5e94cdd",
+        "after_blob": "6182e92a9603620f44ee65394ef21b51a8159e58",
+        "size_bytes": 2742
+      },
+      {
+        "path": "tests/test_researcher_startup_packet.py",
+        "before_blob": "0c90c858946bac0e9d5e5c5b0761254b8444a174",
+        "after_blob": "48a0e41d59859f2d3411350286f50facfa3f8cbe",
+        "size_bytes": 28557
+      },
+      {
+        "path": "docs/RESEARCHER_STARTUP_CONTEXT_PROTOCOL.md",
+        "before_blob": "f1524624998e6b3ed27c34a90693f589e0b1f89d",
+        "after_blob": "b0a97f41a12ea4cf8e8b5e6b91182b4f9568c21a",
+        "size_bytes": 17483
+      },
+      {
+        "path": "docs/RESEARCHER_STARTUP_CONTEXT_PROTOCOL.zh-CN.md",
+        "before_blob": "0d6e364ff6d2d07b61443f7c374133613867effc",
+        "after_blob": "a3467e08d4f2c1ad36431d8dc98c85fae4011a54",
+        "size_bytes": 16026
+      },
+      {
+        "path": "tests/test_context_read_budget_contract.py",
+        "before_blob": "cfd83f9f9887b830d08654bf05cd14c2bbc0fdb2",
+        "after_blob": "1588d2c0806fd4a632218220171f8391dfa8ecf2",
+        "size_bytes": 3663
+      }
+    ]
+  },
+  "global_knowledge": {
+    "audit_started_at_utc": "2026-11-23T00:00:05Z",
+    "source_snapshot": "347d1a10e36f4a603683f151bda708c7440e9a9c",
+    "runs": {
+      "query_start_utc": "2026-11-16T00:00:00Z",
+      "total": 53,
+      "returned": 53,
+      "by": {
+        "knowledge-index-rebuild": {
+          "count": 26,
+          "conclusions": {
+            "failure": 20,
+            "success": 6
+          },
+          "events": {
+            "schedule": 14,
+            "push": 12
+          },
+          "elapsed_seconds": 938
+        },
+        "enterprise-math-researcher-startup-budget": {
+          "count": 23,
+          "conclusions": {
+            "success": 17,
+            "failure": 6
+          },
+          "events": {
+            "push": 23
+          },
+          "elapsed_seconds": 284
+        },
+        "knowledge-index-check": {
+          "count": 4,
+          "conclusions": {
+            "failure": 3,
+            "success": 1
+          },
+          "events": {
+            "pull_request": 4
+          },
+          "elapsed_seconds": 130
+        }
+      },
+      "summary_recorded_at_utc": "2026-11-23 00:07:20 UTC",
+      "observation_scope": "Read during this audit, started 2026-11-23T00:00:05Z"
+    },
+    "latest_failed_run": {
+      "id": 45061671098,
+      "url": "https://github.com/awdawmip/chatgpt-global-knowledge/actions/runs/45061671098",
+      "failed_step": "Unit tests",
+      "index_validation_generation_publication": "skipped"
+    },
+    "publication": {
+      "commit": "88517539231b03e737bb56083adc7da8e30499d5",
+      "readback_verified": true
+    },
+    "validation": {
+      "indexer_fixture_tests_passed": 26,
+      "routing_tests_passed": 6,
+      "powershell_tests_skipped": 1,
+      "powershell_scripts_changed": false,
+      "full_generated_indexes": "INDEX_REBUILD_PENDING"
+    }
+  },
+  "mcp": {
+    "schema": "EM_MCP_GITHUB_BURDEN_OBSERVATION_V1",
+    "recorded_at_utc": "2026-11-23T00:02:50Z",
+    "repository": "awdawmip/em-research-mcp",
+    "source_commit": "ea5909eb168f191973689cce93edc8898c88a5c2",
+    "current_root": {
+      "contains_github_directory": false,
+      "contains_agents_md": false,
+      "contains_site_directory": false
+    },
+    "github_directory_read": {
+      "http_status": 404,
+      "root_listing_confirms_absence": true
+    },
+    "actions_runs": {
+      "query": "created>=2026-11-16",
+      "total_count": 0,
+      "results": []
+    },
+    "actions_workflows_inventory": {
+      "status": "UNAVAILABLE_VIA_FETCH_ENDPOINT",
+      "reason": "Connector rejected actions/workflows URL as not an allowed endpoint; no retry through another transport."
+    },
+    "main_branch": {
+      "protected": false,
+      "required_status_checks": {
+        "enforcement_level": "off",
+        "contexts": [],
+        "checks": []
+      }
+    },
+    "validation_readme": {
+      "file": "README.md",
+      "line": 366,
+      "full_suite_example": "python -m pytest -q tests",
+      "universal_requirement": false
+    },
+    "sites_source": {
+      "entry": "integrations/sites-gateway/README.md",
+      "current": "Existing native Sites project, v24",
+      "historical_github_source": "awdawmip/enterprise-math-sites-gateway@46a27223687d17d62bbc7519c1318a0dd2d31e69/site"
+    },
+    "outcome": "No MCP hosted CI, template, required status check or old Site build to remove at this snapshot. No implementation change proposed.",
+    "evidence_urls": [
+      "https://api.github.com/repos/awdawmip/em-research-mcp/contents?ref=ea5909eb168f191973689cce93edc8898c88a5c2",
+      "https://api.github.com/repos/awdawmip/em-research-mcp/actions/runs?per_page=100&created=%3E%3D2026-11-16",
+      "https://api.github.com/repos/awdawmip/em-research-mcp/branches/main",
+      "https://github.com/awdawmip/em-research-mcp/blob/ea5909eb168f191973689cce93edc8898c88a5c2/README.md",
+      "https://github.com/awdawmip/em-research-mcp/blob/ea5909eb168f191973689cce93edc8898c88a5c2/integrations/sites-gateway/README.md"
+    ]
+  },
+  "verification_limits": [
+    "Actions registry and administration-only protection endpoints were unavailable; source configuration, run history and successful branch metadata were inspected separately.",
+    "No entire scientific suite or production write was run for trigger-only changes.",
+    "PowerShell runtime was absent; one unchanged integration test was skipped.",
+    "Full generated global indexes were not rebuilt from the selective workspace: INDEX_REBUILD_PENDING."
+  ]
+}

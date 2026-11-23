@@ -1,19 +1,6 @@
 name: brc-foundation-retrofit
 
 on:
-  pull_request:
-    paths:
-      - 'definitions/ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.md'
-      - 'research_notes/BRC_FOUNDATION_RETROFIT_REGRESSION_20260902.md'
-      - 'experiments/brc_foundation_retrofit_check.py'
-      - '.github/workflows/brc-foundation-retrofit.yml'
-  push:
-    branches: [main]
-    paths:
-      - 'definitions/ENTERPRISE_BRC_WEIGHTED_LOG_FOUNDATION_20260902.md'
-      - 'research_notes/BRC_FOUNDATION_RETROFIT_REGRESSION_20260902.md'
-      - 'experiments/brc_foundation_retrofit_check.py'
-      - '.github/workflows/brc-foundation-retrofit.yml'
   workflow_dispatch:
 
 jobs:

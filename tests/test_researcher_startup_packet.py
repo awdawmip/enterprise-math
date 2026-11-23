@@ -29,7 +29,6 @@ class ResearcherStartupPacketTests(unittest.TestCase):
         policy = {
             "researcher_cold_start_envelope": {
                 "compact_packet_hard_max_bytes": 8192,
-                "normal_remote_source_reads_before_math_max": 2,
             }
         }
         (root / "research_context_budget.json").write_text(
@@ -90,6 +89,31 @@ class ResearcherStartupPacketTests(unittest.TestCase):
             },
         }
         return root, receipt
+
+    def test_legacy_quantity_targets_do_not_change_packet_or_task_scope(self):
+        root, receipt = self.make_root()
+        sections = dict(SECTIONS)
+        sections["Frozen inputs and scope"] = "\n".join(f"scope {i}" for i in range(240))
+        body = "\n".join(f"## {name}\n\n{value}\n" for name, value in sections.items())
+        self.replace_taskbook_body(root, body)
+        expected = startup.build_packet(receipt, root)
+        self.assertEqual(expected["task"]["projection"], sections)
+        path = root / "research_context_budget.json"
+        policy = json.loads(path.read_text(encoding="utf-8"))
+        # Existing clients may retain old hints. Even values above the retired
+        # counts are not emitted as new reading instructions or task limits.
+        policy["bounded_defaults"] = {
+            "startup_source_reads_soft_max": 12,
+            "search_results_max": 80,
+            "file_line_range_soft_max": 1200,
+            "issue_comment_page_size_max": 100,
+            "matching_test_files_soft_max": 9,
+        }
+        policy["researcher_cold_start_envelope"]["normal_remote_source_reads_before_math_max"] = 12
+        path.write_text(json.dumps(policy), encoding="utf-8")
+        actual = startup.build_packet(receipt, root)
+        self.assertEqual(actual, expected)
+        self.assertNotIn("remote_source_reads_before_substantive_math_soft_target", actual["read_plan"])
 
     def test_inline_projection_is_exact_and_dependency_is_bounded(self):
         root, receipt = self.make_root()

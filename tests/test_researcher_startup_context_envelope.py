@@ -23,6 +23,7 @@ class ResearcherStartupContextEnvelopeTests(unittest.TestCase):
         self.assertEqual(packet["read_plan"]["reading_budget_mode"], "ADAPTIVE_SOFT_GUIDANCE")
         self.assertFalse(packet["read_plan"]["additional_reads_require_approval"])
         self.assertNotIn("remote_source_reads_before_substantive_math_max", packet["read_plan"])
+        self.assertNotIn("remote_source_reads_before_substantive_math_soft_target", packet["read_plan"])
 
         # Large diagnostic surfaces must never leak into the ordinary startup packet.
         packet_text = encoded.decode("utf-8")

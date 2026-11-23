@@ -35,7 +35,8 @@ class ChatGPTDispatchBridgeReplayGuardTests(unittest.TestCase):
         return self.git("rev-parse", "HEAD")
 
     def detect(self, event, *, before=None, recovery=None, ref="refs/heads/main", ok=True):
-        step = self.workflow.split("- name: Detect request authority", 1)[1]
+        validation = self.workflow.split("\n  canonical-dispatch:", 1)[0]
+        step = validation.split("- name: Detect request authority", 1)[1]
         step = step.split("\n      - name:", 1)[0]
         script = textwrap.dedent(step.split("        run: |\n", 1)[1])
         output = self.root / "output"

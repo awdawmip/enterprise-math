@@ -72,7 +72,7 @@ The startup packet may include one `first_dependency_ref` without directory disc
 3. an exact unsatisfied dependency path;
 4. an exact source-ref path.
 
-If none is exact, the value is null. A null dependency does **not** authorize directory enumeration. After understanding the task, use bounded targeted search (initial target `topn = 20`, expandable as needed) and then exact-file reads.
+If none is exact, the value is null. A null dependency does **not** authorize directory enumeration. After understanding the task, use targeted search and exact-file reads sized to the question and actual tool capacity.
 
 String and unsatisfied dictionary dependencies are supported. Unqualified existing paths refer to the packet's source snapshot. A declared `path@ref` or same-repository GitHub blob URL is retained unchanged as a read hint, not proof that its referenced revision was verified locally. Read the exact declared source before use; never substitute current-main bytes for a pinned revision. Task-local source firewalls and frozen scope still control access.
 
@@ -218,12 +218,13 @@ rebuild the legacy control plane, or label every 404 as harmless.
 
 ## Budgets
 
-`research_context_budget.json` supplies adaptive soft guidance, not cognitive limits.
-The model chooses additional targeted reading from task needs and available context,
-without requesting exceptions or stopping at two reads, 64/80 KiB, or component targets.
-Legacy `max`/`hard` reading fields remain advisory compatibility names. Static size
-excess is reported, not rejected. Avoid wasteful bulk context; actual provider limits,
-authorized source scope and blind-discovery firewalls remain binding.
+`research_context_budget.json` supplies task-directed reading guidance without fixed
+or recommended counts for reads, search results, file lines, test files or event pages.
+The model chooses the needed evidence from the task and available context without
+requesting exceptions. Legacy raw-byte, component-byte and static-router `max`/`hard`
+fields remain advisory measurements; size excess is reported, not rejected. Avoid
+wasteful bulk context; an explicit current user budget, actual provider limits,
+authorized source scope and blind-discovery firewalls retain their scope.
 
 The 8192-byte compact packet cap is a serialization format constraint only. Oversized
 taskbooks are fetched externally without truncating semantics. Packet plus external

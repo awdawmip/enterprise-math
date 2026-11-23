@@ -1,21 +1,6 @@
 name: brc-critical-degeneracy-foundation
 
 on:
-  pull_request:
-    paths:
-      - 'definitions/ENTERPRISE_BRC_CRITICAL_DEGENERACY_FOUNDATION_20260903.md'
-      - 'definitions/ENTERPRISE_BRC_CRITICAL_DEGENERACY_THEOREM_LEDGER_20260903.json'
-      - 'definitions/ENTERPRISE_BRC_WEIGHTED_GLOBAL_SUBSTRATE_20260902.json'
-      - 'definitions/00_CURRENT_NATIVE_FOUNDATION.md'
-      - 'research_method_inventory_addenda/20260903_brc_critical_degeneracy_foundation.json'
-      - 'src/enterprise_math/brc_critical_degeneracy.py'
-      - 'src/enterprise_math/__init__.py'
-      - 'tests/test_brc_critical_degeneracy_foundation.py'
-      - 'experiments/check_brc_critical_degeneracy_foundation.py'
-      - 'experiments/brc_unique_critical_cycle_moment_asymptotic_check.py'
-      - 'experiments/brc_critical_degeneracy_matrix_moment_asymptotic_check.py'
-      - 'experiments/brc_critical_degeneracy_log_correction_check.py'
-      - '.github/workflows/brc-critical-degeneracy-foundation.yml'
   workflow_dispatch:
 
 permissions:

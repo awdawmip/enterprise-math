@@ -1,5 +1,5 @@
 name: 研究问题
-description: 提出或推进证明、定义、计算、形式化或前人工作问题
+description: 分享开放问题、观察、证明、计算或前人工作线索
 title: "[研究] "
 body:
   - type: input
@@ -10,20 +10,19 @@ body:
   - type: dropdown
     id: status
     attributes:
-      label: 结论状态
+      label: 结论状态（如适用）
+      description: 开放问题或尚无确定命题的探索可以留空。
       options:
         - DEFINITION
         - PROVED
         - CONJECTURE
         - COMPUTATIONAL
         - PHYSICAL-HYPOTHESIS
-    validations:
-      required: true
   - type: textarea
     id: statement
     attributes:
-      label: 精确表述
-      description: 写清楚具体问题或命题。
+      label: 问题、命题或观察
+      description: 说明问题或观察及相关前提；开放探索无需预先形成定理表述。
     validations:
       required: true
   - type: textarea
@@ -34,5 +33,5 @@ body:
   - type: textarea
     id: next
     attributes:
-      label: 最小下一步
-      description: 其他参与者下一步可以具体做什么？
+      label: 接续方向（如已知）
+      description: 已有有价值的后续问题或动作时再填写。

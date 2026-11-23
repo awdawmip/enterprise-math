@@ -7,23 +7,11 @@ on:
         description: 'Recover the current receiptless request by its last main file-change commit'
         required: true
         type: string
-  pull_request:
-    paths:
-      - '.github/workflows/chatgpt-control-dispatch-bridge.yml'
-      - 'control_plane/chatgpt_dispatch_request.json'
-      - 'control_plane/researcher_startup_packet.py'
-      - 'research_context_budget.json'
-      - 'research_driver_authority_compatibility.json'
-      - 'docs/CHATGPT_CONTROL_DISPATCH_BRIDGE.md'
   push:
     branches:
       - main
     paths:
-      - '.github/workflows/chatgpt-control-dispatch-bridge.yml'
       - 'control_plane/chatgpt_dispatch_request.json'
-      - 'control_plane/researcher_startup_packet.py'
-      - 'research_context_budget.json'
-      - 'research_driver_authority_compatibility.json'
 
 permissions:
   contents: read
@@ -145,10 +133,6 @@ jobs:
           fi
           echo "execute=$execute" >> "$GITHUB_OUTPUT"
 
-      - name: Check routing and packet fixtures
-        run: |
-          python -m unittest discover -s tests -p 'test_chatgpt_dispatch_bridge_replay_guard.py'
-          python -m unittest discover -s tests -p 'test_researcher_startup_packet*.py'
 
   canonical-dispatch:
     needs: inspect-request
