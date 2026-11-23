@@ -1,0 +1,245 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT2_8_NEG1111112_AUTHOR_EXACT_SLICE_CERT_V1",
+  "as_of": "2026-11-23",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "published_replay": {
+    "commit": "a15dc9dd00e5d45516463ed4c4905341d8d2357b",
+    "path": "research_checks/T6_P13_Q10_SPLIT2_8_NEG1111112_SLICE_REPLAY_20261123_2000.py",
+    "blob": "096df77ac608297ad1078844c03dcac2da39678b"
+  },
+  "algorithm": "Original exact q0 12D HNF LLL/Gram-Schmidt Fraction recursion adapted to negative q1^6 q2 single; present local author code reconstructed from same fixed algorithm; published adapted code not separately executed under independent reviewer",
+  "p": 13,
+  "valuation": 1,
+  "vertical_order": 10,
+  "side_split": [
+    2,
+    8
+  ],
+  "negative_pattern": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    2
+  ],
+  "positive_patterns": [
+    [
+      2
+    ],
+    [
+      1,
+      1
+    ]
+  ],
+  "negative_domain": "C(17,6)*12=148512",
+  "positive_rosters": 90,
+  "source_negative_complete_interval": [
+    0,
+    4096
+  ],
+  "original_cap_each_side": 2331,
+  "moduli": [
+    13,
+    169,
+    2197,
+    28561,
+    371293,
+    4826809
+  ],
+  "lattice_index": "13^21",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "source_segments": [
+    {
+      "range": [
+        0,
+        512
+      ],
+      "rosters": 512,
+      "raw_pairs": 46080,
+      "canceled": 15396,
+      "gs_searches": 30684,
+      "gs_nodes": 68067,
+      "sphere_witnesses": 1,
+      "roster_sha256": "01ad36adb0720ff62f38e08e4590fbad767202f115075ffeed73b55e8b01bd90",
+      "pair_digest_sha256": "ecd1b01cb78260e3aa19a4d23fac564f0a065895e95e76c83447bcf0f439a7d4",
+      "local_json_sha256": "737753a2e14309bed046aa4eb7c6449e296ec063ace5b162ba6c1ecb5b4e6971"
+    },
+    {
+      "range": [
+        512,
+        4096
+      ],
+      "rosters": 3584,
+      "raw_pairs": 322560,
+      "canceled": 137416,
+      "gs_searches": 185144,
+      "gs_nodes": 404404,
+      "sphere_witnesses": 1,
+      "roster_sha256": "b907c13248967702a1d0e9a1333a128d867f1cdf21efd95160d746cc37b30378",
+      "pair_digest_sha256": "d1b26a8b85177cf4acf38339b896282a76b5567b6ac10832de97b2765b8a9e8f",
+      "local_json_sha256": "5e635966b7e63f91e3bfb1732fb2e23a25f1263de40eb35316d902bdf7d2e734"
+    }
+  ],
+  "stats": {
+    "negative_rosters": 4096,
+    "raw_signed_pairs": 368640,
+    "common_named_atom_canceled": 152812,
+    "gs_searches": 215828,
+    "gs_nodes": 472471,
+    "relaxed_sphere_witnesses": 2,
+    "both_side_mass_budget_valid_uncanceled": 0
+  },
+  "witnesses": [
+    {
+      "negative_roster_index": 88,
+      "positive_roster_index": 28,
+      "pos": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          6
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          5
+        ]
+      ],
+      "u": [
+        -50,
+        -11,
+        23,
+        12,
+        -1,
+        11,
+        7,
+        -2,
+        0,
+        2,
+        -6,
+        3
+      ],
+      "masses": [
+        4126,
+        3576
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false,
+      "radius_sq": 4141385
+    },
+    {
+      "negative_roster_index": 3827,
+      "positive_roster_index": 0,
+      "pos": [
+        [
+          2,
+          1
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          12
+        ]
+      ],
+      "u": [
+        -51,
+        17,
+        -13,
+        -22,
+        12,
+        0,
+        -2,
+        6,
+        -1,
+        1,
+        -5,
+        -1
+      ],
+      "masses": [
+        2290,
+        5280
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false,
+      "radius_sq": 4117961
+    }
+  ],
+  "remaining_source_negative_interval": [
+    4096,
+    148512
+  ],
+  "remaining_raw_signed_pairs": 12997440,
+  "statement": "Only [0,4096) source-ordered named negative rosters have been fully processed in this new q8 pattern; 2 exact modular ball witnesses fail an original side budget; shared named atoms defer to lower-order cancellations. Whole pattern not complete.",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "native_claim": "NOT_VERIFIED"
+}
