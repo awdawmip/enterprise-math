@@ -1,0 +1,103 @@
+{
+  "schema": "EC49FYA_ROOT_SPLIT15_AND_STATE_CERT14_V1",
+  "date": "2026-11-23",
+  "frozen_scientific_pin": "BRC16943",
+  "parent": {
+    "pr": 3018,
+    "commit": "80243d814de151f7a7a6d6f883881054b30e9223"
+  },
+  "status": "ALL_PASS",
+  "domain": {
+    "original_P10_direction_representatives": 72,
+    "support_masks": 50,
+    "column_factors": 12,
+    "states": 600,
+    "physical_sites": 110
+  },
+  "adaptive": {
+    "analytic_lower": 14,
+    "constructed_upper": 15,
+    "initial_query": [
+      0,
+      0
+    ],
+    "initial_no": 193,
+    "initial_yes": 407,
+    "internal_nodes": 599,
+    "leaves": 600,
+    "max_depth": 15,
+    "total_path_depth": 6413,
+    "uniform_average_depth_exact": "6413/600",
+    "depth_histogram": {
+      "6": 2,
+      "7": 28,
+      "8": 94,
+      "9": 137,
+      "10": 68,
+      "11": 50,
+      "12": 50,
+      "13": 54,
+      "14": 67,
+      "15": 50
+    },
+    "complete_leaf_paths_checked": 600
+  },
+  "certificates": {
+    "max_length": 14,
+    "exact_isolation_targets_checked": 600,
+    "base_full_factor_certificates": 50,
+    "base_column_zero_hole_certificates": 50,
+    "translated_one_hole_certificates": 550,
+    "provided_certificate_histogram": {
+      "full": {
+        "11": 22,
+        "12": 17,
+        "13": 8,
+        "14": 3
+      },
+      "hole": {
+        "4": 44,
+        "5": 462,
+        "6": 44
+      }
+    },
+    "lower_bound_witness": {
+      "mask": 833,
+      "z": -1,
+      "super_masks": [
+        857,
+        867,
+        965
+      ],
+      "disjoint_extras": [
+        [
+          3,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          7
+        ]
+      ]
+    }
+  },
+  "comparison": {
+    "prior_EC49FXZ_balanced_root": [
+      8,
+      0
+    ],
+    "prior_root_split": [
+      303,
+      297
+    ],
+    "prior_max_depth": 16,
+    "prior_uniform_average_depth": 10.95
+  },
+  "verification": "published JavaScript reconstructs 50 masks from frozen P10, checks all 600 decision paths and all 600 exact isolating certificate witnesses; independent local Python recurrence agreed for depth-15 tree",
+  "mathematical_scope": "Normalized noiseless physical Boolean C11 observation; all 600 genuine normalized states via EC49FXU",
+  "unresolved": "Exact optimum Q=14 or Q=15; independent review and native X6 transfer pending"
+}
