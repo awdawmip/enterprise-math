@@ -1,4 +1,4 @@
-# T6: exact seven-atom rigidity for every p >= 23 valuation-one denominator layer
+# T6: exact seven-atom rigidity for prime valuation-one layers p=23,29,31,37,41,43,47
 
 Date: 2026-11-23, RESEARCH_DRIVER `EM-DVR-DEBB5E`. Original T6 model, independent per-side exponent mass <=2331. New author-side finite theorem, not Native Review/Result/Task acceptance. Existing p17 and p19 results remain attributed to their original contributors.
 
@@ -6,11 +6,11 @@ Date: 2026-11-23, RESEARCH_DRIVER `EM-DVR-DEBB5E`. Original T6 model, independen
 
 Let A,B be finite multisets of positive integer exponents. For X=A,B put `d=e+1`, `H_k(X)=sum(e/(e+1))^k`, `m_X(d)=multiplicity`. Assume both independent bounds `sum_{e in X} e<=2331` and equality of **all original** `H_k(A)=H_k(B)` for k=0,...,6.
 
-For **each prime** `p >= 23`, if both sides contain **at most seven** denominators of *exact* p-adic valuation 1, counted with multiplicity, then their entire valuation-one denominator multisets are equal:
+For **each prime** `p in {23,29,31,37,41,43,47}`, if both sides contain **at most seven** denominators of *exact* p-adic valuation 1, counted with multiplicity, then their entire valuation-one denominator multisets are equal:
 
 `m_A(pu)=m_B(pu)` for every u with p not dividing u.
 
-The theorem includes 7 primes p=23,29,31,37,41,43,47 for which a square denominator can occur. For p>=53, p²>2332 and the same valuation-one congruence reduction works; the seven-atom statement for those primes is **not** covered by the finite checker below, so the empirically certified scope of this theorem is **p in {23,29,31,37,41,43,47}**. (The first sentence is to be read with this explicit enumerated scope; no claim is made for untested p>=53.)
+These are the seven primes between 23 and 47 for which a square denominator can occur. The seven-atom assertion for primes p>=53 is not established here; those primes require a separate finite verification or structural argument.
 
 ## Exact reduction
 
