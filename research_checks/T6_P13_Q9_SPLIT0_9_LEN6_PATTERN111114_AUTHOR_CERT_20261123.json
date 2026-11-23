@@ -1,0 +1,31 @@
+{
+  "schema": "T6_P13_Q9_AUTHOR_EXACT_PATTERN_CERT_V1",
+  "scientific_pin": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "scope": "maximal-p13 13-valuation one, vertical order9, split(0,9), negative-side six named atoms with q=(1,1,1,1,1,4)",
+  "named_residues": "1..12; r1<=r2<=r3<=r4<=r5 for the five equal-q=1 atoms; r6 arbitrary 1..12",
+  "source_order": "lexicographic by residue tuple, Python combinations_with_replacement q1 r's and q4 r",
+  "vertical_cost": "sum (169*q+13*r-1)",
+  "side_cap": 2331,
+  "lattice_index": "247064529073450392704413",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "method": "exact p13^j affine mixed-congruence representatives, saturated 12D integer q0 lattice, rational Gram-Schmidt floor/ceil exhaustive necessary sphere and true separate-side mass checks",
+  "statistics": {
+    "total_named_rosters": 52416,
+    "already_vertical_over_cap": 259,
+    "actually_exact_affine_tested": 52157,
+    "gs_nodes": 144636,
+    "sphere_leaves": 0,
+    "both_budget_valid": 0
+  },
+  "source_order_sha256": "9a29795fa81d6c823759d1de22064eb09b647d8c5e34270a0458b9bdf0a3151d",
+  "local_json_sha256": "5a24f46a9af315f75b6693fd6fa216646760ddfb2ac2c8da31ce4edf449809fd",
+  "local_reproduction": "Using published T6_P13_Q9_SPLIT0_9_LEN1TO5_REPLAY_20261123.py, replace the outer partition loop with singleton pattern (1,1,1,1,1,4), use equal-q residue combinations-with-replacement, omit the 249184 assertion, and verify all exact counts. Original local Python/SymPy author's execution completed; this specific variant has not been separately run after publication.",
+  "witnesses": [],
+  "global_completion": "T6 OPEN",
+  "independent_review": "NOT_PERFORMED",
+  "native_progress": "NOT_PUBLISHED",
+  "prior_preserved": "len1..5 exact 249184 already published; no rerun required",
+  "next": "next unvisited six-atom partition pattern (1,1,1,1,2,3); the two other six-atom patterns and lengths7..9 remain."
+}
