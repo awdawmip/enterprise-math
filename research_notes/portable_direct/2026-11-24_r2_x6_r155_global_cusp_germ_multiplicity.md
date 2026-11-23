@@ -1,0 +1,137 @@
+# X6 R155 — Extended two-parameter BRC entry cusp, with 8/7/6 right-hand germs
+
+Date: 2026-11-24 (Asia/Shanghai). Scientific status: AUTHOR ANALYTIC PROOF + EXACT FINITE-POPULATION CONTINUUM CERTIFICATE PASS; independent review NOT_REVIEWED. Original native Task, physical dynamics, and Result/Review remain separate.
+
+## 1. Frozen science and scope
+
+Continue R154 at enterprise-math@5a15f3c2f4c4bcd2a132fbccf43b0b5414b11fd:research_notes/portable_direct/2026-11-24_r2_x6_r154_two_parameter_fourfold_entry_cusp.md and R153 at enterprise-math@c45b2c84c88b29df510c79186840ab24103295cd. Scientific pins remain R121@8085ff663b5987c58a1bc0a4a3b1d7da3a1d89fd and R122@0687aa24f5402da3b35f914dd6907967a9805b94. P000 V5 and the ACTIVE Heartbeat World frame remain unchanged. The three coordinates are an explicitly declared static observer slice, not a replacement for native six-dimensional space or physical time. This result is about exact joint six-pair BRC gap scores, not native structural residual attribution.
+
+Enumerate all nonzero integer triples v=(x,y,z) with Port q(v)=max(sum positive coordinates,sum absolute negative coordinates) <=10; identify v and -v only, with first nonzero coordinate positive. There are precisely 1,935 vectors. Put
+
+h(v)=(0,x+3y+6z,3x+12y+30z,7x+39y+126z).
+
+Let g(v) be the six absolute pair gaps h1-h0, h2-h0, h3-h0, h2-h1, h3-h1, h3-h2. For positive B,D define
+
+s(B,D)=(136+B,312,136+D,B+176,B+D,D+176),
+
+F_v(B,D)=max over j of g_j(v)/s_j(B,D), eta(B,D)=min over v F_v(B,D), and N(B,D)={v: 2F_v(B,D)<3eta(B,D)}.
+
+The observer's six joint gaps and integer Port are retained throughout all comparisons. Exact rational arithmetic evaluates the fixed BRC observer; no unlicensed classical trigonometric/π or physical trajectory computation is inserted.
+
+## 2. Exact theorem
+
+Define the continuous broken-affine entry wall
+
+T(B)=(B+544)/3 for 0<B<=20, and T(B)=208-B for 20<=B<=304/3.
+
+Define E(B)=3/(136+B) for 0<B<=20, and E(B)=1/52 for 20<=B<=304/3.
+
+Use eight representative directions:
+
+U=(4,-4,1), V=(6,-1,0), A=(1,0,0), C=(5,-4,1),
+K=(5,-1,0), H=(9,-5,1), P=(1,3,-1), R=(7,-1,0).
+
+**R155-A, uniform two-parameter slab.** For every real 0<B<=304/3 and |D-T(B)|<=1:
+
+(a) eta(B,D)=E(B).
+
+(b) N(B,D) is contained in {U,V,A,C,K,H,P,R}, and U,V belong to N.
+
+(c) At the entire wall D=T(B), N(B,T(B))={U,V}.
+
+**R155-B, exact local right-hand germ.** For every fixed B in (0,304/3], there exists epsilon(B)>0 such that for all real 0<delta<epsilon(B),
+
+N(B,T(B)+delta)={U,V,A,C,K,H}
+union ({P} if B<=224/19, otherwise empty)
+union ({R} if B<=8, otherwise empty).
+
+Therefore the strict-near direction count at the wall is 2, while immediately on its right it is 8 for 0<B<=8; 7 for 8<B<=224/19; and 6 for 224/19<B<=304/3. Equality at B=8, 224/19 and 304/3 is included as specified in the right-hand germ. All other equality cases of the strict near condition are excluded.
+
+**Sharp termination of fourfold synchrony.** For B>304/3, direction A has an independently blocking third gap on D=T(B), so the original fourfold synchronized rule does not continue unchanged. The explicit exact sample B=102, D=106+1/10000 has eta=1/52 but A outside N. This is the first local-germ loss, not a global high-B phase classification.
+
+The improvement beyond R154 is that the former small box B in [19,21], D in [187,189] is replaced by an unbroken two-parameter wall from arbitrarily small positive B to 304/3, and two extra entrants produce the new 8- and 7-direction regimes.
+
+## 3. Analytic proof with finite exact certificates
+
+### 3.1 Piecewise affine certificate principle
+
+Partition the closed auxiliary slab into bands I: 0<=B<=20 and II: 20<=B<=304/3. Write D=T(B)+delta with -1<=delta<=1. Each band is an affine parallelogram in (B,D). All six capacities are positive, including at the auxiliary edge B=0.
+
+Comparing a fixed ratio g_j/s_j against lambda E with lambda either 1 or 3/2 is equivalent, after multiplying positive denominators, to a single affine inequality:
+
+- Band I: g_j(136+B)-3 lambda s_j(B,D) compared with zero;
+- Band II: 52 g_j-lambda s_j(B,D) compared with zero.
+
+An affine expression nonnegative at every one of four vertices is nonnegative throughout the parallelogram. Positivity at all vertices gives strict positivity throughout. This proves whole-continuum statements with four vertices per fixed channel, not extrapolation from finite samples.
+
+### 3.2 Exact optimum and eight-candidate exclusion
+
+At all corners, V attains F_V=E: on band I its active gap is 3/(136+B), and on band II its active gap is 6/312=1/52; the remaining five gap ratios are <= E by affine inequalities.
+
+For each one of the other 1,934 original vectors, the exhaustive checker provides one fixed gap channel satisfying g_j/s_j >= E at all four vertices of each band. Thus all 1,935 vectors have F>=E, while V attains E. This proves eta=E on the entire slab.
+
+Next exclude all 1,927 vectors outside the eight candidates. On band I each outsider has one fixed channel with g_j/s_j > 3E/2 at all vertices. Band II gives such a strict certificate for 1,926 outsiders. The exceptional X=(3,-4,1) has its second channel constantly 9/312=3/104=3E/2 on band II, excluding it by equality under the strict near rule. Each of U and V has all six gap ratios strictly below 3E/2 at all vertices in both bands; hence both are near everywhere.
+
+First-fixed-channel histograms (j=0,...,5), reproduced by the attached exact checker:
+
+| B band | 1,934 optimizer-lower channels | outsider-exclusion channels |
+|---|---|---|
+| [0,20] | [1808,89,32,1,4,0] | [1709,139,76,1,2,0], 1,927 strict |
+| [20,304/3] | [1709,186,36,0,3,0] | [1608,223,93,0,2,0], 1,926 strict plus X equality |
+
+The certificate enumerates all possible unoriented Port-10 integer triples, does not identify nonzero multiples, and checks all six original observation pairs.
+
+### 3.3 Exact wall equality
+
+For each of A,C,K,H,P,R, the fifth gap, numbered index 4 corresponding to pair (1,3), is exactly 6. On the wall:
+
+6/(B+T(B)) = 3E(B)/2.
+
+Consequently none of those six enters N at D=T(B). From outsider exclusion and U,V strict membership, N(B,T(B))={U,V}.
+
+When D grows by any sufficiently small positive delta, the fifth ratio strictly decreases. Whether a candidate becomes near depends solely on the other five channels.
+
+### 3.4 The four original entrants A,C,K,H
+
+On 0<=B<=20, every nonfifth gap ratio for A,C,K,H is strictly below 3E/2, proved by checking the affine inequality at B=0 and B=20 along the wall. For 20<=B<=304/3, the same endpoint test makes them all weakly below, and all are strictly below except A's third gap at the final endpoint. There,
+
+7/(136+T(B)) = 7/(344-B) <= 3/104 if and only if B<=304/3.
+
+At B=304/3 this third gap strictly decreases as D increases, so A still enters immediately right of the wall. For C,K,H, the potentially closest other constraints hold strictly throughout: the sixth gap of C requires B<320/3; K requires B<424/3; the third gap of H requires B<136. All are satisfied in our interval.
+
+Therefore A,C,K,H enter simultaneously for a sufficiently small positive right perturbation at every B<=304/3.
+
+### 3.5 Two extra entrants P,R
+
+Their gap vectors are:
+
+g(P)=(4,9,2,5,6,11);
+g(R)=(4,9,10,5,6,1).
+
+On 0<B<20, their second gap 9/312 is strictly less than 3E/2. The only additional possible blocking channel for P is its sixth, and for R its third. Substitution of T(B) gives precisely:
+
+P: 11/(T(B)+176) <= 9/[2(136+B)] iff B<=224/19;
+R: 10/(T(B)+136) <= 9/[2(136+B)] iff B<=8.
+
+Every remaining nonfifth channel is strictly below threshold on the stated valid ranges, as certified by the one-variable affine end tests. At equality B=224/19 or B=8, these blocking channels decrease strictly with D, so the directions enter immediately rightward.
+
+For B>=20 the second gap of both is the D-independent constant 9/312=3/104, exactly the threshold 3E/2. Thus neither P nor R can enter there. The eight-candidate exclusion plus continuity of finitely many rational comparisons supplies a positive epsilon(B) for each fixed B, and proves the exact piecewise near sets.
+
+### 3.6 Sharpness and verification scope
+
+At B=102, T=106, E=1/52. The third channel of A at the wall is 7/(136+106)=7/242, which is strictly greater than 3/104. At D=106+1/10000 this remains above threshold; the full 1,935-direction exact recomputation confirms eta=1/52 and A excluded. No claim is made that the entire six-member rightward germ persists through the whole width delta in [0,1]; only the separately stated eight-candidate support and optimizer are uniform on that width.
+
+## 4. Reproducibility, source and next frontier
+
+Companion Python source: research_notes/portable_direct/x6_r155_fourfold_cusp_germ_verify.py. Run with Python standard-library Fraction and itertools. It constructs all 1,935 vectors, all six gaps, endpoint certificates, exact endpoint threshold checks and 30 independent full-population rational crosschecks at critical values B=8, 224/19, 20, 304/3 and B=102. The full-continuum conclusion rests on the affine fixed-channel vertex arguments, not on the 30 samples. Author's local actual run:
+
+    R155 EXACT PORT-10 CUSP MULTIPLICITY / TWO-PARAMETER SLAB PASS
+    direction_count 1935 family_size 8 full_rational_samples 30
+    band_certificates [('0', '20', [1808, 89, 32, 1, 4, 0], [1709, 139, 76, 1, 2, 0]), ('20', '304/3', [1709, 186, 36, 0, 3, 0], [1608, 223, 93, 0, 2, 0])]
+    T: (B+544)/3 on 0<B<=20; 208-B on 20<=B<=304/3
+    right-germ counts: 8 for B<=8, 7 for 8<B<=224/19, 6 for 224/19<B<=304/3
+    sharp loss of A just beyond 304/3 at B=102
+
+Status: author-proved, exact deterministic finite certificate actually executed, no independent Review. The frozen R121/R122 observer and P000 remain unchanged. Current formal X6 native time-dynamics Task is a distinct problem with its own R063 target and owner/CLAIM route, and is not represented as completed.
+
+Next independent unit: classify the near-direction chambers beyond the local rightward germs, in particular the subsequent exits of P,R and the surviving original four, then connect to R153/R152. For shared-task work, first take a genuine current native CLAIM and preserve pre-existing authorship.
