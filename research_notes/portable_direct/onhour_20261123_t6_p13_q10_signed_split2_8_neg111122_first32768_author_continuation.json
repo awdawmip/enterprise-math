@@ -1,0 +1,67 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_AUTHOR_CONTINUATION_V1",
+  "as_of": "2026-11-23T19:11:00+08:00",
+  "logical_research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_lane_excluded": "chatgpt-hourly-enterprise-math-20260921",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "mother_objective": "Original signed H0..H6 T6=2332",
+  "mother_state": "OPEN",
+  "scientific_pin": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "new_author_exact_unit": {
+    "p": 13,
+    "vp": 1,
+    "total_q": 10,
+    "signed_split": [
+      2,
+      8
+    ],
+    "negative_q_pattern": [
+      1,
+      1,
+      1,
+      1,
+      2,
+      2
+    ],
+    "negative_index_completed": [
+      0,
+      32768
+    ],
+    "negative_index_all": [
+      0,
+      106470
+    ],
+    "positive_rosters": 90,
+    "raw_pairs_completed": 2949120,
+    "common_named_atom_cancellations": 1216093,
+    "exact_gs_searches": 1733027,
+    "exact_gs_nodes": 3766177,
+    "relaxed_ball_witnesses": 8,
+    "budget_legal": 0,
+    "side_mass_cap": 2331,
+    "congruences": "Original H1..H6 mod 13^j (j=1..6)",
+    "certificate": "research_checks/T6_P13_Q10_SPLIT2_8_NEG111122_FIRST32768_AUTHOR_CERT_20261123_1910.json@69cf13e6a684baf8e8d4c246abf9e9641cc511c4",
+    "replay": "research_checks/T6_P13_Q10_SPLIT2_8_NEG111122_SLICE_REPLAY_20261123_1900.py@ca7c63f911780e4cdb3e9f5219ee9d8cba88623c",
+    "evidence_status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+    "published_script_independently_executed": false
+  },
+  "not_repeat": [
+    "All q111122 negative source [0,32768) with previous 10 segments",
+    "Prior completed q10 signed split(2,8) negative <=4, q11114, q11123, q11222, q111113 as preserved in earlier checkpoints",
+    "Separate official maximal p17 q14 Source frontier and native validation path"
+  ],
+  "next_action": "Continue negative roster source [32768,106470) in nonoverlap segments with exact named-atom/multiplicity, q0 12D saturated GS, original 6 congruences and both side mass cap; save segment certificate, readback and extend frontier; then q10 split(2,8) negative 7-8 atom patterns.",
+  "control": {
+    "last_client_checkpoint": {
+      "revision": 51,
+      "request_id": "onhour-20261123-1900-t6-p13-q10-split2_8-neg111122-first16384-r51-v1"
+    },
+    "native_original_continuation": "onhour-20261123-1755-t6-exact-research-cont-ro-v1",
+    "native_continuation_last_read": "SUCCEEDED, read-only Source as-of, no own claim authority",
+    "own_native_session": "NOT_IDENTIFIED_FOR_THIS_LANE",
+    "own_winning_claim": "NOT_VERIFIED",
+    "own_run": "NOT_VERIFIED",
+    "native_semantic_progress": "NOT_PUBLISHED",
+    "historical_activity": "RA328_AUTHOR_ATTRIBUTION_UNRESOLVED; DO_NOT_BORROW"
+  }
+}
