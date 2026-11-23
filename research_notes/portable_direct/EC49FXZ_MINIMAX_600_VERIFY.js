@@ -16,6 +16,12 @@ for(let a=0;a<10;a++)for(let c=0;c<10;c++)if(gcd(gcd(a,c),10)===1){
 }
 check(dirs===72&&masks.size===50&&!masks.has(0),'frozen 50-mask census');
 const U=[...masks].sort((a,b)=>a-b),states=[];
+const base=833,superMasks=[857,867,965];
+check(U.includes(base)&&superMasks.every(x=>U.includes(x)),'four frozen lower-bound masks');
+const extras=superMasks.map(x=>x&~base);
+check(superMasks.every(x=>(x&base)===base)&&extras.every(x=>x>0)&&
+      (extras[0]&extras[1])===0&&(extras[0]&extras[2])===0&&(extras[1]&extras[2])===0,
+      'three disjoint extra supports');
 for(const u of U)for(let z=-1;z<11;z++)states.push({u,z});
 const q=(s,t,j)=>Number((s.u>>t&1)===1&&s.z!==j);
 let internal=0,leafCount=0,maxDepth=0,depthSum=0,root=null;
@@ -50,8 +56,8 @@ for(const u of U)for(let j=0;j<11;j++){
 }
 check(internal===599&&leafCount===600&&maxDepth===16&&root.t===8&&root.j===0&&root.no===303&&root.yes===297,'certificate mismatch');
 console.log(JSON.stringify({schema:'EC49FXZ_BOOLEAN_ONLY_MINIMAX_V1',pin:'BRC16943',status:'ALL_PASS',
- genuine_state_image:'600 via EC49FXU; masks reconstructed here',states:600,masks:50,sites:110,
- theoretical_lower:11,constructive_upper:16,internal,leafCount,maxDepth,
+ genuine_state_image:'600 via EC49FXU; masks reconstructed here',states:600,masks:50,sites:110,lowerWitness:{base,superMasks,extras},
+ theoretical_lower:14,constructive_upper:16,internal,leafCount,maxDepth,
  averageDepth:depthSum/600,root,leafDepths:histogram,columnPairs,treePathsChecked:600,
- claim:'11<=exact worst-case Boolean-only adaptive identification cost<=16; optimum pending',
+ claim:'14<=exact worst-case Boolean-only adaptive identification cost<=16; optimum pending',
  verification:'exact integer arithmetic, deterministic lexicographic tie break; frozen original P10 mask reconstructed'},null,2));
