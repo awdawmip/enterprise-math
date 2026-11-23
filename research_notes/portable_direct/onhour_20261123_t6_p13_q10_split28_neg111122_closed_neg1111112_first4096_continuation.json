@@ -1,0 +1,92 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_AUTHOR_CONTINUATION_V1",
+  "as_of": "2026-11-23",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "mother_hard_target": "Signed H0..H6 global threshold T6=2332 OPEN",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_lane_excluded": "chatgpt-hourly-enterprise-math-20260921",
+  "completed_science": [
+    {
+      "scope": "p13 valuation1 vertical q10 split(2,8) negative q-pattern (1,1,1,1,2,2)",
+      "source_negative_interval": [
+        0,
+        106470
+      ],
+      "original_named_signed_pairs": 9582300,
+      "common_named_cancellations": 3883464,
+      "exact_gs_searches": 5698836,
+      "exact_gs_nodes": 12303306,
+      "modular_ball_witnesses": 14,
+      "both_side_mass_valid_uncanceled": 0,
+      "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+      "certificate": {
+        "commit": "d9f7c66674b09b1d81a08316563dd63783e640dd",
+        "path": "research_checks/T6_P13_Q10_SPLIT2_8_NEG111122_90112_106470_AND_FULL_FAMILY_AUTHOR_EXACT_CERT_20261123.json",
+        "blob": "06837ece48fbe5afd12dff7ca94c74c5f291f628"
+      },
+      "report": {
+        "commit": "5e359115bd13c1766d44b08388f18680911522b6",
+        "path": "research_notes/portable_direct/onhour_20261123_t6_p13_q10_split28_neg111122_complete_author_report.md",
+        "blob": "ae7f5fb360b54afd7c61a0c3681b6a1ac46799d8"
+      }
+    },
+    {
+      "scope": "p13 valuation1 vertical q10 split(2,8) negative q-pattern (1,1,1,1,1,1,2) first 4096 source rosters",
+      "source_negative_interval": [
+        0,
+        4096
+      ],
+      "source_negative_total": 148512,
+      "original_named_signed_pairs": 368640,
+      "common_named_cancellations": 152812,
+      "exact_gs_searches": 215828,
+      "exact_gs_nodes": 472471,
+      "modular_ball_witnesses": 2,
+      "both_side_mass_valid_uncanceled": 0,
+      "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+      "certificate": {
+        "commit": "f01f93ba16129c2f2ea4b6042bf5f2414a13d016",
+        "path": "research_checks/T6_P13_Q10_SPLIT2_8_NEG1111112_0_4096_AUTHOR_EXACT_SLICE_CERT_20261123.json",
+        "blob": "fce6cee05e4e0e88526253837736a85f225de904"
+      },
+      "replay": {
+        "commit": "a15dc9dd00e5d45516463ed4c4905341d8d2357b",
+        "path": "research_checks/T6_P13_Q10_SPLIT2_8_NEG1111112_SLICE_REPLAY_20261123_2000.py",
+        "blob": "096df77ac608297ad1078844c03dcac2da39678b"
+      }
+    }
+  ],
+  "next_scientific_action": "Continue source negative index [4096,148512) for q-pattern (1,1,1,1,1,1,2); source ordered exact integers/rationals with signed named q0, H1..H6 13-adic congruence, original side caps; checkpoint/readback each complete slice; after closure assess q1 length8 pattern and remaining p13 split families; preserve all prior exact scopes.",
+  "remaining_scientific_scope": {
+    "pattern": "negative 1^6,2",
+    "source_negative_interval": [
+      4096,
+      148512
+    ],
+    "negative_rosters": 144416,
+    "raw_signed_pairs": 12997440
+  },
+  "do_not_repeat": [
+    "All previous 106470 negative rosters of q111122 now closed at author finite level",
+    "Do not rerun new 1^6,2 [0,4096); two ball witnesses already checked and budget invalid",
+    "Do not confuse T6 Native p17 q14 preflight with portable p13 work; preserve separate owner and audit requirements",
+    "Do not mark canceled named pairs as individual q10 GS searches; their exclusion depends on lower q reduction"
+  ],
+  "unresolved_obligations": [
+    "Independent execution/reviewer of replay and source proofs; source activity attribution RA328 unresolved",
+    "Native p17 q14 delegated preflight, other p13 families/lower primes/H0, full global T6 OPEN",
+    "No verified winning Native claim/open in this Research lane; protected PROGRESS/Result not published"
+  ],
+  "control": {
+    "last_client_checkpoint_verified_revision": 58,
+    "last_client_checkpoint_request": "onhour-20261123-2008-t6-p13-q10-neg111122-first90112-client-r58-v1",
+    "native_continuation_original": "onhour-20261123-1958-t6-exact-cont-ro-v1 SUCCEEDED read-only; native delegated q14 remains separate",
+    "research_session": "NOT_IDENTIFIED",
+    "research_claim": "NOT_VERIFIED",
+    "research_run": "NOT_VERIFIED",
+    "research_activity_author": "UNRESOLVED",
+    "native_semantic_progress": "NOT_PUBLISHED"
+  },
+  "source_pin_preserved": true
+}
