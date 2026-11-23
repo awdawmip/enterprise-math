@@ -30,6 +30,7 @@ def evaluate(m,Ds):
     inactive=set(MS[m]); active=set(range(15))-inactive
     D=set(Ds); comp,c=components(active,D)
     smasks=[(None if len(ends:=tuple(x for x in sp if x in active))==0 else [((1<<comp[a])^(1<<comp[b])) for a,b in combinations(ends,2)]) for sp in SP]
+    # For a missing-Port matching every triangle has 2 or 3 active vertices.
     assert all(q is not None and len(q) in (1,3) for q in smasks)
     single={0}
     for s in Ds:
@@ -37,6 +38,7 @@ def evaluate(m,Ds):
     remaining=tuple(i for i in range(20) if i not in D)
     dp=[set() for _ in range(8)];dp[0]={0}
     for i,s in enumerate(remaining):
+        # flexible s (all 3 active) contributes 0 projected parity; forced s contributes single mask if odd
         o=smasks[s][0] if len(smasks[s])==1 else 0
         for k in range(min(i+1,7),0,-1):dp[k].update(x^o for x in dp[k-1])
     seven=dp[7]
