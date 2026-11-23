@@ -89,7 +89,7 @@ def run(N=240):
 
 if __name__=='__main__':
     cert=run(240)
-    with open('/mnt/data/em_prefix1029/PREFIX1029_R6_CONVEX_ORDER_CERT.json','w') as h:
+    with open('PREFIX1029_R6_CONVEX_ORDER_CERT.json','w') as h:
         json.dump(cert,h,indent=2)
         h.write('\n')
     print(json.dumps(cert,indent=2))
