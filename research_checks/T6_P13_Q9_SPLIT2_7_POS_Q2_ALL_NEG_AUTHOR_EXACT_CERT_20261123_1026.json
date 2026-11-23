@@ -1,0 +1,380 @@
+{
+  "schema": "EM_T6_P13_Q9_SPLIT2_7_POS_Q2_COMPLETE_AUTHOR_EXACT_CERT_V1",
+  "date_local": "2026-11-23",
+  "frozen_task_commit": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "prime": 13,
+  "valuation": 1,
+  "q_order": 9,
+  "split": [
+    2,
+    7
+  ],
+  "positive_pattern": [
+    2
+  ],
+  "negative_order": 7,
+  "negative_lengths": "1..7 all integer nondecreasing q partitions and canonical residue multisets",
+  "side_mass_cap": 2331,
+  "roster_generation": "q partitions of 7 in nondecreasing order; for equal-q blocks use combinations_with_replacement residues 1..12; iterate length ascending, then q and residues lexicographic",
+  "neg_rosters": 153960,
+  "positive_named_choices": 12,
+  "original_raw_pairs": 1847520,
+  "common_named_canceled": 130896,
+  "vertical_overbudget": 0,
+  "eligible_disjoint_pairs": 1716624,
+  "gs_nodes": 3956888,
+  "affine_ball_leaves": 6,
+  "original_budget_legal": 0,
+  "min_gs_diagonal_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "max_necessary_radius_sq": 5214857,
+  "roster_line_sha256": "a551554e8c631814caee26fb6471150f01f044f38f0bf35e96503d25e21901f9",
+  "rows": [
+    {
+      "length": 1,
+      "rosters": 12,
+      "raw_pairs": 144,
+      "common_canceled": 0,
+      "vertical_overbudget": 0,
+      "gs_nodes": 380,
+      "ball_leaves": 0,
+      "budget_valid": 0
+    },
+    {
+      "length": 2,
+      "rosters": 432,
+      "raw_pairs": 5184,
+      "common_canceled": 144,
+      "vertical_overbudget": 0,
+      "gs_nodes": 12338,
+      "ball_leaves": 0,
+      "budget_valid": 0
+    },
+    {
+      "length": 3,
+      "rosters": 4536,
+      "raw_pairs": 54432,
+      "common_canceled": 3456,
+      "vertical_overbudget": 0,
+      "gs_nodes": 122405,
+      "ball_leaves": 1,
+      "budget_valid": 0
+    },
+    {
+      "length": 4,
+      "rosters": 19968,
+      "raw_pairs": 239616,
+      "common_canceled": 22464,
+      "vertical_overbudget": 0,
+      "gs_nodes": 512848,
+      "ball_leaves": 1,
+      "budget_valid": 0
+    },
+    {
+      "length": 5,
+      "rosters": 44772,
+      "raw_pairs": 537264,
+      "common_canceled": 52416,
+      "vertical_overbudget": 0,
+      "gs_nodes": 1125056,
+      "ball_leaves": 2,
+      "budget_valid": 0
+    },
+    {
+      "length": 6,
+      "rosters": 52416,
+      "raw_pairs": 628992,
+      "common_canceled": 52416,
+      "vertical_overbudget": 0,
+      "gs_nodes": 1318336,
+      "ball_leaves": 1,
+      "budget_valid": 0
+    },
+    {
+      "length": 7,
+      "rosters": 31824,
+      "raw_pairs": 381888,
+      "common_canceled": 0,
+      "vertical_overbudget": 0,
+      "gs_nodes": 865525,
+      "ball_leaves": 1,
+      "budget_valid": 0
+    }
+  ],
+  "witnesses": [
+    {
+      "pos": [
+        2,
+        3
+      ],
+      "negative": [
+        [
+          1,
+          9
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          11
+        ]
+      ],
+      "u": [
+        29,
+        1,
+        13,
+        -11,
+        -8,
+        6,
+        -9,
+        3,
+        -11,
+        4,
+        3,
+        -4
+      ],
+      "mass_positive": 2956,
+      "mass_negative": 5284,
+      "budget_valid": false
+    },
+    {
+      "pos": [
+        2,
+        2
+      ],
+      "negative": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "u": [
+        64,
+        0,
+        12,
+        1,
+        17,
+        -4,
+        7,
+        -4,
+        3,
+        4,
+        -8,
+        5
+      ],
+      "mass_positive": 4995,
+      "mass_negative": 3152,
+      "budget_valid": false
+    },
+    {
+      "pos": [
+        2,
+        1
+      ],
+      "negative": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          3,
+          9
+        ]
+      ],
+      "u": [
+        -21,
+        0,
+        8,
+        12,
+        -9,
+        -13,
+        3,
+        0,
+        -5,
+        -4,
+        -4,
+        -2
+      ],
+      "mass_positive": 1536,
+      "mass_negative": 5384,
+      "budget_valid": false
+    },
+    {
+      "pos": [
+        2,
+        6
+      ],
+      "negative": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          5
+        ]
+      ],
+      "u": [
+        5,
+        -9,
+        24,
+        0,
+        0,
+        0,
+        6,
+        -6,
+        -3,
+        3,
+        -6,
+        -5
+      ],
+      "mass_positive": 2314,
+      "mass_negative": 4295,
+      "budget_valid": false
+    },
+    {
+      "pos": [
+        2,
+        10
+      ],
+      "negative": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "u": [
+        -51,
+        -9,
+        -13,
+        7,
+        3,
+        -13,
+        2,
+        3,
+        -9,
+        4,
+        -4,
+        2
+      ],
+      "mass_positive": 2331,
+      "mass_negative": 5433,
+      "budget_valid": false
+    },
+    {
+      "pos": [
+        2,
+        7
+      ],
+      "negative": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          1,
+          12
+        ]
+      ],
+      "u": [
+        31,
+        15,
+        7,
+        -10,
+        -1,
+        2,
+        1,
+        8,
+        6,
+        3,
+        3,
+        4
+      ],
+      "mass_positive": 4638,
+      "mass_negative": 2465,
+      "budget_valid": false
+    }
+  ],
+  "author_execution": "C++17 GMP rational search with exact precomputed Python/sympy HNF/LLL coefficient tables; all complete 153,960 rosters and 12 positive residues executed",
+  "crosscheck": "All six complete affine-leaf witnesses had side masses and k=1..6 modular conditions recomputed independently in Python exact integer arithmetic",
+  "published_python_full_replay": "NOT_PERFORMED",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "scope": "positive length1 q=2 only; positive q=(1,1) length2 still remains; does not conclude full signed (2,7), global T6, Native Result or review"
+}
