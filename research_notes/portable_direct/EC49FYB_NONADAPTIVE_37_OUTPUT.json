@@ -1,0 +1,112 @@
+{
+  "schema": "EC49FYB_NONADAPTIVE_FAREY_37_V1",
+  "date": "2026-11-23",
+  "frozen_scientific_pin": "BRC16943",
+  "status": "ALL_PASS",
+  "domain": {
+    "direction_representatives": 72,
+    "support_masks": 50,
+    "states": 600,
+    "physical_sites": 110
+  },
+  "lower_bound": {
+    "min_column_hitting_number": 3,
+    "all_hitting_triples": [
+      7,
+      13,
+      145,
+      259
+    ],
+    "min_hitting_including_row5": 4,
+    "min_hitting_including_row9": 4,
+    "min_hitting_including_both": 5,
+    "forcing_pairs": [
+      {
+        "masks": [
+          91,
+          123
+        ],
+        "different_row": 5
+      },
+      {
+        "masks": [
+          101,
+          613
+        ],
+        "different_row": 9
+      }
+    ],
+    "min_columns_querying_row5": 2,
+    "min_columns_querying_row9": 2,
+    "formula": "11*3 + 2 + 2 = 37"
+  },
+  "upper_bound": {
+    "nonadaptive_sites": 37,
+    "column_row_sets": [
+      [
+        0,
+        4,
+        7
+      ],
+      [
+        0,
+        2,
+        3
+      ],
+      [
+        0,
+        4,
+        7
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        1,
+        8
+      ],
+      [
+        0,
+        1,
+        2
+      ],
+      [
+        0,
+        4,
+        7
+      ],
+      [
+        0,
+        4,
+        7
+      ],
+      [
+        2,
+        5,
+        6,
+        8
+      ],
+      [
+        0,
+        3,
+        5,
+        6,
+        9
+      ],
+      [
+        0,
+        3,
+        6,
+        9
+      ]
+    ],
+    "unique_signatures": 600,
+    "checked_state_pairs": 179700,
+    "min_observed_ones": 10,
+    "max_observed_ones": 32
+  },
+  "result": "N_nonadaptive=37; Q_adaptive in [14,15] by EC49FYA; adaptation saves at least 22 reads in worst-case"
+}
