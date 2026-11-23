@@ -1,0 +1,61 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_AUTHOR_CONTINUATION_V1",
+  "as_of": "2026-11-23",
+  "logical_research_conversation": "chatgpt-research-onhour-enterprise-math-20260923",
+  "forbidden_maintenance_conversation": "chatgpt-hourly-enterprise-math-20260921",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "mother_state": "OPEN",
+  "goal": "Global original H0..H6 signed T6=2332 lower bound or exact cheaper collision",
+  "frozen_scientific_pin": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "previous_checkpoint": {
+    "line": "chatgpt-research-onhour-enterprise-math-20260923",
+    "revision": 47,
+    "request_id": "onhour-20261123-1745-t6-split2_8-neg11123-0to8192-r47-v1"
+  },
+  "new_complete_unit": {
+    "scope": "p13 v13=1 q10 split(2,8) negative five-atom pattern q=(1,1,1,2,3), source-order indices [8192,52416) exact enumerated; combined with previously verified [0,8192) the pattern is complete",
+    "new_raw_signed_pairs": 3980160,
+    "new_exact_gs_searches": 2676848,
+    "new_gs_nodes": 5832923,
+    "new_relaxed_sphere_witnesses": 6,
+    "new_budget_legal": 0,
+    "cumulative_raw_signed_pairs": 4717440,
+    "cumulative_gs_searches": 3161664,
+    "cumulative_gs_nodes": 6902083,
+    "cumulative_relaxed_sphere_witnesses": 7,
+    "cumulative_budget_legal": 0,
+    "certificate": "awdawmip/enterprise-math@2f6c1038af45485bd459df176cec0a92588414d3:research_checks/T6_P13_Q10_SPLIT2_8_NEG_LEN5_PATTERN11123_REST8192_52416_AUTHOR_EXACT_CERT_20261123.json",
+    "replay": "awdawmip/enterprise-math@d8f5ae0f455969c28eaf9c5f3b03186468ff96a8:research_checks/T6_P13_Q10_SPLIT2_8_NEG11123_SLICE_REPLAY_20261123.py",
+    "strength": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED"
+  },
+  "do_not_repeat": [
+    "q10 split(1,9) previously saved negative length1..9",
+    "q10 split(2,8) negative lengths1..4 and length5 q=(1,1,1,1,4) already complete",
+    "q10 split(2,8) q11123 negative roster indices [0,52416) now complete; 0-8192 attributed to prior author checkpoint and 8192-52416 newly executed",
+    "Official Source p17 q14 preflight frozen boundary; do not claim it was completed by this portable q13 branch"
+  ],
+  "next_unfinished": {
+    "scope": "p13 q10 signed split(2,8), negative length5 q=(1,1,2,2,2)",
+    "negative_rosters": 28392,
+    "positive_rosters": 90,
+    "raw_pairs": 2555280,
+    "source_order": "product(CWR(range(1,13),2) q1, CWR(range(1,13),3) q2), positive single (2,r) then q1 CWR(2)",
+    "action": "Apply exact six 13-adic congruences, full q0 signed saturated lattice and each side <=2331 original weight; preserve complete author certificate and raw named roster digest. Then negative lengths6..8, lower prime/H0."
+  },
+  "control_state": {
+    "client_checkpoint_last_read": 47,
+    "client_new_checkpoint": "PENDING",
+    "native_continuation_old_request": "onhour-20261123-1755-t6-exact-research-cont-ro-v1",
+    "native_continuation_last_observed": "QUEUED",
+    "own_native_claim": "NOT_VERIFIED",
+    "own_native_run": "NOT_VERIFIED",
+    "native_protected_progress": "NOT_PUBLISHED",
+    "historical_research_activity": "AUTHOR_ATTRIBUTION_UNRESOLVED; no write claimed"
+  },
+  "open_obligations": [
+    "Independent code/checker review and Native Result admission not performed",
+    "High-p cancellation and q0 saturated-lattice lemmas remain stated author dependencies",
+    "Original entire T6 Global/low primes/H0 not resolved"
+  ],
+  "publication": "GitHub portable author-level science, not official Source Task ownership or accepted Result"
+}
