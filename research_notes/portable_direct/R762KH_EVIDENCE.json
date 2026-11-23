@@ -1,0 +1,89 @@
+{
+  "schema": "R762KH_THREE_INACTIVE_UPGRADE_THRESHOLD_V1",
+  "research_date": "2026-11-23",
+  "model": "unsigned six-axis Port-Euler observer; inactive ports 01,23,45",
+  "task_frozen_source": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json",
+  "active_ports": [
+    "02",
+    "03",
+    "04",
+    "05",
+    "12",
+    "13",
+    "14",
+    "15",
+    "24",
+    "25",
+    "34",
+    "35"
+  ],
+  "forced_colors": [
+    "012",
+    "013",
+    "014",
+    "015",
+    "023",
+    "045",
+    "123",
+    "145",
+    "234",
+    "235",
+    "245",
+    "345"
+  ],
+  "flexible_colors": [
+    "024",
+    "025",
+    "034",
+    "035",
+    "124",
+    "125",
+    "134",
+    "135"
+  ],
+  "forced_components": 3,
+  "forced_parity_masks": 4096,
+  "distinct_forced_parity_targets": 512,
+  "flexible_upgrade_patterns_exactly_checked": 256,
+  "all_singleton_flexible_selections_checked": 6561,
+  "all_singleton_distinct_parities": 1881,
+  "reachable_forced_parity_targets_by_number_of_upgraded_flexible_colors": {
+    "0": {
+      "465": 1
+    },
+    "1": {
+      "495": 8
+    },
+    "2": {
+      "508": 28
+    },
+    "3": {
+      "512": 56
+    },
+    "4": {
+      "512": 70
+    },
+    "5": {
+      "512": 56
+    },
+    "6": {
+      "512": 28
+    },
+    "7": {
+      "512": 8
+    },
+    "8": {
+      "512": 1
+    }
+  },
+  "necessary_and_sufficient_universal_threshold_upgraded_flexible_colors": 3,
+  "forced_masks_with_constructed_connected_graph_for_fixed_three_upgrades": 4096,
+  "verified_arbitrary_positive_extended_graphs": 16,
+  "m3_all_42_event_targets_per_perfect_matching": 99768240,
+  "number_of_named_perfect_matchings": 15,
+  "m3_all_42_event_targets_all_perfect_matchings": 1496523600,
+  "m3_marked_44_to_42_pairs_all_perfect_matchings": 7482618000,
+  "independent_review": "NOT_REVIEWED",
+  "model_scope": "auxiliary unsigned only; native signed P000/BRC lift remains open",
+  "failed_assertions": 0
+}
