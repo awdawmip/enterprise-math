@@ -1,0 +1,60 @@
+{
+  "schema": "EM_T6_P13_Q9_SPLIT1_8_NEG_LEN8_AUTHOR_EXACT_CERT_V1",
+  "date_local": "2026-11-23",
+  "frozen_task_commit": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "frozen_task_path": "research_tasks/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260909.md",
+  "prime": 13,
+  "valuation": 1,
+  "q_order": 9,
+  "split": [
+    1,
+    8
+  ],
+  "positive_pattern": [
+    1
+  ],
+  "negative_pattern": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "side_mass_cap": 2331,
+  "source_lattice_index": "13^21",
+  "min_gs_diagonal_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "max_necessary_radius_sq": 5402189,
+  "two_side_weighted_radius_sq_upper_bound": 10867122,
+  "signed_congruences": "sum_r u_r*r^(-j)+sum_pos(13q+r)^(-j)-sum_neg(13q+r)^(-j)=0 mod 13^j for j=1..6",
+  "full_rosters": 75582,
+  "positive_choices": 12,
+  "original_signed_pairs": 906984,
+  "common_atom_canceled": 381888,
+  "vertical_mass_exceeded": 15299,
+  "support_disjoint_budget_eligible_pairs": 509797,
+  "rational_gs_nodes": 1226211,
+  "affine_ball_leaves": 0,
+  "original_budget_legal": 0,
+  "negative_mass_formula": "1344+13*sum(negative_residues); eligible sum<=75",
+  "enumeration": "combinations_with_replacement(residues=1..12,length=8), lexicographic",
+  "roster_digest_method": "sha256 of each roster as json.dumps(tuple((1,r)...),separators=(',',':')) followed by '\\n'",
+  "roster_sha256": "683a103772eda5ef86981dda7e0f8d3bf319f8e9a92b5b7419ae9ef446800f73",
+  "witnesses": [],
+  "execution": {
+    "method": "local compiled C++17 with GMP rational exact arithmetic from existing saturated q0 lattice and HNF/LLL-precomputed coefficients",
+    "elapsed_seconds": 10.5337,
+    "full_run": "EXECUTED",
+    "independent_exact_python_sample": {
+      "pairs": 40,
+      "gs_nodes": 97,
+      "mass_skipped": 4,
+      "ball_leaves": 0
+    },
+    "published_python_replay_full_run": "NOT_PERFORMED"
+  },
+  "scientific_strength": "AUTHOR_EXACT_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "scope": "p13 valuation-one signed q9 split(1,8) negative length8 only; common cancellation reduced to earlier negative length7 cases; does not imply global T6 or Native admission"
+}
