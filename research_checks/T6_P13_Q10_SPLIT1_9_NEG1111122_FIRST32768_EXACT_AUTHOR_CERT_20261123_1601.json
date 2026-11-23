@@ -1,0 +1,325 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT1_9_NEG1111122_PARTIAL_AUTHOR_EXACT_V1",
+  "authored_at": "2026-11-23T16:01:00+08:00",
+  "scientific_input_pin": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "research_conversation": "chatgpt-research-onhour-enterprise-math-20260923",
+  "nature": "Portable author exact finite source evidence, not Native PROGRESS/Result/Driver review",
+  "pattern": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    2,
+    2
+  ],
+  "total_named_rosters": 340704,
+  "source_order_interval": [
+    0,
+    32768
+  ],
+  "ordered_rosters": "product(combinations_with_replacement(range(1,13),5),combinations_with_replacement(range(1,13),2))",
+  "positive_choices": "pos=((1,r),) for r=1..12 in ascending order",
+  "denominators": "13*(13*q+r)",
+  "vertical_weight": "169*q+13*r-1",
+  "q0_weight": "13*r-1",
+  "original_side_mass_cap": 2331,
+  "congruence_moduli": [
+    13,
+    169,
+    2197,
+    28561,
+    371293,
+    4826809
+  ],
+  "saturated_q0_lattice_index": "13^21",
+  "saturated_weighted_lll_gs_min_diagonal_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "integer_lattice_search": "Exact rational weighted LLL GS from reused author source T6_P13_Q9_SPLIT1_8_NEG_LEN1TO4_EXACT_REPLAY_20261123.py, enumerate floor/ceil for each GS coordinate, check radius (2331-M_pos_vertical)^2+(2331-M_neg_vertical)^2, verify 6 congruences and both side masses for each sphere leaf.",
+  "source_pair_digest_definition": "sha256 of Python repr((pos_tuple, neg_tuple))+'\\n' for every ordered raw signed pair in interval, using canonical generated tuples",
+  "intervals": [
+    {
+      "range": [
+        0,
+        8192
+      ],
+      "raw_pairs": 98304,
+      "common_cancel": 23720,
+      "vertical_overbudget": 0,
+      "gs_searches": 74584,
+      "gs_nodes": 180841,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "sha256": "67a32f67f6168d5b877f08d76a499f679475fceb83ef4a1f939f6ca75b49098f"
+    },
+    {
+      "range": [
+        8192,
+        9216
+      ],
+      "raw_pairs": 12288,
+      "common_cancel": 3940,
+      "vertical_overbudget": 0,
+      "gs_searches": 8348,
+      "gs_nodes": 20136,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "sha256": "a70e75815bea8e0378f3634713658a8a36b8f0a04d2dabdb77f3d4b52cfa47f4"
+    },
+    {
+      "range": [
+        9216,
+        16384
+      ],
+      "raw_pairs": 86016,
+      "common_cancel": 25786,
+      "vertical_overbudget": 0,
+      "gs_searches": 60230,
+      "gs_nodes": 144779,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "sha256": "e28037880297e5a949117d2ae3d176fdd68fbb02d98f4214a0f4071a7f7b74b5"
+    },
+    {
+      "range": [
+        16384,
+        24576
+      ],
+      "raw_pairs": 98304,
+      "common_cancel": 29258,
+      "vertical_overbudget": 0,
+      "gs_searches": 69046,
+      "gs_nodes": 164652,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "sha256": "8277fda030940257173e9c066e9e2a679c2119d07579fcf612ce2a4f705f9b0b"
+    },
+    {
+      "range": [
+        24576,
+        32768
+      ],
+      "raw_pairs": 98304,
+      "common_cancel": 28704,
+      "vertical_overbudget": 0,
+      "gs_searches": 69600,
+      "gs_nodes": 167234,
+      "ball_leaves": 3,
+      "budget_valid": 0,
+      "sha256": "b608e803cf611633afec858ddee463de71d9883cba1d21034e1f8462a9f92efb"
+    }
+  ],
+  "complete_original_pair_count": 393216,
+  "totals": {
+    "raw_pairs": 393216,
+    "common_cancel": 111408,
+    "vertical_overbudget": 0,
+    "gs_searches": 281808,
+    "gs_nodes": 677642,
+    "ball_leaves": 3,
+    "budget_valid": 0
+  },
+  "independent_checks": "Separate direct named-atom enumeration exactly matched raw_pairs/common_cancel/overbudget/GS cardinalities. Separate direct recomputation of original both-side costs and all six modular residues verified every sphere witness.",
+  "witnesses": [
+    {
+      "negative_roster_index": 26338,
+      "pos": [
+        [
+          1,
+          2
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          8
+        ]
+      ],
+      "u": [
+        -18,
+        -9,
+        -11,
+        15,
+        2,
+        -13,
+        -6,
+        12,
+        -2,
+        -2,
+        6,
+        -1
+      ],
+      "masses": [
+        3175,
+        5144
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    },
+    {
+      "negative_roster_index": 27030,
+      "pos": [
+        [
+          1,
+          12
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          5
+        ]
+      ],
+      "u": [
+        24,
+        -3,
+        5,
+        17,
+        10,
+        7,
+        7,
+        -5,
+        -2,
+        1,
+        6,
+        3
+      ],
+      "masses": [
+        4924,
+        2869
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    },
+    {
+      "negative_roster_index": 27259,
+      "pos": [
+        [
+          1,
+          5
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          8
+        ]
+      ],
+      "u": [
+        -25,
+        8,
+        28,
+        -2,
+        -1,
+        3,
+        6,
+        -1,
+        -10,
+        -5,
+        1,
+        -5
+      ],
+      "masses": [
+        2410,
+        5235
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    }
+  ],
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED/UNREVIEWED/NOT_ADMITTED",
+  "completion_claim": "Source-ordered interval [0,32768) only; remaining [32768,340704) UNVISITED"
+}
