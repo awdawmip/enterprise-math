@@ -1,0 +1,73 @@
+{
+  "schema": "EC49FYC_ROOT_ROW1_EXACT_15_V1",
+  "date": "2026-11-23",
+  "frozen_scientific_pin": "BRC16943",
+  "status": "ALL_PASS",
+  "domain": {
+    "primitive_directions": 72,
+    "support_masks": 50,
+    "states": 600,
+    "sites": 110
+  },
+  "lower_bound": {
+    "base_full_mask": 788,
+    "support_rows": [
+      2,
+      4,
+      8,
+      9
+    ],
+    "eleven_hole_columns": 11,
+    "strict_full_supermasks": [
+      789,
+      828,
+      980
+    ],
+    "disjoint_extra_rows": [
+      [
+        0
+      ],
+      [
+        3,
+        5
+      ],
+      [
+        6,
+        7
+      ]
+    ],
+    "forbidden_row": 1,
+    "required_useful_reads": 14,
+    "statement": "Any row-1 read on path for (788,-1) forces at least 15 total queries."
+  },
+  "upper_bound": {
+    "first_query": [
+      1,
+      0
+    ],
+    "seed": 1,
+    "tie_priority": "xorshift32 Fisher-Yates",
+    "max_depth": 15,
+    "total_leaf_depth": 6516,
+    "uniform_mean_exact": "6516/600",
+    "first_no": 314,
+    "first_yes": 286,
+    "internal_nodes": 599,
+    "leaves": 600,
+    "validated_paths": 600,
+    "leaf_depth_histogram": {
+      "7": 49,
+      "8": 64,
+      "9": 125,
+      "10": 76,
+      "11": 50,
+      "12": 50,
+      "13": 50,
+      "14": 64,
+      "15": 72
+    }
+  },
+  "theorem": "Q_root_row1 = 15 for any first site (1,j), 0<=j<11",
+  "unrestricted": "Q in {14,15}, still open",
+  "verification": "Full integer 72-to-50 P10 atlas and all 600 state paths; analytical 11+3+1 witness."
+}
