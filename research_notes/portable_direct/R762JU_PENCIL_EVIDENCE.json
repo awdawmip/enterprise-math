@@ -1,0 +1,53 @@
+{
+  "schema": "R762JU_EXACT_CONSTRUCTIVE_CHECK_V1",
+  "source": "R762JU_PENCIL_PARITY_REPAIR_VERIFY.py",
+  "p000_relation": "composite Port-Euler only; no signed native P000/BRC lift",
+  "fixed_pencil_colors": [
+    "012",
+    "013",
+    "014",
+    "015"
+  ],
+  "proof_scope": "All four-singleton pencils whose common active Port is disjoint from the matching of inactive Ports; all other color multiplicities >=2. 42-event exact cross-check below.",
+  "cases": [
+    {
+      "inactive_ports": 0,
+      "representative_missing_ports": [],
+      "port_count": 15,
+      "forced_components": 15,
+      "rainbow_edges": 13,
+      "parity_tree_edges": 13,
+      "inventories_exactly_checked": 8008,
+      "status": "PASS"
+    },
+    {
+      "inactive_ports": 1,
+      "representative_missing_ports": [
+        "23"
+      ],
+      "port_count": 14,
+      "forced_components": 10,
+      "rainbow_edges": 8,
+      "parity_tree_edges": 12,
+      "inventories_exactly_checked": 8008,
+      "status": "PASS"
+    },
+    {
+      "inactive_ports": 2,
+      "representative_missing_ports": [
+        "23",
+        "45"
+      ],
+      "port_count": 13,
+      "forced_components": 6,
+      "rainbow_edges": 4,
+      "parity_tree_edges": 11,
+      "inventories_exactly_checked": 8008,
+      "status": "PASS"
+    }
+  ],
+  "total_exact_42_event_realizations_checked": 24024,
+  "prior_nonpencil_lemma": "R762JT_PORT44_T7D10S3_UNIFORM42.md, draft PR 2990; not independently re-reviewed here",
+  "status": "AUTHOR_PROVED_LOCAL_EXACT_CHECK_NOT_REVIEWED",
+  "next": "Inspect five-singleton color sets; independent audit of predecessor R762JT non-pencil finite lemmas."
+}
