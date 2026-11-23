@@ -1,0 +1,287 @@
+{
+  "schema": "X6_R129_CLASSIII_PORT10_FULL_POSITIVE_D_RAY_CERTIFICATE",
+  "status": "AUTHOR_EXACT_FRACTION_PASS_NOT_INDEPENDENTLY_REVIEWED",
+  "date": "2026-11-23",
+  "frozen_science": {
+    "population": "0<q(a)<=10, unoriented a~(-a) only, integer triple (x,y,z)",
+    "heights": [
+      "0",
+      "x+3y+6z",
+      "3x+12y+30z",
+      "7x+39y+126z"
+    ],
+    "pairs": [
+      "01",
+      "02",
+      "03",
+      "12",
+      "13",
+      "23"
+    ],
+    "weights": [
+      "136",
+      "8",
+      "176",
+      "D>0"
+    ],
+    "optimizer_source": "awdawmip/enterprise-math@8085ff663b5987c58a1bc0a4a3b1d7da3a1d89fd",
+    "near_envelope_source": "awdawmip/enterprise-math@0687aa24f5402da3b35f914dd6907967a9805b94"
+  },
+  "exact_coverage": {
+    "full_unoriented_directions": 1935,
+    "optimizer_bank_rows": 18,
+    "near_envelope_rows": 20,
+    "positive_candidate_roots": 753,
+    "open_intervals_checked": 754,
+    "root_points_checked": 753,
+    "full_population_crosschecks": 17,
+    "arithmetic": "exact rational cross-multiplication; Python fractions.Fraction"
+  },
+  "optimizer_branches": [
+    [
+      "0<D<=8",
+      "3/(D+136)"
+    ],
+    [
+      "8<=D<=280",
+      "1/48"
+    ],
+    [
+      "280<=D<=544",
+      "6/(D+8)"
+    ],
+    [
+      "544<=D<=1096",
+      "1/92"
+    ],
+    [
+      "D>=1096",
+      "12/(D+8)"
+    ]
+  ],
+  "near_events": [
+    {
+      "d": "184",
+      "left": 2,
+      "at": 2,
+      "right": 8,
+      "add": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          3,
+          -1
+        ],
+        [
+          5,
+          -4,
+          1
+        ],
+        [
+          5,
+          -1,
+          0
+        ],
+        [
+          7,
+          -1,
+          0
+        ],
+        [
+          9,
+          -5,
+          1
+        ]
+      ],
+      "remove": []
+    },
+    {
+      "d": "304",
+      "left": 8,
+      "at": 6,
+      "right": 6,
+      "add": [],
+      "remove": [
+        [
+          1,
+          3,
+          -1
+        ],
+        [
+          7,
+          -1,
+          0
+        ]
+      ]
+    },
+    {
+      "d": "406",
+      "left": 6,
+      "at": 5,
+      "right": 5,
+      "add": [],
+      "remove": [
+        [
+          4,
+          -4,
+          1
+        ]
+      ]
+    },
+    {
+      "d": "424",
+      "left": 5,
+      "at": 4,
+      "right": 4,
+      "add": [],
+      "remove": [
+        [
+          6,
+          -1,
+          0
+        ]
+      ]
+    },
+    {
+      "d": "544",
+      "left": 4,
+      "at": 3,
+      "right": 3,
+      "add": [],
+      "remove": [
+        [
+          9,
+          -5,
+          1
+        ]
+      ]
+    },
+    {
+      "d": "728",
+      "left": 3,
+      "at": 3,
+      "right": 5,
+      "add": [
+        [
+          4,
+          -1,
+          0
+        ],
+        [
+          6,
+          -4,
+          1
+        ]
+      ],
+      "remove": []
+    },
+    {
+      "d": "1288",
+      "left": 5,
+      "at": 4,
+      "right": 4,
+      "add": [],
+      "remove": [
+        [
+          5,
+          -1,
+          0
+        ]
+      ]
+    },
+    {
+      "d": "1648",
+      "left": 4,
+      "at": 2,
+      "right": 2,
+      "add": [],
+      "remove": [
+        [
+          1,
+          0,
+          0
+        ],
+        [
+          5,
+          -4,
+          1
+        ]
+      ]
+    },
+    {
+      "d": "2584",
+      "left": 2,
+      "at": 1,
+      "right": 1,
+      "add": [],
+      "remove": [
+        [
+          4,
+          -1,
+          0
+        ]
+      ]
+    }
+  ],
+  "optimizer_formula_switches": [
+    "8",
+    "280",
+    "544",
+    "1096"
+  ],
+  "D_185": {
+    "optimum": "1/48",
+    "near": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        3,
+        -1
+      ],
+      [
+        4,
+        -4,
+        1
+      ],
+      [
+        5,
+        -4,
+        1
+      ],
+      [
+        5,
+        -1,
+        0
+      ],
+      [
+        6,
+        -1,
+        0
+      ],
+      [
+        7,
+        -1,
+        0
+      ],
+      [
+        9,
+        -5,
+        1
+      ]
+    ]
+  },
+  "evidence_scope": "Independent full-population checks at all nine membership thresholds and all four formula thresholds plus extra points; all 753 roots and 754 open intervals solved using exact bank/envelope reduction and equality-root completeness.",
+  "limitations": [
+    "conditional six-pair observer, not native X6 time evolution",
+    "not reviewed independently",
+    "no formal task CLAIM, Result, Review or Foundation promotion"
+  ]
+}
