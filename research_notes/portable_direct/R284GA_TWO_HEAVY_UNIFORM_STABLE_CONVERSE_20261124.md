@@ -25,9 +25,9 @@ These histograms are **exactly** the affine-lifted families of R284FZ, rather th
 For pair (i,j), let D_ij be the nonconstant types where phase i and j differ. In pair order (01),(02),(03),(12),(13),(23), they are:
 
     D_01={1,3,5,7}, D_02={2,3,6,7}, D_03={4,5,6,7},
-    D_12={1,2,5,6}, D_13={2,3,4,5}, D_23={1,3,4,6}.
+    D_12={1,2,5,6}, D_13={1,3,4,6}, D_23={2,3,4,5}.
 
-(The last two sets are interchangeable if pairs are reordered; the verifier constructs them from the actual phase bits rather than trusting this display.) Every D_ij meets every two-element subset G⊂{3,5,6}. Let h=|D_ij∩G|≥1. The existing nominal distance threshold is Σ_{p∈D}x_p≥2q+c, with c=5 for cyclic neighbors and c=3 for opposites. If h=1, this is exactly Σ_{p∈D}z_p≥c. If h=2, it holds automatically since Σ_{p∈D}x_p≥4q+4>2q+5. Therefore all nominal necessities become independent of q.
+The verifier constructs all sets directly from the three phase bits, independently of the display. Every D_ij meets every two-element subset G⊂{3,5,6}. Let h=|D_ij∩G|≥1. The existing nominal distance threshold is Σ_{p∈D}x_p≥2q+c, with c=5 for cyclic neighbors and c=3 for opposites. If h=1, this is exactly Σ_{p∈D}z_p≥c. If h=2, it holds automatically since Σ_{p∈D}x_p≥4q+4>2q+5. Therefore all nominal necessities become independent of q.
 
 Now form the exact eight-vertex bipartite residual-incidence graph of R284FM: four source last-write groups and four target last-write groups, each with omission capacity q. For any nonempty vertex subset U, let M_U be the types whose two incidence endpoints belong to U, let m=|U|, and let h=|M_U∩G|. Radius-one stable read balls are disjoint for a pair precisely when some U satisfies
 
