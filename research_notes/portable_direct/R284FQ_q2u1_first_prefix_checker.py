@@ -17,7 +17,7 @@ N,Q,U=15,2,1
 PAT={}
 for p in range(1,8):
     bits=(0,p&1,(p>>1)&1,(p>>2)&1)
-    changed={e for e in range(4) if bits[e]!=bits[(e+1)%4]}
+    changed={e for e in range(4) if bits[e]!=bits[(e-1)%4]}
     last=tuple(next((i-t)%4 for t in range(4)
                     if (i-t)%4 in changed) for i in range(4))
     PAT[p]=(bits,last)
