@@ -1,0 +1,116 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT2_8_NEG_LEN4_1115_AUTHOR_EXACT_CERT_V1",
+  "as_of": "2026-11-23T17:45:00+08:00",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "logical_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "signed_q10_split": [
+    2,
+    8
+  ],
+  "positive_q_patterns": [
+    [
+      2
+    ],
+    [
+      1,
+      1
+    ]
+  ],
+  "positive_named_roster_count": 90,
+  "negative_q_pattern": [
+    1,
+    1,
+    1,
+    5
+  ],
+  "negative_named_roster_count": 4368,
+  "raw_original_signed_pairs": 393120,
+  "common_named_atom_cancellation": 125280,
+  "vertical_original_mass_excess": 0,
+  "exact_gs_searches": 267840,
+  "gs_nodes": 592032,
+  "relaxed_sphere_witnesses": 1,
+  "both_original_side_mass_valid": 0,
+  "source_order": "negative product(combinations_with_replacement(range(1,13),3),combinations_with_replacement(range(1,13),1)); positive [(2,r),r1..12] then [(1,r1),(1,r2),1<=r1<=r2<=12]",
+  "pair_digest_sha256": "26060826873bce2d54672b32be6c450f8b25e9697f445d380a636640b5313ba9",
+  "denominator": "13*(13q+r)",
+  "q0_weight": "13r-1",
+  "vertical_weight": "169q+13r-1",
+  "both_side_budget": 2331,
+  "all_six_moduli": [
+    13,
+    169,
+    2197,
+    28561,
+    371293,
+    4826809
+  ],
+  "saturated_q0_lattice_index": "13^21",
+  "method": "Reuses exact rational HNF/LLL weighted 12D p13 q0 saturated lattice and explicit six mixed congruences. GS min diagonal square >2*2331^2 implies nearest two integer branches per coefficient suffice for necessary weighted ball. Every noncommon named signed pair tested against both original budgets.",
+  "full_signed_witnesses": [
+    {
+      "negative_roster_index": 2619,
+      "positive_roster_index": 14,
+      "pos": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          5,
+          4
+        ]
+      ],
+      "u": [
+        18,
+        37,
+        5,
+        -12,
+        2,
+        0,
+        1,
+        -2,
+        -5,
+        -2,
+        8,
+        1
+      ],
+      "masses": [
+        3228,
+        3290
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    }
+  ],
+  "crosscheck": "Original full signed witness both masses and six residue modular calculations independently verified; PASS",
+  "scientific_strength": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "native_semantic_progress": "NOT_PUBLISHED",
+  "next_unfinished": "q10 signed split(2,8), next negative length4 pattern (1,1,2,4), then (1,1,3,3),(1,2,2,3),(2,2,2,2) and length5..8."
+}
