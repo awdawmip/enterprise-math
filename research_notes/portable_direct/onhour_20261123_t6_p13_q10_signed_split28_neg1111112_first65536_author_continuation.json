@@ -1,0 +1,161 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_AUTHOR_CONTINUATION_V1",
+  "as_of": "2026-11-23",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "mother_hard_target": "Signed H0..H6 global threshold T6=2332 OPEN",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_lane_excluded": "chatgpt-hourly-enterprise-math-20260921",
+  "scientific_evidence_status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "completed_science": [
+    {
+      "scope": "p13 v13=1 q10 split(2,8) negative pattern q111122",
+      "negative_rosters": [
+        0,
+        106470
+      ],
+      "raw_pairs": 9582300,
+      "ball_witnesses": 14,
+      "budget_valid": 0,
+      "certificate_commit": "d9f7c66674b09b1d81a08316563dd63783e640dd",
+      "existing_before_this_run": true
+    },
+    {
+      "scope": "p13 v13=1 q10 split(2,8) negative pattern q1111112",
+      "negative_rosters": [
+        0,
+        4096
+      ],
+      "raw_pairs": 368640,
+      "gs_nodes": 472471,
+      "ball_witnesses": 2,
+      "budget_valid": 0,
+      "certificate_commit": "f01f93ba16129c2f2ea4b6042bf5f2414a13d016",
+      "existing_before_this_run": true
+    },
+    {
+      "scope": "p13 v13=1 q10 split(2,8) negative pattern q1111112",
+      "negative_rosters": [
+        4096,
+        12288
+      ],
+      "raw_pairs": 737280,
+      "gs_nodes": 806315,
+      "ball_witnesses": 1,
+      "budget_valid": 0,
+      "certificate_commit": "6b771974e79b9a51ab7e53b20f38d76139c61124",
+      "certificate_path": "research_checks/T6_P13_Q10_SPLIT2_8_NEG1111112_4096_12288_AUTHOR_EXACT_CERT_20261123.json"
+    },
+    {
+      "scope": "p13 v13=1 q10 split(2,8) negative pattern q1111112",
+      "negative_rosters": [
+        12288,
+        20480
+      ],
+      "raw_pairs": 737280,
+      "gs_nodes": 815255,
+      "ball_witnesses": 2,
+      "budget_valid": 0,
+      "certificate_commit": "7597d65d74933cfa7c7f134799bc3116512acc5f",
+      "certificate_path": "research_checks/T6_P13_Q10_SPLIT2_8_NEG1111112_12288_20480_AUTHOR_EXACT_CERT_20261123.json"
+    },
+    {
+      "scope": "p13 v13=1 q10 split(2,8) negative pattern q1111112",
+      "negative_rosters": [
+        20480,
+        32768
+      ],
+      "raw_pairs": 1105920,
+      "gs_nodes": 1047669,
+      "ball_witnesses": 0,
+      "budget_valid": 0,
+      "certificate_commit": "95c8f92b13b39234261bc2dcf7105ed1d8d69e68",
+      "certificate_path": "research_checks/T6_P13_Q10_SPLIT2_8_NEG1111112_20480_32768_AUTHOR_EXACT_CERT_20261123.json"
+    },
+    {
+      "scope": "p13 v13=1 q10 split(2,8) negative pattern q1111112",
+      "negative_rosters": [
+        32768,
+        49152
+      ],
+      "raw_pairs": 1474560,
+      "gs_nodes": 1467035,
+      "ball_witnesses": 0,
+      "budget_valid": 0,
+      "certificate_commit": "ff568892c7c45837cc402b259333584ac1ac8e06",
+      "certificate_path": "research_checks/T6_P13_Q10_SPLIT2_8_NEG1111112_32768_49152_AUTHOR_EXACT_CERT_20261123.json"
+    },
+    {
+      "scope": "p13 v13=1 q10 split(2,8) negative pattern q1111112",
+      "negative_rosters": [
+        49152,
+        65536
+      ],
+      "raw_pairs": 1474560,
+      "gs_nodes": 1700185,
+      "ball_witnesses": 2,
+      "budget_valid": 0,
+      "certificate_commit": "51f306ee367e69b529e0b489294b54c4e110c486",
+      "certificate_path": "research_checks/T6_P13_Q10_SPLIT2_8_NEG1111112_49152_65536_AUTHOR_EXACT_CERT_20261123.json"
+    }
+  ],
+  "latest_cumulative_pattern_1111112": {
+    "negative_rosters_completed": [
+      0,
+      65536
+    ],
+    "negative_rosters_total": 148512,
+    "positive_rosters_per_negative": 90,
+    "raw_signed_pairs": 5898240,
+    "common_named_atom_cancellations": 2968788,
+    "exact_gs_searches": 2929452,
+    "exact_gs_nodes": 6308930,
+    "modular_ball_witnesses": 7,
+    "both_side_original_mass_valid": 0,
+    "provenance_note": "These counts are for exact processed and lower-order canceled pairs in specified source domain; lower-order cancellation depends on previously established reductions."
+  },
+  "this_run_new": {
+    "negative_range": [
+      4096,
+      65536
+    ],
+    "rosters": 61440,
+    "raw_signed_pairs": 5529600,
+    "cancellations": 2815976,
+    "gs_searches": 2713624,
+    "gs_nodes": 5836459,
+    "ball_witnesses": 5,
+    "budget_valid": 0
+  },
+  "next_scientific_action": "Continue exact q1111112 source-negative index [65536,148512), 82976 remaining named rosters x90=7467840 signed pairs; preserve full mixed H1..H6 13-adic, signed q0, original side budget CAP2331, exact integer/Frac and digests. Checkpoint and readback after substantive units; after full family finish other actual T6 targets. Do not rerun completed source [0,65536).",
+  "unresolved_obligations": [
+    "Native T6 p17 q14 preflight current Source owner and claim remain separately attributed; no Native execution authority assumed from portable p13 evidence",
+    "Independent verification of original finite exhaustive algorithm, source proofs and rerunning author calculations pending",
+    "Original Activity328 attribution remains unresolved; do not transfer historical work to new RA without genuine contributor provenance",
+    "Other p13 families, lower primes, H0 and global signed T6 hard target OPEN"
+  ],
+  "no_repeat": [
+    "q111122 [0,106470) fully author-closed",
+    "q1111112 [0,65536) exact checked",
+    "Prior source accepted p19/q0/q1..q4 and Native p17 q14 are preserved separate"
+  ],
+  "control": {
+    "registration_request_id": "onhour-20261123-2111-research-own-session-start-v1",
+    "registration_result": "SUCCEEDED / error=null",
+    "own_researcher_id": "EM-DIRECT-D03BC9",
+    "own_session_id": "MCP-7f3df4435e40430b832e8d5ff2137718",
+    "own_research_activity_id": "RA-A468735D7C934B25C4B9614F",
+    "research_activity_registration_commit": "8c652f9d4d60d6dd2c14723b6c3af5f6086e2574",
+    "session_transport": "SITES_HOST_MANAGED_PRIVATE_CAPABILITY",
+    "own_claim": "NOT_VERIFIED",
+    "own_run": "NOT_VERIFIED",
+    "native_progress": "NOT_PUBLISHED",
+    "original_native_continuation": "onhour-20261123-1958-t6-exact-cont-ro-v1 SUCCEEDED read-only and p17 q14 task preflight independent",
+    "last_verified_client_checkpoint": {
+      "revision": 62,
+      "request_id": "onhour-20261123-2118-t6-q1111112-first32768-r62-v1"
+    },
+    "research_activity_checkpoint": "TO_BE_ASSOCIATED_ON_CURRENT_SOURCE"
+  },
+  "source_pin_preserved": true
+}
