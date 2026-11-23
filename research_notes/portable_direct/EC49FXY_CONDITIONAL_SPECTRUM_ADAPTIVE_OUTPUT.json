@@ -1,0 +1,100 @@
+{
+  "schema": "EC49FXY_CONDITIONAL_ADAPTIVE_V1",
+  "frozen_pin": "BRC16943",
+  "result": "ALL_PASS",
+  "normalized_states": 600,
+  "indexed_spectra": 478,
+  "doubleton_fibers": 122,
+  "original_integer_C11_checks": 66000,
+  "height_distance_cases": 15180,
+  "feasible_cases": 3880,
+  "infeasible_cases": 11300,
+  "physical_pair_distance_checks": 232940,
+  "min_support_by_height": [
+    {
+      "H": 2,
+      "mu": null
+    },
+    {
+      "H": 14,
+      "mu": 40
+    },
+    {
+      "H": 16,
+      "mu": 20
+    }
+  ],
+  "sample_heights": {
+    "2": {
+      "pairs": 0,
+      "minimum": null
+    },
+    "13": {
+      "pairs": 0,
+      "minimum": null
+    },
+    "14": {
+      "pairs": 1,
+      "minimum": 40
+    },
+    "15": {
+      "pairs": 2,
+      "minimum": 40
+    },
+    "16": {
+      "pairs": 4,
+      "minimum": 20
+    },
+    "22": {
+      "pairs": 11,
+      "minimum": 20
+    },
+    "44": {
+      "pairs": 62,
+      "minimum": 20
+    },
+    "52": {
+      "pairs": 83,
+      "minimum": 20
+    },
+    "64": {
+      "pairs": 111,
+      "minimum": 20
+    },
+    "139": {
+      "pairs": 122,
+      "minimum": 20
+    }
+  },
+  "initial_pair_certificates": [
+    {
+      "H": 14,
+      "G": 792,
+      "z": 8,
+      "delta_size": 40
+    },
+    {
+      "H": 15,
+      "G": 198,
+      "z": 10,
+      "delta_size": 40
+    },
+    {
+      "H": 16,
+      "G": 264,
+      "z": 9,
+      "delta_size": 20
+    },
+    {
+      "H": 16,
+      "G": 660,
+      "z": 4,
+      "delta_size": 40
+    }
+  ],
+  "theorem": "for H<=13 cost0; H14-15 cost r up to40 else impossible; H>=16 cost r up to20 else impossible",
+  "conditional_on": "complete indexed reflection-defect spectrum revealed before selecting Boolean sites",
+  "not_priced": "cost of obtaining the complete indexed spectrum",
+  "status": "AUTHOR_PROVED / EXACT_INTEGER_CROSSCHECK / PARENT_DEPENDENT / NOT_REVIEWED",
+  "native_x6_transfer": "NOT_CLAIMED"
+}
