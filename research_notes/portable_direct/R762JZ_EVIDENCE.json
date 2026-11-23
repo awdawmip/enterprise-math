@@ -1,0 +1,113 @@
+{
+  "schema": "EM_R762JZ_ALL_ACTIVE_EULER_EVIDENCE_V1",
+  "date": "2026-11-23",
+  "model": "UNSIGNED_COMPOSITE_15_PORT_20_COLOR_EULER",
+  "predecessor_commit": "3d230a3d4cf5436cdf2f98aeee3670e12fb88d0c",
+  "counts": {
+    "axes": 6,
+    "ports": 15,
+    "colors": 20,
+    "events": 42,
+    "singleton_colors": 5,
+    "triple_colors": 7,
+    "double_colors": 8,
+    "axis_permutations": 720,
+    "singleton_subsets": 15504,
+    "singleton_orbits": 43,
+    "triple_selections_per_singleton_subset": 6435,
+    "representative_targets_checked": 276705,
+    "representative_witnesses_verified": 276705,
+    "failures": 0,
+    "labeled_targets_covered": 99768240,
+    "labeled_marked_44_to_42_specs": 498841200
+  },
+  "orbit_sizes": [
+    180,
+    60,
+    180,
+    360,
+    360,
+    180,
+    360,
+    720,
+    360,
+    360,
+    360,
+    720,
+    360,
+    180,
+    360,
+    360,
+    720,
+    360,
+    180,
+    180,
+    60,
+    360,
+    180,
+    360,
+    360,
+    720,
+    360,
+    180,
+    360,
+    180,
+    72,
+    720,
+    360,
+    720,
+    720,
+    120,
+    72,
+    360,
+    720,
+    360,
+    360,
+    720,
+    180
+  ],
+  "exact_runs": [
+    {
+      "start": 0,
+      "end_exclusive": 20,
+      "checked": 128700,
+      "passed": 128700,
+      "labeled_targets": 44401500,
+      "framed_witness_sha256": "606e85f0a87258bd4d41ea27eea823b9fe71b1b060119fae3f6cdd8e946da081"
+    },
+    {
+      "start": 20,
+      "end_exclusive": 40,
+      "checked": 128700,
+      "passed": 128700,
+      "labeled_targets": 47258640,
+      "framed_witness_sha256": "7c2dd216b52eff591b28cfe97fd0155aacb6083b3b8f69ca1783ab4a4cc57527"
+    },
+    {
+      "start": 40,
+      "end_exclusive": 43,
+      "checked": 19305,
+      "passed": 19305,
+      "labeled_targets": 8108100,
+      "framed_witness_sha256": "fac6a4b20203b1299d16f9fffc6cebf8966f633abd5c1d0262f35575c9cd67ad"
+    }
+  ],
+  "reproduction": {
+    "source": "research_notes/portable_direct/R762JZ_M0_ALL_ORBITS_VERIFY.py",
+    "commands": [
+      "python R762JZ_M0_ALL_ORBITS_VERIFY.py --start 0 --end 20",
+      "python R762JZ_M0_ALL_ORBITS_VERIFY.py --start 20 --end 40",
+      "python R762JZ_M0_ALL_ORBITS_VERIFY.py --start 40 --end 43"
+    ],
+    "arithmetic": "exact integers and GF(2)",
+    "coverage": "all D orbits and all 6435 disjoint T choices per orbit; all constructed witnesses checked for legal colored endpoints, exact counts, even positive vertex degrees, full connectivity",
+    "independent_long_implementation": "Local long extractor based on R762JY compared via identical canonical framed SHA256 witnesses across all three runs"
+  },
+  "status": "AUTHOR_EXACT_FINITE_CHECKED_NOT_INDEPENDENTLY_REVIEWED",
+  "limitations": [
+    "M is empty: all 15 Ports active",
+    "Model is a derived unsigned observer rather than primitive signed P000 triadic physics",
+    "BRC ordered provenance not inferred from final multigraph",
+    "Marked 44/42 specifications not asserted to be distinct unmarked 44 multigraphs"
+  ]
+}
