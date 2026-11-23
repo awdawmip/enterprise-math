@@ -1,0 +1,74 @@
+# R284FM — 全局读取噪声的精确残差流割判据及新容量下界
+
+Date: 2026-11-23 (Asia/Shanghai) · Status: AUTHOR_PROVED / FINITE_CROSSCHECKED / NOT_REVIEWED · Mode: TASK_RESEARCH portable, **no formal CLAIM**.
+
+## 1. Research question and fixed scientific scope
+
+Continue R284FL (the all-q sharp bound for u=0), preserving the inherited R284CO frozen scientific inputs. We examine four **fixed, distinct** n-bit words c0,c1,c2,c3 in the repeating cycle 0→1→2→3→0. On edge e the writer attempts the bits whose *nominal targets* change, each once; at most q attempts fail, leaving their preceding physical values unchanged. Errors may survive arbitrarily many cycles. A stable read adds an arbitrary independent observation-flip mask of Hamming weight ≤u; the decoder is stateless. Full correctness includes stable-phase separation, no third-phase success during a write prefix, and no success rollback. This note solves the stable-phase subproblem exactly, and deduces a necessary full-protocol capacity bound; it does not replace the prefix test.
+
+For phase i and nonconstant bit k, define ell_i(k) as the *last nominal transition edge*, traversed backwards cyclically from i, on which that bit changed. Let S_i be the set of all stable physical words reachable in phase i after any number of cycles, starting from the pristine c0. Let B_u(S_i) be the union of radius-u Hamming balls around S_i.
+
+## 2. Exact all-u capacitated residual-flow theorem
+
+For two distinct phases i,j construct the bipartite **multigraph G_ij**. A coordinate k with c_i[k]≠c_j[k] contributes one edge between left vertex L_(ell_i(k)) and right vertex R_(ell_j(k)), retaining multiplicity. Each side has at most four last-update vertices. Let E(U) count multiedges with **both** endpoints in vertex subset U.
+
+**Theorem R284FM-1 (exact endpoint/noise cut).** For any nonnegative integers q,u and each i≠j,
+
+    B_u(S_i) ∩ B_u(S_j) = ∅
+       iff there exists U⊆V(G_ij) for which |E(U)| > q|U|+2u.
+
+Consequently all four stable phases have mutually disjoint u-noisy readout sets iff this finite inequality succeeds separately for their six phase pairs.
+
+**Proof.** For a fixed phase i, an omission error F is stable-reachable precisely when each last-update group contains ≤q errors: choose those omissions at the last corresponding edge and let all other attempts succeed. Earlier omissions on a given coordinate are erased by its latest successful change, or its old value already agrees with the new target; no other history is relevant to this binary stable-readout claim. Reading adds at most u arbitrary flips. For a readout word y, cancellations in F XOR T can be deleted in pairs, so its disagreement coordinates with c_i can be assigned either to at most q omission slots at each L_e or to one **shared** read-flip budget u for phase i.
+
+On coordinates where c_i and c_j differ, y agrees with exactly one endpoint target; assign each coordinate's disagreement to the opposite phase. Equal-target coordinates may be set equal without consuming budgets. Thus a common readout exists exactly when every multiedge can be assigned to one of its endpoints, with capacity q at each left/right last-update vertex and an extra **global capacity u per whole side**, distributed among that side's endpoints.
+
+Build an integral flow network: each multiedge has unit demand and may feed one of its endpoint vertices; each vertex has a q-capacity outlet and a route to its side's shared u-capacity outlet. Max-flow/min-cut (equivalently capacitated Hall) makes the assignment feasible iff every nonempty set F of edges obeys |F|≤q|N(F)|+2u. Each nonempty F sees both sides, hence exactly two global u outlets. Failure of Hall is equivalent to some vertex set U with |E(U)|>q|U|+2u: given violating F use U=N(F), and conversely take F=E(U). Integral capacities ensure no fractional-only issue. This proves both directions.
+
+**Interpretation.** Observation noise u contributes only twice in total, once per compared phase. Substituting q+u for q *at every last-update vertex* is unsound. For example, in a diagonal K_(2,2) pair with two disjoint edge types of multiplicity two each, q=0,u=1, four differing coordinates cannot be made equal by one flip at either phase, whereas the false local-budget substitution would permit one error per each of four vertices.
+
+## 3. Analytic additive lower bound, valid for every q,u
+
+**Theorem R284FM-2.** Every correct four-phase protocol satisfying §1 has
+
+    n_min(q,u) ≥ 4q+2u+2  for all integers q,u≥0.
+
+Combined with the earlier R284FH necessary bound, this yields the **composite certified necessary bound**
+
+    n_min(q,u) ≥ max(4q+2u+2, 3q+5u+2).
+
+The new branch strictly improves the previous 3q+5u+2 bound when q>3u, and is sharp on u=0 by R284FL's Gray construction. The previous 3q+5u+2 premise is inherited from R284FH, not reproved in this note.
+
+**Proof of the new branch.** Normalize c0=0, ignore all-constant coordinates, and classify each coordinate by its nonzero 3-bit pattern p=(c1[k],c2[k],c3[k]) with multiplicity x_p (p=1,…,7). Pairwise disjoint noisy endpoint balls require the basic distance d(c_i,c_j)≥2(q+u)+1: each phase can realize every error set of size ≤q and then flip ≤u more bits. Suppose by contradiction n≤4q+2u+1. Every pattern has some pair of phases with equal value on that pattern, so x_p≤n−(2q+2u+1)≤2q.
+
+For diagonal pair (0,2), the graph is K_(2,2) with edge types {2,3,6,7}; for (1,3) the types are {1,3,4,6}. In each graph the two common types {3,6} are **disjoint edges**, not adjacent edges. By R284FM-1, a separation witness U comprising two, three or four vertices must have respectively at least 2q+2u+1, 3q+2u+1, or 4q+2u+1 internal multiedges. A two-vertex witness is impossible since x_p≤2q.
+
+If either diagonal graph has a four-vertex witness, its four pattern classes consume ≥4q+2u+1=n coordinates, so every other pattern is absent. The other diagonal graph now has only disjoint classes {3,6}, each of multiplicity ≤2q. No subset of its vertices beats q|U|+2u, a contradiction.
+
+Thus each diagonal graph must have a three-vertex witness: two *adjacent* pattern classes totaling at least 3q+2u+1. Denote these two-element pattern sets A and B for the two graphs. Since their pattern supports overlap only on {3,6}, which are nonadjacent in both graphs, A∩B contains at most one pattern; its multiplicity is at most 2q. Therefore
+
+    n ≥ Σ_(p∈A)x_p + Σ_(p∈B)x_p − Σ_(p∈A∩B)x_p
+      ≥ (3q+2u+1)+(3q+2u+1)−2q
+      = 4q+4u+2 > 4q+2u+1,
+
+contradiction. Hence n≥4q+2u+2. This proof uses only stable-phase correctness; extra prefix requirements can only increase n.
+
+## 4. Reproducible exact checks
+
+Independent standard-library Python checker: R284FM_observation_noise_flow_checker.py, saved alongside this note.
+
+It implements two mathematically distinct calculations:
+(1) explicit unbounded-history BFS over physical stable states, radius-u flip balls and direct pairwise intersection;
+(2) all at most 8-vertex flow-cut subsets, using last-change groups computed independently from bit patterns.
+
+Complete enumeration of **11,550 ordered four-code tuples** with c0=0 (all distinct c1,c2,c3) under seven configurations (n,q,u)=(3,0,0),(3,1,0),(3,0,1),(4,0,0),(4,1,0),(4,0,1),(4,1,1) found **zero disagreements** between these two calculations. The independent seven-class histogram check at n=4q+2u+1 for q=0,1,2,3 and u=0,1 evaluated **101,046 multiplicity vectors** and found no candidate satisfying both diagonal graph witnesses and all pair distance requirements.
+
+These are finite crosschecks; Theorems R284FM-1 and R284FM-2 are proved by the flow and symbolic combinatorial arguments above. No claim of independent external mathematical review is made.
+
+## 5. Provenance, original ownership, and open direction
+
+Prior scientific frontier: R284FL_ALL_Q_RESET_FREE_OMISSION_SHARP_CAPACITY_20261123.md (immutable project commit 66cd6dcb564dc0d95c5a9536bd61aa2f62d3895e; author's R284CO frozen science preserved); earlier R284FK eight-vertex graph, R284FH bound and four-phase oracle. Current source and account entry rules are behavioral, not a science pin update. P000 and ACTIVE worldview remain untouched.
+
+Scientific status: author-proof / local exact crosscheck / independent review pending. Shared Task CLAIM and source activity linkage require separate successful native authentication and current owner/CAS. These pages must not be construed as a formal Result.
+
+**Next:** combine the all-u six-pair cuts with legal write-prefix/no-rollback constraints to improve the region q≤3u, especially (q,u)=(1,1), where R284FH gives sharp n=12. Search whether a general larger-q, positive-u family can approach the new lower branch, and later incorporate source-bank data omissions and H-lag readers. Retain the exact phase/provenance residual instead of collapsing it into Hamming radius q+u.
