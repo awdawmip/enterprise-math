@@ -1,0 +1,502 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT2_8_NEG1111112_AUTHOR_EXACT_SEGMENTS_V1",
+  "as_of": "2026-11-23",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "author_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "source_kind": "AUTHOR_EXACT_LOCAL_REPLAY_UNREVIEWED",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "source_replay": {
+    "commit": "a15dc9dd00e5d45516463ed4c4905341d8d2357b",
+    "path": "research_checks/T6_P13_Q10_SPLIT2_8_NEG1111112_SLICE_REPLAY_20261123_2000.py",
+    "blob_sha1": "096df77ac608297ad1078844c03dcac2da39678b",
+    "note": "Executed locally a manual transcription preserving the exact HNF/LLL/GS, congruence and roster-order algorithms. Source script's bytes were not executed directly in this runtime; independent replay remains owed."
+  },
+  "parameters": {
+    "p": 13,
+    "valuation": 1,
+    "vertical_order": 10,
+    "signed_split": [
+      2,
+      8
+    ],
+    "negative_pattern": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2
+    ],
+    "positive_patterns": [
+      [
+        2
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "budget_per_side": 2331,
+    "moduli": [
+      13,
+      169,
+      2197,
+      28561,
+      371293,
+      4826809
+    ],
+    "lattice_index": "13^21",
+    "arithmetic": "exact integer and rational",
+    "source_order": "negative q1 combinations_with_replacement(range(1,13),6) times q2 single, positive q2 singleton then q1 combinations_with_replacement(range(1,13),2)"
+  },
+  "negative_index_interval": [
+    123392,
+    148512
+  ],
+  "stats": {
+    "negative_rosters": 25120,
+    "raw_signed_pairs": 2260800,
+    "common_named_cancellations": 1023676,
+    "vertical_original_mass_excess": 11142,
+    "gs_searches": 1225982,
+    "gs_nodes": 2609749,
+    "relaxed_sphere_witnesses": 4,
+    "both_original_side_mass_valid": 0
+  },
+  "segments": [
+    {
+      "negative_index_interval": [
+        123392,
+        125440
+      ],
+      "negative_rosters": 2048,
+      "raw_signed_pairs": 184320,
+      "common_named_cancellations": 95288,
+      "vertical_original_mass_excess": 0,
+      "gs_searches": 89032,
+      "gs_nodes": 190120,
+      "relaxed_sphere_witnesses": 0,
+      "both_original_side_mass_valid": 0,
+      "roster_sha256": "d56c3ff14a83b56bbce76acd8bae4d6c7fc6a263568ca37b25ec22760ea0a9a6",
+      "pair_digest_sha256": "72c2a0b52ddd7626cf95804e7554a2c6d6cb6fc845570dfa038f9a0fb16d6468"
+    },
+    {
+      "negative_index_interval": [
+        125440,
+        129536
+      ],
+      "negative_rosters": 4096,
+      "raw_signed_pairs": 368640,
+      "common_named_cancellations": 162736,
+      "vertical_original_mass_excess": 66,
+      "gs_searches": 205838,
+      "gs_nodes": 438966,
+      "relaxed_sphere_witnesses": 1,
+      "both_original_side_mass_valid": 0,
+      "roster_sha256": "c0c0bc0aeb957193bd2059002d639d49f3f721b38d3f3d048285ec5bd5789b52",
+      "pair_digest_sha256": "203e482cdce33a50e9b91f030c53199daf1105f31b1e000004df6bbf18bc77ef"
+    },
+    {
+      "negative_index_interval": [
+        129536,
+        133632
+      ],
+      "negative_rosters": 4096,
+      "raw_signed_pairs": 368640,
+      "common_named_cancellations": 176392,
+      "vertical_original_mass_excess": 0,
+      "gs_searches": 192248,
+      "gs_nodes": 410307,
+      "relaxed_sphere_witnesses": 1,
+      "both_original_side_mass_valid": 0,
+      "roster_sha256": "7ded243c45307debc2babafa8cf8dd43f643031c65a8eda1a323ae6cf14e4bbe",
+      "pair_digest_sha256": "687a646aa368112aedf220ecde0261ddf1e87672b50624c32a4a6e6e54b4ae69"
+    },
+    {
+      "negative_index_interval": [
+        133632,
+        137728
+      ],
+      "negative_rosters": 4096,
+      "raw_signed_pairs": 368640,
+      "common_named_cancellations": 174240,
+      "vertical_original_mass_excess": 188,
+      "gs_searches": 194212,
+      "gs_nodes": 413255,
+      "relaxed_sphere_witnesses": 1,
+      "both_original_side_mass_valid": 0,
+      "roster_sha256": "5df347c60763d6b8b52cdfc4e4efc2ab89875dcf16b0701792ac2b3c910584b2",
+      "pair_digest_sha256": "75026a38c72ff9d6b57948bc8848dea21be213c25e167ceb4d815865aef921d9"
+    },
+    {
+      "negative_index_interval": [
+        137728,
+        141824
+      ],
+      "negative_rosters": 4096,
+      "raw_signed_pairs": 368640,
+      "common_named_cancellations": 167672,
+      "vertical_original_mass_excess": 0,
+      "gs_searches": 200968,
+      "gs_nodes": 427570,
+      "relaxed_sphere_witnesses": 0,
+      "both_original_side_mass_valid": 0,
+      "roster_sha256": "a6b7317d9544393b805deae973af8eba01f68bd1f8027477b416d11cb3dd91dc",
+      "pair_digest_sha256": "2b4486e5081c369259adf210b1133b614d1306901c6b079225dde79326ce0132"
+    },
+    {
+      "negative_index_interval": [
+        141824,
+        145920
+      ],
+      "negative_rosters": 4096,
+      "raw_signed_pairs": 368640,
+      "common_named_cancellations": 160300,
+      "vertical_original_mass_excess": 637,
+      "gs_searches": 207703,
+      "gs_nodes": 441479,
+      "relaxed_sphere_witnesses": 1,
+      "both_original_side_mass_valid": 0,
+      "roster_sha256": "9d2e53e7c9694ec22d6ff9713b622586b41863da914964138a5ce63e7114df21",
+      "pair_digest_sha256": "c76f6ead387d565415b644c7fbac9cdd20e99c92d173b2deefe3ce076c0d166d"
+    },
+    {
+      "negative_index_interval": [
+        145920,
+        146048
+      ],
+      "negative_rosters": 128,
+      "raw_signed_pairs": 11520,
+      "common_named_cancellations": 3420,
+      "vertical_original_mass_excess": 600,
+      "gs_searches": 7500,
+      "gs_nodes": 15754,
+      "relaxed_sphere_witnesses": 0,
+      "both_original_side_mass_valid": 0,
+      "roster_sha256": "0d620ab14260a31601dfba0de8fa3b7526e378d7c7425d7f7d09e8dc93c5477c",
+      "pair_digest_sha256": "b1ec760ccadefdea650a466cbd652c59052f234625b2987106a05214d89490ac"
+    },
+    {
+      "negative_index_interval": [
+        146048,
+        148512
+      ],
+      "negative_rosters": 2464,
+      "raw_signed_pairs": 221760,
+      "common_named_cancellations": 83628,
+      "vertical_original_mass_excess": 9651,
+      "gs_searches": 128481,
+      "gs_nodes": 272298,
+      "relaxed_sphere_witnesses": 0,
+      "both_original_side_mass_valid": 0,
+      "roster_sha256": "60474bb9f700c9ab94934c23d3fd7dfddec797c760cbb4315555d1110134801f",
+      "pair_digest_sha256": "a484a55327c0176750f02ec8344d37676707c2e205a6a1c2c549b1d10f8e52ae"
+    }
+  ],
+  "witnesses": [
+    {
+      "negative_roster_index": 128235,
+      "positive_roster_index": 9,
+      "pos": [
+        [
+          2,
+          10
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "u": [
+        -72,
+        31,
+        9,
+        3,
+        12,
+        1,
+        10,
+        0,
+        2,
+        5,
+        0,
+        1
+      ],
+      "masses": [
+        4514,
+        2755
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    },
+    {
+      "negative_roster_index": 130393,
+      "positive_roster_index": 36,
+      "pos": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "u": [
+        -10,
+        30,
+        -13,
+        15,
+        5,
+        -7,
+        9,
+        3,
+        2,
+        0,
+        5,
+        5
+      ],
+      "masses": [
+        5098,
+        3044
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    },
+    {
+      "negative_roster_index": 135437,
+      "positive_roster_index": 0,
+      "pos": [
+        [
+          2,
+          1
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "u": [
+        -24,
+        -14,
+        20,
+        18,
+        -2,
+        -4,
+        8,
+        4,
+        -7,
+        -6,
+        -2,
+        0
+      ],
+      "masses": [
+        3160,
+        5069
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    },
+    {
+      "negative_roster_index": 143326,
+      "positive_roster_index": 1,
+      "pos": [
+        [
+          2,
+          2
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          11
+        ]
+      ],
+      "u": [
+        -53,
+        14,
+        9,
+        10,
+        10,
+        -4,
+        -1,
+        -4,
+        2,
+        8,
+        1,
+        -1
+      ],
+      "masses": [
+        3611,
+        3739
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    }
+  ],
+  "prior_cumulative": {
+    "negative_index_interval": [
+      0,
+      123392
+    ],
+    "raw_signed_pairs": 11105280,
+    "common_named_cancellations": 5591660,
+    "gs_searches": 5513620,
+    "gs_nodes": 11837520,
+    "relaxed_sphere_witnesses": 10,
+    "valid": 0,
+    "source": "client checkpoint revision67, prior source certificates; not rerun in this unit"
+  },
+  "combined_family": {
+    "negative_index_interval": [
+      0,
+      148512
+    ],
+    "raw_signed_pairs": 13366080,
+    "common_named_cancellations": 6615336,
+    "vertical_mass_excess_in_new_interval": 11142,
+    "gs_searches": 6739602,
+    "gs_nodes": 14447269,
+    "relaxed_sphere_witnesses": 14,
+    "both_original_side_mass_valid": 0,
+    "conditional_on": "Prior slices [0,123392) retain their own author-grade certificates and complete exact scope. Shared named atom cancellations inherit lower-q reduction."
+  },
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "native_claim": "NOT_ASSERTED",
+  "native_progress": "NOT_PUBLISHED",
+  "global_T6": "OPEN"
+}
