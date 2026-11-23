@@ -1,0 +1,31 @@
+{
+  "schema": "T6_P13_Q9_PARTIAL_PATTERN_AUTHOR_EXACT_CERT_V1",
+  "scientific_pin": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED_PARTIAL_PATTERN_UNREVIEWED_NOT_ADMITTED",
+  "scope": "p13 valuation1 q9 split(0,9), six negative vertical atoms q=(1,1,1,1,2,3), lex nondecreasing residues for repeated q1",
+  "full_pattern_named_rosters": 196560,
+  "range_start_inclusive": 20000,
+  "range_end_exclusive": 80000,
+  "source_indexing": "0-based; python itertools.combinations_with_replacement for four q1 residues in [1,12] then q2 residue ascending then q3 residue ascending; store named q/r, signs, repeat counts",
+  "result": {
+    "raw_named_rosters": 60000,
+    "vertical_over_cap": 0,
+    "exact_gs_nodes": 166642,
+    "sphere_leaves": 0,
+    "budget_valid": 0
+  },
+  "source_order_sha256": "1377296c4f4e49a584e32b46cec990bf04fdc474cd4b226f2361aa399f68600e",
+  "local_json_sha256": "72c299a42dce01dd09599bacab16e45c4f93b5bc6b9aec1ddbb16eda8e1a7844",
+  "original_cap_each_side": 2331,
+  "observer": "six exact mixed congruences mod 13^j derived from H0..H6, j=1..6",
+  "method": "reuse exact p13 saturated q0 12D lattice, rational GS floor/ceil sphere, both mass caps",
+  "exact_arithmetic": "Python Fraction + SymPy integer",
+  "reproducibility": "Published T6_P13_Q9_SPLIT0_9_LEN1TO5_REPLAY_20261123.py exact affine kernel, fixed pattern, source-order slice [20000,80000), no independent postpublication replay",
+  "next_unvisited_source_range": [
+    80000,
+    196560
+  ],
+  "historical_activity": "NO_NEW_EVENT; authorship unresolved",
+  "native_progress": "NOT_PUBLISHED"
+}
