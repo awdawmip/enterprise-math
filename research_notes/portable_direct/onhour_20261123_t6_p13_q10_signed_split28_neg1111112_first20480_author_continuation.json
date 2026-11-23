@@ -1,0 +1,108 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_AUTHOR_CONTINUATION_V1",
+  "as_of": "2026-11-23",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "mother_hard_target": "Signed H0..H6 global threshold T6=2332 OPEN",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_lane_excluded": "chatgpt-hourly-enterprise-math-20260921",
+  "stage": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "completed_science": [
+    {
+      "scope": "p13 valuation1 q10 split(2,8) negative pattern 111122 full",
+      "range": [
+        0,
+        106470
+      ],
+      "original_signed_pairs": 9582300,
+      "balls": 14,
+      "budget_valid": 0,
+      "certificate_commit": "d9f7c66674b09b1d81a08316563dd63783e640dd"
+    },
+    {
+      "scope": "p13 valuation1 q10 split(2,8) negative pattern 1111112",
+      "range": [
+        0,
+        4096
+      ],
+      "raw_signed_pairs": 368640,
+      "gs_nodes": 472471,
+      "balls": 2,
+      "budget_valid": 0,
+      "certificate_commit": "f01f93ba16129c2f2ea4b6042bf5f2414a13d016"
+    },
+    {
+      "scope": "p13 valuation1 q10 split(2,8) negative pattern 1111112",
+      "range": [
+        4096,
+        12288
+      ],
+      "raw_signed_pairs": 737280,
+      "common_named_cancellations": 365624,
+      "exact_gs_searches": 371656,
+      "gs_nodes": 806315,
+      "balls": 1,
+      "budget_valid": 0,
+      "certificate_commit": "6b771974e79b9a51ab7e53b20f38d76139c61124",
+      "certificate_path": "research_checks/T6_P13_Q10_SPLIT2_8_NEG1111112_4096_12288_AUTHOR_EXACT_CERT_20261123.json"
+    },
+    {
+      "scope": "p13 valuation1 q10 split(2,8) negative pattern 1111112",
+      "range": [
+        12288,
+        20480
+      ],
+      "raw_signed_pairs": 737280,
+      "common_named_cancellations": 359252,
+      "exact_gs_searches": 378028,
+      "gs_nodes": 815255,
+      "balls": 2,
+      "budget_valid": 0,
+      "certificate_commit": "7597d65d74933cfa7c7f134799bc3116512acc5f",
+      "certificate_path": "research_checks/T6_P13_Q10_SPLIT2_8_NEG1111112_12288_20480_AUTHOR_EXACT_CERT_20261123.json"
+    }
+  ],
+  "latest_cumulative_pattern_1111112": {
+    "negative_source_interval": [
+      0,
+      20480
+    ],
+    "total_rosters": 148512,
+    "rosters_processed": 20480,
+    "raw_signed_pairs": 1843200,
+    "gs_nodes": 2094041,
+    "modular_ball_witnesses": 5,
+    "both_original_side_budget_valid": 0
+  },
+  "next_scientific_action": "Continue exact negative roster index [20480,148512) for p13 order10 signed split(2,8) negative q1111112, using existing published replayer and preserved frozen pins; emit complete segment certificate/readback and client checkpoint each substantive unit. After family closure continue actual unresolved families, lower primes/H0 under mother T6.",
+  "remaining_science": {
+    "range": [
+      20480,
+      148512
+    ],
+    "rosters": 128032,
+    "raw_signed_pairs": 11522880
+  },
+  "do_not_repeat": [
+    "All q111122 [0,106470) author-closed; q1111112 [0,20480) already exact checked in four disjoint immutable scopes",
+    "All positive/negative named configurations, full signed q0, original integer denominators and side mass budgets retained; common named atom reduction depends on prior lower-order exclusion",
+    "Native p17 q14 separate Source-backed Task owner/preflight, do not republish p13 as q14 or as Native task execution",
+    "No independent reviewer or full global T6 acceptance has occurred"
+  ],
+  "unresolved_obligations": [
+    "Independent replay of author script, mathematical review and source-activity attribution; Activity328 cannot be presumed this author",
+    "No verified winning current Research claim/open/run; protected native PROGRESS/Result not published",
+    "Other p13 split families, lower primes, H0 and global signed T6 hard target OPEN"
+  ],
+  "control": {
+    "last_verified_client_checkpoint_revision": 60,
+    "last_verified_request_id": "onhour-20261123-2102-t6-q1111112-4096-12288-r60-v1",
+    "last_original_native_continuation": "onhour-20261123-1958-t6-exact-cont-ro-v1 SUCCEEDED read-only, delegated p17 q14 separate",
+    "research_session": "NOT_IDENTIFIED",
+    "claim": "NOT_VERIFIED",
+    "run": "NOT_VERIFIED",
+    "activity_author": "UNRESOLVED",
+    "protected_progress": "NOT_PUBLISHED"
+  },
+  "source_pin_preserved": true
+}
