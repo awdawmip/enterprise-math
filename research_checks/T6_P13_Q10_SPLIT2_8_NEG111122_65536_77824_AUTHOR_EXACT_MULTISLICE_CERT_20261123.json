@@ -1,0 +1,124 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT2_8_NEG111122_AUTHOR_EXACT_MULTISLICE_CERT_V1",
+  "as_of": "2026-11-23",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "replay_source": "awdawmip/enterprise-math@ca7c63f911780e4cdb3e9f5219ee9d8cba88623c:research_checks/T6_P13_Q10_SPLIT2_8_NEG111122_SLICE_REPLAY_20261123_1900.py",
+  "p": 13,
+  "valuation": 1,
+  "vertical_order": 10,
+  "side_split": [
+    2,
+    8
+  ],
+  "negative_pattern": [
+    1,
+    1,
+    1,
+    1,
+    2,
+    2
+  ],
+  "positive_patterns": [
+    [
+      2
+    ],
+    [
+      1,
+      1
+    ]
+  ],
+  "positive_rosters": 90,
+  "total_negative_rosters": 106470,
+  "each_side_mass_cap": 2331,
+  "moduli": [
+    13,
+    169,
+    2197,
+    28561,
+    371293,
+    4826809
+  ],
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "segments": [
+    {
+      "interval": [
+        65536,
+        69632
+      ],
+      "canceled": 137194,
+      "gs_searches": 231446,
+      "gs_nodes": 497652,
+      "roster_sha256": "e5edc0fbac72e865feb0e5ba4478884213ce17aca49dd14720ec6515b0499905",
+      "pair_digest_sha256": "ce06e3fc898b20082f8b47411edd4ee5121a884fc108288ac03b1ccb49570347",
+      "local_result_sha256": "e10d2aa4a1182f05b52da22e667f5438b9e00b1eb8ad4a1f679a9365af9e0260",
+      "negative_rosters": 4096,
+      "raw_signed_pairs": 368640,
+      "relaxed_sphere_witnesses": 0,
+      "both_side_budget_valid": 0
+    },
+    {
+      "interval": [
+        69632,
+        73728
+      ],
+      "canceled": 149904,
+      "gs_searches": 218736,
+      "gs_nodes": 472314,
+      "roster_sha256": "9854fef1f45531fb37143e1452786534af30aaf7beba1e8b092b66497525e136",
+      "pair_digest_sha256": "2cdf1f0b61fc366486a20f1ab62de2c1850282e8b75fccc49951b4977420a7e9",
+      "local_result_sha256": "6be428bb50530290943d9c54f47bfee6fb579aa20597da10aa9daaeebb31994d",
+      "negative_rosters": 4096,
+      "raw_signed_pairs": 368640,
+      "relaxed_sphere_witnesses": 0,
+      "both_side_budget_valid": 0
+    },
+    {
+      "interval": [
+        73728,
+        77824
+      ],
+      "canceled": 160125,
+      "gs_searches": 208515,
+      "gs_nodes": 448986,
+      "roster_sha256": "f7443dbf1b2aa2f87103c25e7eb7ef092bbf73cd728b3e781f47326d44722419",
+      "pair_digest_sha256": "5030656e233ff158c3140429caa092dd5bc7110481c70e83b683db4c1f31ca65",
+      "local_result_sha256": "4bafaf84ae4f73c3dc542b750b0876ee1280cae7e78024babd6356d81860fc19",
+      "negative_rosters": 4096,
+      "raw_signed_pairs": 368640,
+      "relaxed_sphere_witnesses": 0,
+      "both_side_budget_valid": 0
+    }
+  ],
+  "totals": {
+    "negative_rosters": 12288,
+    "raw_signed_pairs": 1105920,
+    "common_named_atom_canceled": 447223,
+    "gs_searches": 658697,
+    "gs_nodes": 1418952,
+    "relaxed_sphere_witnesses": 0,
+    "both_side_budget_valid": 0
+  },
+  "cumulative": {
+    "source_interval": [
+      0,
+      77824
+    ],
+    "negative_rosters": 77824,
+    "raw_signed_pairs": 7004160,
+    "common_named_atom_canceled": 2910925,
+    "gs_searches": 4093235,
+    "gs_nodes": 8860535,
+    "relaxed_sphere_witnesses": 11,
+    "both_side_budget_valid": 0
+  },
+  "remaining_interval": [
+    77824,
+    106470
+  ],
+  "remaining_raw_pairs": 2578140,
+  "arithmetic": "Exact integer, Sympy HNF/LLL and Fraction GS; source order CWR q1 length4 then q2 length2; shared named atoms canceled and allocated to lower order. For uncanceled pairs all six 13-adic mixed congruences and original side budgets checked.",
+  "observer": "Original H1..H6 13-adic mixed congruences, H0/lower primes remain separate global obligation",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "formal_result": false
+}
