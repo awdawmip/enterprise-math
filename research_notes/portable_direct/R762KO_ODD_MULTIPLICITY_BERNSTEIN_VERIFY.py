@@ -32,6 +32,7 @@ for es in E:
             for e in es: nextP[x^e][k]+=v
     P={x:tuple(v) for x,v in nextP.items()}
 assert len(P)==2048
+assert P[0] == (9,0,16,0,6,0,0,0,1)  # exact p_0(t)
 classes=defaultdict(list)
 for b in sorted(F-{0}):
     d=tuple(P[0][i]-P.get(b,(0,)*9)[i] for i in range(9))
@@ -70,6 +71,8 @@ for m in (3,5,7,9,11):
     runner=max(f[b] for b in F-{0})
     gap=f[0]-runner
     assert gap>=lower>0
+    A,B=(r*(r+1)//2,(r+1)*(r+2)//2)
+    assert f[0] == A**8+6*A**4*B**4+16*A**2*B**6+9*B**8-3
     observations.append((m,f[0],runner,gap,lower))
 print('POLYNOMIAL_CLASSES',len(classes),'BOUNDARIES',len(F)-1)
 print('CLASS_COUNTS',sorted((min(v),len(v)) for v in classes.values()))
