@@ -1,0 +1,102 @@
+{
+  "schema": "EM_T6_P13_Q9_SPLIT45_POS112_NEG1112_AUTHOR_EXACT_SLICE_SUMMARY_V1",
+  "date": "2026-11-23",
+  "mother": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "frozen_science": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "premises": {
+    "p": 13,
+    "cap_each_side": 2331,
+    "positive_q_pattern": [
+      1,
+      1,
+      2
+    ],
+    "negative_q_pattern": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "positive_roster_total": 936,
+    "negative_roster_total": 4368,
+    "lattice_index": "247064529073450392704413",
+    "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+    "necessary_moduli": "sum_r u_r*r^(-j)+sum_positive(13q+r)^(-j)-sum_negative(13q+r)^(-j) == 0 mod 13^j, j=1,...,6"
+  },
+  "canonical_order": "positive: q1 2-combinations_with_replacement residues 1..12, then q2 residue 1..12; negative: q1 3-combinations_with_replacement residues 1..12, then q2 residue 1..12; negative index outer, positive roster inner",
+  "slices": [
+    {
+      "start": 0,
+      "end": 24,
+      "raw_pairs": 22464,
+      "common_cancelled": 6492,
+      "vert_overbudget": 0,
+      "gs_nodes": 35142,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "neg_roster_sha256": "32036e2ae99d95bd6204205bf44b0f92d3d374f2bebee3e18c384cb81d99dfaf",
+      "pair_order_sha256": "dbde7fe8e87f3b62c94e4bef7b1b3f35b5c26e10ab766eac9283e44f779340ab",
+      "local_json_sha256": "5b7b89b40237e8a71874c7e94ae7c18b2d668ba16e689ba6ca00a2e9f7d98301"
+    },
+    {
+      "start": 24,
+      "end": 124,
+      "raw_pairs": 93600,
+      "common_cancelled": 33100,
+      "vert_overbudget": 0,
+      "gs_nodes": 129251,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "neg_roster_sha256": "594db1c0a21e46e883ef1274294f90dc5f784e5753b5bc035564dde908e97a7e",
+      "pair_order_sha256": "0f6979edc25776281b7f8f4a9a20c39675051be2daf2805b821675e3054f2c42",
+      "local_json_sha256": "b6359ddf3e64fc0731de302f4d270f6e6a3b7ad139ab9b3361185c8f2697680a"
+    },
+    {
+      "start": 124,
+      "end": 436,
+      "raw_pairs": 292032,
+      "common_cancelled": 131432,
+      "vert_overbudget": 0,
+      "gs_nodes": 341925,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "neg_roster_sha256": "02ea476a397750a4bf43a8d7dcec155fd20c6004e9f3335770228da03bbca973",
+      "pair_order_sha256": "6f512fb9329e39009268feb1991bc8fd2d238ee72b8a48b8539a1b473c47adfe",
+      "local_json_sha256": "3c95a4714555a350fc67ca99482f42f61a82d098557a2a1238d6a20cd89cdc98"
+    },
+    {
+      "start": 436,
+      "end": 1000,
+      "raw_pairs": 527904,
+      "common_cancelled": 229672,
+      "vert_overbudget": 0,
+      "gs_nodes": 620861,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "neg_roster_sha256": "f8b508e32f96f842571aeaf6481f39b2d56d7ff7f76e5e1226a02da43fe74125",
+      "pair_order_sha256": "3d5afd1b0e93808959b3d1e91502addffc6044c153c3430cafc2c3764b7dfe9a",
+      "local_json_sha256": "d0ff2de3cec38010ae8aacda8a17777a6cd317bb1754d2b314df57586454babb"
+    }
+  ],
+  "totals": {
+    "negative_rosters_examined": 1000,
+    "negative_rosters_remaining": 3368,
+    "raw_pairs": 936000,
+    "common_cancelled": 400696,
+    "vert_overbudget": 0,
+    "evaluated_disjoint": 535304,
+    "gs_nodes": 1127179,
+    "ball_leaves": 0,
+    "budget_valid": 0
+  },
+  "local_execution": {
+    "script_sha256": "976a1e67dd6497f58a9c093f468af620e1b5ce12118323d534428f08747f1dfe",
+    "script_name": "t6_p13_q9_split45_slice.py",
+    "original_slice_json_files": "local execution; included only by digest; not remotely published",
+    "source_code_remote_publication": "PENDING"
+  },
+  "claim": "The complete first 1000 of 4368 canonical negative named rosters, paired with all 936 positive rosters, contain no disjoint-support pair passing the necessary exact weighted affine q0 ball constraint; common-support pairs reduce to lower vertical order.",
+  "scientific_status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "native_claim": "NOT_VERIFIED",
+  "semantic_progress": "NOT_PUBLISHED"
+}
