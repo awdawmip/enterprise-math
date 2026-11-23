@@ -1,0 +1,60 @@
+{
+  "schema": "ENTERPRISE_MATH_R762KD_EULER_V1",
+  "date": "2026-11-23",
+  "result": "AUTHOR_PROVED_EXACT_FINITE_CHECKED_NOT_REVIEWED",
+  "model": "unsigned auxiliary six-axis Port-Euler, inactive Port 01",
+  "source_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json",
+  "prior_result": "awdawmip/enterprise-math@73135e5353dcffe286344567bf9df1960294f675:research_notes/portable_direct/R762KC_TWO_EXCEPTION_RAINBOW_EULER_THEOREM.md",
+  "flexible_colors": 16,
+  "forced_colors": 4,
+  "active_ports": 14,
+  "exact_integer_checks": {
+    "contracted_quotient_vertices": 10,
+    "nontrivial_cuts": 511,
+    "min_crossing_flexible_colors": 4,
+    "min_cut_count": 6,
+    "parity_target_count": 8192,
+    "parity_selection_count": 43046721,
+    "parity_preimage_min": 3072,
+    "parity_preimage_max": 6819,
+    "extended_local_cross_check": "DIRECT_INTEGER_DP_EQUALS_INTEGER_WALSH_FOR_ALL_8192",
+    "sampled_graph_regressions": 6720,
+    "regression_scheme": "all 560 flexible singleton triples x 6 forced triple allocations x 2 choices of five remaining triple colors",
+    "graph_checks": [
+      "exact_support_multiplicity",
+      "edge_legality",
+      "all_degrees_positive_even",
+      "full_connectedness"
+    ],
+    "failures": 0
+  },
+  "theorem": "For any positive forced counts and flexible counts with at most three flexible singletons, exact connected positive-even Euler realization exists",
+  "complete_d2t2_labeled_inventories": 4324320,
+  "marked_44_to_42_pairs": 21621600,
+  "universal_odd_forced_parity_witness": {
+    "123": "13-23",
+    "124": "12-14",
+    "125": "15-25",
+    "134": "13-14",
+    "135": "13-15",
+    "145": "14-15",
+    "234": "24-34",
+    "235": "23-25",
+    "245": "24-45",
+    "345": "34-45",
+    "023": "02-03",
+    "024": "02-04",
+    "025": "02-05",
+    "034": "03-04",
+    "035": "03-05",
+    "045": "04-05"
+  },
+  "limits": [
+    "unsigned_auxiliary_observer_only",
+    "signed_P000_TRIADIC_CLOSURE_E_lift_unproved",
+    "BRC_ordered_provenance_fidelity_pending",
+    "independent_review_pending"
+  ],
+  "next_question": "four flexible singletons; six minimal 4-color cut failures require singleton-edge repair or exact obstruction",
+  "reproducibility": "python3 research_notes/portable_direct/R762KD_REPRO.py"
+}
