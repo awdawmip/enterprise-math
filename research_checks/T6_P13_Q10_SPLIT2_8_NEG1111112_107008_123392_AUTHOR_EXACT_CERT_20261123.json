@@ -1,0 +1,202 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT2_8_NEG1111112_AUTHOR_EXACT_SEGMENTS_V1",
+  "as_of": "2026-11-23",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "author_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "published_replay": {
+    "commit": "a15dc9dd00e5d45516463ed4c4905341d8d2357b",
+    "path": "research_checks/T6_P13_Q10_SPLIT2_8_NEG1111112_SLICE_REPLAY_20261123_2000.py",
+    "blob": "096df77ac608297ad1078844c03dcac2da39678b"
+  },
+  "method": "Exact signed 12D HNF-LLL GS recursion, six 13-adic congruences, exact integer/rational and both original side mass budgets, source-ordered",
+  "params": {
+    "p": 13,
+    "v13": 1,
+    "q_order": 10,
+    "signed_split": [
+      2,
+      8
+    ],
+    "negative_q_pattern": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2
+    ],
+    "positive_patterns": [
+      [
+        2
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "budget_per_side": 2331,
+    "moduli": [
+      13,
+      169,
+      2197,
+      28561,
+      371293,
+      4826809
+    ]
+  },
+  "negative_index_interval": [
+    107008,
+    123392
+  ],
+  "stats": {
+    "negative_rosters": 16384,
+    "raw_pairs": 1474560,
+    "common_named_cancellations": 708952,
+    "gs_searches": 765608,
+    "gs_nodes": 1635067,
+    "ball_witnesses": 1,
+    "both_side_budget_valid": 0
+  },
+  "segments": [
+    {
+      "range": [
+        107008,
+        111104
+      ],
+      "negative_rosters": 4096,
+      "raw_pairs": 368640,
+      "common_named_cancellations": 185968,
+      "gs_searches": 182672,
+      "gs_nodes": 388965,
+      "ball_witnesses": 1,
+      "roster_sha256": "eca4ad05fdbfe1c5eab0e6c59b1b9fbab69df8c306c290728350cf38121fffd5",
+      "pair_sha256": "6f7879eec6dc9be95111867d2d39fabca917439303925774a8c18e90ee5fc5dd",
+      "local_result_sha256": "11a1291bb322f44cc2fc1d3732dfbf99037cefb79553d61cdd374e967dd3a20c"
+    },
+    {
+      "range": [
+        111104,
+        115200
+      ],
+      "negative_rosters": 4096,
+      "raw_pairs": 368640,
+      "common_named_cancellations": 158236,
+      "gs_searches": 210404,
+      "gs_nodes": 450660,
+      "ball_witnesses": 0,
+      "roster_sha256": "c9ec2066de8fc0c08a2207a2042ac794f49e90ab340ae78df97bff13221442c7",
+      "pair_sha256": "0d0db8525a99c7b71fc5b6c6542c48396ad642b801337d841db4f2d9262132cb",
+      "local_result_sha256": "600e21a494f8733c39461dbf0247023b673abb968952609da36c8623e006afb7"
+    },
+    {
+      "range": [
+        115200,
+        119296
+      ],
+      "negative_rosters": 4096,
+      "raw_pairs": 368640,
+      "common_named_cancellations": 172164,
+      "gs_searches": 196476,
+      "gs_nodes": 419881,
+      "ball_witnesses": 0,
+      "roster_sha256": "161de93cc39a12bf51c8dd49e02b84b31beade85c1c6ab9a9e6d37be5b9a1437",
+      "pair_sha256": "e2a830db8a0af95dcee7d3b6a4c82f526a0e0232e573b67d687e8506aeb070dc",
+      "local_result_sha256": "d6b432837e22cc21eb641fd39450e02d5109ea772d9c4cb8eaec238f6c628fc1"
+    },
+    {
+      "range": [
+        119296,
+        123392
+      ],
+      "negative_rosters": 4096,
+      "raw_pairs": 368640,
+      "common_named_cancellations": 192584,
+      "gs_searches": 176056,
+      "gs_nodes": 375561,
+      "ball_witnesses": 0,
+      "roster_sha256": "2668bbe50f59c3928f5960768b32bf8faf7c5351315092725651a26c8ab4e362",
+      "pair_sha256": "02bcf7d60c78090d72337d9bc4844974c45f79d6a63f6606826c880d0eb1a85d",
+      "local_result_sha256": "0d8ff23ef626a3f1ec4dfde41e9a70b38978caeb89a35d437b8fc0d7ae3b25ce"
+    }
+  ],
+  "witnesses": [
+    {
+      "budget_valid": false,
+      "masses": [
+        3614,
+        4356
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "neg": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "negative_roster_index": 107729,
+      "pos": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "positive_roster_index": 13,
+      "radius_sq": 3938832,
+      "u": [
+        -36,
+        6,
+        -26,
+        22,
+        7,
+        -2,
+        7,
+        6,
+        1,
+        -5,
+        -1,
+        1
+      ]
+    }
+  ],
+  "scope_note": "Common named-atom cancellation cites lower-q reduction. Current author exact scope is finite interval only; other families/global theorem remain open.",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "native_claim": "NOT_ASSERTED",
+  "scientific_acceptance": false
+}
