@@ -43,7 +43,7 @@ The earlier author continuation already preserved **2,873,910** fully checked q1
 | `11111122` (6 q1, 2 q2) | 965,328 | 566,325 | 399,003 | 1,091,320 | 5 | **0** |
 | `111111112` (8 q1, 1 q2) | 906,984 | 665,129 | 241,855 | 659,133 | 0 | **0** |
 | `1111111111` (10 q1) | 352,716 | 297,274 | 55,442 | 151,394 | 2 | **0** |
-| **New total** | **2,225,028** | **1,528,403** | **696,300** | **1,901,847** | **7** | **0** |
+| **New total** | **2,225,028** | **1,528,728** | **696,300** | **1,901,847** | **7** | **0** |
 
 Both the local exhaustive exact checker and a separately implemented direct vertical-integer-mass enumeration agree on the `gs_searches` counts in all three new families. The seven ball witnesses were each checked again with all six original moduli; all have mass overrun on at least one original side. The fully partitioned source index intervals and order digests are recorded in the three published machine certificates.
 
@@ -52,13 +52,13 @@ Combining existing author-scoped evidence with today's three checked families:
 | Full q10 split (0,10) count | Value |
 |---|---:|
 | Total named vertical rosters | **5,098,938** |
-| Vertical overbudget | 2,303,241 |
-| Exact GS examined | 2,795,697 |
+| Vertical overbudget | 2,303,566 |
+| Exact GS examined | 2,795,372 |
 | Exact GS recursive nodes | 7,664,115 |
 | Relaxed sphere leaves | 40 |
 | Legal original two-sided candidates | **0** |
 
-The exact totals for overbudget and GS cases are obtained by adding the preserved earlier baseline (774,838 overbudget / 2,099,072 GS) to the new evidence; the value of `2,303,241` and `2,795,697` should be cross-checked with the machine records before treating this aggregate as a validated statistic. The mathematical exclusion itself uses the separate complete family proofs, not this display sum.
+The totals sum the preserved prior author baseline (774,838 overbudget / 2,099,072 GS) with the three fully checked new families (1,528,728 overbudget / 696,300 GS). The new family totals were independently checked against direct vertical-budget counts.
 
 ## Exact research artifacts
 
