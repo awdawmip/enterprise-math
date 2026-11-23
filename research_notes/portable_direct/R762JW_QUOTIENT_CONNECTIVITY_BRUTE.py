@@ -63,5 +63,5 @@ def main():
         if first is None:first={'D':[''.join(map(str,S[x])) for x in ds], 'c':c,'parity_cover_count':pn,'connected_cover_count':cn,'all_parity_count':2**(c-1)}
     row={'m':m,'component_counts':dict(c_hist),'parity_fail':parity_fail,'connected_fail':connected_fail,'connected_good':connected_good,'first_connected_failure':first}
     print(row,flush=True);rows.append(row)
-  with open('/mnt/data/r762jw_connectivity.json','w') as f:json.dump({'schema':'R762JW_INDEPENDENT_QUOTIENT_CONNECTION_SCREEN_V1','rows':rows},f,indent=2)
+  with open('R762JW_CONNECTIVITY_RESULTS.json','w') as f:json.dump({'schema':'R762JW_INDEPENDENT_QUOTIENT_CONNECTION_SCREEN_V1','rows':rows},f,indent=2)
 if __name__=='__main__':main()
