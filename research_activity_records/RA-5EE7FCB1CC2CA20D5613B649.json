@@ -9,35 +9,102 @@
   },
   "checkpoints": [
     {
-      "event_id": "R284FY-20261123-2215-EVIDENCE",
       "em_sources": [
         {
-          "repository": "awdawmip/enterprise-math",
           "commit": "7f19c5b1eae340ecbf884e3c12f9ce1160ca7caf",
           "path": "research_notes/portable_direct/R284FY_Q15_Q20_U1_FINITE_SHARP_EXTENSIONS_20261123.md",
-          "sha256": "23cf0fea9a6b290b7b5328d2bc256a6581ab64ff7791d3a68635d77899a7ffef",
-          "publication_state": "VERIFY_EM_PUBLICATION"
+          "publication_state": "VERIFY_EM_PUBLICATION",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "23cf0fea9a6b290b7b5328d2bc256a6581ab64ff7791d3a68635d77899a7ffef"
         },
         {
-          "repository": "awdawmip/enterprise-math",
           "commit": "564caae82d103db4817ed9c5573d7ed0d3acff25",
           "path": "research_notes/portable_direct/R284FY_results.csv",
-          "sha256": "6e849978b2e738b34e58d8aef3d4a4d6f21b1ee1f9f639acd58a2a1704cefdde",
-          "publication_state": "VERIFY_EM_PUBLICATION"
+          "publication_state": "VERIFY_EM_PUBLICATION",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "6e849978b2e738b34e58d8aef3d4a4d6f21b1ee1f9f639acd58a2a1704cefdde"
         },
         {
-          "repository": "awdawmip/enterprise-math",
           "commit": "cb2806f0ba2d3fa7c7d60b0977fe26c5870c8bc0",
           "path": "research_notes/portable_direct/R284FY_q15_q20_reproduce.sh",
-          "sha256": "45d61da5b93cf087c49dea0ab40eafdee9a8426af7b0e3b0b492e907964e6e3c",
-          "publication_state": "VERIFY_EM_PUBLICATION"
+          "publication_state": "VERIFY_EM_PUBLICATION",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "45d61da5b93cf087c49dea0ab40eafdee9a8426af7b0e3b0b492e907964e6e3c"
         }
       ],
+      "event_id": "R284FY-20261123-2215-EVIDENCE",
       "kb_sources": [
         "https://github.com/awdawmip/chatgpt-global-knowledge/blob/7d32bd31eadd840c0708f164e1b1d60f4732e15c/journal/enterprise-math/2026-11-23/20261123T2215-r1-r284fy-q15to20-exact-sharp.md"
       ],
-      "state": "VERIFY_EM_PUBLICATION",
-      "repairs_event_id": null
+      "repairs_event_id": null,
+      "state": "VERIFY_EM_PUBLICATION"
+    },
+    {
+      "em_sources": [
+        {
+          "commit": "7f19c5b1eae340ecbf884e3c12f9ce1160ca7caf",
+          "path": "research_notes/portable_direct/R284FY_Q15_Q20_U1_FINITE_SHARP_EXTENSIONS_20261123.md",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "23cf0fea9a6b290b7b5328d2bc256a6581ab64ff7791d3a68635d77899a7ffef",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "1a9036a759fcffee15407739c37e788f479d3d68",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/7f19c5b1eae340ecbf884e3c12f9ce1160ca7caf/research_notes/portable_direct/R284FY_Q15_Q20_U1_FINITE_SHARP_EXTENSIONS_20261123.md",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "OBS-R284FY-20261123-2220-PROOF",
+            "server_signature_authenticated": false,
+            "tool_name": "mcp__GitHub__fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-5EE7FCB1CC2CA20D5613B649/readbacks/a741343b0a51f96b22d835cb0b4cb091bf908f14e660b3f100d45db890438755.json",
+          "verification_receipt_sha256": "a741343b0a51f96b22d835cb0b4cb091bf908f14e660b3f100d45db890438755"
+        },
+        {
+          "commit": "564caae82d103db4817ed9c5573d7ed0d3acff25",
+          "path": "research_notes/portable_direct/R284FY_results.csv",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "6e849978b2e738b34e58d8aef3d4a4d6f21b1ee1f9f639acd58a2a1704cefdde",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "61f32db5c12bad4b4a1f692b3aca635280660555",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/564caae82d103db4817ed9c5573d7ed0d3acff25/research_notes/portable_direct/R284FY_results.csv",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "OBS-R284FY-20261123-2220-CSV",
+            "server_signature_authenticated": false,
+            "tool_name": "mcp__GitHub__fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-5EE7FCB1CC2CA20D5613B649/readbacks/b0848c8ee6c44c03d4a6f0fefba314a69ba9755766f833a2f6d12064403c691d.json",
+          "verification_receipt_sha256": "b0848c8ee6c44c03d4a6f0fefba314a69ba9755766f833a2f6d12064403c691d"
+        },
+        {
+          "commit": "cb2806f0ba2d3fa7c7d60b0977fe26c5870c8bc0",
+          "path": "research_notes/portable_direct/R284FY_q15_q20_reproduce.sh",
+          "publication_state": "EM_SOURCE_OBSERVED",
+          "repository": "awdawmip/enterprise-math",
+          "sha256": "45d61da5b93cf087c49dea0ab40eafdee9a8426af7b0e3b0b492e907964e6e3c",
+          "verification": {
+            "call_id": null,
+            "git_blob_sha1": "38854a5b82e0df78393012f2dc345cb4762f95b9",
+            "immutable_url": "https://github.com/awdawmip/enterprise-math/blob/cb2806f0ba2d3fa7c7d60b0977fe26c5870c8bc0/research_notes/portable_direct/R284FY_q15_q20_reproduce.sh",
+            "kind": "OBSERVED_CONNECTOR_STRUCTURE_AND_BYTES_VERIFIED",
+            "network_request_by_this_tool": false,
+            "observation_id": "OBS-R284FY-20261123-2220-RUNNER",
+            "server_signature_authenticated": false,
+            "tool_name": "mcp__GitHub__fetch_file"
+          },
+          "verification_receipt": "research_activity_records/RA-5EE7FCB1CC2CA20D5613B649/readbacks/58ce79b53a904b39bf7a2f09cc13bf94a945d86b723c0f51c374dcf27c5888fa.json",
+          "verification_receipt_sha256": "58ce79b53a904b39bf7a2f09cc13bf94a945d86b723c0f51c374dcf27c5888fa"
+        }
+      ],
+      "event_id": "R284FY-20261123-2220-OBSERVED-REPAIR",
+      "kb_sources": [
+        "https://github.com/awdawmip/chatgpt-global-knowledge/blob/7d32bd31eadd840c0708f164e1b1d60f4732e15c/journal/enterprise-math/2026-11-23/20261123T2215-r1-r284fy-q15to20-exact-sharp.md"
+      ],
+      "repairs_event_id": "R284FY-20261123-2215-EVIDENCE",
+      "state": "EM_REPRESENTED"
     }
   ],
   "mode": "TASK_RESEARCH",
