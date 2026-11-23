@@ -1,0 +1,368 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT2_8_NEG111122_FULL_FAMILY_AUTHOR_EXACT_CERT_V1",
+  "date": "2026-11-23",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "mother_hard_target": "signed H0..H6 global T6=2332 OPEN",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "replay_source": "awdawmip/enterprise-math@ca7c63f911780e4cdb3e9f5219ee9d8cba88623c:research_checks/T6_P13_Q10_SPLIT2_8_NEG111122_SLICE_REPLAY_20261123_1900.py",
+  "method": "Exact integer HNF/LLL and Fraction GS, full named positive-negative atom multiplicities and mod 13^k observers for k=1..6; each original side weighted mass bound 2331. Individual disjoint locally reconstructed replay slices executed; original published script separate independent execution pending.",
+  "p": 13,
+  "valuation": 1,
+  "vertical_order": 10,
+  "split": [
+    2,
+    8
+  ],
+  "negative_pattern": [
+    1,
+    1,
+    1,
+    1,
+    2,
+    2
+  ],
+  "negative_roster_generation": "CWR([1..12],4) q1 times CWR([1..12],2) q2",
+  "negative_roster_count": "C(15,4)*C(13,2)=106470",
+  "positive_roster_generation": "q2 single residues12 plus q1 residue CWR length2 C(13,2)",
+  "positive_roster_count": 90,
+  "total_signed_named_pairs": 9582300,
+  "moduli": [
+    13,
+    169,
+    2197,
+    28561,
+    371293,
+    4826809
+  ],
+  "weighted_q0_lattice_index": "13^21",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "new_interval": [
+    90112,
+    106470
+  ],
+  "new_segments": [
+    {
+      "interval": [
+        90112,
+        94208
+      ],
+      "negative_rosters": 4096,
+      "raw_pairs": 368640,
+      "cancelled": 137655,
+      "gs_searches": 230985,
+      "gs_nodes": 495584,
+      "ball_witnesses": 0,
+      "roster_sha256": "e66cf7261fe45a629da6ca12a7a049d1323a8af44063679fd850e926ac9aaaae",
+      "pair_digest_sha256": "92ca5383e91a68e8eee5becfa6fa608bc033bbbd3b8a015f87df405fda1bbcbf",
+      "local_json_sha256": "643a271efedb0c2bfbd42677cb3a6e1291b7a84d3f0e8773e79608d2838a4c52"
+    },
+    {
+      "interval": [
+        94208,
+        98304
+      ],
+      "negative_rosters": 4096,
+      "raw_pairs": 368640,
+      "cancelled": 136950,
+      "gs_searches": 231690,
+      "gs_nodes": 496999,
+      "ball_witnesses": 0,
+      "roster_sha256": "97fc50483d62a8e05220939ffd57c13d6ebb86671280b127d3b3424d8eece583",
+      "pair_digest_sha256": "5a66ae7120fb1aa45e6f24926787379263d5862f6c74731b0e853d78b7859bd3",
+      "local_json_sha256": "1611b13327cd7d2e63e35a6d2c92a492f49cb59a1d462cea6411a8fa787039bf"
+    },
+    {
+      "interval": [
+        98304,
+        102400
+      ],
+      "negative_rosters": 4096,
+      "raw_pairs": 368640,
+      "cancelled": 137433,
+      "gs_searches": 231207,
+      "gs_nodes": 495523,
+      "ball_witnesses": 2,
+      "roster_sha256": "d4d3e06b59fef1934d3878c571511683b1cacbf6c7d8c135b51a405815a04cb4",
+      "pair_digest_sha256": "aec02172a7c624dd535d1d99d5f66dae15d0eb8e54f669e5bf18f90aa25d197b",
+      "local_json_sha256": "f8cee244ae23396b990f67da25fe17137ae92025012777dfea5f59e47e560fbe"
+    },
+    {
+      "interval": [
+        102400,
+        106470
+      ],
+      "negative_rosters": 4070,
+      "raw_pairs": 366300,
+      "cancelled": 122400,
+      "gs_searches": 243900,
+      "gs_nodes": 519679,
+      "ball_witnesses": 1,
+      "roster_sha256": "d1833fdc20b3112d1545f943b912613963c018737aa1890c18eda2d457bc6485",
+      "pair_digest_sha256": "1bedb8da8ab389fcf8e8bced7f427571917430876102c778dcd7a4981ee9c7dc",
+      "local_json_sha256": "cc69f7a4b88601e06c8fb5d64b8b3dead3b426c08927c968fe230826dc0302c7"
+    }
+  ],
+  "new_totals": {
+    "negative_rosters": 16358,
+    "raw_signed_pairs": 1472220,
+    "common_named_atom_canceled": 534438,
+    "gs_searches": 937782,
+    "gs_nodes": 2007785,
+    "relaxed_sphere_witnesses": 3,
+    "both_side_budget_valid_uncanceled": 0
+  },
+  "new_witnesses": [
+    {
+      "negative_roster_index": 98440,
+      "positive_roster_index": 45,
+      "pos": [
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          5
+        ]
+      ],
+      "u": [
+        13,
+        5,
+        -20,
+        -9,
+        5,
+        12,
+        -5,
+        2,
+        -2,
+        3,
+        -5,
+        -1
+      ],
+      "masses": [
+        2558,
+        4619
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false,
+      "radius_sq": 3804365
+    },
+    {
+      "negative_roster_index": 100749,
+      "positive_roster_index": 13,
+      "pos": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "u": [
+        23,
+        3,
+        -2,
+        11,
+        -3,
+        -3,
+        3,
+        -3,
+        -7,
+        -4,
+        -5,
+        4
+      ],
+      "masses": [
+        2177,
+        4881
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false,
+      "radius_sq": 3913552
+    },
+    {
+      "negative_roster_index": 106179,
+      "positive_roster_index": 38,
+      "pos": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          11
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          11
+        ]
+      ],
+      "u": [
+        17,
+        -22,
+        -4,
+        -2,
+        -3,
+        -14,
+        2,
+        7,
+        7,
+        5,
+        2,
+        -3
+      ],
+      "masses": [
+        3299,
+        4639
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false,
+      "radius_sq": 3580245
+    }
+  ],
+  "full_family_totals": {
+    "negative_rosters": 106470,
+    "raw_signed_pairs": 9582300,
+    "common_named_atom_canceled": 3883464,
+    "gs_searches": 5698836,
+    "gs_nodes": 12303306,
+    "relaxed_sphere_witnesses": 14,
+    "both_side_budget_valid_uncanceled": 0
+  },
+  "full_family_prior_evidence": [
+    {
+      "interval": [
+        0,
+        53248
+      ],
+      "source": "research_notes/portable_direct/onhour_20261123_t6_p13_q10_signed_split2_8_neg111122_first53248_author_continuation.json",
+      "commit": "64861b98243c6949d1b66c9be4cac11ad11539c8"
+    },
+    {
+      "interval": [
+        53248,
+        65536
+      ],
+      "source": "research_checks/T6_P13_Q10_SPLIT2_8_NEG111122_53248_65536_AUTHOR_EXACT_MULTISLICE_CERT_20261123.json",
+      "commit": "8fb34d123ba4ff0d8ef012f544d65ebd68fa4ba5"
+    },
+    {
+      "interval": [
+        65536,
+        77824
+      ],
+      "source": "research_checks/T6_P13_Q10_SPLIT2_8_NEG111122_65536_77824_AUTHOR_EXACT_MULTISLICE_CERT_20261123.json",
+      "commit": "727e0811571bf687f800b41ece411979b040d6da"
+    },
+    {
+      "interval": [
+        77824,
+        90112
+      ],
+      "source": "research_checks/T6_P13_Q10_SPLIT2_8_NEG111122_77824_90112_AUTHOR_EXACT_MULTISLICE_CERT_20261123.json",
+      "commit": "6894f6d02e949d4ee96cf81a25f2deab3992cd29"
+    }
+  ],
+  "disposition": "AUTHOR_EXACT_FINITE_EXCLUSION_FOR_UNCANCELED_NAMED_PAIRS; common-name cancellations allocated to earlier q-order cases; no source negative roster unvisited in this particular pattern",
+  "remaining": "Other negative q8 patterns in split(2,8), other p13 order10 splits, p17 q14 native preflight, lower primes/H0 and global T6 mother remain open",
+  "strength": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "native_claim": "NOT_VERIFIED",
+  "native_progress": "NOT_PUBLISHED"
+}
