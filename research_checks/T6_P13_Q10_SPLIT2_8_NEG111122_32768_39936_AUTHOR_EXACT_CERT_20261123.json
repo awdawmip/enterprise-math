@@ -1,0 +1,218 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT2_8_NEG111122_AUTHOR_EXACT_SLICE_CERT_V1",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "mother_objective": "original signed H0..H6 T6=2332 OPEN",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "exact_model": {
+    "p": 13,
+    "p_valuation": 1,
+    "vertical_order": 10,
+    "side_split": [
+      2,
+      8
+    ],
+    "negative_pattern": [
+      1,
+      1,
+      1,
+      1,
+      2,
+      2
+    ],
+    "positive_patterns": [
+      [
+        2
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "negative_order": "product(CWR(range(1,13),4),CWR(range(1,13),2))",
+    "positive_order": "one (q2,r) for r=1..12 followed by CWR q1 length2",
+    "source_negative_indices": [
+      32768,
+      39936
+    ],
+    "negative_full_count": 106470,
+    "positive_count": 90,
+    "mass_each_side_cap": 2331,
+    "q0_weights": "13*r-1",
+    "vertical_weights": "13*(13*q+r)-1",
+    "moduli": [
+      13,
+      169,
+      2197,
+      28561,
+      371293,
+      4826809
+    ],
+    "lattice_index": "13^21",
+    "gs_min_diagonal_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349"
+  },
+  "algorithm": "Exact sympy rational HNF/LLL and Gram-Schmidt from existing pinned replay; enumerate each source-ordered signed named pair; separate shared-named-atom cancellation; exact modulo 13^j for j1..6, original signed q0 reconstruction, both side mass; finite radius less than minimum GS diagonal squared; only two adjacent integers per GS coordinate; retain all modular ball witnesses.",
+  "canonical_replay_source": "awdawmip/enterprise-math@ca7c63f911780e4cdb3e9f5219ee9d8cba88623c:research_checks/T6_P13_Q10_SPLIT2_8_NEG111122_SLICE_REPLAY_20261123_1900.py",
+  "actual_execution": "local Python 3 with SymPy 1.14 exact arithmetic, equivalent reconstructed script; no independent published-script execution claimed",
+  "segments": [
+    {
+      "start": 32768,
+      "end": 32792,
+      "negative_rosters": 24,
+      "raw_signed_pairs": 2160,
+      "common_named_atom_canceled": 598,
+      "gs_searches": 1562,
+      "gs_nodes": 3591,
+      "relaxed_sphere_witnesses": 0,
+      "both_original_side_mass_valid": 0,
+      "roster_sha256": "b2a7374ef49b46f94522c792ce077d946460544426dfec3c3a641cc7e4ff3b66",
+      "pair_digest_sha256": "56d51dfbf2bdb601a559e7628e34bdbb98d6a5c7080da70d1cc9dfc6faef423b"
+    },
+    {
+      "start": 32792,
+      "end": 33792,
+      "negative_rosters": 1000,
+      "raw_signed_pairs": 90000,
+      "common_named_atom_canceled": 31265,
+      "gs_searches": 58735,
+      "gs_nodes": 126865,
+      "relaxed_sphere_witnesses": 0,
+      "both_original_side_mass_valid": 0,
+      "roster_sha256": "3baf66288e6eb6437c1cb6c7966aa265aadf50bf2ca145b981fce21e7e4c1396",
+      "pair_digest_sha256": "03ce03359bab3d13b6208e5c28de08556e9983465255ad0ef8328de2e6cfc29e"
+    },
+    {
+      "start": 33792,
+      "end": 35840,
+      "negative_rosters": 2048,
+      "raw_signed_pairs": 184320,
+      "common_named_atom_canceled": 82940,
+      "gs_searches": 101380,
+      "gs_nodes": 219093,
+      "relaxed_sphere_witnesses": 0,
+      "both_original_side_mass_valid": 0,
+      "roster_sha256": "e05a4d549546ac29a575be581902d99da32b014f2444ccf744525a7ddd22a658",
+      "pair_digest_sha256": "43118108e87e2940f2f46adad1faf51a0fc02fc243e74fe0bae7201ae17efc30"
+    },
+    {
+      "start": 35840,
+      "end": 39936,
+      "negative_rosters": 4096,
+      "raw_signed_pairs": 368640,
+      "common_named_atom_canceled": 166176,
+      "gs_searches": 202464,
+      "gs_nodes": 438005,
+      "relaxed_sphere_witnesses": 1,
+      "both_original_side_mass_valid": 0,
+      "roster_sha256": "7286178970bcb46ad1477d16bf29a8b160288210cb8284848ff1cbe2f5c3ed13",
+      "pair_digest_sha256": "66c2d400b476bbf43fed05b46082c7919856a03d36cfbfb8e007712e4aa1d4f9"
+    }
+  ],
+  "new_totals": {
+    "negative_rosters": 7168,
+    "raw_signed_pairs": 645120,
+    "common_named_atom_canceled": 280979,
+    "vertical_original_mass_excess": 0,
+    "gs_searches": 364141,
+    "gs_nodes": 787554,
+    "relaxed_sphere_witnesses": 1,
+    "both_original_side_mass_valid": 0
+  },
+  "witnesses": [
+    {
+      "negative_roster_index": 37076,
+      "positive_roster_index": 69,
+      "positive": [
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          7
+        ]
+      ],
+      "negative": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "u": [
+        38,
+        4,
+        -8,
+        -17,
+        6,
+        1,
+        -9,
+        3,
+        1,
+        -2,
+        6,
+        3
+      ],
+      "original_side_masses": [
+        3277,
+        4001
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    }
+  ],
+  "combined_with_prior": {
+    "negative_range": [
+      0,
+      39936
+    ],
+    "negative_rosters": 39936,
+    "raw_signed_pairs": 3594240,
+    "common_named_atom_canceled": 1497072,
+    "gs_searches": 2097168,
+    "gs_nodes": 4553731,
+    "relaxed_sphere_witnesses": 9,
+    "budget_legal": 0
+  },
+  "next_unfinished": {
+    "negative_index": [
+      39936,
+      106470
+    ],
+    "negative_rosters": 66534,
+    "raw_signed_pairs": 5988060,
+    "warning": "An attempted larger [33792,50176) and [39936,48128) run timed out without certificate; do not count or infer their results. Their subranges already covered in separately completed segments are exactly [33792,39936); next resumes at 39936."
+  },
+  "assumption_dependencies": [
+    "Existing high-p cancellation theorem and saturated q0 lattice completeness at frozen science pin",
+    "Shared named-atom cancellation is allocated to previously considered lower-order scope, not independently certified here"
+  ],
+  "science_status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "native_source_status": "No current owning claim/run verified for this logical lane; no semantic PROGRESS, Result, independent review or acceptance asserted",
+  "authorship": "Current scheduled research execution continuation with prior author-level evidence; research identity attribution unresolved."
+}
