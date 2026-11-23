@@ -1,0 +1,273 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT1_9_NEG_LENGTHS1TO3_AUTHOR_EXACT_CERT_V1",
+  "date": "2026-11-23",
+  "source_pin": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "domain": "maximal-p13, p13-valuation-one, order10 split(1,9), negative vertical length 1..3",
+  "positive_vertical_atom": "(1,r), r=1..12",
+  "full_named_denominator": "13*(13q+r)",
+  "side_budgets": [
+    2331,
+    2331
+  ],
+  "observer": "H0..H6",
+  "original_q0_weights": "13r-1",
+  "vertical_weights": "169q+13r-1",
+  "necessary_mixed_congruences": "sum u_r*r^-j + positive(13q+r)^-j - negative(13q+r)^-j = 0 mod 13^j for j=1..6",
+  "lattice_index": "13^21",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "enumeration": "all nondecreasing positive-side q1 single residues (1..12), and every named residue multiset for each partition of 9 with 1..3 parts; common named atom cancellation consumes previously saved lower-order evidence",
+  "pattern_rows": [
+    {
+      "pattern": [
+        9
+      ],
+      "negative_rosters": 12,
+      "raw_pairs": 144,
+      "common_cancel": 0,
+      "vertical_overbudget": 0,
+      "gs_searches": 144,
+      "gs_nodes": 385,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "roster_pair_digest_sha256": "7f4b1555ec17393d0cbb9284511717821872363879b2607b06d736971c1f27ed"
+    },
+    {
+      "pattern": [
+        1,
+        8
+      ],
+      "negative_rosters": 144,
+      "raw_pairs": 1728,
+      "common_cancel": 144,
+      "vertical_overbudget": 0,
+      "gs_searches": 1584,
+      "gs_nodes": 3981,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "roster_pair_digest_sha256": "7f4b7d17c996d7a91709ee790d47e3c50b2164f8a673e27d685cd0c8b225feb4"
+    },
+    {
+      "pattern": [
+        2,
+        7
+      ],
+      "negative_rosters": 144,
+      "raw_pairs": 1728,
+      "common_cancel": 0,
+      "vertical_overbudget": 0,
+      "gs_searches": 1728,
+      "gs_nodes": 4420,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "roster_pair_digest_sha256": "0682a6569cec6453a243a7bd15caf254fceb0f8fbd692133adaf9328c6d5a47e"
+    },
+    {
+      "pattern": [
+        3,
+        6
+      ],
+      "negative_rosters": 144,
+      "raw_pairs": 1728,
+      "common_cancel": 0,
+      "vertical_overbudget": 0,
+      "gs_searches": 1728,
+      "gs_nodes": 4266,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "roster_pair_digest_sha256": "d6033af9a474182429088975a735765ea7b3240ab1903a939d8db3662763ad4c"
+    },
+    {
+      "pattern": [
+        4,
+        5
+      ],
+      "negative_rosters": 144,
+      "raw_pairs": 1728,
+      "common_cancel": 0,
+      "vertical_overbudget": 0,
+      "gs_searches": 1728,
+      "gs_nodes": 4378,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "roster_pair_digest_sha256": "ca2e518257060c364617799926aabc15c5c60e882d1b26daea243ccf17d89c2c"
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        7
+      ],
+      "negative_rosters": 936,
+      "raw_pairs": 11232,
+      "common_cancel": 1728,
+      "vertical_overbudget": 0,
+      "gs_searches": 9504,
+      "gs_nodes": 23394,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "roster_pair_digest_sha256": "74e3295ac3dcd1909269797d1df403e18d31eca6340e6eb09d19c7201b5ed910"
+    },
+    {
+      "pattern": [
+        1,
+        2,
+        6
+      ],
+      "negative_rosters": 1728,
+      "raw_pairs": 20736,
+      "common_cancel": 1728,
+      "vertical_overbudget": 0,
+      "gs_searches": 19008,
+      "gs_nodes": 47139,
+      "ball_leaves": 1,
+      "budget_valid": 0,
+      "roster_pair_digest_sha256": "ade5fba4d2ffa86b058962ab0107124b2a911df618e6e0f1e3da4828b5230957"
+    },
+    {
+      "pattern": [
+        1,
+        3,
+        5
+      ],
+      "negative_rosters": 1728,
+      "raw_pairs": 20736,
+      "common_cancel": 1728,
+      "vertical_overbudget": 0,
+      "gs_searches": 19008,
+      "gs_nodes": 46925,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "roster_pair_digest_sha256": "5386f929469842ca82948bac5458d09b016485fe1705bb8ef365f454e8406164"
+    },
+    {
+      "pattern": [
+        1,
+        4,
+        4
+      ],
+      "negative_rosters": 936,
+      "raw_pairs": 11232,
+      "common_cancel": 936,
+      "vertical_overbudget": 0,
+      "gs_searches": 10296,
+      "gs_nodes": 25447,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "roster_pair_digest_sha256": "7ca672a65dfb32420b7740e43f13c906926cef33dddbd904c0b9416fcecb7f93"
+    },
+    {
+      "pattern": [
+        2,
+        2,
+        5
+      ],
+      "negative_rosters": 936,
+      "raw_pairs": 11232,
+      "common_cancel": 0,
+      "vertical_overbudget": 0,
+      "gs_searches": 11232,
+      "gs_nodes": 28149,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "roster_pair_digest_sha256": "8516635ac079c7cb66f448a5d959472f9bf5dba12cc914fa0e479b40555c25f4"
+    },
+    {
+      "pattern": [
+        2,
+        3,
+        4
+      ],
+      "negative_rosters": 1728,
+      "raw_pairs": 20736,
+      "common_cancel": 0,
+      "vertical_overbudget": 0,
+      "gs_searches": 20736,
+      "gs_nodes": 51156,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "roster_pair_digest_sha256": "916ea71ced64846e3e8b5d1e042cf946b00a2f2977f7c6f672cee99adde09919"
+    },
+    {
+      "pattern": [
+        3,
+        3,
+        3
+      ],
+      "negative_rosters": 364,
+      "raw_pairs": 4368,
+      "common_cancel": 0,
+      "vertical_overbudget": 0,
+      "gs_searches": 4368,
+      "gs_nodes": 10726,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "roster_pair_digest_sha256": "bca21eb8bd0c3e5fe15f6661f0197edb6ce28971b2fe2141847eedf71915044a"
+    }
+  ],
+  "totals": {
+    "negative_rosters": 8944,
+    "raw_pairs": 107328,
+    "common_cancel": 6264,
+    "vertical_overbudget": 0,
+    "gs_searches": 101064,
+    "gs_nodes": 250366,
+    "ball_leaves": 1,
+    "budget_valid": 0
+  },
+  "relaxed_sphere_witnesses": [
+    {
+      "positive_named_qr": [
+        [
+          1,
+          4
+        ]
+      ],
+      "negative_named_qr": [
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          6,
+          1
+        ]
+      ],
+      "q0_signed_u": [
+        114,
+        -4,
+        9,
+        1,
+        -14,
+        6,
+        -7,
+        3,
+        -2,
+        -5,
+        2,
+        -1
+      ],
+      "original_side_masses": [
+        3036,
+        4319
+      ],
+      "six_modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    }
+  ],
+  "replay": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN1TO3_AUTHOR_EXACT_REPLAY_20261123.py",
+  "replay_independent_execution": false,
+  "evidence_status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "native_semantic_progress": false
+}
