@@ -1,0 +1,73 @@
+{
+  "schema": "ENTERPRISE_MATH_R762KF_TWO_INACTIVE_PORT_EULER_V1",
+  "date": "2026-11-23",
+  "math_status": "AUTHOR_PROVED_EXACT_FINITE_WITNESS_SEARCH_NOT_REVIEWED",
+  "model": "unsigned auxiliary composite Port–Euler observer, 6 axis labels, 20 triple-color supports, remove two of fifteen pair Ports",
+  "frozen_p000_source": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json",
+  "task": "RS-X6-TRIADIC-CLOSURE-DYNAMICS / TP2-8B7E13C5904A2D6F1142",
+  "theorem": "For two inactive pair Ports, every strictly positive 20-color inventory has an exact all-active-Port connected even-degree Euler realization iff the two missing Port pairs are disjoint. If they share an axis, the triple containing both has no legal edge, so no such inventory is realizable.",
+  "missing_port_choices": {
+    "total": 105,
+    "incident_no_go": 60,
+    "disjoint_all_positive_feasible": 45
+  },
+  "representative_disjoint_missing": [
+    "01",
+    "23"
+  ],
+  "active_port_count": 13,
+  "forced_colors": [
+    "012",
+    "013",
+    "014",
+    "015",
+    "023",
+    "123",
+    "234",
+    "235"
+  ],
+  "flexible_colors": [
+    "024",
+    "025",
+    "034",
+    "035",
+    "045",
+    "124",
+    "125",
+    "134",
+    "135",
+    "145",
+    "245",
+    "345"
+  ],
+  "exact_finite_verification": {
+    "flexible_parity_reachable_states": 4096,
+    "forced_color_parity_masks": 256,
+    "distinct_forced_boundary_targets": 128,
+    "connected_parity_certificates_verified": 128,
+    "certificate_method": "All 128 even target boundaries induced by forced edge parities; for each complete deterministic DFS with GF(2) suffix set pruning finds and checks a connected exact colored-edge assignment; all finite inputs exhausted",
+    "full_event_realization_regressions": 512,
+    "regression_classes": {
+      "arbitrary_positive_counts": 256,
+      "exact_42_event_counts": 256
+    },
+    "arithmetic": "Python exact integers and graph union find; no floating point, no randomized verification",
+    "failures": 0,
+    "source": "research_notes/portable_direct/R762KF_TWO_INACTIVE_CLASSIFICATION_VERIFY.py"
+  },
+  "combinatorial_results": {
+    "labeled_42_event_inventory_count_per_disjoint_missing_pair": 99768240,
+    "disjoint_missing_pair_choices": 45,
+    "labeled_42_event_configs_all_disjoint_pairs": 4489570800,
+    "marked_44_to_42_constructions_per_disjoint_missing_pair": 498841200
+  },
+  "source_provenance": "R762KE exact positive all inventories for one inactive Port; R762KC two-exception precursor",
+  "boundaries": [
+    "Native signed P000 TRIADIC_CLOSURE_E event embedding unproved",
+    "ordered BRC provenance preservation unproved",
+    "auxiliary graph event is not native primitive force",
+    "no independent review",
+    "marked source construction is not arbitrary-source compression"
+  ],
+  "next": "Analyze three inactive Ports: characterize zero-edge-support obstructions, then exact connected-parity finite certificate existence for remaining combinatorial orbit types"
+}

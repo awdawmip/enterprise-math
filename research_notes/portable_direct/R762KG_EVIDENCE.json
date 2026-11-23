@@ -1,0 +1,70 @@
+{
+  "schema": "ENTERPRISE_MATH_R762KG_THREE_INACTIVE_PARITY_NO_GO_V1",
+  "date": "2026-11-23",
+  "model": "unsigned auxiliary composite Port-Euler observer, 6 axes, 20 triad supports, 3 inactive pair Ports",
+  "source_pin": "awdawmip/enterprise-math@a72226e2430ffa4786321ac86e7f0c599d5f0389:p000_reality_foundation.json",
+  "theorem_scope": "No three-missing-Port configuration admits every strictly positive 20-color inventory; intersecting missing pairs cause a zero-event-support obstruction; perfect-matching deletions have a specific forced-vs-flexible GF(2) parity obstruction",
+  "missing_port_patterns": {
+    "total": 455,
+    "contains_intersecting_pair": 440,
+    "perfect_matchings": 15
+  },
+  "canonical_perfect_matching_missing_ports": [
+    "01",
+    "23",
+    "45"
+  ],
+  "exact_counterexample": {
+    "all_color_counts_positive": true,
+    "all_eight_flexible_colors_count": 1,
+    "forced_doubled_colors": [
+      "013",
+      "015",
+      "245",
+      "345"
+    ],
+    "all_other_forced_colors_count": 1,
+    "event_count": 24,
+    "forced_odd_boundary_bitmask": 4010,
+    "exhaustive_flexible_choice_count": 6561,
+    "distinct_flexible_boundaries": 1881,
+    "flexible_choices_matching_forced_boundary": 0
+  },
+  "positive_control": {
+    "all_twenty_support_colors_count": 2,
+    "event_count": 40,
+    "flexible_color_order": [
+      "024",
+      "025",
+      "034",
+      "035",
+      "124",
+      "125",
+      "134",
+      "135"
+    ],
+    "flexible_base_edge_digits": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1
+    ],
+    "duplicate_every_legal_selected_edge": true,
+    "connected_12_active_ports": true,
+    "all_degrees_positive_even": true
+  },
+  "checker": "research_notes/portable_direct/R762KG_THREE_INACTIVE_EXACT_COUNTEREXAMPLE.py",
+  "computation": "exact integer parity and 6561 exhaustive Cartesian products; standard Python; no floating point/random sampling",
+  "failures": 0,
+  "review": "NOT_REVIEWED",
+  "boundaries": [
+    "not a native signed TRIADIC_CLOSURE_E theorem",
+    "BRC ordered provenance preservation not established",
+    "no blanket impossibility for all positive inventories in matching type, because all-twos has a valid example"
+  ],
+  "next": "Classify three-perfect-matching Port disappearance parity feasibility by inventory; investigate signed native event lift"
+}
