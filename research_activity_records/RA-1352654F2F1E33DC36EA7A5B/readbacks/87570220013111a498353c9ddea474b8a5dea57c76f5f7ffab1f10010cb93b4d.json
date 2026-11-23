@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/R284FY_three_pattern_uniform_stable_checker.py",
+    "ref": "4720287bd7693f4253dcf30c304fcb52502a71e9",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r1-20261123-r284fy-checker-immutable-readback",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"R284FY: exact support-{3,5,6} stable-observer classification for q>=5, u=1.\n\nInteger-only; the all-q conclusion follows from the written algebra, not\nfrom the finite regression loop. The oracle in `allowed` is the proved\nthree-edge stable maxflow reduction, not a numerical approximation.\n\"\"\"\n\ndef stable_adj(a, b, q):\n    # Two separate source budget-q groups; one shared target budget-q group.\n    return max(0, a+b-q-min(q,a)-min(q,b))\n\n\ndef stable_opp(a, c, q):\n    # Pattern 3 and pattern 6: disjoint endpoint pairs.\n    return max(0,a-2*q)+max(0,c-2*q)\n\n\ndef allowed(a,b,c,q,k):\n    n=4*q+k\n    return (a+b+c == n and\n            a+b >= 2*q+5 and b+c >= 2*q+5 and\n            a+c >= 2*q+3 and\n            stable_adj(a,b,q) >= 3 and\n            stable_adj(b,c,q) >= 3 and\n            stable_opp(a,c,q) >= 3)\n\n\ndef classified(q,k):\n    # Disjoint cases: a large/c small, c large/a small, and both large.\n    n=4*q+k\n    r=set()\n    for s in range(3,k-4):   # 3..k-5 inclusive\n        for t in range(k-s-2):  # 0..k-s-3 inclusive\n            r.add((2*q+s,n-(2*q+s)-t,t))\n            r.add((t,n-(2*q+s)-t,2*q+s))\n    for s in range(3,k-4):\n        for t in range(3,k-4):\n            if s+t<=k:\n                r.add((2*q+s,k-s-t,2*q+t))\n    return r\n\n\ndef brute_triples(q,k):\n    n=4*q+k\n    return {(a,n-a-c,c) for a in range(n+1)\n            for c in range(n-a+1)\n            if allowed(a,n-a-c,c,q,k)}\n\n\ndef main():\n    for q in (5,6,7,8,11,14,21,32,64):\n        for k,expected in ((8,7),(9,18)):\n            algebra=classified(q,k)\n            direct=brute_triples(q,k)\n            assert algebra==direct,(q,k,algebra^direct)\n            assert len(algebra)==expected,(q,k,len(algebra))\n            print('q=%d n=%d exact=%d verified' %(q,4*q+k,len(algebra)))\n    print('REGRESSION PASS: analytic classification verified in nine distinct q-values')\n\n\nif __name__=='__main__':main()\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/4720287bd7693f4253dcf30c304fcb52502a71e9/research_notes/portable_direct/R284FY_three_pattern_uniform_stable_checker.py",
+      "encoding": "utf-8",
+      "sha": "757037a4b27651c769e5ff6b3c329b4266dc1977"
+    }
+  },
+  "tool_name": "mcp__GitHub__fetch_file"
+}
