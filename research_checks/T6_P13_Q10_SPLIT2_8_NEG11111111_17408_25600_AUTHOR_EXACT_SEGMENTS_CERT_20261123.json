@@ -1,0 +1,125 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT2_8_NEG11111111_AUTHOR_EXACT_SEGMENTS_V1",
+  "as_of": "2026-11-23",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "author_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "researcher_session": "MCP-7f3df4435e40430b832e8d5ff2137718",
+  "research_activity": "RA-A468735D7C934B25C4B9614F",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "source_kernel": "awdawmip/enterprise-math@a15dc9dd00e5d45516463ed4c4905341d8d2357b:research_checks/T6_P13_Q10_SPLIT2_8_NEG1111112_SLICE_REPLAY_20261123_2000.py",
+  "replay": "awdawmip/enterprise-math@de78443d23578a66d3ae79f2a045e4be8e756c50:research_checks/T6_P13_Q10_SPLIT2_8_NEG11111111_SLICE_REPLAY_20261123_2300.py",
+  "negative_index_interval": [
+    17408,
+    25600
+  ],
+  "positive_patterns": [
+    [
+      2
+    ],
+    [
+      1,
+      1
+    ]
+  ],
+  "negative_pattern": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "p": 13,
+  "budget_each_side": 2331,
+  "source_order": "negative q1 CWR(12,8); positive q2 single then q1 CWR(12,2)",
+  "lattice_index": "13^21",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "segments": [
+    {
+      "interval": [
+        17408,
+        18432
+      ],
+      "negative_rosters": 1024,
+      "raw_signed_pairs": 92160,
+      "common_named_atom_canceled": 58807,
+      "vertical_original_mass_excess": 0,
+      "gs_searches": 33353,
+      "gs_nodes": 71062,
+      "relaxed_sphere_witnesses": 0,
+      "both_original_side_mass_valid": 0,
+      "roster_sha256": "084ff402e870344a4d98a7af0a0bf6d4ee1acd959e929ae9d992f5b618cbbe6b",
+      "pair_digest_sha256": "7635f6e1f9d28a6d6a5baab0bddd4b7499f5a1901ac6024236b6a9a034edda56"
+    },
+    {
+      "interval": [
+        18432,
+        19456
+      ],
+      "negative_rosters": 1024,
+      "raw_signed_pairs": 92160,
+      "common_named_atom_canceled": 57653,
+      "vertical_original_mass_excess": 0,
+      "gs_searches": 34507,
+      "gs_nodes": 73118,
+      "relaxed_sphere_witnesses": 0,
+      "both_original_side_mass_valid": 0,
+      "roster_sha256": "2be2e98e29515679a01ba441a69576aaba0ebf32474d57cfb8f1e98a8e1f4c43",
+      "pair_digest_sha256": "948c4adbc9c01ba17c50505b16c2c855015af0c052473ff96b7a65442b187227"
+    },
+    {
+      "interval": [
+        19456,
+        21504
+      ],
+      "negative_rosters": 2048,
+      "raw_signed_pairs": 184320,
+      "common_named_atom_canceled": 105723,
+      "vertical_original_mass_excess": 0,
+      "gs_searches": 78597,
+      "gs_nodes": 167618,
+      "relaxed_sphere_witnesses": 0,
+      "both_original_side_mass_valid": 0,
+      "roster_sha256": "b520da155ee8d13a36ede62179ecfe87e587f5b34595b087398ac58f4dddd49d",
+      "pair_digest_sha256": "bf4dfbcbac57e4408d188072de82dd9338cb15a600bb41e2e6a406571a94a135"
+    },
+    {
+      "interval": [
+        21504,
+        25600
+      ],
+      "negative_rosters": 4096,
+      "raw_signed_pairs": 368640,
+      "common_named_atom_canceled": 222526,
+      "vertical_original_mass_excess": 57,
+      "gs_searches": 146057,
+      "gs_nodes": 310964,
+      "relaxed_sphere_witnesses": 0,
+      "both_original_side_mass_valid": 0,
+      "roster_sha256": "e9303b2c5684b25afb1d13ebb1a7f6847c6cef9bc656958429dc0abca10e3751",
+      "pair_digest_sha256": "a4b59ab075baaab80d4c332616fb9c4483d18d0cf16f0fdf00f9d41b63ea023b"
+    }
+  ],
+  "stats": {
+    "negative_rosters": 8192,
+    "raw_signed_pairs": 737280,
+    "common_named_atom_canceled": 444709,
+    "vertical_original_mass_excess": 57,
+    "gs_searches": 292514,
+    "gs_nodes": 622762,
+    "relaxed_sphere_witnesses": 0,
+    "both_original_side_mass_valid": 0
+  },
+  "witnesses": [],
+  "prior_completed_range": [
+    0,
+    17408
+  ],
+  "next_unfinished_index": 25600,
+  "execution_provenance": "Local Python3 exact rational HNF-LLL-GS enumerator; reproducible script published; author-verified, independent review/admission owed",
+  "native_claim": false,
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "global_T6": "OPEN"
+}
