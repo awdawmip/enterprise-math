@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_checks/T6_P13_Q10_SPLIT3_7_NEG1114_1024_2048_AUTHOR_EXACT_CERT_20261124.json",
+    "ref": "f686ee628709ed7c4a818f6d263eaec114907af1",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "onhour-20261124-0300-t6-q1114-1024-2048-cert-readback-v1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"schema\": \"EM_T6_P13_Q10_SPLIT3_7_NEG1114_AUTHOR_EXACT_SLICE_V1\",\n  \"frozen_science\": \"awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca\",\n  \"signed_split\": [\n    3,\n    7\n  ],\n  \"negative_q_pattern\": [\n    1,\n    1,\n    1,\n    4\n  ],\n  \"positive_q_patterns\": [\n    [\n      3\n    ],\n    [\n      1,\n      2\n    ],\n    [\n      1,\n      1,\n      1\n    ]\n  ],\n  \"interval\": [\n    1024,\n    2048\n  ],\n  \"source_order\": \"negative CWR q1(12,3) then q4(12,1); positive q3 single, q1q2 product, q1^3 CWR\",\n  \"budget_each_side\": 2331,\n  \"lattice_index\": \"13^21\",\n  \"gs_min_sq\": \"78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349\",\n  \"stats\": {\n    \"both_original_side_mass_valid\": 0,\n    \"common_named_atom_canceled\": 219068,\n    \"gs_nodes\": 647400,\n    \"gs_searches\": 313412,\n    \"negative_rosters\": 1024,\n    \"positive_rosters\": 520,\n    \"raw_signed_pairs\": 532480,\n    \"relaxed_sphere_witnesses\": 1,\n    \"vertical_original_mass_excess\": 0\n  },\n  \"negative_roster_sha256\": \"0d49e0f0ee0f860c77faddbf11f9c59c59754c741509a1e147284a8042c72917\",\n  \"pair_digest_sha256\": \"9334e24fb4654ca3fe76714c0aef60e6f8909d78b4c0583d9fee5d804d379b92\",\n  \"reference_replay\": \"awdawmip/enterprise-math@e13f8fd6b1322770128b54231cdb3cc7f76a80c0:research_checks/T6_P13_Q10_SPLIT3_7_NEG1114_AUTHOR_REPLAY_20261124.py\",\n  \"validation\": \"Independent local reconstruction of the source arithmetic algorithm; exact 512:1024 regression matched published roster/pair SHA256 and all numerical counters. Three new disjoint slices actually executed. Author scope only.\",\n  \"status\": \"AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED\",\n  \"next_unfinished\": \"q1114 negative indices [2048,4368)\",\n  \"witnesses\": [\n    {\n      \"budget_valid\": false,\n      \"masses\": [\n        1989,\n        4930\n      ],\n      \"modular_residues\": [\n        0,\n        0,\n        0,\n        0,\n        0,\n        0\n      ],\n      \"neg\": [\n        [\n          1,\n          2\n        ],\n        [\n          1,\n          3\n        ],\n        [\n          1,\n          7\n        ],\n        [\n          4,\n          3\n        ]\n      ],\n      \"negative_roster_index\": 1118,\n      \"pos\": [\n        [\n          1,\n          4\n        ],\n        [\n          1,\n          9\n        ],\n        [\n          1,\n          12\n        ]\n      ],\n      \"positive_roster_index\": 393,\n      \"radius_sq\": \"3171853\",\n      \"u\": [\n        41,\n        -6,\n        -11,\n        -3,\n        -8,\n        4,\n        4,\n        -2,\n        -2,\n        -1,\n        -8,\n        -4\n      ]\n    }\n  ]\n}\n",
+      "display_title": "T6_P13_Q10_SPLIT3_7_NEG1114_1024_2048_AUTHOR_EXACT_CERT_20261124.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/f686ee628709ed7c4a818f6d263eaec114907af1/research_checks/T6_P13_Q10_SPLIT3_7_NEG1114_1024_2048_AUTHOR_EXACT_CERT_20261124.json",
+      "encoding": "utf-8",
+      "sha": "db3ee4a93244f03dea94a29dc638f216faa8647d"
+    }
+  },
+  "tool_name": "mcp__GitHub__fetch_file"
+}
