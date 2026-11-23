@@ -1,0 +1,239 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT2_8_NEG1111112_AUTHOR_EXACT_SLICE_CERT_V1",
+  "as_of": "2026-11-23",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "scope": {
+    "prime": 13,
+    "valuation": 1,
+    "vertical_order": 10,
+    "signed_split": [
+      2,
+      8
+    ],
+    "negative_pattern": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2
+    ],
+    "negative_rosters_source_order": [
+      12288,
+      20480
+    ],
+    "positive_rosters": 90,
+    "cap_each_side": 2331,
+    "observers": "H0..H6",
+    "mixed_congruences": [
+      "13",
+      "13^2",
+      "13^3",
+      "13^4",
+      "13^5",
+      "13^6"
+    ],
+    "q0": "exact signed 12-vector"
+  },
+  "published_replayer": {
+    "commit": "a15dc9dd00e5d45516463ed4c4905341d8d2357b",
+    "path": "research_checks/T6_P13_Q10_SPLIT2_8_NEG1111112_SLICE_REPLAY_20261123_2000.py",
+    "git_blob_sha1": "096df77ac608297ad1078844c03dcac2da39678b"
+  },
+  "source_order": "negative q1 CWR(12,6) and q2 r in 1..12; positive q2 single followed by q1 CWR(12,2)",
+  "algorithmmethod": "Exact 13-adic affine 12D lattice, HNF/LLL, rational GS, exhaustive admissible nearest integer pair recursion, exact modular residues and original side budget. Common named atom cancellation invokes existing lower-order exclusion.",
+  "segments": [
+    {
+      "range": [
+        12288,
+        16384
+      ],
+      "rosters": 4096,
+      "raw_pairs": 368640,
+      "common_named_cancellations": 171648,
+      "exact_gs_searches": 196992,
+      "gs_nodes": 423106,
+      "modular_ball_witnesses": 0,
+      "mass_valid": 0,
+      "roster_sha256": "166ff22648426389efb74fed550debc2c390ea72ec6ed14759fadde83a261cd4",
+      "pair_sha256": "49afd057fbd670b52a4973736fd3a2c96c53cc09e3719ae5cd9638b960df486b",
+      "local_json_sha256": "ec786fe6a90b464ecbb650b4827fe1dc92a2ca7f27d2fa0537d09d173a8eef9f"
+    },
+    {
+      "range": [
+        16384,
+        20480
+      ],
+      "rosters": 4096,
+      "raw_pairs": 368640,
+      "common_named_cancellations": 187604,
+      "exact_gs_searches": 181036,
+      "gs_nodes": 392149,
+      "modular_ball_witnesses": 2,
+      "mass_valid": 0,
+      "roster_sha256": "dba5c8b40b46bf1eea2fe4cce56fbdd902f4249e82d96dba9a37e24f1aa2cbed",
+      "pair_sha256": "b8ab4df6c3354cff1eb339883061a54f04365424f52122aa5b335e9adffd79f8",
+      "local_json_sha256": "f88a5a95a80029a43a0a82c847cac383664f3efee16c29bffbcaba1e00f48835"
+    }
+  ],
+  "totals": {
+    "rosters": 8192,
+    "raw_pairs": 737280,
+    "common_named_cancellations": 359252,
+    "exact_gs_searches": 378028,
+    "gs_nodes": 815255,
+    "modular_ball_witnesses": 2,
+    "mass_valid": 0
+  },
+  "witnesses": [
+    {
+      "negative_index": 19189,
+      "positive_index": 35,
+      "pos": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "signed_q0_u": [
+        -86,
+        -18,
+        12,
+        7,
+        0,
+        -7,
+        -7,
+        -4,
+        -2,
+        2,
+        5,
+        3
+      ],
+      "original_masses": [
+        2660,
+        5056
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "radius_sq": 3999789,
+      "mass_valid": false
+    },
+    {
+      "negative_index": 20297,
+      "positive_index": 4,
+      "pos": [
+        [
+          2,
+          5
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "signed_q0_u": [
+        -83,
+        -1,
+        7,
+        11,
+        -8,
+        -4,
+        0,
+        -7,
+        -4,
+        -5,
+        -2,
+        0
+      ],
+      "original_masses": [
+        1229,
+        5703
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "radius_sq": 4060930,
+      "mass_valid": false
+    }
+  ],
+  "prior_range": "[0,12288) separately published in f01f93ba16129c2f2ea4b6042bf5f2414a13d016 and 6b771974e79b9a51ab7e53b20f38d76139c61124; no repeat",
+  "next_action": "continue source negative [20480,148512) exact, retaining all signed residue/provenance and no formal Native ownership claim",
+  "review": "NOT_INDEPENDENTLY_REPLICATED",
+  "source_activity": "UNRESOLVED",
+  "native_claim": "NOT_VERIFIED"
+}
