@@ -1,0 +1,114 @@
+{
+  "schema": "EC49FXP_ARBITRARY_PHASE_HISTOGRAM_CHECK_V1",
+  "frozen_science": "BRC16943",
+  "domain": "D subset Z/110 with projection covering five mod-5 residues; 4<=r<=20",
+  "method": "analytic five-color optimization with independent finite local-DP and direct integer CRT rows",
+  "dp_checks": 187,
+  "seed": 4923,
+  "arbitrary_phase_layouts": 550,
+  "direct_crt_rows": 683815,
+  "max_sites": 110,
+  "example": {
+    "D_A": [
+      5,
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      1,
+      2,
+      3,
+      4
+    ],
+    "D_B": [
+      0,
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      1,
+      2,
+      3,
+      4
+    ],
+    "D_interval14": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "phase_histogram_A": [
+      10,
+      1,
+      1,
+      1,
+      1
+    ],
+    "N4_A": 21,
+    "N4_interval14": 20,
+    "N20_A": 102,
+    "N20_interval14": 110,
+    "witness_layout_A": [
+      0,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      15,
+      55,
+      58,
+      59,
+      61,
+      62,
+      63,
+      64,
+      66,
+      67
+    ],
+    "check_layout_A": {
+      "minimum": 4,
+      "critical": {
+        "d": 1,
+        "i": 3,
+        "j": 0
+      },
+      "rows": 770
+    },
+    "check_layout_A_under_B": {
+      "minimum": 3,
+      "critical": {
+        "d": 0,
+        "i": 0,
+        "j": 0
+      },
+      "rows": 770
+    }
+  },
+  "all_assertions": "PASS"
+}
