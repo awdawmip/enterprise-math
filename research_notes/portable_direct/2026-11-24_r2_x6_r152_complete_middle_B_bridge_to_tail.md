@@ -55,7 +55,7 @@ Thus `B=32` and `B=72` are exact seam multiplicity transitions. This uses **one-
 
 ## Analytic proof
 
-1. For `528<=D<L(B)`, R151 (author-verified at commit `4ae79914697b8acb12f6f13df71cf696be80033e`) proves all six membership tests on the open bridge region. On that region the explicit `D<L(B)` cap is redundant in the `A,C,K` indicators; the strict `T_AC,T_K` expressions reduce to the exact R151 conditions. Since `L(B)>1736>1056+5B` only fails for B close to 136? For all B<136, `1056+5B<1872-B`, equivalent to `B<136`, so `H` exits strictly before the seam. Also `T_in(B)<L(B)<T_one(B)`, so J/E are both present sufficiently near the seam.
+1. For `528<=D<L(B)`, R151 (author-verified at commit `4ae79914697b8acb12f6f13df71cf696be80033e`) proves all six membership tests on the open bridge region. On that region the explicit `D<L(B)` cap is redundant in the `A,C,K` indicators; the strict `T_AC,T_K` expressions reduce to the exact R151 conditions. For every `20<B<136`, the inequality `1056+5B<1872-B` is equivalent to `B<136`; consequently `H` exits strictly before the seam. Also `T_in(B)<L(B)<T_one(B)`, so J/E are both present sufficiently near the seam.
 
 2. For `D>=L(B)`, R148 (author-verified at commit `444363f2f8bc670c9fbc0d94a52ca165bb6f69a8`) proves directly, from complete integer population coverage, `N={E} union ({J} if D<T_one(B))`, with `eta=F_E=12/(B+D)`. Consequently the candidate indicators of `A,C,K,H` must be false, as their thresholds are at or below L; `E` remains true because `T_in(B)<L(B)`. The piecewise formula therefore agrees on both sides and at equality, with no unclassified gap.
 
