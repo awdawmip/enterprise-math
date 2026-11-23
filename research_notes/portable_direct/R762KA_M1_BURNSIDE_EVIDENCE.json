@@ -1,0 +1,225 @@
+{
+  "schema": "R762KA_M1_BURNSIDE_EVIDENCE_V1",
+  "date": "2026-11-23",
+  "model": "UNSIGNED_COMPOSITE_PORT_EULER_ONE_INACTIVE_PORT",
+  "inactive_port": [
+    0,
+    1
+  ],
+  "group_order": 48,
+  "colors": 20,
+  "forced_colors": 4,
+  "D_size": 5,
+  "T_size": 7,
+  "labeled_targets": 99768240,
+  "D_orbits": 426,
+  "joint_orbits": 2094150,
+  "D_profile_orbits": {
+    "0": 124,
+    "1": 189,
+    "2": 93,
+    "3": 18,
+    "4": 2
+  },
+  "D_orbit_size_distribution": {
+    "4": 2,
+    "8": 2,
+    "12": 34,
+    "24": 148,
+    "48": 240
+  },
+  "cycle_types": [
+    {
+      "signature": [
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          6,
+          2
+        ]
+      ],
+      "elements": 8,
+      "fixed_joint_per_element": 0
+    },
+    {
+      "signature": [
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "elements": 8,
+      "fixed_joint_per_element": 0
+    },
+    {
+      "signature": [
+        [
+          1,
+          20
+        ]
+      ],
+      "elements": 1,
+      "fixed_joint_per_element": 99768240
+    },
+    {
+      "signature": [
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          8
+        ]
+      ],
+      "elements": 9,
+      "fixed_joint_per_element": 9520
+    },
+    {
+      "signature": [
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "elements": 7,
+      "fixed_joint_per_element": 95040
+    },
+    {
+      "signature": [
+        [
+          2,
+          10
+        ]
+      ],
+      "elements": 3,
+      "fixed_joint_per_element": 0
+    },
+    {
+      "signature": [
+        [
+          2,
+          2
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "elements": 12,
+      "fixed_joint_per_element": 0
+    }
+  ],
+  "joint_profiles": [
+    {
+      "d": 0,
+      "t": 0,
+      "labeled": 1441440,
+      "orbits": 30710
+    },
+    {
+      "d": 0,
+      "t": 1,
+      "labeled": 8072064,
+      "orbits": 169658
+    },
+    {
+      "d": 0,
+      "t": 2,
+      "labeled": 12108096,
+      "orbits": 254002
+    },
+    {
+      "d": 0,
+      "t": 3,
+      "labeled": 5765760,
+      "orbits": 121370
+    },
+    {
+      "d": 0,
+      "t": 4,
+      "labeled": 720720,
+      "orbits": 15470
+    },
+    {
+      "d": 1,
+      "t": 0,
+      "labeled": 5765760,
+      "orbits": 121370
+    },
+    {
+      "d": 1,
+      "t": 1,
+      "labeled": 20180160,
+      "orbits": 422040
+    },
+    {
+      "d": 1,
+      "t": 2,
+      "labeled": 17297280,
+      "orbits": 361830
+    },
+    {
+      "d": 1,
+      "t": 3,
+      "labeled": 3603600,
+      "orbits": 76060
+    },
+    {
+      "d": 2,
+      "t": 0,
+      "labeled": 5765760,
+      "orbits": 121280
+    },
+    {
+      "d": 2,
+      "t": 1,
+      "labeled": 11531520,
+      "orbits": 241400
+    },
+    {
+      "d": 2,
+      "t": 2,
+      "labeled": 4324320,
+      "orbits": 91075
+    },
+    {
+      "d": 3,
+      "t": 0,
+      "labeled": 1647360,
+      "orbits": 34960
+    },
+    {
+      "d": 3,
+      "t": 1,
+      "labeled": 1441440,
+      "orbits": 30630
+    },
+    {
+      "d": 4,
+      "t": 0,
+      "labeled": 102960,
+      "orbits": 2295
+    }
+  ],
+  "exact_coverage": "All 48 H permutations, coefficient extraction on all induced cycles, all 15,504 D by direct orbit enumeration; cross-checked independent Python integer implementation",
+  "review": "AUTHOR_EXACT_INTEGER_CHECKED_NOT_REVIEWED",
+  "limitations": [
+    "Orbit count, not Euler existence",
+    "No signed P000/BRC native lift"
+  ]
+}
