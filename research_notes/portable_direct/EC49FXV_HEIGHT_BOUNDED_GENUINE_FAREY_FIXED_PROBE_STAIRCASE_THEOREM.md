@@ -80,3 +80,19 @@ The full normalized product-state surjection is not necessary for the unrestrict
 Parent dependency: EC49FWQ/EC49FWS frozen 44-residue predicate and indexed spectrum semantics; EC49FXU genuine-anchor normalization. The new finite census independently reconstructs these semantics but does not re-review the frozen parent theory. No formal Task CLAIM, Result or independent Review is asserted.
 
 **Reproduction:** run the companion \`EC49FXV_HEIGHT_BOUNDED_FAREY_VERIFY.js\` with Node.js; it outputs the JSON certificate including all 600 first-appearance witnesses, 122 equal-spectrum pair constraints, 138 height-census rows, threshold layouts, and the above direct checks. Pure integer arithmetic; no floating-point approximation.
+
+
+## Strong corollary — all error-distance levels by height 64
+
+In the **same fixed-before-spectrum physical Boolean-site model**, now require minimum Hamming distance \(r\) within every equal-spectrum fiber, for any integer \(1\le r\le10\). Let \(N_B(r)\) be its sharp site minimum. Then for **every** integer \(B\ge64\),
+
+\[
+\boxed{N_B(r)=3(r+1),\qquad
+\#\mathrm{Opt}_{B}(r)=\binom{11}{r+1}^{3}\,16^{r+1}.}
+\]
+
+This statement is stronger than mere \(r=1\) height saturation: height 64 already realizes all lower-bound witnesses needed at *every* permitted error-distance level \(1,\ldots,10\), although the total 600-state product image is not full until height 139.
+
+**Proof.** The complete 11-hole coverage for the three pairwise-disjoint genuine minimal supports \(A,B_*,C\), established at \(B=64\) above, implies for every \(G\) among them that any universal fixed-site layout has \(w_G-\max_{z\in\mathbb Z/11} w_G(z)\ge r\), where \(w_G(z)\) counts selected sites with row in \(G\) and column \(z\). Hence \(w_G\ge r+1\) and, since the supports are disjoint, \(|S|\ge3(r+1)\). Choosing one row from each group and \(r+1\) distinct columns in that row attains the bound: the seven exact parent/Farey equal-spectrum support types each contain one entire minimal group, while the shared 11-factor removes at most one column. At equality, each group has exactly \(r+1\) sites in pairwise-distinct columns; row choices contribute \(4,2,2\) independently, giving the stated number. This proof uses the same exhaustive support classification already independently reconstructed by the companion program.
+
+Since \(N_{63}(1)=5<6\), no smaller height can yield the **simultaneous** unrestricted formula for all \(1\le r\le10\). The exact heights for any individual \(r>1\) to attain its unrestricted minimum before 64 remain separate research questions. For \(r=2\) this gives three observations per minimal group, nine sites total, sufficient for one known-position erasure; for \(r=3\), twelve sites correct one arbitrary unknown bit error in the conventional Hamming model.
