@@ -1,0 +1,167 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_AUTHOR_CONTINUATION_V1",
+  "as_of": "2026-11-23T13:10:00+08:00",
+  "mode": "TASK_RESEARCH_PORTABLE_AUTHOR",
+  "logical_research_conversation": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_conversation": "chatgpt-hourly-enterprise-math-20260921",
+  "mother_objective": {
+    "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+    "goal": "Exact global T6=2332 lower bound or an exact cheaper original signed H0..H6 collision",
+    "state": "OPEN"
+  },
+  "frozen_science": {
+    "source_commit": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+    "observers": "H0..H6",
+    "max_prime": 13,
+    "valuation": 1,
+    "each_side_mass_cap": 2331,
+    "vertical_atom": "13*(13q+r)",
+    "q0_lattice_index": "13^21",
+    "prior_lemmas": [
+      "higher p13 valuation cancellation",
+      "exact saturated q0 lattice; dmin rational proof",
+      "six necessary global mixed congruences"
+    ]
+  },
+  "prior_author_frontier": {
+    "q10_split0_10_named_rosters_completed": 2873910,
+    "vertical_overbudget": 774838,
+    "gs_evaluated": 2099072,
+    "gs_nodes": 5762268,
+    "relaxed_leaves": 33,
+    "budget_valid": 0,
+    "source": "research_notes/portable_direct/onhour_20261123_t6_p13_q10_three_complete_patterns_author_continuation.json",
+    "prior_attribution": "Author scope only; previous q9 split45 pos1111 duplicate already reconciled"
+  },
+  "new_completed_scientific_units": [
+    {
+      "unit": "q10 split(0,10) negative 11111122",
+      "named_rosters": 965328,
+      "vertical_overbudget": 566325,
+      "gs_evaluated": 399003,
+      "gs_nodes": 1091320,
+      "ball_leaves": 5,
+      "budget_valid": 0,
+      "cert": "research_checks/T6_P13_Q10_SPLIT0_10_PATTERN11111122_FULL_AUTHOR_EXACT_CERT_20261123.json",
+      "commit": "dfbf32dbcdc744102806df0b46cec84aed983ed7",
+      "blob": "c20e8f7f98af9b3b809b0e7fa8a18a05007edc9f"
+    },
+    {
+      "unit": "q10 split(0,10) negative 111111112",
+      "named_rosters": 906984,
+      "vertical_overbudget": 665129,
+      "gs_evaluated": 241855,
+      "gs_nodes": 659133,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "cert": "research_checks/T6_P13_Q10_SPLIT0_10_PATTERN111111112_FULL_AUTHOR_EXACT_CERT_20261123.json",
+      "commit": "64903cf75950e3f9c2a4fae4a9298f21dfdb6900",
+      "blob": "dc843d66eb82d11011b119fb9d0a7a2b44a82744"
+    },
+    {
+      "unit": "q10 split(0,10) negative 1111111111",
+      "named_rosters": 352716,
+      "vertical_overbudget": 297274,
+      "gs_evaluated": 55442,
+      "gs_nodes": 151394,
+      "ball_leaves": 2,
+      "budget_valid": 0,
+      "cert": "research_checks/T6_P13_Q10_SPLIT0_10_PATTERN1111111111_FULL_AUTHOR_EXACT_CERT_20261123.json",
+      "commit": "d28c21bcfadb7dff9248f5a742c51c9e8093135d",
+      "blob": "9b34f7a067c5acf6d900e458a71f1e30cd4b6ab4"
+    },
+    {
+      "unit": "q10 split(1,9), all negative 1-3 vertical atom patterns",
+      "raw_pairs": 107328,
+      "common_canceled": 6264,
+      "gs_evaluated": 101064,
+      "gs_nodes": 250366,
+      "ball_leaves": 1,
+      "budget_valid": 0,
+      "cert": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN1TO3_FULL_AUTHOR_EXACT_CERT_20261123.json",
+      "commit": "d433dae99f1922c60769ad4d792c1012dd41a065",
+      "blob": "b0898535e1cadc1fbcbbb56aba200bd37a8a974f"
+    }
+  ],
+  "new_full_closure": {
+    "scope": "q10 split(0,10) all negative vertical patterns",
+    "named_rosters": 5098938,
+    "vertical_overbudget": 2303566,
+    "gs_evaluated": 2795372,
+    "gs_nodes": 7664115,
+    "ball_leaves": 40,
+    "budget_valid": 0,
+    "author_evidence_only": true,
+    "summary": "research_notes/portable_direct/onhour_20261123_t6_p13_q10_split0_10_complete_author_exclusion.md",
+    "summary_commit": "fd122b627fd5554c06b0813af3e57cbc8d52693a"
+  },
+  "next_unfinished": {
+    "scope": "q10 split(1,9), negative vertical length4",
+    "patterns": [
+      [
+        1,
+        1,
+        1,
+        6
+      ],
+      [
+        1,
+        1,
+        2,
+        5
+      ],
+      [
+        1,
+        1,
+        3,
+        4
+      ],
+      [
+        1,
+        2,
+        2,
+        4
+      ],
+      [
+        1,
+        2,
+        3,
+        3
+      ],
+      [
+        2,
+        2,
+        2,
+        3
+      ]
+    ],
+    "negative_named_rosters": 53664,
+    "original_raw_signed_pairs": 643968,
+    "next_action": "Enumerate all 12 positive q1 atoms versus all 53,664 canonical negative length4 rosters. Cancel common named q1 atoms and consume lower q8 evidence; for the remaining pairs perform the complete exact 12D GS mixed 13-adic necessary sieve and verify both original 2331 side budgets. Publish complete exact certificate, preserve all relaxed signed integer witnesses; then continue negative lengths5-9 and other q10 splits."
+  },
+  "unresolved": [
+    "Current Native Source delegation p17 q14 split(7,7) preflight is distinct and never overwritten by portable p13 mathematical checks.",
+    "The p13 q10 split(1,9) negative length>=4, other signed q10 splits, other p13 orders, lower primes and H0 completion and global T6 remain open.",
+    "New scientific unit proofs remain AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED; no independent review and no Native Result."
+  ],
+  "do_not_repeat": [
+    "All earlier p13 q9 author-scoped results, including reconciled existing q9 split45 positive1111.",
+    "p13 q10 split(0,10) all 5,098,938 original named rosters; use exact source certificates, do not rerun.",
+    "p13 q10 split(1,9) negative lengths1..3 all 107,328 original pairs.",
+    "Accepted p19 and p17 earlier results, preserved Result/Driver authors; separate Native p17 q14 preflight."
+  ],
+  "control_as_of": {
+    "original_task_request": "onhour-20261123-1258-t6-ro-v1",
+    "original_task_receipt": "SUCCEEDED / error=null",
+    "source_state_at_read": "HANDOFF_READY / owner unassigned / no winning own Native claim observed; distinct p17 q14 preflight",
+    "actual_own_native_claim": "NOT_VERIFIED",
+    "actual_run": "NOT_VERIFIED",
+    "native_semantic_progress": "NOT_PUBLISHED",
+    "native_result": "NOT_PUBLISHED",
+    "research_activity": "HISTORICAL_RA328_AUTHOR_ATTRIBUTION_UNRESOLVED / NEW_EVENT_NOT_WRITTEN",
+    "client_checkpoint_previous_revision": 24,
+    "client_checkpoint_next_revision": "25 intended; not yet authenticated at file writing",
+    "next_receipt_rule": "Reconcile only existing original request IDs; no duplicate or maintenance-lane registration"
+  },
+  "evidence_status": "GITHUB_CERTS_AND_NOTES_VERIFIED / PORTABLE_AUTHOR / UNREVIEWED / NOT_ADMITTED"
+}
