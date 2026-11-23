@@ -1,5 +1,8 @@
 # T6 p13 q-order9: complete author-level signed exclusion for split(4,5), positive q=(1,1,1,1)
 
+> **2026-11-23 provenance correction (subsequent verified comparison):** A pre-existing complete author-level p13 q9 split(4,5) positive (1,1,1,1) result was already GitHub-published at `research_notes/portable_direct/onhour_20261123_t6_p13_q9_split45_pos1111_full_exact_author_closure.md` (commit `fae5aa69f087624bf457e75e1876a8f28f5e360e`, compact certificate `research_checks/T6_P13_Q9_SPLIT45_POS1111_FULL_AUTHOR_COMPACT_CERT_20261123.json`). That prior result has the same complete 14,889,420 pairs, 12,571,951 GS nodes and six signed relaxed representatives. The finite calculation documented below is therefore a separate author cross-reproduction under a different slice partition, **not a newly discovered theorem or independent review**. Its original author and record should be retained, without duplicate admission/Activity credit. Actual new research from the present turn is p13 qorder10 negative length7 patterns `(1,1,1,1,1,2,3)` and `(1,1,1,1,2,2,2)`, both completely tested and saved at `research_notes/portable_direct/onhour_20261123_t6_p13_q10_split0_10_all_length7_author_exact_closure.md`. The current next unvisited unit is p13 qorder10 split(0,10) **negative length8**, not p13 q9. The dated next-action proposal below is superseded by this correction.
+
+
 Date: 2026-11-23. Frozen scientific input: `awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca`. Mother question: exact global `T6=2332` or a cheaper signed H0..H6 collision. This is a portable finite author result, with the native p17 q14 Source delegation and its owner state kept distinct.
 
 ## Proposition and complete integer domain
