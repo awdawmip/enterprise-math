@@ -1,0 +1,54 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_AUTHOR_CONTINUATION_V1",
+  "as_of": "2026-11-23T15:34:00+08:00",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "mother_state": "OPEN",
+  "scientific_pin": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "previous_continuation": "research_notes/portable_direct/onhour_20261123_t6_p13_q10_neg111123_first32000_continuation.json",
+  "completed_portable_segment": {
+    "range": [
+      32000,
+      48000
+    ],
+    "cert_path": "research_checks/T6_P13_Q10_SPLIT1_9_NEG111123_32000_48000_AUTHOR_EXACT_CERT_20261123.json",
+    "counts": {
+      "raw_pairs": 192000,
+      "common_cancel": 56320,
+      "vertical_overbudget": 0,
+      "exact_gs_searches": 135680,
+      "gs_nodes": 325621,
+      "sphere_leaves": 0,
+      "budget_valid": 0
+    }
+  },
+  "cumulative_current_q_pattern": {
+    "negative_rosters_completed": 48000,
+    "negative_rosters_total": 196560,
+    "raw_pairs": 576000,
+    "common_cancel": 161856,
+    "exact_gs_searches": 414144,
+    "gs_nodes": 997723,
+    "relaxed_sphere_leaves": 1,
+    "budget_legal": 0
+  },
+  "immutable_frontier": "negative rosters indices [0,48000) checked; no duplicate search; both segment certificates in main",
+  "next_unfinished": "negative q=(1,1,1,1,2,3) roster indices [48000,196560), all positive q1 residue 1..12; exact six mixed congruences and original two side budgets, preserve signed vector",
+  "do_not_repeat": [
+    "p13 split(0,10) all previously complete",
+    "p13 split(1,9) negative lengths1..5 and negative length6 pattern111114 previously complete",
+    "current pattern111123 indices [0,48000)",
+    "Native p17 q14 Source work"
+  ],
+  "control": {
+    "native_claim": "NOT_VERIFIED",
+    "native_progress": "NOT_PUBLISHED",
+    "research_activity": "PENDING_AUTHOR_ATTRIBUTION",
+    "native_continuation_original_request": "onhour-20261123-1528-t6-source-continuation-ro-v1",
+    "native_continuation_last_observed": "RUNNING; use original request receipt, not a second submission",
+    "client_revision_last_confirmed": 26,
+    "client_revision27": "NOT_SENT"
+  },
+  "scope": "PORTABLE_AUTHOR_SCIENCE / UNREVIEWED / NOT_ADMITTED",
+  "logical_conversation_declared": "chatgpt-research-onhour-enterprise-math-20260923",
+  "authenticated_owner_binding": "NOT_VERIFIED"
+}
