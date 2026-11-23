@@ -1,0 +1,362 @@
+{
+  "schema": "EM_R762JY_FINITE_EVIDENCE_V1",
+  "date": "2026-11-23",
+  "research_id": "R762JY",
+  "model": "UNSIGNED_COMPOSITE_PORT_EULER_ONLY",
+  "author_status": "EXACT_FINITE_CHECKED_NOT_INDEPENDENTLY_REVIEWED",
+  "science_lineage": {
+    "predecessor_commit": "b5ebd79873bb2f0e732c1b1b5d3578bcfd458108",
+    "frozen_P000": "UNCHANGED",
+    "task": "RS-X6-TRIADIC-CLOSURE-DYNAMICS"
+  },
+  "definitions": {
+    "axis_count": 6,
+    "port_count": 15,
+    "colors": 20,
+    "source_inventory_counts_44": {
+      "three": 8,
+      "two": 8,
+      "one": 4,
+      "zero": 0
+    },
+    "target_inventory_counts_42": {
+      "three": 7,
+      "two": 8,
+      "one": 5,
+      "zero": 0
+    }
+  },
+  "four_fixed_representative_slices": [
+    {
+      "M": [],
+      "D": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "T_checked": 6435,
+      "joint_double_triple": 6435,
+      "direct_repetition": 0,
+      "successes": 6435,
+      "axis_orbit_size": 180
+    },
+    {
+      "M": [
+        0
+      ],
+      "D": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "T_checked": 6435,
+      "joint_double_triple": 6435,
+      "direct_repetition": 0,
+      "successes": 6435,
+      "axis_orbit_size": 180
+    },
+    {
+      "M": [
+        0,
+        9
+      ],
+      "D": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "T_checked": 6435,
+      "joint_double_triple": 6435,
+      "direct_repetition": 0,
+      "successes": 6435,
+      "axis_orbit_size": 180
+    },
+    {
+      "M": [
+        0,
+        9,
+        14
+      ],
+      "D": [
+        5,
+        6,
+        7,
+        8,
+        11
+      ],
+      "T_checked": 6435,
+      "joint_double_triple": 6171,
+      "direct_repetition": 264,
+      "successes": 6435,
+      "axis_orbit_size": 360
+    }
+  ],
+  "totals": {
+    "tested": 25740,
+    "joint_double_triple": 25476,
+    "needed_direct_repetition": 264,
+    "verified_euler_graphs": 25740,
+    "failures": 0,
+    "representative_pair_orbit_sum": 900,
+    "covered_distinct_labeled_targets": 5791500,
+    "covered_distinct_labeled_marked_44_to_42": 28957500,
+    "source_restoration_bytes": 15790
+  },
+  "digests": {
+    "readable_source_sha256": "93750fd254b07919fe1bdcf6fd13a7768e4d5bdf7b7f7c627cf96a81e0925eb4",
+    "full_jsonl_25740_certificates_sha256": "3bf2c48353c779a7f3cdfb070c6fc1a794e4b855a4f2ab44d3adb44751ff76d1",
+    "canonical_length_framed_certificate_stream_sha256": "62a2af0f72be9b20a1e4279977d3a0012b5156f8845b849201f0a26edb82f0d9"
+  },
+  "direct_repetition_case": {
+    "M": [
+      0,
+      9,
+      14
+    ],
+    "D": [
+      5,
+      6,
+      7,
+      8,
+      11
+    ],
+    "T": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      16,
+      17
+    ],
+    "events_by_color": [
+      [
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          5
+        ]
+      ],
+      [
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      [
+        [
+          3,
+          7
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      [
+        [
+          4,
+          8
+        ],
+        [
+          4,
+          8
+        ],
+        [
+          4,
+          8
+        ]
+      ],
+      [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      [
+        [
+          1,
+          3
+        ]
+      ],
+      [
+        [
+          1,
+          4
+        ]
+      ],
+      [
+        [
+          2,
+          12
+        ]
+      ],
+      [
+        [
+          2,
+          13
+        ]
+      ],
+      [
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      [
+        [
+          5,
+          6
+        ],
+        [
+          5,
+          6
+        ]
+      ],
+      [
+        [
+          5,
+          10
+        ]
+      ],
+      [
+        [
+          5,
+          8
+        ],
+        [
+          5,
+          11
+        ]
+      ],
+      [
+        [
+          6,
+          12
+        ],
+        [
+          7,
+          12
+        ]
+      ],
+      [
+        [
+          6,
+          8
+        ],
+        [
+          6,
+          8
+        ]
+      ],
+      [
+        [
+          7,
+          8
+        ],
+        [
+          7,
+          8
+        ]
+      ],
+      [
+        [
+          10,
+          12
+        ],
+        [
+          10,
+          12
+        ],
+        [
+          10,
+          12
+        ]
+      ],
+      [
+        [
+          11,
+          13
+        ],
+        [
+          11,
+          13
+        ],
+        [
+          11,
+          13
+        ]
+      ],
+      [
+        [
+          10,
+          11
+        ],
+        [
+          10,
+          11
+        ]
+      ],
+      [
+        [
+          12,
+          13
+        ],
+        [
+          12,
+          13
+        ]
+      ]
+    ]
+  },
+  "reproduction": {
+    "project_program": "research_notes/portable_direct/R762JY_EXACT_REPRO.py",
+    "usage": "python R762JY_EXACT_REPRO.py --extract-source && python R762JY_COMPLETE_EXACT_VERIFY.py",
+    "local_archive_includes": "readable source + full JSONL stream + local run log"
+  },
+  "verification_scope": "Each of 25,740 lexicographically enumerated labeled target inventories is constructed and checked by exact per-event label, allowed endpoints, exact per-color multiplicity, zero inactive degrees, positive even active degrees, and connectedness. All 720 axis permutations used to compute four pair orbits.",
+  "not_claimed": [
+    "Every orbit of (M,D)",
+    "all target inventories",
+    "every marked triple removable",
+    "native signed P000/BRC lift",
+    "independent mathematical review"
+  ]
+}
