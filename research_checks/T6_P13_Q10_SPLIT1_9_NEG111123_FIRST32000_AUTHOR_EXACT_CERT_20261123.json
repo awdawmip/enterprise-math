@@ -1,0 +1,126 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT1_9_NEG111123_EXACT_AUTHOR_SEGMENT_V1",
+  "scientific_pin": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "scope": {
+    "maximal_prime": 13,
+    "valuation": 1,
+    "vertical_q_total": 10,
+    "signed_split": [
+      1,
+      9
+    ],
+    "positive_q_pattern": [
+      1
+    ],
+    "negative_q_pattern": [
+      1,
+      1,
+      1,
+      1,
+      2,
+      3
+    ],
+    "roster_range": [
+      0,
+      32000
+    ],
+    "negative_rosters_full": 196560,
+    "canonical_order": "q1 nondecreasing residues, then q2 residue ascending, then q3 residue ascending",
+    "original_mass_cap_per_side": 2331,
+    "observers": "original H0..H6; six necessary p13 mixed congruences; H0/lower-prime completion not claimed"
+  },
+  "method": {
+    "q0_saturated_lattice_index": "247064529073450392704413",
+    "GS_dmin": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+    "mass_weight_q0": "13r-1",
+    "mass_weight_vertical": "169q+13r-1",
+    "pair_order_sha256": "9ad5793fe2d059f26d5b85553942485ad48481faa6c44f5b469f2b31bcba4a2d",
+    "radius": "(2331 - positive_vertical_mass)^2+(2331 - negative_vertical_mass)^2",
+    "search": "exact rational bounded center nearest-two recursion; no float"
+  },
+  "counts": {
+    "raw_pairs": 384000,
+    "common_cancel": 105536,
+    "vertical_overbudget": 0,
+    "exact_gs_searches": 278464,
+    "gs_nodes": 672102,
+    "sphere_leaves": 1,
+    "budget_valid": 0
+  },
+  "witnesses": [
+    {
+      "roster_index": 3907,
+      "positive": [
+        [
+          1,
+          2
+        ]
+      ],
+      "negative": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          8
+        ]
+      ],
+      "u": [
+        -37,
+        33,
+        18,
+        4,
+        9,
+        -13,
+        -2,
+        3,
+        1,
+        6,
+        -4,
+        -4
+      ],
+      "masses": [
+        3682,
+        4614
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    }
+  ],
+  "next_roster_range": [
+    32000,
+    196560
+  ],
+  "elapsed_seconds": 33.854,
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED/UNREVIEWED/NOT_ADMITTED",
+  "independent_review": "NOT_PERFORMED",
+  "native_claim": "NOT_VERIFIED",
+  "native_semantic_progress": "NOT_PUBLISHED",
+  "local_exact_json_sha256": "253843eb5b29d436f8827053d2e2b55b24a39d596851139eb8cd0110d959e240",
+  "local_script_sha256": "d91c60a3448f9b65b089ce030d761f8e851836e4276300c99084b09ec91104bb",
+  "local_code_publication": "UNPUBLISHED; method matches documented published lattice core with the new signed q-pattern and canonical roster loop"
+}
