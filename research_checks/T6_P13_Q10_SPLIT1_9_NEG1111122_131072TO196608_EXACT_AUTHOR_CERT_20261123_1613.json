@@ -1,0 +1,232 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT1_9_NEG1111122_PARTIAL_AUTHOR_EXACT_V1",
+  "scientific_pin": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "authored_at": "2026-11-23T16:13:00+08:00",
+  "negative_pattern": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    2,
+    2
+  ],
+  "source_order": "product(combinations_with_replacement(range(1,13),5),combinations_with_replacement(range(1,13),2)); pos=(1,r), r=1..12 ascending",
+  "source_order_interval": [
+    131072,
+    196608
+  ],
+  "total_family_negative_rosters": 340704,
+  "denominator": "13*(13*q+r)",
+  "vertical_cost": "169*q+13*r-1",
+  "q0_cost": "13*r-1",
+  "side_limit": 2331,
+  "moduli": [
+    13,
+    169,
+    2197,
+    28561,
+    371293,
+    4826809
+  ],
+  "saturated_q0_index": "13^21",
+  "exact_search": "Reuse preceding published saturated 12D q0 integer coset and exact rational Gram-Schmidt recursion; min diagonal square > 2*2331**2. Original positive/negative side masses and all six modular residues checked at leaves.",
+  "digest": "sha256 over Python repr((pos_tuple,neg_tuple)) + '\\n' (all canonical raw signed pairs)",
+  "interval_rows": [
+    {
+      "source_order_interval": [
+        131072,
+        139264
+      ],
+      "raw_pairs": 98304,
+      "common_cancel": 35922,
+      "vertical_overbudget": 0,
+      "gs_searches": 62382,
+      "gs_nodes": 149184,
+      "sphere_leaves": 0,
+      "budget_valid": 0,
+      "pair_sha256": "79672a477e74225aa0346b740e6bdb5124905e7f9be06f952b03b0f95830ae63"
+    },
+    {
+      "source_order_interval": [
+        139264,
+        147456
+      ],
+      "raw_pairs": 98304,
+      "common_cancel": 34060,
+      "vertical_overbudget": 68,
+      "gs_searches": 64176,
+      "gs_nodes": 153219,
+      "sphere_leaves": 1,
+      "budget_valid": 0,
+      "pair_sha256": "2269d330bd0ff41675f19db91d0b0e5ca517f9d6d715e6ca122db1280d8c92a6"
+    },
+    {
+      "source_order_interval": [
+        147456,
+        155648
+      ],
+      "raw_pairs": 98304,
+      "common_cancel": 35420,
+      "vertical_overbudget": 0,
+      "gs_searches": 62884,
+      "gs_nodes": 150230,
+      "sphere_leaves": 0,
+      "budget_valid": 0,
+      "pair_sha256": "128be74f10cb7de7296a62b4cae290061c471759e4929e869b819658c2e10b62"
+    },
+    {
+      "source_order_interval": [
+        155648,
+        163840
+      ],
+      "raw_pairs": 98304,
+      "common_cancel": 33196,
+      "vertical_overbudget": 142,
+      "gs_searches": 64966,
+      "gs_nodes": 154948,
+      "sphere_leaves": 0,
+      "budget_valid": 0,
+      "pair_sha256": "4f831439b75b8897b7276c8ec2816de673193cda02695978d1b16005bffbe142"
+    },
+    {
+      "source_order_interval": [
+        163840,
+        172032
+      ],
+      "raw_pairs": 98304,
+      "common_cancel": 33468,
+      "vertical_overbudget": 280,
+      "gs_searches": 64556,
+      "gs_nodes": 154173,
+      "sphere_leaves": 0,
+      "budget_valid": 0,
+      "pair_sha256": "13ac81455e779c14ada1e77379de783b1fa52249bb66ec91939a33601039daae"
+    },
+    {
+      "source_order_interval": [
+        172032,
+        180224
+      ],
+      "raw_pairs": 98304,
+      "common_cancel": 31908,
+      "vertical_overbudget": 1323,
+      "gs_searches": 65073,
+      "gs_nodes": 154699,
+      "sphere_leaves": 0,
+      "budget_valid": 0,
+      "pair_sha256": "93f9c94542b012717a277b14afc7d1d53b8a64da6f3510c19a226f946f097009"
+    },
+    {
+      "source_order_interval": [
+        180224,
+        188416
+      ],
+      "raw_pairs": 98304,
+      "common_cancel": 25544,
+      "vertical_overbudget": 5398,
+      "gs_searches": 67362,
+      "gs_nodes": 161003,
+      "sphere_leaves": 0,
+      "budget_valid": 0,
+      "pair_sha256": "6087a8033efa0a871da93abcd8f40a890d8762f136298d96908169b9fd53f9a0"
+    },
+    {
+      "source_order_interval": [
+        188416,
+        196608
+      ],
+      "raw_pairs": 98304,
+      "common_cancel": 28678,
+      "vertical_overbudget": 0,
+      "gs_searches": 69626,
+      "gs_nodes": 166497,
+      "sphere_leaves": 0,
+      "budget_valid": 0,
+      "pair_sha256": "cd318238226a07b03934a11c286309c79614c461ae129dd281931120fa33cec2"
+    }
+  ],
+  "totals": {
+    "raw_pairs": 786432,
+    "common_cancel": 258196,
+    "vertical_overbudget": 7211,
+    "gs_searches": 521025,
+    "gs_nodes": 1243953,
+    "sphere_leaves": 1,
+    "budget_valid": 0
+  },
+  "sphere_witnesses": [
+    {
+      "negative_roster_index": 139366,
+      "pos": [
+        [
+          1,
+          1
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          2,
+          8
+        ]
+      ],
+      "u": [
+        -32,
+        -17,
+        7,
+        -16,
+        -4,
+        7,
+        -8,
+        -3,
+        8,
+        1,
+        1,
+        -7
+      ],
+      "masses": [
+        2185,
+        6146
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    }
+  ],
+  "separate_validation": "Direct independent source-roster enumeration matched 4 raw/cancel/excess/search counts; all six modular residues and both original side masses of 1 full signed witness recomputed",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "next_source_order_index": 196608,
+  "native_progress": "NOT_PUBLISHED"
+}
