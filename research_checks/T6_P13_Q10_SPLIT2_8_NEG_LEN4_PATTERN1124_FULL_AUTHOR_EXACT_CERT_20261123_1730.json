@@ -1,0 +1,191 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT2_8_NEG_LEN4_1124_COMPLETE_AUTHOR_EXACT_V1",
+  "as_of": "2026-11-23",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "logical_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "frozen_scientific_source": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "observer": "Original H0..H6, six p13 mixed congruences j=1..6",
+  "model": "maximal p13, v13=1, vertical q total 10, signed side split(2,8), negative q pattern(1,1,2,4)",
+  "positive_q_patterns": [
+    [
+      2
+    ],
+    [
+      1,
+      1
+    ]
+  ],
+  "negative_q_pattern": [
+    1,
+    1,
+    2,
+    4
+  ],
+  "negative_roster_total": 11232,
+  "positive_roster_total": 90,
+  "source_order": "negative product(combinations_with_replacement(range(1,13),2),range(1,13),range(1,13)); positive [(2,r),r=1..12] then [(1,r1),(1,r2),1<=r1<=r2<=12]",
+  "budget_each_side": 2331,
+  "q0_weight": "13r-1",
+  "vertical_weight": "13(13q+r)-1",
+  "saturated_q0_lattice_index": "13^21",
+  "six_moduli": [
+    13,
+    169,
+    2197,
+    28561,
+    371293,
+    4826809
+  ],
+  "gs_min_diagonal_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "complete_raw_pair_digest_sha256": "d90c62c991fd54565ce286c4e4dd1501a7b119bfeeeb05e913a719d5f8a3e45a",
+  "method": "Exact rational HNF/LLL weighted 12D saturated q0 lattice, integer signed modular particular solution, GS recursive sphere enumeration. All GS squared diagonals exceed 2*2331^2; therefore at each coefficient only floor(-center) and ceil(-center) can fit the necessary radius. Full named roster and original masses retained. Equal named signed atoms are canceled and accounted in lower-order source.",
+  "stats": {
+    "negative_rosters_visited": 11232,
+    "raw_signed_pairs": 1010880,
+    "common_named_atom_canceled": 250560,
+    "vertical_original_mass_excess": 0,
+    "gs_searches": 760320,
+    "gs_nodes": 1680642,
+    "relaxed_sphere_witnesses": 1,
+    "both_original_side_mass_valid": 0
+  },
+  "exact_contiguous_slices": [
+    {
+      "start": 0,
+      "end": 24,
+      "pair_digest_sha256": "85e03b48345f5d02340a66855bb24359dd82cfdbac506f0f715a8615d4441a31",
+      "gs_nodes": 4318,
+      "relaxed_sphere_witnesses": 0
+    },
+    {
+      "start": 24,
+      "end": 512,
+      "pair_digest_sha256": "5299054b063ee5eadd620551ca3e348fa0af678aeed6d2d518a19850a3cdb4d5",
+      "gs_nodes": 75324,
+      "relaxed_sphere_witnesses": 0
+    },
+    {
+      "start": 512,
+      "end": 1536,
+      "pair_digest_sha256": "a7edb5dd0f70ce333d4c425872f205ee3e7edd405b18566195b3ec89a3a60d8a",
+      "gs_nodes": 150270,
+      "relaxed_sphere_witnesses": 0
+    },
+    {
+      "start": 1536,
+      "end": 3072,
+      "pair_digest_sha256": "f2441a1185a6223c99fdbe7b5f332bac0bfa61d77f54fbaa693bcf23e49e9542",
+      "gs_nodes": 228279,
+      "relaxed_sphere_witnesses": 0
+    },
+    {
+      "start": 3072,
+      "end": 4608,
+      "pair_digest_sha256": "a44e41530e2ddd3bc1e9480ff7ec79a5e58e26563d8a7e6cfc9deddab25095f5",
+      "gs_nodes": 228498,
+      "relaxed_sphere_witnesses": 0
+    },
+    {
+      "start": 4608,
+      "end": 6144,
+      "pair_digest_sha256": "7049e323eaa8f06c53e5a16c881227401ee59b4dd6a859bd0bc7652124732185",
+      "gs_nodes": 230861,
+      "relaxed_sphere_witnesses": 0
+    },
+    {
+      "start": 6144,
+      "end": 7680,
+      "pair_digest_sha256": "3d09a001028a4942d1d6f2fa9b3364eb540796b3a0b3bcbd27e6d98234e74af9",
+      "gs_nodes": 227838,
+      "relaxed_sphere_witnesses": 0
+    },
+    {
+      "start": 7680,
+      "end": 9216,
+      "pair_digest_sha256": "33fb2bbd22a8652aac972b177f172ff8bcf828e0cf6d574cd85ddf02d0f1db71",
+      "gs_nodes": 230527,
+      "relaxed_sphere_witnesses": 0
+    },
+    {
+      "start": 9216,
+      "end": 10752,
+      "pair_digest_sha256": "df9eaae6ff3fab77d7ff618a25a8c4c2543eb229454ef444463a2b1fae41d1cd",
+      "gs_nodes": 228872,
+      "relaxed_sphere_witnesses": 1
+    },
+    {
+      "start": 10752,
+      "end": 11232,
+      "pair_digest_sha256": "78e4f393c6554fc083bcee85369d0aaae5c3e2ff55eae01642384c5bc8e00b21",
+      "gs_nodes": 75855,
+      "relaxed_sphere_witnesses": 0
+    }
+  ],
+  "full_signed_witnesses": [
+    {
+      "negative_roster_index": 9513,
+      "positive_roster_index": 25,
+      "pos": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "u": [
+        79,
+        12,
+        -29,
+        -12,
+        7,
+        -4,
+        -7,
+        -6,
+        -3,
+        3,
+        -2,
+        1
+      ],
+      "masses": [
+        2639,
+        5640
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    }
+  ],
+  "independent_witness_modular_and_mass_check": "PASS (independent integer rerun on complete signed witness)",
+  "replay_method_reference": "research_checks/T6_P13_Q9_SPLIT1_8_NEG_LEN1TO4_EXACT_REPLAY_20261123_0900.py (same exact q0 construction, GS and pair_search; q-pattern rosters adapted as declared)",
+  "scientific_strength": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "native_semantic_progress": "NOT_PUBLISHED",
+  "next_unfinished": "q10 signed split(2,8), negative length4 q-pattern(1,1,3,3); then (1,2,2,3),(2,2,2,2), followed by negative lengths5..8",
+  "protected_current_route": "Current Source p17 q14 is distinct; no owner claim asserted."
+}
