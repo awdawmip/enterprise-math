@@ -1,0 +1,159 @@
+{
+  "schema": "EM_T6_P13_Q9_SPLIT45_POS112_NEG1112_COMPLETE_AUTHOR_EXACT_V1",
+  "date": "2026-11-23",
+  "task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "frozen_science": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "model": {
+    "P": 13,
+    "cap_each_side": 2331,
+    "positive_q_pattern": [
+      1,
+      1,
+      2
+    ],
+    "negative_q_pattern": [
+      1,
+      1,
+      1,
+      2
+    ],
+    "positive_roster_total": 936,
+    "negative_roster_total": 4368,
+    "vertical_atom": "(q,r) means denominator 13*(13q+r) and exponent mass 169q+13r-1",
+    "q0_atom": "coordinate u_r means denominator 13r and exponent mass 13r-1",
+    "mixed_congruences": "sum_r u_r*r^(-j)+sum_positive(13q+r)^(-j)-sum_negative(13q+r)^(-j)==0 mod 13^j for each j=1..6",
+    "saturated_q0_index": "247064529073450392704413",
+    "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+    "max_sphere_radius_sq": "2*(2331)^2=10867122"
+  },
+  "enumeration": "negative outer, q1 triple multiset residues 1..12 lex order, q2 residue 1..12; positive inner, q1 double multiset residues 1..12, q2 residue 1..12. Exclude common exact atom pairs (prior lower-order); for remaining solve affine lattice via exact rational GS two nearest coordinate branches and original side-mass caps.",
+  "rows": [
+    {
+      "negative_roster_range": [
+        0,
+        24
+      ],
+      "raw_pairs": 22464,
+      "common_cancelled": 6492,
+      "gs_nodes": 35142,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "vert_overbudget": 0,
+      "negative_roster_sha256": "32036e2ae99d95bd6204205bf44b0f92d3d374f2bebee3e18c384cb81d99dfaf",
+      "ordered_pairs_sha256": "dbde7fe8e87f3b62c94e4bef7b1b3f35b5c26e10ab766eac9283e44f779340ab",
+      "local_json_sha256": "5b7b89b40237e8a71874c7e94ae7c18b2d668ba16e689ba6ca00a2e9f7d98301"
+    },
+    {
+      "negative_roster_range": [
+        24,
+        124
+      ],
+      "raw_pairs": 93600,
+      "common_cancelled": 33100,
+      "gs_nodes": 129251,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "vert_overbudget": 0,
+      "negative_roster_sha256": "594db1c0a21e46e883ef1274294f90dc5f784e5753b5bc035564dde908e97a7e",
+      "ordered_pairs_sha256": "0f6979edc25776281b7f8f4a9a20c39675051be2daf2805b821675e3054f2c42",
+      "local_json_sha256": "b6359ddf3e64fc0731de302f4d270f6e6a3b7ad139ab9b3361185c8f2697680a"
+    },
+    {
+      "negative_roster_range": [
+        124,
+        436
+      ],
+      "raw_pairs": 292032,
+      "common_cancelled": 131432,
+      "gs_nodes": 341925,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "vert_overbudget": 0,
+      "negative_roster_sha256": "02ea476a397750a4bf43a8d7dcec155fd20c6004e9f3335770228da03bbca973",
+      "ordered_pairs_sha256": "6f512fb9329e39009268feb1991bc8fd2d238ee72b8a48b8539a1b473c47adfe",
+      "local_json_sha256": "3c95a4714555a350fc67ca99482f42f61a82d098557a2a1238d6a20cd89cdc98"
+    },
+    {
+      "negative_roster_range": [
+        436,
+        1000
+      ],
+      "raw_pairs": 527904,
+      "common_cancelled": 229672,
+      "gs_nodes": 620861,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "vert_overbudget": 0,
+      "negative_roster_sha256": "f8b508e32f96f842571aeaf6481f39b2d56d7ff7f76e5e1226a02da43fe74125",
+      "ordered_pairs_sha256": "3d5afd1b0e93808959b3d1e91502addffc6044c153c3430cafc2c3764b7dfe9a",
+      "local_json_sha256": "d0ff2de3cec38010ae8aacda8a17777a6cd317bb1754d2b314df57586454babb"
+    },
+    {
+      "negative_roster_range": [
+        1000,
+        2000
+      ],
+      "raw_pairs": 936000,
+      "common_cancelled": 403028,
+      "gs_nodes": 1112604,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "vert_overbudget": 0,
+      "negative_roster_sha256": "deda45ad4c73b33966e3405b11bd44c3a304d14e6672aaac22303e181921c1a5",
+      "ordered_pairs_sha256": "1d7fda47dc090f7a03a002bc590dac69f92e560a4a3daeb25244af84a9c3957b",
+      "local_json_sha256": "472baa6adbfda3f02dfe54f9634a1ce132daa72f2d4491d4fd7a1e23db6768e3"
+    },
+    {
+      "negative_roster_range": [
+        2000,
+        3000
+      ],
+      "raw_pairs": 936000,
+      "common_cancelled": 398496,
+      "gs_nodes": 1107513,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "vert_overbudget": 0,
+      "negative_roster_sha256": "62ce8c54d40f3e09702c06775e392a95f865f40cc473ae9652a4c602ee4af226",
+      "ordered_pairs_sha256": "5d7f7dd4225d4860d93bd8bdf4b084a7d4730098d3eb98b31887ba81838ca3c3",
+      "local_json_sha256": "960f7073e5ad2e7cc2867c71a01078dc31b0f1bcdecad1c4beb9465957caf047"
+    },
+    {
+      "negative_roster_range": [
+        3000,
+        4368
+      ],
+      "raw_pairs": 1280448,
+      "common_cancelled": 516564,
+      "gs_nodes": 1542508,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "vert_overbudget": 0,
+      "negative_roster_sha256": "b5f3e6667ebd23237cd86874b76f4fa06b331afa43f1f2cd4e225ebf5e07d9ee",
+      "ordered_pairs_sha256": "97b701962312b51ed87910cc658200e0a255bdd6b8dc8deea0403901ed7e1e2f",
+      "local_json_sha256": "afc67ef94979bb93f49024cd32bee2bef563a710e8a479ea147c1038d6af7d14"
+    }
+  ],
+  "totals": {
+    "negative_rosters": 4368,
+    "positive_rosters": 936,
+    "raw_pairs": 4088448,
+    "common_cancelled": 1718784,
+    "disjoint_pairs": 2369664,
+    "vertical_overbudget": 0,
+    "gs_nodes": 4889804,
+    "ball_leaves": 0,
+    "budget_valid": 0
+  },
+  "local_execution": {
+    "language": "Python Fraction+SymPy",
+    "script": "t6_p13_q9_split45_slice.py",
+    "sha256": "976a1e67dd6497f58a9c093f468af620e1b5ce12118323d534428f08747f1dfe",
+    "repo_script_publication": "PENDING; author-executed local script to be provided separately",
+    "slice_json_availability": "LOCAL_EXECUTED; hashes recorded above"
+  },
+  "result": "All disjoint-support signed configurations in this complete pair of q-pattern families have no affine q0 representative in the necessary budget sphere. Common-atom pairs cancel to previously handled strictly lower order. Hence no primitive original-budget pair in this family.",
+  "scope": "Maximal prime 13, 13-adic valuation one, vertical q-total=9, signed split(4,5), plus pattern(1,1,2) minus pattern(1,1,1,2); depends on previously saved high-valuation cancellation and saturated q0 lattice.",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "native_status": "NO CLAIM / NO PROTECTED PROGRESS"
+}
