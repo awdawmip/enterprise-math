@@ -1,0 +1,182 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT3_7_NEG_LEN2_AUTHOR_EXACT_V1",
+  "as_of": "2026-11-24",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "author_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "session": "MCP-7f3df4435e40430b832e8d5ff2137718",
+  "activity": "RA-A468735D7C934B25C4B9614F",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "p": 13,
+  "q_vertical_total": 10,
+  "signed_split": [
+    3,
+    7
+  ],
+  "positive_q_patterns": [
+    [
+      3
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      1,
+      1,
+      1
+    ]
+  ],
+  "positive_rosters_per_negative": 520,
+  "negative_q_patterns": [
+    [
+      1,
+      6
+    ],
+    [
+      2,
+      5
+    ],
+    [
+      3,
+      4
+    ]
+  ],
+  "negative_rosters_per_pattern": 144,
+  "moduli": [
+    13,
+    169,
+    2197,
+    28561,
+    371293,
+    4826809
+  ],
+  "budget_each_side": 2331,
+  "lattice_index": "13^21",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "arithmetic": "Exact integer, rational, HNF/LLL GS on the published saturated q0 lattice; complete named r,s=1..12 for distinct q; positive q3 single, q1q2 ordered r/s and q1^3 CWR(12,3)",
+  "kernel": "awdawmip/enterprise-math@de78443d23578a66d3ae79f2a045e4be8e756c50:research_checks/T6_P13_Q10_SPLIT2_8_NEG11111111_SLICE_REPLAY_20261123_2300.py",
+  "entries": [
+    {
+      "negative_q_pattern": [
+        1,
+        6
+      ],
+      "negative_rosters": 144,
+      "positive_rosters": 520,
+      "raw_signed_pairs": 74880,
+      "common_named_atom_canceled": 12960,
+      "vertical_original_mass_excess": 0,
+      "gs_searches": 61920,
+      "gs_nodes": 132436,
+      "relaxed_sphere_witnesses": 0,
+      "both_original_side_mass_valid": 0,
+      "roster_sha256": "1ea4c2e37f8279aae2c77f689968fab544a41c75a5f29ea098a61b1cdfe41d0a",
+      "pair_digest_sha256": "47c82c8c299433d4804e98677522a208b3f3d5e597211bd3c89ffb100c4bd8b0"
+    },
+    {
+      "negative_q_pattern": [
+        2,
+        5
+      ],
+      "negative_rosters": 144,
+      "positive_rosters": 520,
+      "raw_signed_pairs": 74880,
+      "common_named_atom_canceled": 1728,
+      "vertical_original_mass_excess": 0,
+      "gs_searches": 73152,
+      "gs_nodes": 155848,
+      "relaxed_sphere_witnesses": 0,
+      "both_original_side_mass_valid": 0,
+      "roster_sha256": "2ae6310bd76f751e427bc002ed2082d149f2cb161bcecb13443db12daa990d50",
+      "pair_digest_sha256": "fd1b47936cfe48b4b4a721a618cad815df7911935ab3e73266df194097581eb7"
+    },
+    {
+      "negative_q_pattern": [
+        3,
+        4
+      ],
+      "negative_rosters": 144,
+      "positive_rosters": 520,
+      "raw_signed_pairs": 74880,
+      "common_named_atom_canceled": 144,
+      "vertical_original_mass_excess": 0,
+      "gs_searches": 74736,
+      "gs_nodes": 159040,
+      "relaxed_sphere_witnesses": 1,
+      "both_original_side_mass_valid": 0,
+      "roster_sha256": "b5d7f7ad56e319550f5afba24cae64bb198f380fb37cfd066a33eaf543c0bfd7",
+      "pair_digest_sha256": "b9d16ae9e457ca51c785955501303e027e6906c3ee0020827ed88106f976e5e9"
+    }
+  ],
+  "counts": {
+    "negative_rosters": 432,
+    "raw_signed_pairs": 224640,
+    "common_named_atom_canceled": 14832,
+    "vertical_original_mass_excess": 0,
+    "gs_searches": 209808,
+    "gs_nodes": 447324,
+    "relaxed_sphere_witnesses": 1,
+    "both_original_side_mass_valid": 0
+  },
+  "witnesses": [
+    {
+      "pos": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          11
+        ]
+      ],
+      "neg": [
+        [
+          3,
+          9
+        ],
+        [
+          4,
+          1
+        ]
+      ],
+      "u": [
+        -99,
+        -22,
+        7,
+        18,
+        4,
+        0,
+        -8,
+        -3,
+        2,
+        1,
+        -2,
+        2
+      ],
+      "masses": [
+        2823,
+        4362
+      ],
+      "radius_sq": 3661561,
+      "budget_valid": false,
+      "negative_roster_index": 96,
+      "positive_roster_index": 196,
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "scope": "Three finite negative q-patterns of length 2 only. Uses existing lower-q common-atom cancellation theorem; all noncanceled searched exactly with six modular tests and both original mass budgets. Author computation not independently reviewed.",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "next_unfinished": "p13 order10 signed split (3,7) negative q-pattern (1,1,5), 936 named rosters x 520 positives, unless canonical source already includes the scope"
+}
