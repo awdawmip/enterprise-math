@@ -1,0 +1,251 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT1_9_NEG11111112_PARTIAL_AUTHOR_EXACT_V1",
+  "as_of": "2026-11-23T17:12:00+08:00",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "frozen_scientific_pin": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "logical_research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "negative_q_pattern": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    2
+  ],
+  "negative_named_rosters_total": 381888,
+  "source_order": "product(combinations_with_replacement(range(1,13),7),combinations_with_replacement(range(1,13),1)); 12 positive (1,r) r=1..12",
+  "source_order_interval": [
+    0,
+    32768
+  ],
+  "denominator": "13*(13*q+r)",
+  "both_side_cap": 2331,
+  "q0_weight": "13*r-1",
+  "vertical_weight": "169*q+13*r-1",
+  "moduli": [
+    13,
+    169,
+    2197,
+    28561,
+    371293,
+    4826809
+  ],
+  "saturated_q0_lattice_index": "13^21",
+  "gs_min_diagonal_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "algorithm": "Reuse exact saturated p13 q0 12D HNF/LLL and weighted rational Gram Schmidt; for radius<(min GS diag), nearest two integer branches enumerate necessary affine sphere. Verify original named common-atom cancellations, vertical budget, six congruences and both side budgets.",
+  "segments": [
+    {
+      "source_order_interval": [
+        0,
+        8192
+      ],
+      "raw_pairs": 98304,
+      "common_cancel": 30848,
+      "vertical_overbudget": 0,
+      "gs_searches": 67456,
+      "gs_nodes": 162641,
+      "ball_leaves": 1,
+      "budget_valid": 0,
+      "pair_digest_sha256": "96168c9ed4b3f6008fe5d4718f5fdb517977c257064fe122f9e4a16c9611a598"
+    },
+    {
+      "source_order_interval": [
+        8192,
+        16384
+      ],
+      "raw_pairs": 98304,
+      "common_cancel": 33588,
+      "vertical_overbudget": 10,
+      "gs_searches": 64706,
+      "gs_nodes": 155390,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "pair_digest_sha256": "5392a0b85a115948240dfc978b6f6ba9627387c8abd14ad57228093e4ee7057c"
+    },
+    {
+      "source_order_interval": [
+        16384,
+        24576
+      ],
+      "raw_pairs": 98304,
+      "common_cancel": 39496,
+      "vertical_overbudget": 0,
+      "gs_searches": 58808,
+      "gs_nodes": 140874,
+      "ball_leaves": 1,
+      "budget_valid": 0,
+      "pair_digest_sha256": "6f22d351d91198082398981e08d59b15d233ecc0e8de091e67b469e81e0bcb3d"
+    },
+    {
+      "source_order_interval": [
+        24576,
+        32768
+      ],
+      "raw_pairs": 98304,
+      "common_cancel": 39100,
+      "vertical_overbudget": 26,
+      "gs_searches": 59178,
+      "gs_nodes": 141395,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "pair_digest_sha256": "bad88a2b1e42c2e52986a721d0278e1ffcec6a201d67534b626bcdf936e637fb"
+    }
+  ],
+  "totals": {
+    "raw_pairs": 393216,
+    "common_cancel": 143032,
+    "vertical_overbudget": 36,
+    "gs_searches": 250148,
+    "gs_nodes": 600300,
+    "ball_leaves": 2,
+    "budget_valid": 0
+  },
+  "full_signed_witnesses": [
+    {
+      "negative_roster_index": 2418,
+      "pos": [
+        [
+          1,
+          11
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "u": [
+        -37,
+        4,
+        9,
+        9,
+        12,
+        -3,
+        4,
+        -4,
+        -10,
+        -2,
+        7,
+        4
+      ],
+      "masses": [
+        3954,
+        4343
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    },
+    {
+      "negative_roster_index": 16765,
+      "pos": [
+        [
+          1,
+          6
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "u": [
+        8,
+        17,
+        -14,
+        -9,
+        4,
+        -7,
+        -3,
+        7,
+        0,
+        -2,
+        1,
+        7
+      ],
+      "masses": [
+        2971,
+        3857
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    }
+  ],
+  "independent_recheck": "Each witness direct original mass recomputation and six modular residual checks PASS",
+  "scientific_status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "native_semantic_progress": "NOT_PUBLISHED",
+  "next_unfinished": "Exact negative pattern11111112 source-order [32768,381888) preserving disjoint nonoverlap; 349120 negative rosters x12 positive choices."
+}
