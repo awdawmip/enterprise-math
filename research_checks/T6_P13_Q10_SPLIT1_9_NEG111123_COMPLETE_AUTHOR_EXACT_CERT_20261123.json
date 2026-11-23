@@ -1,0 +1,778 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT1_9_NEG_LEN6_PATTERN111123_FULL_AUTHOR_EXACT_CERT_V1",
+  "date": "2026-11-23",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "frozen_scientific_pin": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "scope": "maximal p13, v13=1, order10 signed split(1,9), all negative q=(1,1,1,1,2,3) named residue multisets and positive q=(1,r) r=1..12; original H0..H6, mass cap2331 each side",
+  "negative_named_roster_generation": "combinations_with_replacement(1..12,4) x (1..12) x (1..12): 1365*12*12=196560",
+  "raw_pairs_formula": "196560*12=2358720",
+  "common_cancel_independent_count": "12*(C(15,4)-C(14,4))*12*12=628992; prior order8 by identical named atom cancellation",
+  "q0_weight": "13*r-1",
+  "vertical_weight": "169*q+13*r-1",
+  "saturated_q0_lattice": "12D, modulus 13^1..13^6, index13^21; inherited dependency",
+  "gs_dmin_squared": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "algorithm": "Exact rational LLL+Gram Schmidt 12D affine coset search using published kernel. For each original named pair, cancel common named q1 atom as prior lower-order, reject vertical-overbudget, enumerate floor/ceil Gram-Schmidt integers under exact Euclidean-ball radius R=(2331-cp)^2+(2331-cn)^2 < min(d_i), verify all j1..6 modular residues and both original masses.",
+  "replay_code": "research_checks/T6_P13_Q10_SPLIT1_9_NEG111123_EXACT_REPLAY_20261123.py",
+  "kernel_file": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN1TO3_AUTHOR_EXACT_REPLAY_20261123.py",
+  "kernel_blob_sha1": "126761746979e471eb04ee07ba37c3aeb83a11f6",
+  "intervals": [
+    {
+      "negative_roster_indices": [
+        0,
+        2000
+      ],
+      "raw_pairs": 24000,
+      "common_cancel": 3984,
+      "vertical_overbudget": 0,
+      "gs_searches": 20016,
+      "gs_nodes": 49224,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "pair_digest_sha256": "30b2fc5f306a1f3044eebd06d7780813b1f4cdeb7fff1f951dc1ca8b270ff608"
+    },
+    {
+      "negative_roster_indices": [
+        2000,
+        10000
+      ],
+      "raw_pairs": 96000,
+      "common_cancel": 22992,
+      "vertical_overbudget": 0,
+      "gs_searches": 73008,
+      "gs_nodes": 176891,
+      "ball_leaves": 1,
+      "budget_valid": 0,
+      "pair_digest_sha256": "e6bc6234f9a4f712ba1d71247590fcf7c52659ba0ccd71c8400b2c17cdeac821"
+    },
+    {
+      "negative_roster_indices": [
+        10000,
+        30000
+      ],
+      "raw_pairs": 240000,
+      "common_cancel": 70800,
+      "vertical_overbudget": 0,
+      "gs_searches": 169200,
+      "gs_nodes": 407169,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "pair_digest_sha256": "38d74efbb76404f2cc3e3b2a704829a479aa29a23e64b8d1dd29749bf999ce10"
+    },
+    {
+      "negative_roster_indices": [
+        30000,
+        32000
+      ],
+      "raw_pairs": 24000,
+      "common_cancel": 7760,
+      "vertical_overbudget": 0,
+      "gs_searches": 16240,
+      "gs_nodes": 38818,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "pair_digest_sha256": "eaa217d0ed923b02d1e0b1c1895ac914e3e52ce2876657581f8eb376c25d25f4"
+    },
+    {
+      "negative_roster_indices": [
+        32000,
+        50000
+      ],
+      "raw_pairs": 216000,
+      "common_cancel": 63040,
+      "vertical_overbudget": 0,
+      "gs_searches": 152960,
+      "gs_nodes": 366903,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "pair_digest_sha256": "22423879d6dcc43a8dea78297f792ab325ca7a063873de1732f52b2bfd5be63e"
+    },
+    {
+      "negative_roster_indices": [
+        50000,
+        60000
+      ],
+      "raw_pairs": 120000,
+      "common_cancel": 27552,
+      "vertical_overbudget": 0,
+      "gs_searches": 92448,
+      "gs_nodes": 223283,
+      "ball_leaves": 1,
+      "budget_valid": 0,
+      "pair_digest_sha256": "1e124d7db0dfb860f2df8cb90550903ab15bf8f1290eecdd6479ab1882b9b47e"
+    },
+    {
+      "negative_roster_indices": [
+        60000,
+        80000
+      ],
+      "raw_pairs": 240000,
+      "common_cancel": 70304,
+      "vertical_overbudget": 0,
+      "gs_searches": 169696,
+      "gs_nodes": 408332,
+      "ball_leaves": 1,
+      "budget_valid": 0,
+      "pair_digest_sha256": "8f823290aa3dc686bafb7f6ba0ef62fe846e5d8cd2a9176d29e50d291d57161d"
+    },
+    {
+      "negative_roster_indices": [
+        80000,
+        100000
+      ],
+      "raw_pairs": 240000,
+      "common_cancel": 62656,
+      "vertical_overbudget": 0,
+      "gs_searches": 177344,
+      "gs_nodes": 425468,
+      "ball_leaves": 1,
+      "budget_valid": 0,
+      "pair_digest_sha256": "cb0db9b0bc01bb13238f5d9a57ce298cfd182d1b73e027d29e1c188371a54f3e"
+    },
+    {
+      "negative_roster_indices": [
+        100000,
+        120000
+      ],
+      "raw_pairs": 240000,
+      "common_cancel": 69408,
+      "vertical_overbudget": 0,
+      "gs_searches": 170592,
+      "gs_nodes": 408620,
+      "ball_leaves": 1,
+      "budget_valid": 0,
+      "pair_digest_sha256": "b4e11df7757e25824b0faf4af7aabf2d3727c0c9ad3b22250b01d8d607cd7885"
+    },
+    {
+      "negative_roster_indices": [
+        120000,
+        140000
+      ],
+      "raw_pairs": 240000,
+      "common_cancel": 62576,
+      "vertical_overbudget": 10,
+      "gs_searches": 177414,
+      "gs_nodes": 424869,
+      "ball_leaves": 1,
+      "budget_valid": 0,
+      "pair_digest_sha256": "12ec1e21db2fab91914d07866cc78720fdda7418844f76c843d178f718acb8a9"
+    },
+    {
+      "negative_roster_indices": [
+        140000,
+        160000
+      ],
+      "raw_pairs": 240000,
+      "common_cancel": 62720,
+      "vertical_overbudget": 39,
+      "gs_searches": 177241,
+      "gs_nodes": 424019,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "pair_digest_sha256": "06967889e60f19715d6cd2c853e3b794c4b49b74473688cebf655f4a85e8edb6"
+    },
+    {
+      "negative_roster_indices": [
+        160000,
+        180000
+      ],
+      "raw_pairs": 240000,
+      "common_cancel": 60416,
+      "vertical_overbudget": 340,
+      "gs_searches": 179244,
+      "gs_nodes": 429072,
+      "ball_leaves": 1,
+      "budget_valid": 0,
+      "pair_digest_sha256": "8b0be882485acc79dfdf12a1a2dc54581b09b079025255a588dece53ae7170f2"
+    },
+    {
+      "negative_roster_indices": [
+        180000,
+        196560
+      ],
+      "raw_pairs": 198720,
+      "common_cancel": 44784,
+      "vertical_overbudget": 6103,
+      "gs_searches": 147833,
+      "gs_nodes": 352854,
+      "ball_leaves": 2,
+      "budget_valid": 0,
+      "pair_digest_sha256": "838d6cc47b5b7488b2a8deff363e2fc25b9e436518cde8ba63588f55c48a10e1"
+    }
+  ],
+  "totals": {
+    "negative_rosters": 196560,
+    "raw_pairs": 2358720,
+    "common_cancel": 628992,
+    "vertical_overbudget": 6492,
+    "gs_searches": 1723236,
+    "gs_nodes": 4135522,
+    "ball_leaves": 9,
+    "budget_valid": 0
+  },
+  "relaxed_sphere_witnesses": [
+    {
+      "negative_index": 3907,
+      "pos": [
+        [
+          1,
+          2
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          8
+        ]
+      ],
+      "signed_q0_u": [
+        -37,
+        33,
+        18,
+        4,
+        9,
+        -13,
+        -2,
+        3,
+        1,
+        6,
+        -4,
+        -4
+      ],
+      "mass_plus_minus": [
+        3682,
+        4614
+      ],
+      "six_modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    },
+    {
+      "negative_index": 52952,
+      "pos": [
+        [
+          1,
+          11
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          9
+        ]
+      ],
+      "signed_q0_u": [
+        34,
+        12,
+        -10,
+        -11,
+        -3,
+        3,
+        -5,
+        10,
+        -3,
+        -5,
+        -3,
+        -5
+      ],
+      "mass_plus_minus": [
+        2280,
+        5669
+      ],
+      "six_modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    },
+    {
+      "negative_index": 67767,
+      "pos": [
+        [
+          1,
+          6
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "signed_q0_u": [
+        23,
+        -17,
+        8,
+        6,
+        3,
+        2,
+        -7,
+        -3,
+        8,
+        7,
+        9,
+        -1
+      ],
+      "mass_plus_minus": [
+        4587,
+        3463
+      ],
+      "six_modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    },
+    {
+      "negative_index": 85698,
+      "pos": [
+        [
+          1,
+          3
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "signed_q0_u": [
+        -11,
+        -7,
+        5,
+        10,
+        -14,
+        -11,
+        9,
+        -9,
+        -5,
+        1,
+        4,
+        4
+      ],
+      "mass_plus_minus": [
+        3034,
+        5501
+      ],
+      "six_modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    },
+    {
+      "negative_index": 114842,
+      "pos": [
+        [
+          1,
+          1
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "signed_q0_u": [
+        87,
+        32,
+        -18,
+        2,
+        -8,
+        -1,
+        -2,
+        3,
+        4,
+        -4,
+        -7,
+        -5
+      ],
+      "mass_plus_minus": [
+        2900,
+        5734
+      ],
+      "six_modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    },
+    {
+      "negative_index": 120830,
+      "pos": [
+        [
+          1,
+          1
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "signed_q0_u": [
+        -34,
+        8,
+        -21,
+        18,
+        17,
+        10,
+        1,
+        -4,
+        -5,
+        -1,
+        3,
+        -1
+      ],
+      "mass_plus_minus": [
+        3673,
+        4465
+      ],
+      "six_modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    },
+    {
+      "negative_index": 166940,
+      "pos": [
+        [
+          1,
+          7
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          9
+        ]
+      ],
+      "signed_q0_u": [
+        2,
+        9,
+        -3,
+        -20,
+        -16,
+        7,
+        0,
+        4,
+        -4,
+        -2,
+        4,
+        -3
+      ],
+      "mass_plus_minus": [
+        2027,
+        5393
+      ],
+      "six_modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    },
+    {
+      "negative_index": 184554,
+      "pos": [
+        [
+          1,
+          2
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "signed_q0_u": [
+        26,
+        4,
+        -5,
+        12,
+        0,
+        6,
+        -4,
+        -15,
+        7,
+        -1,
+        -5,
+        0
+      ],
+      "mass_plus_minus": [
+        2492,
+        5138
+      ],
+      "six_modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    },
+    {
+      "negative_index": 189204,
+      "pos": [
+        [
+          1,
+          3
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          12
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "signed_q0_u": [
+        -24,
+        37,
+        -19,
+        -12,
+        17,
+        -12,
+        3,
+        -5,
+        -3,
+        -2,
+        2,
+        1
+      ],
+      "mass_plus_minus": [
+        2929,
+        5845
+      ],
+      "six_modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    }
+  ],
+  "conclusion": "No candidate meets both 2331 mass budgets within this complete finite family, conditional on referenced exact q0 lattice and common cancellation coverage.",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED/UNREVIEWED/NOT_ADMITTED",
+  "native_claim": "NOT_VERIFIED",
+  "native_semantic_progress": "NOT_PUBLISHED",
+  "source_provenance": "Local author computation in thirteen disjoint bounded slices, exact integer/Fraction; one timed-out unsaved superslice did not count; full 196560 canonical roster intervals cover entire family.",
+  "next": "Next negative q-pattern (1,1,1,2,2,2) has 132496 rosters/1589952 signed pairs; preserve separate official p17 q14 preflight, other p13 and lower primes/H0."
+}
