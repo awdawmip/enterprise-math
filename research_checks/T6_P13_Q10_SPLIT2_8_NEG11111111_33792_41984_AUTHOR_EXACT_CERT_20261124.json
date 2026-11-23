@@ -1,0 +1,120 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT2_8_NEG11111111_AUTHOR_EXACT_SEGMENTS_V1",
+  "as_of": "2026-11-24",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "author_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "researcher_session": "MCP-7f3df4435e40430b832e8d5ff2137718",
+  "research_activity": "RA-A468735D7C934B25C4B9614F",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "replay": "awdawmip/enterprise-math@de78443d23578a66d3ae79f2a045e4be8e756c50:research_checks/T6_P13_Q10_SPLIT2_8_NEG11111111_SLICE_REPLAY_20261123_2300.py",
+  "arithmetic": "exact integers/Fraction/SymPy HNF+LLL",
+  "negative_index_interval": [
+    33792,
+    41984
+  ],
+  "positive_patterns": [
+    [
+      2
+    ],
+    [
+      1,
+      1
+    ]
+  ],
+  "negative_pattern": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "p": 13,
+  "budget_each_side": 2331,
+  "lattice_index": "13^21",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "source_order": "negative q1 CWR(12,8); positive q2 single then q1 CWR(12,2)",
+  "segments": [
+    {
+      "interval": [
+        33792,
+        34816
+      ],
+      "negative_rosters": 1024,
+      "raw_signed_pairs": 92160,
+      "common_named_atom_canceled": 46624,
+      "vertical_original_mass_excess": 0,
+      "gs_searches": 45536,
+      "gs_nodes": 97419,
+      "relaxed_sphere_witnesses": 0,
+      "both_original_side_mass_valid": 0,
+      "roster_sha256": "ea332446622905c5565762007090f8568f8f9316410327798a73996c965ad2f5",
+      "pair_digest_sha256": "23f0733df6d982eef58344a7e3a6a4695abfd8409da6283c1570097ebc512b85"
+    },
+    {
+      "interval": [
+        34816,
+        36864
+      ],
+      "negative_rosters": 2048,
+      "raw_signed_pairs": 184320,
+      "common_named_atom_canceled": 104189,
+      "vertical_original_mass_excess": 0,
+      "gs_searches": 80131,
+      "gs_nodes": 170933,
+      "relaxed_sphere_witnesses": 0,
+      "both_original_side_mass_valid": 0,
+      "roster_sha256": "55581c3d69940697cc798aafc122f6314dcb98a5301d4646b4c3626749d31714",
+      "pair_digest_sha256": "6197a1eb5ceb025fa47a0f37638735927583ae1b24fb1257f888d80468442529"
+    },
+    {
+      "interval": [
+        36864,
+        38912
+      ],
+      "negative_rosters": 2048,
+      "raw_signed_pairs": 184320,
+      "common_named_atom_canceled": 102156,
+      "vertical_original_mass_excess": 0,
+      "gs_searches": 82164,
+      "gs_nodes": 175425,
+      "relaxed_sphere_witnesses": 0,
+      "both_original_side_mass_valid": 0,
+      "roster_sha256": "54dba635d06609a52bf1534077db46941fa418a13a85f841328539a060d2b0af",
+      "pair_digest_sha256": "8dae4c63f402e54895e98757418bf47e4619e89193ecd7d1aeb3ac7e589c63bf"
+    },
+    {
+      "interval": [
+        38912,
+        41984
+      ],
+      "negative_rosters": 3072,
+      "raw_signed_pairs": 276480,
+      "common_named_atom_canceled": 152285,
+      "vertical_original_mass_excess": 67,
+      "gs_searches": 124128,
+      "gs_nodes": 265095,
+      "relaxed_sphere_witnesses": 0,
+      "both_original_side_mass_valid": 0,
+      "roster_sha256": "0acb9eb7303555a0f1afb1c4f90a947660f8a42226504a26c6ff940a73eaea19",
+      "pair_digest_sha256": "816887c69096f127e26a5fdacc4f83a8a7af9f4d304c93e3ffdf42445bec7b48"
+    }
+  ],
+  "stats": {
+    "negative_rosters": 8192,
+    "raw_signed_pairs": 737280,
+    "common_named_atom_canceled": 405254,
+    "vertical_original_mass_excess": 67,
+    "gs_searches": 331959,
+    "gs_nodes": 708872,
+    "relaxed_sphere_witnesses": 0,
+    "both_original_side_mass_valid": 0
+  },
+  "witnesses": [],
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "proof_scope": "Only the stated finite interval, conditional on the prior lattice and common-atom-cancellation theorems. Source transcribed exact replay is author computation, not independent review.",
+  "do_not_repeat_before": 41984,
+  "next_unfinished_index": 41984
+}
