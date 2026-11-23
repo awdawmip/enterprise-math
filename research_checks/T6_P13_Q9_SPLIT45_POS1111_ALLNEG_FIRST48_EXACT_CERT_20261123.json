@@ -1,0 +1,76 @@
+{
+  "schema": "EM_T6_P13_Q9_SPLIT45_POS1111_ALLNEG_AUTHOR_EXACT_SLICE_V1",
+  "date": "2026-11-23",
+  "task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "frozen_science": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "claim": "For positive q(1,1,1,1) first 48/1365 canonical named rosters versus all 10908 negative q-order5 named rosters, no disjoint-support exact affine ball representative is present. Remaining 1317 positive rosters are UNVISITED.",
+  "model": {
+    "p": 13,
+    "cap_each_side": 2331,
+    "plus_q_pattern": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "minus_q_total": 5,
+    "plus_roster_total": 1365,
+    "minus_roster_total": 10908,
+    "canonical_positive_order": "four combination_with_replacement of residues1..12",
+    "canonical_negative_order": "sort by tuple((q,r),...) of all nondedecreasing q-partitions of5 and r-multisets for repeated q",
+    "q0_index": "247064529073450392704413",
+    "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+    "mixed_congruences": "sum_r u_r*r^(-j)+sum_plus(13q+r)^(-j)-sum_minus(13q+r)^(-j)==0 mod 13^j,j=1..6"
+  },
+  "rows": [
+    {
+      "positive_roster_range": [
+        0,
+        8
+      ],
+      "raw_pairs": 87264,
+      "common_cancelled": 34385,
+      "vert_overbudget": 0,
+      "gs_nodes": 115472,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "pos_roster_sha256": "150df6d22eba70bbf8e5611a1405e0a0e1216d15681638eb136fd36041b280e9",
+      "ordered_pairs_sha256": "cff04fe09710521e5ee14fd942149b01d71d67eb4f5085f7f87c9fafeb0ffcc9",
+      "local_json_sha256": "5aa1f39b8564b34c7c532c4946f85e582584a77174dd3f68be3a0aeb569be338"
+    },
+    {
+      "positive_roster_range": [
+        8,
+        48
+      ],
+      "raw_pairs": 436320,
+      "common_cancelled": 232720,
+      "vert_overbudget": 0,
+      "gs_nodes": 432431,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "pos_roster_sha256": "229f105c1b8fe4613c6939c4364e7064bec33fb537c9ea3007b6a5793b0f55c6",
+      "ordered_pairs_sha256": "b9195c5fbce44fd582847bc9e167b9be4929f9cb9fa81bd07ba0765f389039d4",
+      "local_json_sha256": "8e12bc9a5afc828517d091cd0a8260036cd74513eb5848937e99eb7874db7ee6"
+    }
+  ],
+  "totals": {
+    "positive_rosters_visited": 48,
+    "positive_rosters_unvisited": 1317,
+    "raw_pairs": 523584,
+    "common_cancelled": 267105,
+    "disjoint_pairs": 256479,
+    "vert_overbudget": 0,
+    "gs_nodes": 547903,
+    "ball_leaves": 0,
+    "budget_valid": 0
+  },
+  "local_execution": {
+    "script": "t6_p13_q9_split45_pos1111_allneg_slice.py",
+    "script_sha256": "647e000b371caeebab18072410cbc19407a8da43e27da691f7ae185592b045c2",
+    "source_replay_upload": "PENDING",
+    "local_json": "executed and hashed per range"
+  },
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "next_action": "Continue canonical positive roster range [48,1365) in checked disjoint slices, preserving bounds and non-repetition; do not call full q9(4,5) closed."
+}
