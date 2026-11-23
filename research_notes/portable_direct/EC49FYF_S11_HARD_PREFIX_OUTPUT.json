@@ -1,0 +1,733 @@
+{
+  "schema": "EC49FYF_FULL_COLUMN_SYMMETRY_HARD_PREFIX_V1",
+  "science_pin": "BRC16943",
+  "status": "ALL_PASS",
+  "states": 600,
+  "masks": 50,
+  "rows": 10,
+  "columns": 11,
+  "queries": 110,
+  "adjacent_generators_checked": 10,
+  "equivariance_equalities_checked": 660000,
+  "hard_full_masks": [
+    101,
+    788,
+    833
+  ],
+  "minimum_transversals": {
+    "101": [
+      [
+        1,
+        4,
+        9
+      ],
+      [
+        3,
+        4,
+        9
+      ],
+      [
+        1,
+        7,
+        9
+      ],
+      [
+        3,
+        7,
+        9
+      ],
+      [
+        4,
+        8,
+        9
+      ],
+      [
+        7,
+        8,
+        9
+      ]
+    ],
+    "788": [
+      [
+        0,
+        3,
+        6
+      ],
+      [
+        0,
+        5,
+        6
+      ],
+      [
+        0,
+        3,
+        7
+      ],
+      [
+        0,
+        5,
+        7
+      ]
+    ],
+    "833": [
+      [
+        1,
+        2,
+        3
+      ],
+      [
+        1,
+        2,
+        4
+      ],
+      [
+        2,
+        3,
+        5
+      ],
+      [
+        2,
+        4,
+        5
+      ],
+      [
+        1,
+        3,
+        7
+      ],
+      [
+        1,
+        4,
+        7
+      ],
+      [
+        3,
+        5,
+        7
+      ],
+      [
+        4,
+        5,
+        7
+      ]
+    ]
+  },
+  "root_query_orbits": 10,
+  "root_excluded_rows_if_depth_14": [
+    1
+  ],
+  "second_query_canonical_candidates_after_first": 19,
+  "two_query_prefix_necessary_constraint_forbidden_counts": [
+    {
+      "first_row": 0,
+      "branch0": {
+        "hard_masks": [
+          788
+        ],
+        "forbidden_second_query_count": 3,
+        "excluded": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ]
+      },
+      "branch1": {
+        "hard_masks": [
+          101,
+          833
+        ],
+        "forbidden_second_query_count": 5,
+        "excluded": [
+          [
+            2,
+            0
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            9,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "first_row": 1,
+      "branch0": {
+        "hard_masks": [
+          101,
+          788,
+          833
+        ],
+        "forbidden_second_query_count": 19,
+        "excluded": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            5,
+            1
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            6,
+            1
+          ],
+          [
+            7,
+            0
+          ],
+          [
+            7,
+            1
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            1
+          ],
+          [
+            9,
+            0
+          ],
+          [
+            9,
+            1
+          ]
+        ]
+      },
+      "branch1": {
+        "hard_masks": [],
+        "forbidden_second_query_count": 0,
+        "excluded": []
+      }
+    },
+    {
+      "first_row": 2,
+      "branch0": {
+        "hard_masks": [
+          833
+        ],
+        "forbidden_second_query_count": 3,
+        "excluded": [
+          [
+            2,
+            1
+          ],
+          [
+            7,
+            0
+          ],
+          [
+            7,
+            1
+          ]
+        ]
+      },
+      "branch1": {
+        "hard_masks": [
+          101,
+          788
+        ],
+        "forbidden_second_query_count": 8,
+        "excluded": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            9,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "first_row": 3,
+      "branch0": {
+        "hard_masks": [
+          101,
+          788,
+          833
+        ],
+        "forbidden_second_query_count": 9,
+        "excluded": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            5,
+            1
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            1
+          ]
+        ]
+      },
+      "branch1": {
+        "hard_masks": [],
+        "forbidden_second_query_count": 0,
+        "excluded": []
+      }
+    },
+    {
+      "first_row": 4,
+      "branch0": {
+        "hard_masks": [
+          101,
+          833
+        ],
+        "forbidden_second_query_count": 5,
+        "excluded": [
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            7,
+            0
+          ],
+          [
+            7,
+            1
+          ]
+        ]
+      },
+      "branch1": {
+        "hard_masks": [
+          788
+        ],
+        "forbidden_second_query_count": 5,
+        "excluded": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            9,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "first_row": 5,
+      "branch0": {
+        "hard_masks": [
+          788,
+          833
+        ],
+        "forbidden_second_query_count": 5,
+        "excluded": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            5,
+            1
+          ]
+        ]
+      },
+      "branch1": {
+        "hard_masks": [
+          101
+        ],
+        "forbidden_second_query_count": 3,
+        "excluded": [
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            6,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "first_row": 6,
+      "branch0": {
+        "hard_masks": [
+          788
+        ],
+        "forbidden_second_query_count": 5,
+        "excluded": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            6,
+            1
+          ],
+          [
+            7,
+            0
+          ],
+          [
+            7,
+            1
+          ]
+        ]
+      },
+      "branch1": {
+        "hard_masks": [
+          101,
+          833
+        ],
+        "forbidden_second_query_count": 5,
+        "excluded": [
+          [
+            0,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            5,
+            0
+          ],
+          [
+            8,
+            0
+          ],
+          [
+            9,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "first_row": 7,
+      "branch0": {
+        "hard_masks": [
+          101,
+          788,
+          833
+        ],
+        "forbidden_second_query_count": 9,
+        "excluded": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            4,
+            1
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            6,
+            1
+          ],
+          [
+            7,
+            1
+          ]
+        ]
+      },
+      "branch1": {
+        "hard_masks": [],
+        "forbidden_second_query_count": 0,
+        "excluded": []
+      }
+    },
+    {
+      "first_row": 8,
+      "branch0": {
+        "hard_masks": [
+          101
+        ],
+        "forbidden_second_query_count": 5,
+        "excluded": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            8,
+            1
+          ]
+        ]
+      },
+      "branch1": {
+        "hard_masks": [
+          788,
+          833
+        ],
+        "forbidden_second_query_count": 7,
+        "excluded": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            9,
+            0
+          ]
+        ]
+      }
+    },
+    {
+      "first_row": 9,
+      "branch0": {
+        "hard_masks": [
+          101
+        ],
+        "forbidden_second_query_count": 1,
+        "excluded": [
+          [
+            9,
+            1
+          ]
+        ]
+      },
+      "branch1": {
+        "hard_masks": [
+          788,
+          833
+        ],
+        "forbidden_second_query_count": 7,
+        "excluded": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            4,
+            0
+          ],
+          [
+            6,
+            0
+          ],
+          [
+            8,
+            0
+          ]
+        ]
+      }
+    }
+  ],
+  "scope": "Normalized complete 600-state indexed product observer, no height restriction; exact symmetry and necessary pruning, not proof of Q=14 or Q=15"
+}
