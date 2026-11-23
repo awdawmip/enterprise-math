@@ -1,0 +1,665 @@
+{
+  "schema": "EM_T6_P13_Q9_SPLIT45_POS1111_ALLNEG_COMPLETE_AUTHOR_CERT_V1",
+  "date": "2026-11-23",
+  "authority_checked_head": "95921ccc609bb2bec0d8d123f2d9d8bc858ca607",
+  "repository": "awdawmip/enterprise-math",
+  "task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "frozen_science": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "model": {
+    "max_prime": 13,
+    "vertical_valuation": 1,
+    "positive_q_pattern": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "negative_q_total": 5,
+    "positive_index_interval": [
+      0,
+      1365
+    ],
+    "positive_rosters": 1365,
+    "negative_rosters": 10908,
+    "positive_order": "itertools.combinations_with_replacement(r=1..12, 4)",
+    "negative_order": "sorted tuple((q,r),...) across partitions of 5 with nondecreasing q and repeated-q nondecreasing residues",
+    "signed_composite_denominator": "13*(13q+r)",
+    "per_side_mass_cap": 2331,
+    "observer": "original H0..H6",
+    "necessary_mixed_congruences": "sum_r u_r*r^-j + sum_plus (13q+r)^-j - sum_minus (13q+r)^-j =0 mod 13^j,j=1..6",
+    "q0_dimension": 12,
+    "q0_index": "247064529073450392704413",
+    "exact_GS_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+    "arithmetic": "exact integer and rational",
+    "proof_dependency": "previous p13 qorder7 exact author exclusion for shared-name cancellation to lower qorder"
+  },
+  "previous_exact": {
+    "range": [
+      0,
+      48
+    ],
+    "certificate": "research_checks/T6_P13_Q9_SPLIT45_POS1111_ALLNEG_FIRST48_EXACT_CERT_20261123.json",
+    "blob": "21cdcb0b78e879950a51209d8b3e41504000534d",
+    "raw_pairs": 523584,
+    "common_cancelled": 267105,
+    "gs_evaluated": 256479,
+    "gs_nodes": 547903,
+    "ball_leaves": 0,
+    "budget_valid": 0
+  },
+  "new_slices": [
+    {
+      "range": [
+        48,
+        49
+      ],
+      "raw_pairs": 10908,
+      "common_cancelled": 6135,
+      "gs_evaluated": 4773,
+      "gs_nodes": 9746,
+      "ball_leaves": 0,
+      "local_json_sha256": "aa4f398218fa7a1572406ace8eb2f34cea5c64828e79db4d2732b1052c53255b",
+      "positive_roster_sha256": "a078eca38f9268ae6448ea104b3a65595d14e0519a2fa24a0b690f18e0e79dbe",
+      "ordered_pairs_sha256": "670bdcd0fd5be080a9e9d5538da20747c60f26a35206281e994d6ea07b7c096e"
+    },
+    {
+      "range": [
+        49,
+        65
+      ],
+      "raw_pairs": 174528,
+      "common_cancelled": 93405,
+      "gs_evaluated": 81123,
+      "gs_nodes": 168815,
+      "ball_leaves": 0,
+      "local_json_sha256": "587f4b9c41509d752b76eea2bd103f550e1cdcb214cd1c568c30a50b2a377618",
+      "positive_roster_sha256": "afd76ccacc87a24bca899ff995ffd9ab056b36f78e9d1e38c7e968bcc77d2741",
+      "ordered_pairs_sha256": "b39855d872569f47fe82661727fd7206ba701a90a5a737e3f53e71a91a0680c9"
+    },
+    {
+      "range": [
+        65,
+        96
+      ],
+      "raw_pairs": 338148,
+      "common_cancelled": 189658,
+      "gs_evaluated": 148490,
+      "gs_nodes": 309295,
+      "ball_leaves": 0,
+      "local_json_sha256": "0213548ce45a59e426f8e04e66ac50852ccb5bff420fc33fb6b7ca2bff645017",
+      "positive_roster_sha256": "1a64858ca9ddf36bb5a8dce29b642ed6510321a4eb9a62bb50b90d56a2290eef",
+      "ordered_pairs_sha256": "808ca39725bdf196083f1694abc115f835e4d255fcba43fd57caedaff4091bdb"
+    },
+    {
+      "range": [
+        96,
+        160
+      ],
+      "raw_pairs": 698112,
+      "common_cancelled": 445307,
+      "gs_evaluated": 252805,
+      "gs_nodes": 523991,
+      "ball_leaves": 0,
+      "local_json_sha256": "1e451e02fa2db9eb0f9fe971cbe74ee1c026bcb3d0dced2b5ef9429e85c4516e",
+      "positive_roster_sha256": "d87564033ce38460479a225fbacbc41410bb22cb919e3f322f25165037de1675",
+      "ordered_pairs_sha256": "327ae10fbd7283e42b946f21e5c276432dee14682262ae632133f11ff645864a"
+    },
+    {
+      "range": [
+        160,
+        320
+      ],
+      "raw_pairs": 1745280,
+      "common_cancelled": 1097327,
+      "gs_evaluated": 647953,
+      "gs_nodes": 1317840,
+      "ball_leaves": 3,
+      "local_json_sha256": "f177e08ee3dc310e984213412a81046d308fb84ede6e24be568c07be02821e53",
+      "positive_roster_sha256": "8896286dba660ed5ef56fd230b2bcc9a423e9f6f737120b1a79abde92fda2a19",
+      "ordered_pairs_sha256": "3bb891322fbd4f694b520e6feda65241aea103430b8014667d9ef21912ad2f10"
+    },
+    {
+      "range": [
+        320,
+        352
+      ],
+      "raw_pairs": 349056,
+      "common_cancelled": 210412,
+      "gs_evaluated": 138644,
+      "gs_nodes": 274368,
+      "ball_leaves": 0,
+      "local_json_sha256": "adf31639215c915fcb39118796642fdf900230a6ded120c1851f178397149fb2",
+      "positive_roster_sha256": "358ee2c5a934535cce04037b0027a00be7fe493a5cdb08c87f5e42f105a75923",
+      "ordered_pairs_sha256": "b8ceeccd8f520e5fabf7fce12ad770ec7fd8239a94bda8155ce15e5f958c9d3b"
+    },
+    {
+      "range": [
+        352,
+        512
+      ],
+      "raw_pairs": 1745280,
+      "common_cancelled": 1003724,
+      "gs_evaluated": 741556,
+      "gs_nodes": 1526040,
+      "ball_leaves": 2,
+      "local_json_sha256": "f173cde492be5de1be8c9daa20dbc3070ff61fa56e9e6226bc62ab3f3da65eaf",
+      "positive_roster_sha256": "66b5bb507784dee1e57ad96830c06775f1a09ff556e3b2efacbf96855130776f",
+      "ordered_pairs_sha256": "184e7c58f081d8d626a6a11a8d4cda73e47bb0e72887d21d58c452b37ce54868"
+    },
+    {
+      "range": [
+        512,
+        640
+      ],
+      "raw_pairs": 1396224,
+      "common_cancelled": 861199,
+      "gs_evaluated": 535025,
+      "gs_nodes": 1069535,
+      "ball_leaves": 0,
+      "local_json_sha256": "90ddfb97873ed13bde322d29b58e06548d6ab14b2c44930c1a21b4b2323a824b",
+      "positive_roster_sha256": "d485797da5a47114786dfe2cda533726658784432365530c1ce2a1506b5c0ec5",
+      "ordered_pairs_sha256": "18b6f71541efb6e949b67bf0e4b71cabb9baa455f0ee4f3ddc36f757ebc00c2e"
+    },
+    {
+      "range": [
+        640,
+        800
+      ],
+      "raw_pairs": 1745280,
+      "common_cancelled": 1007775,
+      "gs_evaluated": 737505,
+      "gs_nodes": 1496417,
+      "ball_leaves": 1,
+      "local_json_sha256": "a52ba3e9cc3d0583daa83298ec915f8215098b2cf63cd190bce24f7e191badc5",
+      "positive_roster_sha256": "e9e2019c2eef7f2dc1167b26c5182333689d15acb368167de5d513909660d7e7",
+      "ordered_pairs_sha256": "2858622207a2bee49e6e912b968f6d746ff06196560b6cdf3b55fd6dc2ed6ab8"
+    },
+    {
+      "range": [
+        800,
+        840
+      ],
+      "raw_pairs": 436320,
+      "common_cancelled": 266890,
+      "gs_evaluated": 169430,
+      "gs_nodes": 335921,
+      "ball_leaves": 0,
+      "local_json_sha256": "725f8e9276e15b0013ca07164c44d78077ce688f15529733ab435900003f860c",
+      "positive_roster_sha256": "3fb07e0e7799eaa398a15d6ac00dc90e894d5ba84e6378f31f470218437165fb",
+      "ordered_pairs_sha256": "f4c233db0dac82238ef196fafb60180495c0f1c0a9b64ed6a4d7583c64d81515"
+    },
+    {
+      "range": [
+        840,
+        960
+      ],
+      "raw_pairs": 1308960,
+      "common_cancelled": 737186,
+      "gs_evaluated": 571774,
+      "gs_nodes": 1143768,
+      "ball_leaves": 0,
+      "local_json_sha256": "801fbe546bbbd5fa30308df8a7468efea88145ec530aa501362f11369d4c3e9e",
+      "positive_roster_sha256": "0a154efc49bc6f8cb1dcc40a53d41dfa54fad07347078e5664797226a08ade3c",
+      "ordered_pairs_sha256": "225caa0d9ffefce49243e5d7f3ccfc37d2b43b6b17d8fd9b3d7390b8d6c6010c"
+    },
+    {
+      "range": [
+        960,
+        1080
+      ],
+      "raw_pairs": 1308960,
+      "common_cancelled": 742470,
+      "gs_evaluated": 566490,
+      "gs_nodes": 1121241,
+      "ball_leaves": 0,
+      "local_json_sha256": "237091008b57e577c25fade0e2c4eaf2e152b1d28391e7bbaea63a04d73cc05b",
+      "positive_roster_sha256": "b912ffdb99cb992cccb812d923b483811b052412acf448197746d7d8a5cc3a80",
+      "ordered_pairs_sha256": "8b41b002c056e641d05457274dda045b41c52741a2ddaf30417486a5cb27bed6"
+    },
+    {
+      "range": [
+        1080,
+        1200
+      ],
+      "raw_pairs": 1308960,
+      "common_cancelled": 754271,
+      "gs_evaluated": 554689,
+      "gs_nodes": 1088258,
+      "ball_leaves": 0,
+      "local_json_sha256": "14e5f1277ce2bb5bb9b4b5628c52ed15cb04349e308c03a34506a17b9cd078fd",
+      "positive_roster_sha256": "5c8e81b452650177b8181221dc77d9ce7c969af536108c3aeb920fe4c881afa6",
+      "ordered_pairs_sha256": "5cefda81c1764b22fc8be7fdc267746c6fdc19babe2b87fefecbef5702aec4cd"
+    },
+    {
+      "range": [
+        1200,
+        1240
+      ],
+      "raw_pairs": 436320,
+      "common_cancelled": 248671,
+      "gs_evaluated": 187649,
+      "gs_nodes": 362789,
+      "ball_leaves": 0,
+      "local_json_sha256": "eac148edd553f8c397bc7e4befb94032dea9bc314923148f598aa6b67fef5b75",
+      "positive_roster_sha256": "d0d0f4bb8980c271414f75c091c5a906236c8ba1bf9d0ba38e34f41c54d52f25",
+      "ordered_pairs_sha256": "1f22d1c8f02d86e96451abb294d1397fdfc13a912855be9675dd9d52131e61d1"
+    },
+    {
+      "range": [
+        1240,
+        1280
+      ],
+      "raw_pairs": 436320,
+      "common_cancelled": 233778,
+      "gs_evaluated": 202542,
+      "gs_nodes": 393865,
+      "ball_leaves": 0,
+      "local_json_sha256": "38bb25041ab645fdbe50fc92316374bcbb7f5c6aa9b6c90c6ba41407ef3ca848",
+      "positive_roster_sha256": "b77c254543b6af3d3b7277220849f7da83aba19e2e45fae6d5f87aaf89d06da3",
+      "ordered_pairs_sha256": "7dab7f42e9e39bf3fcfb70c27092962e0b7106f346856b1cec776640fd6f8ec8"
+    },
+    {
+      "range": [
+        1280,
+        1320
+      ],
+      "raw_pairs": 436320,
+      "common_cancelled": 231411,
+      "gs_evaluated": 204909,
+      "gs_nodes": 393459,
+      "ball_leaves": 0,
+      "local_json_sha256": "6203b36c8da069a7d4258c5b83c2d3f4fc084948ccecc30d17c3a76125b67f3a",
+      "positive_roster_sha256": "05f534deb5191e195b28ccbd50876ecbef813221f94fdf3b774b88c3bfbddaf2",
+      "ordered_pairs_sha256": "bedd4cc80edd687de9e94944cab452bfbf5f1e78d8656f9273a3a6ebe4cdef43"
+    },
+    {
+      "range": [
+        1320,
+        1365
+      ],
+      "raw_pairs": 490860,
+      "common_cancelled": 230856,
+      "gs_evaluated": 260004,
+      "gs_nodes": 488700,
+      "ball_leaves": 0,
+      "local_json_sha256": "07c28190275b18856b382cfc25f52ecd7f70082d51d7a9c0b4122a2c666cab21",
+      "positive_roster_sha256": "cbbb6d268627e9d4a474b9d88ab0f8d5e56d828771966462244849f773495c11",
+      "ordered_pairs_sha256": "6b40e2584030c5107c52de8646e95196c31e5953810483f5f466ca9b678369a2"
+    }
+  ],
+  "new_totals": {
+    "positive_rosters": 1317,
+    "raw_pairs": 14365836,
+    "common_cancelled": 8360475,
+    "gs_evaluated": 6005361,
+    "gs_nodes": 12024048,
+    "ball_leaves": 6,
+    "budget_valid": 0,
+    "vertical_overbudget": 0
+  },
+  "complete_totals": {
+    "positive_rosters": 1365,
+    "raw_pairs": 14889420,
+    "common_cancelled": 8627580,
+    "gs_evaluated": 6261840,
+    "gs_nodes": 12571951,
+    "ball_leaves": 6,
+    "budget_valid": 0,
+    "vertical_overbudget": 0
+  },
+  "relaxed_witnesses": [
+    {
+      "positive_index": 222,
+      "positive": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          12
+        ]
+      ],
+      "negative": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "q0_signed_u": [
+        58,
+        -10,
+        10,
+        8,
+        -1,
+        -13,
+        7,
+        -4,
+        -3,
+        -5,
+        -1,
+        -4
+      ],
+      "mass_plus_minus": [
+        3085,
+        4506
+      ],
+      "radius_sq": 3557849,
+      "budget_valid": false
+    },
+    {
+      "positive_index": 246,
+      "positive": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ]
+      ],
+      "negative": [
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "q0_signed_u": [
+        41,
+        -15,
+        -20,
+        3,
+        -1,
+        -10,
+        -6,
+        4,
+        3,
+        -3,
+        -2,
+        0
+      ],
+      "mass_plus_minus": [
+        2311,
+        4424
+      ],
+      "radius_sq": 3212194,
+      "budget_valid": false
+    },
+    {
+      "positive_index": 307,
+      "positive": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          1,
+          12
+        ]
+      ],
+      "negative": [
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          8
+        ]
+      ],
+      "q0_signed_u": [
+        56,
+        9,
+        -8,
+        6,
+        5,
+        7,
+        3,
+        -4,
+        -7,
+        0,
+        4,
+        -1
+      ],
+      "mass_plus_minus": [
+        3975,
+        2708
+      ],
+      "radius_sq": 3283172,
+      "budget_valid": false
+    },
+    {
+      "positive_index": 393,
+      "positive": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          12
+        ]
+      ],
+      "negative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "q0_signed_u": [
+        -10,
+        2,
+        -12,
+        14,
+        7,
+        5,
+        -10,
+        4,
+        2,
+        -2,
+        0,
+        5
+      ],
+      "mass_plus_minus": [
+        3948,
+        2861
+      ],
+      "radius_sq": 3406817,
+      "budget_valid": false
+    },
+    {
+      "positive_index": 461,
+      "positive": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          10
+        ]
+      ],
+      "negative": [
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          12
+        ]
+      ],
+      "q0_signed_u": [
+        -7,
+        -18,
+        0,
+        -12,
+        -1,
+        3,
+        10,
+        8,
+        5,
+        -3,
+        -2,
+        2
+      ],
+      "mass_plus_minus": [
+        3790,
+        3151
+      ],
+      "radius_sq": 3046717,
+      "budget_valid": false
+    },
+    {
+      "positive_index": 742,
+      "positive": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          11
+        ]
+      ],
+      "negative": [
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "q0_signed_u": [
+        10,
+        -18,
+        -3,
+        5,
+        3,
+        -2,
+        -10,
+        -8,
+        2,
+        1,
+        -2,
+        -2
+      ],
+      "mass_plus_minus": [
+        1951,
+        4241
+      ],
+      "radius_sq": 2978740,
+      "budget_valid": false
+    }
+  ],
+  "local_author_execution": {
+    "script": "t6_p13_q9_split45_pos1111_exact_slice_20261123.py",
+    "script_sha256": "018968892e47752a08876876133408289c2e948f31fcbb1ed985d688bfbfd6fd",
+    "witness_mod_and_mass_second_check": "EXECUTED_AND_PASSED",
+    "published_replay": "research_checks/T6_P13_Q9_SPLIT45_POS1111_ALLNEG_EXACT_REPLAY_20261123.py",
+    "published_replay_executed": "NO",
+    "independent_review": "NOT_PERFORMED"
+  },
+  "result": "Author exact finite exclusion for positive q1111 versus all negative q-order5 named rosters: 0 candidates within both 2331 budgets. Six relaxed sphere representatives satisfy congruences but exceed at least one side cap.",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "remaining": "Other p13 qorder9 positive split patterns and other orders, lower maximal-prime/small-prime/H0 completion; T6=2332 global OPEN. Native p17 q14 separate."
+}
