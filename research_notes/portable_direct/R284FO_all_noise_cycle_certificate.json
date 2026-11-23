@@ -1,0 +1,165 @@
+{
+  "schema": "R284FO_FINITE_EXACT_CROSSCHECK_V1",
+  "date": "2026-11-23",
+  "model": "fixed four-phase binary cycle with reset-free q per-edge omissions and u global read flips",
+  "algorithm": "seven-pattern weak-composition exact enumeration; four adjacent prefix distances, two opposite stable distances, six pair endpoint last-update Hall cuts",
+  "checker_path": "research_notes/portable_direct/R284FO_all_noise_cycle_bound_checker.py",
+  "checker_commit": "c447e044090e38e1a8cb48403277e9659ebc2feb",
+  "statement": "n_min(q,u)>=4q+5u+2 universally by written analytic proof; finite checks only establish recorded parameters",
+  "boundary_cases": [
+    {
+      "q": 0,
+      "u": 0,
+      "boundary_n": 1,
+      "histograms": 7,
+      "meet_six_distances": 0,
+      "meet_all_six_exact_flow_cuts": 0
+    },
+    {
+      "q": 0,
+      "u": 1,
+      "boundary_n": 6,
+      "histograms": 924,
+      "meet_six_distances": 0,
+      "meet_all_six_exact_flow_cuts": 0
+    },
+    {
+      "q": 0,
+      "u": 2,
+      "boundary_n": 11,
+      "histograms": 12376,
+      "meet_six_distances": 0,
+      "meet_all_six_exact_flow_cuts": 0
+    },
+    {
+      "q": 1,
+      "u": 0,
+      "boundary_n": 5,
+      "histograms": 462,
+      "meet_six_distances": 3,
+      "meet_all_six_exact_flow_cuts": 0
+    },
+    {
+      "q": 1,
+      "u": 1,
+      "boundary_n": 10,
+      "histograms": 8008,
+      "meet_six_distances": 3,
+      "meet_all_six_exact_flow_cuts": 0
+    },
+    {
+      "q": 1,
+      "u": 2,
+      "boundary_n": 15,
+      "histograms": 54264,
+      "meet_six_distances": 3,
+      "meet_all_six_exact_flow_cuts": 0
+    },
+    {
+      "q": 2,
+      "u": 0,
+      "boundary_n": 9,
+      "histograms": 5005,
+      "meet_six_distances": 47,
+      "meet_all_six_exact_flow_cuts": 0
+    },
+    {
+      "q": 2,
+      "u": 1,
+      "boundary_n": 14,
+      "histograms": 38760,
+      "meet_six_distances": 47,
+      "meet_all_six_exact_flow_cuts": 0
+    },
+    {
+      "q": 2,
+      "u": 2,
+      "boundary_n": 19,
+      "histograms": 177100,
+      "meet_six_distances": 47,
+      "meet_all_six_exact_flow_cuts": 0
+    },
+    {
+      "q": 3,
+      "u": 0,
+      "boundary_n": 13,
+      "histograms": 27132,
+      "meet_six_distances": 306,
+      "meet_all_six_exact_flow_cuts": 0
+    },
+    {
+      "q": 3,
+      "u": 1,
+      "boundary_n": 18,
+      "histograms": 134596,
+      "meet_six_distances": 306,
+      "meet_all_six_exact_flow_cuts": 0
+    },
+    {
+      "q": 3,
+      "u": 2,
+      "boundary_n": 23,
+      "histograms": 475020,
+      "meet_six_distances": 306,
+      "meet_all_six_exact_flow_cuts": 0
+    },
+    {
+      "q": 4,
+      "u": 0,
+      "boundary_n": 17,
+      "histograms": 100947,
+      "meet_six_distances": 1270,
+      "meet_all_six_exact_flow_cuts": 0
+    },
+    {
+      "q": 4,
+      "u": 1,
+      "boundary_n": 22,
+      "histograms": 376740,
+      "meet_six_distances": 1270,
+      "meet_all_six_exact_flow_cuts": 0
+    },
+    {
+      "q": 4,
+      "u": 2,
+      "boundary_n": 27,
+      "histograms": 1107568,
+      "meet_six_distances": 1270,
+      "meet_all_six_exact_flow_cuts": 0
+    }
+  ],
+  "boundary_totals": {
+    "histograms": 2518909,
+    "meet_six_distances": 4878,
+    "meet_all_six_exact_flow_cuts": 0
+  },
+  "additional_finite_exclusions": [
+    {
+      "q": 3,
+      "u": 1,
+      "boundary_n": 19,
+      "histograms": 177100,
+      "meet_six_distances": 1270,
+      "meet_all_six_exact_flow_cuts": 0
+    },
+    {
+      "q": 4,
+      "u": 1,
+      "boundary_n": 23,
+      "histograms": 475020,
+      "meet_six_distances": 4005,
+      "meet_all_six_exact_flow_cuts": 0
+    },
+    {
+      "q": 5,
+      "u": 1,
+      "boundary_n": 27,
+      "histograms": 1107568,
+      "meet_six_distances": 10493,
+      "meet_all_six_exact_flow_cuts": 0
+    }
+  ],
+  "all_histograms": 4278597,
+  "arithmetic": "exact Python integer bit masks and combinatorial counts",
+  "independent_review": "NOT_REVIEWED"
+}
