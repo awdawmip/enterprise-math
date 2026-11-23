@@ -1,0 +1,99 @@
+{
+  "schema": "R762KL_EXACT_FIBER_CENSUS_V1",
+  "model": "unsigned six-axis Port-Euler auxiliary; missing ports 01,23,45",
+  "port_order": [
+    "02",
+    "03",
+    "04",
+    "05",
+    "12",
+    "13",
+    "14",
+    "15",
+    "24",
+    "25",
+    "34",
+    "35"
+  ],
+  "cube_order": [
+    "024",
+    "025",
+    "034",
+    "035",
+    "124",
+    "125",
+    "134",
+    "135"
+  ],
+  "choice_order": [
+    "AB",
+    "AC",
+    "BC"
+  ],
+  "forced_boundary_size": 512,
+  "all_flexible_choice_assignments": 6561,
+  "even_grid_boundary_assignments": 1641,
+  "connected_even_grid_assignments": 1638,
+  "reachable_forced_boundaries": 465,
+  "holes": 47,
+  "connected_fiber_histogram": {
+    "2": 132,
+    "3": 112,
+    "4": 135,
+    "5": 36,
+    "6": 35,
+    "7": 12,
+    "8": 3
+  },
+  "forced_boundary_zero": {
+    "total": 9,
+    "connected": 6
+  },
+  "full_euler_witness_boundary": 0,
+  "full_euler_witness_choice_vectors": [
+    [
+      0,
+      0,
+      2,
+      2,
+      0,
+      0,
+      2,
+      2
+    ],
+    [
+      1,
+      0,
+      1,
+      0,
+      1,
+      0,
+      1,
+      0
+    ]
+  ],
+  "witness_boundary": 783,
+  "witness_choice_vectors": [
+    [
+      1,
+      2,
+      2,
+      1,
+      0,
+      0,
+      2,
+      2
+    ],
+    [
+      2,
+      1,
+      1,
+      2,
+      0,
+      0,
+      2,
+      2
+    ]
+  ],
+  "all_passed": true
+}
