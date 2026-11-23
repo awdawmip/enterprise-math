@@ -1,0 +1,140 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT2_8_NEG1111112_AUTHOR_EXACT_SLICE_CERT_V1",
+  "as_of": "2026-11-23",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "actual_scientific_status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "scope": {
+    "prime": 13,
+    "valuation": 1,
+    "vertical_order": 10,
+    "signed_split": [
+      2,
+      8
+    ],
+    "negative_pattern": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2
+    ],
+    "source_negative_interval": [
+      32768,
+      49152
+    ],
+    "positive_rosters": 90,
+    "side_mass_caps": [
+      2331,
+      2331
+    ],
+    "original_observers": "H0,H1,H2,H3,H4,H5,H6",
+    "moduli": [
+      13,
+      169,
+      2197,
+      28561,
+      371293,
+      4826809
+    ],
+    "signed_q0_vector_length": 12
+  },
+  "exact_replay": {
+    "commit": "a15dc9dd00e5d45516463ed4c4905341d8d2357b",
+    "path": "research_checks/T6_P13_Q10_SPLIT2_8_NEG1111112_SLICE_REPLAY_20261123_2000.py",
+    "blob": "096df77ac608297ad1078844c03dcac2da39678b"
+  },
+  "algorithm": "Exact 12D signed q0 congruence lattice, 13-adic H1..H6, HNF/LLL, rational GS and exhaustive near-center 2-choice recursion under exact radius. Named common atom cancellation charged to existing lower q cases; exact q0 searches only for nonshared supports.",
+  "source_order": "negative q1 combinations_with_replacement(1..12,6) times q2 r in 1..12; positive q2 r in 1..12 then q1 combinations_with_replacement(1..12,2)",
+  "segments": [
+    {
+      "range": [
+        32768,
+        36864
+      ],
+      "rosters": 4096,
+      "raw_pairs": 368640,
+      "canceled": 205920,
+      "gs_searches": 162720,
+      "gs_nodes": 348073,
+      "sphere_witnesses": 0,
+      "budget_valid": 0,
+      "roster_sha256": "a850d2f83a52328707f144c4110037e02abda61235208941de07ad32ec16a74f",
+      "pair_sha256": "4f239734815e8ae68d5c1eaaa1bc0d00e9e25ab2d985ac165358211d910f6f38",
+      "local_full_output_sha256": "dc0d5020eb66ff7f993ba2a6e1ecc7be42b6f27b4d863544aa524b80f32e8ada"
+    },
+    {
+      "range": [
+        36864,
+        40960
+      ],
+      "rosters": 4096,
+      "raw_pairs": 368640,
+      "canceled": 194776,
+      "gs_searches": 173864,
+      "gs_nodes": 373142,
+      "sphere_witnesses": 0,
+      "budget_valid": 0,
+      "roster_sha256": "1ebe2240484e672bbb59925f96ae9ec6a8b860d76ead37d027c1574a9d7cd2e3",
+      "pair_sha256": "babbd9217eab5eacc91f7a921a0c9ab851aeec1e9ad234907efe38b9f6baaee6",
+      "local_full_output_sha256": "22026c1dc2a45fc0473f6e5354a12a4a55cf1c4f78bb77992f1465b9d93e7f1e"
+    },
+    {
+      "range": [
+        40960,
+        45056
+      ],
+      "rosters": 4096,
+      "raw_pairs": 368640,
+      "canceled": 193916,
+      "gs_searches": 174724,
+      "gs_nodes": 372826,
+      "sphere_witnesses": 0,
+      "budget_valid": 0,
+      "roster_sha256": "afcf54cd0028e69358cbb9a6693502020a67f278a6a7b7078e6c0af2c768d3ac",
+      "pair_sha256": "4f80c8a4d54f067885e767cb6ec31bd4b9ee1d186d797a5dab183328102aa502",
+      "local_full_output_sha256": "68e624cd24b16950ecfe11647db8714014aea57da5278868eb9092153a46aa82"
+    },
+    {
+      "range": [
+        45056,
+        49152
+      ],
+      "rosters": 4096,
+      "raw_pairs": 368640,
+      "canceled": 193884,
+      "gs_searches": 174756,
+      "gs_nodes": 372994,
+      "sphere_witnesses": 0,
+      "budget_valid": 0,
+      "roster_sha256": "e0a0230fcf58c7d27df4ad99f846ae8dd29f2f72a4c2a067ed36cceea8649a36",
+      "pair_sha256": "783a13ef95f56afbef8745e05f27dd480708503cdd51f12eddeb80d8623793d4",
+      "local_full_output_sha256": "97a7735a442283f2daa47b3d76fa2d1bf586876f3911ee39141d916d61de913f"
+    }
+  ],
+  "totals": {
+    "negative_rosters": 16384,
+    "raw_signed_pairs": 1474560,
+    "common_named_cancellations": 788496,
+    "exact_gs_searches": 686064,
+    "exact_gs_nodes": 1467035,
+    "modular_ball_witnesses": 0,
+    "both_side_mass_valid": 0
+  },
+  "witnesses": [],
+  "remaining_source_negative_interval": [
+    49152,
+    148512
+  ],
+  "control": {
+    "native_claim": "NOT_VERIFIED",
+    "research_session_start_request_id": "onhour-20261123-2111-research-own-session-start-v1",
+    "session_registration_last_read": "RUNNING",
+    "native_semantic_progress": "NOT_PUBLISHED",
+    "research_activity_author": "UNRESOLVED"
+  },
+  "interpretation": "Finite slice author exclusion for uncanceled pairs under exact q0 lattice and original budget. Canceled shared-atom cases depend on previous lower-order proof. Full negative pattern and global T6 remain OPEN."
+}
