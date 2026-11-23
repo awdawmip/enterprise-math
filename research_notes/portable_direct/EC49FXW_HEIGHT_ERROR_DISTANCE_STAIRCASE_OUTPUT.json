@@ -1,0 +1,101 @@
+{
+  "schema": "EC49FXW_HEIGHT_R1_R4_LOCAL_EXACT_RUN_SUMMARY_V1",
+  "date": "2026-11-23",
+  "frozen_input": "BRC16943",
+  "status": "ALL_PASS",
+  "runner": "Node.js integer-only local reproduction (no optimizer; no floating point)",
+  "output_program": "research_notes/portable_direct/EC49FXW_HEIGHT_ERROR_DISTANCE_STAIRCASE_VERIFY.js",
+  "verified_theorem": {
+    "domain": "integer H>=22, r=1..4",
+    "formula": "3*r + (H>=52) + (H>=58) + (H>=64)",
+    "table": {
+      "22..51": [
+        3,
+        6,
+        9,
+        12
+      ],
+      "52..57": [
+        4,
+        7,
+        10,
+        13
+      ],
+      "58..63": [
+        5,
+        8,
+        11,
+        14
+      ],
+      "64..infinity": [
+        6,
+        9,
+        12,
+        15
+      ]
+    }
+  },
+  "support_sets": {
+    "A": [
+      1,
+      4,
+      6,
+      9
+    ],
+    "B": [
+      2,
+      7
+    ],
+    "C": [
+      3,
+      8
+    ]
+  },
+  "first_complete_hole_heights": {
+    "A": 52,
+    "B": 58,
+    "C": 64
+  },
+  "exact_census": {
+    "primitive_direction_classes": 72,
+    "ten_bit_supports": 50,
+    "distinct_genuine_states": 600,
+    "distinct_indexed_spectra": 478,
+    "equal_spectrum_doubletons": 122
+  },
+  "direct_original_C11_integer_checks": 66000,
+  "endpoint_layout_integer_pair_checks": 1564,
+  "endpoints": {
+    "51": {
+      "equal_spectrum_pairs_present": 78,
+      "r1": 3,
+      "r2": 6,
+      "r3": 9,
+      "r4": 12
+    },
+    "57": {
+      "equal_spectrum_pairs_present": 94,
+      "r1": 4,
+      "r2": 7,
+      "r3": 10,
+      "r4": 13
+    },
+    "63": {
+      "equal_spectrum_pairs_present": 108,
+      "r1": 5,
+      "r2": 8,
+      "r3": 11,
+      "r4": 14
+    },
+    "64": {
+      "equal_spectrum_pairs_present": 111,
+      "r1": 6,
+      "r2": 9,
+      "r3": 12,
+      "r4": 15
+    }
+  },
+  "witness_detail": "All 16 exact site sets and full per-pair assertions are in the saved verifier, whose stdout emits the expanded JSON.",
+  "limitation": "This run did not independently review inherited C11/normalization framework; no formal Result or X6 transfer.",
+  "scientific_review": "NOT_REVIEWED"
+}
