@@ -1,0 +1,209 @@
+{
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "date": "2026-11-23",
+  "science_pin": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "observer": "H0..H6",
+  "maximal_prime": 13,
+  "valuation": 1,
+  "signed_split": [
+    0,
+    10
+  ],
+  "each_side_mass_cap": 2331,
+  "original_integer_named_denominator": "13*(13q+r)",
+  "vertical_cost": "169q+13r-1",
+  "q0_weight": "13r-1",
+  "lattice_index": "13^21",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "necessary_mixed_congruences": "sum u_r*r^-j - sum(13q+r)^-j = 0 mod 13^j for j=1..6",
+  "evidence_status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "formal_native_progress": false,
+  "published_replay_independent_execution": false,
+  "schema": "EM_T6_P13_Q10_PATTERN1111111111_FULL_AUTHOR_EXACT_CERT_V1",
+  "negative_pattern": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "exhaustion": "C(21,10)=352716",
+  "canonical_order": "10 nondecreasing q1 residues r=1..12",
+  "segments": [
+    {
+      "range": [
+        0,
+        352716
+      ],
+      "visited": 352716,
+      "overbudget": 297274,
+      "gs_searches": 55442,
+      "gs_nodes": 151394,
+      "leaves": 2,
+      "sha256": "53e458ec1716379588074a34e59436a1a0162215fb0b0fec2a674b61e9ac54f6"
+    }
+  ],
+  "totals": {
+    "visited": 352716,
+    "overbudget": 297274,
+    "gs_searches": 55442,
+    "gs_nodes": 151394,
+    "leaves": 2,
+    "budget_valid": 0
+  },
+  "independent_budget_count": {
+    "method": "direct q1 ten-multiset integer vertical mass enumeration",
+    "admissible": 55442
+  },
+  "witnesses": [
+    {
+      "canonical_index": 12809,
+      "negative_named_qr": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          11
+        ]
+      ],
+      "q0_signed_u": [
+        -1,
+        -11,
+        -5,
+        -3,
+        14,
+        -10,
+        -4,
+        3,
+        1,
+        -3,
+        10,
+        -2
+      ],
+      "original_side_masses": [
+        2741,
+        4605
+      ],
+      "six_modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "canonical_index": 42158,
+      "negative_named_qr": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          9
+        ]
+      ],
+      "q0_signed_u": [
+        9,
+        33,
+        7,
+        19,
+        13,
+        5,
+        1,
+        -2,
+        3,
+        -8,
+        -4,
+        7
+      ],
+      "original_side_masses": [
+        4908,
+        4084
+      ],
+      "six_modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "witness_recheck": "Direct exact modular j=1..6 and side-mass sum for every leaf; both exceed at least one cap",
+  "replay": "research_checks/T6_P13_Q10_SPLIT0_10_FINAL_TWO_PATTERNS_EXACT_REPLAY_20261123.py"
+}
