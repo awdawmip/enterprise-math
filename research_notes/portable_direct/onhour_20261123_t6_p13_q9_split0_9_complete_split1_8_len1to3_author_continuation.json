@@ -1,0 +1,98 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_AUTHOR_CONTINUATION_V1",
+  "record_kind": "AUTHOR_SCIENTIFIC_AND_CONTROL_CONTINUATION",
+  "date_local": "2026-11-23",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "mother_status": "OPEN",
+  "research_logical_conversation_id": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_logical_conversation_id_excluded": "chatgpt-hourly-enterprise-math-20260921",
+  "frozen_scientific_input": {
+    "repo": "awdawmip/enterprise-math",
+    "commit": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+    "path": "research_tasks/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260909.md",
+    "blob_sha1": "87b3a6f38e9350f7a3f56624b27bff2a7778a439",
+    "side_cap": 2331,
+    "p000": "ACTIVE_LOCKED_NO_CHANGE"
+  },
+  "science": {
+    "completed": [
+      {
+        "domain": "p13 v13=1, order9 split(0,9), all vertical roster lengths1..9",
+        "complete_named_rosters": 1669720,
+        "previous_verified": 630656,
+        "new_exact_rosters": 1039064,
+        "new_gs_nodes": 2433892,
+        "new_relaxed_leaves": 21,
+        "all_side_budget_valid": 0,
+        "prior_note": "research_notes/portable_direct/onhour_20261123_t6_p13_q9_split0_9_len1to6_exact_author_boundary.md",
+        "new_note": {
+          "path": "research_notes/portable_direct/onhour_20261123_t6_p13_q9_split0_9_complete_author_exclusion.md",
+          "commit": "0423e5bc23e3d074e89e0e5c33818013e004c98f",
+          "blob_sha1": "121985dc3d9376060ca801ed8a16cade2baaf33c"
+        },
+        "certificate": {
+          "path": "research_checks/T6_P13_Q9_SPLIT0_9_LEN7TO9_AUTHOR_EXACT_CERT_20261123_0900.json",
+          "commit": "deab1f069a2f880102a8266217c1bc185c527dad",
+          "blob_sha1": "c378f9a1a215594b04be8fcf8154cc278bbd1626"
+        },
+        "checker": {
+          "path": "research_checks/T6_P13_Q9_SPLIT0_9_LEN7TO9_EXACT_REPLAY_20261123_0900.py",
+          "commit": "ef508b179aea89b9926178fb93cd82457ed76876",
+          "blob_sha1": "15982d93d4154bf594853aa3d3d5b27613a19b5f"
+        }
+      },
+      {
+        "domain": "p13 v13=1, order9 split(1,8), positive vertical length1 and negative vertical lengths1..3",
+        "raw_pairs": 81432,
+        "common_atom_cancellations": 5328,
+        "actual_disjoint_pairs": 76104,
+        "gs_nodes": 193809,
+        "relaxed_leaves": 3,
+        "budget_valid": 0,
+        "note": {
+          "path": "research_notes/portable_direct/onhour_20261123_t6_p13_q9_split1_8_first_three_lengths_exact_author.md",
+          "commit": "7c8a9a2816a87582eadc3235c1e726375cb004f4",
+          "blob_sha1": "a4dbbcd9ef403b9d47caf5b3c21b36f2f3c0f221"
+        },
+        "certificate": {
+          "path": "research_checks/T6_P13_Q9_SPLIT1_8_NEG_LEN1TO3_AUTHOR_CERT_20261123_0900.json",
+          "commit": "9509ae14b87f5edc5768c5002beb998476b7b35a",
+          "blob_sha1": "3f6140312a8b950e83d72233128e098a3b44fb36"
+        },
+        "checker": {
+          "path": "research_checks/T6_P13_Q9_SPLIT1_8_NEG_LEN1TO3_EXACT_REPLAY_20261123_0900.py",
+          "commit": "40f4a45b75b437dca17d74f9d77afe23c50ab261",
+          "blob_sha1": "162eb32e0fd01d6e8942e4d010702931542b6706"
+        }
+      }
+    ],
+    "status": "AUTHOR_EXACT_FINITE_EXECUTED_GITHUB_VERIFIED_UNREVIEWED_NOT_ADMITTED",
+    "publication_boundary": "Scientific GitHub files committed+readback; published compact checker not separately post-publication replayed; not Source Result",
+    "preserve_other_open": "Native Source formal p17 q14 split7,7 preflight is separately delegated and not replaced by portable p13 computations.",
+    "next_minimal_scientific_unit": "p13 order9 split(1,8): plus q=(1) with one named atom, minus q-order8 with 4 named atoms. Enumerate all nondecreasing q partitions and residue multisets, cancel common named atoms, apply exact signed 13-adic j1..6 affine 12D lattice and both side mass caps, preserve ball witnesses. Then minus lengths5..8, then other order9 splits.",
+    "do_not_repeat": [
+      "Previous complete p13 split(0,9) all 1,669,720 rosters",
+      "p13 split(1,8) negative lengths1..3 all 81,432 raw ordered pairs",
+      "Previously saved p19,p17 and p13 order0..8 results at existing evidence strength",
+      "No native p17 q14 preflight re-execution without its actual assigned claim/owner and resource/independence checks."
+    ]
+  },
+  "control": {
+    "original_source_continuation_request_id": "onhour-20261123-0818-t6-exact-continuation-ro-v1",
+    "original_source_continuation_last_consumed": "SUCCEEDED/error=null; as-of Source snapshot; not live write authority",
+    "original_task_read": "onhour-20261123-0818-t6-current-task-ro-v1",
+    "source_t6_claim": "NOT_VERIFIED",
+    "native_run": "NOT_VERIFIED",
+    "protected_semantic_progress": "NOT_PUBLISHED",
+    "historical_activity": "RA-5E3FE1E761E4963EC461A892",
+    "historical_activity_last_confirmed_events": 328,
+    "new_activity_association": "NOT_WRITTEN; current Sites subject cannot authenticate old bridge author SID; avoid identity borrowing",
+    "sites_recovery_last_attempt": "onhour-20261123-0904-own-recovery-ro-v1 on SID MCP-de3e5bafb24f43f4a5e6285e7601676a returned OWN_SESSION_REGISTRATION_NOT_FOUND",
+    "portable_client_handoff_line": "chatgpt-research-onhour-enterprise-math-20260923",
+    "prior_portable_client_checkpoint_revision": 2,
+    "maintenance_lane_used": false,
+    "schedule_modified": false,
+    "notifications_modified": false
+  },
+  "next_exact_action": "Read back this new immutable GitHub author continuation and checkpoint. Consume any original pending native request by original request ID; do not reissue. Advance signed p13 order9 split(1,8) negative-side four-atom patterns by exact tests; preserve contribution provenance and formal Source p17 q14 boundary."
+}
