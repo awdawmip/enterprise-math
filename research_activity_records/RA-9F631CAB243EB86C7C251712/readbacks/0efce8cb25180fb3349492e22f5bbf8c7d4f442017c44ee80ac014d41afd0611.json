@@ -1,0 +1,17 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/R284FN_four_edge_noise_bound_checker.py",
+    "ref": "6276379aedff235b830479f237683e25c13f823d",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "R1-20261123-1400-R284FN-code",
+  "result": {
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"Finite integer crosschecks for R284FN, not a replacement for the all-q,u proof.\"\"\"\nfrom itertools import combinations\nfrom math import comb\n\nA, B = (2,3,6,7), (1,3,4,6)\nAA = ((2,3),(2,6),(3,7),(6,7))\nBB = ((1,3),(1,6),(3,4),(4,6))\nD = ((1,3,5,7),(2,3,6,7),(4,5,6,7),\n     (1,2,5,6),(1,3,4,6),(2,3,4,5))\n\ndef parts(n,k):\n    if k==1:\n        yield (n,)\n    else:\n        for i in range(n+1):\n            for tail in parts(n-i,k-1):\n                yield (i,)+tail\n\ndef sep(x, modes, adj, q, u):\n    return (any(x[p]>2*q+2*u for p in modes)\n       or any(x[p]+x[t]>3*q+2*u for p,t in adj)\n       or sum(x[p] for p in modes)>4*q+2*u)\n\ncount=0\nfor q in range(4):\n    for u in range(2):\n        n=4*q+3*u+1\n        total=0\n        for xs in parts(n,7):\n            x=(0,)+xs\n            if (all(sum(x[p] for p in d)>=2*(q+u)+1 for d in D)\n                and sep(x,A,AA,q,u) and sep(x,B,BB,q,u)):\n                raise AssertionError((q,u,n,x))\n            total+=1\n        assert total==comb(n+6,6)\n        count+=total\n        print(f'q={q} u={u} n={n} checked={total} passed')\nprint('TOTAL',count)\nassert count==128996\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/6276379aedff235b830479f237683e25c13f823d/research_notes/portable_direct/R284FN_four_edge_noise_bound_checker.py",
+      "encoding": "utf-8",
+      "sha": "6da19536ba0f4f985c4cf524ce0cc68e73a7a6b7"
+    }
+  },
+  "tool_name": "mcp__GitHub__fetch_file"
+}
