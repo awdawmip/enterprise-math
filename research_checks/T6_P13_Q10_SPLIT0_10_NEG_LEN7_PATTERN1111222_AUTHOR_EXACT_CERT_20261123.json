@@ -1,0 +1,369 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT0_10_NEG_LEN7_PATTERN1111222_AUTHOR_EXACT_V1",
+  "date": "2026-11-23",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "scientific_frozen_pin": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "model": {
+    "maximal_prime": 13,
+    "valuation_of13": 1,
+    "vertical_order": 10,
+    "split": [
+      0,
+      10
+    ],
+    "negative_q_pattern": [
+      1,
+      1,
+      1,
+      1,
+      2,
+      2,
+      2
+    ],
+    "positive_vertical_rosters": 1,
+    "negative_named_roster_count": 496860,
+    "roster_indexing": "itertools.combinations_with_replacement(r1..r4 in 1..12,4) outer; itertools.combinations_with_replacement(r5..r7 in1..12,3) inner",
+    "full_integer_denominator": "13*(13q+r)",
+    "mass_per_vertical_atom": "169q+13r-1",
+    "q0_weight": "13r-1",
+    "cap_each_side": 2331,
+    "original_observer": "H0..H6",
+    "mixed_congruences": "sum_(r=1..12)u_r*r^-j - sum_(q,r in V-)(13q+r)^-j =0 mod13^j for j=1..6",
+    "saturated_q0_index": "13^21",
+    "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349"
+  },
+  "segments": [
+    {
+      "canonical_index_range": [
+        0,
+        5000
+      ],
+      "visited": 5000,
+      "vertical_overbudget": 3,
+      "gs_evaluated": 4997,
+      "exact_gs_nodes": 13680,
+      "relaxed_sphere_leaves": 0,
+      "roster_sha256": "108d13ce9091fb1c9f8edd2cbe45c210c61d429a2928b3725d7fbd0faedbcd6b",
+      "local_json_sha256": "8839e23a97e5e8945d9e0bda421df041842fec176062f009237ac574f5e8b0f5"
+    },
+    {
+      "canonical_index_range": [
+        5000,
+        100000
+      ],
+      "visited": 95000,
+      "vertical_overbudget": 7144,
+      "gs_evaluated": 87856,
+      "exact_gs_nodes": 241836,
+      "relaxed_sphere_leaves": 1,
+      "roster_sha256": "99471b78527b1f15a5fb87fd63783d91d0aad6c885de74dde4c03c0675f13fa3",
+      "local_json_sha256": "105c31dac3e5fc6f0f9e3b81a04165f6c71248989ed105d7938c9d9df7aa9fcc"
+    },
+    {
+      "canonical_index_range": [
+        100000,
+        200000
+      ],
+      "visited": 100000,
+      "vertical_overbudget": 19795,
+      "gs_evaluated": 80205,
+      "exact_gs_nodes": 219148,
+      "relaxed_sphere_leaves": 1,
+      "roster_sha256": "9f82088a96643a69ea105515feed8a0235e3f6c689a61db9e1f91dde08a29b36",
+      "local_json_sha256": "8c93433e3916a631667c328dd9e3cbc9b7c8d2920e83d4780effd86c1912c233"
+    },
+    {
+      "canonical_index_range": [
+        200000,
+        350000
+      ],
+      "visited": 150000,
+      "vertical_overbudget": 48157,
+      "gs_evaluated": 101843,
+      "exact_gs_nodes": 280689,
+      "relaxed_sphere_leaves": 2,
+      "roster_sha256": "5883c38c3a535a59bff4bda9affb863879e154ca9763bc143556b43a287da121",
+      "local_json_sha256": "ce0a0cf061af53f4e1ba910cdb1fc98e121cd9d0903db0a2eb4e8dab73745f06"
+    },
+    {
+      "canonical_index_range": [
+        350000,
+        496860
+      ],
+      "visited": 146860,
+      "vertical_overbudget": 97710,
+      "gs_evaluated": 49150,
+      "exact_gs_nodes": 135158,
+      "relaxed_sphere_leaves": 0,
+      "roster_sha256": "f456426fe85a648d77a105626f4e941cc443e9c18eeb2c97f4d6234236a5c8a1",
+      "local_json_sha256": "c90d521dae9d4268dc279bfe97116495b7e94d1873f2223f67cec9939a9be4f8"
+    }
+  ],
+  "totals": {
+    "visited": 496860,
+    "vertical_overbudget": 172809,
+    "exact_gs_evaluated": 324051,
+    "exact_gs_nodes": 890511,
+    "relaxed_sphere_leaves": 4,
+    "budget_valid": 0
+  },
+  "relaxed_witnesses": [
+    {
+      "index": 65453,
+      "negative_named_qr": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          12
+        ]
+      ],
+      "q0_signed_integer_vector": [
+        51,
+        11,
+        -17,
+        3,
+        1,
+        -12,
+        8,
+        0,
+        -3,
+        -4,
+        -9,
+        -6
+      ],
+      "original_side_masses": [
+        1824,
+        6910
+      ],
+      "radius_sq": 5437530,
+      "mixed_modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "within_two_caps": false
+    },
+    {
+      "index": 182728,
+      "negative_named_qr": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "q0_signed_integer_vector": [
+        9,
+        -5,
+        -27,
+        -6,
+        -5,
+        -9,
+        -2,
+        -3,
+        -10,
+        4,
+        -7,
+        0
+      ],
+      "original_side_masses": [
+        624,
+        7069
+      ],
+      "radius_sq": 5574186,
+      "mixed_modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "within_two_caps": false
+    },
+    {
+      "index": 202273,
+      "negative_named_qr": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "q0_signed_integer_vector": [
+        -16,
+        -13,
+        -11,
+        10,
+        -17,
+        -1,
+        -14,
+        -6,
+        -1,
+        8,
+        -2,
+        4
+      ],
+      "original_side_masses": [
+        2162,
+        6646
+      ],
+      "radius_sq": 5437530,
+      "mixed_modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "within_two_caps": false
+    },
+    {
+      "index": 209233,
+      "negative_named_qr": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          12
+        ]
+      ],
+      "q0_signed_integer_vector": [
+        62,
+        13,
+        -6,
+        -9,
+        -14,
+        9,
+        4,
+        0,
+        -11,
+        -5,
+        0,
+        2
+      ],
+      "original_side_masses": [
+        2432,
+        5824
+      ],
+      "radius_sq": 5433682,
+      "mixed_modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "within_two_caps": false
+    }
+  ],
+  "direct_independent_integer_cross_check": "Four witness signed integer vectors had original side masses recomputed and all six 13-adic congruences recomputed. All exact equalities match, all violate at least one original side mass cap.",
+  "execution": {
+    "local_original_script": "t6_p13_q10_neg1111222_exact_slice_20261123.py",
+    "local_script_sha256": "03e07e61f0e61b5f603ae4a94d25ad2f8ef846fae5091194ac4d8a46b0ee9734",
+    "author_exact_execution": "COMPLETED",
+    "published_replay": "research_checks/T6_P13_Q10_SPLIT0_10_NEG_LEN7_PATTERN1111222_EXACT_REPLAY_20261123.py",
+    "published_wrapper_postpublication_execution": "NOT_EXECUTED",
+    "independent_research_review": "NOT_PERFORMED"
+  },
+  "result": "Exactly no original-budget-admissible signed collision among the 496860 named negative q-pattern 1111222 rosters in maximal p13 q10 split(0,10), conditional on inherited high-valuation cancellation and q0 lattice.",
+  "strength": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "next": "p13 qorder10 split(0,10) negative lengths8..10, followed by other order10 signed splits; global T6 open",
+  "control": "Not native CLAIM, PROGRESS, Result, or Task completion. Prior p17 q14 Source delegated work remains separate."
+}
