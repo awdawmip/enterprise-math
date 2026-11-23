@@ -1,0 +1,45 @@
+{
+  "schema": "PREFIX1028_R6_ZERO_INDEX_BERNSTEIN_CERT_V1",
+  "scientific_pin": "awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d:p000_reality_foundation.json",
+  "observer": "Stage46 candidate signed BRC W=J12-6I, frozen X6 Cell-port-grade joint mass, Link {0,e1}, exactly one negative outgoing step",
+  "N": 1200,
+  "strictly_positive_pairs_m_ge_0": 721801,
+  "new_zero_row_pairs": 1201,
+  "a_0": "2412",
+  "original_m_ge_1_witness_sha256": "b626fc2e4e12db5ce219ab6f5e69f0c0344f38d6fe63d189a768a935d888439e",
+  "new_m_ge_0_witness_sha256": "a7565656208a7ff3f6fd9ff269a63879b8e0d3e76c3537dcaf130e7241e60d06",
+  "stream_format": "ASCII m,k,E\\n; ascending k then ascending m; 0<=m, 0<=k, m+k<=N",
+  "finite_exchangeable_distribution_p_N_m": "binom(N,m)*E(m,N-m)/(2412*36^N)",
+  "moment_bound": "0<=integral(y^d d sigma_N)-a_d<=2412*36^d*d*(d-1)/(2N), 0<=d<=N, N>0",
+  "selected_invariant_checks": {
+    "0": {
+      "normalization": "PASS",
+      "factorial_moments_d_0_to_3": "PASS"
+    },
+    "1": {
+      "normalization": "PASS",
+      "factorial_moments_d_0_to_3": "PASS"
+    },
+    "2": {
+      "normalization": "PASS",
+      "factorial_moments_d_0_to_3": "PASS"
+    },
+    "10": {
+      "normalization": "PASS",
+      "factorial_moments_d_0_to_3": "PASS"
+    },
+    "100": {
+      "normalization": "PASS",
+      "factorial_moments_d_0_to_3": "PASS"
+    },
+    "240": {
+      "normalization": "PASS",
+      "factorial_moments_d_0_to_3": "PASS"
+    },
+    "1200": {
+      "normalization": "PASS",
+      "factorial_moments_d_0_to_3": "PASS"
+    }
+  },
+  "mathematical_status": "FINITE_EXACT_INTEGER_CHECKED; SYMBOLIC_IDENTITY_AUTHOR_PROOF; NOT_REVIEWED"
+}
