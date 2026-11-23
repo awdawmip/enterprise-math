@@ -1,0 +1,148 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT2_8_NEG111122_AUTHOR_EXACT_MULTISLICE_CERT_V1",
+  "as_of": "2026-11-23",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "replay_source": "awdawmip/enterprise-math@ca7c63f911780e4cdb3e9f5219ee9d8cba88623c:research_checks/T6_P13_Q10_SPLIT2_8_NEG111122_SLICE_REPLAY_20261123_1900.py",
+  "runtime": "Local Python 3 + sympy, manually reconstructed exact arithmetic algorithm from pinned author replay; four disjoint slices actually executed",
+  "side_split": [
+    2,
+    8
+  ],
+  "p": 13,
+  "valuation": 1,
+  "q_order": 10,
+  "negative_q_pattern": [
+    1,
+    1,
+    1,
+    1,
+    2,
+    2
+  ],
+  "positive_q_patterns": [
+    [
+      2
+    ],
+    [
+      1,
+      1
+    ]
+  ],
+  "positive_rosters": 90,
+  "negative_total_rosters": 106470,
+  "original_side_cap": 2331,
+  "moduli": [
+    13,
+    169,
+    2197,
+    28561,
+    371293,
+    4826809
+  ],
+  "lattice_index": "13^21",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "new_complete_range": [
+    53248,
+    65536
+  ],
+  "segments": [
+    {
+      "interval": [
+        53248,
+        54272
+      ],
+      "negative_rosters": 1024,
+      "raw_signed_pairs": 92160,
+      "common_named_atom_canceled": 33503,
+      "gs_searches": 58657,
+      "gs_nodes": 127258,
+      "relaxed_sphere_witnesses": 0,
+      "both_original_side_mass_valid": 0,
+      "roster_sha256": "a867e1737b916b76d50181494ce43d85b47cbd8d1482ee8611c19f6cc07457c1",
+      "pair_digest_sha256": "d81630282008af217ed36e4600e357d2eb3a4d7787f307ffe6d2a13cbd8c5493",
+      "local_result_sha256": "bc0489e4566f1d2e8729892355ae1d54950fcec57468bfa9efbbf91a9df11fd3"
+    },
+    {
+      "interval": [
+        54272,
+        57344
+      ],
+      "negative_rosters": 3072,
+      "raw_signed_pairs": 276480,
+      "common_named_atom_canceled": 116401,
+      "gs_searches": 160079,
+      "gs_nodes": 347525,
+      "relaxed_sphere_witnesses": 0,
+      "both_original_side_mass_valid": 0,
+      "roster_sha256": "be4af0c1abacbd0bf32f1cc311064527b41372fb43e08b0633126e65ecc53305",
+      "pair_digest_sha256": "a4101955994c9427962e2aef551ee91e99d96f2559d9896c1e5a8f49976ed115",
+      "local_result_sha256": "3296ab51cb239464d7a36427d8a3c391718ed5b7c7caacc656584212a88262ed"
+    },
+    {
+      "interval": [
+        57344,
+        61440
+      ],
+      "negative_rosters": 4096,
+      "raw_signed_pairs": 368640,
+      "common_named_atom_canceled": 162934,
+      "gs_searches": 205706,
+      "gs_nodes": 443990,
+      "relaxed_sphere_witnesses": 0,
+      "both_original_side_mass_valid": 0,
+      "roster_sha256": "ee5e92110fb016f5065ac9d78336f2e763f9103a3cdbcadd42a8f21a671a3f1a",
+      "pair_digest_sha256": "69795d0b6a14016a3ed6ba9eca8777ba2deb47aeadc58e7db51677b9a454f214",
+      "local_result_sha256": "f08b06b76a74bd794ce13f1eaa7ca433d83688989b0a25a7ffed65d72b03ba48"
+    },
+    {
+      "interval": [
+        61440,
+        65536
+      ],
+      "negative_rosters": 4096,
+      "raw_signed_pairs": 368640,
+      "common_named_atom_canceled": 158718,
+      "gs_searches": 209922,
+      "gs_nodes": 452350,
+      "relaxed_sphere_witnesses": 0,
+      "both_original_side_mass_valid": 0,
+      "roster_sha256": "84549dcd82b1e2342aa4926da52dfe74d98d0a3a7f6960fa8456d8334e674971",
+      "pair_digest_sha256": "1d81a83e0c452a1335ec531cf0676432c373dfa94ddd4ffc0056145021488d71"
+    }
+  ],
+  "totals": {
+    "negative_rosters": 12288,
+    "raw_signed_pairs": 1105920,
+    "common_named_atom_canceled": 471556,
+    "gs_searches": 634364,
+    "gs_nodes": 1371123,
+    "relaxed_sphere_witnesses": 0,
+    "both_original_side_mass_valid": 0
+  },
+  "all_modular_sphere_witnesses": [],
+  "earlier_verified_author_frontier": "[0,53248) @ 64861b98243c6949d1b66c9be4cac11ad11539c8; 11 earlier modular sphere witnesses all budget invalid",
+  "cumulative_frontier": [
+    0,
+    65536
+  ],
+  "cumulative": {
+    "negative_rosters": 65536,
+    "raw_signed_pairs": 5898240,
+    "common_named_atom_canceled": 2463702,
+    "gs_searches": 3434538,
+    "gs_nodes": 7441583,
+    "relaxed_sphere_witnesses": 11,
+    "both_original_side_mass_valid": 0
+  },
+  "unvisited": [
+    65536,
+    106470
+  ],
+  "unvisited_pairs": 3684060,
+  "proof_scope": "For uncanceled signed named pairs in the four executed exact source-ordered slices, no affine lattice candidate meets both original side caps. Common-atom cancellations defer to lower-order arguments; this is not a whole-T6 Result.",
+  "strength": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "native_claim": "NOT_VERIFIED",
+  "native_progress": "NOT_PUBLISHED",
+  "pending": "Published reference replay not separately run under an independent reviewer; native T6 p17 q14 preflight separate."
+}
