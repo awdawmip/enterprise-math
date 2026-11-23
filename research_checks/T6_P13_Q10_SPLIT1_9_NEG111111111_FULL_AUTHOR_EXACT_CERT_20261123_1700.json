@@ -1,0 +1,490 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT1_9_NEG111111111_COMPLETE_AUTHOR_EXACT_V1",
+  "as_of": "2026-11-23T17:27:00+08:00",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "frozen_scientific_pin": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "logical_research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "negative_q_pattern": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "negative_named_rosters_total": 167960,
+  "source_order": "combinations_with_replacement(range(1,13),9), 12 positive (1,r) r=1..12 per negative named roster",
+  "source_order_interval": [
+    0,
+    167960
+  ],
+  "denominator": "13*(13q+r)",
+  "q0_weight": "13r-1",
+  "vertical_weight": "169q+13r-1",
+  "both_side_cap": 2331,
+  "six_mixed_moduli": [
+    13,
+    169,
+    2197,
+    28561,
+    371293,
+    4826809
+  ],
+  "saturated_q0_lattice_index": "13^21",
+  "gs_min_diagonal_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "method": "Exact p13 saturated 12D q0 lattice via integer HNF/LLL and weighted rational Gram-Schmidt. min_diagonal_squared > 2*(2331)^2 allows two-nearest integer branch per level; complete 6 mixed moduli and original signed masses; named common cancellation belongs to already closed lower order.",
+  "segment_rows": [
+    [
+      0,
+      8192,
+      39354,
+      27,
+      58923,
+      140368,
+      0,
+      "9dcaa6f3306a7503bd6fb6210cf65583583cf33334ca10a87b408aeff404b8e9"
+    ],
+    [
+      8192,
+      16384,
+      43112,
+      1344,
+      53848,
+      128138,
+      0,
+      "5c0b31a5f0c936eaeb4f7f1f5b754b7227b6a31c4b8db64b22391c0f01d85b32"
+    ],
+    [
+      16384,
+      24576,
+      47519,
+      1910,
+      48875,
+      115435,
+      0,
+      "7be510823f62d1233bcfb37f852c216b744d05f0ca7d655668f64624d7fa03a9"
+    ],
+    [
+      24576,
+      32768,
+      42578,
+      13562,
+      42164,
+      99550,
+      0,
+      "606e323b6dfb976a10f4d5dfb65766203c7fbf8ff362bfbf243bd1cee1507d6b"
+    ],
+    [
+      32768,
+      40960,
+      48330,
+      1962,
+      48012,
+      112818,
+      0,
+      "80ba77a56cb5deb41e2c4a33a33d6cca9ec516302b262d7c7631f1144b821def"
+    ],
+    [
+      40960,
+      49152,
+      53585,
+      5477,
+      39242,
+      92966,
+      0,
+      "f414065dd040be98350db562963546cf83f5dd7770846381bef20f0ceaf4e5e0"
+    ],
+    [
+      49152,
+      57344,
+      46978,
+      11338,
+      39988,
+      94033,
+      1,
+      "4c90642be257f4067474887de8d92c5fc32aef0b92c10b4f673bcc8e8f497bd3"
+    ],
+    [
+      57344,
+      65536,
+      48804,
+      16020,
+      33480,
+      78883,
+      1,
+      "08bcc13015a9f1c5034c9072ca194739ab4f3f2ca124adbe6b1e2fc0e3cbc0eb"
+    ],
+    [
+      65536,
+      73728,
+      46235,
+      31008,
+      21061,
+      49678,
+      0,
+      "ef233f4e72df71cfd5ab23b5852ac12a21ae54876fc80f70717c45e5e0fa8a70"
+    ],
+    [
+      73728,
+      81920,
+      39306,
+      13298,
+      45700,
+      108904,
+      0,
+      "cc82299dc632e1a6d6a82eec74ed745ac8dc0c28ef4c1cdb613fbd1f5f60ea3f"
+    ],
+    [
+      81920,
+      90112,
+      43704,
+      5830,
+      48770,
+      115862,
+      0,
+      "7339522548c2e1168bedc7b74b697667775187a1b6c66d118da25e3ecbfb25e7"
+    ],
+    [
+      90112,
+      98304,
+      43851,
+      15578,
+      38875,
+      92015,
+      0,
+      "51bf2ce00415139248d0295144620d3c443c95716df72dbb0e1078fa53eb8602"
+    ],
+    [
+      98304,
+      106496,
+      49834,
+      17789,
+      30681,
+      72208,
+      0,
+      "eb782337ed21b489a707462938cfe92f23ae7db8374a4c2024099066ff659fbf"
+    ],
+    [
+      106496,
+      114688,
+      46113,
+      22355,
+      29836,
+      70588,
+      1,
+      "85393f8d40acc1fbd2d07645da689146a82aba147bf6dc6199f36ebe56c6f958"
+    ],
+    [
+      114688,
+      122880,
+      40693,
+      28667,
+      28944,
+      68777,
+      0,
+      "68ab722c371db870ef2204c9071b0f75a63e116b6933136e19f96bf58f39bf92"
+    ],
+    [
+      122880,
+      131072,
+      41702,
+      23079,
+      33523,
+      79850,
+      0,
+      "5145e902b726e342d85874334edb07594a81153597e696654b410ecf70b3b669"
+    ],
+    [
+      131072,
+      139264,
+      46442,
+      25605,
+      26257,
+      62116,
+      0,
+      "baa5fdd02a186f3a2a4034090862dc69b6570ed496349bdc8c4665ca0a9980c7"
+    ],
+    [
+      139264,
+      147456,
+      40253,
+      36603,
+      21448,
+      51099,
+      0,
+      "a2403183de2e675d95175f41e784fb35c3351db9288cf2c1f57ed98475a95f9c"
+    ],
+    [
+      147456,
+      155648,
+      43038,
+      43931,
+      11335,
+      26776,
+      0,
+      "9a1985611973f0b90711141c0cd8f8b89601a6ebcc305941e30f7ab57f3ccead"
+    ],
+    [
+      155648,
+      163840,
+      38092,
+      52195,
+      8017,
+      19068,
+      0,
+      "30a48167a889d9061d878409a6855733622c14b8de809de1ede75f7318b7e75d"
+    ],
+    [
+      163840,
+      167960,
+      17461,
+      31912,
+      67,
+      161,
+      0,
+      "41642c0e8872d9a9eb7a2527caa2385471f2fe82252d7dd1d0a518609ee0e2e7"
+    ]
+  ],
+  "segment_schema": "[begin,end,common_cancel,vertical_overbudget,gs_searches,gs_nodes,ball_leaves,pair_digest_sha256], raw_pairs=12*(end-begin), budget_valid=0",
+  "totals": {
+    "raw_pairs": 2015520,
+    "common_cancel": 906984,
+    "vertical_overbudget": 399490,
+    "gs_searches": 709046,
+    "gs_nodes": 1679293,
+    "ball_leaves": 3,
+    "budget_valid": 0
+  },
+  "full_signed_witnesses": [
+    {
+      "negative_roster_index": 53151,
+      "pos": [
+        [
+          1,
+          7
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          11
+        ]
+      ],
+      "u": [
+        -61,
+        -1,
+        26,
+        2,
+        13,
+        -6,
+        3,
+        -4,
+        -2,
+        -3,
+        4,
+        -5
+      ],
+      "masses": [
+        3019,
+        5226
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    },
+    {
+      "negative_roster_index": 61028,
+      "pos": [
+        [
+          1,
+          8
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          11
+        ]
+      ],
+      "u": [
+        -12,
+        27,
+        9,
+        17,
+        3,
+        5,
+        3,
+        3,
+        -1,
+        7,
+        -7,
+        -3
+      ],
+      "masses": [
+        4215,
+        3920
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    },
+    {
+      "negative_roster_index": 107435,
+      "pos": [
+        [
+          1,
+          7
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          8
+        ]
+      ],
+      "u": [
+        38,
+        -31,
+        -10,
+        14,
+        -11,
+        6,
+        -5,
+        -6,
+        6,
+        5,
+        0,
+        2
+      ],
+      "masses": [
+        3542,
+        5115
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    }
+  ],
+  "rechecks": "21 disjoint source segments cover all 167960 rosters; independent enumeration of named roster weights and common-atom cancellation matches both tallies; each of three full signed sphere witnesses recomputed from original side masses and six modular congruences, PASS.",
+  "local_complete_file_sha256": "22f829c4b70ab9d8aa03ffe64cdb5d09640ba769ad3563452d61fd4d9e4086d9",
+  "scientific_status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "native_semantic_progress": "NOT_PUBLISHED",
+  "next_unfinished": "q10 signed split(1,9) ALL negative lengths1..9 closed by prior + current exact certificates. The next minimal p13 q10 author finite unit is split(2,8) under verified current source evidence; rest of global T6 lower bound remains OPEN."
+}
