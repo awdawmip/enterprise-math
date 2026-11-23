@@ -1,0 +1,1262 @@
+{
+  "schema": "EC49FYD_FULL_FACTOR_CERTIFICATE_HITTING_V1",
+  "frozen_science": "BRC16943",
+  "date": "2026-11-23",
+  "status": "ALL_PASS",
+  "domain": {
+    "primitive_directions": 72,
+    "support_masks": 50,
+    "states": 600,
+    "columns": 11,
+    "sites": 110
+  },
+  "theorem": "For every nonzero support U, C((U,-1)) = 11 + tau(U); tau is minimum hitting-set size of differences V\\U over strict mask supersets V.",
+  "distribution": {
+    "0": [
+      123,
+      243,
+      245,
+      346,
+      367,
+      371,
+      447,
+      486,
+      491,
+      567,
+      599,
+      602,
+      615,
+      701,
+      718,
+      753,
+      828,
+      857,
+      867,
+      949,
+      980,
+      1005
+    ],
+    "1": [
+      86,
+      91,
+      157,
+      175,
+      203,
+      211,
+      287,
+      327,
+      410,
+      412,
+      457,
+      460,
+      646,
+      697,
+      721,
+      789,
+      965
+    ],
+    "2": [
+      23,
+      281,
+      299,
+      301,
+      389,
+      394,
+      613,
+      673
+    ],
+    "3": [
+      101,
+      788,
+      833
+    ]
+  },
+  "max_full_factor_certificate": 14,
+  "checked_full_factor_to_other_state_pairs": 29950,
+  "hard_masks": {
+    "101": {
+      "minimal_hit_sets": [
+        [
+          1,
+          4,
+          9
+        ],
+        [
+          3,
+          4,
+          9
+        ],
+        [
+          1,
+          7,
+          9
+        ],
+        [
+          3,
+          7,
+          9
+        ],
+        [
+          4,
+          8,
+          9
+        ],
+        [
+          7,
+          8,
+          9
+        ]
+      ],
+      "support_rows": [
+        0,
+        2,
+        5,
+        6
+      ]
+    },
+    "788": {
+      "minimal_hit_sets": [
+        [
+          0,
+          3,
+          6
+        ],
+        [
+          0,
+          5,
+          6
+        ],
+        [
+          0,
+          3,
+          7
+        ],
+        [
+          0,
+          5,
+          7
+        ]
+      ],
+      "support_rows": [
+        2,
+        4,
+        8,
+        9
+      ]
+    },
+    "833": {
+      "minimal_hit_sets": [
+        [
+          1,
+          2,
+          3
+        ],
+        [
+          1,
+          2,
+          4
+        ],
+        [
+          2,
+          3,
+          5
+        ],
+        [
+          2,
+          4,
+          5
+        ],
+        [
+          1,
+          3,
+          7
+        ],
+        [
+          1,
+          4,
+          7
+        ],
+        [
+          3,
+          5,
+          7
+        ],
+        [
+          4,
+          5,
+          7
+        ]
+      ],
+      "support_rows": [
+        0,
+        6,
+        8,
+        9
+      ]
+    }
+  },
+  "certificates": [
+    {
+      "mask": 23,
+      "tau": 2,
+      "minimum_hitting_sets": 2,
+      "one_hitting_rows": [
+        3,
+        9
+      ],
+      "certificate_sites": [
+        0,
+        12,
+        24,
+        47,
+        4,
+        16,
+        28,
+        51,
+        8,
+        20,
+        32,
+        33,
+        99
+      ]
+    },
+    {
+      "mask": 86,
+      "tau": 1,
+      "minimum_hitting_sets": 2,
+      "one_hitting_rows": [
+        0
+      ],
+      "certificate_sites": [
+        11,
+        23,
+        46,
+        69,
+        15,
+        27,
+        50,
+        73,
+        19,
+        31,
+        54,
+        0
+      ]
+    },
+    {
+      "mask": 91,
+      "tau": 1,
+      "minimum_hitting_sets": 1,
+      "one_hitting_rows": [
+        5
+      ],
+      "certificate_sites": [
+        0,
+        12,
+        35,
+        47,
+        70,
+        5,
+        17,
+        40,
+        52,
+        75,
+        10,
+        55
+      ]
+    },
+    {
+      "mask": 101,
+      "tau": 3,
+      "minimum_hitting_sets": 6,
+      "one_hitting_rows": [
+        1,
+        4,
+        9
+      ],
+      "certificate_sites": [
+        0,
+        23,
+        57,
+        69,
+        4,
+        27,
+        61,
+        73,
+        8,
+        31,
+        65,
+        11,
+        44,
+        99
+      ]
+    },
+    {
+      "mask": 123,
+      "tau": 0,
+      "minimum_hitting_sets": 1,
+      "one_hitting_rows": [],
+      "certificate_sites": [
+        0,
+        12,
+        35,
+        47,
+        59,
+        71,
+        6,
+        18,
+        41,
+        53,
+        65
+      ]
+    },
+    {
+      "mask": 157,
+      "tau": 1,
+      "minimum_hitting_sets": 1,
+      "one_hitting_rows": [
+        5
+      ],
+      "certificate_sites": [
+        0,
+        23,
+        35,
+        47,
+        81,
+        5,
+        28,
+        40,
+        52,
+        86,
+        10,
+        55
+      ]
+    },
+    {
+      "mask": 175,
+      "tau": 1,
+      "minimum_hitting_sets": 2,
+      "one_hitting_rows": [
+        4
+      ],
+      "certificate_sites": [
+        0,
+        12,
+        24,
+        36,
+        59,
+        82,
+        6,
+        18,
+        30,
+        42,
+        65,
+        44
+      ]
+    },
+    {
+      "mask": 203,
+      "tau": 1,
+      "minimum_hitting_sets": 2,
+      "one_hitting_rows": [
+        5
+      ],
+      "certificate_sites": [
+        0,
+        12,
+        35,
+        69,
+        81,
+        5,
+        17,
+        40,
+        74,
+        86,
+        10,
+        55
+      ]
+    },
+    {
+      "mask": 211,
+      "tau": 1,
+      "minimum_hitting_sets": 1,
+      "one_hitting_rows": [
+        5
+      ],
+      "certificate_sites": [
+        0,
+        12,
+        46,
+        69,
+        81,
+        5,
+        17,
+        51,
+        74,
+        86,
+        10,
+        55
+      ]
+    },
+    {
+      "mask": 243,
+      "tau": 0,
+      "minimum_hitting_sets": 1,
+      "one_hitting_rows": [],
+      "certificate_sites": [
+        0,
+        12,
+        46,
+        58,
+        70,
+        82,
+        6,
+        18,
+        52,
+        64,
+        76
+      ]
+    },
+    {
+      "mask": 245,
+      "tau": 0,
+      "minimum_hitting_sets": 1,
+      "one_hitting_rows": [],
+      "certificate_sites": [
+        0,
+        23,
+        46,
+        58,
+        70,
+        82,
+        6,
+        29,
+        52,
+        64,
+        76
+      ]
+    },
+    {
+      "mask": 281,
+      "tau": 2,
+      "minimum_hitting_sets": 4,
+      "one_hitting_rows": [
+        1,
+        6
+      ],
+      "certificate_sites": [
+        0,
+        34,
+        46,
+        91,
+        4,
+        38,
+        50,
+        95,
+        8,
+        42,
+        54,
+        11,
+        66
+      ]
+    },
+    {
+      "mask": 287,
+      "tau": 1,
+      "minimum_hitting_sets": 2,
+      "one_hitting_rows": [
+        5
+      ],
+      "certificate_sites": [
+        0,
+        12,
+        24,
+        36,
+        48,
+        93,
+        6,
+        18,
+        30,
+        42,
+        54,
+        55
+      ]
+    },
+    {
+      "mask": 299,
+      "tau": 2,
+      "minimum_hitting_sets": 4,
+      "one_hitting_rows": [
+        2,
+        6
+      ],
+      "certificate_sites": [
+        0,
+        12,
+        35,
+        58,
+        92,
+        5,
+        17,
+        40,
+        63,
+        97,
+        10,
+        22,
+        66
+      ]
+    },
+    {
+      "mask": 301,
+      "tau": 2,
+      "minimum_hitting_sets": 5,
+      "one_hitting_rows": [
+        1,
+        6
+      ],
+      "certificate_sites": [
+        0,
+        23,
+        35,
+        58,
+        92,
+        5,
+        28,
+        40,
+        63,
+        97,
+        10,
+        11,
+        66
+      ]
+    },
+    {
+      "mask": 327,
+      "tau": 1,
+      "minimum_hitting_sets": 2,
+      "one_hitting_rows": [
+        3
+      ],
+      "certificate_sites": [
+        0,
+        12,
+        24,
+        69,
+        92,
+        5,
+        17,
+        29,
+        74,
+        97,
+        10,
+        33
+      ]
+    },
+    {
+      "mask": 346,
+      "tau": 0,
+      "minimum_hitting_sets": 1,
+      "one_hitting_rows": [],
+      "certificate_sites": [
+        11,
+        34,
+        46,
+        69,
+        92,
+        16,
+        39,
+        51,
+        74,
+        97,
+        21
+      ]
+    },
+    {
+      "mask": 367,
+      "tau": 0,
+      "minimum_hitting_sets": 1,
+      "one_hitting_rows": [],
+      "certificate_sites": [
+        0,
+        12,
+        24,
+        36,
+        59,
+        71,
+        94,
+        7,
+        19,
+        31,
+        43
+      ]
+    },
+    {
+      "mask": 371,
+      "tau": 0,
+      "minimum_hitting_sets": 1,
+      "one_hitting_rows": [],
+      "certificate_sites": [
+        0,
+        12,
+        46,
+        58,
+        70,
+        93,
+        6,
+        18,
+        52,
+        64,
+        76
+      ]
+    },
+    {
+      "mask": 389,
+      "tau": 2,
+      "minimum_hitting_sets": 6,
+      "one_hitting_rows": [
+        4,
+        6
+      ],
+      "certificate_sites": [
+        0,
+        23,
+        79,
+        91,
+        4,
+        27,
+        83,
+        95,
+        8,
+        31,
+        87,
+        44,
+        66
+      ]
+    },
+    {
+      "mask": 394,
+      "tau": 2,
+      "minimum_hitting_sets": 3,
+      "one_hitting_rows": [
+        0,
+        4
+      ],
+      "certificate_sites": [
+        11,
+        34,
+        79,
+        91,
+        15,
+        38,
+        83,
+        95,
+        19,
+        42,
+        87,
+        0,
+        44
+      ]
+    },
+    {
+      "mask": 410,
+      "tau": 1,
+      "minimum_hitting_sets": 3,
+      "one_hitting_rows": [
+        0
+      ],
+      "certificate_sites": [
+        11,
+        34,
+        46,
+        80,
+        92,
+        16,
+        39,
+        51,
+        85,
+        97,
+        21,
+        0
+      ]
+    },
+    {
+      "mask": 412,
+      "tau": 1,
+      "minimum_hitting_sets": 3,
+      "one_hitting_rows": [
+        0
+      ],
+      "certificate_sites": [
+        22,
+        34,
+        46,
+        80,
+        92,
+        27,
+        39,
+        51,
+        85,
+        97,
+        32,
+        0
+      ]
+    },
+    {
+      "mask": 447,
+      "tau": 0,
+      "minimum_hitting_sets": 1,
+      "one_hitting_rows": [],
+      "certificate_sites": [
+        0,
+        12,
+        24,
+        36,
+        48,
+        60,
+        83,
+        95,
+        8,
+        20,
+        32
+      ]
+    },
+    {
+      "mask": 457,
+      "tau": 1,
+      "minimum_hitting_sets": 1,
+      "one_hitting_rows": [
+        5
+      ],
+      "certificate_sites": [
+        0,
+        34,
+        68,
+        80,
+        92,
+        5,
+        39,
+        73,
+        85,
+        97,
+        10,
+        55
+      ]
+    },
+    {
+      "mask": 460,
+      "tau": 1,
+      "minimum_hitting_sets": 3,
+      "one_hitting_rows": [
+        0
+      ],
+      "certificate_sites": [
+        22,
+        34,
+        68,
+        80,
+        92,
+        27,
+        39,
+        73,
+        85,
+        97,
+        32,
+        0
+      ]
+    },
+    {
+      "mask": 486,
+      "tau": 0,
+      "minimum_hitting_sets": 1,
+      "one_hitting_rows": [],
+      "certificate_sites": [
+        11,
+        23,
+        57,
+        69,
+        81,
+        93,
+        17,
+        29,
+        63,
+        75,
+        87
+      ]
+    },
+    {
+      "mask": 491,
+      "tau": 0,
+      "minimum_hitting_sets": 1,
+      "one_hitting_rows": [],
+      "certificate_sites": [
+        0,
+        12,
+        35,
+        58,
+        70,
+        82,
+        94,
+        7,
+        19,
+        42,
+        65
+      ]
+    },
+    {
+      "mask": 567,
+      "tau": 0,
+      "minimum_hitting_sets": 1,
+      "one_hitting_rows": [],
+      "certificate_sites": [
+        0,
+        12,
+        24,
+        47,
+        59,
+        104,
+        6,
+        18,
+        30,
+        53,
+        65
+      ]
+    },
+    {
+      "mask": 599,
+      "tau": 0,
+      "minimum_hitting_sets": 1,
+      "one_hitting_rows": [],
+      "certificate_sites": [
+        0,
+        12,
+        24,
+        47,
+        70,
+        104,
+        6,
+        18,
+        30,
+        53,
+        76
+      ]
+    },
+    {
+      "mask": 602,
+      "tau": 0,
+      "minimum_hitting_sets": 1,
+      "one_hitting_rows": [],
+      "certificate_sites": [
+        11,
+        34,
+        46,
+        69,
+        103,
+        16,
+        39,
+        51,
+        74,
+        108,
+        21
+      ]
+    },
+    {
+      "mask": 613,
+      "tau": 2,
+      "minimum_hitting_sets": 3,
+      "one_hitting_rows": [
+        1,
+        3
+      ],
+      "certificate_sites": [
+        0,
+        23,
+        57,
+        69,
+        103,
+        5,
+        28,
+        62,
+        74,
+        108,
+        10,
+        11,
+        33
+      ]
+    },
+    {
+      "mask": 615,
+      "tau": 0,
+      "minimum_hitting_sets": 1,
+      "one_hitting_rows": [],
+      "certificate_sites": [
+        0,
+        12,
+        24,
+        58,
+        70,
+        104,
+        6,
+        18,
+        30,
+        64,
+        76
+      ]
+    },
+    {
+      "mask": 646,
+      "tau": 1,
+      "minimum_hitting_sets": 2,
+      "one_hitting_rows": [
+        3
+      ],
+      "certificate_sites": [
+        11,
+        23,
+        79,
+        102,
+        15,
+        27,
+        83,
+        106,
+        19,
+        31,
+        87,
+        33
+      ]
+    },
+    {
+      "mask": 673,
+      "tau": 2,
+      "minimum_hitting_sets": 4,
+      "one_hitting_rows": [
+        2,
+        4
+      ],
+      "certificate_sites": [
+        0,
+        56,
+        79,
+        102,
+        4,
+        60,
+        83,
+        106,
+        8,
+        64,
+        87,
+        22,
+        44
+      ]
+    },
+    {
+      "mask": 697,
+      "tau": 1,
+      "minimum_hitting_sets": 1,
+      "one_hitting_rows": [
+        2
+      ],
+      "certificate_sites": [
+        0,
+        34,
+        46,
+        58,
+        81,
+        104,
+        6,
+        40,
+        52,
+        64,
+        87,
+        22
+      ]
+    },
+    {
+      "mask": 701,
+      "tau": 0,
+      "minimum_hitting_sets": 1,
+      "one_hitting_rows": [],
+      "certificate_sites": [
+        0,
+        23,
+        35,
+        47,
+        59,
+        82,
+        105,
+        7,
+        30,
+        42,
+        54
+      ]
+    },
+    {
+      "mask": 718,
+      "tau": 0,
+      "minimum_hitting_sets": 1,
+      "one_hitting_rows": [],
+      "certificate_sites": [
+        11,
+        23,
+        35,
+        69,
+        81,
+        104,
+        17,
+        29,
+        41,
+        75,
+        87
+      ]
+    },
+    {
+      "mask": 721,
+      "tau": 1,
+      "minimum_hitting_sets": 1,
+      "one_hitting_rows": [
+        5
+      ],
+      "certificate_sites": [
+        0,
+        45,
+        68,
+        80,
+        103,
+        5,
+        50,
+        73,
+        85,
+        108,
+        10,
+        55
+      ]
+    },
+    {
+      "mask": 753,
+      "tau": 0,
+      "minimum_hitting_sets": 1,
+      "one_hitting_rows": [],
+      "certificate_sites": [
+        0,
+        45,
+        57,
+        69,
+        81,
+        104,
+        6,
+        51,
+        63,
+        75,
+        87
+      ]
+    },
+    {
+      "mask": 788,
+      "tau": 3,
+      "minimum_hitting_sets": 4,
+      "one_hitting_rows": [
+        0,
+        3,
+        6
+      ],
+      "certificate_sites": [
+        22,
+        45,
+        90,
+        102,
+        26,
+        49,
+        94,
+        106,
+        30,
+        53,
+        98,
+        0,
+        33,
+        66
+      ]
+    },
+    {
+      "mask": 789,
+      "tau": 1,
+      "minimum_hitting_sets": 2,
+      "one_hitting_rows": [
+        5
+      ],
+      "certificate_sites": [
+        0,
+        23,
+        46,
+        91,
+        103,
+        5,
+        28,
+        51,
+        96,
+        108,
+        10,
+        55
+      ]
+    },
+    {
+      "mask": 828,
+      "tau": 0,
+      "minimum_hitting_sets": 1,
+      "one_hitting_rows": [],
+      "certificate_sites": [
+        22,
+        34,
+        46,
+        58,
+        92,
+        104,
+        28,
+        40,
+        52,
+        64,
+        98
+      ]
+    },
+    {
+      "mask": 833,
+      "tau": 3,
+      "minimum_hitting_sets": 8,
+      "one_hitting_rows": [
+        1,
+        2,
+        3
+      ],
+      "certificate_sites": [
+        0,
+        67,
+        90,
+        102,
+        4,
+        71,
+        94,
+        106,
+        8,
+        75,
+        98,
+        11,
+        22,
+        33
+      ]
+    },
+    {
+      "mask": 857,
+      "tau": 0,
+      "minimum_hitting_sets": 1,
+      "one_hitting_rows": [],
+      "certificate_sites": [
+        0,
+        34,
+        46,
+        69,
+        92,
+        104,
+        6,
+        40,
+        52,
+        75,
+        98
+      ]
+    },
+    {
+      "mask": 867,
+      "tau": 0,
+      "minimum_hitting_sets": 1,
+      "one_hitting_rows": [],
+      "certificate_sites": [
+        0,
+        12,
+        57,
+        69,
+        92,
+        104,
+        6,
+        18,
+        63,
+        75,
+        98
+      ]
+    },
+    {
+      "mask": 949,
+      "tau": 0,
+      "minimum_hitting_sets": 1,
+      "one_hitting_rows": [],
+      "certificate_sites": [
+        0,
+        23,
+        46,
+        58,
+        81,
+        93,
+        105,
+        7,
+        30,
+        53,
+        65
+      ]
+    },
+    {
+      "mask": 965,
+      "tau": 1,
+      "minimum_hitting_sets": 2,
+      "one_hitting_rows": [
+        3
+      ],
+      "certificate_sites": [
+        0,
+        23,
+        68,
+        80,
+        92,
+        104,
+        6,
+        29,
+        74,
+        86,
+        98,
+        33
+      ]
+    },
+    {
+      "mask": 980,
+      "tau": 0,
+      "minimum_hitting_sets": 1,
+      "one_hitting_rows": [],
+      "certificate_sites": [
+        22,
+        45,
+        68,
+        80,
+        92,
+        104,
+        28,
+        51,
+        74,
+        86,
+        98
+      ]
+    },
+    {
+      "mask": 1005,
+      "tau": 0,
+      "minimum_hitting_sets": 1,
+      "one_hitting_rows": [],
+      "certificate_sites": [
+        0,
+        23,
+        35,
+        58,
+        70,
+        82,
+        94,
+        106,
+        8,
+        31,
+        43
+      ]
+    }
+  ]
+}
