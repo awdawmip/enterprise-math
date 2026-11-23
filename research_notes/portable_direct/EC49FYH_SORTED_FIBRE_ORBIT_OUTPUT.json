@@ -1,0 +1,70 @@
+{
+  "schema": "EC49FYH_SEEN_COLUMN_MULTISET_QUOTIENT_V1",
+  "science_pin": "BRC16943",
+  "source_parent": "EC49FYG@b76275e1968a006005b16e96c9cb1c0f18b08bd6",
+  "claim": "Exact S_k quotient by sorting seen-hole masks; preserve physical-label decoder",
+  "status": "ALL_PASS",
+  "arithmetic": "Python arbitrary-precision integers, exact",
+  "original_states": 600,
+  "physical_sites": 110,
+  "frozen_support_masks": 50,
+  "depth_range_exhaustive": "0..4 canonical query histories",
+  "layer_counts": [
+    {
+      "depth": 0,
+      "ordered_states": 1,
+      "multiset_orbits": 1,
+      "by_seen_columns": {
+        "0": 1
+      },
+      "largest_orbit": 1
+    },
+    {
+      "depth": 1,
+      "ordered_states": 20,
+      "multiset_orbits": 20,
+      "by_seen_columns": {
+        "1": 20
+      },
+      "largest_orbit": 1
+    },
+    {
+      "depth": 2,
+      "ordered_states": 555,
+      "multiset_orbits": 410,
+      "by_seen_columns": {
+        "1": 200,
+        "2": 355
+      },
+      "largest_orbit": 2
+    },
+    {
+      "depth": 3,
+      "ordered_states": 11639,
+      "multiset_orbits": 5443,
+      "by_seen_columns": {
+        "1": 1130,
+        "2": 5119,
+        "3": 5390
+      },
+      "largest_orbit": 6
+    },
+    {
+      "depth": 4,
+      "ordered_states": 185224,
+      "multiset_orbits": 45888,
+      "by_seen_columns": {
+        "1": 2924,
+        "2": 31987,
+        "3": 80531,
+        "4": 69782
+      },
+      "largest_orbit": 24
+    }
+  ],
+  "ordered_states_oracle_checked": 197439,
+  "nonempty_transitions_generated": 756555,
+  "distinct_orbit_signature_classes_tested_depth0_to3": 5874,
+  "max_depth4_compression_ratio": "185224/45888",
+  "unresolved": "Global depth-14 feasibility vs known depth-15 construction"
+}
