@@ -1,0 +1,146 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_AUTHOR_CONTINUATION_V1",
+  "as_of": "2026-11-24",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "mother_hard_target": "Signed original H0..H6 threshold T6=2332 globally OPEN; all lower-prime, H0, other q-splits and independent review remain",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "excluded_maintenance_lane": "chatgpt-hourly-enterprise-math-20260921",
+  "frozen_science": {
+    "repository": "awdawmip/enterprise-math",
+    "commit": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+    "native_moduli": [
+      13,
+      169,
+      2197,
+      28561,
+      371293,
+      4826809
+    ],
+    "budget_each_side": 2331,
+    "positive_neg_exact_rosters": "preserve ordered integer q and residue r, multiplicity and sign",
+    "lattice": "saturated q0 lattice rank12 index13^21",
+    "observer": "Original H0..H6; this is a scoped H1..H6 modular necessary-condition test, other H0/global checks remain"
+  },
+  "completed_author_finite": [
+    {
+      "scope": "p13 valuation1 q-order10 split(2,8) negative q1^8 entire [0,75582) named negative rosters, 90 positives each",
+      "raw_signed_pairs": 6802380,
+      "remaining_new_interval_executed": [
+        58368,
+        75582
+      ],
+      "remaining_new_raw_pairs": 1549260,
+      "remaining_new_gs_searches": 662395,
+      "remaining_new_gs_nodes": 1407512,
+      "remaining_new_sphere_witnesses": 1,
+      "remaining_new_mass_valid": 0,
+      "prior_scope": "Read existing client revision74 [0,58368) and prior GitHub exact certs. Do not rerun.",
+      "new_certificates": [
+        {
+          "commit": "312690f045a27d3790b9dba81eaeee65b32b6533",
+          "path": "research_checks/T6_P13_Q10_SPLIT2_8_NEG11111111_58368_62528_AUTHOR_EXACT_CERT_20261124.json",
+          "blob": "694aa5216b55031aba56c2bc0b1ee3095386124f"
+        },
+        {
+          "commit": "09377053714e6a3f43507fb989318e1abfa4da8a",
+          "path": "research_checks/T6_P13_Q10_SPLIT2_8_NEG11111111_62528_75582_AND_FULL_FAMILY_AUTHOR_EXACT_CERT_20261124.json",
+          "blob": "a33f1cabd7d028223bc3524dbda36505b5132c82"
+        }
+      ]
+    },
+    {
+      "scope": "p13 q-order10 split(3,7) negative q=(7,) all 12 negative x520 positive",
+      "raw_signed_pairs": 6240,
+      "gs_searches": 6240,
+      "gs_nodes": 13564,
+      "ball_witnesses": 0,
+      "mass_valid": 0,
+      "certificate": {
+        "commit": "52a8412a2c718220b3c50017009a6f6e60da3297",
+        "path": "research_checks/T6_P13_Q10_SPLIT3_7_NEG7_FULL_AUTHOR_EXACT_CERT_20261124.json"
+      },
+      "portable_replay": {
+        "commit": "5bfd3090ad369d5fe3a91e908cde52b6407bc3f6",
+        "path": "research_checks/T6_P13_Q10_SPLIT3_7_NEG7_AUTHOR_REPLAY_20261124.py"
+      }
+    },
+    {
+      "scope": "p13 q-order10 split(3,7) negative all length2 partitions (1,6),(2,5),(3,4)",
+      "negative_rosters": 432,
+      "raw_signed_pairs": 224640,
+      "common_named_cancellations": 14832,
+      "gs_searches": 209808,
+      "gs_nodes": 447324,
+      "ball_witnesses": 1,
+      "ball_witness_invalid_masses": [
+        2823,
+        4362
+      ],
+      "mass_valid": 0,
+      "certificate": {
+        "commit": "3c626d934d0b16464c7a7d6d9b96b6d384fe543f",
+        "path": "research_checks/T6_P13_Q10_SPLIT3_7_NEG_LEN2_ALL_THREE_AUTHOR_EXACT_CERT_20261124.json"
+      }
+    },
+    {
+      "scope": "p13 q-order10 split(3,7) negative length3 q=(1,1,5) complete",
+      "negative_rosters": 936,
+      "raw_signed_pairs": 486720,
+      "common_named_cancellations": 146016,
+      "gs_searches": 340704,
+      "gs_nodes": 712469,
+      "ball_witnesses": 1,
+      "ball_witness_invalid_masses": [
+        2712,
+        4426
+      ],
+      "mass_valid": 0,
+      "certificate": {
+        "commit": "2aee852cb13a6cc374795c0927c5310371efec79",
+        "path": "research_checks/T6_P13_Q10_SPLIT3_7_NEG115_FULL_AUTHOR_EXACT_CERT_20261124.json"
+      }
+    }
+  ],
+  "new_this_round_totals": {
+    "raw_signed_pairs": 2266860,
+    "gs_nodes": 2580869,
+    "relaxed_sphere_witnesses": 3,
+    "both_side_mass_valid": 0
+  },
+  "next_scientific_action": {
+    "scope": "p13 valuation1 order10 split(3,7), negative q=(1,2,4)",
+    "negative_rosters": 1728,
+    "positive_rosters": 520,
+    "raw_signed_pairs": 898560,
+    "execution": "source ordered q1 r=1..12 then q2 r=1..12 then q4 r=1..12; positive q3 then q1q2 then q1^3 CWR; exact 12D q0 lattice and six 13-adic modular checks; original side masses <=2331; preserve witness signed u and all residues",
+    "validation": "regression reuse exact kernel, source digest and per-partition coverage, never call prior exclusions new work",
+    "followup": "q(1,3,3), q(2,2,3), higher negative part lengths and remaining p13/global H0/lower prime cases, conditioned on Source not duplicating prior author work"
+  },
+  "activity": {
+    "id": "RA-A468735D7C934B25C4B9614F",
+    "session_id": "MCP-7f3df4435e40430b832e8d5ff2137718",
+    "record_commit": "3c26c4cdd15493b06c92216ee70fbb069f87960e",
+    "event_id": "onhour-20261124-t6-p13q10-split37-neglen1to3-author-exact-v1",
+    "previous_q1eight_event_commit": "a41349a0085a3a63a28c5586ff4b343e95cede34",
+    "association": "SOURCE_ASSOCIATED / READBACK_VERIFIED / NOT_NATIVE_SEMANTIC_CHECKPOINT"
+  },
+  "control": {
+    "client_checkpoint_revision_last_verified": 76,
+    "client_checkpoint_request": "onhour-20261124-0049-t6-p13-q10-split28closed-split37-2atom-r76-v1",
+    "research_session": "MCP-7f3df4435e40430b832e8d5ff2137718",
+    "source_original_registration_request": "onhour-20261123-2111-research-own-session-start-v1",
+    "original_native_continuation": "onhour-20261123-2158-t6-own-cont-ro-v1 SUCCEEDED read-only",
+    "winning_claim": "NOT_VERIFIED",
+    "run": "NONE_RETURNED_ON_OWN_SID_RECOVERY_STATUS",
+    "protected_native_semantic_progress": "NOT_PUBLISHED",
+    "native_frontier": "p17 q14 delegated preflight, distinct from portable p13 research; not this author claimant"
+  },
+  "unresolved_obligations": [
+    "Independent non-author replay/verification and theorem strength before admission",
+    "Shared p13 q0 saturated lattice and common atom lower-order reduction assumptions retained",
+    "Full T6 including other q-splits, lower primes and original H0 OPEN",
+    "Native Claim/run not authorized, no protected PROGRESS",
+    "Research source individual certs each GitHub readback and RA observed; project note is supplementary immutable continuation, not additional task"
+  ],
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED"
+}
