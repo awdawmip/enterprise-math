@@ -1,0 +1,88 @@
+{
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "date": "2026-11-23",
+  "science_pin": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "observer": "H0..H6",
+  "maximal_prime": 13,
+  "valuation": 1,
+  "signed_split": [
+    0,
+    10
+  ],
+  "each_side_mass_cap": 2331,
+  "original_integer_named_denominator": "13*(13q+r)",
+  "vertical_cost": "169q+13r-1",
+  "q0_weight": "13r-1",
+  "lattice_index": "13^21",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "necessary_mixed_congruences": "sum u_r*r^-j - sum(13q+r)^-j = 0 mod 13^j for j=1..6",
+  "evidence_status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "formal_native_progress": false,
+  "published_replay_independent_execution": false,
+  "schema": "EM_T6_P13_Q10_PATTERN111111112_FULL_AUTHOR_EXACT_CERT_V1",
+  "negative_pattern": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    2
+  ],
+  "exhaustion": "C(19,8)*12=906984",
+  "canonical_order": "8 nondecreasing q1 residues outer; q2 residue 1..12 inner",
+  "segments": [
+    {
+      "range": [
+        0,
+        100000
+      ],
+      "visited": 100000,
+      "overbudget": 22637,
+      "gs_searches": 77363,
+      "gs_nodes": 210545,
+      "leaves": 0,
+      "sha256": "b6cfbbe6244f1cee6fd596fdd11afca8a8ab52ca6a5a799013e981a0078ccce7"
+    },
+    {
+      "range": [
+        100000,
+        500000
+      ],
+      "visited": 400000,
+      "overbudget": 267495,
+      "gs_searches": 132505,
+      "gs_nodes": 361504,
+      "leaves": 0,
+      "sha256": "9ff77d7f168528a6cd96b9104b7890999c50af95093a386b7093d0e518a5f00f"
+    },
+    {
+      "range": [
+        500000,
+        906984
+      ],
+      "visited": 406984,
+      "overbudget": 374997,
+      "gs_searches": 31987,
+      "gs_nodes": 87084,
+      "leaves": 0,
+      "sha256": "094f6457daec1ac3bf4907f2fcd7c99dde97921bee035377356172050feaf307"
+    }
+  ],
+  "totals": {
+    "visited": 906984,
+    "overbudget": 665129,
+    "gs_searches": 241855,
+    "gs_nodes": 659133,
+    "leaves": 0,
+    "budget_valid": 0
+  },
+  "independent_budget_count": {
+    "method": "direct cross-product of q1 eight-multisets and q2 12 named residues; integer vertical mass <=2331",
+    "admissible": 241855
+  },
+  "witnesses": [],
+  "replay": "research_checks/T6_P13_Q10_SPLIT0_10_FINAL_TWO_PATTERNS_EXACT_REPLAY_20261123.py"
+}
