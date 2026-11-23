@@ -19,6 +19,11 @@ for(let a=0;a<10;a++)for(let c=0;c<10;c++)if(gcd(gcd(a,c),10)===1){
 assert(reps.size===72,'primitive direction census');
 const U=[...new Set([...reps.values()].map(q=>q.u))].sort((a,b)=>a-b);
 assert(U.length===50&&U.every(u=>u>0),'50 nonempty masks');
+const base=833,superMasks=[857,867,965],extras=superMasks.map(x=>x&~base);
+assert(U.includes(base)&&superMasks.every(x=>U.includes(x)),'four frozen supermask witnesses');
+assert(superMasks.every(x=>(x&base)===base)&&extras.every(x=>x>0)&&
+       (extras[0]&extras[1])===0&&(extras[0]&extras[2])===0&&(extras[1]&extras[2])===0,
+       'three disjoint extra-row sets');
 function normalize(a,c){
   const b=a+c,e=inverse(a,b),h0=(a*e-1)/b,n0=e-h0, rep=reps.get(`${a%10},${c%10}`);
   assert(rep!==undefined,'primitive residue missing');
@@ -106,13 +111,13 @@ for(const u of U){
 const out={schema:'EC49FXZ_BOOLEAN_ONLY_DECISION_BOUNDS_V1',frozen_scientific_pin:'BRC16943',result:'ALL_PASS',
     premise:'original frozen C11 physical Boolean probes; all 600 normalized states possible; no free indexed spectrum',
     exact_domain:{genuine_anchor_square:'1<=a,c<=79; gcd(a,c)=1',masks:50,column_factors:12,states:600,sites:110},
-    proven_bounds:{unconditional_adaptive_identification_lower:11,constructive_upper:16},
-    lower_reason:'for fixed U and full V, all 11 single-column deletions differ on disjoint columns',
+    proven_bounds:{unconditional_adaptive_identification_lower:14,constructive_upper:16},
+    lower_reason:'for base U=833 and full factor, 11 mandatory positive readings in distinct columns plus 3 mandatory disjoint negative extra-row witnesses against 857,867,965',lower_witness:{base,superMasks,extras},
     algorithm:'deterministic recursive minimax cardinality split; ties lexicographic (t,j)',
     decision_tree:{internal_nodes:internal,leaves:leafCount,root:{t:tree.t,j:tree.j,no:tree.n0,yes:tree.n1},max_depth:maxDepth,average_depth:totalDepth/states.length,leaf_depth_histogram:hist},
     exact_checks:{original_C11_integer_equalities:rawChecks,full_vs_hole_disjoint_column_pairs:lowerBoundVerified,complete_tree_paths:states.length},
     deepest_sample:deepest,
-    proof_scope:'finite exhaustive constructive upper bound, analytic lower bound; exact optimum within [11,16] is open',
+    proof_scope:'finite exhaustive constructive upper bound, analytic lower bound; exact optimum within [14,16] is open',
     status:'AUTHOR_PROVED / EXACT_INTEGER_CROSSCHECK / PARENT_DEPENDENT / NOT_REVIEWED',
     native_X6_transfer:'NOT_CLAIMED'};
 console.log(JSON.stringify(out,null,2));
