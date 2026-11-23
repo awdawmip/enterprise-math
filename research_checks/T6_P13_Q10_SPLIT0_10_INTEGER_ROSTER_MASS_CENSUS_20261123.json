@@ -1,0 +1,107 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT0_10_NAMED_ROSTER_MASS_CENSUS_V1",
+  "date": "2026-11-23",
+  "task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "frozen_pin": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "domain": {
+    "maximal_prime": 13,
+    "valuation": 1,
+    "vertical_qorder": 10,
+    "signed_split": [
+      0,
+      10
+    ],
+    "named_atom": "(q,r),q>=1,1<=r<=12",
+    "original_denominator": "13(13q+r)",
+    "side_mass_cap": 2331,
+    "negative_side_mass": "1690+13 S - ell",
+    "S": "sum of residue labels",
+    "ell": "number of negative named atoms"
+  },
+  "generating_function": "[x^10 z^ell y^S] product_(q=1..10,r=1..12) (1-x^q z y^r)^(-1)",
+  "finite_exact_dp": "Start dp[0,0,0]=1, for each ordered named type (q,r) update dp[Q,ell,S]+=dp[Q-q,ell-1,S-r] using ascending Q,ell,S to allow arbitrary multiplicity of the current type; restrict Q<=10 and ell<=10. This extracts each named multiset exactly once. Retain exact integer counts.",
+  "mass_restriction": "1690+13S-ell <= 2331 iff S <= floor((641+ell)/13)",
+  "rows": [
+    {
+      "negative_length": 1,
+      "all_named_rosters": 12,
+      "vertical_mass_eligible": 12,
+      "vertical_mass_excluded": 0,
+      "maximum_residue_sum": 49
+    },
+    {
+      "negative_length": 2,
+      "all_named_rosters": 654,
+      "vertical_mass_eligible": 654,
+      "vertical_mass_excluded": 0,
+      "maximum_residue_sum": 49
+    },
+    {
+      "negative_length": 3,
+      "all_named_rosters": 10656,
+      "vertical_mass_eligible": 10656,
+      "vertical_mass_excluded": 0,
+      "maximum_residue_sum": 49
+    },
+    {
+      "negative_length": 4,
+      "all_named_rosters": 79704,
+      "vertical_mass_eligible": 79704,
+      "vertical_mass_excluded": 0,
+      "maximum_residue_sum": 49
+    },
+    {
+      "negative_length": 5,
+      "all_named_rosters": 324012,
+      "vertical_mass_eligible": 318951,
+      "vertical_mass_excluded": 5061,
+      "maximum_residue_sum": 49
+    },
+    {
+      "negative_length": 6,
+      "all_named_rosters": 802620,
+      "vertical_mass_eligible": 701007,
+      "vertical_mass_excluded": 101613,
+      "maximum_residue_sum": 49
+    },
+    {
+      "negative_length": 7,
+      "all_named_rosters": 1274364,
+      "vertical_mass_eligible": 829058,
+      "vertical_mass_excluded": 445306,
+      "maximum_residue_sum": 49
+    },
+    {
+      "negative_length": 8,
+      "all_named_rosters": 1347216,
+      "vertical_mass_eligible": 558033,
+      "vertical_mass_excluded": 789183,
+      "maximum_residue_sum": 49
+    },
+    {
+      "negative_length": 9,
+      "all_named_rosters": 906984,
+      "vertical_mass_eligible": 241855,
+      "vertical_mass_excluded": 665129,
+      "maximum_residue_sum": 50
+    },
+    {
+      "negative_length": 10,
+      "all_named_rosters": 352716,
+      "vertical_mass_eligible": 55442,
+      "vertical_mass_excluded": 297274,
+      "maximum_residue_sum": 50
+    }
+  ],
+  "totals": {
+    "all_named_rosters": 5098938,
+    "eligible": 2795372,
+    "excluded": 2303566,
+    "eligible_lengths_1to5": 409977,
+    "remaining_eligible_lengths_6to10": 2385395
+  },
+  "cross_check": "Length5 vertical-excluded count 5061 equals direct q10 exact author enumeration; lengths1..4 all named rosters satisfy vertical mass cap.",
+  "scientific_scope": "Exact combinatorial coverage and mass bound for q10 split(0,10), independent of q0 affine feasibility; it does not prove excluded mass-eligible rosters, nor the full T6 theorem.",
+  "status": "AUTHOR_EXACT_INTEGER_DP_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "next": "Complete q10 negative lengths6..10 bounded exact mixed-congruence affine search, beginning by recovering uncommitted previous interrupted length6 output, and preserve all named atoms and H0..H6."
+}
