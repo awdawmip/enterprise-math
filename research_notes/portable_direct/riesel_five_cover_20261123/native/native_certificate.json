@@ -1,0 +1,267 @@
+{
+  "schema": "riesel-complete-five-cover-and-fiber-native-v1",
+  "status": "AUTHOR_NATIVE_EXECUTION; NOT_INDEPENDENT_REVIEW",
+  "native_source_commit": "b1efc6c805661ed7b476e6e730107da6043176ee",
+  "native_source_blobs": [
+    {
+      "module": "brc_transport.py",
+      "git_blob": "be1debe367263931bd5e93fd750be3ed54624fe1"
+    },
+    {
+      "module": "brc_histogram.py",
+      "git_blob": "9a3962ec095095f14e63a91cfe6b7ebf07d9a1d1"
+    },
+    {
+      "module": "brc_rational_holonomy.py",
+      "git_blob": "2591640fe348da9cd7f293a957bea9ae92c82943"
+    },
+    {
+      "module": "brc_weighted_recurrent.py",
+      "git_blob": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb"
+    }
+  ],
+  "base_certificate_git_blob": "c1909a5e2e209b0f6bd5f613d0f758dde45caee9",
+  "cases": [
+    {
+      "label": "W_H1_least_root",
+      "root": "61222665924684986635031943105967801542609331745630965435461",
+      "root_digits": 59,
+      "ordered_rows": [
+        {
+          "q": 5,
+          "phase_u": 0,
+          "root_residue": 1
+        },
+        {
+          "q": 13,
+          "phase_u": 3,
+          "root_residue": 8
+        },
+        {
+          "q": 19,
+          "phase_u": 1,
+          "root_residue": 9
+        },
+        {
+          "q": 37,
+          "phase_u": 7,
+          "root_residue": 13
+        },
+        {
+          "q": 109,
+          "phase_u": 13,
+          "root_residue": 77
+        }
+      ],
+      "period_n": 1260,
+      "uncovered_counts": [
+        216,
+        108,
+        39,
+        26,
+        13,
+        0
+      ],
+      "proper_private_old_hole_indices": {
+        "19": 2,
+        "13": 6,
+        "5": 12,
+        "109": 62,
+        "37": 158
+      },
+      "native_updates": 1260,
+      "native_readouts": 36540,
+      "old_projection_equalities": 25200,
+      "additional_fixed_fiber_equalities": 0,
+      "fixed_fiber_modulus": null,
+      "fixed_fiber_residue": null,
+      "last_native_state_sha256": "d1fbce9ac837256c6a6c1719a6eaaa118aa6b18bb1f20f80d879a967bfbc85ee"
+    },
+    {
+      "label": "W_H0_least_root",
+      "root": "62924692928616911047137866279148034266265445978646078445719",
+      "root_digits": 59,
+      "ordered_rows": [
+        {
+          "q": 5,
+          "phase_u": 0,
+          "root_residue": 4
+        },
+        {
+          "q": 13,
+          "phase_u": 1,
+          "root_residue": 6
+        },
+        {
+          "q": 37,
+          "phase_u": 3,
+          "root_residue": 14
+        },
+        {
+          "q": 19,
+          "phase_u": 0,
+          "root_residue": 18
+        },
+        {
+          "q": 109,
+          "phase_u": 15,
+          "root_residue": 101
+        }
+      ],
+      "period_n": 1260,
+      "uncovered_counts": [
+        216,
+        108,
+        69,
+        46,
+        23,
+        0
+      ],
+      "proper_private_old_hole_indices": {
+        "13": 2,
+        "37": 6,
+        "5": 12,
+        "19": 18,
+        "109": 30
+      },
+      "native_updates": 1260,
+      "native_readouts": 36540,
+      "old_projection_equalities": 25200,
+      "additional_fixed_fiber_equalities": 0,
+      "fixed_fiber_modulus": null,
+      "fixed_fiber_residue": null,
+      "last_native_state_sha256": "b213d6a7db99cf6195092f7ce7c3f49e70349704c4de4369a637d8ef93b499d2"
+    },
+    {
+      "label": "R0_least_cost_five_root",
+      "root": "73841986537470627371286709939739215853723074973610308115228565383",
+      "root_digits": 65,
+      "ordered_rows": [
+        {
+          "q": 5,
+          "phase_u": 1,
+          "root_residue": 3
+        },
+        {
+          "q": 13,
+          "phase_u": 0,
+          "root_residue": 1
+        },
+        {
+          "q": 37,
+          "phase_u": 4,
+          "root_residue": 7
+        },
+        {
+          "q": 19,
+          "phase_u": 1,
+          "root_residue": 9
+        },
+        {
+          "q": 73,
+          "phase_u": 7,
+          "root_residue": 69
+        }
+      ],
+      "period_n": 1260,
+      "uncovered_counts": [
+        216,
+        108,
+        39,
+        26,
+        13,
+        0
+      ],
+      "proper_private_old_hole_indices": {
+        "5": 6,
+        "13": 12,
+        "19": 20,
+        "73": 32,
+        "37": 152
+      },
+      "native_updates": 1260,
+      "native_readouts": 36540,
+      "old_projection_equalities": 25200,
+      "additional_fixed_fiber_equalities": 6300,
+      "fixed_fiber_modulus": 14436565,
+      "fixed_fiber_residue": 666303,
+      "last_native_state_sha256": "3a5124bfbbeeb6aaf96235caaf8d77770041ddf449757df1de248f4a09043361"
+    },
+    {
+      "label": "R1_least_nested_optimal_six_root",
+      "root": "1597463687996365290740241630260436015028835427889255944107518938773290244463",
+      "root_digits": 76,
+      "ordered_rows": [
+        {
+          "q": 5,
+          "phase_u": 1,
+          "root_residue": 3
+        },
+        {
+          "q": 13,
+          "phase_u": 0,
+          "root_residue": 1
+        },
+        {
+          "q": 19,
+          "phase_u": 4,
+          "root_residue": 6
+        },
+        {
+          "q": 73,
+          "phase_u": 1,
+          "root_residue": 37
+        },
+        {
+          "q": 433,
+          "phase_u": 34,
+          "root_residue": 429
+        },
+        {
+          "q": 38737,
+          "phase_u": 16,
+          "root_residue": 2677
+        }
+      ],
+      "period_n": 2520,
+      "uncovered_counts": [
+        432,
+        216,
+        78,
+        52,
+        26,
+        13,
+        0
+      ],
+      "proper_private_old_hole_indices": {
+        "5": 6,
+        "13": 12,
+        "73": 20,
+        "38737": 32,
+        "433": 140,
+        "19": 152
+      },
+      "native_updates": 2520,
+      "native_readouts": 78120,
+      "old_projection_equalities": 50400,
+      "additional_fixed_fiber_equalities": 22680,
+      "fixed_fiber_modulus": 80754838636615,
+      "fixed_fiber_residue": 12926327728523,
+      "last_native_state_sha256": "b2b4c8a42ffc15ce3b3867abd7ad79d98abb08c2c796c04c4c1f244b9bd81b77"
+    }
+  ],
+  "native_updates": 6300,
+  "native_readouts": 187740,
+  "old_projection_equalities": 126000,
+  "additional_fixed_fiber_equalities": 28980,
+  "reused_least_cost_five_native_membership": {
+    "commit": "a2ae4d93398425e67dacbb4c99b7f3a6755e5771",
+    "path": "research_notes/portable_direct/riesel_observers_20261122/native/native_certificate.json",
+    "field": "minimal_root_native_check",
+    "scope": "Same root and phase rows; new global minimum proof is in companion global/observer notes."
+  },
+  "all_future_bridge": "The old-hole predicate has exact known period210 in n. New zero predicates have periods ord_q(2). Their least common multiples are1260 or2520 as checked; integer readouts themselves need not have these smaller periods.",
+  "completeness_and_optimality_scope": "Proved in companion mathematical notes; not inferred from four representative trajectories. No total-minimum equality is inferred from private witnesses for a single dictionary.",
+  "native_scope": "Fixed X6 anchor and typed integer register; positive singleton weight1 and multiplicity1; n counts updates and is not physical time; prime readouts are not axes or extra branches.",
+  "observer_scope": "Finite residue predicates retain their stated observation scope. The integer state and unbounded joint cofactor information are not replaced by residues."
+}

@@ -1,0 +1,1064 @@
+{
+  "schema": "riesel-r0-r1-fiber-certificate-v1",
+  "status": "Author derivation with exact finite arithmetic checks; no independent Review.",
+  "scope": {
+    "all_prime_results": "Written proof, using exact finite factor and incidence inputs below; no bounded-prime extrapolation.",
+    "compact_witnesses": "Ordinary integer arithmetic only; native execution is supplied separately by the parent integration.",
+    "retained_large_roots": "Only membership in the enlarged R1 fiber newly checked; existing gcd/exact-cost/native evidence reused.",
+    "unbounded_cost": "For every finite s>=6 there are infinitely many R1 roots with delta_P=s and tau=20+s; no single root of infinite cost is asserted."
+  },
+  "old_state": {
+    "a_star": "690786768637635218740714348513373826260012289",
+    "M": "1397394912916194098609132326092145093313722687204526281",
+    "P": [
+      7,
+      17,
+      31,
+      41,
+      71,
+      97,
+      113,
+      127,
+      151,
+      241,
+      257,
+      281,
+      337,
+      641,
+      673,
+      1321,
+      14449,
+      29191,
+      65537,
+      6700417
+    ],
+    "full_old_period_checked": 6720,
+    "holes_u_mod105": [
+      0,
+      1,
+      3,
+      6,
+      9,
+      10,
+      15,
+      16,
+      21,
+      30,
+      31,
+      33,
+      36,
+      45,
+      48,
+      49,
+      51,
+      54,
+      55,
+      63,
+      64,
+      66,
+      69,
+      70,
+      75,
+      76,
+      78,
+      79,
+      84,
+      85,
+      90,
+      91,
+      93,
+      96,
+      99,
+      100
+    ]
+  },
+  "complete_factorizations_of_2_power_minus_1": {
+    "14": {
+      "3": 1,
+      "43": 1,
+      "127": 1
+    },
+    "16": {
+      "3": 1,
+      "5": 1,
+      "17": 1,
+      "257": 1
+    },
+    "18": {
+      "3": 3,
+      "7": 1,
+      "19": 1,
+      "73": 1
+    },
+    "20": {
+      "3": 1,
+      "5": 2,
+      "11": 1,
+      "31": 1,
+      "41": 1
+    },
+    "24": {
+      "3": 2,
+      "5": 1,
+      "7": 1,
+      "13": 1,
+      "17": 1,
+      "241": 1
+    },
+    "36": {
+      "3": 3,
+      "5": 1,
+      "7": 1,
+      "13": 1,
+      "19": 1,
+      "37": 1,
+      "73": 1,
+      "109": 1
+    },
+    "48": {
+      "3": 2,
+      "5": 1,
+      "7": 1,
+      "13": 1,
+      "17": 1,
+      "97": 1,
+      "241": 1,
+      "257": 1,
+      "673": 1
+    },
+    "60": {
+      "3": 2,
+      "5": 2,
+      "7": 1,
+      "11": 1,
+      "13": 1,
+      "31": 1,
+      "41": 1,
+      "61": 1,
+      "151": 1,
+      "331": 1,
+      "1321": 1
+    },
+    "72": {
+      "3": 3,
+      "5": 1,
+      "7": 1,
+      "13": 1,
+      "17": 1,
+      "19": 1,
+      "37": 1,
+      "73": 1,
+      "109": 1,
+      "241": 1,
+      "433": 1,
+      "38737": 1
+    }
+  },
+  "incidence": {
+    "H_mod105": {
+      "1": [
+        36
+      ],
+      "3": [
+        23,
+        13,
+        0
+      ],
+      "5": [
+        11,
+        11,
+        0,
+        6,
+        8
+      ],
+      "7": [
+        7,
+        7,
+        7,
+        5,
+        0,
+        4,
+        6
+      ],
+      "15": [
+        6,
+        5,
+        0,
+        6,
+        3,
+        0,
+        6,
+        0,
+        0,
+        5,
+        5,
+        0,
+        0,
+        0,
+        0
+      ],
+      "21": [
+        4,
+        3,
+        0,
+        3,
+        0,
+        0,
+        4,
+        3,
+        0,
+        4,
+        2,
+        0,
+        4,
+        2,
+        0,
+        4,
+        3,
+        0,
+        0,
+        0,
+        0
+      ],
+      "35": [
+        2,
+        2,
+        0,
+        1,
+        0,
+        1,
+        2,
+        0,
+        1,
+        2,
+        2,
+        0,
+        0,
+        1,
+        2,
+        2,
+        2,
+        0,
+        0,
+        1,
+        2,
+        2,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        1,
+        2,
+        2,
+        2,
+        0,
+        1,
+        1
+      ],
+      "105": [
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        1,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "A_v_mod35": [
+      1,
+      2,
+      10,
+      11,
+      12,
+      16,
+      17,
+      22,
+      25,
+      26,
+      30,
+      31,
+      32
+    ],
+    "A_incidence": {
+      "1": [
+        13
+      ],
+      "5": [
+        3,
+        5,
+        5,
+        0,
+        0
+      ],
+      "7": [
+        0,
+        2,
+        3,
+        3,
+        3,
+        2,
+        0
+      ],
+      "35": [
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        1,
+        1,
+        0,
+        0,
+        0,
+        1,
+        1,
+        1,
+        0,
+        0
+      ]
+    },
+    "binary_w_mod35": [
+      0,
+      3,
+      5,
+      8,
+      10,
+      15,
+      21,
+      23,
+      26,
+      28,
+      30,
+      31,
+      33
+    ]
+  },
+  "bounds": {
+    "H_and_fixed_parity": [
+      "1/8",
+      "23/108",
+      "11/72",
+      "7/36",
+      "1/6",
+      "1/9",
+      "1/18",
+      "1/36"
+    ],
+    "after_removing_d9_d7": [
+      "1/8",
+      "23/144",
+      "11/72",
+      "7/72",
+      "1/6",
+      "1/9",
+      "1/18",
+      "1/36"
+    ],
+    "R0_after_basic_pair": [
+      "1/3",
+      "5/26",
+      "3/13",
+      "1/13"
+    ],
+    "R1_non_W_after_basic_pair": [
+      "1/6",
+      "5/26",
+      "3/13",
+      "1/13"
+    ],
+    "R1_after_both_W": [
+      "1/2",
+      "5/13",
+      "3/13",
+      "1/13"
+    ],
+    "no_basic_pair_five_upper_fraction_of_H": "103/108",
+    "R1_five_strict_case_lower_densities": {
+      "neither_5_nor_13": "1/126",
+      "exactly_one_of_5_13": "4/315",
+      "both_basic_no_active_W": "1/105",
+      "both_basic_one_active_W": "2/315"
+    }
+  },
+  "R0": {
+    "observer_channels": 25,
+    "K": 14436565,
+    "observer_residue": 666303,
+    "V_residues": {
+      "5": 3,
+      "13": 1,
+      "11": 0,
+      "61": 0,
+      "331": 0
+    },
+    "base_root": "6674620469276465981746725355773871383154918772016378723525483",
+    "root_progression_modulus": "121041494945903853943122890515382691774327737794816871699188590",
+    "sharp_density_staircase": [
+      "6/35",
+      "3/35",
+      "13/420",
+      "13/630",
+      "13/1260",
+      "0/1"
+    ],
+    "W_phase_table": {
+      "19": [
+        {
+          "relative_phase": 0,
+          "u_phase": 4,
+          "u_period": 9,
+          "root_residues": [
+            6,
+            13
+          ]
+        },
+        {
+          "relative_phase": 1,
+          "u_phase": 1,
+          "u_period": 9,
+          "root_residues": [
+            9,
+            10
+          ]
+        },
+        {
+          "relative_phase": 2,
+          "u_phase": 7,
+          "u_period": 9,
+          "root_residues": [
+            4,
+            15
+          ]
+        }
+      ],
+      "37": [
+        {
+          "relative_phase": 0,
+          "u_phase": 4,
+          "u_period": 18,
+          "root_residues": [
+            7,
+            30
+          ]
+        },
+        {
+          "relative_phase": 1,
+          "u_phase": 10,
+          "u_period": 18,
+          "root_residues": [
+            3,
+            34
+          ]
+        },
+        {
+          "relative_phase": 2,
+          "u_phase": 16,
+          "u_period": 18,
+          "root_residues": [
+            4,
+            33
+          ]
+        }
+      ],
+      "73": [
+        {
+          "relative_phase": 0,
+          "u_phase": 4,
+          "u_period": 9,
+          "root_residues": [
+            32,
+            41
+          ]
+        },
+        {
+          "relative_phase": 1,
+          "u_phase": 1,
+          "u_period": 9,
+          "root_residues": [
+            36,
+            37
+          ]
+        },
+        {
+          "relative_phase": 2,
+          "u_phase": 7,
+          "u_period": 9,
+          "root_residues": [
+            4,
+            69
+          ]
+        }
+      ],
+      "109": [
+        {
+          "relative_phase": 0,
+          "u_phase": 4,
+          "u_period": 18,
+          "root_residues": [
+            34,
+            75
+          ]
+        },
+        {
+          "relative_phase": 1,
+          "u_phase": 10,
+          "u_period": 18,
+          "root_residues": [
+            38,
+            71
+          ]
+        },
+        {
+          "relative_phase": 2,
+          "u_phase": 16,
+          "u_period": 18,
+          "root_residues": [
+            4,
+            105
+          ]
+        }
+      ]
+    },
+    "relative_predicate_period_J": 5593771,
+    "category_state_count": 256,
+    "weighted_distinct_phase_counts": {
+      "0": 2781103,
+      "1": 2415516,
+      "2": 386304,
+      "3": 10848
+    },
+    "predicate_counts_per_J": {
+      "E3": 2812668,
+      "E4": 397152,
+      "delta5": 10848
+    },
+    "predicate_relative_densities": {
+      "E3": "2812668/5593771",
+      "E4": "397152/5593771",
+      "delta5": "10848/5593771"
+    },
+    "least_period_essential_coordinate_witnesses": {
+      "E3": [
+        {
+          "prime": 19,
+          "false_residue": 0,
+          "true_residue": 3238499,
+          "period": 5593771
+        },
+        {
+          "prime": 37,
+          "false_residue": 0,
+          "true_residue": 1058281,
+          "period": 5593771
+        },
+        {
+          "prime": 73,
+          "false_residue": 0,
+          "true_residue": 1839048,
+          "period": 5593771
+        },
+        {
+          "prime": 109,
+          "false_residue": 0,
+          "true_residue": 1590889,
+          "period": 5593771
+        }
+      ],
+      "E4": [
+        {
+          "prime": 19,
+          "false_residue": 1058281,
+          "true_residue": 3119144,
+          "period": 5593771
+        },
+        {
+          "prime": 37,
+          "false_residue": 3238499,
+          "true_residue": 3692048,
+          "period": 5593771
+        },
+        {
+          "prime": 73,
+          "false_residue": 3238499,
+          "true_residue": 5307428,
+          "period": 5593771
+        },
+        {
+          "prime": 109,
+          "false_residue": 3238499,
+          "true_residue": 3700370,
+          "period": 5593771
+        }
+      ],
+      "delta5": [
+        {
+          "prime": 19,
+          "false_residue": 3127210,
+          "true_residue": 3421619,
+          "period": 5593771
+        },
+        {
+          "prime": 37,
+          "false_residue": 5307428,
+          "true_residue": 318389,
+          "period": 5593771
+        },
+        {
+          "prime": 73,
+          "false_residue": 3692048,
+          "true_residue": 3921929,
+          "period": 5593771
+        },
+        {
+          "prime": 109,
+          "false_residue": 3692048,
+          "true_residue": 2563030,
+          "period": 5593771
+        }
+      ]
+    },
+    "all_five_prime_phase_dictionaries": 24,
+    "raw_CRT_enumeration_count_with_repetitions": 11424,
+    "distinct_delta5_CRT_classes": 10848,
+    "delta5_residue_list_sha256": "7e42097eeee8997683f91d090173b77323e654e01ae23a63f236100980fb468a",
+    "compact_minimum_delta5_witness": {
+      "root_decimal": "73841986537470627371286709939739215853723074973610308115228565383",
+      "root_decimal_digits": 65,
+      "root_decimal_sha256": "ec20be31af328b1088b91571340254148fc2a8dc9d9cbf473c7962301ca6a5e3",
+      "exponent_period_of_uncovered_set": 1260,
+      "ordered_added_rows": [
+        {
+          "prime": 5,
+          "root_residue": 3,
+          "order_2": 4,
+          "even_u_period": 2,
+          "even_u_phase": 1
+        },
+        {
+          "prime": 13,
+          "root_residue": 1,
+          "order_2": 12,
+          "even_u_period": 6,
+          "even_u_phase": 0
+        },
+        {
+          "prime": 37,
+          "root_residue": 7,
+          "order_2": 36,
+          "even_u_period": 18,
+          "even_u_phase": 4
+        },
+        {
+          "prime": 19,
+          "root_residue": 9,
+          "order_2": 18,
+          "even_u_period": 9,
+          "even_u_phase": 1
+        },
+        {
+          "prime": 73,
+          "root_residue": 69,
+          "order_2": 9,
+          "even_u_period": 9,
+          "even_u_phase": 7
+        }
+      ],
+      "uncovered_counts": [
+        216,
+        108,
+        39,
+        26,
+        13,
+        0
+      ],
+      "density_values": [
+        "6/35",
+        "3/35",
+        "13/420",
+        "13/630",
+        "13/1260",
+        "0/1"
+      ],
+      "all_assigned_divisors_proper": true,
+      "total_cover_cost_equality_claimed": false,
+      "minimum_scope": "Every R0 root with delta_P=5; complete 10848 CRT residue classes.",
+      "delta_P": 5
+    }
+  },
+  "R1": {
+    "observer_channels": 29,
+    "L": 80754838636615,
+    "observer_residue": 12926327728523,
+    "W_residues": {
+      "19": 6,
+      "37": 0,
+      "73": 37,
+      "109": 0
+    },
+    "base_root": "109144817248271217030935095844913144304467544912834272663740863768743",
+    "root_progression_modulus": "677078404225043546975276474401122755149173044172250567221641858272890",
+    "sharp_density_staircase": [
+      "6/35",
+      "3/35",
+      "13/420",
+      "13/630",
+      "13/1260",
+      "13/2520",
+      "0/1"
+    ],
+    "B_phase_table": {
+      "433": [
+        {
+          "relative_phase": 0,
+          "u_phase": 16,
+          "u_period": 36,
+          "root_residues": [
+            150,
+            283
+          ]
+        },
+        {
+          "relative_phase": 1,
+          "u_phase": 34,
+          "u_period": 36,
+          "root_residues": [
+            4,
+            429
+          ]
+        }
+      ],
+      "38737": [
+        {
+          "relative_phase": 0,
+          "u_phase": 16,
+          "u_period": 36,
+          "root_residues": [
+            2677,
+            36060
+          ]
+        },
+        {
+          "relative_phase": 1,
+          "u_phase": 34,
+          "u_period": 36,
+          "root_residues": [
+            4,
+            38733
+          ]
+        }
+      ]
+    },
+    "relative_predicate_period_Z": 16773121,
+    "category_state_count": 9,
+    "weighted_distinct_phase_counts": {
+      "0": 16616457,
+      "1": 156656,
+      "2": 8
+    },
+    "predicate_counts_per_Z": {
+      "E5": 156664,
+      "nested6": 8
+    },
+    "predicate_relative_densities": {
+      "E5": "156664/16773121",
+      "nested6": "8/16773121"
+    },
+    "least_period_essential_coordinate_witnesses": {
+      "E5": [
+        {
+          "prime": 433,
+          "false_residue": 0,
+          "true_residue": 4222333,
+          "period": 16773121
+        },
+        {
+          "prime": 38737,
+          "false_residue": 0,
+          "true_residue": 5270909,
+          "period": 16773121
+        }
+      ],
+      "nested6": [
+        {
+          "prime": 433,
+          "false_residue": 5270909,
+          "true_residue": 6278071,
+          "period": 16773121
+        },
+        {
+          "prime": 38737,
+          "false_residue": 4222333,
+          "true_residue": 3215175,
+          "period": 16773121
+        }
+      ]
+    },
+    "nested6_CRT_classes": [
+      3215175,
+      4263747,
+      5229491,
+      6278071,
+      10495050,
+      11543630,
+      12509374,
+      13557946
+    ],
+    "compact_minimum_nested6_witness": {
+      "root_decimal": "1597463687996365290740241630260436015028835427889255944107518938773290244463",
+      "root_decimal_digits": 76,
+      "root_decimal_sha256": "cd8dbff060776d3e5416f6f2585fa07670cb298aad609a68b0c06d913e3da1a1",
+      "exponent_period_of_uncovered_set": 2520,
+      "ordered_added_rows": [
+        {
+          "prime": 5,
+          "root_residue": 3,
+          "order_2": 4,
+          "even_u_period": 2,
+          "even_u_phase": 1
+        },
+        {
+          "prime": 13,
+          "root_residue": 1,
+          "order_2": 12,
+          "even_u_period": 6,
+          "even_u_phase": 0
+        },
+        {
+          "prime": 19,
+          "root_residue": 6,
+          "order_2": 18,
+          "even_u_period": 9,
+          "even_u_phase": 4
+        },
+        {
+          "prime": 73,
+          "root_residue": 37,
+          "order_2": 9,
+          "even_u_period": 9,
+          "even_u_phase": 1
+        },
+        {
+          "prime": 433,
+          "root_residue": 429,
+          "order_2": 72,
+          "even_u_period": 36,
+          "even_u_phase": 34
+        },
+        {
+          "prime": 38737,
+          "root_residue": 2677,
+          "order_2": 72,
+          "even_u_period": 36,
+          "even_u_phase": 16
+        }
+      ],
+      "uncovered_counts": [
+        432,
+        216,
+        78,
+        52,
+        26,
+        13,
+        0
+      ],
+      "density_values": [
+        "6/35",
+        "3/35",
+        "13/420",
+        "13/630",
+        "13/1260",
+        "13/2520",
+        "0/1"
+      ],
+      "all_assigned_divisors_proper": true,
+      "total_cover_cost_equality_claimed": false,
+      "minimum_scope": "R1 roots admitting a nested simultaneous optimum through budget 6; eight CRT classes.",
+      "delta_P": 6,
+      "all_delta6_roots_classified": false
+    },
+    "all_roots_delta_lower_bound": 6,
+    "retained_exact_cost_examples": [
+      {
+        "additional_cost": 6,
+        "total_cost": 26,
+        "root_decimal_digits": 10021,
+        "root_decimal_sha256": "c2ebacd563cff116685cc756d8413b2b847d1de6ea4553aa80d06767feec55ae",
+        "root_residue_mod_L": 12926327728523,
+        "W_residues": {
+          "19": 6,
+          "37": 0,
+          "73": 37,
+          "109": 0
+        },
+        "existing_gcd_count_reused": 325,
+        "source": "v8",
+        "new_check_scope": "Exact root membership in R1; prior exact-cost and native evidence reused."
+      },
+      {
+        "additional_cost": 7,
+        "total_cost": 27,
+        "root_decimal_digits": 10882,
+        "root_decimal_sha256": "77774a440ba43c3479d26dedb7ef946b9e8b4cf8a0b88c78d6138d369877c44a",
+        "root_residue_mod_L": 12926327728523,
+        "W_residues": {
+          "19": 6,
+          "37": 0,
+          "73": 37,
+          "109": 0
+        },
+        "existing_gcd_count_reused": 351,
+        "source": "v8",
+        "new_check_scope": "Exact root membership in R1; prior exact-cost and native evidence reused."
+      },
+      {
+        "additional_cost": 8,
+        "total_cost": 28,
+        "root_decimal_digits": 16517,
+        "root_decimal_sha256": "c33287dad27f115f330d2263a41f2a4a4ddd9e3482d31a01758673ceab288718",
+        "root_residue_mod_L": 12926327728523,
+        "W_residues": {
+          "19": 6,
+          "37": 0,
+          "73": 37,
+          "109": 0
+        },
+        "existing_gcd_count_reused": 378,
+        "source": "v7",
+        "new_check_scope": "Exact root membership in R1; prior exact-cost and native evidence reused."
+      }
+    ]
+  },
+  "dependencies": [
+    {
+      "commit": "a2ae4d93398425e67dacbb4c99b7f3a6755e5771",
+      "path": "research_notes/portable_direct/riesel_observers_20261122/fixed_observer/fixed_observer_certificate.json",
+      "file_sha256": "755298a7be9208d7955fd8cd3c23f612b3f23048c3e1aea800f4244dc55abe96"
+    },
+    {
+      "commit": "af9e1a5e49386a28283781876e10742a71991036",
+      "path": "research_notes/portable_direct/riesel_spectrum_20261121/spectrum/small_spectrum_certificate.json",
+      "file_sha256": "fa18d38c76a5300769c2b8e65ecfbc2a077b11068b94be126e847ea33168a357"
+    }
+  ]
+}

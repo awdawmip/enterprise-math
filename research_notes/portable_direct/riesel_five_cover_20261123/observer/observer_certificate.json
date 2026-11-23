@@ -1,0 +1,6442 @@
+{
+  "schema": "riesel-complete-cost-five-observer-v1",
+  "status": "AUTHOR_DERIVATION_AND_EXACT_FINITE_CALCULATION; NOT_INDEPENDENT_REVIEW",
+  "all_prime_completeness_dependency": "../global/proof.md",
+  "old_data_source_commit": "a2ae4d93398425e67dacbb4c99b7f3a6755e5771",
+  "old_data_source_path": "research_notes/portable_direct/riesel_observers_20261122/staircase/proof.md",
+  "a_star": "690786768637635218740714348513373826260012289",
+  "M": "1397394912916194098609132326092145093313722687204526281",
+  "P": [
+    7,
+    17,
+    31,
+    41,
+    71,
+    97,
+    113,
+    127,
+    151,
+    241,
+    257,
+    281,
+    337,
+    641,
+    673,
+    1321,
+    14449,
+    29191,
+    65537,
+    6700417
+  ],
+  "H": [
+    0,
+    1,
+    3,
+    6,
+    9,
+    10,
+    15,
+    16,
+    21,
+    30,
+    31,
+    33,
+    36,
+    45,
+    48,
+    49,
+    51,
+    54,
+    55,
+    63,
+    64,
+    66,
+    69,
+    70,
+    75,
+    76,
+    78,
+    79,
+    84,
+    85,
+    90,
+    91,
+    93,
+    96,
+    99,
+    100
+  ],
+  "U": [
+    11,
+    61,
+    331
+  ],
+  "W": [
+    19,
+    37,
+    73,
+    109
+  ],
+  "K": 14436565,
+  "L": 80754838636615,
+  "complete_factorizations_2_power_minus_1": {
+    "36": {
+      "3": 3,
+      "5": 1,
+      "7": 1,
+      "13": 1,
+      "19": 1,
+      "37": 1,
+      "73": 1,
+      "109": 1
+    },
+    "48": {
+      "3": 2,
+      "5": 1,
+      "7": 1,
+      "13": 1,
+      "17": 1,
+      "97": 1,
+      "241": 1,
+      "257": 1,
+      "673": 1
+    },
+    "60": {
+      "3": 2,
+      "5": 2,
+      "7": 1,
+      "11": 1,
+      "13": 1,
+      "31": 1,
+      "41": 1,
+      "61": 1,
+      "151": 1,
+      "331": 1,
+      "1321": 1
+    },
+    "84": {
+      "3": 2,
+      "5": 1,
+      "7": 2,
+      "13": 1,
+      "29": 1,
+      "43": 1,
+      "113": 1,
+      "127": 1,
+      "337": 1,
+      "1429": 1,
+      "5419": 1,
+      "14449": 1
+    }
+  },
+  "effective_order_candidates_in_conditional_lemma": {
+    "3": [
+      19,
+      37,
+      73,
+      109
+    ],
+    "4": [],
+    "5": [
+      11,
+      61,
+      331
+    ],
+    "7": [
+      29,
+      43,
+      1429,
+      5419
+    ]
+  },
+  "phase_tables": [
+    {
+      "epsilon": 0,
+      "r13": 0,
+      "basic_rows": [
+        [
+          5,
+          1
+        ],
+        [
+          13,
+          0
+        ]
+      ],
+      "fiber_origin": 4,
+      "U_categories": {
+        "11": {
+          "0": [
+            1,
+            10
+          ],
+          "1": [
+            5,
+            6
+          ],
+          "4": [
+            2,
+            9
+          ]
+        },
+        "61": {
+          "0": [
+            14,
+            47
+          ],
+          "1": [
+            25,
+            36
+          ],
+          "4": [
+            19,
+            42
+          ]
+        },
+        "331": {
+          "0": [
+            32,
+            299
+          ],
+          "1": [
+            165,
+            166
+          ],
+          "4": [
+            62,
+            269
+          ]
+        }
+      },
+      "W_categories": {
+        "19": {
+          "0": [
+            6,
+            13
+          ],
+          "1": [
+            9,
+            10
+          ],
+          "2": [
+            4,
+            15
+          ]
+        },
+        "37": {
+          "0": [
+            7,
+            30
+          ],
+          "1": [
+            3,
+            34
+          ],
+          "2": [
+            4,
+            33
+          ]
+        },
+        "73": {
+          "0": [
+            32,
+            41
+          ],
+          "1": [
+            36,
+            37
+          ],
+          "2": [
+            4,
+            69
+          ]
+        },
+        "109": {
+          "0": [
+            34,
+            75
+          ],
+          "1": [
+            38,
+            71
+          ],
+          "2": [
+            4,
+            105
+          ]
+        }
+      }
+    },
+    {
+      "epsilon": 0,
+      "r13": 1,
+      "basic_rows": [
+        [
+          5,
+          1
+        ],
+        [
+          13,
+          4
+        ]
+      ],
+      "fiber_origin": 0,
+      "U_categories": {
+        "11": {
+          "0": [
+            1,
+            10
+          ],
+          "1": [
+            5,
+            6
+          ],
+          "4": [
+            2,
+            9
+          ]
+        },
+        "61": {
+          "0": [
+            14,
+            47
+          ],
+          "1": [
+            25,
+            36
+          ],
+          "4": [
+            19,
+            42
+          ]
+        },
+        "331": {
+          "0": [
+            32,
+            299
+          ],
+          "1": [
+            165,
+            166
+          ],
+          "4": [
+            62,
+            269
+          ]
+        }
+      },
+      "W_categories": {
+        "19": {
+          "0": [
+            1,
+            18
+          ],
+          "1": [
+            8,
+            11
+          ],
+          "2": [
+            7,
+            12
+          ]
+        },
+        "37": {
+          "0": [
+            1,
+            36
+          ],
+          "1": [
+            11,
+            26
+          ],
+          "2": [
+            10,
+            27
+          ]
+        },
+        "73": {
+          "0": [
+            1,
+            72
+          ],
+          "1": [
+            8,
+            65
+          ],
+          "2": [
+            9,
+            64
+          ]
+        },
+        "109": {
+          "0": [
+            1,
+            108
+          ],
+          "1": [
+            46,
+            63
+          ],
+          "2": [
+            45,
+            64
+          ]
+        }
+      }
+    },
+    {
+      "epsilon": 1,
+      "r13": 0,
+      "basic_rows": [
+        [
+          5,
+          0
+        ],
+        [
+          13,
+          3
+        ]
+      ],
+      "fiber_origin": 1,
+      "U_categories": {
+        "11": {
+          "0": [
+            1,
+            10
+          ],
+          "1": [
+            5,
+            6
+          ],
+          "4": [
+            2,
+            9
+          ]
+        },
+        "61": {
+          "0": [
+            29,
+            32
+          ],
+          "1": [
+            30,
+            31
+          ],
+          "4": [
+            26,
+            35
+          ]
+        },
+        "331": {
+          "0": [
+            32,
+            299
+          ],
+          "1": [
+            165,
+            166
+          ],
+          "4": [
+            62,
+            269
+          ]
+        }
+      },
+      "W_categories": {
+        "19": {
+          "0": [
+            9,
+            10
+          ],
+          "1": [
+            4,
+            15
+          ],
+          "2": [
+            6,
+            13
+          ]
+        },
+        "37": {
+          "0": [
+            18,
+            19
+          ],
+          "1": [
+            13,
+            24
+          ],
+          "2": [
+            5,
+            32
+          ]
+        },
+        "73": {
+          "0": [
+            36,
+            37
+          ],
+          "1": [
+            4,
+            69
+          ],
+          "2": [
+            32,
+            41
+          ]
+        },
+        "109": {
+          "0": [
+            54,
+            55
+          ],
+          "1": [
+            23,
+            86
+          ],
+          "2": [
+            32,
+            77
+          ]
+        }
+      }
+    },
+    {
+      "epsilon": 1,
+      "r13": 1,
+      "basic_rows": [
+        [
+          5,
+          0
+        ],
+        [
+          13,
+          1
+        ]
+      ],
+      "fiber_origin": 3,
+      "U_categories": {
+        "11": {
+          "0": [
+            1,
+            10
+          ],
+          "1": [
+            5,
+            6
+          ],
+          "4": [
+            2,
+            9
+          ]
+        },
+        "61": {
+          "0": [
+            29,
+            32
+          ],
+          "1": [
+            30,
+            31
+          ],
+          "4": [
+            26,
+            35
+          ]
+        },
+        "331": {
+          "0": [
+            32,
+            299
+          ],
+          "1": [
+            165,
+            166
+          ],
+          "4": [
+            62,
+            269
+          ]
+        }
+      },
+      "W_categories": {
+        "19": {
+          "0": [
+            7,
+            12
+          ],
+          "1": [
+            1,
+            18
+          ],
+          "2": [
+            8,
+            11
+          ]
+        },
+        "37": {
+          "0": [
+            14,
+            23
+          ],
+          "1": [
+            6,
+            31
+          ],
+          "2": [
+            8,
+            29
+          ]
+        },
+        "73": {
+          "0": [
+            9,
+            64
+          ],
+          "1": [
+            1,
+            72
+          ],
+          "2": [
+            8,
+            65
+          ]
+        },
+        "109": {
+          "0": [
+            41,
+            68
+          ],
+          "1": [
+            33,
+            76
+          ],
+          "2": [
+            8,
+            101
+          ]
+        }
+      }
+    }
+  ],
+  "U_type_I_count": 48,
+  "W_total_residues": 5593771,
+  "W_complete_three_phase_count": 10848,
+  "W_dictionary_multiplicity": {
+    "0": 5582923,
+    "2": 576,
+    "1": 10272
+  },
+  "basic_pair_branch_root_counts_mod_L": {
+    "0": 21418655616,
+    "1": 19274813184
+  },
+  "all_cost_five_root_classes_mod_L": 40693468800,
+  "density_within_3_divisible_branch": "8138693760/16150967727323",
+  "density_within_entire_old_class": "2712897920/16150967727323",
+  "five_prime_dictionary_multiplicity": {
+    "1": 38642641536,
+    "2": 2050606080,
+    "3": 221184
+  },
+  "complete_phase_pattern_count": 108,
+  "phase_type_counts": {
+    "I_r13_0": 12,
+    "II_r13_0": 48,
+    "II_r13_1": 48
+  },
+  "CRT_progression_descriptions_checked": 3456,
+  "least_positive_root_of_additional_cost_five": {
+    "pattern_id": 56,
+    "type": "I",
+    "epsilon": 1,
+    "r13": 0,
+    "rows": [
+      {
+        "q": 5,
+        "order_4": 2,
+        "phase_u": 0
+      },
+      {
+        "q": 13,
+        "order_4": 6,
+        "phase_u": 3
+      },
+      {
+        "q": 61,
+        "order_4": 30,
+        "phase_u": 25
+      },
+      {
+        "q": 11,
+        "order_4": 5,
+        "phase_u": 1
+      },
+      {
+        "q": 331,
+        "order_4": 15,
+        "phase_u": 4
+      }
+    ],
+    "checked_hole_period_u": 210,
+    "private_old_hole_u": {
+      "5": 0,
+      "13": 3,
+      "61": 55,
+      "11": 1,
+      "331": 49
+    },
+    "sign_combinations_checked": 32,
+    "least_positive_root_for_pattern": "39741911323337250951212360989279347168190786597922987443929",
+    "progression_modulus_for_pattern": "121041494945903853943122890515382691774327737794816871699188590",
+    "least_root_residues": {
+      "5": 4,
+      "13": 5,
+      "61": 29,
+      "11": 6,
+      "331": 269
+    }
+  },
+  "least_root_by_type": {
+    "I_r13_0": {
+      "pattern_id": 56,
+      "type": "I",
+      "epsilon": 1,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 3
+        },
+        {
+          "q": 61,
+          "order_4": 30,
+          "phase_u": 25
+        },
+        {
+          "q": 11,
+          "order_4": 5,
+          "phase_u": 1
+        },
+        {
+          "q": 331,
+          "order_4": 15,
+          "phase_u": 4
+        }
+      ],
+      "checked_hole_period_u": 210,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 3,
+        "61": 55,
+        "11": 1,
+        "331": 49
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "39741911323337250951212360989279347168190786597922987443929",
+      "progression_modulus_for_pattern": "121041494945903853943122890515382691774327737794816871699188590",
+      "least_root_residues": {
+        "5": 4,
+        "13": 5,
+        "61": 29,
+        "11": 6,
+        "331": 269
+      }
+    },
+    "II_r13_0": {
+      "pattern_id": 66,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 3
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 1
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 7
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 13
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 3,
+        "19": 1,
+        "37": 79,
+        "109": 31
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "61222665924684986635031943105967801542609331745630965435461",
+      "progression_modulus_for_pattern": "41760490196891390025707573273070492805486745057444281780332930",
+      "least_root_residues": {
+        "5": 1,
+        "13": 8,
+        "19": 9,
+        "37": 13,
+        "109": 77
+      }
+    },
+    "II_r13_1": {
+      "pattern_id": 92,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 1
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 3
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 0
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 15
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 6,
+        "13": 1,
+        "37": 3,
+        "19": 9,
+        "109": 15
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "62924692928616911047137866279148034266265445978646078445719",
+      "progression_modulus_for_pattern": "41760490196891390025707573273070492805486745057444281780332930",
+      "least_root_residues": {
+        "5": 4,
+        "13": 6,
+        "37": 14,
+        "19": 18,
+        "109": 101
+      }
+    }
+  },
+  "phase_patterns_and_minima": [
+    {
+      "pattern_id": 0,
+      "type": "I",
+      "epsilon": 0,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 0
+        },
+        {
+          "q": 11,
+          "order_4": 5,
+          "phase_u": 0
+        },
+        {
+          "q": 61,
+          "order_4": 30,
+          "phase_u": 16
+        },
+        {
+          "q": 331,
+          "order_4": 15,
+          "phase_u": 4
+        }
+      ],
+      "checked_hole_period_u": 210,
+      "private_old_hole_u": {
+        "5": 1,
+        "13": 6,
+        "11": 10,
+        "61": 16,
+        "331": 64
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "744649390774433866829997508092505386619738313822123042736693",
+      "progression_modulus_for_pattern": "121041494945903853943122890515382691774327737794816871699188590",
+      "least_root_residues": {
+        "5": 3,
+        "13": 1,
+        "11": 1,
+        "61": 36,
+        "331": 269
+      }
+    },
+    {
+      "pattern_id": 1,
+      "type": "I",
+      "epsilon": 0,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 0
+        },
+        {
+          "q": 11,
+          "order_4": 5,
+          "phase_u": 0
+        },
+        {
+          "q": 331,
+          "order_4": 15,
+          "phase_u": 1
+        },
+        {
+          "q": 61,
+          "order_4": 30,
+          "phase_u": 4
+        }
+      ],
+      "checked_hole_period_u": 210,
+      "private_old_hole_u": {
+        "5": 3,
+        "13": 6,
+        "11": 10,
+        "331": 16,
+        "61": 64
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "11295321947650450862689007198375767324541113150551974368699257",
+      "progression_modulus_for_pattern": "121041494945903853943122890515382691774327737794816871699188590",
+      "least_root_residues": {
+        "5": 2,
+        "13": 1,
+        "11": 10,
+        "331": 166,
+        "61": 42
+      }
+    },
+    {
+      "pattern_id": 2,
+      "type": "I",
+      "epsilon": 0,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 0
+        },
+        {
+          "q": 61,
+          "order_4": 30,
+          "phase_u": 10
+        },
+        {
+          "q": 11,
+          "order_4": 5,
+          "phase_u": 1
+        },
+        {
+          "q": 331,
+          "order_4": 15,
+          "phase_u": 4
+        }
+      ],
+      "checked_hole_period_u": 210,
+      "private_old_hole_u": {
+        "5": 3,
+        "13": 0,
+        "61": 10,
+        "11": 16,
+        "331": 64
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "3332560489329231192525574555928157860762460299281294306939767",
+      "progression_modulus_for_pattern": "121041494945903853943122890515382691774327737794816871699188590",
+      "least_root_residues": {
+        "5": 2,
+        "13": 1,
+        "61": 47,
+        "11": 6,
+        "331": 62
+      }
+    },
+    {
+      "pattern_id": 3,
+      "type": "I",
+      "epsilon": 0,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 0
+        },
+        {
+          "q": 61,
+          "order_4": 30,
+          "phase_u": 10
+        },
+        {
+          "q": 331,
+          "order_4": 15,
+          "phase_u": 1
+        },
+        {
+          "q": 11,
+          "order_4": 5,
+          "phase_u": 4
+        }
+      ],
+      "checked_hole_period_u": 210,
+      "private_old_hole_u": {
+        "5": 3,
+        "13": 0,
+        "61": 10,
+        "331": 16,
+        "11": 64
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "1085264400797756178365973512577465753114958218828226323730443",
+      "progression_modulus_for_pattern": "121041494945903853943122890515382691774327737794816871699188590",
+      "least_root_residues": {
+        "5": 3,
+        "13": 1,
+        "61": 47,
+        "331": 166,
+        "11": 2
+      }
+    },
+    {
+      "pattern_id": 4,
+      "type": "I",
+      "epsilon": 0,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 0
+        },
+        {
+          "q": 331,
+          "order_4": 15,
+          "phase_u": 10
+        },
+        {
+          "q": 11,
+          "order_4": 5,
+          "phase_u": 1
+        },
+        {
+          "q": 61,
+          "order_4": 30,
+          "phase_u": 4
+        }
+      ],
+      "checked_hole_period_u": 210,
+      "private_old_hole_u": {
+        "5": 3,
+        "13": 0,
+        "331": 10,
+        "11": 16,
+        "61": 64
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "1946079230682912569826579553302792420627517786263835376194377",
+      "progression_modulus_for_pattern": "121041494945903853943122890515382691774327737794816871699188590",
+      "least_root_residues": {
+        "5": 2,
+        "13": 12,
+        "331": 299,
+        "11": 5,
+        "61": 42
+      }
+    },
+    {
+      "pattern_id": 5,
+      "type": "I",
+      "epsilon": 0,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 0
+        },
+        {
+          "q": 331,
+          "order_4": 15,
+          "phase_u": 10
+        },
+        {
+          "q": 61,
+          "order_4": 30,
+          "phase_u": 16
+        },
+        {
+          "q": 11,
+          "order_4": 5,
+          "phase_u": 4
+        }
+      ],
+      "checked_hole_period_u": 210,
+      "private_old_hole_u": {
+        "5": 1,
+        "13": 0,
+        "331": 10,
+        "61": 16,
+        "11": 64
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "490971907863279654944890062143041734959938352077762159789077",
+      "progression_modulus_for_pattern": "121041494945903853943122890515382691774327737794816871699188590",
+      "least_root_residues": {
+        "5": 2,
+        "13": 12,
+        "331": 32,
+        "61": 36,
+        "11": 9
+      }
+    },
+    {
+      "pattern_id": 6,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 0
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 4
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 10
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 7
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 1,
+        "13": 0,
+        "19": 76,
+        "37": 10,
+        "73": 16
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "2061288851673201108480508077059785414990860966933099749957703",
+      "progression_modulus_for_pattern": "27968034719019004329143604118661889677069104488013142843709210",
+      "least_root_residues": {
+        "5": 3,
+        "13": 12,
+        "19": 6,
+        "37": 34,
+        "73": 4
+      }
+    },
+    {
+      "pattern_id": 7,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 0
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 4
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 1
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 16
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 3,
+        "13": 0,
+        "19": 76,
+        "73": 10,
+        "37": 16
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "1751192946547968476058155522576677497333612765415543322940993",
+      "progression_modulus_for_pattern": "27968034719019004329143604118661889677069104488013142843709210",
+      "least_root_residues": {
+        "5": 3,
+        "13": 12,
+        "19": 13,
+        "73": 37,
+        "37": 4
+      }
+    },
+    {
+      "pattern_id": 8,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 0
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 4
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 1
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 7
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 3,
+        "13": 0,
+        "37": 76,
+        "19": 10,
+        "73": 16
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "135139267238299989675060606626937908398532007008001587595237",
+      "progression_modulus_for_pattern": "27968034719019004329143604118661889677069104488013142843709210",
+      "least_root_residues": {
+        "5": 2,
+        "13": 1,
+        "37": 30,
+        "19": 9,
+        "73": 4
+      }
+    },
+    {
+      "pattern_id": 9,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 0
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 4
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 1
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 7
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 3,
+        "13": 0,
+        "37": 76,
+        "73": 10,
+        "19": 16
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "970817757429919881689885575070519069972564330746175621316543",
+      "progression_modulus_for_pattern": "27968034719019004329143604118661889677069104488013142843709210",
+      "least_root_residues": {
+        "5": 3,
+        "13": 1,
+        "37": 7,
+        "73": 37,
+        "19": 4
+      }
+    },
+    {
+      "pattern_id": 10,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 0
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 4
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 1
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 16
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 3,
+        "13": 0,
+        "73": 76,
+        "19": 10,
+        "37": 16
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "722808108285553753068736769835685158811244828221116296964663",
+      "progression_modulus_for_pattern": "27968034719019004329143604118661889677069104488013142843709210",
+      "least_root_residues": {
+        "5": 3,
+        "13": 12,
+        "73": 32,
+        "19": 9,
+        "37": 4
+      }
+    },
+    {
+      "pattern_id": 11,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 0
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 4
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 10
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 7
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 1,
+        "13": 0,
+        "73": 76,
+        "37": 10,
+        "19": 16
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "618758083069813940486300776834864035163105036931867270081403",
+      "progression_modulus_for_pattern": "27968034719019004329143604118661889677069104488013142843709210",
+      "least_root_residues": {
+        "5": 3,
+        "13": 1,
+        "73": 32,
+        "37": 34,
+        "19": 4
+      }
+    },
+    {
+      "pattern_id": 12,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 0
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 4
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 10
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 16
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 1,
+        "13": 0,
+        "19": 76,
+        "37": 10,
+        "109": 16
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "125505626708655747559249248370858660125227202802413583414023",
+      "progression_modulus_for_pattern": "41760490196891390025707573273070492805486745057444281780332930",
+      "least_root_residues": {
+        "5": 3,
+        "13": 12,
+        "19": 13,
+        "37": 34,
+        "109": 105
+      }
+    },
+    {
+      "pattern_id": 13,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 0
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 4
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 10
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 16
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 1,
+        "13": 0,
+        "19": 76,
+        "109": 10,
+        "37": 16
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "962642997189360146213022150962880021176679053026029142572693",
+      "progression_modulus_for_pattern": "41760490196891390025707573273070492805486745057444281780332930",
+      "least_root_residues": {
+        "5": 3,
+        "13": 1,
+        "19": 13,
+        "109": 38,
+        "37": 33
+      }
+    },
+    {
+      "pattern_id": 14,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 0
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 4
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 1
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 16
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 3,
+        "13": 0,
+        "37": 76,
+        "19": 10,
+        "109": 16
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "482839069470107405290984912005185450516852486038231816833657",
+      "progression_modulus_for_pattern": "41760490196891390025707573273070492805486745057444281780332930",
+      "least_root_residues": {
+        "5": 2,
+        "13": 1,
+        "37": 7,
+        "19": 10,
+        "109": 105
+      }
+    },
+    {
+      "pattern_id": 15,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 0
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 4
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 10
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 7
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 1,
+        "13": 0,
+        "37": 76,
+        "109": 10,
+        "19": 16
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "784433223945157912817399505416348757426379998726835905956763",
+      "progression_modulus_for_pattern": "41760490196891390025707573273070492805486745057444281780332930",
+      "least_root_residues": {
+        "5": 3,
+        "13": 1,
+        "37": 30,
+        "109": 38,
+        "19": 4
+      }
+    },
+    {
+      "pattern_id": 16,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 0
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 4
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 1
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 16
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 3,
+        "13": 0,
+        "109": 76,
+        "19": 10,
+        "37": 16
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "799432860940400340271869931804621842858009498051289291057017",
+      "progression_modulus_for_pattern": "41760490196891390025707573273070492805486745057444281780332930",
+      "least_root_residues": {
+        "5": 2,
+        "13": 12,
+        "109": 75,
+        "19": 9,
+        "37": 4
+      }
+    },
+    {
+      "pattern_id": 17,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 0
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 4
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 10
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 7
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 1,
+        "13": 0,
+        "109": 76,
+        "37": 10,
+        "19": 16
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "63746361137411633177120036086890215581133914918722339898947",
+      "progression_modulus_for_pattern": "41760490196891390025707573273070492805486745057444281780332930",
+      "least_root_residues": {
+        "5": 2,
+        "13": 1,
+        "109": 75,
+        "37": 3,
+        "19": 4
+      }
+    },
+    {
+      "pattern_id": 18,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 0
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 4
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 1
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 16
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 3,
+        "13": 0,
+        "19": 76,
+        "73": 10,
+        "109": 16
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "779855358210444460950355987916070890100684243203553877860207",
+      "progression_modulus_for_pattern": "82392318496569499239909536457679620940554929437660339728764970",
+      "least_root_residues": {
+        "5": 2,
+        "13": 1,
+        "19": 6,
+        "73": 37,
+        "109": 105
+      }
+    },
+    {
+      "pattern_id": 19,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 0
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 4
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 10
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 7
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 1,
+        "13": 0,
+        "19": 76,
+        "109": 10,
+        "73": 16
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "549503191185687360959232178753737324338476940554010947595043",
+      "progression_modulus_for_pattern": "82392318496569499239909536457679620940554929437660339728764970",
+      "least_root_residues": {
+        "5": 3,
+        "13": 12,
+        "19": 6,
+        "109": 71,
+        "73": 4
+      }
+    },
+    {
+      "pattern_id": 20,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 0
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 4
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 1
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 16
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 3,
+        "13": 0,
+        "73": 76,
+        "19": 10,
+        "109": 16
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "4284605643499034231907976409694736312837099566073738062185067",
+      "progression_modulus_for_pattern": "82392318496569499239909536457679620940554929437660339728764970",
+      "least_root_residues": {
+        "5": 2,
+        "13": 12,
+        "73": 41,
+        "19": 10,
+        "109": 4
+      }
+    },
+    {
+      "pattern_id": 21,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 0
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 4
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 10
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 7
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 1,
+        "13": 0,
+        "73": 76,
+        "109": 10,
+        "19": 16
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "2130543743557327688007576675140912125815489063310956072444063",
+      "progression_modulus_for_pattern": "82392318496569499239909536457679620940554929437660339728764970",
+      "least_root_residues": {
+        "5": 3,
+        "13": 1,
+        "73": 32,
+        "109": 71,
+        "19": 4
+      }
+    },
+    {
+      "pattern_id": 22,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 0
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 4
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 1
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 7
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 3,
+        "13": 0,
+        "109": 76,
+        "19": 10,
+        "73": 16
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "2023139970550589009588478764557469853943396337572416182486403",
+      "progression_modulus_for_pattern": "82392318496569499239909536457679620940554929437660339728764970",
+      "least_root_residues": {
+        "5": 3,
+        "13": 12,
+        "109": 75,
+        "19": 10,
+        "73": 69
+      }
+    },
+    {
+      "pattern_id": 23,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 0
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 4
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 1
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 7
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 3,
+        "13": 0,
+        "109": 76,
+        "73": 10,
+        "19": 16
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "63746361137411633177120036086890215581133914918722339898947",
+      "progression_modulus_for_pattern": "82392318496569499239909536457679620940554929437660339728764970",
+      "least_root_residues": {
+        "5": 2,
+        "13": 1,
+        "109": 75,
+        "73": 37,
+        "19": 4
+      }
+    },
+    {
+      "pattern_id": 24,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 0
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 4
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 1
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 16
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 3,
+        "13": 0,
+        "37": 76,
+        "73": 10,
+        "109": 16
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "970817757429919881689885575070519069972564330746175621316543",
+      "progression_modulus_for_pattern": "160448199177530077467192255207060314463185915220706977366542310",
+      "least_root_residues": {
+        "5": 3,
+        "13": 1,
+        "37": 7,
+        "73": 37,
+        "109": 4
+      }
+    },
+    {
+      "pattern_id": 25,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 0
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 4
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 10
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 7
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 1,
+        "13": 0,
+        "37": 76,
+        "109": 10,
+        "73": 16
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "4098221110014272263035490340040566000290915234054398346825287",
+      "progression_modulus_for_pattern": "160448199177530077467192255207060314463185915220706977366542310",
+      "least_root_residues": {
+        "5": 2,
+        "13": 12,
+        "37": 30,
+        "109": 38,
+        "73": 4
+      }
+    },
+    {
+      "pattern_id": 26,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 0
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 4
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 10
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 16
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 1,
+        "13": 0,
+        "73": 76,
+        "37": 10,
+        "109": 16
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "4960930807401343013693810364200073616550008209453856736926257",
+      "progression_modulus_for_pattern": "160448199177530077467192255207060314463185915220706977366542310",
+      "least_root_residues": {
+        "5": 2,
+        "13": 12,
+        "73": 41,
+        "37": 34,
+        "109": 105
+      }
+    },
+    {
+      "pattern_id": 27,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 0
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 4
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 10
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 16
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 1,
+        "13": 0,
+        "73": 76,
+        "109": 10,
+        "37": 16
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "3615625187259012966304432054695339323734647849137566377576813",
+      "progression_modulus_for_pattern": "160448199177530077467192255207060314463185915220706977366542310",
+      "least_root_residues": {
+        "5": 3,
+        "13": 1,
+        "73": 41,
+        "109": 71,
+        "37": 4
+      }
+    },
+    {
+      "pattern_id": 28,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 0
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 4
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 10
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 7
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 1,
+        "13": 0,
+        "109": 76,
+        "37": 10,
+        "73": 16
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "3112604940456570576628102691271949854494507093424553052205243",
+      "progression_modulus_for_pattern": "160448199177530077467192255207060314463185915220706977366542310",
+      "least_root_residues": {
+        "5": 3,
+        "13": 1,
+        "109": 34,
+        "37": 3,
+        "73": 69
+      }
+    },
+    {
+      "pattern_id": 29,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 0
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 4
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 1
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 16
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 3,
+        "13": 0,
+        "109": 76,
+        "73": 10,
+        "37": 16
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "4894702672898592910584329146737262491997497636416485418364543",
+      "progression_modulus_for_pattern": "160448199177530077467192255207060314463185915220706977366542310",
+      "least_root_residues": {
+        "5": 3,
+        "13": 1,
+        "109": 34,
+        "73": 36,
+        "37": 33
+      }
+    },
+    {
+      "pattern_id": 30,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 4
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 0
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 6
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 3
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 1,
+        "13": 10,
+        "19": 0,
+        "37": 6,
+        "73": 30
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "116450507672958809800262070897781559920554279789328253113143",
+      "progression_modulus_for_pattern": "27968034719019004329143604118661889677069104488013142843709210",
+      "least_root_residues": {
+        "5": 3,
+        "13": 9,
+        "19": 18,
+        "37": 11,
+        "73": 64
+      }
+    },
+    {
+      "pattern_id": 31,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 4
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 0
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 6
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 12
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 1,
+        "13": 10,
+        "19": 0,
+        "73": 6,
+        "37": 30
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "1104129232122124798697196798979709711874693475105487428523943",
+      "progression_modulus_for_pattern": "27968034719019004329143604118661889677069104488013142843709210",
+      "least_root_residues": {
+        "5": 3,
+        "13": 4,
+        "19": 18,
+        "73": 8,
+        "37": 27
+      }
+    },
+    {
+      "pattern_id": 32,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 4
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 0
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 6
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 3
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 1,
+        "13": 10,
+        "37": 0,
+        "19": 6,
+        "73": 30
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "633640338892371407636488036107745380406896183550595474974053",
+      "progression_modulus_for_pattern": "27968034719019004329143604118661889677069104488013142843709210",
+      "least_root_residues": {
+        "5": 3,
+        "13": 9,
+        "37": 36,
+        "19": 11,
+        "73": 64
+      }
+    },
+    {
+      "pattern_id": 33,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 4
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 0
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 6
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 3
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 1,
+        "13": 10,
+        "37": 0,
+        "73": 6,
+        "19": 30
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "1632545734071906099921648533297497826040717826935755814526407",
+      "progression_modulus_for_pattern": "27968034719019004329143604118661889677069104488013142843709210",
+      "least_root_residues": {
+        "5": 2,
+        "13": 4,
+        "37": 1,
+        "73": 65,
+        "19": 7
+      }
+    },
+    {
+      "pattern_id": 34,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 4
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 0
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 6
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 12
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 1,
+        "13": 10,
+        "73": 0,
+        "19": 6,
+        "37": 30
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "372542688993632205087766097506732438301600354337178557474327",
+      "progression_modulus_for_pattern": "27968034719019004329143604118661889677069104488013142843709210",
+      "least_root_residues": {
+        "5": 2,
+        "13": 4,
+        "73": 1,
+        "19": 11,
+        "37": 10
+      }
+    },
+    {
+      "pattern_id": 35,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 4
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 0
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 6
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 3
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 1,
+        "13": 10,
+        "73": 0,
+        "37": 6,
+        "19": 30
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "452110355335080297062570092154419179914883724146604283914467",
+      "progression_modulus_for_pattern": "27968034719019004329143604118661889677069104488013142843709210",
+      "least_root_residues": {
+        "5": 2,
+        "13": 4,
+        "73": 1,
+        "37": 11,
+        "19": 7
+      }
+    },
+    {
+      "pattern_id": 36,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 4
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 0
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 6
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 12
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 1,
+        "13": 10,
+        "19": 0,
+        "37": 6,
+        "109": 30
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "556965280020659837445804945375069379136772219703683117935583",
+      "progression_modulus_for_pattern": "41760490196891390025707573273070492805486745057444281780332930",
+      "least_root_residues": {
+        "5": 3,
+        "13": 4,
+        "19": 1,
+        "37": 11,
+        "109": 64
+      }
+    },
+    {
+      "pattern_id": 37,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 4
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 0
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 6
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 12
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 1,
+        "13": 10,
+        "19": 0,
+        "109": 6,
+        "37": 30
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "3224494351133770238103735916622147912116136868989019471524913",
+      "progression_modulus_for_pattern": "41760490196891390025707573273070492805486745057444281780332930",
+      "least_root_residues": {
+        "5": 3,
+        "13": 9,
+        "19": 1,
+        "109": 46,
+        "37": 27
+      }
+    },
+    {
+      "pattern_id": 38,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 4
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 0
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 6
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 12
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 1,
+        "13": 10,
+        "37": 0,
+        "19": 6,
+        "109": 30
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "828149326400828128998287601105815424525606499273342306131567",
+      "progression_modulus_for_pattern": "41760490196891390025707573273070492805486745057444281780332930",
+      "least_root_residues": {
+        "5": 2,
+        "13": 4,
+        "37": 36,
+        "19": 11,
+        "109": 45
+      }
+    },
+    {
+      "pattern_id": 39,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 4
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 0
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 6
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 3
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 1,
+        "13": 10,
+        "37": 0,
+        "109": 6,
+        "19": 30
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "1172797218142826576702849561483877721760129807954717849972283",
+      "progression_modulus_for_pattern": "41760490196891390025707573273070492805486745057444281780332930",
+      "least_root_residues": {
+        "5": 3,
+        "13": 4,
+        "37": 1,
+        "109": 46,
+        "19": 7
+      }
+    },
+    {
+      "pattern_id": 40,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 4
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 0
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 6
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 12
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 1,
+        "13": 10,
+        "109": 0,
+        "19": 6,
+        "37": 30
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "522463599620759005151145468243854316782856406556603364057693",
+      "progression_modulus_for_pattern": "41760490196891390025707573273070492805486745057444281780332930",
+      "least_root_residues": {
+        "5": 3,
+        "13": 9,
+        "109": 108,
+        "19": 8,
+        "37": 27
+      }
+    },
+    {
+      "pattern_id": 41,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 4
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 0
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 6
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 3
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 1,
+        "13": 10,
+        "109": 0,
+        "37": 6,
+        "19": 30
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "835234118609313233078235901999102600148707073297469254376237",
+      "progression_modulus_for_pattern": "41760490196891390025707573273070492805486745057444281780332930",
+      "least_root_residues": {
+        "5": 2,
+        "13": 4,
+        "109": 1,
+        "37": 11,
+        "19": 7
+      }
+    },
+    {
+      "pattern_id": 42,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 4
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 0
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 6
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 12
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 1,
+        "13": 10,
+        "19": 0,
+        "73": 6,
+        "109": 30
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "3263682894071591985405130423575076029113026908028983206549277",
+      "progression_modulus_for_pattern": "82392318496569499239909536457679620940554929437660339728764970",
+      "least_root_residues": {
+        "5": 2,
+        "13": 4,
+        "19": 1,
+        "73": 65,
+        "109": 45
+      }
+    },
+    {
+      "pattern_id": 43,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 4
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 0
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 6
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 3
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 1,
+        "13": 10,
+        "19": 0,
+        "109": 6,
+        "73": 30
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "9035985904549289920175789870903465294769620035425952187052837",
+      "progression_modulus_for_pattern": "82392318496569499239909536457679620940554929437660339728764970",
+      "least_root_residues": {
+        "5": 2,
+        "13": 9,
+        "19": 18,
+        "109": 63,
+        "73": 64
+      }
+    },
+    {
+      "pattern_id": 44,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 4
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 0
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 6
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 12
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 1,
+        "13": 10,
+        "73": 0,
+        "19": 6,
+        "109": 30
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "1279614085286140453600531636490361292693030770164631838891923",
+      "progression_modulus_for_pattern": "82392318496569499239909536457679620940554929437660339728764970",
+      "least_root_residues": {
+        "5": 3,
+        "13": 4,
+        "73": 1,
+        "19": 11,
+        "109": 45
+      }
+    },
+    {
+      "pattern_id": 45,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 4
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 0
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 6
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 3
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 1,
+        "13": 10,
+        "73": 0,
+        "109": 6,
+        "19": 30
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "1648023280127365865757843282941294425094260619419233147614763",
+      "progression_modulus_for_pattern": "82392318496569499239909536457679620940554929437660339728764970",
+      "least_root_residues": {
+        "5": 3,
+        "13": 4,
+        "73": 72,
+        "109": 46,
+        "19": 12
+      }
+    },
+    {
+      "pattern_id": 46,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 4
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 0
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 6
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 3
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 1,
+        "13": 10,
+        "109": 0,
+        "19": 6,
+        "73": 30
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "70998840735446680548901432859308448615432135665313831297337",
+      "progression_modulus_for_pattern": "82392318496569499239909536457679620940554929437660339728764970",
+      "least_root_residues": {
+        "5": 2,
+        "13": 9,
+        "109": 108,
+        "19": 8,
+        "73": 9
+      }
+    },
+    {
+      "pattern_id": 47,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 4
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 0
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 6
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 3
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 1,
+        "13": 10,
+        "109": 0,
+        "73": 6,
+        "19": 30
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "3480963829080931005797864408959143669672377648662414997981967",
+      "progression_modulus_for_pattern": "82392318496569499239909536457679620940554929437660339728764970",
+      "least_root_residues": {
+        "5": 2,
+        "13": 9,
+        "109": 1,
+        "73": 65,
+        "19": 12
+      }
+    },
+    {
+      "pattern_id": 48,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 4
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 0
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 6
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 12
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 1,
+        "13": 10,
+        "37": 0,
+        "73": 6,
+        "109": 30
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "507371734561264108886166839122059149775068201534794480222893",
+      "progression_modulus_for_pattern": "160448199177530077467192255207060314463185915220706977366542310",
+      "least_root_residues": {
+        "5": 3,
+        "13": 4,
+        "37": 1,
+        "73": 8,
+        "109": 45
+      }
+    },
+    {
+      "pattern_id": 49,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 4
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 0
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 6
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 3
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 1,
+        "13": 10,
+        "37": 0,
+        "109": 6,
+        "73": 30
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "4200560723856602654041228755074250338344839028774509033540603",
+      "progression_modulus_for_pattern": "160448199177530077467192255207060314463185915220706977366542310",
+      "least_root_residues": {
+        "5": 3,
+        "13": 9,
+        "37": 1,
+        "109": 63,
+        "73": 9
+      }
+    },
+    {
+      "pattern_id": 50,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 4
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 0
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 6
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 12
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 1,
+        "13": 10,
+        "73": 0,
+        "37": 6,
+        "109": 30
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "6827878358955636653317583334505701304119007994012847938867877",
+      "progression_modulus_for_pattern": "160448199177530077467192255207060314463185915220706977366542310",
+      "least_root_residues": {
+        "5": 2,
+        "13": 4,
+        "73": 72,
+        "37": 26,
+        "109": 45
+      }
+    },
+    {
+      "pattern_id": 51,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 4
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 0
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 6
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 12
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 1,
+        "13": 10,
+        "73": 0,
+        "109": 6,
+        "37": 30
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "841991920408175947739109665928084213819972236212790343471153",
+      "progression_modulus_for_pattern": "160448199177530077467192255207060314463185915220706977366542310",
+      "least_root_residues": {
+        "5": 3,
+        "13": 4,
+        "73": 1,
+        "109": 63,
+        "37": 27
+      }
+    },
+    {
+      "pattern_id": 52,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 4
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 0
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 6
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 3
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 1,
+        "13": 10,
+        "109": 0,
+        "37": 6,
+        "73": 30
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "4407436656344367693175719141158235866539375790279015922284967",
+      "progression_modulus_for_pattern": "160448199177530077467192255207060314463185915220706977366542310",
+      "least_root_residues": {
+        "5": 2,
+        "13": 9,
+        "109": 108,
+        "37": 11,
+        "73": 9
+      }
+    },
+    {
+      "pattern_id": 53,
+      "type": "II",
+      "epsilon": 0,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 1
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 4
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 0
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 6
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 12
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 1,
+        "13": 10,
+        "109": 0,
+        "73": 6,
+        "37": 30
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "1346102135242692968812354152565825556232897695621823199341903",
+      "progression_modulus_for_pattern": "160448199177530077467192255207060314463185915220706977366542310",
+      "least_root_residues": {
+        "5": 3,
+        "13": 4,
+        "109": 1,
+        "73": 65,
+        "37": 27
+      }
+    },
+    {
+      "pattern_id": 54,
+      "type": "I",
+      "epsilon": 1,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 3
+        },
+        {
+          "q": 11,
+          "order_4": 5,
+          "phase_u": 0
+        },
+        {
+          "q": 61,
+          "order_4": 30,
+          "phase_u": 1
+        },
+        {
+          "q": 331,
+          "order_4": 15,
+          "phase_u": 4
+        }
+      ],
+      "checked_hole_period_u": 210,
+      "private_old_hole_u": {
+        "5": 6,
+        "13": 3,
+        "11": 55,
+        "61": 1,
+        "331": 49
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "7399642051104078295480890353578867759079624023600200730106961",
+      "progression_modulus_for_pattern": "121041494945903853943122890515382691774327737794816871699188590",
+      "least_root_residues": {
+        "5": 1,
+        "13": 5,
+        "11": 1,
+        "61": 31,
+        "331": 269
+      }
+    },
+    {
+      "pattern_id": 55,
+      "type": "I",
+      "epsilon": 1,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 3
+        },
+        {
+          "q": 11,
+          "order_4": 5,
+          "phase_u": 0
+        },
+        {
+          "q": 331,
+          "order_4": 15,
+          "phase_u": 1
+        },
+        {
+          "q": 61,
+          "order_4": 30,
+          "phase_u": 19
+        }
+      ],
+      "checked_hole_period_u": 210,
+      "private_old_hole_u": {
+        "5": 6,
+        "13": 3,
+        "11": 55,
+        "331": 1,
+        "61": 49
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "2359193883578152863586594561130065458854040251727483889698969",
+      "progression_modulus_for_pattern": "121041494945903853943122890515382691774327737794816871699188590",
+      "least_root_residues": {
+        "5": 4,
+        "13": 5,
+        "11": 1,
+        "331": 165,
+        "61": 35
+      }
+    },
+    {
+      "pattern_id": 56,
+      "type": "I",
+      "epsilon": 1,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 3
+        },
+        {
+          "q": 61,
+          "order_4": 30,
+          "phase_u": 25
+        },
+        {
+          "q": 11,
+          "order_4": 5,
+          "phase_u": 1
+        },
+        {
+          "q": 331,
+          "order_4": 15,
+          "phase_u": 4
+        }
+      ],
+      "checked_hole_period_u": 210,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 3,
+        "61": 55,
+        "11": 1,
+        "331": 49
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "39741911323337250951212360989279347168190786597922987443929",
+      "progression_modulus_for_pattern": "121041494945903853943122890515382691774327737794816871699188590",
+      "least_root_residues": {
+        "5": 4,
+        "13": 5,
+        "61": 29,
+        "11": 6,
+        "331": 269
+      }
+    },
+    {
+      "pattern_id": 57,
+      "type": "I",
+      "epsilon": 1,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 3
+        },
+        {
+          "q": 61,
+          "order_4": 30,
+          "phase_u": 25
+        },
+        {
+          "q": 331,
+          "order_4": 15,
+          "phase_u": 1
+        },
+        {
+          "q": 11,
+          "order_4": 5,
+          "phase_u": 4
+        }
+      ],
+      "checked_hole_period_u": 210,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 3,
+        "61": 55,
+        "331": 1,
+        "11": 49
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "6152827619213907440549680908681760036731201465723459792094959",
+      "progression_modulus_for_pattern": "121041494945903853943122890515382691774327737794816871699188590",
+      "least_root_residues": {
+        "5": 4,
+        "13": 5,
+        "61": 32,
+        "331": 166,
+        "11": 2
+      }
+    },
+    {
+      "pattern_id": 58,
+      "type": "I",
+      "epsilon": 1,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 3
+        },
+        {
+          "q": 331,
+          "order_4": 15,
+          "phase_u": 10
+        },
+        {
+          "q": 11,
+          "order_4": 5,
+          "phase_u": 1
+        },
+        {
+          "q": 61,
+          "order_4": 30,
+          "phase_u": 19
+        }
+      ],
+      "checked_hole_period_u": 210,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 3,
+        "331": 55,
+        "11": 1,
+        "61": 49
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "2458607352472836744149845453072912845082565111140588298381871",
+      "progression_modulus_for_pattern": "121041494945903853943122890515382691774327737794816871699188590",
+      "least_root_residues": {
+        "5": 1,
+        "13": 8,
+        "331": 32,
+        "11": 6,
+        "61": 26
+      }
+    },
+    {
+      "pattern_id": 59,
+      "type": "I",
+      "epsilon": 1,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 3
+        },
+        {
+          "q": 331,
+          "order_4": 15,
+          "phase_u": 10
+        },
+        {
+          "q": 61,
+          "order_4": 30,
+          "phase_u": 1
+        },
+        {
+          "q": 11,
+          "order_4": 5,
+          "phase_u": 4
+        }
+      ],
+      "checked_hole_period_u": 210,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 3,
+        "331": 55,
+        "61": 1,
+        "11": 49
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "1773126457101101058629924463567019806718264956713905567447569",
+      "progression_modulus_for_pattern": "121041494945903853943122890515382691774327737794816871699188590",
+      "least_root_residues": {
+        "5": 4,
+        "13": 8,
+        "331": 32,
+        "61": 30,
+        "11": 9
+      }
+    },
+    {
+      "pattern_id": 60,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 3
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 1
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 7
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 4
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 3,
+        "19": 1,
+        "37": 79,
+        "73": 31
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "519218848632967602454175062982668355876181942476914454033211",
+      "progression_modulus_for_pattern": "27968034719019004329143604118661889677069104488013142843709210",
+      "least_root_residues": {
+        "5": 1,
+        "13": 5,
+        "19": 9,
+        "37": 24,
+        "73": 41
+      }
+    },
+    {
+      "pattern_id": 61,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 3
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 1
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 7
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 13
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 3,
+        "19": 1,
+        "73": 79,
+        "37": 31
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "732307598903558040551081651388459561155591515048732666622901",
+      "progression_modulus_for_pattern": "27968034719019004329143604118661889677069104488013142843709210",
+      "least_root_residues": {
+        "5": 1,
+        "13": 5,
+        "19": 10,
+        "73": 69,
+        "37": 32
+      }
+    },
+    {
+      "pattern_id": 62,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 3
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 1
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 7
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 4
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 3,
+        "37": 1,
+        "19": 79,
+        "73": 31
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "1304876190521839410515187530681455091689956248903915264999841",
+      "progression_modulus_for_pattern": "27968034719019004329143604118661889677069104488013142843709210",
+      "least_root_residues": {
+        "5": 1,
+        "13": 8,
+        "37": 19,
+        "19": 4,
+        "73": 32
+      }
+    },
+    {
+      "pattern_id": 63,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 3
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 1
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 7
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 4
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 3,
+        "37": 1,
+        "73": 79,
+        "19": 31
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "1648761104641385616241908904809471077703530264998077137491131",
+      "progression_modulus_for_pattern": "27968034719019004329143604118661889677069104488013142843709210",
+      "least_root_residues": {
+        "5": 1,
+        "13": 8,
+        "37": 18,
+        "73": 4,
+        "19": 13
+      }
+    },
+    {
+      "pattern_id": 64,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 3
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 1
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 7
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 13
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 3,
+        "73": 1,
+        "19": 79,
+        "37": 31
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "1513714065467338786164125138551273991595505477061257308642729",
+      "progression_modulus_for_pattern": "27968034719019004329143604118661889677069104488013142843709210",
+      "least_root_residues": {
+        "5": 4,
+        "13": 8,
+        "73": 37,
+        "19": 15,
+        "37": 5
+      }
+    },
+    {
+      "pattern_id": 65,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 3
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 1
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 7
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 4
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 3,
+        "73": 1,
+        "37": 79,
+        "19": 31
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "87591507931413569275786270099326579453439278853180376357931",
+      "progression_modulus_for_pattern": "27968034719019004329143604118661889677069104488013142843709210",
+      "least_root_residues": {
+        "5": 1,
+        "13": 5,
+        "73": 36,
+        "37": 13,
+        "19": 13
+      }
+    },
+    {
+      "pattern_id": 66,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 3
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 1
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 7
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 13
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 3,
+        "19": 1,
+        "37": 79,
+        "109": 31
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "61222665924684986635031943105967801542609331745630965435461",
+      "progression_modulus_for_pattern": "41760490196891390025707573273070492805486745057444281780332930",
+      "least_root_residues": {
+        "5": 1,
+        "13": 8,
+        "19": 9,
+        "37": 13,
+        "109": 77
+      }
+    },
+    {
+      "pattern_id": 67,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 3
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 1
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 7
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 13
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 3,
+        "19": 1,
+        "109": 79,
+        "37": 31
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "119309577664785342926016355636966088781474156407348713884069",
+      "progression_modulus_for_pattern": "41760490196891390025707573273070492805486745057444281780332930",
+      "least_root_residues": {
+        "5": 4,
+        "13": 5,
+        "19": 10,
+        "109": 23,
+        "37": 32
+      }
+    },
+    {
+      "pattern_id": 68,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 3
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 1
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 7
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 13
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 3,
+        "37": 1,
+        "19": 79,
+        "109": 31
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "880652248068915373671229920861749499971589688076990767561299",
+      "progression_modulus_for_pattern": "41760490196891390025707573273070492805486745057444281780332930",
+      "least_root_residues": {
+        "5": 4,
+        "13": 5,
+        "37": 18,
+        "19": 4,
+        "109": 32
+      }
+    },
+    {
+      "pattern_id": 69,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 3
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 1
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 7
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 4
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 3,
+        "37": 1,
+        "109": 79,
+        "19": 31
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "1544987763618403210090997520009216198783866590800894606811509",
+      "progression_modulus_for_pattern": "41760490196891390025707573273070492805486745057444281780332930",
+      "least_root_residues": {
+        "5": 4,
+        "13": 5,
+        "37": 19,
+        "109": 23,
+        "19": 6
+      }
+    },
+    {
+      "pattern_id": 70,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 3
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 1
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 7
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 13
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 3,
+        "109": 1,
+        "19": 79,
+        "37": 31
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "10727649827807027836846427718753398670413719700992756430410941",
+      "progression_modulus_for_pattern": "41760490196891390025707573273070492805486745057444281780332930",
+      "least_root_residues": {
+        "5": 1,
+        "13": 8,
+        "109": 55,
+        "19": 4,
+        "37": 32
+      }
+    },
+    {
+      "pattern_id": 71,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 3
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 1
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 7
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 4
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 3,
+        "109": 1,
+        "37": 79,
+        "19": 31
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "2339909833779909385025788535029993856566310878644061427021169",
+      "progression_modulus_for_pattern": "41760490196891390025707573273070492805486745057444281780332930",
+      "least_root_residues": {
+        "5": 4,
+        "13": 8,
+        "109": 55,
+        "37": 24,
+        "19": 6
+      }
+    },
+    {
+      "pattern_id": 72,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 3
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 1
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 7
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 13
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 3,
+        "19": 1,
+        "73": 79,
+        "109": 31
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "1130145930610798500425101624626893269222008364095861298823601",
+      "progression_modulus_for_pattern": "82392318496569499239909536457679620940554929437660339728764970",
+      "least_root_residues": {
+        "5": 1,
+        "13": 5,
+        "19": 9,
+        "73": 69,
+        "109": 32
+      }
+    },
+    {
+      "pattern_id": 73,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 3
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 1
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 7
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 4
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 3,
+        "19": 1,
+        "109": 79,
+        "73": 31
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "3453203181740937893834895386168997115248607233758409878883621",
+      "progression_modulus_for_pattern": "82392318496569499239909536457679620940554929437660339728764970",
+      "least_root_residues": {
+        "5": 1,
+        "13": 8,
+        "19": 10,
+        "109": 23,
+        "73": 32
+      }
+    },
+    {
+      "pattern_id": 74,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 3
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 1
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 7
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 13
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 3,
+        "73": 1,
+        "19": 79,
+        "109": 31
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "2912243663052820834381328080092205906724998907087793664982901",
+      "progression_modulus_for_pattern": "82392318496569499239909536457679620940554929437660339728764970",
+      "least_root_residues": {
+        "5": 1,
+        "13": 5,
+        "73": 36,
+        "19": 4,
+        "109": 32
+      }
+    },
+    {
+      "pattern_id": 75,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 3
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 1
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 7
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 4
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 3,
+        "73": 1,
+        "109": 79,
+        "19": 31
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "1599377168418927316797062168405374670105823305232269178720591",
+      "progression_modulus_for_pattern": "82392318496569499239909536457679620940554929437660339728764970",
+      "least_root_residues": {
+        "5": 1,
+        "13": 5,
+        "73": 36,
+        "109": 86,
+        "19": 13
+      }
+    },
+    {
+      "pattern_id": 76,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 3
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 1
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 7
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 4
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 3,
+        "109": 1,
+        "19": 79,
+        "73": 31
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "3876974368242077083790903637115048851956740148434680109807119",
+      "progression_modulus_for_pattern": "82392318496569499239909536457679620940554929437660339728764970",
+      "least_root_residues": {
+        "5": 4,
+        "13": 5,
+        "109": 54,
+        "19": 15,
+        "73": 41
+      }
+    },
+    {
+      "pattern_id": 77,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 3
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 1
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 7
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 4
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 3,
+        "109": 1,
+        "73": 79,
+        "19": 31
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "811875265245006132525885646036146302768874884858158393063041",
+      "progression_modulus_for_pattern": "82392318496569499239909536457679620940554929437660339728764970",
+      "least_root_residues": {
+        "5": 1,
+        "13": 5,
+        "109": 55,
+        "73": 69,
+        "19": 6
+      }
+    },
+    {
+      "pattern_id": 78,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 3
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 1
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 7
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 13
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 3,
+        "37": 1,
+        "73": 79,
+        "109": 31
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "2064147921665027641606262361798969943851780843551120210728629",
+      "progression_modulus_for_pattern": "160448199177530077467192255207060314463185915220706977366542310",
+      "least_root_residues": {
+        "5": 4,
+        "13": 8,
+        "37": 18,
+        "73": 69,
+        "109": 32
+      }
+    },
+    {
+      "pattern_id": 79,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 3
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 1
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 7
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 4
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 3,
+        "37": 1,
+        "109": 79,
+        "73": 31
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "9457501695660982372856642982275204309297144601685074312558801",
+      "progression_modulus_for_pattern": "160448199177530077467192255207060314463185915220706977366542310",
+      "least_root_residues": {
+        "5": 1,
+        "13": 5,
+        "37": 19,
+        "109": 23,
+        "73": 32
+      }
+    },
+    {
+      "pattern_id": 80,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 3
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 1
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 7
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 13
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 3,
+        "73": 1,
+        "37": 79,
+        "109": 31
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "6654984275960167622273069828327624560303674340815780720224871",
+      "progression_modulus_for_pattern": "160448199177530077467192255207060314463185915220706977366542310",
+      "least_root_residues": {
+        "5": 1,
+        "13": 8,
+        "73": 36,
+        "37": 13,
+        "109": 77
+      }
+    },
+    {
+      "pattern_id": 81,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 3
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 1
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 7
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 13
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 3,
+        "73": 1,
+        "109": 79,
+        "37": 31
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "423637036589499926109310411877965631493523310672124856412811",
+      "progression_modulus_for_pattern": "160448199177530077467192255207060314463185915220706977366542310",
+      "least_root_residues": {
+        "5": 1,
+        "13": 8,
+        "73": 37,
+        "109": 23,
+        "37": 32
+      }
+    },
+    {
+      "pattern_id": 82,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 3
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 1
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 7
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 4
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 3,
+        "109": 1,
+        "37": 79,
+        "73": 31
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "9947987310094566501468448428733547237050261264893863037189801",
+      "progression_modulus_for_pattern": "160448199177530077467192255207060314463185915220706977366542310",
+      "least_root_residues": {
+        "5": 1,
+        "13": 5,
+        "109": 54,
+        "37": 13,
+        "73": 41
+      }
+    },
+    {
+      "pattern_id": 83,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 0,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 3
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 1
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 7
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 13
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 3,
+        "109": 1,
+        "73": 79,
+        "37": 31
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "2878999638074544576775416822054473774955065444359197984757911",
+      "progression_modulus_for_pattern": "160448199177530077467192255207060314463185915220706977366542310",
+      "least_root_residues": {
+        "5": 1,
+        "13": 5,
+        "109": 54,
+        "73": 4,
+        "37": 5
+      }
+    },
+    {
+      "pattern_id": 84,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 1
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 3
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 9
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 6
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 1,
+        "19": 3,
+        "37": 9,
+        "73": 15
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "422505146710037808889437014693830993967939195295489190125201",
+      "progression_modulus_for_pattern": "27968034719019004329143604118661889677069104488013142843709210",
+      "least_root_residues": {
+        "5": 1,
+        "13": 6,
+        "19": 12,
+        "37": 6,
+        "73": 65
+      }
+    },
+    {
+      "pattern_id": 85,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 1
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 3
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 0
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 15
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 6,
+        "13": 1,
+        "19": 3,
+        "73": 9,
+        "37": 15
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "1974913077316025318857280389719377742482953140191613571476531",
+      "progression_modulus_for_pattern": "27968034719019004329143604118661889677069104488013142843709210",
+      "least_root_residues": {
+        "5": 1,
+        "13": 7,
+        "19": 12,
+        "73": 1,
+        "37": 29
+      }
+    },
+    {
+      "pattern_id": 86,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 1
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 3
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 0
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 6
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 10,
+        "13": 1,
+        "37": 3,
+        "19": 9,
+        "73": 15
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "303153647197865670927231022722300881548014140581350600464991",
+      "progression_modulus_for_pattern": "27968034719019004329143604118661889677069104488013142843709210",
+      "least_root_residues": {
+        "5": 1,
+        "13": 6,
+        "37": 23,
+        "19": 18,
+        "73": 65
+      }
+    },
+    {
+      "pattern_id": 87,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 1
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 3
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 0
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 6
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 10,
+        "13": 1,
+        "37": 3,
+        "73": 9,
+        "19": 15
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "93443797826706590160761316281000483104237149467192932422759",
+      "progression_modulus_for_pattern": "27968034719019004329143604118661889677069104488013142843709210",
+      "least_root_residues": {
+        "5": 4,
+        "13": 6,
+        "37": 23,
+        "73": 1,
+        "19": 11
+      }
+    },
+    {
+      "pattern_id": 88,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 1
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 3
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 0
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 15
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 6,
+        "13": 1,
+        "73": 3,
+        "19": 9,
+        "37": 15
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "250944178461490827014996620754846156571626833542015089554269",
+      "progression_modulus_for_pattern": "27968034719019004329143604118661889677069104488013142843709210",
+      "least_root_residues": {
+        "5": 4,
+        "13": 6,
+        "73": 9,
+        "19": 1,
+        "37": 8
+      }
+    },
+    {
+      "pattern_id": 89,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 1
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 3
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 9
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 6
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 1,
+        "73": 3,
+        "37": 9,
+        "19": 15
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "145217279350251581514229668962714458811510575028120631133809",
+      "progression_modulus_for_pattern": "27968034719019004329143604118661889677069104488013142843709210",
+      "least_root_residues": {
+        "5": 4,
+        "13": 6,
+        "73": 64,
+        "37": 31,
+        "19": 11
+      }
+    },
+    {
+      "pattern_id": 90,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 1
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 3
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 9
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 15
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 1,
+        "19": 3,
+        "37": 9,
+        "109": 15
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "1072780074645762900288999524376158528851293420340741085935989",
+      "progression_modulus_for_pattern": "41760490196891390025707573273070492805486745057444281780332930",
+      "least_root_residues": {
+        "5": 4,
+        "13": 6,
+        "19": 12,
+        "37": 31,
+        "109": 101
+      }
+    },
+    {
+      "pattern_id": 91,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 1
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 3
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 9
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 15
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 1,
+        "19": 3,
+        "109": 9,
+        "37": 15
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "275761912114882434206294810866242653428878548466767476304829",
+      "progression_modulus_for_pattern": "41760490196891390025707573273070492805486745057444281780332930",
+      "least_root_residues": {
+        "5": 4,
+        "13": 7,
+        "19": 7,
+        "109": 33,
+        "37": 8
+      }
+    },
+    {
+      "pattern_id": 92,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 1
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 3
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 0
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 15
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 6,
+        "13": 1,
+        "37": 3,
+        "19": 9,
+        "109": 15
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "62924692928616911047137866279148034266265445978646078445719",
+      "progression_modulus_for_pattern": "41760490196891390025707573273070492805486745057444281780332930",
+      "least_root_residues": {
+        "5": 4,
+        "13": 6,
+        "37": 14,
+        "19": 18,
+        "109": 101
+      }
+    },
+    {
+      "pattern_id": 93,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 1
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 3
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 9
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 6
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 1,
+        "37": 3,
+        "109": 9,
+        "19": 15
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "672510275790048262683399660890324488322510693817876578006349",
+      "progression_modulus_for_pattern": "41760490196891390025707573273070492805486745057444281780332930",
+      "least_root_residues": {
+        "5": 4,
+        "13": 7,
+        "37": 14,
+        "109": 76,
+        "19": 11
+      }
+    },
+    {
+      "pattern_id": 94,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 1
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 3
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 0
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 15
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 6,
+        "13": 1,
+        "109": 3,
+        "19": 9,
+        "37": 15
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "591014204468775822852515063632630586480454386700108605298429",
+      "progression_modulus_for_pattern": "41760490196891390025707573273070492805486745057444281780332930",
+      "least_root_residues": {
+        "5": 4,
+        "13": 6,
+        "109": 41,
+        "19": 18,
+        "37": 29
+      }
+    },
+    {
+      "pattern_id": 95,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 1
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 3
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 9
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 6
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 1,
+        "109": 3,
+        "37": 9,
+        "19": 15
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "543491598270321893947015691486888916147041305553657075534181",
+      "progression_modulus_for_pattern": "41760490196891390025707573273070492805486745057444281780332930",
+      "least_root_residues": {
+        "5": 1,
+        "13": 6,
+        "109": 41,
+        "37": 6,
+        "19": 8
+      }
+    },
+    {
+      "pattern_id": 96,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 1
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 3
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 0
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 15
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 6,
+        "13": 1,
+        "19": 3,
+        "73": 9,
+        "109": 15
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "463127416828511571336004491413329651830569113812524769113871",
+      "progression_modulus_for_pattern": "82392318496569499239909536457679620940554929437660339728764970",
+      "least_root_residues": {
+        "5": 1,
+        "13": 7,
+        "19": 12,
+        "73": 1,
+        "109": 8
+      }
+    },
+    {
+      "pattern_id": 97,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 1
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 3
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 9
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 6
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 1,
+        "19": 3,
+        "109": 9,
+        "73": 15
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "3911241286296607995476996780015480433934979256170309503269801",
+      "progression_modulus_for_pattern": "82392318496569499239909536457679620940554929437660339728764970",
+      "least_root_residues": {
+        "5": 1,
+        "13": 7,
+        "19": 12,
+        "109": 33,
+        "73": 65
+      }
+    },
+    {
+      "pattern_id": 98,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 1
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 3
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 0
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 15
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 6,
+        "13": 1,
+        "73": 3,
+        "19": 9,
+        "109": 15
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "2820979801290264197801165647875127910680679678386466053570791",
+      "progression_modulus_for_pattern": "82392318496569499239909536457679620940554929437660339728764970",
+      "least_root_residues": {
+        "5": 1,
+        "13": 6,
+        "73": 9,
+        "19": 1,
+        "109": 8
+      }
+    },
+    {
+      "pattern_id": 99,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 1
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 3
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 9
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 6
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 1,
+        "73": 3,
+        "109": 9,
+        "19": 15
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "447574411447754331018484848623924076941987380303938391606341",
+      "progression_modulus_for_pattern": "82392318496569499239909536457679620940554929437660339728764970",
+      "least_root_residues": {
+        "5": 1,
+        "13": 6,
+        "73": 64,
+        "109": 33,
+        "19": 11
+      }
+    },
+    {
+      "pattern_id": 100,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 1
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 3
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 0
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 6
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 10,
+        "13": 1,
+        "109": 3,
+        "19": 9,
+        "73": 15
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "1389960771979480636791300379752553622131642195882424461197369",
+      "progression_modulus_for_pattern": "82392318496569499239909536457679620940554929437660339728764970",
+      "least_root_residues": {
+        "5": 4,
+        "13": 6,
+        "109": 68,
+        "19": 1,
+        "73": 8
+      }
+    },
+    {
+      "pattern_id": 101,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 1
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 3
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 0
+        },
+        {
+          "q": 19,
+          "order_4": 9,
+          "phase_u": 6
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 10,
+        "13": 1,
+        "109": 3,
+        "73": 9,
+        "19": 15
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "11135549402887264894230433444739695823151995353387757651834841",
+      "progression_modulus_for_pattern": "82392318496569499239909536457679620940554929437660339728764970",
+      "least_root_residues": {
+        "5": 1,
+        "13": 7,
+        "109": 41,
+        "73": 72,
+        "19": 8
+      }
+    },
+    {
+      "pattern_id": 102,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 1
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 3
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 0
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 15
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 6,
+        "13": 1,
+        "37": 3,
+        "73": 9,
+        "109": 15
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "12567767397033330549776905348398057172191096009957420727757361",
+      "progression_modulus_for_pattern": "160448199177530077467192255207060314463185915220706977366542310",
+      "least_root_residues": {
+        "5": 1,
+        "13": 7,
+        "37": 23,
+        "73": 72,
+        "109": 101
+      }
+    },
+    {
+      "pattern_id": 103,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 1
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 3
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 9
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 6
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 1,
+        "37": 3,
+        "109": 9,
+        "73": 15
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "287642563664495916432669653902678071012231818753380358745891",
+      "progression_modulus_for_pattern": "160448199177530077467192255207060314463185915220706977366542310",
+      "least_root_residues": {
+        "5": 1,
+        "13": 7,
+        "37": 23,
+        "109": 33,
+        "73": 8
+      }
+    },
+    {
+      "pattern_id": 104,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 1
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 3
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 9
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 15
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 1,
+        "73": 3,
+        "37": 9,
+        "109": 15
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "4787684580887819101736447356675821652171159498139613977660439",
+      "progression_modulus_for_pattern": "160448199177530077467192255207060314463185915220706977366542310",
+      "least_root_residues": {
+        "5": 4,
+        "13": 7,
+        "73": 64,
+        "37": 31,
+        "109": 8
+      }
+    },
+    {
+      "pattern_id": 105,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 1
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 3
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 9
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 15
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 1,
+        "73": 3,
+        "109": 9,
+        "37": 15
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "7278152537375144380547812389148416664666928973174639215236821",
+      "progression_modulus_for_pattern": "160448199177530077467192255207060314463185915220706977366542310",
+      "least_root_residues": {
+        "5": 1,
+        "13": 7,
+        "73": 64,
+        "109": 76,
+        "37": 29
+      }
+    },
+    {
+      "pattern_id": 106,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 1
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 3
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 9
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 6
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 0,
+        "13": 1,
+        "109": 3,
+        "37": 9,
+        "73": 15
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "2411696805246240108259536880885999534300023440531132351128701",
+      "progression_modulus_for_pattern": "160448199177530077467192255207060314463185915220706977366542310",
+      "least_root_residues": {
+        "5": 1,
+        "13": 6,
+        "109": 68,
+        "37": 31,
+        "73": 65
+      }
+    },
+    {
+      "pattern_id": 107,
+      "type": "II",
+      "epsilon": 1,
+      "r13": 1,
+      "rows": [
+        {
+          "q": 5,
+          "order_4": 2,
+          "phase_u": 0
+        },
+        {
+          "q": 13,
+          "order_4": 6,
+          "phase_u": 1
+        },
+        {
+          "q": 109,
+          "order_4": 18,
+          "phase_u": 3
+        },
+        {
+          "q": 73,
+          "order_4": 9,
+          "phase_u": 0
+        },
+        {
+          "q": 37,
+          "order_4": 18,
+          "phase_u": 15
+        }
+      ],
+      "checked_hole_period_u": 630,
+      "private_old_hole_u": {
+        "5": 6,
+        "13": 1,
+        "109": 3,
+        "73": 9,
+        "37": 15
+      },
+      "sign_combinations_checked": 32,
+      "least_positive_root_for_pattern": "4719997566095984491988018205064570328141229398616801133661361",
+      "progression_modulus_for_pattern": "160448199177530077467192255207060314463185915220706977366542310",
+      "least_root_residues": {
+        "5": 1,
+        "13": 7,
+        "109": 41,
+        "73": 1,
+        "37": 8
+      }
+    }
+  ],
+  "least_additive_period_in_branch_parameter_j": 80754838636615,
+  "essential_coordinate_witnesses": [
+    {
+      "changed_prime": 5,
+      "true_root_residue_mod_L": 29053364133938,
+      "false_root_residue_mod_L": 12902396406615,
+      "true_parameter_j_mod_L": 33130142012979,
+      "false_parameter_j_mod_L": 16979174285656,
+      "true_cover_count": 1
+    },
+    {
+      "changed_prime": 13,
+      "true_root_residue_mod_L": 29053364133938,
+      "false_root_residue_mod_L": 41477185462648,
+      "true_parameter_j_mod_L": 33130142012979,
+      "false_parameter_j_mod_L": 64189695334754,
+      "true_cover_count": 1
+    },
+    {
+      "changed_prime": 11,
+      "true_root_residue_mod_L": 29053364133938,
+      "false_root_residue_mod_L": 65760108968763,
+      "true_parameter_j_mod_L": 33130142012979,
+      "false_parameter_j_mod_L": 25788793046014,
+      "true_cover_count": 1
+    },
+    {
+      "changed_prime": 61,
+      "true_root_residue_mod_L": 29053364133938,
+      "false_root_residue_mod_L": 15814865996788,
+      "true_parameter_j_mod_L": 33130142012979,
+      "false_parameter_j_mod_L": 49016339777559,
+      "true_cover_count": 1
+    },
+    {
+      "changed_prime": 331,
+      "true_root_residue_mod_L": 29053364133938,
+      "false_root_residue_mod_L": 61013738337553,
+      "true_parameter_j_mod_L": 33130142012979,
+      "false_parameter_j_mod_L": 53379844752674,
+      "true_cover_count": 1
+    },
+    {
+      "changed_prime": 19,
+      "true_root_residue_mod_L": 21148312410148,
+      "false_root_residue_mod_L": 29648821740318,
+      "true_parameter_j_mod_L": 79152308534869,
+      "false_parameter_j_mod_L": 19648743223679,
+      "true_cover_count": 1
+    },
+    {
+      "changed_prime": 37,
+      "true_root_residue_mod_L": 78009827524123,
+      "false_root_residue_mod_L": 51819069047383,
+      "true_parameter_j_mod_L": 78348206300934,
+      "false_parameter_j_mod_L": 10688746902689,
+      "true_cover_count": 1
+    },
+    {
+      "changed_prime": 73,
+      "true_root_residue_mod_L": 54300613514928,
+      "false_root_residue_mod_L": 52088152182418,
+      "true_parameter_j_mod_L": 46506701988459,
+      "false_parameter_j_mod_L": 39869317990929,
+      "true_cover_count": 1
+    },
+    {
+      "changed_prime": 109,
+      "true_root_residue_mod_L": 26898569488428,
+      "false_root_residue_mod_L": 52088152182418,
+      "true_parameter_j_mod_L": 35424097515519,
+      "false_parameter_j_mod_L": 39869317990929,
+      "true_cover_count": 1
+    }
+  ],
+  "scope": "The complete cost-five equivalence uses the companion global all-prime classification. The minimum is among all delta_P=5 roots in the fixed old class, not among all Riesel numbers or all square Riesel coefficients. Riesel coefficient is a^2. Total cover size for the least root is bounded above by25, not asserted equal25.",
+  "quantifier_note": "3456 counts CRT progression descriptions with differing moduli; they are not disjoint residue classes modulo L. Overlaps are handled by the factorized counting argument."
+}
