@@ -1,0 +1,214 @@
+{
+  "schema": "EM_T6_P13_Q9_SPLIT45_POS112_NEG11111_COMPLETE_AUTHOR_EXACT_V1",
+  "date": "2026-11-23",
+  "task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "frozen_science": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "model": {
+    "p": 13,
+    "cap_each_side": 2331,
+    "positive_pattern": [
+      1,
+      1,
+      2
+    ],
+    "negative_pattern": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "positive_rosters": 936,
+    "negative_rosters": 4368,
+    "vertical_atom": "(q,r) denominator 13(13q+r), exponent mass 169q+13r-1",
+    "q0_atom": "signed u_r at denominator 13r, exponent mass 13r-1",
+    "congruences": "sum_r u_r*r^(-j)+sum_plus(13q+r)^(-j)-sum_minus(13q+r)^(-j)==0 mod 13^j, j=1..6",
+    "saturated_q0_index": "247064529073450392704413",
+    "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+    "max_ball_radius_sq": "10867122"
+  },
+  "canonical_enumeration": "negative q1 5-combinations_with_replacement residues1..12 outer; positive q1 2-combinations_with_replacement residues1..12 then q2 residue1..12 inner; discard exact opposite-sign common named atoms as prior lower order; exact rational GS search on every disjoint pair",
+  "rows": [
+    {
+      "negative_roster_range": [
+        0,
+        600
+      ],
+      "raw_pairs": 561600,
+      "common_cancelled": 283368,
+      "gs_nodes": 581342,
+      "vert_overbudget": 0,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "negative_roster_sha256": "5ef28648f8c460cf5aaa2d0327cdf75d902d1067153b580f6b98732beff377bb",
+      "pair_order_sha256": "eb4f7cafb43e690a633b9dbca61bfcb5f51ab7c611a879f0347f74f38a754267",
+      "local_json_sha256": "806f3c12d7b4299aa029ed06d2073d3f22356c59678a0feecda514ca262d8b8c"
+    },
+    {
+      "negative_roster_range": [
+        600,
+        2000
+      ],
+      "raw_pairs": 1310400,
+      "common_cancelled": 695556,
+      "gs_nodes": 1250978,
+      "vert_overbudget": 0,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "negative_roster_sha256": "5b60205af65497eb258b8a5edb16932d608c609e3df95e96de8c4fb9df15c9c4",
+      "pair_order_sha256": "ae5574faa82d3123342f356a906bf3ed995b98e5cc387ad12a65130af8b4dbd6",
+      "local_json_sha256": "df00cad819901a617e55a041a0fca76366d7a60fcf7e50895f13d8cf2f53f149"
+    },
+    {
+      "negative_roster_range": [
+        2000,
+        2600
+      ],
+      "raw_pairs": 561600,
+      "common_cancelled": 279264,
+      "gs_nodes": 568206,
+      "vert_overbudget": 0,
+      "ball_leaves": 1,
+      "budget_valid": 0,
+      "negative_roster_sha256": "e21d34b966f15696260f457d159e2162a764838f69c9159154ac5ca35c1bc922",
+      "pair_order_sha256": "a3844fc7d953eba0d365b2a62029a404254ce410609dd2c5190e1e6a125fd2f4",
+      "local_json_sha256": "f982a969b1e4601945191beb30a95fcffed65f44f10fb9613010f9d0c1236d19"
+    },
+    {
+      "negative_roster_range": [
+        2600,
+        3300
+      ],
+      "raw_pairs": 655200,
+      "common_cancelled": 336492,
+      "gs_nodes": 638445,
+      "vert_overbudget": 0,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "negative_roster_sha256": "51e4d34d94c0d1b41f6122761230b5c95c6299cbd40458d451d235b774a6cf9e",
+      "pair_order_sha256": "ecddee532683271b6b71b4a88c580ea2389e35f7a9ac94fa915a1ffd8b69e13c",
+      "local_json_sha256": "62195e4855b353765ccc2189bf317d507e075985f84d10f4e7f26add84335f69"
+    },
+    {
+      "negative_roster_range": [
+        3300,
+        3900
+      ],
+      "raw_pairs": 561600,
+      "common_cancelled": 283104,
+      "gs_nodes": 549411,
+      "vert_overbudget": 0,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "negative_roster_sha256": "dbf8dfc5248a2727b94c0a052b43ea84d54735bbaeed43e11ec519095f724815",
+      "pair_order_sha256": "b48eff5abca6b65b6b581c6f86c91e214f9e33bc998922b0335c348facb5c199",
+      "local_json_sha256": "ff7549a18b2d5be248edc338666a776aa93e68ac18e63a1cc8bf6d4fa38f8fe4"
+    },
+    {
+      "negative_roster_range": [
+        3900,
+        4368
+      ],
+      "raw_pairs": 438048,
+      "common_cancelled": 192648,
+      "gs_nodes": 475137,
+      "vert_overbudget": 0,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "negative_roster_sha256": "b88f23ee8ff0bc1014e9ef7e358b1007208d63fca3e69006782df4a4ba443ae9",
+      "pair_order_sha256": "7e3161b377a6999cd2c8c1d64fad4215e479b5adc0eed141266b6d4563e169cd",
+      "local_json_sha256": "0525bd7192211103e425c51de55308fd15801797573abd747fa364e4835bfca0"
+    }
+  ],
+  "totals": {
+    "negative_rosters": 4368,
+    "positive_rosters": 936,
+    "raw_pairs": 4088448,
+    "common_cancelled": 2070432,
+    "disjoint_pairs": 2018016,
+    "vert_overbudget": 0,
+    "gs_nodes": 4063519,
+    "ball_leaves": 1,
+    "budget_valid": 0
+  },
+  "witnesses": [
+    {
+      "plus": [
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "minus": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          1,
+          12
+        ]
+      ],
+      "u": [
+        9,
+        -12,
+        8,
+        -7,
+        -2,
+        -8,
+        6,
+        4,
+        7,
+        5,
+        -1,
+        6
+      ],
+      "positive_vertical_mass": 868,
+      "negative_vertical_mass": 1308,
+      "positive_q0_mass": 3751,
+      "negative_q0_mass": 1543,
+      "masses": [
+        4619,
+        2851
+      ],
+      "congruence_residues_j1_to_j6": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    }
+  ],
+  "local_execution": {
+    "script_name": "t6_p13_q9_split45_pos112_neg11111_slice.py",
+    "script_sha256": "PENDING_DIGEST",
+    "slice_json_files": "local executed, SHA256 per row; source code published separately as a thin replay wrapper; its independent rerun pending",
+    "timed_out_attempt": "range[2000,4368) timed out with no completed publication, replaced by successful disjoint [2000,2600),[2600,3300),[3300,3900),[3900,4368); timed-out attempt excluded from sums"
+  },
+  "claim": "The complete signed q9 split(4,5) q112/q11111 family has no admissible primitive disjoint-support budget-valid pair; exactly one relaxed affine-ball leaf fails both mass caps. Common support cancels to earlier lower q-order work.",
+  "scientific_status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "native_semantic_progress": "NOT_PUBLISHED"
+}
