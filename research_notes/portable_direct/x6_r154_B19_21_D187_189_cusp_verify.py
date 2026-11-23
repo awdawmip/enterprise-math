@@ -19,7 +19,7 @@ def population():
         x,y,z=v
         h=(0,x+3*y+6*z,3*x+12*y+30*z,7*x+39*y+126*z)
         out[v]=tuple(abs(h[j]-h[i]) for i,j in
-                     ((0,1),(0,2),(0,3),(1,2),(1,3),(2,3),(2,3)))
+                     ((0,1),(0,2),(0,3),(1,2),(1,3),(2,3)))
     assert len(out)==1935
     return out
 
