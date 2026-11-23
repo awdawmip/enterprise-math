@@ -1,0 +1,18 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/R284FS_q2u1_17bit_sharp_checker.py",
+    "ref": "c8384f363132dbacfae9d1e989938b38e1cbfb7c",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r1-20261123-1718-r284fs_checker-observed-v1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "#!/usr/bin/env python3\n\"\"\"Exact 17-bit obstruction: extends the sibling R284FR integer checker.\n\nUsage from a checkout preserving both sibling files:\n    python research_notes/portable_direct/R284FS_q2u1_17bit_sharp_checker.py\n\"\"\"\nfrom importlib.util import module_from_spec, spec_from_file_location\nfrom math import comb\nfrom pathlib import Path\n\nbase = Path(__file__).with_name('R284FR_q2u1_16bit_obstruction_checker.py')\nspec = spec_from_file_location('r284fr_exact', base)\nm = module_from_spec(spec)\nspec.loader.exec_module(m)\nm.N = 17\n\nPAIR_TYPES = [tuple(p - 1 for p in range(1, 8)\n                    if m.PAT[p][0][i] != m.PAT[p][0][j])\n              for i, j in m.PAIRS]\nCUTS = [m.cutsets(i, j) for i, j in m.PAIRS]\nDIST_THRESHOLDS = (9, 9, 9, 9, 7, 7)\n\nEXPECTED_EDGE0_SURVIVORS = [\n    (0, 0, 0, 0, 9, 7, 1),\n    (0, 0, 0, 0, 9, 8, 0),\n    (0, 0, 0, 0, 10, 7, 0),\n    (0, 0, 0, 1, 8, 7, 1),\n    (0, 0, 0, 1, 9, 7, 0),\n    (0, 0, 1, 0, 8, 7, 1),\n    (0, 0, 1, 0, 9, 7, 0),\n    (0, 0, 5, 0, 6, 6, 0),\n    (0, 1, 0, 0, 8, 7, 1),\n    (0, 1, 0, 0, 9, 7, 0),\n    (1, 0, 0, 0, 9, 7, 0),\n]\n\n\ndef main():\n    total = distance_pass = endpoint_pass = 0\n    edge0 = []\n    for x in m.compositions(17, 7):\n        total += 1\n        if any(sum(x[p] for p in ps) < threshold\n               for ps, threshold in zip(PAIR_TYPES, DIST_THRESHOLDS)):\n            continue\n        distance_pass += 1\n        if not all(any(sum(x[p] for p in ps) >= threshold\n                       for ps, threshold in graph)\n                   for graph in CUTS):\n            continue\n        endpoint_pass += 1\n        words, positions, stable = m.words_and_phases(x)\n        force = m.forced_read_masks(stable)\n        if not m.has_locally_safe_order(0, words, positions, stable, force):\n            continue\n        edge0.append(x)\n        assert not m.has_locally_safe_order(1, words, positions, stable, force), x\n\n    assert total == comb(23, 6) == 100947, total\n    assert distance_pass == 3955, distance_pass\n    assert endpoint_pass == 208, endpoint_pass\n    assert edge0 == EXPECTED_EDGE0_SURVIVORS, edge0\n    print(f'n=17 histograms: {total}; distance-pass: {distance_pass}')\n    print(f'all six stable read cuts pass: {endpoint_pass}')\n    print(f'edge 0->1 safe-prefix-path survives: {len(edge0)}')\n    print(f'edge 1->2 safe-prefix-path survives: 0')\n    print('first-edge survivors:', edge0)\n    print('No correct 17-bit q=2,u=1 protocol.')\n    print('Using R284FR (n>=17) and R284FE 18-bit construction: n_min(2,1)=18')\n\n\nif __name__ == '__main__':\n    main()\n",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/c8384f363132dbacfae9d1e989938b38e1cbfb7c/research_notes/portable_direct/R284FS_q2u1_17bit_sharp_checker.py",
+      "encoding": "utf-8",
+      "sha": "e7776c18fe7aef77cd819999ff13ddff99dce5a4"
+    }
+  },
+  "tool_name": "mcp__GitHub__fetch_file"
+}
