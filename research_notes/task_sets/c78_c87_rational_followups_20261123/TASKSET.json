@@ -1,0 +1,142 @@
+{
+  "schema": "ENTERPRISE_MATH_SOURCE_BOUND_TASKSET_V1",
+  "taskset_id": "TS-C78-C87-RATIONAL-FOLLOWUPS-20261123",
+  "created_at": "2026-11-23T00:08:58.063875+00:00",
+  "parent_objective_id": "OBJ-INVENTORY-RATIONALIZATION-20261123",
+  "user_authorization": "发布后续任务到状态机和中控台",
+  "publication_kind": "ATOMIC_TASKBOOK_AND_IMMUTABLE_V2_RECORD_BATCH",
+  "publisher_id": "EM-DVR-2D6C6F",
+  "publisher_session_id": "MCP-d6362c0d7d31434e82af45c5e425dc26",
+  "publisher_authority_record_id": "DA-F510B2698ACA7B1E8F0B",
+  "publisher_authority_source": "e35d84b8bb7721d28d2a60ca9ade3720927b9468:research_driver_authority_records/EM-DVR-2D6C6F/DA-F510B2698ACA7B1E8F0B.json",
+  "control_snapshot": "e35d84b8bb7721d28d2a60ca9ade3720927b9468",
+  "global_snapshot": "347d1a10e36f4a603683f151bda708c7440e9a9c",
+  "scientific_sources": [
+    "c9d661935fc64e300c0a0d5dd7fb42de213e6401:research_notes/portable_direct/c78_c87_rational_continuation_20261122_af81e5b398b7/REPORT.md",
+    "46eec634a39fd202babd05e66b251d90945be948:research_notes/portable_direct/c78_c87_rational_reproof_20261122_af81e5b398b7/REPORT.md"
+  ],
+  "scientific_evidence_status": "AUTHOR_PROOF_AND_EXACT_FINITE_CALCULATION_NOT_INDEPENDENT_REVIEW",
+  "first_formal_parent": {
+    "task_id": "RS-INVENTORY-RATIONAL-REPROOF-INTEGRATION-20261123",
+    "created_in_this_batch": true,
+    "prior_formal_parent_task_asserted": false,
+    "purpose": "CROSS_UNIT_THEOREM_AND_FINITE_ERROR_INTEGRATION"
+  },
+  "deduplication": {
+    "source_commit": "e35d84b8bb7721d28d2a60ca9ade3720927b9468",
+    "scope": "COMPLETE_TASK_ID_TREES_AND_RELEVANT_EXACT_TASKBOOKS",
+    "existing_related_task": "RS-INVENTORY-DIVISOR-SUM-INTERFACE-20261122",
+    "distinction": "Existing task targets sigma(n)/n and RH/Robin/Lagarias, not these C78/C87 rational reproof/effectivity goals."
+  },
+  "weight_semantics": {
+    "source": "research_runtime_policy_v2.json#/selection_policy/priority_weights",
+    "base_weights": {
+      "P0": 40,
+      "P1": 30,
+      "P2": 20,
+      "P3": 10
+    },
+    "selection_method": "SEEDED_WEIGHTED_WAITING_ROTATION_V1",
+    "global_policy_modified": false,
+    "note": "基础权重还受可执行状态、等待和方向轮转影响，不是固定概率或配额。"
+  },
+  "publication_preflight": {
+    "taskbook_prepare": "PASS",
+    "taskbook_dispatch_lint": "PASS",
+    "prepared_content_validation": "PASS",
+    "scoped_immutable_record_audit": "PASS",
+    "scope": "THIS_FIVE_TASK_PUBLICATION_BATCH",
+    "canonical_source_pins": {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "e35d84b8bb7721d28d2a60ca9ade3720927b9468",
+      "blobs": {
+        "tools/research_taskbook.py": "18ad84a4413c1feec7c1513bbf97b73da2c2b9ba",
+        "tools/research_task_records.py": "e94b3d9dfa41020c5fcfbd816678dc5501b82c9c",
+        "control_plane/research_task_records_impl.py": "9b516247bbe32dae3408b322605896a27df233c8",
+        "control_plane/research_read_view.py": "55ddac84da77d7aeeb85ea38a6eb2dfbce1ca4bb",
+        "research_task_publication_contract_v2.json": "4074798bbd1a9e1383b577d0fc160b173df65420",
+        "research_taskbook_contract.json": "d81ddae0d37d95dd00f253abb9b92be39d31f20f",
+        "research_taskbook_policy.json": "da26198b964f7ce92dd90337dd37312dfddf82cc",
+        "research_runtime_policy_v2.json": "22cd302cb905e177a4055f09dc34c377b9780c98",
+        "templates/RESEARCH_TASK_PUBLICATION_TEMPLATE.json": "2c879cf00e925d75a18a5164b20ff08c9b21704a"
+      }
+    }
+  },
+  "tasks": [
+    {
+      "task_id": "RS-INVENTORY-RATIONAL-REPROOF-INTEGRATION-20261123",
+      "title": "因数库存有理化重证：全范围定理与有限误差集成",
+      "priority": "P2",
+      "base_weight": 20,
+      "publication_id": "TP2-587593F355A19C1EB353",
+      "taskbook_path": "research_tasks/RS-INVENTORY-RATIONAL-REPROOF-INTEGRATION-20261123.md",
+      "taskbook_blob_sha1": "sha1:65a62406e03e1d469ea4906b48a7aa5227b271fd",
+      "record_path": "research_task_records/RS-INVENTORY-RATIONAL-REPROOF-INTEGRATION-20261123/TP2-587593F355A19C1EB353.json",
+      "lineage": "INTEGRATION",
+      "parent_task_id": null,
+      "dependencies": [
+        "RS-C77-RATIONAL-POSITIVE-RATIO-20261123",
+        "RS-C78-EFFECTIVE-RATIONAL-IDENTIFICATION-20261123",
+        "RS-C87-EFFECTIVE-NATIVE-HAAR-BRIDGE-20261123",
+        "RS-C87-EFFECTIVE-HIGH-PRECISION-ORDER-20261123"
+      ],
+      "findings": []
+    },
+    {
+      "task_id": "RS-C77-RATIONAL-POSITIVE-RATIO-20261123",
+      "title": "C77 正比例库存差的有理重证",
+      "priority": "P1",
+      "base_weight": 30,
+      "publication_id": "TP2-7352AE047A4BE2383892",
+      "taskbook_path": "research_tasks/RS-C77-RATIONAL-POSITIVE-RATIO-20261123.md",
+      "taskbook_blob_sha1": "sha1:cbecf147d17b54a6e33f1c69d0a888cfba12123a",
+      "record_path": "research_task_records/RS-C77-RATIONAL-POSITIVE-RATIO-20261123/TP2-7352AE047A4BE2383892.json",
+      "lineage": "CONTINUATION",
+      "parent_task_id": "RS-INVENTORY-RATIONAL-REPROOF-INTEGRATION-20261123",
+      "dependencies": [],
+      "findings": []
+    },
+    {
+      "task_id": "RS-C78-EFFECTIVE-RATIONAL-IDENTIFICATION-20261123",
+      "title": "C78 原全库存的有限识别误差与可复算阈值",
+      "priority": "P1",
+      "base_weight": 30,
+      "publication_id": "TP2-9B877E4C74293B30F2EF",
+      "taskbook_path": "research_tasks/RS-C78-EFFECTIVE-RATIONAL-IDENTIFICATION-20261123.md",
+      "taskbook_blob_sha1": "sha1:02a01c65498dd423eb0625ef64b83bb9f903f6c8",
+      "record_path": "research_task_records/RS-C78-EFFECTIVE-RATIONAL-IDENTIFICATION-20261123/TP2-9B877E4C74293B30F2EF.json",
+      "lineage": "CONTINUATION",
+      "parent_task_id": "RS-INVENTORY-RATIONAL-REPROOF-INTEGRATION-20261123",
+      "dependencies": [],
+      "findings": []
+    },
+    {
+      "task_id": "RS-C87-EFFECTIVE-NATIVE-HAAR-BRIDGE-20261123",
+      "title": "C87 原全库存到 Haar 联合模型的原点一致有效桥",
+      "priority": "P1",
+      "base_weight": 30,
+      "publication_id": "TP2-88A707ADEABAE7CF886F",
+      "taskbook_path": "research_tasks/RS-C87-EFFECTIVE-NATIVE-HAAR-BRIDGE-20261123.md",
+      "taskbook_blob_sha1": "sha1:ef64119b2372638621ecb05846505ad22b334f56",
+      "record_path": "research_task_records/RS-C87-EFFECTIVE-NATIVE-HAAR-BRIDGE-20261123/TP2-88A707ADEABAE7CF886F.json",
+      "lineage": "CONTINUATION",
+      "parent_task_id": "RS-INVENTORY-RATIONAL-REPROOF-INTEGRATION-20261123",
+      "dependencies": [],
+      "findings": []
+    },
+    {
+      "task_id": "RS-C87-EFFECTIVE-HIGH-PRECISION-ORDER-20261123",
+      "title": "C87 高精度位置排序的有效余项与起效倍率",
+      "priority": "P2",
+      "base_weight": 20,
+      "publication_id": "TP2-5051ACB7EE9FDEEAF2BD",
+      "taskbook_path": "research_tasks/RS-C87-EFFECTIVE-HIGH-PRECISION-ORDER-20261123.md",
+      "taskbook_blob_sha1": "sha1:271016534d67ef94b4a1e3c477aa9fa67643ba8c",
+      "record_path": "research_task_records/RS-C87-EFFECTIVE-HIGH-PRECISION-ORDER-20261123/TP2-5051ACB7EE9FDEEAF2BD.json",
+      "lineage": "CONTINUATION",
+      "parent_task_id": "RS-INVENTORY-RATIONAL-REPROOF-INTEGRATION-20261123",
+      "dependencies": [],
+      "findings": []
+    }
+  ]
+}
