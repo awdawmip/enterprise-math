@@ -1,0 +1,90 @@
+{
+  "schema": "R762JW_FIVE_SINGLETON_QUOTIENT_EVIDENCE_V1",
+  "date": "2026-11-23",
+  "scope": "composite unsigned six-axis Port-Euler observer; quotient GF(2) parity and quotient connectivity only",
+  "frozen_input": "R762JT@6fda34681d94d915894ec5f1c32d1e3654102865",
+  "immediate_predecessor": "R762JV@a01f02bf6244901593d82b3e5afe4dd100ee3d36",
+  "canonical_matching_representatives": [
+    "",
+    "01",
+    "01,23",
+    "01,23,45"
+  ],
+  "D_sets_per_matching": 15504,
+  "total_representative_cases": 62016,
+  "active_supports_with_five_singleton": 20,
+  "theorem": "For every canonical matching M, five-singleton D, and even quotient boundary target b, a choice of one legal side per singleton realizes b and connects flexible-component quotients with all forced non-singleton edges.",
+  "observations": [
+    {
+      "m": 0,
+      "connected_graphs": 15264,
+      "disconnected_graphs": 240,
+      "c_spectrum": {
+        "1": 15264,
+        "2": 240
+      },
+      "unreachable_even_masks": 0,
+      "quotient_connectivity_failures": 0
+    },
+    {
+      "m": 1,
+      "connected_graphs": 14332,
+      "disconnected_graphs": 1172,
+      "c_spectrum": {
+        "1": 14332,
+        "2": 1160,
+        "3": 12
+      },
+      "unreachable_even_masks": 0,
+      "quotient_connectivity_failures": 0
+    },
+    {
+      "m": 2,
+      "connected_graphs": 11496,
+      "disconnected_graphs": 4008,
+      "c_spectrum": {
+        "1": 11496,
+        "2": 3648,
+        "3": 356,
+        "5": 4
+      },
+      "unreachable_even_masks": 0,
+      "quotient_connectivity_failures": 0
+    },
+    {
+      "m": 3,
+      "connected_graphs": 8272,
+      "disconnected_graphs": 7232,
+      "c_spectrum": {
+        "1": 8272,
+        "2": 4752,
+        "3": 1584,
+        "4": 768,
+        "5": 72,
+        "6": 56
+      },
+      "unreachable_even_masks": 0,
+      "quotient_connectivity_failures": 0
+    }
+  ],
+  "verification": [
+    {
+      "filename": "R762JW_QUOTIENT_PARITY_DP.py",
+      "local_executed_sha256": "72c001573abaf6637a80ecb59499c5c13009ea8f06e0c8a90171586c867ae02f",
+      "result_output_sha256": "dba4251a595b77d85de45cec9b55ba4cdd35788b09f06bca8c3f49c3d323c2be"
+    },
+    {
+      "filename": "R762JW_QUOTIENT_CONNECTIVITY_BRUTE.py",
+      "local_executed_sha256": "403fee717ff597230c789877f1c4c9d0fd5036b01972d65905d739e0ac6c2ce5",
+      "result_output_sha256": "ab9c31deaa7c6b7a9a89d1ac6c96b1e1c4eb2967251959cd26525fba0654ae67"
+    }
+  ],
+  "status": "AUTHOR_EXACT_FINITE_THEOREM / DOUBLE_LOCAL_EXECUTION / NOT_REVIEWED",
+  "not_proved": [
+    "vertex-level connectivity after per-color parity realizations",
+    "strict positive even degree at all active Ports",
+    "universal 44-to-42 compressibility",
+    "P000 native signed Cell/BRC lift"
+  ],
+  "next": "Determine a color-multiplicity-aware intracomponent connectivity/positive-degree lift, or obtain an exact 44-event counterexample."
+}
