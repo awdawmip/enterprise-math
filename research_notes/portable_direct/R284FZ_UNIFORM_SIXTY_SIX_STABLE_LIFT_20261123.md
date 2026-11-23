@@ -1,0 +1,62 @@
+# R284FZ — Uniform lifting of 48 non-three-pattern stable residual families
+
+Date: 2026-11-23 (Asia/Shanghai). Mode: informed portable TASK_RESEARCH. Researcher: EM-DIRECT-5F7578; native activity RA-8B77C2DCFD13C94F9075CF8B. Scientific status: AUTHOR_PROVED_WITH_EXACT_FINITE_BASE / NOT_INDEPENDENTLY_REVIEWED. No shared CLAIM, formal Result or Foundation promotion.
+
+## Frozen model and exact theorem
+
+Retain the R284CO -> R284FM/R284FO -> R284FW/R284FY frozen four-phase binary observer model; this note changes neither P000 nor the ACTIVE worldview. There are four cyclic codewords c0,c1,c2,c3; each publication may omit at most q bit writes, old omitted-write residues persist without resets, and each read may flip at most u=1 bit. Normalize c0=0, with coordinate-pattern multiplicities x1,...,x7 indexed by the phase-(1,2,3) bits of p=1,...,7.
+
+Call a histogram **stable-admissible** when it satisfies all six R284FH/R284FO codeword-distance necessary inequalities and all six exact R284FM stable residual min-cut inequalities. These test fully published phases, **not** all intermediate non-atomic prefixes. With n=4q+k and k in {8,9}, the following holds for every integer q>=5.
+
+**R284FZ-1 (uniform existence and incompressible observer modes).** There exist at least 7 distinct stable-admissible seven-pattern histograms at k=8, and at least 66 at k=9. The latter constructed 66 split into 18 supported only on {3,5,6} and **48 with some positive mass in {1,2,4,7}**. These 48 persist for every q>=5 and cannot be represented as three-pattern histograms merely by dropping their rare columns. At q=5, exhaustive seven-pattern enumeration gives *exactly* 7 and 66 stable-admissible histograms, respectively; no claim of exhaustive full seven-pattern classification for every q is made.
+
+This strengthens R284FY, which analytically classified only the three-pattern face (7 and 18). It establishes the persistent existence of the missing 48 outside that face, preserving their provenance and actual pattern distinctions. Stable-admissible histograms remain only necessary-condition candidates for a full publication protocol.
+
+## Exact graph formulation
+
+For pair (i,j), each changing pattern p determines one residual-incidence edge connecting the last-update group of p at phase i to the last-update group at phase j. Each group has omission capacity q. For each nonempty subset U of the eight possible group vertices, let E(U) denote the total weight of pattern edges whose two endpoints lie in U. The R284FM exact stable separation condition for u=1 is the existence of a U with
+
+    E(U) >= q |U| + 3.                               (1)
+
+A two-vertex witness consists of one source and one target residual group, with all patterns sharing that pair as its edge class. Its exact inequality is
+
+    sum_{p in edge_class} x_p >= 2q+3.               (2)
+
+The codeword distance bounds are d(i,j)>=2q+5 for adjacent cyclic phases and d(i,j)>=2q+3 for opposite phases. They are applied to all six pairs.
+
+## Exact finite base enumeration
+
+The companion checker independently reconstructs four phase bits per pattern, each phase's most recent changing edge, all 256 vertex subsets for each of six pair graphs, and each subset's exact integer capacity. It enumerates **all** weak seven-part compositions at q=5 for n=28 and n=29, i.e. C(34,6)=1,344,904 and C(35,6)=1,623,160. Before cut filtering, 24,052 and 49,708 candidates satisfy all six nominal distance necessities; all six exact cuts retain 7 and 66 candidates.
+
+For every one of these 73 base candidates, precisely two of x3,x5,x6 are >=12; the remaining one is <=3. Let G(x) be that distinguished two-pattern set. Base counts by G are:
+
+| width k | G={3,5} | G={3,6} | G={5,6} | total |
+|---|---:|---:|---:|---:|
+| 8 | 3 | 1 | 3 | 7 |
+| 9 | 28 | 10 | 28 | 66 |
+
+The same exhaustive checker establishes two more finite facts for **each** base histogram x and **every** pair (i,j):
+(a) at least one p in G(x) changes between i and j;
+(b) there exists a two-vertex residual cut whose edge class contains at least one p in G(x) and has base weight >=13. Both assertions use exact integers and are explicitly asserted by the companion program, rather than guessed from the total stable counts.
+
+## Uniform lifting lemma and proof
+
+For any base histogram x described above and integer q>=5, define
+
+    L_q(x)_p = x_p + 2(q-5) * 1_{p in G(x)}.          (3)
+
+Then sum_p L_q(x)_p = (20+k)+4(q-5)=4q+k.
+
+For every pair (i,j), the nominal distance gains 2(q-5) per growing pattern which differs across the pair. Base fact (a) guarantees an increase of at least 2(q-5), matching the increase in both the adjacent and opposite distance thresholds. Hence all six distance necessities hold.
+
+For every pair, select the base two-vertex witness from fact (b). Its two endpoint groups remain unchanged by the histogram lift, and its weight gains at least 2(q-5), because at least one of its supported patterns belongs to G(x). By (2) its new weight is at least 13+2(q-5)=2q+3, so (1) holds at q. This proves all six exact stable separation cuts for every integer q>=5. Crucially the argument preserves distinct last-write source/target groups and their per-edge budgets; replacing them by one aggregate Hamming error budget would not prove the lemma.
+
+The lifted histograms remain distinct: the two growing types have multiplicities >=2q+2, while the third among {3,5,6} remains <=3. Thus G(x) is recoverable from the lifted histogram itself; histograms with different G cannot collide. Within a fixed G the map is an injective coordinate translation. The exact count of constructed families is therefore 7 and 66 for every q>=5. For k=9, the four non-face coordinates are unchanged by (3), so precisely 48 of the constructed histograms continue to have nonzero {1,2,4,7} mass.
+
+## Reproducibility and current boundary
+
+Companion executable: `research_notes/portable_direct/R284FZ_uniform_66_stable_lift.py`, GitHub commit `0e74ce808960f2418ee00089ba82915c3448160a`. Standard-library Python integer enumeration and six-pair cut verification were executed locally: exact base counts 7/66, total 2,968,064 histograms, 73,760 nominal-distance survivors; the program then verified each constructed family at q=5,6,7,11,20,64, along with the structural premises of the all-q induction. A separate C++ implementation of the original six-cut scan was also compiled and executed at q=5,6,7, independently finding 7/66 at each width. The universal quantifier in this result rests on (3) and the two-vertex witness argument, not the six sample q values.
+
+The proof establishes **uniform feasible stable-endpoint families**; it does not establish whether any of the 66 admit a legal non-atomic write order, nor whether other stable histograms arise for q>5. R284FW's 11-family second-edge barrier applies to its exact named families, not automatically to all 66. Next: (1) derive a parameter-uniform converse reducing all seven-pattern stable configurations to these affine templates; (2) use last-update provenance to classify first-edge survivors among the 48 mixed-mode families and connect them to the proven second-edge obstruction. This would address the remaining gap toward the unrestricted conjecture n_min(q,1)=4q+10 for all q>=2.
+
+Scientific authorship and prior provenance: R284FM exact residual flow cut, R284FO six nominal-distance framework, R284FY three-pattern analytic face, R284FV/R284FX finite full scans, R284FW conditional prefix obstruction. No mathematical independence or canonical acceptance is asserted.
