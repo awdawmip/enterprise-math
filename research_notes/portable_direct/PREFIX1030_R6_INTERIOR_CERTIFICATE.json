@@ -1,0 +1,83 @@
+{
+  "schema": "PREFIX1030_R6_BERNSTEIN_LOCALIZATION_CERTIFICATE_V1",
+  "date": "2026-11-23",
+  "frozen_scientific_source": "awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d:p000_reality_foundation.json",
+  "observer": "Stage46 signed W=J12-6I12; coherent X6 Cell-terminal-port-grade; derived axis contrast only",
+  "N": 5000,
+  "domain": "integers m,k >= 0, m+k <= 5000",
+  "total_integer_pairs": 12507501,
+  "strictly_positive_pairs": 12507501,
+  "nonpositive_pairs": 0,
+  "arithmetic": "Python arbitrary precision integers, Fraction for A6 contrast, exact difference recurrence",
+  "a_0_to_a_4": [
+    2412,
+    25620,
+    386028,
+    7124592,
+    149251656
+  ],
+  "crosscheck_1200_full_sha256": "a7565656208a7ff3f6fd9ff269a63879b8e0d3e76c3537dcaf130e7241e60d06",
+  "crosscheck_1200_m_ge_1_sha256": "b626fc2e4e12db5ce219ab6f5e69f0c0344f38d6fe63d189a768a935d888439e",
+  "crosscheck_result": "Both hashes exactly reproduced with independent N=1200 run, ASCII lines m,k,E with ascending k then m",
+  "normalized_probe_formula": "D[m,k]=(m+k+1)*binom(m+k,m)*E[m,k]/36^(m+k+1), exact rational; decimals below are display only",
+  "selected_N5000_probes": [
+    {
+      "m": 250,
+      "k": 4750,
+      "spectral_y": "1.8",
+      "D_decimal": "118.291065925357049111396317105595402753636208"
+    },
+    {
+      "m": 500,
+      "k": 4500,
+      "spectral_y": "3.6",
+      "D_decimal": "160.079166872370135018491655896539970286535257"
+    },
+    {
+      "m": 1000,
+      "k": 4000,
+      "spectral_y": "7.2",
+      "D_decimal": "149.704319437834403354979634986198095160375965"
+    },
+    {
+      "m": 1666,
+      "k": 3334,
+      "spectral_y": "11.9952",
+      "D_decimal": "123.673177997036321572754803919717045981278954"
+    },
+    {
+      "m": 2500,
+      "k": 2500,
+      "spectral_y": "18",
+      "D_decimal": "59.3028416607130778515381144813611532692624586"
+    },
+    {
+      "m": 3333,
+      "k": 1667,
+      "spectral_y": "23.9976",
+      "D_decimal": "32.6527607833943604734397779595027597865435894"
+    },
+    {
+      "m": 4000,
+      "k": 1000,
+      "spectral_y": "28.8",
+      "D_decimal": "10.8800244732842382134754070468003492100346816"
+    },
+    {
+      "m": 4500,
+      "k": 500,
+      "spectral_y": "32.4",
+      "D_decimal": "2.138607385783029374"
+    },
+    {
+      "m": 4750,
+      "k": 250,
+      "spectral_y": "34.2",
+      "D_decimal": "0.398650955597151809754819572893770281461485176"
+    }
+  ],
+  "proof_scope": "Theorem A distributional identity unconditional; Theorem B interior density limit conditional on local density assumptions; Theorem C quantitative approximate positivity follows from exact finite N=5000 positives",
+  "acceptance": "AUTHOR_EXACT_INTEGER_CHECKED; NOT_REVIEWED; global E positivity open",
+  "source_script": "research_notes/portable_direct/PREFIX1030_R6_BERNSTEIN_LOCALIZATION_CHECK.py",
+  "source_note": "research_notes/portable_direct/2026-11-23_r6_prefix1030_bernstein_localization.md"
+}
