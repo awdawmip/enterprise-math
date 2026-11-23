@@ -1,0 +1,269 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT3_7_NEG11122_AUTHOR_EXACT_SLICE_V1",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "author": "EM-DIRECT-D03BC9",
+  "activity": "RA-A468735D7C934B25C4B9614F",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "signed_split": [
+    3,
+    7
+  ],
+  "negative_q_pattern": [
+    1,
+    1,
+    1,
+    2,
+    2
+  ],
+  "interval": [
+    4096,
+    8192
+  ],
+  "total_negative_rosters": 28392,
+  "positive_q_patterns": [
+    [
+      3
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      1,
+      1,
+      1
+    ]
+  ],
+  "budget_each_side": 2331,
+  "lattice_index": "13^21",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "stats": {
+    "negative_rosters": 4096,
+    "positive_rosters": 520,
+    "raw_signed_pairs": 2129920,
+    "common_named_atom_canceled": 928093,
+    "vertical_original_mass_excess": 0,
+    "gs_searches": 1201827,
+    "gs_nodes": 2432328,
+    "relaxed_sphere_witnesses": 3,
+    "both_original_side_mass_valid": 0
+  },
+  "negative_roster_sha256": "7226cbce91a89083c546c43fd8bdb27647622a9b95317752324a6fc6fb10ae0d",
+  "pair_digest_sha256": "c07667770d60efa41092889cbd876b553c431a8411e219775f7916f242470c97",
+  "witnesses": [
+    {
+      "pos": [
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "u": [
+        69,
+        -36,
+        -17,
+        -13,
+        7,
+        -8,
+        0,
+        2,
+        2,
+        -3,
+        -4,
+        -2
+      ],
+      "masses": [
+        2362,
+        5502
+      ],
+      "radius_sq": 3677050,
+      "budget_valid": false,
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "negative_roster_index": 6205,
+      "positive_roster_index": 54
+    },
+    {
+      "pos": [
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          5
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "u": [
+        -7,
+        -32,
+        -10,
+        -12,
+        7,
+        -6,
+        2,
+        8,
+        5,
+        0,
+        4,
+        -3
+      ],
+      "masses": [
+        3209,
+        4137
+      ],
+      "radius_sq": 3959293,
+      "budget_valid": false,
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "negative_roster_index": 7722,
+      "positive_roster_index": 40
+    },
+    {
+      "pos": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          1,
+          12
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "u": [
+        10,
+        -14,
+        14,
+        22,
+        -7,
+        -6,
+        -6,
+        4,
+        -3,
+        1,
+        -2,
+        -1
+      ],
+      "masses": [
+        3144,
+        4051
+      ],
+      "radius_sq": 3007693,
+      "budget_valid": false,
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "negative_roster_index": 7772,
+      "positive_roster_index": 233
+    }
+  ],
+  "author_replay_base": "awdawmip/enterprise-math@a466be736446891b423809b0ba23cb37ec123502:research_checks/T6_P13_Q10_SPLIT3_7_NEG1123_INTEGER_GS_REPLAY_20261124.py",
+  "replay_exact_replacements": [
+    [
+      "negatives=[((1,r),(1,s),(2,t),(3,u)) for r,s in combinations_with_replacement(range(1,13),2) for t,u in product(range(1,13),repeat=2)]",
+      "negatives=[tuple((1,r) for r in v)+tuple((2,t) for t in w) for v in combinations_with_replacement(range(1,13),3) for w in combinations_with_replacement(range(1,13),2)]"
+    ],
+    [
+      "len(negatives)==11232",
+      "len(negatives)==28392"
+    ],
+    [
+      "negative_q_pattern=[1,1,2,3]",
+      "negative_q_pattern=[1,1,1,2,2]"
+    ]
+  ],
+  "validation": "Actual local Python/SymPy 1.14 exact integer GS; 16.285554777 seconds measured replay. Conditional on earlier cancellation and lattice completeness. No independent review or formal admission.",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "next_action": "Continue at index 8192 to 28392; preserve all completed intervals."
+}
