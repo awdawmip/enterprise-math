@@ -1,0 +1,191 @@
+{
+  "schema": "EC49FXR_SYMBOL_R2_ARBITRARY_RESULT_V1",
+  "scientific_pin": "BRC16943",
+  "model": "FROZEN_FAREY_CRT_WHOLE_ACTIVATION_SYMBOL",
+  "r": 2,
+  "claim": "N_2(A)=15-max_{E,x}(|E|+#nonE_colors_with_at_least_two_safe_groups_avoiding_all_doubled_sums)",
+  "examples": {
+    "good": {
+      "A": [
+        1,
+        3,
+        5,
+        10,
+        12,
+        15,
+        17,
+        19,
+        20,
+        22,
+        25,
+        27,
+        30,
+        32,
+        35,
+        37,
+        40,
+        42,
+        45,
+        47,
+        50,
+        52
+      ],
+      "hist": [
+        10,
+        1,
+        9,
+        1,
+        1
+      ],
+      "T": [
+        1,
+        2,
+        10,
+        10,
+        10
+      ],
+      "optimum": 10,
+      "search_assignments": 7986,
+      "chosen_E": [
+        0,
+        1,
+        4
+      ],
+      "doubled_groups": [
+        0,
+        31,
+        24
+      ],
+      "chosen_distinct_pairs": {
+        "2": [
+          2,
+          7
+        ],
+        "3": [
+          33,
+          38
+        ]
+      },
+      "physical_layout": [
+        0,
+        2,
+        7,
+        24,
+        31,
+        33,
+        38,
+        55,
+        79,
+        86
+      ],
+      "verification": {
+        "checked": 1210,
+        "min": 2,
+        "worst": [
+          1,
+          0,
+          0
+        ]
+      }
+    },
+    "bad": {
+      "A": [
+        1,
+        3,
+        4,
+        5,
+        10,
+        12,
+        15,
+        17,
+        20,
+        22,
+        25,
+        27,
+        30,
+        32,
+        35,
+        37,
+        40,
+        42,
+        45,
+        47,
+        50,
+        52
+      ],
+      "hist": [
+        10,
+        1,
+        9,
+        1,
+        1
+      ],
+      "T": [
+        1,
+        2,
+        10,
+        10,
+        10
+      ],
+      "optimum": 11,
+      "search_assignments": 7986,
+      "chosen_E": [],
+      "doubled_groups": [],
+      "chosen_distinct_pairs": {
+        "1": [
+          1,
+          31
+        ],
+        "2": [
+          7,
+          12
+        ],
+        "3": [
+          3,
+          8
+        ],
+        "4": [
+          4,
+          9
+        ]
+      },
+      "physical_layout": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        7,
+        8,
+        9,
+        10,
+        12,
+        31
+      ],
+      "verification": {
+        "checked": 1210,
+        "min": 2,
+        "worst": [
+          1,
+          3,
+          0
+        ]
+      }
+    }
+  },
+  "small_full_color_cases": 32,
+  "small_rows": 8800,
+  "generated_cases": 600,
+  "generated_rows": 1220615,
+  "random_seed": 49231123,
+  "optimum_distribution": {
+    "10": 162,
+    "11": 148,
+    "12": 116,
+    "13": 101,
+    "14": 73
+  },
+  "total_exact_rows": 1231835,
+  "status": "PASS",
+  "independent_review": "NOT_REVIEWED"
+}
