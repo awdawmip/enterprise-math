@@ -4,7 +4,7 @@ Date 2026-11-23 · immutable science `awdawmip/enterprise-math@d84bd940cfb093cdc
 
 ## Completed signed split (1,8)
 
-The exact finite author computation has now closed **all negative lengths one through eight** for maximal p13, valuation-one, q-order split (1,8). Across the 90? Here positive side is one q1 named residue (12 choices), while negative side has all partitions of q-order8. Every named atom, multiplicity and sign was retained; identical opposite-side atoms were canceled into lower-order cases. After six exact mixed 13-adic congruences, 12D saturated q0 affine GS enumeration and both full original mass caps:
+The exact finite author computation has now closed **all negative lengths one through eight** for maximal p13, valuation-one, q-order split (1,8). The positive side has one q1 named residue (12 choices), while the negative side runs through all partitions of q-order8. Every named atom, multiplicity and sign was retained; identical opposite-side atoms were canceled into lower-order cases. After six exact mixed 13-adic congruences, 12D saturated q0 affine GS enumeration and both full original mass caps:
 
 - 6,254,820 raw signed pairs.
 - 1,847,520 common-named-atom cancellations.
