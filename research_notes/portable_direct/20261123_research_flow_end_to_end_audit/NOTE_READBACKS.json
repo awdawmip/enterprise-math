@@ -1,0 +1,35 @@
+{
+  "observed_date": "2026-11-23",
+  "status": "SAVED_AND_READ_BACK",
+  "notes": [
+    {
+      "note_id": "RESEARCH.triangle-correlation.20261123.scope.v2",
+      "revise": "RESEARCH.triangle-correlation.20261122.scope.v1",
+      "body": "RH 完整道路｜全窗口采样认证与实际算术能量的接续位置\n这是截至 2026-11-23 已保存的同一成果链，沿 Activity RA-60C6D083A81B19084A74C5BA 续接。三角矩、逐包相位及独立最小值筛选 no-go 是前置结果；其后已保存保留负祖先的树包络、有理势自适应采样，最新批次为全窗口采样分配、浅树近似与端点能量认证。\n最新全窗口定理在整数 4≤A<B、B^(−1/40)≤r≤1 且匹配误差 ε_B 有界的条件下，用 O(B^(1/4)/r) 个真实观察点，使包络与实际道路的正能量平方根之差为 O(r²)。这已去掉逐块强制的固定正幂对数加密。总预算的整数优化、一般源信息类的匹配阶下界、浅树加法近似及端点谐和矩认证均已在正文给出。源信息下界的范围是所声明一般类；真实算术来源的额外结构仍可研究。\n下一步消费这些现成观察和认证结果，估计真实无界匹配窗口、统一匹配参数下完整道路的正能量。保留 q(y)=y(ΣD_n/n−log y+1+γ)−ΣD_n 两条联合前缀的抵消，在优化网格上研究联合误差和样本间关联；三角矩 σ_H、大除数尾交叉项与真实骨架仍是可用入口。真实点值的前缀计算成本与采样数量分开。\n证据状态：作者解析证明、同一研究内的定向交叉核对及严格有限证书。Source 保存和 Activity 关联已具备；正式 Result、独立 Project Review 与项目晋升保持原状态。此笔记提炼已有来源，不增加新证明。",
+      "sources": [
+        "4d63cb1b1fc65a21c940a17e3eae5c691017e24a:research_notes/portable_direct/rh_global_sampling_20261123_b5750a/REPORT.md#L1-L32",
+        "4d63cb1b1fc65a21c940a17e3eae5c691017e24a:research_notes/portable_direct/rh_global_sampling_20261123_b5750a/REPORT.md#L77-L141",
+        "4d63cb1b1fc65a21c940a17e3eae5c691017e24a:research_notes/portable_direct/rh_global_sampling_20261123_b5750a/REPORT.md#L471-L490",
+        "2e8a9aad42950ce4e0980e284772f23ba8e8da21:research_notes/portable_direct/rh_triangle_correlation_20261122_b5750a/REPORT.md#L1-L11",
+        "2e8a9aad42950ce4e0980e284772f23ba8e8da21:research_notes/portable_direct/rh_triangle_correlation_20261122_b5750a/REPORT.md#L259-L281"
+      ],
+      "current": true,
+      "text_and_sources_matched": true
+    },
+    {
+      "note_id": "X6.R90.near-directions.sharp-port.20261123.routing.v1",
+      "revise": "X6.R90.near-directions.sharp-port.20261122.v20",
+      "body": "X6 六对 BRC｜当前结果与接续问题（2026-11-23）\nTASK／知情研究。对象是四个正实权重、整数 Port、保留全部六个高度差的条件观察器；方向按 ±a 识别，不按正倍数识别。严格近优条件为 F_w(a)<3η_p(w)/2。这里的 Port/权重参数变化与原生 P000 时间动力学分别定型。\n已完成的同题结果：\n• 整数 Port 1–10 的精确最优值由固定18行库按 Port 过滤取得（EM R121）；p≥11 的 R120 优化器和其余既有全域结果沿下述历史笔记取原证明。\n• 对同一组权重计算同时严格近优数，再在正权重上取最大：Port 1–10 的最大值依次为 1,4,4,6,6,7,7,7,7,8。Port10恰有四个最大方向集合。该问题已由后续 R123 精确分类完成。旧入口中“Ports3–10仍开放”反映的是此前前沿。\n• 跨不同权重取可达方向并集，是另一问题；它的图谱和同权重最大值分别沿 R121/R123 的来源使用，不能互换数量。\nR123 完整分类、严格可行性证明、复算及全部最大集合的固定原文在全局库：\nhttps://github.com/awdawmip/chatgpt-global-knowledge/blob/6a676d22f1f5aaa46c746c2f32fbd8d65bd3503c/journal/enterprise-math/2026-11-23/x6-r123-small-port-simultaneous-maximum.md\n下方 EM source 段支持观察器、低Port优化器和R130；该R123全域分类按上方原文读取。\n其它已保存的分支——p≥11尖锐最大数、八个十二方向构型、权重锥与局部边界、首次外部方向、固定权重跨Port恢复前沿及B射线——在旧笔记 X6.R90.near-directions.sharp-port.20261122.v20 保留完整假设和全部固定证明链接。需要这些对象时直接读取旧笔记相应分支；其历史次序不作为今天未决问题清单。\n近期抽查的另一分支是 EM R130：固定前三个物理权重(722,465,240)，Port=10，对每个实数D>0给出完整优化器与严格近优集合。其精确根分割复用R121/R122有限原子，却计算了不同于R127/R128D/R129的D射线。原文为作者精确参数证明及Fraction复算，等待独立数学审核：\nhttps://github.com/awdawmip/enterprise-math/blob/59e7d1e4c4717c0aaa6d5db1f016f62f1180c36d/research_notes/portable_direct/2026-11-23_r2_x6_r130_class_iv_port10_D_ray.md\n可继续研究四条射线的八方向区域在横向改变A,B,C时的几何，或从有限原子排列提取一般复杂度界；完整条件和提问以R130末节为准。不同权重族、Port域、严格边界、加强范围及独立复核可有研究价值；已关闭的同假设最大值直接复用。本笔记仅更新理解与路由，各原文的证明、核验和项目接纳状态保持原样。",
+      "sources": [
+        "f91153e973167d5b211a03a3510a7bd0496c82c3:research_notes/portable_direct/2026-11-22_x6_r104_thirteen_class_robust_gap_and_finite_box.md#L8-L30",
+        "8085ff663b5987c58a1bc0a4a3b1d7da3a1d89fd:research_notes/portable_direct/2026-11-23_r2_x6_r121_small_port_exact_optimizer.md#L1-L41",
+        "59e7d1e4c4717c0aaa6d5db1f016f62f1180c36d:research_notes/portable_direct/2026-11-23_r2_x6_r130_class_iv_port10_D_ray.md#L1-L20",
+        "59e7d1e4c4717c0aaa6d5db1f016f62f1180c36d:research_notes/portable_direct/2026-11-23_r2_x6_r130_class_iv_port10_D_ray.md#L74-L89"
+      ],
+      "current": true,
+      "text_and_sources_matched": true
+    }
+  ],
+  "x6_previous_characters": 8670,
+  "x6_current_characters": 1345
+}
