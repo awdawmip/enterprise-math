@@ -1,0 +1,472 @@
+{
+  "schema": "ENTERPRISE_MATH_T6_P13_Q9_AUTHOR_EXACT_FINITE_CERT_V1",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "frozen_taskbook_commit": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "frozen_taskbook_path": "research_tasks/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260909.md",
+  "scope": {
+    "largest_prime": 13,
+    "valuation": 1,
+    "vertical_order": 9,
+    "split": [
+      0,
+      9
+    ],
+    "number_of_vertical_atoms_min": 1,
+    "number_of_vertical_atoms_max": 5,
+    "denominator": "13(13*q+r)",
+    "weight": "169*q+13*r-1",
+    "residues": "r=1..12",
+    "max_side_mass": 2331,
+    "mixed_congruence": "sum_r u_r*r^(-j) - sum_(q,r) in minus (13*q+r)^(-j) = 0 (mod 13^j), j=1..6"
+  },
+  "method": {
+    "exact_arithmetic": "Python arbitrary precision integers, fractions.Fraction and SymPy exact HNF/LLL/Gram-Schmidt",
+    "lattice_index": "247064529073450392704413",
+    "gs_minimum_diagonal_squared": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+    "upper_bound_radius_squared": 10867122,
+    "rosters": "For each integer partition of 9 with at most 5 parts, nondecreasing residues within equal-q groups, all r=1..12; each roster once.",
+    "search": "Reconstruct exact affine coset center; branch floor/ceil at each GS index with exact residual <= (2331)^2+(2331-vertical_cost)^2; check two original mass caps and six congruences.",
+    "code_path": "research_checks/T6_P13_Q9_SPLIT0_9_LEN1TO5_REPLAY_20261123.py",
+    "code_commit": "b1856219569b58c531e5852989e37ce6617c867c",
+    "published_checker_postpublication_replay": "NOT_PERFORMED"
+  },
+  "independent_local_run_slices": [
+    {
+      "lengths": [
+        1,
+        2,
+        3
+      ],
+      "configurations": 8944,
+      "gs_nodes": 25249,
+      "sphere_leaves": 0,
+      "budget_valid": 0,
+      "source_order_sha256": "7b4bc6b56a5a2c976559d04bc08aeffcd249dad27c31c0d850889262d07ff026",
+      "local_json_sha256": "9eec8de00847e01b5a4759d2d97ea025abb4af2582410dae6377416dd201f821"
+    },
+    {
+      "lengths": [
+        4
+      ],
+      "configurations": 53664,
+      "gs_nodes": 150325,
+      "sphere_leaves": 1,
+      "budget_valid": 0,
+      "source_order_sha256": "c3ebf751c01bc5719271f91ce4e20c7cd05803a3fdcee6aa15018591690c3cda",
+      "local_json_sha256": "c33c1720ec4ff158f2f83c7dcaff1c43ad153494d080be273ba3f4e1a5e4beae"
+    },
+    {
+      "lengths": [
+        5
+      ],
+      "configurations": 186576,
+      "gs_nodes": 518602,
+      "sphere_leaves": 2,
+      "budget_valid": 0,
+      "source_order_sha256": "eeb6d643be46329e29881072580ac17aedfeea123c91b3e6064e9479dc798f4c",
+      "local_json_sha256": "UNKNOWN_LOCAL_RUN_OUTPUT_BYTE_SHA_UNRECORDED"
+    }
+  ],
+  "exact_by_pattern": [
+    {
+      "pattern": [
+        9
+      ],
+      "rosters": 12,
+      "gs_nodes": 31,
+      "leaves": 0
+    },
+    {
+      "pattern": [
+        1,
+        8
+      ],
+      "rosters": 144,
+      "gs_nodes": 421,
+      "leaves": 0
+    },
+    {
+      "pattern": [
+        2,
+        7
+      ],
+      "rosters": 144,
+      "gs_nodes": 412,
+      "leaves": 0
+    },
+    {
+      "pattern": [
+        3,
+        6
+      ],
+      "rosters": 144,
+      "gs_nodes": 424,
+      "leaves": 0
+    },
+    {
+      "pattern": [
+        4,
+        5
+      ],
+      "rosters": 144,
+      "gs_nodes": 405,
+      "leaves": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        7
+      ],
+      "rosters": 936,
+      "gs_nodes": 2682,
+      "leaves": 0
+    },
+    {
+      "pattern": [
+        1,
+        2,
+        6
+      ],
+      "rosters": 1728,
+      "gs_nodes": 4859,
+      "leaves": 0
+    },
+    {
+      "pattern": [
+        1,
+        3,
+        5
+      ],
+      "rosters": 1728,
+      "gs_nodes": 4849,
+      "leaves": 0
+    },
+    {
+      "pattern": [
+        1,
+        4,
+        4
+      ],
+      "rosters": 936,
+      "gs_nodes": 2670,
+      "leaves": 0
+    },
+    {
+      "pattern": [
+        2,
+        2,
+        5
+      ],
+      "rosters": 936,
+      "gs_nodes": 2576,
+      "leaves": 0
+    },
+    {
+      "pattern": [
+        2,
+        3,
+        4
+      ],
+      "rosters": 1728,
+      "gs_nodes": 4909,
+      "leaves": 0
+    },
+    {
+      "pattern": [
+        3,
+        3,
+        3
+      ],
+      "rosters": 364,
+      "gs_nodes": 1011,
+      "leaves": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        6
+      ],
+      "rosters": 4368,
+      "gs_nodes": 12248,
+      "leaves": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        2,
+        5
+      ],
+      "rosters": 11232,
+      "gs_nodes": 31130,
+      "leaves": 1
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        3,
+        4
+      ],
+      "rosters": 11232,
+      "gs_nodes": 31744,
+      "leaves": 0
+    },
+    {
+      "pattern": [
+        1,
+        2,
+        2,
+        4
+      ],
+      "rosters": 11232,
+      "gs_nodes": 31459,
+      "leaves": 0
+    },
+    {
+      "pattern": [
+        1,
+        2,
+        3,
+        3
+      ],
+      "rosters": 11232,
+      "gs_nodes": 31458,
+      "leaves": 0
+    },
+    {
+      "pattern": [
+        2,
+        2,
+        2,
+        3
+      ],
+      "rosters": 4368,
+      "gs_nodes": 12286,
+      "leaves": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        5
+      ],
+      "rosters": 16380,
+      "gs_nodes": 45365,
+      "leaves": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        2,
+        4
+      ],
+      "rosters": 52416,
+      "gs_nodes": 145850,
+      "leaves": 1
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        3,
+        3
+      ],
+      "rosters": 28392,
+      "gs_nodes": 79089,
+      "leaves": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        2,
+        2,
+        3
+      ],
+      "rosters": 73008,
+      "gs_nodes": 203222,
+      "leaves": 1
+    },
+    {
+      "pattern": [
+        1,
+        2,
+        2,
+        2,
+        2
+      ],
+      "rosters": 16380,
+      "gs_nodes": 45076,
+      "leaves": 0
+    }
+  ],
+  "totals": {
+    "complete_patterns": 23,
+    "configurations": 249184,
+    "vertical_mass_exceeded": 0,
+    "exact_gs_nodes": 694176,
+    "relaxed_leaves": 3,
+    "budget_valid": 0,
+    "remaining_full_order9_rosters": 1420536
+  },
+  "relaxed_witnesses": [
+    {
+      "pattern": [
+        1,
+        1,
+        2,
+        5
+      ],
+      "negative_roster": [
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          5,
+          7
+        ]
+      ],
+      "q0_signed_u": [
+        -128,
+        -16,
+        -12,
+        -21,
+        5,
+        -1,
+        4,
+        8,
+        1,
+        5,
+        1,
+        -4
+      ],
+      "positive_mass": 2407,
+      "negative_mass": 6041,
+      "radius_squared": 5636061
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        2,
+        4
+      ],
+      "negative_roster": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          4,
+          8
+        ]
+      ],
+      "q0_signed_u": [
+        -22,
+        -37,
+        4,
+        -24,
+        -4,
+        -5,
+        0,
+        6,
+        3,
+        3,
+        1,
+        7
+      ],
+      "positive_mass": 2732,
+      "negative_mass": 5038,
+      "radius_squared": 5553970
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        2,
+        2,
+        3
+      ],
+      "negative_roster": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "q0_signed_u": [
+        -28,
+        15,
+        -13,
+        -30,
+        21,
+        -4,
+        -2,
+        -6,
+        -1,
+        3,
+        0,
+        3
+      ],
+      "positive_mass": 2571,
+      "negative_mass": 5397,
+      "radius_squared": 5699817
+    }
+  ],
+  "dependencies": [
+    "p13 valuation>=2 author cancellation result",
+    "p13 q0 saturated 12D lattice exact bound",
+    "q9 exact input roster/mass preflight; no new status is assigned to these prior sources"
+  ],
+  "next_unchecked": "length 6 through 9 of the (0,9) minus-side roster, then other q9 splits",
+  "native_result": "NOT_PUBLISHED",
+  "independent_review": "NOT_PERFORMED",
+  "provenance": "Local author finite exact Python computation in this research run; summary and source-order slices preserved; published replay code has not been separately run after publication."
+}
