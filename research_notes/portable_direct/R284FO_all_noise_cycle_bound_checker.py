@@ -3,8 +3,7 @@
 
 Self-contained exact integer arithmetic. Enumerates all seven nonconstant
 four-phase column-pattern histograms at n=4q+5u+1. A surviving histogram
-would meet all four necessary write-prefix distances and the exact opposite-
-phase endpoint flow cuts of R284FM. None should survive in the tested range.
+would meet all four necessary write-prefix distances and all six exact endpoint flow cuts of R284FM. None should survive in the tested range.
 This is a finite crosscheck; the all-parameter theorem uses a written proof.
 """
 from itertools import combinations
@@ -52,8 +51,9 @@ def subset_cuts(i, j, q, u):
             for m, vertex_count in min_vertices.items()]
 
 
-def verify(q, u):
-    n = 4 * q + 5 * u + 1
+def verify(q, u, n=None):
+    if n is None:
+        n = 4 * q + 5 * u + 1
     adjacent = [(0, 1), (1, 2), (2, 3), (3, 0)]
     opposite = [(0, 2), (1, 3)]
     a = 2 * q + 4 * u + 1  # R284FH write-prefix necessary distance
@@ -62,7 +62,7 @@ def verify(q, u):
         tuple(p - 1 for p in range(1, 8) if PAT[p][0][i] != PAT[p][0][j]),
         a if (i, j) in adjacent else b)
         for i, j in adjacent + opposite]
-    cut_reqs = [subset_cuts(i, j, q, u) for i, j in opposite]
+    cut_reqs = [subset_cuts(i, j, q, u) for i, j in adjacent + opposite]
     total = passed_distance = passed_both_cuts = 0
     for x in weak_compositions(n, 7):
         total += 1
@@ -77,13 +77,15 @@ def verify(q, u):
     assert passed_both_cuts == 0, (q, u, passed_both_cuts)
     return {"q": q, "u": u, "boundary_n": n,
             "histograms": total, "meet_six_distances": passed_distance,
-            "meet_both_exact_opposite_cuts": passed_both_cuts}
+            "meet_all_six_exact_flow_cuts": passed_both_cuts}
 
 
 def main():
     cases = [verify(q, u) for q in range(5) for u in range(3)]
+    extra = [verify(3, 1, 19), verify(4, 1, 23), verify(5, 1, 27)]
     print(json.dumps({"claim": "n_min(q,u)>=4q+5u+2",
                       "checks": cases,
+                      "additional_finite_exclusions": extra,
                       "total_histograms": sum(v["histograms"] for v in cases),
                       "total_distance_survivors": sum(v["meet_six_distances"] for v in cases),
                       "all_boundary_candidates_excluded": True}, indent=2))
