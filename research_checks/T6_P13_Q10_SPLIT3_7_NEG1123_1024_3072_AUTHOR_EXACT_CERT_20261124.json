@@ -1,0 +1,121 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT3_7_NEG1123_AUTHOR_EXACT_SLICE_V1",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "signed_split": [
+    3,
+    7
+  ],
+  "negative_q_pattern": [
+    1,
+    1,
+    2,
+    3
+  ],
+  "interval": [
+    1024,
+    3072
+  ],
+  "total_negative_rosters": 11232,
+  "positive_q_patterns": [
+    [
+      3
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      1,
+      1,
+      1
+    ]
+  ],
+  "budget_each_side": 2331,
+  "lattice_index": "13^21",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "stats": {
+    "negative_rosters": 2048,
+    "positive_rosters": 520,
+    "raw_signed_pairs": 1064960,
+    "common_named_atom_canceled": 355504,
+    "vertical_original_mass_excess": 0,
+    "gs_searches": 709456,
+    "gs_nodes": 1462538,
+    "relaxed_sphere_witnesses": 1,
+    "both_original_side_mass_valid": 0
+  },
+  "negative_roster_sha256": "d4d9761635a6f424b3b8bcd87e654c163a300a0767e82c76da2add84730af1bf",
+  "pair_digest_sha256": "b1cc58c0cc412ff1d2e14d7fd305c0445c78e81003a31a1dd9cf30d7d3e7266f",
+  "witnesses": [
+    {
+      "pos": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          12
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "u": [
+        64,
+        -21,
+        -10,
+        -2,
+        1,
+        5,
+        -10,
+        -2,
+        6,
+        -4,
+        0,
+        -2
+      ],
+      "masses": [
+        2677,
+        4443
+      ],
+      "radius_sq": 3139418,
+      "budget_valid": false,
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "negative_roster_index": 1396,
+      "positive_roster_index": 326
+    }
+  ],
+  "author_replay": "awdawmip/enterprise-math@a466be736446891b423809b0ba23cb37ec123502:research_checks/T6_P13_Q10_SPLIT3_7_NEG1123_INTEGER_GS_REPLAY_20261124.py",
+  "prior_certificate": "awdawmip/enterprise-math@6ccecf9fae2c529f27f567a7be9146c0df190a77:research_checks/T6_P13_Q10_SPLIT3_7_NEG1123_0_1024_AUTHOR_EXACT_SEGMENTS_20261124.json",
+  "validation": "Locally executed transcription of pinned Python integer GS replay; same dmin; full original pair and roster digests; common named atom cancellation and saturation completeness are inherited premises. No independent review.",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "next_action": "Continue [3072,11232), preserving completed interval [0,3072)."
+}
