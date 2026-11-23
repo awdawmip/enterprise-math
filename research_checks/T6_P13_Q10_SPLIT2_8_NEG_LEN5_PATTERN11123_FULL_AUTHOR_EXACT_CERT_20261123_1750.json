@@ -1,0 +1,539 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT2_8_NEG_LEN5_11123_COMPLETE_AUTHOR_EXACT_V1",
+  "as_of": "2026-11-23",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "logical_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "model": "maximal-p13 v13=1; original signed H0..H6; vertical total q10 split(2,8)",
+  "positive_q_patterns": [
+    [
+      2
+    ],
+    [
+      1,
+      1
+    ]
+  ],
+  "negative_q_pattern": [
+    1,
+    1,
+    1,
+    2,
+    3
+  ],
+  "negative_roster_total": 52416,
+  "positive_roster_total": 90,
+  "source_order": "negative product(combinations_with_replacement(range(1,13),3) for q1; range(1,13) for q2; range(1,13) for q3), positive [(2,r),r1..12], then [(1,r1),(1,r2)] with r1<=r2",
+  "q0_weight": "13r-1",
+  "vertical_weight": "13(13q+r)-1",
+  "budget_each_side": 2331,
+  "six_moduli": [
+    13,
+    169,
+    2197,
+    28561,
+    371293,
+    4826809
+  ],
+  "saturated_lattice_index": "13^21",
+  "gs_min_diagonal_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "method": "HNF/LLL exact weighted saturated 12D q0 lattice, 6 integer mixed congruences, exact rational Gram-Schmidt sphere enumeration. Squared minimum GS diagonal exceeds 2*2331^2, so two nearest branches exhaustive under necessary mass sphere; every original signed named pair either identical atom canceled to previously covered lower-order case or exactly searched and checked against both-side original caps.",
+  "stats": {
+    "negative_rosters_visited": 52416,
+    "raw_signed_pairs": 4717440,
+    "common_named_atom_canceled": 1555776,
+    "vertical_original_mass_excess": 0,
+    "gs_searches": 3161664,
+    "gs_nodes": 6902083,
+    "relaxed_sphere_witnesses": 7,
+    "both_original_side_mass_valid": 0
+  },
+  "complete_raw_pair_digest_sha256": "1a64942bd2193b787ede3590bb371c50e65a70bd40d0e8a2f5d16c6f88d5e80c",
+  "source_order_digest_independent_reconstruction": "PASS; 52,416 negative rosters, 90 named positive variants per roster",
+  "exact_contiguous_slices": [
+    {
+      "start": 0,
+      "end": 8192,
+      "pair_digest_sha256": "c884115747b8b7d7dda3c538e8a8af6fd58007b2e5efa060af182641e1ec46f1",
+      "gs_nodes": 1069160,
+      "relaxed_sphere_witnesses": 1
+    },
+    {
+      "start": 8192,
+      "end": 16384,
+      "pair_digest_sha256": "09859203ef0ed7f8534d2853bcbbbcae42a1377a8b2a6392f9ef2fe98eebdb09",
+      "gs_nodes": 1072251,
+      "relaxed_sphere_witnesses": 1
+    },
+    {
+      "start": 16384,
+      "end": 24576,
+      "pair_digest_sha256": "b1445b280576b7e127afcbd72b3b08a06ef4a1e66ab87f8880ed747292235c54",
+      "gs_nodes": 1066655,
+      "relaxed_sphere_witnesses": 2
+    },
+    {
+      "start": 24576,
+      "end": 32768,
+      "pair_digest_sha256": "a56577dea244904518f165878bd3e310bf1f7445e2b95d257ab49b0c84d847db",
+      "gs_nodes": 1064586,
+      "relaxed_sphere_witnesses": 1
+    },
+    {
+      "start": 32768,
+      "end": 40960,
+      "pair_digest_sha256": "2f86dc9c73285caa70722663103ad806c87a48de27805b170edd37e023eeab1a",
+      "gs_nodes": 1081692,
+      "relaxed_sphere_witnesses": 2
+    },
+    {
+      "start": 40960,
+      "end": 49152,
+      "pair_digest_sha256": "5cd08da49076320653de7681ae3bfca697e0662988881226e5a8c565b9a82d5f",
+      "gs_nodes": 1085494,
+      "relaxed_sphere_witnesses": 0
+    },
+    {
+      "start": 49152,
+      "end": 52416,
+      "pair_digest_sha256": "775c27a736c7255b3488402d0308bf503e6efb10d78df3248950689c388a53b6",
+      "gs_nodes": 462245,
+      "relaxed_sphere_witnesses": 0
+    }
+  ],
+  "full_signed_witnesses": [
+    {
+      "negative_roster_index": 6722,
+      "positive_roster_index": 75,
+      "pos": [
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          8
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "u": [
+        -36,
+        -34,
+        -9,
+        15,
+        -4,
+        -1,
+        -8,
+        5,
+        -1,
+        -3,
+        1,
+        -2
+      ],
+      "masses": [
+        1966,
+        5188
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    },
+    {
+      "negative_roster_index": 11842,
+      "positive_roster_index": 14,
+      "pos": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          11
+        ]
+      ],
+      "u": [
+        -49,
+        20,
+        -13,
+        10,
+        -12,
+        -5,
+        -7,
+        -6,
+        -6,
+        -3,
+        -4,
+        3
+      ],
+      "masses": [
+        1863,
+        6793
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    },
+    {
+      "negative_roster_index": 22796,
+      "positive_roster_index": 17,
+      "pos": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          6
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          9
+        ]
+      ],
+      "u": [
+        -76,
+        20,
+        2,
+        14,
+        -9,
+        -1,
+        11,
+        -7,
+        3,
+        -4,
+        2,
+        2
+      ],
+      "masses": [
+        3649,
+        4513
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    },
+    {
+      "negative_roster_index": 23003,
+      "positive_roster_index": 12,
+      "pos": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          12
+        ]
+      ],
+      "u": [
+        2,
+        23,
+        10,
+        9,
+        3,
+        9,
+        0,
+        -2,
+        5,
+        2,
+        9,
+        4
+      ],
+      "masses": [
+        5421,
+        2034
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    },
+    {
+      "negative_roster_index": 25588,
+      "positive_roster_index": 0,
+      "pos": [
+        [
+          2,
+          1
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "u": [
+        6,
+        4,
+        19,
+        -8,
+        7,
+        0,
+        13,
+        6,
+        -3,
+        -2,
+        -6,
+        -1
+      ],
+      "masses": [
+        3480,
+        3823
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    },
+    {
+      "negative_roster_index": 34993,
+      "positive_roster_index": 11,
+      "pos": [
+        [
+          2,
+          12
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "u": [
+        -3,
+        0,
+        -6,
+        -8,
+        -11,
+        -3,
+        6,
+        10,
+        7,
+        -2,
+        -1,
+        2
+      ],
+      "masses": [
+        3185,
+        3757
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    },
+    {
+      "negative_roster_index": 37322,
+      "positive_roster_index": 3,
+      "pos": [
+        [
+          2,
+          4
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "u": [
+        24,
+        45,
+        -12,
+        7,
+        7,
+        0,
+        -2,
+        1,
+        2,
+        5,
+        2,
+        -1
+      ],
+      "masses": [
+        3871,
+        2463
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    }
+  ],
+  "independent_exact_arithmetic_check": "PASS: all seven full signed witnesses independently recomputed six p13 congruence residues exactly zero, original side masses equal saved integers, each exceeds at least one 2331 cap",
+  "scientific_strength": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "native_semantic_progress": "NOT_PUBLISHED",
+  "next_unfinished": "q10 signed split(2,8) negative length5 q-pattern(1,1,2,2,2), followed by lengths6..8; global T6 OPEN."
+}
