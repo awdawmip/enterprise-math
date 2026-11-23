@@ -1,0 +1,672 @@
+{
+  "schema": "EM_T6_P13_Q9_SPLIT1_8_NEG_LEN5_AUTHOR_EXACT_CERT_V1",
+  "frozen_task_commit": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "p": 13,
+  "cap_per_side": 2331,
+  "q_order": 9,
+  "sign_split": [
+    1,
+    8
+  ],
+  "negative_roster_length": 5,
+  "q0_lattice_index": "247064529073450392704413",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "all_patterns": [
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        4
+      ],
+      "roster_count": 16380,
+      "raw_pairs": 196560,
+      "common_canceled": 52416,
+      "overbudget": 0,
+      "gs_nodes": 355897,
+      "ball_leaves": 2,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        2,
+        3
+      ],
+      "roster_count": 52416,
+      "raw_pairs": 628992,
+      "common_canceled": 134784,
+      "overbudget": 0,
+      "gs_nodes": 1218771,
+      "ball_leaves": 5,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        2,
+        2,
+        2
+      ],
+      "roster_count": 28392,
+      "raw_pairs": 340704,
+      "common_canceled": 52416,
+      "overbudget": 0,
+      "gs_nodes": 713334,
+      "ball_leaves": 3,
+      "budget_valid": 0
+    }
+  ],
+  "totals": {
+    "roster_count": 97188,
+    "raw_pairs": 1166256,
+    "common_canceled": 239616,
+    "disjoint_pairs": 926640,
+    "overbudget": 0,
+    "gs_nodes": 2288002,
+    "ball_leaves": 10,
+    "budget_valid": 0
+  },
+  "half_open_segments": [
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        4
+      ],
+      "range": [
+        0,
+        16380
+      ],
+      "sha256": "5370db355724b96de1ea98844e3a595158a873b656669c194f0ceff5f4b1e53a"
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        2,
+        3
+      ],
+      "range": [
+        0,
+        10000
+      ],
+      "sha256": "54eafc1d866aca812c88e82a42bfbdf5a0f96fb1c30c6f945a5bae3f8dab9605"
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        2,
+        3
+      ],
+      "range": [
+        10000,
+        20000
+      ],
+      "sha256": "b0ab66d3f2b25596f52083623c7a4bc9f3949faf02e9f4fcd39e2d0cab441d63"
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        2,
+        3
+      ],
+      "range": [
+        20000,
+        36000
+      ],
+      "sha256": "55ae0af1a816961108b7cc9329c072ae9cf48b89886fdbd24bf77cf305dc26a4"
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        2,
+        3
+      ],
+      "range": [
+        36000,
+        52416
+      ],
+      "sha256": "83bf8de11fed709f819fff738acbb35bcd37946c6533e0e9b628916e2604a0f0"
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        2,
+        2,
+        2
+      ],
+      "range": [
+        0,
+        28392
+      ],
+      "sha256": "e15d050e783184f16949e7a83c28e032eeac227709b48d5a428d07e79570ab71"
+    }
+  ],
+  "ball_witnesses": [
+    {
+      "pos": [
+        [
+          1,
+          10
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "u": [
+        -94,
+        -28,
+        -1,
+        10,
+        8,
+        -3,
+        -1,
+        10,
+        3,
+        2,
+        4,
+        -1
+      ],
+      "masses": [
+        3524,
+        4079
+      ],
+      "radius_sq": 4485925,
+      "budget_valid": false
+    },
+    {
+      "pos": [
+        [
+          1,
+          1
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          11
+        ]
+      ],
+      "u": [
+        59,
+        21,
+        -17,
+        -11,
+        -6,
+        14,
+        3,
+        -7,
+        5,
+        5,
+        6,
+        1
+      ],
+      "masses": [
+        4994,
+        4075
+      ],
+      "radius_sq": 4945124,
+      "budget_valid": false
+    },
+    {
+      "pos": [
+        [
+          1,
+          5
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "u": [
+        -39,
+        19,
+        -1,
+        1,
+        -9,
+        -10,
+        -12,
+        -1,
+        -4,
+        -9,
+        2,
+        -5
+      ],
+      "masses": [
+        1043,
+        6938
+      ],
+      "radius_sq": 5087188,
+      "budget_valid": false
+    },
+    {
+      "pos": [
+        [
+          1,
+          8
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "u": [
+        -9,
+        4,
+        20,
+        -26,
+        -13,
+        6,
+        2,
+        -3,
+        -1,
+        -1,
+        3,
+        3
+      ],
+      "masses": [
+        2665,
+        4401
+      ],
+      "radius_sq": 4801981,
+      "budget_valid": false
+    },
+    {
+      "pos": [
+        [
+          1,
+          11
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "u": [
+        5,
+        -19,
+        15,
+        -6,
+        -14,
+        -10,
+        3,
+        4,
+        3,
+        -5,
+        -4,
+        0
+      ],
+      "masses": [
+        1971,
+        5228
+      ],
+      "radius_sq": 4662569,
+      "budget_valid": false
+    },
+    {
+      "pos": [
+        [
+          1,
+          6
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "u": [
+        50,
+        11,
+        30,
+        -2,
+        -13,
+        7,
+        -7,
+        5,
+        -5,
+        -5,
+        -4,
+        -2
+      ],
+      "masses": [
+        3315,
+        5469
+      ],
+      "radius_sq": 4627066,
+      "budget_valid": false
+    },
+    {
+      "pos": [
+        [
+          1,
+          4
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          10
+        ]
+      ],
+      "u": [
+        89,
+        0,
+        21,
+        10,
+        -10,
+        -1,
+        10,
+        0,
+        -8,
+        0,
+        -1,
+        1
+      ],
+      "masses": [
+        3651,
+        3615
+      ],
+      "radius_sq": 4709330,
+      "budget_valid": false
+    },
+    {
+      "pos": [
+        [
+          1,
+          1
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "u": [
+        -13,
+        -37,
+        14,
+        -16,
+        -2,
+        1,
+        -2,
+        1,
+        8,
+        -1,
+        5,
+        -6
+      ],
+      "masses": [
+        2531,
+        4975
+      ],
+      "radius_sq": 5006900,
+      "budget_valid": false
+    },
+    {
+      "pos": [
+        [
+          1,
+          2
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          2,
+          10
+        ]
+      ],
+      "u": [
+        76,
+        12,
+        -16,
+        9,
+        8,
+        -4,
+        13,
+        4,
+        6,
+        -2,
+        0,
+        3
+      ],
+      "masses": [
+        5120,
+        2976
+      ],
+      "radius_sq": 4846610,
+      "budget_valid": false
+    },
+    {
+      "pos": [
+        [
+          1,
+          2
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          2,
+          10
+        ]
+      ],
+      "u": [
+        53,
+        11,
+        27,
+        7,
+        -7,
+        4,
+        -4,
+        -2,
+        -6,
+        3,
+        -2,
+        -4
+      ],
+      "masses": [
+        3183,
+        4572
+      ],
+      "radius_sq": 4705898,
+      "budget_valid": false
+    }
+  ],
+  "checks": {
+    "all_six_13_adic_congruences_recomputed": true,
+    "all_two_side_masses_recomputed": true,
+    "combinatorial_roster_counts_crosschecked": true,
+    "intervals_no_gap_or_overlap": true,
+    "external_independent_review": false,
+    "postpublication_replay": false
+  },
+  "evidence_status": "AUTHOR_EXACT_FINITE_EXECUTED/UNREVIEWED/NOT_ADMITTED",
+  "contributor_note": "Current logical onhour lane has no verified native winning claim; historical Activity RA attribution unresolved."
+}
