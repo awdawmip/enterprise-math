@@ -1,0 +1,183 @@
+{
+  "domain": {
+    "carryover": "unbounded number of cycles, no cleanup",
+    "epochs": 4,
+    "per_edge_omissions": 1,
+    "per_read_flips": 1,
+    "publication": "one ordered attempt per changed bit; intermediate reads allowed",
+    "read_decoder": "stateless forced-epoch-or-RETRY"
+  },
+  "limit": "No independent mathematical review; n>=12 is model-specific; frozen task pins unchanged.",
+  "lower": {
+    "10": {
+      "pass_distance": 3,
+      "pass_edge0_order": 0,
+      "pass_stable": 0,
+      "pattern_multisets": 8008
+    },
+    "11": {
+      "pass_distance": 47,
+      "pass_edge0_order": 0,
+      "pass_stable": 3,
+      "pattern_multisets": 12376
+    }
+  },
+  "lower_survivors": {
+    "10": [],
+    "11": [
+      {
+        "diagonals": [
+          7,
+          7
+        ],
+        "edge0_order_nodes": 5,
+        "edges": [
+          8,
+          7,
+          8,
+          7
+        ],
+        "pattern_multiplicity": {
+          "3": 4,
+          "5": 4,
+          "6": 3
+        },
+        "phase0_valid_order": null,
+        "words": [
+          0,
+          255,
+          1807,
+          2032
+        ]
+      },
+      {
+        "diagonals": [
+          8,
+          8
+        ],
+        "edge0_order_nodes": 8,
+        "edges": [
+          7,
+          7,
+          7,
+          7
+        ],
+        "pattern_multiplicity": {
+          "3": 4,
+          "5": 3,
+          "6": 4
+        },
+        "phase0_valid_order": null,
+        "words": [
+          0,
+          127,
+          1935,
+          2032
+        ]
+      },
+      {
+        "diagonals": [
+          7,
+          7
+        ],
+        "edge0_order_nodes": 5,
+        "edges": [
+          7,
+          8,
+          7,
+          8
+        ],
+        "pattern_multiplicity": {
+          "3": 3,
+          "5": 4,
+          "6": 4
+        },
+        "phase0_valid_order": null,
+        "words": [
+          0,
+          127,
+          1927,
+          2040
+        ]
+      }
+    ]
+  },
+  "statement": "n_min(1,1)=12 in the four-fixed-word, reset-free cyclic omission model",
+  "upper": {
+    "diagonal_distances": [
+      8,
+      8
+    ],
+    "edge_distances": [
+      8,
+      8,
+      8,
+      8
+    ],
+    "individual_read_options_checked": 189540,
+    "n": 12,
+    "observed_state_counts": [
+      239,
+      239,
+      239,
+      239
+    ],
+    "orders": [
+      [
+        0,
+        4,
+        5,
+        1,
+        2,
+        3,
+        6,
+        7
+      ],
+      [
+        4,
+        5,
+        8,
+        9,
+        6,
+        10,
+        7,
+        11
+      ],
+      [
+        0,
+        4,
+        5,
+        1,
+        2,
+        3,
+        6,
+        7
+      ],
+      [
+        4,
+        5,
+        8,
+        9,
+        6,
+        10,
+        7,
+        11
+      ]
+    ],
+    "physical_prefix_scenario_placements_checked": 14580,
+    "stable_state_counts": [
+      45,
+      45,
+      45,
+      45
+    ],
+    "validated": true,
+    "words_decimal": [
+      0,
+      255,
+      3855,
+      4080
+    ]
+  },
+  "verification": "exact integer exhaustive finite proof; independent BFS upper crosscheck"
+}
