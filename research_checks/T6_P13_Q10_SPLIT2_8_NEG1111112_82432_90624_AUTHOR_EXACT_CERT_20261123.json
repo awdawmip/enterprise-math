@@ -1,0 +1,101 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT2_8_NEG1111112_AUTHOR_EXACT_SEGMENTS_V1",
+  "as_of": "2026-11-23",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "author_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "published_replay": {
+    "commit": "a15dc9dd00e5d45516463ed4c4905341d8d2357b",
+    "path": "research_checks/T6_P13_Q10_SPLIT2_8_NEG1111112_SLICE_REPLAY_20261123_2000.py",
+    "blob": "096df77ac608297ad1078844c03dcac2da39678b"
+  },
+  "method": "Exact integer/Fraction signed 12D HNF-LLL GS enumeration; six p13-adic mixed congruences, original CAP2331 both sides",
+  "params": {
+    "p": 13,
+    "v13": 1,
+    "q_order": 10,
+    "signed_split": [
+      2,
+      8
+    ],
+    "negative_q_pattern": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2
+    ],
+    "positive_patterns": [
+      [
+        2
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "budget_per_side": 2331,
+    "moduli": [
+      13,
+      169,
+      2197,
+      28561,
+      371293,
+      4826809
+    ],
+    "lattice_index": "13^21"
+  },
+  "negative_index_interval": [
+    82432,
+    90624
+  ],
+  "stats": {
+    "negative_rosters": 8192,
+    "raw_pairs": 737280,
+    "common_named_cancellations": 345300,
+    "vertical_mass_excess": 0,
+    "gs_searches": 391980,
+    "gs_nodes": 839820,
+    "ball_witnesses": 0,
+    "both_side_budget_valid": 0
+  },
+  "segments": [
+    {
+      "range": [
+        82432,
+        86528
+      ],
+      "negative_rosters": 4096,
+      "raw_pairs": 368640,
+      "canceled": 186224,
+      "gs_searches": 182416,
+      "gs_nodes": 389803,
+      "ball_witnesses": 0,
+      "roster_sha256": "c886eef861657ae22147a8530d3c46cabbce73d3fd43708c4d6d47c6ee55fbdf",
+      "pair_sha256": "1f4e105c6f8c7742ac145fe77b8d9979fcf78792d4115b0a83674ea883f8c8dc",
+      "local_sha256": "e37dab2229056716a934cde0408035b9cef08ad28d846568239a4e16d62a8351"
+    },
+    {
+      "range": [
+        86528,
+        90624
+      ],
+      "negative_rosters": 4096,
+      "raw_pairs": 368640,
+      "canceled": 159076,
+      "gs_searches": 209564,
+      "gs_nodes": 450017,
+      "ball_witnesses": 0,
+      "roster_sha256": "fbca81eac6d14eb499c634caabb451fa9f4a1c90ddadef4371ba9ff1fad03c4d",
+      "pair_sha256": "864311d71ad4eabba4a24a0c496c078defc547760219dbbaf55a6d60cdbc2c25",
+      "local_sha256": "c8f9c14ae8eee03f79624df8762cbfa3716b22465bd5b913e5a5a8ac8d639859"
+    }
+  ],
+  "witnesses": [],
+  "scope_note": "Common-atom cancellation relies on prior lower-order reduction; family remains open after index 90624.",
+  "proof_status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "native_claim": "NOT_ASSERTED",
+  "scientific_acceptance": false
+}
