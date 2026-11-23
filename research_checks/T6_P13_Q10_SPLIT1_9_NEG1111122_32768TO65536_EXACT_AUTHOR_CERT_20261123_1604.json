@@ -1,0 +1,246 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT1_9_NEG1111122_PARTIAL_AUTHOR_EXACT_V1",
+  "as_of": "2026-11-23T16:04:00+08:00",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "original_science_commit": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "negative_q_pattern": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    2,
+    2
+  ],
+  "total_negative_rosters": 340704,
+  "source_order": "product(combinations_with_replacement(range(1,13),5), combinations_with_replacement(range(1,13),2))",
+  "positive_q1_residues": "1..12 ascending",
+  "source_order_range": [
+    32768,
+    65536
+  ],
+  "costs": {
+    "positive_vertical": "169*1+13*r-1",
+    "negative_vertical": "sum(169*q+13*r-1)",
+    "q0": "13*r-1",
+    "max_side": 2331
+  },
+  "moduli": [
+    13,
+    169,
+    2197,
+    28561,
+    371293,
+    4826809
+  ],
+  "saturated_q0_index": "13^21",
+  "GS_rigorous_bound": "min GS squared diagonal > 2*(2331)^2, exact rational two-neighbor radius enumeration",
+  "algorithm_replay_reference": "research_checks/T6_P13_Q9_SPLIT1_8_NEG_LEN1TO4_EXACT_REPLAY_20261123_0900.py (change only signed q pattern and source-order family)",
+  "pair_digest_input": "SHA256 over repr((pos_tuple,neg_tuple))+'\\n' for each canonical raw signed pair",
+  "intervals": [
+    {
+      "range": [
+        32768,
+        40960
+      ],
+      "raw_pairs": 98304,
+      "common_cancel": 37076,
+      "vertical_overbudget": 0,
+      "gs_searches": 61228,
+      "gs_nodes": 146520,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "pair_digest_sha256": "9ffa652f2d65bbd43787988df071553d8be1473a934089df1fb3b32521db3c87"
+    },
+    {
+      "range": [
+        40960,
+        49152
+      ],
+      "raw_pairs": 98304,
+      "common_cancel": 36724,
+      "vertical_overbudget": 0,
+      "gs_searches": 61580,
+      "gs_nodes": 146592,
+      "ball_leaves": 1,
+      "budget_valid": 0,
+      "pair_digest_sha256": "61b6870a21e4ce7b93b91301107c3ae9a0f2b44a97089bb8de3f0d57c5420130"
+    },
+    {
+      "range": [
+        49152,
+        57344
+      ],
+      "raw_pairs": 98304,
+      "common_cancel": 32546,
+      "vertical_overbudget": 9,
+      "gs_searches": 65749,
+      "gs_nodes": 157185,
+      "ball_leaves": 1,
+      "budget_valid": 0,
+      "pair_digest_sha256": "b19bd4933156d63a3af57cc781729ff789f188da6975efe5a5d3f20679712418"
+    },
+    {
+      "range": [
+        57344,
+        65536
+      ],
+      "raw_pairs": 98304,
+      "common_cancel": 36824,
+      "vertical_overbudget": 0,
+      "gs_searches": 61480,
+      "gs_nodes": 146716,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "pair_digest_sha256": "8f6a83502460887375b89924f81d871f0e3c71ae1e80ea832e623ac0761483ac"
+    }
+  ],
+  "counts": {
+    "raw_pairs": 393216,
+    "common_cancel": 143170,
+    "vertical_overbudget": 9,
+    "gs_searches": 250037,
+    "gs_nodes": 597013,
+    "ball_leaves": 2,
+    "budget_valid": 0
+  },
+  "exact_witnesses": [
+    {
+      "negative_roster_index": 42027,
+      "pos": [
+        [
+          1,
+          11
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          8
+        ]
+      ],
+      "u": [
+        68,
+        -18,
+        15,
+        -5,
+        5,
+        -2,
+        8,
+        1,
+        4,
+        -5,
+        -5,
+        -1
+      ],
+      "masses": [
+        3304,
+        4351
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    },
+    {
+      "negative_roster_index": 55306,
+      "pos": [
+        [
+          1,
+          2
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          5
+        ]
+      ],
+      "u": [
+        -20,
+        19,
+        -32,
+        15,
+        1,
+        5,
+        -9,
+        -8,
+        1,
+        2,
+        -5,
+        2
+      ],
+      "masses": [
+        2567,
+        5652
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    }
+  ],
+  "independent_checks": "Independent direct named-atom enumeration agreed with all raw/cancel/overbudget/search counts; recomputed full 6-moduli and both original side masses for all leaves",
+  "evidence_strength": "AUTHOR_EXACT_FINITE_EXECUTED/UNREVIEWED/NOT_ADMITTED",
+  "next_unvisited_roster_index": 65536,
+  "no_claim_no_native_progress": true
+}
