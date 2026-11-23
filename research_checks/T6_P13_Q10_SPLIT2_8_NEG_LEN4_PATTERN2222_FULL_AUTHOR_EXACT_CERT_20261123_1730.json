@@ -1,0 +1,58 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT2_8_NEG_LEN4_2222_COMPLETE_AUTHOR_EXACT_V1",
+  "as_of": "2026-11-23",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "logical_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "frozen_scientific_source": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "observer": "original H0..H6 six mixed p13 congruences, j=1..6",
+  "model": "maximal p13 v13=1, total q10 signed(2,8) neg pattern(2,2,2,2)",
+  "positive_q_patterns": [
+    [
+      2
+    ],
+    [
+      1,
+      1
+    ]
+  ],
+  "negative_q_pattern": [
+    2,
+    2,
+    2,
+    2
+  ],
+  "negative_roster_total": 1365,
+  "positive_roster_total": 90,
+  "source_order": "negative combinations_with_replacement(range(1,13),4) q=2, positive [(2,r),r=1..12] then [(1,r1),(1,r2),r1<=r2]",
+  "budget_each_side": 2331,
+  "q0_weight": "13r-1",
+  "vertical_weight": "13(13q+r)-1",
+  "saturated_q0_lattice_index": "13^21",
+  "six_moduli": [
+    13,
+    169,
+    2197,
+    28561,
+    371293,
+    4826809
+  ],
+  "gs_min_diagonal_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "method": "Exact rational 12D HNF/LLL weighted saturated q0 lattice, six integer modular particular solutions, exact Gram-Schmidt sphere with floor/ceil coefficients exhaustive from min diagonal sq>2*2331^2. Each original named signed pair checked for common atom and both side mass budgets.",
+  "stats": {
+    "negative_roster_start": 0,
+    "negative_roster_end": 1365,
+    "negative_rosters_visited": 1365,
+    "raw_signed_pairs": 122850,
+    "common_named_atom_canceled": 4368,
+    "vertical_original_mass_excess": 0,
+    "gs_searches": 118482,
+    "gs_nodes": 261048,
+    "relaxed_sphere_witnesses": 0,
+    "both_original_side_mass_valid": 0,
+    "pair_digest_sha256": "e3e6b3454e10980100716f2632e293f0e9f05eab798d1bd6f83d5539a8834fd7"
+  },
+  "full_signed_witnesses": [],
+  "scientific_strength": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "native_semantic_progress": "NOT_PUBLISHED",
+  "next_unfinished": "q10 signed(2,8), negative length5 q-pattern(1,1,1,1,4), then (1,1,1,2,3),(1,1,2,2,2); remaining negative lengths6..8"
+}
