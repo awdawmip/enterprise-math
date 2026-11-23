@@ -1,0 +1,3543 @@
+{
+  "schema": "EM_NEAR_OPTIMAL_SHALLOW_TREE_V1",
+  "status": "PASS",
+  "actual_road": {
+    "window": {
+      "A": 1024,
+      "B": 32768
+    },
+    "fine_node_count": 44,
+    "packet_count": 38,
+    "prior_exact_optimal_closed_budget": {
+      "lower": "0.004535958667528376302648835289",
+      "upper": "0.004535958667528376302648835290",
+      "width_upper": "269926305372601463/1000000000000000000000000000000000000000000000000000000000000",
+      "integer_bounds": [
+        "4535958667528376302648835289717848441955689430201748154991",
+        "4535958667528376302648835289717848441955959356507120756454"
+      ],
+      "denominator_power_of_10": 60
+    },
+    "complete_road_recomputed": false,
+    "input_files": [
+      {
+        "path": "rh_tree_order_20261122/optimal_tree_order_certificate.json",
+        "sha256": "27be4d5ffe88a90b092c577d163e1bf6f86096c4f4ce38dd70530101350695cb"
+      },
+      {
+        "path": "rh_triangle_certificate_20261122/dyadic_triangle_certificate.json",
+        "sha256": "024eee389b1443ad69e4cbb00615927b26a02085b771064608ae7cf44e55024f"
+      }
+    ],
+    "runs": [
+      {
+        "mode": "slack_dp",
+        "parameter": "0",
+        "blocks": [
+          {
+            "X": 1024,
+            "Y": 2048,
+            "internal_node_count": 5,
+            "tree_depth": 3,
+            "tree": [
+              1567,
+              [
+                1205,
+                null,
+                [
+                  1386,
+                  null,
+                  null
+                ]
+              ],
+              [
+                1748,
+                null,
+                [
+                  1929,
+                  null,
+                  null
+                ]
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "depth_cap": 3,
+            "optimal_continuous_additive_slack_enclosure": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "achieving_tree_upper_bound": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            }
+          },
+          {
+            "X": 2048,
+            "Y": 4096,
+            "internal_node_count": 6,
+            "tree_depth": 3,
+            "tree": [
+              3264,
+              [
+                2656,
+                [
+                  2352,
+                  null,
+                  null
+                ],
+                [
+                  2960,
+                  null,
+                  null
+                ]
+              ],
+              [
+                3568,
+                null,
+                [
+                  3872,
+                  null,
+                  null
+                ]
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.307925922541387594617245654237",
+              "upper": "0.307925922541387594617245654238",
+              "integer_bounds": [
+                "307925922541387594617245654237903958079547421396145301651799",
+                "307925922541387594617245654237903958079669872643955490693744"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "depth_cap": 3,
+            "optimal_continuous_additive_slack_enclosure": {
+              "lower": "0.307925922541387594617245654237",
+              "upper": "0.307925922541387594617245654238",
+              "integer_bounds": [
+                "307925922541387594617245654237903958079547421396145301651799",
+                "307925922541387594617245654237903958079669872643955490693744"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "achieving_tree_upper_bound": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.307925922541387594617245654238",
+              "integer_bounds": [
+                "0",
+                "307925922541387594617245654237903958079669872643955490693744"
+              ],
+              "denominator_power_of_10": 60
+            }
+          },
+          {
+            "X": 4096,
+            "Y": 8192,
+            "internal_node_count": 7,
+            "tree_depth": 3,
+            "tree": [
+              6144,
+              [
+                5120,
+                [
+                  4608,
+                  null,
+                  null
+                ],
+                [
+                  5632,
+                  null,
+                  null
+                ]
+              ],
+              [
+                7168,
+                [
+                  6656,
+                  null,
+                  null
+                ],
+                [
+                  7680,
+                  null,
+                  null
+                ]
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.185617172371459679199340058576",
+              "upper": "0.185617172371459679199340058577",
+              "integer_bounds": [
+                "185617172371459679199340058576656570185618753810094354112256",
+                "185617172371459679199340058576656570185789761810110358746112"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "depth_cap": 3,
+            "optimal_continuous_additive_slack_enclosure": {
+              "lower": "0.185617172371459679199340058576",
+              "upper": "0.185617172371459679199340058577",
+              "integer_bounds": [
+                "185617172371459679199340058576656570185618753810094354112256",
+                "185617172371459679199340058576656570185789761810110358746112"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "achieving_tree_upper_bound": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.185617172371459679199340058577",
+              "integer_bounds": [
+                "0",
+                "185617172371459679199340058576656570185789761810110358746112"
+              ],
+              "denominator_power_of_10": 60
+            }
+          },
+          {
+            "X": 8192,
+            "Y": 16384,
+            "internal_node_count": 9,
+            "tree_depth": 4,
+            "tree": [
+              12497,
+              [
+                9914,
+                [
+                  9053,
+                  null,
+                  null
+                ],
+                [
+                  10775,
+                  null,
+                  [
+                    11636,
+                    null,
+                    null
+                  ]
+                ]
+              ],
+              [
+                13358,
+                null,
+                [
+                  15080,
+                  [
+                    14219,
+                    null,
+                    null
+                  ],
+                  [
+                    15941,
+                    null,
+                    null
+                  ]
+                ]
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "depth_cap": 4,
+            "optimal_continuous_additive_slack_enclosure": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "achieving_tree_upper_bound": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            }
+          },
+          {
+            "X": 16384,
+            "Y": 32768,
+            "internal_node_count": 11,
+            "tree_depth": 4,
+            "tree": [
+              23624,
+              [
+                20728,
+                [
+                  17832,
+                  null,
+                  [
+                    19280,
+                    null,
+                    null
+                  ]
+                ],
+                [
+                  22176,
+                  null,
+                  null
+                ]
+              ],
+              [
+                29416,
+                [
+                  26520,
+                  [
+                    25072,
+                    null,
+                    null
+                  ],
+                  [
+                    27968,
+                    null,
+                    null
+                  ]
+                ],
+                [
+                  32312,
+                  [
+                    30864,
+                    null,
+                    null
+                  ],
+                  null
+                ]
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.181097094279582014122032836001",
+              "upper": "0.181097094279582014122032836002",
+              "integer_bounds": [
+                "181097094279582014122032836001069344524163841591609557705866",
+                "181097094279582014122032836001069344526917507591933823420685"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "depth_cap": 4,
+            "optimal_continuous_additive_slack_enclosure": {
+              "lower": "0.181097094279582014122032836001",
+              "upper": "0.181097094279582014122032836002",
+              "integer_bounds": [
+                "181097094279582014122032836001069344524163841591609557705866",
+                "181097094279582014122032836001069344526917507591933823420685"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "achieving_tree_upper_bound": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.181097094279582014122032836002",
+              "integer_bounds": [
+                "0",
+                "181097094279582014122032836001069344526917507591933823420685"
+              ],
+              "denominator_power_of_10": 60
+            }
+          }
+        ],
+        "interior_envelope_positive_energy": {
+          "lower": "0.004021282414444201822067609627",
+          "upper": "0.004021282414444201822067609628",
+          "integer_bounds": [
+            "4021282414444201822067609627754640976158621706375844472350",
+            "4021282414444201822067609627754640976158876634799127519239"
+          ],
+          "denominator_power_of_10": 60
+        },
+        "closed_squared_budget": {
+          "lower": "0.004645726249962656540184513495",
+          "upper": "0.004645726249962656540184513496",
+          "integer_bounds": [
+            "4645726249962656540184513495541140023513944556956936134802",
+            "4645726249962656540184513495541140023514235511201287381766"
+          ],
+          "denominator_power_of_10": 60
+        }
+      },
+      {
+        "mode": "slack_dp",
+        "parameter": "1",
+        "blocks": [
+          {
+            "X": 1024,
+            "Y": 2048,
+            "internal_node_count": 5,
+            "tree_depth": 3,
+            "tree": [
+              1567,
+              [
+                1205,
+                null,
+                [
+                  1386,
+                  null,
+                  null
+                ]
+              ],
+              [
+                1748,
+                null,
+                [
+                  1929,
+                  null,
+                  null
+                ]
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "depth_cap": 4,
+            "optimal_continuous_additive_slack_enclosure": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "achieving_tree_upper_bound": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            }
+          },
+          {
+            "X": 2048,
+            "Y": 4096,
+            "internal_node_count": 6,
+            "tree_depth": 4,
+            "tree": [
+              2656,
+              [
+                2352,
+                null,
+                null
+              ],
+              [
+                3568,
+                [
+                  2960,
+                  null,
+                  [
+                    3264,
+                    null,
+                    null
+                  ]
+                ],
+                [
+                  3872,
+                  null,
+                  null
+                ]
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "depth_cap": 4,
+            "optimal_continuous_additive_slack_enclosure": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "achieving_tree_upper_bound": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            }
+          },
+          {
+            "X": 4096,
+            "Y": 8192,
+            "internal_node_count": 7,
+            "tree_depth": 4,
+            "tree": [
+              5632,
+              [
+                4608,
+                null,
+                [
+                  5120,
+                  null,
+                  null
+                ]
+              ],
+              [
+                6656,
+                [
+                  6144,
+                  null,
+                  null
+                ],
+                [
+                  7680,
+                  [
+                    7168,
+                    null,
+                    null
+                  ],
+                  null
+                ]
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "depth_cap": 4,
+            "optimal_continuous_additive_slack_enclosure": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "achieving_tree_upper_bound": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            }
+          },
+          {
+            "X": 8192,
+            "Y": 16384,
+            "internal_node_count": 9,
+            "tree_depth": 4,
+            "tree": [
+              12497,
+              [
+                9914,
+                [
+                  9053,
+                  null,
+                  null
+                ],
+                [
+                  10775,
+                  null,
+                  [
+                    11636,
+                    null,
+                    null
+                  ]
+                ]
+              ],
+              [
+                13358,
+                null,
+                [
+                  15080,
+                  [
+                    14219,
+                    null,
+                    null
+                  ],
+                  [
+                    15941,
+                    null,
+                    null
+                  ]
+                ]
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "depth_cap": 5,
+            "optimal_continuous_additive_slack_enclosure": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "achieving_tree_upper_bound": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            }
+          },
+          {
+            "X": 16384,
+            "Y": 32768,
+            "internal_node_count": 11,
+            "tree_depth": 5,
+            "tree": [
+              22176,
+              [
+                17832,
+                null,
+                [
+                  20728,
+                  [
+                    19280,
+                    null,
+                    null
+                  ],
+                  null
+                ]
+              ],
+              [
+                27968,
+                [
+                  23624,
+                  null,
+                  [
+                    26520,
+                    [
+                      25072,
+                      null,
+                      null
+                    ],
+                    null
+                  ]
+                ],
+                [
+                  32312,
+                  [
+                    29416,
+                    null,
+                    [
+                      30864,
+                      null,
+                      null
+                    ]
+                  ],
+                  null
+                ]
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "depth_cap": 5,
+            "optimal_continuous_additive_slack_enclosure": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "achieving_tree_upper_bound": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            }
+          }
+        ],
+        "interior_envelope_positive_energy": {
+          "lower": "0.003919181999968234297668789139",
+          "upper": "0.003919181999968234297668789140",
+          "integer_bounds": [
+            "3919181999968234297668789139967124201841164762333797721640",
+            "3919181999968234297668789139967124201841400099497897813277"
+          ],
+          "denominator_power_of_10": 60
+        },
+        "closed_squared_budget": {
+          "lower": "0.004535958667528376302648835289",
+          "upper": "0.004535958667528376302648835290",
+          "integer_bounds": [
+            "4535958667528376302648835289717848441955689430201748154991",
+            "4535958667528376302648835289717848441955959356507120756454"
+          ],
+          "denominator_power_of_10": 60
+        }
+      },
+      {
+        "mode": "additive_bins",
+        "parameter": "1/100",
+        "blocks": [
+          {
+            "X": 1024,
+            "Y": 2048,
+            "internal_node_count": 5,
+            "tree_depth": 3,
+            "tree": [
+              1567,
+              [
+                1386,
+                [
+                  1205,
+                  null,
+                  null
+                ],
+                null
+              ],
+              [
+                1748,
+                null,
+                [
+                  1929,
+                  null,
+                  null
+                ]
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "1/100",
+            "bin_counts": {
+              "64": 1,
+              "0": 1,
+              "40": 1,
+              "49": 1,
+              "55": 1
+            },
+            "proven_depth_bound": 5
+          },
+          {
+            "X": 2048,
+            "Y": 4096,
+            "internal_node_count": 6,
+            "tree_depth": 4,
+            "tree": [
+              3568,
+              [
+                2656,
+                [
+                  2352,
+                  null,
+                  null
+                ],
+                [
+                  3264,
+                  [
+                    2960,
+                    null,
+                    null
+                  ],
+                  null
+                ]
+              ],
+              [
+                3872,
+                null,
+                null
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "1/100",
+            "bin_counts": {
+              "0": 4,
+              "35": 1,
+              "70": 1
+            },
+            "proven_depth_bound": 5
+          },
+          {
+            "X": 4096,
+            "Y": 8192,
+            "internal_node_count": 7,
+            "tree_depth": 4,
+            "tree": [
+              6144,
+              [
+                5632,
+                [
+                  5120,
+                  [
+                    4608,
+                    null,
+                    null
+                  ],
+                  null
+                ],
+                null
+              ],
+              [
+                6656,
+                null,
+                [
+                  7680,
+                  [
+                    7168,
+                    null,
+                    null
+                  ],
+                  null
+                ]
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "1/100",
+            "bin_counts": {
+              "0": 3,
+              "5": 1,
+              "70": 1,
+              "16": 1,
+              "56": 1
+            },
+            "proven_depth_bound": 6
+          },
+          {
+            "X": 8192,
+            "Y": 16384,
+            "internal_node_count": 9,
+            "tree_depth": 5,
+            "tree": [
+              13358,
+              [
+                9914,
+                [
+                  9053,
+                  null,
+                  null
+                ],
+                [
+                  12497,
+                  [
+                    11636,
+                    [
+                      10775,
+                      null,
+                      null
+                    ],
+                    null
+                  ],
+                  null
+                ]
+              ],
+              [
+                15080,
+                [
+                  14219,
+                  null,
+                  null
+                ],
+                [
+                  15941,
+                  null,
+                  null
+                ]
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "1/100",
+            "bin_counts": {
+              "0": 7,
+              "65": 1,
+              "109": 1
+            },
+            "proven_depth_bound": 5
+          },
+          {
+            "X": 16384,
+            "Y": 32768,
+            "internal_node_count": 11,
+            "tree_depth": 7,
+            "tree": [
+              22176,
+              [
+                20728,
+                [
+                  17832,
+                  null,
+                  [
+                    19280,
+                    null,
+                    null
+                  ]
+                ],
+                null
+              ],
+              [
+                23624,
+                null,
+                [
+                  32312,
+                  [
+                    30864,
+                    [
+                      26520,
+                      [
+                        25072,
+                        null,
+                        null
+                      ],
+                      [
+                        27968,
+                        null,
+                        [
+                          29416,
+                          null,
+                          null
+                        ]
+                      ]
+                    ],
+                    null
+                  ],
+                  null
+                ]
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "1/100",
+            "bin_counts": {
+              "0": 3,
+              "102": 1,
+              "266": 1,
+              "239": 1,
+              "54": 1,
+              "249": 2,
+              "28": 1,
+              "319": 1
+            },
+            "proven_depth_bound": 10
+          }
+        ],
+        "interior_envelope_positive_energy": {
+          "lower": "0.003919181999968234297668789139",
+          "upper": "0.003919181999968234297668789140",
+          "integer_bounds": [
+            "3919181999968234297668789139967124201841164762333797721640",
+            "3919181999968234297668789139967124201841400099497897813277"
+          ],
+          "denominator_power_of_10": 60
+        },
+        "closed_squared_budget": {
+          "lower": "0.004535958667528376302648835289",
+          "upper": "0.004535958667528376302648835290",
+          "integer_bounds": [
+            "4535958667528376302648835289717848441955689430201748154991",
+            "4535958667528376302648835289717848441955959356507120756454"
+          ],
+          "denominator_power_of_10": 60
+        }
+      },
+      {
+        "mode": "additive_bins",
+        "parameter": "1/20",
+        "blocks": [
+          {
+            "X": 1024,
+            "Y": 2048,
+            "internal_node_count": 5,
+            "tree_depth": 3,
+            "tree": [
+              1567,
+              [
+                1386,
+                [
+                  1205,
+                  null,
+                  null
+                ],
+                null
+              ],
+              [
+                1748,
+                null,
+                [
+                  1929,
+                  null,
+                  null
+                ]
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "1/20",
+            "bin_counts": {
+              "0": 1,
+              "8": 1,
+              "10": 1,
+              "11": 1,
+              "13": 1
+            },
+            "proven_depth_bound": 5
+          },
+          {
+            "X": 2048,
+            "Y": 4096,
+            "internal_node_count": 6,
+            "tree_depth": 4,
+            "tree": [
+              3568,
+              [
+                2656,
+                [
+                  2352,
+                  null,
+                  null
+                ],
+                [
+                  3264,
+                  [
+                    2960,
+                    null,
+                    null
+                  ],
+                  null
+                ]
+              ],
+              [
+                3872,
+                null,
+                null
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "1/20",
+            "bin_counts": {
+              "0": 4,
+              "14": 1,
+              "7": 1
+            },
+            "proven_depth_bound": 5
+          },
+          {
+            "X": 4096,
+            "Y": 8192,
+            "internal_node_count": 7,
+            "tree_depth": 4,
+            "tree": [
+              6144,
+              [
+                5632,
+                [
+                  5120,
+                  [
+                    4608,
+                    null,
+                    null
+                  ],
+                  null
+                ],
+                null
+              ],
+              [
+                6656,
+                null,
+                [
+                  7680,
+                  [
+                    7168,
+                    null,
+                    null
+                  ],
+                  null
+                ]
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "1/20",
+            "bin_counts": {
+              "0": 3,
+              "1": 1,
+              "4": 1,
+              "12": 1,
+              "14": 1
+            },
+            "proven_depth_bound": 6
+          },
+          {
+            "X": 8192,
+            "Y": 16384,
+            "internal_node_count": 9,
+            "tree_depth": 5,
+            "tree": [
+              13358,
+              [
+                9914,
+                [
+                  9053,
+                  null,
+                  null
+                ],
+                [
+                  12497,
+                  [
+                    11636,
+                    [
+                      10775,
+                      null,
+                      null
+                    ],
+                    null
+                  ],
+                  null
+                ]
+              ],
+              [
+                15080,
+                [
+                  14219,
+                  null,
+                  null
+                ],
+                [
+                  15941,
+                  null,
+                  null
+                ]
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "1/20",
+            "bin_counts": {
+              "0": 7,
+              "13": 1,
+              "22": 1
+            },
+            "proven_depth_bound": 5
+          },
+          {
+            "X": 16384,
+            "Y": 32768,
+            "internal_node_count": 11,
+            "tree_depth": 7,
+            "tree": [
+              22176,
+              [
+                20728,
+                [
+                  17832,
+                  null,
+                  [
+                    19280,
+                    null,
+                    null
+                  ]
+                ],
+                null
+              ],
+              [
+                23624,
+                null,
+                [
+                  32312,
+                  [
+                    30864,
+                    [
+                      26520,
+                      [
+                        25072,
+                        null,
+                        null
+                      ],
+                      [
+                        27968,
+                        null,
+                        [
+                          29416,
+                          null,
+                          null
+                        ]
+                      ]
+                    ],
+                    null
+                  ],
+                  null
+                ]
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "1/20",
+            "bin_counts": {
+              "0": 3,
+              "64": 1,
+              "6": 1,
+              "11": 1,
+              "48": 1,
+              "50": 2,
+              "21": 1,
+              "54": 1
+            },
+            "proven_depth_bound": 10
+          }
+        ],
+        "interior_envelope_positive_energy": {
+          "lower": "0.003919181999968234297668789139",
+          "upper": "0.003919181999968234297668789140",
+          "integer_bounds": [
+            "3919181999968234297668789139967124201841164762333797721640",
+            "3919181999968234297668789139967124201841400099497897813277"
+          ],
+          "denominator_power_of_10": 60
+        },
+        "closed_squared_budget": {
+          "lower": "0.004535958667528376302648835289",
+          "upper": "0.004535958667528376302648835290",
+          "integer_bounds": [
+            "4535958667528376302648835289717848441955689430201748154991",
+            "4535958667528376302648835289717848441955959356507120756454"
+          ],
+          "denominator_power_of_10": 60
+        }
+      },
+      {
+        "mode": "additive_bins",
+        "parameter": "1/10",
+        "blocks": [
+          {
+            "X": 1024,
+            "Y": 2048,
+            "internal_node_count": 5,
+            "tree_depth": 3,
+            "tree": [
+              1567,
+              [
+                1386,
+                [
+                  1205,
+                  null,
+                  null
+                ],
+                null
+              ],
+              [
+                1748,
+                null,
+                [
+                  1929,
+                  null,
+                  null
+                ]
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "1/10",
+            "bin_counts": {
+              "0": 1,
+              "4": 1,
+              "5": 1,
+              "6": 1,
+              "7": 1
+            },
+            "proven_depth_bound": 5
+          },
+          {
+            "X": 2048,
+            "Y": 4096,
+            "internal_node_count": 6,
+            "tree_depth": 4,
+            "tree": [
+              3568,
+              [
+                2656,
+                [
+                  2352,
+                  null,
+                  null
+                ],
+                [
+                  3264,
+                  [
+                    2960,
+                    null,
+                    null
+                  ],
+                  null
+                ]
+              ],
+              [
+                3872,
+                null,
+                null
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "1/10",
+            "bin_counts": {
+              "0": 4,
+              "4": 1,
+              "7": 1
+            },
+            "proven_depth_bound": 5
+          },
+          {
+            "X": 4096,
+            "Y": 8192,
+            "internal_node_count": 7,
+            "tree_depth": 4,
+            "tree": [
+              6144,
+              [
+                5632,
+                [
+                  5120,
+                  [
+                    4608,
+                    null,
+                    null
+                  ],
+                  null
+                ],
+                null
+              ],
+              [
+                6656,
+                null,
+                [
+                  7680,
+                  [
+                    7168,
+                    null,
+                    null
+                  ],
+                  null
+                ]
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "1/10",
+            "bin_counts": {
+              "0": 3,
+              "1": 1,
+              "2": 1,
+              "6": 1,
+              "7": 1
+            },
+            "proven_depth_bound": 6
+          },
+          {
+            "X": 8192,
+            "Y": 16384,
+            "internal_node_count": 9,
+            "tree_depth": 5,
+            "tree": [
+              13358,
+              [
+                9914,
+                [
+                  9053,
+                  null,
+                  null
+                ],
+                [
+                  12497,
+                  [
+                    11636,
+                    [
+                      10775,
+                      null,
+                      null
+                    ],
+                    null
+                  ],
+                  null
+                ]
+              ],
+              [
+                15080,
+                [
+                  14219,
+                  null,
+                  null
+                ],
+                [
+                  15941,
+                  null,
+                  null
+                ]
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "1/10",
+            "bin_counts": {
+              "0": 7,
+              "11": 1,
+              "7": 1
+            },
+            "proven_depth_bound": 5
+          },
+          {
+            "X": 16384,
+            "Y": 32768,
+            "internal_node_count": 11,
+            "tree_depth": 7,
+            "tree": [
+              22176,
+              [
+                20728,
+                [
+                  17832,
+                  null,
+                  [
+                    19280,
+                    null,
+                    null
+                  ]
+                ],
+                null
+              ],
+              [
+                23624,
+                null,
+                [
+                  32312,
+                  [
+                    30864,
+                    [
+                      26520,
+                      [
+                        25072,
+                        null,
+                        null
+                      ],
+                      [
+                        27968,
+                        null,
+                        [
+                          29416,
+                          null,
+                          null
+                        ]
+                      ]
+                    ],
+                    null
+                  ],
+                  null
+                ]
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "1/10",
+            "bin_counts": {
+              "0": 3,
+              "32": 1,
+              "3": 1,
+              "6": 1,
+              "11": 1,
+              "24": 1,
+              "25": 2,
+              "27": 1
+            },
+            "proven_depth_bound": 10
+          }
+        ],
+        "interior_envelope_positive_energy": {
+          "lower": "0.003919181999968234297668789139",
+          "upper": "0.003919181999968234297668789140",
+          "integer_bounds": [
+            "3919181999968234297668789139967124201841164762333797721640",
+            "3919181999968234297668789139967124201841400099497897813277"
+          ],
+          "denominator_power_of_10": 60
+        },
+        "closed_squared_budget": {
+          "lower": "0.004535958667528376302648835289",
+          "upper": "0.004535958667528376302648835290",
+          "integer_bounds": [
+            "4535958667528376302648835289717848441955689430201748154991",
+            "4535958667528376302648835289717848441955959356507120756454"
+          ],
+          "denominator_power_of_10": 60
+        }
+      },
+      {
+        "mode": "additive_bins",
+        "parameter": "1/4",
+        "blocks": [
+          {
+            "X": 1024,
+            "Y": 2048,
+            "internal_node_count": 5,
+            "tree_depth": 3,
+            "tree": [
+              1567,
+              [
+                1386,
+                [
+                  1205,
+                  null,
+                  null
+                ],
+                null
+              ],
+              [
+                1929,
+                [
+                  1748,
+                  null,
+                  null
+                ],
+                null
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "1/4",
+            "bin_counts": {
+              "0": 1,
+              "2": 2,
+              "3": 2
+            },
+            "proven_depth_bound": 5
+          },
+          {
+            "X": 2048,
+            "Y": 4096,
+            "internal_node_count": 6,
+            "tree_depth": 4,
+            "tree": [
+              3568,
+              [
+                2656,
+                [
+                  2352,
+                  null,
+                  null
+                ],
+                [
+                  3264,
+                  [
+                    2960,
+                    null,
+                    null
+                  ],
+                  null
+                ]
+              ],
+              [
+                3872,
+                null,
+                null
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "1/4",
+            "bin_counts": {
+              "0": 4,
+              "2": 1,
+              "3": 1
+            },
+            "proven_depth_bound": 5
+          },
+          {
+            "X": 4096,
+            "Y": 8192,
+            "internal_node_count": 7,
+            "tree_depth": 4,
+            "tree": [
+              6144,
+              [
+                5632,
+                [
+                  5120,
+                  [
+                    4608,
+                    null,
+                    null
+                  ],
+                  null
+                ],
+                null
+              ],
+              [
+                6656,
+                null,
+                [
+                  7680,
+                  [
+                    7168,
+                    null,
+                    null
+                  ],
+                  null
+                ]
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "1/4",
+            "bin_counts": {
+              "0": 3,
+              "1": 2,
+              "3": 2
+            },
+            "proven_depth_bound": 6
+          },
+          {
+            "X": 8192,
+            "Y": 16384,
+            "internal_node_count": 9,
+            "tree_depth": 5,
+            "tree": [
+              13358,
+              [
+                9914,
+                [
+                  9053,
+                  null,
+                  null
+                ],
+                [
+                  12497,
+                  [
+                    11636,
+                    [
+                      10775,
+                      null,
+                      null
+                    ],
+                    null
+                  ],
+                  null
+                ]
+              ],
+              [
+                15080,
+                [
+                  14219,
+                  null,
+                  null
+                ],
+                [
+                  15941,
+                  null,
+                  null
+                ]
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "1/4",
+            "bin_counts": {
+              "0": 7,
+              "3": 1,
+              "5": 1
+            },
+            "proven_depth_bound": 5
+          },
+          {
+            "X": 16384,
+            "Y": 32768,
+            "internal_node_count": 11,
+            "tree_depth": 7,
+            "tree": [
+              22176,
+              [
+                20728,
+                [
+                  17832,
+                  null,
+                  [
+                    19280,
+                    null,
+                    null
+                  ]
+                ],
+                null
+              ],
+              [
+                23624,
+                null,
+                [
+                  32312,
+                  [
+                    26520,
+                    [
+                      25072,
+                      null,
+                      null
+                    ],
+                    [
+                      30864,
+                      [
+                        27968,
+                        null,
+                        [
+                          29416,
+                          null,
+                          null
+                        ]
+                      ],
+                      null
+                    ]
+                  ],
+                  null
+                ]
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "1/4",
+            "bin_counts": {
+              "0": 3,
+              "2": 1,
+              "3": 1,
+              "5": 1,
+              "10": 3,
+              "11": 1,
+              "13": 1
+            },
+            "proven_depth_bound": 9
+          }
+        ],
+        "interior_envelope_positive_energy": {
+          "lower": "0.003919181999968234297668789139",
+          "upper": "0.003919181999968234297668789140",
+          "integer_bounds": [
+            "3919181999968234297668789139967124201841164762333797721640",
+            "3919181999968234297668789139967124201841400099497897813277"
+          ],
+          "denominator_power_of_10": 60
+        },
+        "closed_squared_budget": {
+          "lower": "0.004535958667528376302648835289",
+          "upper": "0.004535958667528376302648835290",
+          "integer_bounds": [
+            "4535958667528376302648835289717848441955689430201748154991",
+            "4535958667528376302648835289717848441955959356507120756454"
+          ],
+          "denominator_power_of_10": 60
+        }
+      },
+      {
+        "mode": "additive_bins",
+        "parameter": "1/2",
+        "blocks": [
+          {
+            "X": 1024,
+            "Y": 2048,
+            "internal_node_count": 5,
+            "tree_depth": 3,
+            "tree": [
+              1567,
+              [
+                1386,
+                [
+                  1205,
+                  null,
+                  null
+                ],
+                null
+              ],
+              [
+                1929,
+                [
+                  1748,
+                  null,
+                  null
+                ],
+                null
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "1/2",
+            "bin_counts": {
+              "0": 1,
+              "1": 2,
+              "2": 2
+            },
+            "proven_depth_bound": 5
+          },
+          {
+            "X": 2048,
+            "Y": 4096,
+            "internal_node_count": 6,
+            "tree_depth": 4,
+            "tree": [
+              3568,
+              [
+                2656,
+                [
+                  2352,
+                  null,
+                  null
+                ],
+                [
+                  3264,
+                  [
+                    2960,
+                    null,
+                    null
+                  ],
+                  null
+                ]
+              ],
+              [
+                3872,
+                null,
+                null
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "1/2",
+            "bin_counts": {
+              "0": 4,
+              "1": 1,
+              "2": 1
+            },
+            "proven_depth_bound": 5
+          },
+          {
+            "X": 4096,
+            "Y": 8192,
+            "internal_node_count": 7,
+            "tree_depth": 4,
+            "tree": [
+              6144,
+              [
+                5632,
+                [
+                  5120,
+                  [
+                    4608,
+                    null,
+                    null
+                  ],
+                  null
+                ],
+                null
+              ],
+              [
+                6656,
+                null,
+                [
+                  7680,
+                  [
+                    7168,
+                    null,
+                    null
+                  ],
+                  null
+                ]
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "1/2",
+            "bin_counts": {
+              "0": 3,
+              "1": 2,
+              "2": 2
+            },
+            "proven_depth_bound": 6
+          },
+          {
+            "X": 8192,
+            "Y": 16384,
+            "internal_node_count": 9,
+            "tree_depth": 5,
+            "tree": [
+              13358,
+              [
+                9914,
+                [
+                  9053,
+                  null,
+                  null
+                ],
+                [
+                  12497,
+                  [
+                    11636,
+                    [
+                      10775,
+                      null,
+                      null
+                    ],
+                    null
+                  ],
+                  null
+                ]
+              ],
+              [
+                15080,
+                [
+                  14219,
+                  null,
+                  null
+                ],
+                [
+                  15941,
+                  null,
+                  null
+                ]
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "1/2",
+            "bin_counts": {
+              "0": 7,
+              "2": 1,
+              "3": 1
+            },
+            "proven_depth_bound": 5
+          },
+          {
+            "X": 16384,
+            "Y": 32768,
+            "internal_node_count": 11,
+            "tree_depth": 7,
+            "tree": [
+              22176,
+              [
+                20728,
+                [
+                  17832,
+                  null,
+                  [
+                    19280,
+                    null,
+                    null
+                  ]
+                ],
+                null
+              ],
+              [
+                23624,
+                null,
+                [
+                  32312,
+                  [
+                    26520,
+                    [
+                      25072,
+                      null,
+                      null
+                    ],
+                    [
+                      30864,
+                      [
+                        27968,
+                        null,
+                        [
+                          29416,
+                          null,
+                          null
+                        ]
+                      ],
+                      null
+                    ]
+                  ],
+                  null
+                ]
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "1/2",
+            "bin_counts": {
+              "0": 3,
+              "1": 1,
+              "2": 1,
+              "3": 1,
+              "5": 3,
+              "6": 1,
+              "7": 1
+            },
+            "proven_depth_bound": 9
+          }
+        ],
+        "interior_envelope_positive_energy": {
+          "lower": "0.003919181999968234297668789139",
+          "upper": "0.003919181999968234297668789140",
+          "integer_bounds": [
+            "3919181999968234297668789139967124201841164762333797721640",
+            "3919181999968234297668789139967124201841400099497897813277"
+          ],
+          "denominator_power_of_10": 60
+        },
+        "closed_squared_budget": {
+          "lower": "0.004535958667528376302648835289",
+          "upper": "0.004535958667528376302648835290",
+          "integer_bounds": [
+            "4535958667528376302648835289717848441955689430201748154991",
+            "4535958667528376302648835289717848441955959356507120756454"
+          ],
+          "denominator_power_of_10": 60
+        }
+      },
+      {
+        "mode": "additive_bins",
+        "parameter": "1",
+        "blocks": [
+          {
+            "X": 1024,
+            "Y": 2048,
+            "internal_node_count": 5,
+            "tree_depth": 3,
+            "tree": [
+              1567,
+              [
+                1386,
+                [
+                  1205,
+                  null,
+                  null
+                ],
+                null
+              ],
+              [
+                1929,
+                [
+                  1748,
+                  null,
+                  null
+                ],
+                null
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "1",
+            "bin_counts": {
+              "0": 1,
+              "1": 4
+            },
+            "proven_depth_bound": 4
+          },
+          {
+            "X": 2048,
+            "Y": 4096,
+            "internal_node_count": 6,
+            "tree_depth": 4,
+            "tree": [
+              3568,
+              [
+                2656,
+                [
+                  2352,
+                  null,
+                  null
+                ],
+                [
+                  3264,
+                  [
+                    2960,
+                    null,
+                    null
+                  ],
+                  null
+                ]
+              ],
+              [
+                3872,
+                null,
+                null
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "1",
+            "bin_counts": {
+              "0": 4,
+              "1": 2
+            },
+            "proven_depth_bound": 5
+          },
+          {
+            "X": 4096,
+            "Y": 8192,
+            "internal_node_count": 7,
+            "tree_depth": 4,
+            "tree": [
+              6144,
+              [
+                5632,
+                [
+                  5120,
+                  [
+                    4608,
+                    null,
+                    null
+                  ],
+                  null
+                ],
+                null
+              ],
+              [
+                6656,
+                null,
+                [
+                  7680,
+                  [
+                    7168,
+                    null,
+                    null
+                  ],
+                  null
+                ]
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "1",
+            "bin_counts": {
+              "0": 3,
+              "1": 4
+            },
+            "proven_depth_bound": 5
+          },
+          {
+            "X": 8192,
+            "Y": 16384,
+            "internal_node_count": 9,
+            "tree_depth": 5,
+            "tree": [
+              13358,
+              [
+                9914,
+                [
+                  9053,
+                  null,
+                  null
+                ],
+                [
+                  12497,
+                  [
+                    11636,
+                    [
+                      10775,
+                      null,
+                      null
+                    ],
+                    null
+                  ],
+                  null
+                ]
+              ],
+              [
+                15080,
+                [
+                  14219,
+                  null,
+                  null
+                ],
+                [
+                  15941,
+                  null,
+                  null
+                ]
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "1",
+            "bin_counts": {
+              "0": 7,
+              "1": 1,
+              "2": 1
+            },
+            "proven_depth_bound": 5
+          },
+          {
+            "X": 16384,
+            "Y": 32768,
+            "internal_node_count": 11,
+            "tree_depth": 6,
+            "tree": [
+              22176,
+              [
+                20728,
+                [
+                  17832,
+                  null,
+                  [
+                    19280,
+                    null,
+                    null
+                  ]
+                ],
+                null
+              ],
+              [
+                23624,
+                null,
+                [
+                  32312,
+                  [
+                    27968,
+                    [
+                      26520,
+                      [
+                        25072,
+                        null,
+                        null
+                      ],
+                      null
+                    ],
+                    [
+                      30864,
+                      [
+                        29416,
+                        null,
+                        null
+                      ],
+                      null
+                    ]
+                  ],
+                  null
+                ]
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "1",
+            "bin_counts": {
+              "0": 3,
+              "1": 2,
+              "2": 1,
+              "3": 4,
+              "4": 1
+            },
+            "proven_depth_bound": 9
+          }
+        ],
+        "interior_envelope_positive_energy": {
+          "lower": "0.003919181999968234297668789139",
+          "upper": "0.003919181999968234297668789140",
+          "integer_bounds": [
+            "3919181999968234297668789139967124201841164762333797721640",
+            "3919181999968234297668789139967124201841400099497897813277"
+          ],
+          "denominator_power_of_10": 60
+        },
+        "closed_squared_budget": {
+          "lower": "0.004535958667528376302648835289",
+          "upper": "0.004535958667528376302648835290",
+          "integer_bounds": [
+            "4535958667528376302648835289717848441955689430201748154991",
+            "4535958667528376302648835289717848441955959356507120756454"
+          ],
+          "denominator_power_of_10": 60
+        }
+      },
+      {
+        "mode": "additive_bins",
+        "parameter": "2",
+        "blocks": [
+          {
+            "X": 1024,
+            "Y": 2048,
+            "internal_node_count": 5,
+            "tree_depth": 3,
+            "tree": [
+              1567,
+              [
+                1386,
+                [
+                  1205,
+                  null,
+                  null
+                ],
+                null
+              ],
+              [
+                1929,
+                [
+                  1748,
+                  null,
+                  null
+                ],
+                null
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "2",
+            "bin_counts": {
+              "0": 1,
+              "1": 4
+            },
+            "proven_depth_bound": 4
+          },
+          {
+            "X": 2048,
+            "Y": 4096,
+            "internal_node_count": 6,
+            "tree_depth": 4,
+            "tree": [
+              3568,
+              [
+                2656,
+                [
+                  2352,
+                  null,
+                  null
+                ],
+                [
+                  3264,
+                  [
+                    2960,
+                    null,
+                    null
+                  ],
+                  null
+                ]
+              ],
+              [
+                3872,
+                null,
+                null
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "2",
+            "bin_counts": {
+              "0": 4,
+              "1": 2
+            },
+            "proven_depth_bound": 5
+          },
+          {
+            "X": 4096,
+            "Y": 8192,
+            "internal_node_count": 7,
+            "tree_depth": 4,
+            "tree": [
+              6144,
+              [
+                5632,
+                [
+                  5120,
+                  [
+                    4608,
+                    null,
+                    null
+                  ],
+                  null
+                ],
+                null
+              ],
+              [
+                6656,
+                null,
+                [
+                  7680,
+                  [
+                    7168,
+                    null,
+                    null
+                  ],
+                  null
+                ]
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "2",
+            "bin_counts": {
+              "0": 3,
+              "1": 4
+            },
+            "proven_depth_bound": 5
+          },
+          {
+            "X": 8192,
+            "Y": 16384,
+            "internal_node_count": 9,
+            "tree_depth": 5,
+            "tree": [
+              13358,
+              [
+                9914,
+                [
+                  9053,
+                  null,
+                  null
+                ],
+                [
+                  12497,
+                  [
+                    11636,
+                    [
+                      10775,
+                      null,
+                      null
+                    ],
+                    null
+                  ],
+                  null
+                ]
+              ],
+              [
+                15080,
+                [
+                  14219,
+                  null,
+                  null
+                ],
+                [
+                  15941,
+                  null,
+                  null
+                ]
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "2",
+            "bin_counts": {
+              "0": 7,
+              "1": 2
+            },
+            "proven_depth_bound": 5
+          },
+          {
+            "X": 16384,
+            "Y": 32768,
+            "internal_node_count": 11,
+            "tree_depth": 6,
+            "tree": [
+              22176,
+              [
+                20728,
+                [
+                  19280,
+                  [
+                    17832,
+                    null,
+                    null
+                  ],
+                  null
+                ],
+                null
+              ],
+              [
+                23624,
+                null,
+                [
+                  32312,
+                  [
+                    27968,
+                    [
+                      26520,
+                      [
+                        25072,
+                        null,
+                        null
+                      ],
+                      null
+                    ],
+                    [
+                      30864,
+                      [
+                        29416,
+                        null,
+                        null
+                      ],
+                      null
+                    ]
+                  ],
+                  null
+                ]
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "2",
+            "bin_counts": {
+              "0": 3,
+              "1": 3,
+              "2": 5
+            },
+            "proven_depth_bound": 7
+          }
+        ],
+        "interior_envelope_positive_energy": {
+          "lower": "0.003919181999968234297668789139",
+          "upper": "0.003919181999968234297668789140",
+          "integer_bounds": [
+            "3919181999968234297668789139967124201841164762333797721640",
+            "3919181999968234297668789139967124201841400099497897813277"
+          ],
+          "denominator_power_of_10": 60
+        },
+        "closed_squared_budget": {
+          "lower": "0.004535958667528376302648835289",
+          "upper": "0.004535958667528376302648835290",
+          "integer_bounds": [
+            "4535958667528376302648835289717848441955689430201748154991",
+            "4535958667528376302648835289717848441955959356507120756454"
+          ],
+          "denominator_power_of_10": 60
+        }
+      },
+      {
+        "mode": "additive_bins",
+        "parameter": "4",
+        "blocks": [
+          {
+            "X": 1024,
+            "Y": 2048,
+            "internal_node_count": 5,
+            "tree_depth": 3,
+            "tree": [
+              1567,
+              [
+                1386,
+                [
+                  1205,
+                  null,
+                  null
+                ],
+                null
+              ],
+              [
+                1929,
+                [
+                  1748,
+                  null,
+                  null
+                ],
+                null
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "4",
+            "bin_counts": {
+              "0": 1,
+              "1": 4
+            },
+            "proven_depth_bound": 4
+          },
+          {
+            "X": 2048,
+            "Y": 4096,
+            "internal_node_count": 6,
+            "tree_depth": 4,
+            "tree": [
+              3568,
+              [
+                2656,
+                [
+                  2352,
+                  null,
+                  null
+                ],
+                [
+                  3264,
+                  [
+                    2960,
+                    null,
+                    null
+                  ],
+                  null
+                ]
+              ],
+              [
+                3872,
+                null,
+                null
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "4",
+            "bin_counts": {
+              "0": 4,
+              "1": 2
+            },
+            "proven_depth_bound": 5
+          },
+          {
+            "X": 4096,
+            "Y": 8192,
+            "internal_node_count": 7,
+            "tree_depth": 4,
+            "tree": [
+              6144,
+              [
+                5632,
+                [
+                  5120,
+                  [
+                    4608,
+                    null,
+                    null
+                  ],
+                  null
+                ],
+                null
+              ],
+              [
+                6656,
+                null,
+                [
+                  7680,
+                  [
+                    7168,
+                    null,
+                    null
+                  ],
+                  null
+                ]
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "4",
+            "bin_counts": {
+              "0": 3,
+              "1": 4
+            },
+            "proven_depth_bound": 5
+          },
+          {
+            "X": 8192,
+            "Y": 16384,
+            "internal_node_count": 9,
+            "tree_depth": 5,
+            "tree": [
+              13358,
+              [
+                9914,
+                [
+                  9053,
+                  null,
+                  null
+                ],
+                [
+                  12497,
+                  [
+                    11636,
+                    [
+                      10775,
+                      null,
+                      null
+                    ],
+                    null
+                  ],
+                  null
+                ]
+              ],
+              [
+                15080,
+                [
+                  14219,
+                  null,
+                  null
+                ],
+                [
+                  15941,
+                  null,
+                  null
+                ]
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.000000000000000000000000000000",
+              "upper": "0.000000000000000000000000000000",
+              "integer_bounds": [
+                "0",
+                "0"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "4",
+            "bin_counts": {
+              "0": 7,
+              "1": 2
+            },
+            "proven_depth_bound": 5
+          },
+          {
+            "X": 16384,
+            "Y": 32768,
+            "internal_node_count": 11,
+            "tree_depth": 5,
+            "tree": [
+              22176,
+              [
+                20728,
+                [
+                  19280,
+                  [
+                    17832,
+                    null,
+                    null
+                  ],
+                  null
+                ],
+                null
+              ],
+              [
+                23624,
+                null,
+                [
+                  29416,
+                  [
+                    26520,
+                    [
+                      25072,
+                      null,
+                      null
+                    ],
+                    [
+                      27968,
+                      null,
+                      null
+                    ]
+                  ],
+                  [
+                    32312,
+                    [
+                      30864,
+                      null,
+                      null
+                    ],
+                    null
+                  ]
+                ]
+              ]
+            ],
+            "chosen_tree_actual_continuous_slack": {
+              "lower": "0.181097094279582014122032836001",
+              "upper": "0.181097094279582014122032836002",
+              "integer_bounds": [
+                "181097094279582014122032836001069344524163841591609557705866",
+                "181097094279582014122032836001069344526917507591933823420685"
+              ],
+              "denominator_power_of_10": 60
+            },
+            "bin_width": "4",
+            "bin_counts": {
+              "0": 3,
+              "1": 8
+            },
+            "proven_depth_bound": 6
+          }
+        ],
+        "interior_envelope_positive_energy": {
+          "lower": "0.003921193564533276290333988454",
+          "upper": "0.003921193564533276290333988455",
+          "integer_bounds": [
+            "3921193564533276290333988454551393280809391566934592221821",
+            "3921193564533276290333988454551393280809627222365847671935"
+          ],
+          "denominator_power_of_10": 60
+        },
+        "closed_squared_budget": {
+          "lower": "0.004538122247286279773537480675",
+          "upper": "0.004538122247286279773537480676",
+          "integer_bounds": [
+            "4538122247286279773537480675271897538434633616155613250182",
+            "4538122247286279773537480675271897538434903884221605556488"
+          ],
+          "denominator_power_of_10": 60
+        }
+      }
+    ]
+  },
+  "quadratic_depth_obstruction": [
+    {
+      "rho": "6/5",
+      "universal_pointwise_factor": "121/120",
+      "universal_squared_energy_factor": "14641/14400",
+      "rows": [
+        {
+          "s": 8,
+          "exact_optimal_required_depth": 7,
+          "constructed_depth": 7,
+          "anchor_count": 7,
+          "maximum_pointwise_ratio": "1",
+          "maximum_pointwise_ratio_decimal": 1.0
+        },
+        {
+          "s": 16,
+          "exact_optimal_required_depth": 15,
+          "constructed_depth": 13,
+          "anchor_count": 13,
+          "maximum_pointwise_ratio": "122/121",
+          "maximum_pointwise_ratio_decimal": 1.0082644628099173
+        },
+        {
+          "s": 32,
+          "exact_optimal_required_depth": 31,
+          "constructed_depth": 20,
+          "anchor_count": 17,
+          "maximum_pointwise_ratio": "122/121",
+          "maximum_pointwise_ratio_decimal": 1.0082644628099173
+        },
+        {
+          "s": 64,
+          "exact_optimal_required_depth": 63,
+          "constructed_depth": 25,
+          "anchor_count": 22,
+          "maximum_pointwise_ratio": "122/121",
+          "maximum_pointwise_ratio_decimal": 1.0082644628099173
+        },
+        {
+          "s": 128,
+          "exact_optimal_required_depth": 127,
+          "constructed_depth": 30,
+          "anchor_count": 26,
+          "maximum_pointwise_ratio": "2667/2645",
+          "maximum_pointwise_ratio_decimal": 1.0083175803402646
+        },
+        {
+          "s": 256,
+          "exact_optimal_required_depth": 255,
+          "constructed_depth": 35,
+          "anchor_count": 29,
+          "maximum_pointwise_ratio": "2667/2645",
+          "maximum_pointwise_ratio_decimal": 1.0083175803402646
+        },
+        {
+          "s": 512,
+          "exact_optimal_required_depth": 511,
+          "constructed_depth": 39,
+          "anchor_count": 33,
+          "maximum_pointwise_ratio": "5083/5041",
+          "maximum_pointwise_ratio_decimal": 1.0083316802221782
+        },
+        {
+          "s": 1024,
+          "exact_optimal_required_depth": 1023,
+          "constructed_depth": 44,
+          "anchor_count": 37,
+          "maximum_pointwise_ratio": "5083/5041",
+          "maximum_pointwise_ratio_decimal": 1.0083316802221782
+        },
+        {
+          "s": 4096,
+          "exact_optimal_required_depth": 4095,
+          "constructed_depth": 54,
+          "anchor_count": 45,
+          "maximum_pointwise_ratio": "5083/5041",
+          "maximum_pointwise_ratio_decimal": 1.0083316802221782
+        }
+      ]
+    },
+    {
+      "rho": "3/2",
+      "universal_pointwise_factor": "25/24",
+      "universal_squared_energy_factor": "625/576",
+      "rows": [
+        {
+          "s": 8,
+          "exact_optimal_required_depth": 7,
+          "constructed_depth": 6,
+          "anchor_count": 6,
+          "maximum_pointwise_ratio": "26/25",
+          "maximum_pointwise_ratio_decimal": 1.04
+        },
+        {
+          "s": 16,
+          "exact_optimal_required_depth": 15,
+          "constructed_depth": 9,
+          "anchor_count": 8,
+          "maximum_pointwise_ratio": "51/49",
+          "maximum_pointwise_ratio_decimal": 1.0408163265306123
+        },
+        {
+          "s": 32,
+          "exact_optimal_required_depth": 31,
+          "constructed_depth": 13,
+          "anchor_count": 10,
+          "maximum_pointwise_ratio": "51/49",
+          "maximum_pointwise_ratio_decimal": 1.0408163265306123
+        },
+        {
+          "s": 64,
+          "exact_optimal_required_depth": 63,
+          "constructed_depth": 16,
+          "anchor_count": 11,
+          "maximum_pointwise_ratio": "651/625",
+          "maximum_pointwise_ratio_decimal": 1.0416
+        },
+        {
+          "s": 128,
+          "exact_optimal_required_depth": 127,
+          "constructed_depth": 19,
+          "anchor_count": 13,
+          "maximum_pointwise_ratio": "651/625",
+          "maximum_pointwise_ratio_decimal": 1.0416
+        },
+        {
+          "s": 256,
+          "exact_optimal_required_depth": 255,
+          "constructed_depth": 21,
+          "anchor_count": 15,
+          "maximum_pointwise_ratio": "13301/12769",
+          "maximum_pointwise_ratio_decimal": 1.041663403555486
+        },
+        {
+          "s": 512,
+          "exact_optimal_required_depth": 511,
+          "constructed_depth": 24,
+          "anchor_count": 17,
+          "maximum_pointwise_ratio": "149626/143641",
+          "maximum_pointwise_ratio_decimal": 1.0416663765916416
+        },
+        {
+          "s": 1024,
+          "exact_optimal_required_depth": 1023,
+          "constructed_depth": 27,
+          "anchor_count": 18,
+          "maximum_pointwise_ratio": "337251/323761",
+          "maximum_pointwise_ratio_decimal": 1.0416665379709107
+        },
+        {
+          "s": 4096,
+          "exact_optimal_required_depth": 4095,
+          "constructed_depth": 32,
+          "anchor_count": 22,
+          "maximum_pointwise_ratio": "2157001/2070721",
+          "maximum_pointwise_ratio_decimal": 1.0416666465448507
+        }
+      ]
+    },
+    {
+      "rho": "2",
+      "universal_pointwise_factor": "9/8",
+      "universal_squared_energy_factor": "81/64",
+      "rows": [
+        {
+          "s": 8,
+          "exact_optimal_required_depth": 7,
+          "constructed_depth": 6,
+          "anchor_count": 4,
+          "maximum_pointwise_ratio": "10/9",
+          "maximum_pointwise_ratio_decimal": 1.1111111111111112
+        },
+        {
+          "s": 16,
+          "exact_optimal_required_depth": 15,
+          "constructed_depth": 8,
+          "anchor_count": 5,
+          "maximum_pointwise_ratio": "28/25",
+          "maximum_pointwise_ratio_decimal": 1.12
+        },
+        {
+          "s": 32,
+          "exact_optimal_required_depth": 31,
+          "constructed_depth": 10,
+          "anchor_count": 6,
+          "maximum_pointwise_ratio": "136/121",
+          "maximum_pointwise_ratio_decimal": 1.1239669421487604
+        },
+        {
+          "s": 64,
+          "exact_optimal_required_depth": 63,
+          "constructed_depth": 12,
+          "anchor_count": 7,
+          "maximum_pointwise_ratio": "496/441",
+          "maximum_pointwise_ratio_decimal": 1.124716553287982
+        },
+        {
+          "s": 128,
+          "exact_optimal_required_depth": 127,
+          "constructed_depth": 14,
+          "anchor_count": 8,
+          "maximum_pointwise_ratio": "2080/1849",
+          "maximum_pointwise_ratio_decimal": 1.1249323958896702
+        },
+        {
+          "s": 256,
+          "exact_optimal_required_depth": 255,
+          "constructed_depth": 16,
+          "anchor_count": 9,
+          "maximum_pointwise_ratio": "8128/7225",
+          "maximum_pointwise_ratio_decimal": 1.1249826989619378
+        },
+        {
+          "s": 512,
+          "exact_optimal_required_depth": 511,
+          "constructed_depth": 18,
+          "anchor_count": 10,
+          "maximum_pointwise_ratio": "32896/29241",
+          "maximum_pointwise_ratio_decimal": 1.1249957251803975
+        },
+        {
+          "s": 1024,
+          "exact_optimal_required_depth": 1023,
+          "constructed_depth": 20,
+          "anchor_count": 11,
+          "maximum_pointwise_ratio": "130816/116281",
+          "maximum_pointwise_ratio_decimal": 1.1249989250178447
+        },
+        {
+          "s": 4096,
+          "exact_optimal_required_depth": 4095,
+          "constructed_depth": 24,
+          "anchor_count": 13,
+          "maximum_pointwise_ratio": "2096128/1863225",
+          "maximum_pointwise_ratio_decimal": 1.1249999329120208
+        }
+      ]
+    }
+  ],
+  "relative_pointwise_obstruction": [
+    {
+      "factor": "25/24",
+      "s": 8,
+      "K": 18,
+      "forced_depth_lower_bound": 3,
+      "strict_forbidden_next_root_comparisons": 15,
+      "minimum_strict_margin": "191/2187",
+      "full_integer_source_bound": "12/n",
+      "fine_remainder_squared_bound": "1/64",
+      "true_energy_bounds": [
+        "1/16",
+        "2"
+      ]
+    },
+    {
+      "factor": "25/24",
+      "s": 16,
+      "K": 35,
+      "forced_depth_lower_bound": 7,
+      "strict_forbidden_next_root_comparisons": 77,
+      "minimum_strict_margin": "2528/38603578125",
+      "full_integer_source_bound": "12/n",
+      "fine_remainder_squared_bound": "1/128",
+      "true_energy_bounds": [
+        "1/16",
+        "2"
+      ]
+    },
+    {
+      "factor": "25/24",
+      "s": 32,
+      "K": 68,
+      "forced_depth_lower_bound": 15,
+      "strict_forbidden_next_root_comparisons": 345,
+      "minimum_strict_margin": "791/72035234727838958519058432",
+      "full_integer_source_bound": "12/n",
+      "fine_remainder_squared_bound": "1/256",
+      "true_energy_bounds": [
+        "1/16",
+        "2"
+      ]
+    },
+    {
+      "factor": "25/24",
+      "s": 64,
+      "K": 135,
+      "forced_depth_lower_bound": 31,
+      "strict_forbidden_next_root_comparisons": 1457,
+      "minimum_strict_margin": "163328/658412509611905279101061817107363524421451025642454624176025390625",
+      "full_integer_source_bound": "12/n",
+      "fine_remainder_squared_bound": "1/512",
+      "true_energy_bounds": [
+        "1/16",
+        "2"
+      ]
+    },
+    {
+      "factor": "25/24",
+      "s": 128,
+      "K": 268,
+      "forced_depth_lower_bound": 63,
+      "strict_forbidden_next_root_comparisons": 5985,
+      "minimum_strict_margin": "3191/1374938668760396846715649634026790909522711382905997199491932349969252937757803955971637754865080854203814644416167757417841761855722289497466105495552",
+      "full_integer_source_bound": "12/n",
+      "fine_remainder_squared_bound": "1/1024",
+      "true_energy_bounds": [
+        "1/16",
+        "2"
+      ]
+    },
+    {
+      "factor": "2",
+      "s": 8,
+      "K": 33,
+      "forced_depth_lower_bound": 3,
+      "strict_forbidden_next_root_comparisons": 15,
+      "minimum_strict_margin": "928/35937",
+      "full_integer_source_bound": "12/n",
+      "fine_remainder_squared_bound": "1/64",
+      "true_energy_bounds": [
+        "1/16",
+        "2"
+      ]
+    },
+    {
+      "factor": "2",
+      "s": 16,
+      "K": 65,
+      "forced_depth_lower_bound": 7,
+      "strict_forbidden_next_root_comparisons": 77,
+      "minimum_strict_margin": "7808/4902227890625",
+      "full_integer_source_bound": "12/n",
+      "fine_remainder_squared_bound": "1/128",
+      "true_energy_bounds": [
+        "1/16",
+        "2"
+      ]
+    },
+    {
+      "factor": "2",
+      "s": 32,
+      "K": 129,
+      "forced_depth_lower_bound": 15,
+      "strict_forbidden_next_root_comparisons": 345,
+      "minimum_strict_margin": "64000/45587487211290846582931833112449",
+      "full_integer_source_bound": "12/n",
+      "fine_remainder_squared_bound": "1/256",
+      "true_energy_bounds": [
+        "1/16",
+        "2"
+      ]
+    },
+    {
+      "factor": "2",
+      "s": 64,
+      "K": 257,
+      "forced_depth_lower_bound": 31,
+      "strict_forbidden_next_root_comparisons": 1457,
+      "minimum_strict_margin": "518144/510418989351370756385471987562075329801799753598808217293070249498399284993",
+      "full_integer_source_bound": "12/n",
+      "fine_remainder_squared_bound": "1/512",
+      "true_energy_bounds": [
+        "1/16",
+        "2"
+      ]
+    },
+    {
+      "factor": "2",
+      "s": 128,
+      "K": 513,
+      "forced_depth_lower_bound": 63,
+      "strict_forbidden_next_root_comparisons": 5985,
+      "minimum_strict_margin": "4169728/546253209965075864397582536907449464614231089275329172359315604964704340425219204640851410623263945859151351844000530283522528079733186719391744473709488143488887183146497",
+      "full_integer_source_bound": "12/n",
+      "fine_remainder_squared_bound": "1/1024",
+      "true_energy_bounds": [
+        "1/16",
+        "2"
+      ]
+    },
+    {
+      "factor": "10",
+      "s": 8,
+      "K": 161,
+      "forced_depth_lower_bound": 3,
+      "strict_forbidden_next_root_comparisons": 15,
+      "minimum_strict_margin": "4512/4173281",
+      "full_integer_source_bound": "12/n",
+      "fine_remainder_squared_bound": "1/64",
+      "true_energy_bounds": [
+        "1/16",
+        "2"
+      ]
+    },
+    {
+      "factor": "10",
+      "s": 16,
+      "K": 321,
+      "forced_depth_lower_bound": 7,
+      "strict_forbidden_next_root_comparisons": 77,
+      "minimum_strict_margin": "38528/351184408905832641",
+      "full_integer_source_bound": "12/n",
+      "fine_remainder_squared_bound": "1/128",
+      "true_energy_bounds": [
+        "1/16",
+        "2"
+      ]
+    },
+    {
+      "factor": "10",
+      "s": 32,
+      "K": 641,
+      "forced_depth_lower_bound": 15,
+      "strict_forbidden_next_root_comparisons": 345,
+      "minimum_strict_margin": "317952/1267273760767164761444809875186740144137601",
+      "full_integer_source_bound": "12/n",
+      "fine_remainder_squared_bound": "1/256",
+      "true_energy_bounds": [
+        "1/16",
+        "2"
+      ]
+    },
+    {
+      "factor": "10",
+      "s": 64,
+      "K": 1281,
+      "forced_depth_lower_bound": 31,
+      "strict_forbidden_next_root_comparisons": 1457,
+      "minimum_strict_margin": "2582528/2157858794885268053376799368232280155025099861023171917562858636175174277532715080585776439335681",
+      "full_integer_source_bound": "12/n",
+      "fine_remainder_squared_bound": "1/512",
+      "true_energy_bounds": [
+        "1/16",
+        "2"
+      ]
+    },
+    {
+      "factor": "10",
+      "s": 128,
+      "K": 2561,
+      "forced_depth_lower_bound": 63,
+      "strict_forbidden_next_root_comparisons": 5985,
+      "minimum_strict_margin": "20815872/53678879719480486735887700912956100660154855416101180111940548379798048700842564662540525377361769536004097714327007153043221805903637088389478756351568132146829516874604137134192488539117960810381770853699505518081",
+      "full_integer_source_bound": "12/n",
+      "fine_remainder_squared_bound": "1/1024",
+      "true_energy_bounds": [
+        "1/16",
+        "2"
+      ]
+    }
+  ],
+  "claim_scope": "Author analytic theorems and finite certificates; no independent Project Review.",
+  "elapsed_seconds": 9.750522056999671
+}

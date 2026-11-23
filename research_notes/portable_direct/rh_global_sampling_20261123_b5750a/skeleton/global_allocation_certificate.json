@@ -1,0 +1,372 @@
+{
+  "status": "all exact checks passed",
+  "composition_count": 4095,
+  "allocation_checks": [
+    {
+      "blocks": [
+        [
+          8,
+          8
+        ],
+        [
+          16,
+          16
+        ],
+        [
+          32,
+          32
+        ]
+      ],
+      "all_allocations": 4096,
+      "budgets_verified": 54,
+      "selected_curve": {
+        "3": {
+          "allocation": [
+            1,
+            1,
+            1
+          ],
+          "shape_cost": {
+            "numerator": "1834935",
+            "denominator": "32768",
+            "approx": 55.997772216796875
+          }
+        },
+        "6": {
+          "allocation": [
+            2,
+            2,
+            2
+          ],
+          "shape_cost": {
+            "numerator": "114615",
+            "denominator": "32768",
+            "approx": 3.497772216796875
+          }
+        },
+        "12": {
+          "allocation": [
+            4,
+            4,
+            4
+          ],
+          "shape_cost": {
+            "numerator": "7095",
+            "denominator": "32768",
+            "approx": 0.216522216796875
+          }
+        },
+        "18": {
+          "allocation": [
+            5,
+            6,
+            7
+          ],
+          "shape_cost": {
+            "numerator": "13725",
+            "denominator": "262144",
+            "approx": 0.052356719970703125
+          }
+        },
+        "56": {
+          "allocation": [
+            8,
+            16,
+            32
+          ],
+          "shape_cost": {
+            "numerator": "0",
+            "denominator": "1",
+            "approx": 0.0
+          }
+        }
+      }
+    },
+    {
+      "blocks": [
+        [
+          5,
+          5
+        ],
+        [
+          10,
+          10
+        ],
+        [
+          20,
+          7
+        ]
+      ],
+      "all_allocations": 350,
+      "budgets_verified": 20,
+      "selected_curve": {
+        "3": {
+          "allocation": [
+            1,
+            1,
+            1
+          ],
+          "shape_cost": {
+            "numerator": "1887",
+            "denominator": "125",
+            "approx": 15.096
+          }
+        },
+        "6": {
+          "allocation": [
+            2,
+            3,
+            1
+          ],
+          "shape_cost": {
+            "numerator": "687",
+            "denominator": "1000",
+            "approx": 0.687
+          }
+        },
+        "12": {
+          "allocation": [
+            5,
+            5,
+            2
+          ],
+          "shape_cost": {
+            "numerator": "183",
+            "denominator": "8000",
+            "approx": 0.022875
+          }
+        },
+        "18": {
+          "allocation": [
+            5,
+            10,
+            3
+          ],
+          "shape_cost": {
+            "numerator": "3",
+            "denominator": "1600",
+            "approx": 0.001875
+          }
+        },
+        "22": {
+          "allocation": [
+            5,
+            10,
+            7
+          ],
+          "shape_cost": {
+            "numerator": "0",
+            "denominator": "1",
+            "approx": 0.0
+          }
+        }
+      }
+    }
+  ],
+  "road_checks": [
+    {
+      "budget_intervals": 3,
+      "sample_count": 4,
+      "allocation": [
+        1,
+        1,
+        1
+      ],
+      "max_n_abs_second_difference": {
+        "numerator": "52857",
+        "denominator": "131072",
+        "approx": 0.40326690673828125
+      },
+      "lower": {
+        "numerator": "122329",
+        "denominator": "352321536",
+        "approx": 0.0003472084090823219
+      },
+      "actual_hidden_energy": {
+        "numerator": "933393647208143486630157833729468498187338558780822424413",
+        "denominator": "1465652331409515405265879690698751273545482985489888706560000",
+        "approx": 0.0006368451966439411
+      },
+      "upper": {
+        "numerator": "122329",
+        "denominator": "262144",
+        "approx": 0.4666481018066406
+      }
+    },
+    {
+      "budget_intervals": 6,
+      "sample_count": 7,
+      "allocation": [
+        2,
+        2,
+        2
+      ],
+      "max_n_abs_second_difference": {
+        "numerator": "675",
+        "denominator": "2048",
+        "approx": 0.32958984375
+      },
+      "lower": {
+        "numerator": "2547",
+        "denominator": "117440512",
+        "approx": 2.168757574898856e-05
+      },
+      "actual_hidden_energy": {
+        "numerator": "47916235084629048693639955625186823964929550357660493",
+        "denominator": "1130904576704872997890339267514468575266576377692815360000",
+        "approx": 4.236983037440968e-05
+      },
+      "upper": {
+        "numerator": "7641",
+        "denominator": "262144",
+        "approx": 0.029148101806640625
+      }
+    },
+    {
+      "budget_intervals": 12,
+      "sample_count": 13,
+      "allocation": [
+        4,
+        4,
+        4
+      ],
+      "max_n_abs_second_difference": {
+        "numerator": "343",
+        "denominator": "1024",
+        "approx": 0.3349609375
+      },
+      "lower": {
+        "numerator": "473",
+        "denominator": "352321536",
+        "approx": 1.342523665655227e-06
+      },
+      "actual_hidden_energy": {
+        "numerator": "36174033798584362464963427408725394659840492333253",
+        "denominator": "12982322946867164516598282407691603542601004335759360000",
+        "approx": 2.7864068662160123e-06
+      },
+      "upper": {
+        "numerator": "473",
+        "denominator": "262144",
+        "approx": 0.001804351806640625
+      }
+    },
+    {
+      "budget_intervals": 18,
+      "sample_count": 19,
+      "allocation": [
+        5,
+        6,
+        7
+      ],
+      "max_n_abs_second_difference": {
+        "numerator": "135",
+        "denominator": "512",
+        "approx": 0.263671875
+      },
+      "lower": {
+        "numerator": "305",
+        "denominator": "939524096",
+        "approx": 3.246324402945382e-07
+      },
+      "actual_hidden_energy": {
+        "numerator": "39863667888363319055755330022624564265128850000767",
+        "denominator": "47921110587283253515795090321819109807574093004800000000",
+        "approx": 8.318602678407431e-07
+      },
+      "upper": {
+        "numerator": "915",
+        "denominator": "2097152",
+        "approx": 0.0004363059997558594
+      }
+    },
+    {
+      "budget_intervals": 30,
+      "sample_count": 31,
+      "allocation": [
+        8,
+        11,
+        11
+      ],
+      "max_n_abs_second_difference": {
+        "numerator": "59",
+        "denominator": "288",
+        "approx": 0.2048611111111111
+      },
+      "lower": {
+        "numerator": "23",
+        "denominator": "805306368",
+        "approx": 2.8560558954874676e-08
+      },
+      "actual_hidden_energy": {
+        "numerator": "31701105888321528677807200104385337",
+        "denominator": "415320586803238699053401833280792494080000",
+        "approx": 7.632924274794057e-08
+      },
+      "upper": {
+        "numerator": "161",
+        "denominator": "4194304",
+        "approx": 3.838539123535156e-05
+      }
+    },
+    {
+      "budget_intervals": 55,
+      "sample_count": 56,
+      "allocation": [
+        8,
+        16,
+        31
+      ],
+      "max_n_abs_second_difference": {
+        "numerator": "33",
+        "denominator": "512",
+        "approx": 0.064453125
+      },
+      "lower": {
+        "numerator": "1",
+        "denominator": "5637144576",
+        "approx": 1.77394776117234e-10
+      },
+      "actual_hidden_energy": {
+        "numerator": "1",
+        "denominator": "1141899264",
+        "approx": 8.757339911903122e-10
+      },
+      "upper": {
+        "numerator": "1",
+        "denominator": "4194304",
+        "approx": 2.384185791015625e-07
+      }
+    },
+    {
+      "budget_intervals": 56,
+      "sample_count": 57,
+      "allocation": [
+        8,
+        16,
+        32
+      ],
+      "max_n_abs_second_difference": {
+        "numerator": "0",
+        "denominator": "1",
+        "approx": 0.0
+      },
+      "lower": {
+        "numerator": "0",
+        "denominator": "1",
+        "approx": 0.0
+      },
+      "actual_hidden_energy": {
+        "numerator": "0",
+        "denominator": "1",
+        "approx": 0.0
+      },
+      "upper": {
+        "numerator": "0",
+        "denominator": "1",
+        "approx": 0.0
+      }
+    }
+  ],
+  "scope": "finite rational formula, greedy, saturation and source-join checks; unbounded theorems use proof.md"
+}
