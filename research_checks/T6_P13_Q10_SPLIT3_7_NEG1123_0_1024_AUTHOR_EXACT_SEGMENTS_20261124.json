@@ -1,0 +1,144 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT3_7_NEG1123_AUTHOR_EXACT_SEGMENTS_V1",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "signed_split": [
+    3,
+    7
+  ],
+  "negative_q_pattern": [
+    1,
+    1,
+    2,
+    3
+  ],
+  "positive_q_patterns": [
+    [
+      3
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      1,
+      1,
+      1
+    ]
+  ],
+  "interval": [
+    0,
+    1024
+  ],
+  "total_negative_rosters": 11232,
+  "budget_each_side": 2331,
+  "lattice_index": "13^21",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "stats": {
+    "negative_rosters": 1024,
+    "positive_rosters": 520,
+    "raw_signed_pairs": 532480,
+    "common_named_atom_canceled": 172208,
+    "vertical_original_mass_excess": 0,
+    "gs_searches": 360272,
+    "gs_nodes": 748914,
+    "relaxed_sphere_witnesses": 1,
+    "both_original_side_mass_valid": 0
+  },
+  "segments": [
+    {
+      "interval": [
+        0,
+        128
+      ],
+      "raw_signed_pairs": 66560,
+      "common_named_atom_canceled": 13056,
+      "gs_searches": 53504,
+      "gs_nodes": 112344,
+      "relaxed_sphere_witnesses": 1,
+      "negative_roster_sha256": "f9f9b99f279d765d71e2fa03715377a70c160e3503f667cf727491a0487c390a",
+      "pair_digest_sha256": "d1fe8da04ff4e160b545a389dd43c0af85ca55ec53a5d1cca518e92ea398202e"
+    },
+    {
+      "interval": [
+        128,
+        1024
+      ],
+      "raw_signed_pairs": 465920,
+      "common_named_atom_canceled": 159152,
+      "gs_searches": 306768,
+      "gs_nodes": 636570,
+      "relaxed_sphere_witnesses": 0,
+      "negative_roster_sha256": "1e08906faa6536469b41bc6436404eb514ce853479714b47054fd38b6b1394ba",
+      "pair_digest_sha256": "b45d4807d4e3f2ac2b4cdeaf2956c68a6553919b577e6668b1f4ea74a24c6c9d"
+    }
+  ],
+  "witnesses": [
+    {
+      "negative_roster_index": 112,
+      "positive_roster_index": 113,
+      "pos": [
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "u": [
+        9,
+        1,
+        -28,
+        -9,
+        -11,
+        -5,
+        -7,
+        4,
+        5,
+        -1,
+        1,
+        -4
+      ],
+      "masses": [
+        1967,
+        5391
+      ],
+      "radius_sq": 3526922,
+      "budget_valid": false,
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "source_order": "negative q1 CWR(12,2), then q2 and q3 product; positive q3 singleton, q1q2 product, q1^3 CWR; all full named atoms retained",
+  "author_replay": "awdawmip/enterprise-math@a466be736446891b423809b0ba23cb37ec123502:research_checks/T6_P13_Q10_SPLIT3_7_NEG1123_INTEGER_GS_REPLAY_20261124.py",
+  "prior_kernel": "awdawmip/enterprise-math@de78443d23578a66d3ae79f2a045e4be8e756c50:research_checks/T6_P13_Q10_SPLIT2_8_NEG11111111_SLICE_REPLAY_20261123_2300.py",
+  "validation": "Integer scaling clears denominators exactly. 2049 pair comparisons (one known new witness and 2048 seeded random pairs, seed 20261124) to the rational GS recurrence agreed on skip, nodes and full u vectors. Same dmin as prior q1114 certificate. Completed intervals only; an attempted full remainder run timed out without output and is not counted. Prior common named atom cancellation and saturation completeness are premises. This is not independent review.",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "next_action": "Continue q1123 [1024,11232) in bounded segments; no repeat of [0,1024)."
+}
