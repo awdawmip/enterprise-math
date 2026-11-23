@@ -1,0 +1,87 @@
+# R284FV — Four more globally sharp noisy omission capacities (q=7,8,9,10; u=1)
+
+Date: 2026-11-23 (Asia/Shanghai). Research mode: informed portable TASK_RESEARCH.
+Status: AUTHOR_EXACT_FINITE_PROOF / LOCAL_EXECUTION_VERIFIED / INDEPENDENT_REVIEW_PENDING.
+Parent scientific frontier: R284FU, retaining frozen R284CO source inputs and original attribution. This is an auxiliary binary four-label observer theorem. It neither changes P000 / ACTIVE Heartbeat-X6 nor creates a formal Result, CLAIM or independent Review.
+
+## Theorem (precise model)
+
+For every integer q in {7,8,9,10}, in the R284FM/R284FP/R284FT *reset-free cyclic four-label* model with arbitrary fixed distinct binary codewords and arbitrary per-edge bit-write order, at most q omitted writes per non-atomic publication (old omission residuals may persist across arbitrarily many generations), at most one independent read flip, stateless stable-phase decoding, no successful third-phase reads during a prefix and no successful new-then-old rollback during a paused publication,
+
+```
+n_min(q,1) = 4q + 10.
+```
+
+The corresponding sharp widths are q=7:38, q=8:42, q=9:46, q=10:50 bits.
+
+This extends the exact q=2..6 record of R284FS/R284FT/R284FU to the full finite interval 2<=q<=10. The statement for all q>=2 remains a conjecture.
+
+## Exhaustive lower-bound certificate
+
+R284FP proves analytically n >= 4q+8 for all q>=3 at u=1. Therefore it suffices to exclude n=4q+8 and n=4q+9. The previous exact prefix-flow lemma (R284FT) and all-history stable-state cut criterion (R284FM) are used as *necessary* conditions; failure for every count-lattice path excludes every fixed code and write order.
+
+Normalize c0=0 by complementing each coordinate. Constant columns may be removed (they contribute nothing to decoding and permit no nominal change). Every remaining column is one of the 7 nonzero triples (c1,c2,c3) encoded p=1..7. Enumerate all nonnegative integer histograms x1..x7 with sum n, including all coordinate-permutation equivalence classes; count is C(n+6,6). For each histogram:
+1. Check the six necessary pair distances: adjacent >=2q+5, opposite >=2q+3 (u=1).
+2. Build each of the six exact 8-vertex last-update residual multigraphs. A pair is stably distinguishable only if there exists a vertex subset U with internal edge multiplicity |E(U)| > q|U|+2.
+3. For every surviving histogram, use the exact integral prefix-distance flow and exhaustive monotone count-lattice BFS from R284FT on publishing edges 0->1 then 1->2. Every attempted prefix with any <=q omitted attempts must forbid an observed third phase, and when successful overwrites <=2 must forbid a simultaneously forced new- and old-phase reading.
+
+The zero survivors in the last column are a *complete exclusion* because all tests are necessary and all codes/orders appear in the finite enumeration.
+
+| q | width n | all 7-pattern histograms | six distances pass | six stable cuts pass | edge 0->1 necessary-safe paths | first TWO edges necessary-safe |
+|---:|---:|---:|---:|---:|---:|---:|
+| 7 | 36 | 5,245,786 | 95,415 | 7 | 1 | **0** |
+| 7 | 37 | 6,096,454 | 171,235 | 66 | 10 | **0** |
+| 8 | 40 | 9,366,819 | 171,435 | 7 | 1 | **0** |
+| 8 | 41 | 10,737,573 | 292,116 | 66 | 10 | **0** |
+| 9 | 44 | 15,890,700 | 292,358 | 7 | 1 | **0** |
+| 9 | 45 | 18,009,460 | 476,994 | 66 | 10 | **0** |
+| 10 | 48 | 25,827,165 | 477,282 | 7 | 1 | **0** |
+| 10 | 49 | 28,989,675 | 750,503 | 66 | 10 | **0** |
+
+The unique first-edge survivor at n=4q+8 is (0,0,0,0,2q+5,2q+3,0).
+The ten first-edge survivors at n=4q+9 are the following parametric patterns, with A=2q+5 and B=2q+3, in index order (x1,...,x7):
+```
+(0,0,0,0,A,B,1), (0,0,0,0,A,B+1,0), (0,0,0,0,A+1,B,0),
+(0,0,0,1,A-1,B,1), (0,0,0,1,A,B,0),
+(0,0,1,0,A-1,B,1), (0,0,1,0,A,B,0),
+(0,1,0,0,A-1,B,1), (0,1,0,0,A,B,0), (1,0,0,0,A,B,0).
+```
+All ten fail edge 1->2.
+
+Upper bound: the previously proved R284FE two-group repeated Gray construction (2q+5 bits per group, u=1) has width 4q+10 and satisfies the full stated protocol. Consequently n_min(q,1)=4q+10 for these four q.
+
+## Actual independent execution and scope
+
+The author compiled and executed the accompanying standard-library C++ 7-pattern/stable-cut exhaustive scan with g++ -O3 -std=c++17, separately at all 8 (q,n) pairs. It emitted the exact count table and every stable-cut-surviving histogram. The accompanying Python 3 standard-library prefix checker consumed each survivor file, computed exact integer residual flows and monotone prefix BFS on edges 0 and 1, and verified the final zero counts. No random sampling, floating point approximation or finite history cutoff was used. As a calibration before q>=7 the independently authored C++ scanner exactly reproduced the previously published q=4,5,6 all/distance/stable counts, including the q=4 width-25 count 69 and the q>=5 width-(4q+9) count 66.
+
+The Gray histograms (0,0,2q+5,0,0,2q+5,0) passed the *necessary* prefix oracle on all four edges at each q=7..10; the full upper bound relies on R284FE's previously established sufficient construction rather than this necessary check.
+
+This is a finite exhaustive computer-assisted mathematical result; the mathematical flow prerequisites are prior author proofs and not independent externally reviewed. Any implementation defect in the complete histogram enumeration or oracle could affect the finite conclusion; the source, algorithms, exact inputs and output counts are retained for replication.
+
+## Reproduction (from this directory)
+
+```bash
+g++ -O3 -std=c++17 R284FV_stable_cut_scan.cpp -o r284fv_stable_cut_scan
+for q in 7 8 9 10; do
+  for step in 0 1; do
+    n=$((4*q+8+step))
+    ./r284fv_stable_cut_scan "$q" "$n" .
+    python3 R284FV_prefix_count_lattice.py "$q" "$n" .
+  done
+done
+```
+
+The C++ program writes `R284FV_q{q}_n{n}_stable.txt` into the third command-line argument directory. The Python verifier reads it. The histogram-by-histogram exact counts above are asserted by the Python driver, so a partial or missing scan is rejected. The C++ scan itself prints its total, distance-passing and stable-passing counts.
+
+## Frozen input and lineage
+
+- R284FU finite q=4..6: `awdawmip/enterprise-math@c4038bd3a62787f7f5c695129eb1ff10bdb4f048:research_notes/portable_direct/R284FU_Q4_TO_Q6_U1_GLOBAL_SHARP_GRAY_CAPACITIES_20261123.md`
+- R284FT exact integral prefix-flow lemma: `awdawmip/enterprise-math@b654d9bbb0ac5f7083afe24076a8bb24dc4ab1f0:research_notes/portable_direct/R284FT_Q3U1_SHARP_TWENTYTWO_BIT_FLOW_PREFIX_CYCLE_20261123.md`
+- R284FP analytic n>=4q+8 (q>=3,u=1): `awdawmip/enterprise-math@de49ae0239abee14619a730fe6ea60614a2cde5b:research_notes/portable_direct/R284FP_HIGH_OMISSION_NOISY_CYCLE_PLUS_ONE_BOUND_20261123.md`
+- R284FM stable state cut: `awdawmip/enterprise-math@1d1c5dd412719c7aaf016187b6493b77253cd9f9:research_notes/portable_direct/R284FM_NOISY_OBSERVER_FLOW_CUT_AND_ADDITIVE_LOWER_BOUND_20261123.md`
+- R284FE Gray construction: `awdawmip/enterprise-math@9974b3b5a1031bb5c841ab5a4950a9c55baed9e0:research_notes/portable_direct/R284FE_...` (consult that exact pinned source for full file name).
+- Scientific task lineage retained as R284CO; activity and any formal ownership are separate and must be checked against current native receipts.
+
+## Next
+
+The *constant* number of stable-cut/first-edge survivors for q>=5, and the ten parametric first-edge survivors above, suggest a parameter-uniform proof of the two-edge obstruction at every q>=5. Prove this structurally, rather than extrapolating a finite run. Then extend to u>=2 and source-bank omissions with H-stale readers. Preserve provenance and the distinct one-global-read-noise budget when compressing residual groups.
