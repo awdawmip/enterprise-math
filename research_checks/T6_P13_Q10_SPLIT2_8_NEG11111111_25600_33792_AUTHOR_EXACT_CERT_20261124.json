@@ -1,0 +1,84 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT2_8_NEG11111111_AUTHOR_EXACT_SEGMENTS_V1",
+  "as_of": "2026-11-24",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "author_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "researcher_session": "MCP-7f3df4435e40430b832e8d5ff2137718",
+  "research_activity": "RA-A468735D7C934B25C4B9614F",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "replay": "awdawmip/enterprise-math@de78443d23578a66d3ae79f2a045e4be8e756c50:research_checks/T6_P13_Q10_SPLIT2_8_NEG11111111_SLICE_REPLAY_20261123_2300.py",
+  "arithmetic": "exact integers / Fraction rationals / SymPy HNF+LLL",
+  "negative_index_interval": [
+    25600,
+    33792
+  ],
+  "positive_patterns": [
+    [
+      2
+    ],
+    [
+      1,
+      1
+    ]
+  ],
+  "negative_pattern": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "p": 13,
+  "budget_each_side": 2331,
+  "lattice_index": "13^21",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "source_order": "negative q1 CWR(12,8); positive q2 single then q1 CWR(12,2)",
+  "segments": [
+    {
+      "start": 25600,
+      "end": 29696,
+      "negative_rosters": 4096,
+      "raw_signed_pairs": 368640,
+      "common_named_atom_canceled": 215413,
+      "vertical_original_mass_excess": 105,
+      "gs_searches": 153122,
+      "gs_nodes": 324546,
+      "relaxed_sphere_witnesses": 0,
+      "both_original_side_mass_valid": 0,
+      "roster_sha256": "f2e5e90538ad09138888a0fa393aec0af7c89ea1baf6a8a05eb646361e255a7f",
+      "pair_digest_sha256": "a6b9885fa04fd8e489865b183d222a891f36246e97a89c99bb372b1d867e59ab"
+    },
+    {
+      "start": 29696,
+      "end": 33792,
+      "negative_rosters": 4096,
+      "raw_signed_pairs": 368640,
+      "common_named_atom_canceled": 189734,
+      "vertical_original_mass_excess": 4451,
+      "gs_searches": 174455,
+      "gs_nodes": 374416,
+      "relaxed_sphere_witnesses": 0,
+      "both_original_side_mass_valid": 0,
+      "roster_sha256": "0fea181d69661745e6458fe36471018842fceabc4f1c6183c8d770132de12086",
+      "pair_digest_sha256": "d77a9c4ed7e257a343c7291322f4ab18f06b621ccbf5900afd21512a0124389e"
+    }
+  ],
+  "stats": {
+    "negative_rosters": 8192,
+    "raw_signed_pairs": 737280,
+    "common_named_atom_canceled": 405147,
+    "vertical_original_mass_excess": 4556,
+    "gs_searches": 327577,
+    "gs_nodes": 698962,
+    "relaxed_sphere_witnesses": 0,
+    "both_original_side_mass_valid": 0
+  },
+  "witnesses": [],
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "proof_scope": "Conditional on previously established exact 13-adic lattice completeness, GS radius pruning and cancellation-to-lower-order lemma; this enumerates only the stated finite interval. Exact witness absence is a result of running the enumerator, not an independent review.",
+  "next_unfinished_index": 33792,
+  "do_not_repeat_before": 33792
+}
