@@ -11,10 +11,23 @@
     "sites": 110
   },
   "proven_bounds": {
-    "unconditional_adaptive_identification_lower": 11,
+    "unconditional_adaptive_identification_lower": 14,
     "constructive_upper": 16
   },
-  "lower_reason": "for fixed U and full V, all 11 single-column deletions differ on disjoint columns",
+  "lower_reason": "for base U=833 and full factor, 11 mandatory positive readings in distinct columns plus 3 mandatory disjoint negative extra-row witnesses against 857,867,965",
+  "lower_witness": {
+    "base": 833,
+    "superMasks": [
+      857,
+      867,
+      965
+    ],
+    "extras": [
+      24,
+      34,
+      132
+    ]
+  },
   "algorithm": "deterministic recursive minimax cardinality split; ties lexicographic (t,j)",
   "decision_tree": {
     "internal_nodes": 599,
@@ -132,7 +145,7 @@
       ]
     ]
   },
-  "proof_scope": "finite exhaustive constructive upper bound, analytic lower bound; exact optimum within [11,16] is open",
+  "proof_scope": "finite exhaustive constructive upper bound, analytic lower bound; exact optimum within [14,16] is open",
   "status": "AUTHOR_PROVED / EXACT_INTEGER_CROSSCHECK / PARENT_DEPENDENT / NOT_REVIEWED",
   "native_X6_transfer": "NOT_CLAIMED"
 }
