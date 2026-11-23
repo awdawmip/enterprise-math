@@ -1,0 +1,320 @@
+{
+  "schema": "R284FF_ASYMMETRIC_GRAY_FINITE_CHECK_V1",
+  "date": "2026-11-23",
+  "model": "separable complete group flip; per-direction omission budgets; independent <=u read flips; stateless bitgroup decoder",
+  "tested_cases": 18,
+  "total_prefix_states": 1666,
+  "total_reading_checks": 13986,
+  "all_assertions_passed": true,
+  "four_cycle_example": {
+    "edges": [
+      "00->01",
+      "01->11",
+      "11->10",
+      "10->00"
+    ],
+    "omissions": [
+      2,
+      0,
+      1,
+      0
+    ],
+    "u": 1,
+    "group_widths": {
+      "group0": 8,
+      "group1": 5
+    },
+    "total_bits": 13,
+    "uniform_max_budget_bits": 18
+  },
+  "cases": [
+    {
+      "q_down": 0,
+      "q_up": 0,
+      "u": 0,
+      "min_group_bits": 1,
+      "tested_prefix_states": 2,
+      "tested_readings": 2,
+      "one_bit_short_witness": {
+        "physical_word": 0,
+        "old_read": 0,
+        "new_read": 0,
+        "prefix_successful_writes": 0,
+        "old_read_corruptions": 0,
+        "new_read_corruptions": 0
+      }
+    },
+    {
+      "q_down": 0,
+      "q_up": 0,
+      "u": 1,
+      "min_group_bits": 5,
+      "tested_prefix_states": 32,
+      "tested_readings": 192,
+      "one_bit_short_witness": {
+        "physical_word": 3,
+        "old_read": 1,
+        "new_read": 7,
+        "prefix_successful_writes": 2,
+        "old_read_corruptions": 1,
+        "new_read_corruptions": 1
+      }
+    },
+    {
+      "q_down": 0,
+      "q_up": 1,
+      "u": 0,
+      "min_group_bits": 2,
+      "tested_prefix_states": 4,
+      "tested_readings": 4,
+      "one_bit_short_witness": {
+        "physical_word": 0,
+        "old_read": 0,
+        "new_read": 0,
+        "prefix_successful_writes": 0,
+        "old_read_corruptions": 0,
+        "new_read_corruptions": 0
+      }
+    },
+    {
+      "q_down": 0,
+      "q_up": 1,
+      "u": 1,
+      "min_group_bits": 6,
+      "tested_prefix_states": 64,
+      "tested_readings": 448,
+      "one_bit_short_witness": {
+        "physical_word": 3,
+        "old_read": 1,
+        "new_read": 7,
+        "prefix_successful_writes": 2,
+        "old_read_corruptions": 1,
+        "new_read_corruptions": 1
+      }
+    },
+    {
+      "q_down": 0,
+      "q_up": 2,
+      "u": 0,
+      "min_group_bits": 3,
+      "tested_prefix_states": 8,
+      "tested_readings": 8,
+      "one_bit_short_witness": {
+        "physical_word": 0,
+        "old_read": 0,
+        "new_read": 0,
+        "prefix_successful_writes": 0,
+        "old_read_corruptions": 0,
+        "new_read_corruptions": 0
+      }
+    },
+    {
+      "q_down": 0,
+      "q_up": 2,
+      "u": 1,
+      "min_group_bits": 7,
+      "tested_prefix_states": 128,
+      "tested_readings": 1024,
+      "one_bit_short_witness": {
+        "physical_word": 3,
+        "old_read": 1,
+        "new_read": 7,
+        "prefix_successful_writes": 2,
+        "old_read_corruptions": 1,
+        "new_read_corruptions": 1
+      }
+    },
+    {
+      "q_down": 1,
+      "q_up": 0,
+      "u": 0,
+      "min_group_bits": 2,
+      "tested_prefix_states": 4,
+      "tested_readings": 4,
+      "one_bit_short_witness": {
+        "physical_word": 1,
+        "old_read": 1,
+        "new_read": 1,
+        "prefix_successful_writes": 1,
+        "old_read_corruptions": 0,
+        "new_read_corruptions": 0
+      }
+    },
+    {
+      "q_down": 1,
+      "q_up": 0,
+      "u": 1,
+      "min_group_bits": 6,
+      "tested_prefix_states": 64,
+      "tested_readings": 448,
+      "one_bit_short_witness": {
+        "physical_word": 7,
+        "old_read": 3,
+        "new_read": 15,
+        "prefix_successful_writes": 3,
+        "old_read_corruptions": 1,
+        "new_read_corruptions": 1
+      }
+    },
+    {
+      "q_down": 1,
+      "q_up": 1,
+      "u": 0,
+      "min_group_bits": 3,
+      "tested_prefix_states": 8,
+      "tested_readings": 8,
+      "one_bit_short_witness": {
+        "physical_word": 1,
+        "old_read": 1,
+        "new_read": 1,
+        "prefix_successful_writes": 1,
+        "old_read_corruptions": 0,
+        "new_read_corruptions": 0
+      }
+    },
+    {
+      "q_down": 1,
+      "q_up": 1,
+      "u": 1,
+      "min_group_bits": 7,
+      "tested_prefix_states": 128,
+      "tested_readings": 1024,
+      "one_bit_short_witness": {
+        "physical_word": 7,
+        "old_read": 3,
+        "new_read": 15,
+        "prefix_successful_writes": 3,
+        "old_read_corruptions": 1,
+        "new_read_corruptions": 1
+      }
+    },
+    {
+      "q_down": 1,
+      "q_up": 2,
+      "u": 0,
+      "min_group_bits": 4,
+      "tested_prefix_states": 16,
+      "tested_readings": 16,
+      "one_bit_short_witness": {
+        "physical_word": 1,
+        "old_read": 1,
+        "new_read": 1,
+        "prefix_successful_writes": 1,
+        "old_read_corruptions": 0,
+        "new_read_corruptions": 0
+      }
+    },
+    {
+      "q_down": 1,
+      "q_up": 2,
+      "u": 1,
+      "min_group_bits": 8,
+      "tested_prefix_states": 256,
+      "tested_readings": 2304,
+      "one_bit_short_witness": {
+        "physical_word": 7,
+        "old_read": 3,
+        "new_read": 15,
+        "prefix_successful_writes": 3,
+        "old_read_corruptions": 1,
+        "new_read_corruptions": 1
+      }
+    },
+    {
+      "q_down": 2,
+      "q_up": 0,
+      "u": 0,
+      "min_group_bits": 3,
+      "tested_prefix_states": 8,
+      "tested_readings": 8,
+      "one_bit_short_witness": {
+        "physical_word": 3,
+        "old_read": 3,
+        "new_read": 3,
+        "prefix_successful_writes": 2,
+        "old_read_corruptions": 0,
+        "new_read_corruptions": 0
+      }
+    },
+    {
+      "q_down": 2,
+      "q_up": 0,
+      "u": 1,
+      "min_group_bits": 7,
+      "tested_prefix_states": 128,
+      "tested_readings": 1024,
+      "one_bit_short_witness": {
+        "physical_word": 15,
+        "old_read": 7,
+        "new_read": 31,
+        "prefix_successful_writes": 4,
+        "old_read_corruptions": 1,
+        "new_read_corruptions": 1
+      }
+    },
+    {
+      "q_down": 2,
+      "q_up": 1,
+      "u": 0,
+      "min_group_bits": 4,
+      "tested_prefix_states": 16,
+      "tested_readings": 16,
+      "one_bit_short_witness": {
+        "physical_word": 3,
+        "old_read": 3,
+        "new_read": 3,
+        "prefix_successful_writes": 2,
+        "old_read_corruptions": 0,
+        "new_read_corruptions": 0
+      }
+    },
+    {
+      "q_down": 2,
+      "q_up": 1,
+      "u": 1,
+      "min_group_bits": 8,
+      "tested_prefix_states": 256,
+      "tested_readings": 2304,
+      "one_bit_short_witness": {
+        "physical_word": 15,
+        "old_read": 7,
+        "new_read": 31,
+        "prefix_successful_writes": 4,
+        "old_read_corruptions": 1,
+        "new_read_corruptions": 1
+      }
+    },
+    {
+      "q_down": 2,
+      "q_up": 2,
+      "u": 0,
+      "min_group_bits": 5,
+      "tested_prefix_states": 32,
+      "tested_readings": 32,
+      "one_bit_short_witness": {
+        "physical_word": 3,
+        "old_read": 3,
+        "new_read": 3,
+        "prefix_successful_writes": 2,
+        "old_read_corruptions": 0,
+        "new_read_corruptions": 0
+      }
+    },
+    {
+      "q_down": 2,
+      "q_up": 2,
+      "u": 1,
+      "min_group_bits": 9,
+      "tested_prefix_states": 512,
+      "tested_readings": 5120,
+      "one_bit_short_witness": {
+        "physical_word": 15,
+        "old_read": 7,
+        "new_read": 31,
+        "prefix_successful_writes": 4,
+        "old_read_corruptions": 1,
+        "new_read_corruptions": 1
+      }
+    }
+  ]
+}
