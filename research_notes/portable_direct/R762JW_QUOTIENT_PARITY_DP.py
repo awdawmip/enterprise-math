@@ -55,6 +55,6 @@ def main():
                 if first is None:first={'D':[S[i] for i in D],'components':c,'singleton_reachable_count':a,'forced_reachable_count':b,'unreachable_forced_masks':f,'example_mask':ex,'Dindices':list(D)}
         results.append({'m':m,'D_count':15504,'bad_D_count':bad,'total_unreachable_quotient_masks_across_D':total_bad_masks,'first_obstruction':first,'spectrum':{'/'.join(map(str,k)):v for k,v in sorted(counts.items())}})
         print('m',m,'bad',bad,'spectrum',results[-1]['spectrum'],'first',first,flush=True)
-    with open('/mnt/data/r762jw_results.json','w') as f:json.dump({'schema':'R762JW_PARITY_QUOTIENT_SCREEN_V1','results':results},f,indent=2)
+    with open('R762JW_PARITY_RESULTS.json','w') as f:json.dump({'schema':'R762JW_PARITY_QUOTIENT_SCREEN_V1','results':results},f,indent=2)
 
 if __name__=='__main__':main()
