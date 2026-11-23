@@ -1,0 +1,69 @@
+{
+  "theorem": "R284FR n_min(2,1)=18 in four-fixed-word reset-free noisy cycle",
+  "date": "2026-11-23",
+  "proof_scope": "Exact integer exhaustive lower certificate + inherited 18-bit two-Gray-group upper",
+  "independent_review": "NOT_REVIEWED",
+  "model": {
+    "q": 2,
+    "u": 1,
+    "n_excluded": 17
+  },
+  "algorithm": "R284FR_q2u1_n17_checker.py importing R284FQ_q2u1_n16_checker.py (same canonical repository)",
+  "execution": "Actual local Python standard-library run exited status 0; no sampling or numeric tolerances",
+  "histogram_classes": 100947,
+  "six_flow_cut_survivors": 208,
+  "first_bit_each_edge_survivors": 108,
+  "blocked_on_first_failing_edge": [
+    97,
+    11,
+    0,
+    0
+  ],
+  "prefix_lattice_excluded": 108,
+  "remaining_candidates": 0,
+  "sampled_obstructions": [
+    {
+      "histogram": [
+        0,
+        0,
+        0,
+        0,
+        9,
+        7,
+        1
+      ],
+      "blocked_edge": 1,
+      "checked_nodes": 8,
+      "safe_nodes": 3
+    },
+    {
+      "histogram": [
+        0,
+        0,
+        1,
+        0,
+        8,
+        8,
+        0
+      ],
+      "blocked_edge": 0,
+      "checked_nodes": 5,
+      "safe_nodes": 3
+    },
+    {
+      "histogram": [
+        0,
+        0,
+        2,
+        0,
+        7,
+        7,
+        1
+      ],
+      "blocked_edge": 0,
+      "checked_nodes": 14,
+      "safe_nodes": 8
+    }
+  ],
+  "conclusion": "All 17-bit possibilities excluded; previous R284FP/FQ exclude shorter widths; prior R284FE 18-bit reset-free Gray construction proves exact global optimum 18"
+}
