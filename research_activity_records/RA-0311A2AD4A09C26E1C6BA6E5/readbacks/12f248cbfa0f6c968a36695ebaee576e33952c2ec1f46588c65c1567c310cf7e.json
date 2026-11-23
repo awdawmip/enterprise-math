@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/R284FL_all_q_graph_lemma_checker.py",
+    "ref": "cd1c225ed630fbfbff608cf5e551b15230d007c2",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "r1-20261123-1306-r284fl-checker",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "\"\"\"R284FL finite cross-check of the analytic all-q capacity-graph lemma.\nExact integer arithmetic. The all-q theorem is established by the written proof,\nnot by the finite enumeration q=0..5.\n\"\"\"\nfrom itertools import combinations_with_replacement\nEDGES_02 = ((2, 2, 5), (3, 2, 4), (6, 3, 5), (7, 3, 4))\nEDGES_13 = ((1, 0, 5), (3, 0, 6), (4, 3, 6), (6, 3, 5))\ndef separable(x, q, edges):\n    # An induced-vertex witness can be reduced to an edge-type subset.\n    for subset in range(1, 1 << len(edges)):\n        vertices = set()\n        mass = 0\n        for k, (p, a, b) in enumerate(edges):\n            if (subset >> k) & 1:\n                mass += x[p]\n                vertices.update((a, b))\n        if mass > q * len(vertices):\n            return True\n    return False\ndef verify():\n    expected = {0: 0, 1: 266, 2: 3535, 3: 20664, 4: 79926, 5: 239954}\n    for q, count in expected.items():\n        n = 4*q + 1\n        capped = both = 0\n        for pats in combinations_with_replacement(range(1, 8), n):\n            x = [0]*8\n            for p in pats:\n                x[p] += 1\n            if max(x) > 2*q:\n                continue\n            capped += 1\n            if separable(x, q, EDGES_02) and separable(x, q, EDGES_13):\n                both += 1\n        assert (capped, both) == (count, 0), (q, capped, both)\n        print(f\"q={q}: n={n}, capped_vectors={capped}, both_opposites_separable={both}\")\n    print(\"PASS: finite cross-check of R284FL lemma, q=0..5\")\nif __name__ == \"__main__\":\n    verify()\n",
+      "display_title": "R284FL_all_q_graph_lemma_checker.py",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/cd1c225ed630fbfbff608cf5e551b15230d007c2/research_notes/portable_direct/R284FL_all_q_graph_lemma_checker.py",
+      "encoding": "utf-8",
+      "sha": "c2f875ab1f10c410c5b72eb9156aafd8651c57b5"
+    }
+  },
+  "tool_name": "mcp__GitHub__fetch_file"
+}
