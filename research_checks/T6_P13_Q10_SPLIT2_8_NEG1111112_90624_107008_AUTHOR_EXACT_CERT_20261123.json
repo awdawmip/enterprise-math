@@ -1,0 +1,243 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT2_8_NEG1111112_AUTHOR_EXACT_SEGMENTS_V1",
+  "as_of": "2026-11-23",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "author_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "published_replay": {
+    "commit": "a15dc9dd00e5d45516463ed4c4905341d8d2357b",
+    "path": "research_checks/T6_P13_Q10_SPLIT2_8_NEG1111112_SLICE_REPLAY_20261123_2000.py",
+    "blob": "096df77ac608297ad1078844c03dcac2da39678b"
+  },
+  "method": "Exact signed 12D HNF-LLL Gram-Schmidt recursion and six 13-adic mixed congruences with original mass budgets; Python/SymPy Fraction, no floating-point feasibility",
+  "params": {
+    "p": 13,
+    "v13": 1,
+    "q_order": 10,
+    "signed_split": [
+      2,
+      8
+    ],
+    "negative_q_pattern": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2
+    ],
+    "positive_patterns": [
+      [
+        2
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "budget_per_side": 2331,
+    "moduli": [
+      13,
+      169,
+      2197,
+      28561,
+      371293,
+      4826809
+    ]
+  },
+  "negative_index_interval": [
+    90624,
+    107008
+  ],
+  "stats": {
+    "negative_rosters": 16384,
+    "raw_pairs": 1474560,
+    "common_named_cancellations": 745480,
+    "gs_searches": 729080,
+    "gs_nodes": 1562011,
+    "ball_witnesses": 1,
+    "both_side_budget_valid": 0
+  },
+  "segments": [
+    {
+      "negative_index_interval": [
+        90624,
+        92672
+      ],
+      "negative_rosters": 2048,
+      "raw_pairs": 184320,
+      "common_named_cancellations": 86576,
+      "gs_searches": 97744,
+      "gs_nodes": 210222,
+      "ball_witnesses": 0,
+      "roster_sha256": "54691336694a73971a2ad6adabc4dd52d281cf098de4d23a38a4e47dfdadddd3",
+      "pair_sha256": "4938bb7a1ebf8265e260fd0a8dced62ca350a9ed708f5a5134f5651bfd6cafa2",
+      "local_result_sha256": "e88e19d973c9984d549e550d5ff4843c1c22d8e08943421d1b7e3c4663e3a2ac"
+    },
+    {
+      "negative_index_interval": [
+        92672,
+        94720
+      ],
+      "negative_rosters": 2048,
+      "raw_pairs": 184320,
+      "common_named_cancellations": 88364,
+      "gs_searches": 95956,
+      "gs_nodes": 206200,
+      "ball_witnesses": 0,
+      "roster_sha256": "68806e72b87405b142906924c47e2cf4d1b44793617777b0fb9a513f86918422",
+      "pair_sha256": "370d04381ff9604568327f2560a5f96333dfedc0d81fff59f92815c9a62e733c",
+      "local_result_sha256": "b957cf65256399dff335347e30ab4be3c9191ecfee94fe0e916e7c53b07b341e"
+    },
+    {
+      "negative_index_interval": [
+        94720,
+        96768
+      ],
+      "negative_rosters": 2048,
+      "raw_pairs": 184320,
+      "common_named_cancellations": 85892,
+      "gs_searches": 98428,
+      "gs_nodes": 210051,
+      "ball_witnesses": 0,
+      "roster_sha256": "c867c6b48d3012533ac17d07d0264818a2e1eb830f13647eb9b5d5d1fe43e5f0",
+      "pair_sha256": "e39f7c03aeaee362bc86ef1e8b85c20e4638f22e89f26573f4ff0768d8a62a4f",
+      "local_result_sha256": "61f1814df4ca1801ad941a59b72b1bbbad965d1f068df6851d002132b3d90c56"
+    },
+    {
+      "negative_index_interval": [
+        96768,
+        98816
+      ],
+      "negative_rosters": 2048,
+      "raw_pairs": 184320,
+      "common_named_cancellations": 88784,
+      "gs_searches": 95536,
+      "gs_nodes": 205653,
+      "ball_witnesses": 0,
+      "roster_sha256": "b23a0677033e45dc274ead47af7f96812789a4e0cb87fa2e8ac448c1622ff029",
+      "pair_sha256": "a4e631f014da259ee53cdf802fcd9c2d62f701248b9a01eb07d269182720df5a",
+      "local_result_sha256": "62edd2518f94ddfb3e739990c69e73babd3f12308352f8affbbb8f6a2e8e0f39"
+    },
+    {
+      "negative_index_interval": [
+        98816,
+        102912
+      ],
+      "negative_rosters": 4096,
+      "raw_pairs": 368640,
+      "common_named_cancellations": 204268,
+      "gs_searches": 164372,
+      "gs_nodes": 351727,
+      "ball_witnesses": 0,
+      "roster_sha256": "5f734972f538bfe4308a4cb25baebf7d96f7eef0f0239edc1011398df283983b",
+      "pair_sha256": "f23f28479a506f748b42053eea34486dd0f51f82c36477f3e866e77f0c16c6ff",
+      "local_result_sha256": "f0cffefead07160bb04ac9ca526b13c1b1116c219cc542d98c244049c20f3a72"
+    },
+    {
+      "negative_index_interval": [
+        102912,
+        104960
+      ],
+      "negative_rosters": 2048,
+      "raw_pairs": 184320,
+      "common_named_cancellations": 92372,
+      "gs_searches": 91948,
+      "gs_nodes": 196683,
+      "ball_witnesses": 0,
+      "roster_sha256": "c1f0480913138d4ca5c12d27cc03fe8d7fe2a55940022e46dd843dc57540faaf",
+      "pair_sha256": "71bc71cd17ec8b913ac253dcfbc921739387c655008a62474d70da06659b220a",
+      "local_result_sha256": "f98e6e6f2fcf5b65f4445cea8183c39359dc9b717bb8635106889a84cc0ff446"
+    },
+    {
+      "negative_index_interval": [
+        104960,
+        107008
+      ],
+      "negative_rosters": 2048,
+      "raw_pairs": 184320,
+      "common_named_cancellations": 99224,
+      "gs_searches": 85096,
+      "gs_nodes": 181475,
+      "ball_witnesses": 1,
+      "roster_sha256": "e6aa947f6b25c0634cd5384170a4c3a0c96d2581b6bc7b93ae80bd3ba4eb99d5",
+      "pair_sha256": "eaea51ff1e4af0d0bdc7c067ce177de2d6d41966ddcec42b44ace7c413fa1f8b",
+      "local_result_sha256": "76469e95602f473312b692139380d55a1b62d4488b7d9aa5a6d5a806f1077e50"
+    }
+  ],
+  "witnesses": [
+    {
+      "budget_valid": false,
+      "masses": [
+        3062,
+        4616
+      ],
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "neg": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "negative_roster_index": 105265,
+      "pos": [
+        [
+          2,
+          7
+        ]
+      ],
+      "positive_roster_index": 6,
+      "radius_sq": 3762034,
+      "u": [
+        -37,
+        26,
+        -35,
+        -3,
+        5,
+        -3,
+        -1,
+        -4,
+        5,
+        4,
+        4,
+        0
+      ]
+    }
+  ],
+  "scope_note": "Shared-named-atom cancellation invokes prior lower-order reduction; full original source-negative q1111112 domain remains open beyond index 107008.",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "native_claim": "NOT_ASSERTED",
+  "scientific_acceptance": false
+}
