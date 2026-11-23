@@ -1,0 +1,453 @@
+{
+  "schema": "EM_T6_P13_Q9_SPLIT45_POS1111_AUTHOR_EXACT_SLICES_20261123_V1",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "frozen_scientific_commit": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "date": "2026-11-23",
+  "domain": {
+    "max_prime": 13,
+    "v13": 1,
+    "positive_q_order": 4,
+    "positive_q_pattern": [
+      1,
+      1,
+      1,
+      1
+    ],
+    "negative_q_order": 5,
+    "positive_index_range": [
+      48,
+      512
+    ],
+    "positive_total": 1365,
+    "negative_total": 10908,
+    "canonical_positive_order": "combinations_with_replacement(r=1..12, length=4)",
+    "canonical_negative_order": "sorted lexicographically by tuple((q,r),...) from all nondecreasing integer partitions of5 and nondecreasing residues within each repeated q",
+    "sides_mass_cap_each": 2331,
+    "full_named_denominator": "13*(13*q+r)",
+    "q0_weight": "13*r-1",
+    "q0_dim": 12,
+    "lattice_index": "247064529073450392704413",
+    "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+    "mixed_congruences": "sum_{r=1..12}u_r*r^(-j)+sum_+(13q+r)^(-j)-sum_-(13q+r)^(-j)=0 (mod 13^j), j=1..6",
+    "exact_arithmetic": true
+  },
+  "rows": [
+    {
+      "interval": [
+        48,
+        49
+      ],
+      "raw_pairs": 10908,
+      "common_cancelled": 6135,
+      "gs_evaluated": 4773,
+      "gs_nodes": 9746,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "positive_roster_sha256": "a078eca38f9268ae6448ea104b3a65595d14e0519a2fa24a0b690f18e0e79dbe",
+      "ordered_pairs_sha256": "670bdcd0fd5be080a9e9d5538da20747c60f26a35206281e994d6ea07b7c096e",
+      "local_slice_json_sha256": "aa4f398218fa7a1572406ace8eb2f34cea5c64828e79db4d2732b1052c53255b"
+    },
+    {
+      "interval": [
+        49,
+        65
+      ],
+      "raw_pairs": 174528,
+      "common_cancelled": 93405,
+      "gs_evaluated": 81123,
+      "gs_nodes": 168815,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "positive_roster_sha256": "afd76ccacc87a24bca899ff995ffd9ab056b36f78e9d1e38c7e968bcc77d2741",
+      "ordered_pairs_sha256": "b39855d872569f47fe82661727fd7206ba701a90a5a737e3f53e71a91a0680c9",
+      "local_slice_json_sha256": "587f4b9c41509d752b76eea2bd103f550e1cdcb214cd1c568c30a50b2a377618"
+    },
+    {
+      "interval": [
+        65,
+        96
+      ],
+      "raw_pairs": 338148,
+      "common_cancelled": 189658,
+      "gs_evaluated": 148490,
+      "gs_nodes": 309295,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "positive_roster_sha256": "1a64858ca9ddf36bb5a8dce29b642ed6510321a4eb9a62bb50b90d56a2290eef",
+      "ordered_pairs_sha256": "808ca39725bdf196083f1694abc115f835e4d255fcba43fd57caedaff4091bdb",
+      "local_slice_json_sha256": "0213548ce45a59e426f8e04e66ac50852ccb5bff420fc33fb6b7ca2bff645017"
+    },
+    {
+      "interval": [
+        96,
+        160
+      ],
+      "raw_pairs": 698112,
+      "common_cancelled": 445307,
+      "gs_evaluated": 252805,
+      "gs_nodes": 523991,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "positive_roster_sha256": "d87564033ce38460479a225fbacbc41410bb22cb919e3f322f25165037de1675",
+      "ordered_pairs_sha256": "327ae10fbd7283e42b946f21e5c276432dee14682262ae632133f11ff645864a",
+      "local_slice_json_sha256": "1e451e02fa2db9eb0f9fe971cbe74ee1c026bcb3d0dced2b5ef9429e85c4516e"
+    },
+    {
+      "interval": [
+        160,
+        320
+      ],
+      "raw_pairs": 1745280,
+      "common_cancelled": 1097327,
+      "gs_evaluated": 647953,
+      "gs_nodes": 1317840,
+      "ball_leaves": 3,
+      "budget_valid": 0,
+      "positive_roster_sha256": "8896286dba660ed5ef56fd230b2bcc9a423e9f6f737120b1a79abde92fda2a19",
+      "ordered_pairs_sha256": "3bb891322fbd4f694b520e6feda65241aea103430b8014667d9ef21912ad2f10",
+      "local_slice_json_sha256": "f177e08ee3dc310e984213412a81046d308fb84ede6e24be568c07be02821e53"
+    },
+    {
+      "interval": [
+        320,
+        352
+      ],
+      "raw_pairs": 349056,
+      "common_cancelled": 210412,
+      "gs_evaluated": 138644,
+      "gs_nodes": 274368,
+      "ball_leaves": 0,
+      "budget_valid": 0,
+      "positive_roster_sha256": "358ee2c5a934535cce04037b0027a00be7fe493a5cdb08c87f5e42f105a75923",
+      "ordered_pairs_sha256": "b8ceeccd8f520e5fabf7fce12ad770ec7fd8239a94bda8155ce15e5f958c9d3b",
+      "local_slice_json_sha256": "adf31639215c915fcb39118796642fdf900230a6ded120c1851f178397149fb2"
+    },
+    {
+      "interval": [
+        352,
+        512
+      ],
+      "raw_pairs": 1745280,
+      "common_cancelled": 1003724,
+      "gs_evaluated": 741556,
+      "gs_nodes": 1526040,
+      "ball_leaves": 2,
+      "budget_valid": 0,
+      "positive_roster_sha256": "66b5bb507784dee1e57ad96830c06775f1a09ff556e3b2efacbf96855130776f",
+      "ordered_pairs_sha256": "184e7c58f081d8d626a6a11a8d4cda73e47bb0e72887d21d58c452b37ce54868",
+      "local_slice_json_sha256": "f173cde492be5de1be8c9daa20dbc3070ff61fa56e9e6226bc62ab3f3da65eaf"
+    }
+  ],
+  "totals": {
+    "positive_rosters": 464,
+    "raw_pairs": 5061312,
+    "common_cancelled": 3045968,
+    "gs_evaluated": 2015344,
+    "gs_nodes": 4130095,
+    "ball_leaves": 5,
+    "budget_valid": 0,
+    "overbudget_vertical": 0
+  },
+  "relaxed_witnesses": [
+    {
+      "pos_index": 222,
+      "plus": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          12
+        ]
+      ],
+      "minus": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "u": [
+        58,
+        -10,
+        10,
+        8,
+        -1,
+        -13,
+        7,
+        -4,
+        -3,
+        -5,
+        -1,
+        -4
+      ],
+      "masses": [
+        3085,
+        4506
+      ],
+      "radius_sq": 3557849
+    },
+    {
+      "pos_index": 246,
+      "plus": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ]
+      ],
+      "minus": [
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "u": [
+        41,
+        -15,
+        -20,
+        3,
+        -1,
+        -10,
+        -6,
+        4,
+        3,
+        -3,
+        -2,
+        0
+      ],
+      "masses": [
+        2311,
+        4424
+      ],
+      "radius_sq": 3212194
+    },
+    {
+      "pos_index": 307,
+      "plus": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          1,
+          12
+        ]
+      ],
+      "minus": [
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          8
+        ]
+      ],
+      "u": [
+        56,
+        9,
+        -8,
+        6,
+        5,
+        7,
+        3,
+        -4,
+        -7,
+        0,
+        4,
+        -1
+      ],
+      "masses": [
+        3975,
+        2708
+      ],
+      "radius_sq": 3283172
+    },
+    {
+      "pos_index": 393,
+      "plus": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          12
+        ]
+      ],
+      "minus": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "u": [
+        -10,
+        2,
+        -12,
+        14,
+        7,
+        5,
+        -10,
+        4,
+        2,
+        -2,
+        0,
+        5
+      ],
+      "masses": [
+        3948,
+        2861
+      ],
+      "radius_sq": 3406817
+    },
+    {
+      "pos_index": 461,
+      "plus": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          10
+        ]
+      ],
+      "minus": [
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          12
+        ]
+      ],
+      "u": [
+        -7,
+        -18,
+        0,
+        -12,
+        -1,
+        3,
+        10,
+        8,
+        5,
+        -3,
+        -2,
+        2
+      ],
+      "masses": [
+        3790,
+        3151
+      ],
+      "radius_sq": 3046717
+    }
+  ],
+  "local_author_execution": {
+    "local_script": "t6_p13_q9_split45_pos1111_exact_slice_20261123.py",
+    "script_sha256": "018968892e47752a08876876133408289c2e948f31fcbb1ed985d688bfbfd6fd",
+    "local_slice_JSON_sha256_in_rows": true,
+    "independent_replay": "NOT_PERFORMED"
+  },
+  "claim": "The exact signed necessary mixed-congruence and two-side mass sieve excludes all positive rosters [48,512) paired with all 10,908 negative rosters; all five relaxed sphere representatives violate >=1 original mass cap.",
+  "scope": "AUTHOR_EXACT_FINITE_EXECUTED/UNREVIEWED/NOT_ADMITTED; this portable slice does not change Native T6 owner/claim/progress or close split(4,5)",
+  "next_positive_roster_interval": [
+    512,
+    1365
+  ],
+  "do_not_repeat": [
+    [
+      0,
+      48
+    ],
+    [
+      48,
+      512
+    ]
+  ]
+}
