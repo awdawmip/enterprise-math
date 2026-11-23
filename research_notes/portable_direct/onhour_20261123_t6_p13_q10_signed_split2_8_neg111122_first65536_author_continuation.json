@@ -1,0 +1,77 @@
+{
+  "schema": "ENTERPRISE_MATH_PORTABLE_AUTHOR_CONTINUATION_V1",
+  "as_of": "2026-11-23",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "mother_goal": "Signed H0..H6 global T6=2332 OPEN",
+  "research_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "maintenance_lane_excluded": "chatgpt-hourly-enterprise-math-20260921",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "science": {
+    "p": 13,
+    "valuation": 1,
+    "vertical_order": 10,
+    "split": [
+      2,
+      8
+    ],
+    "negative_pattern": [
+      1,
+      1,
+      1,
+      1,
+      2,
+      2
+    ],
+    "positive_rosters": 90,
+    "negative_total": 106470,
+    "completed_source_interval": [
+      0,
+      65536
+    ],
+    "raw_signed_pairs": 5898240,
+    "shared_named_cancellations": 2463702,
+    "exact_gs_searches": 3434538,
+    "exact_gs_nodes": 7441583,
+    "relaxed_sphere_witnesses": 11,
+    "original_mass_valid_uncanceled": 0,
+    "proof_strength": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED"
+  },
+  "new_evidence": [
+    {
+      "commit": "8fb34d123ba4ff0d8ef012f544d65ebd68fa4ba5",
+      "path": "research_checks/T6_P13_Q10_SPLIT2_8_NEG111122_53248_65536_AUTHOR_EXACT_MULTISLICE_CERT_20261123.json",
+      "blob_sha1": "b8a4d41e6204c0c239398bf2dedae855adeef5ed",
+      "interval": [
+        53248,
+        65536
+      ],
+      "raw_pairs": 1105920,
+      "gs_nodes": 1371123,
+      "ball_witnesses": 0
+    }
+  ],
+  "prior_source": {
+    "commit": "64861b98243c6949d1b66c9be4cac11ad11539c8",
+    "path": "research_notes/portable_direct/onhour_20261123_t6_p13_q10_signed_split2_8_neg111122_first53248_author_continuation.json"
+  },
+  "next_exact_action": "Resume negative q(1,1,1,1,2,2) canonical roster index [65536,106470) under original frozen pin; run exact named full signed arithmetic slice and record all witnesses, congruences, both original mass budgets and digest; checkpoint after each complete slice. After complete split, address remaining native p17 q14 separately.",
+  "remaining_source_rosters": 40934,
+  "remaining_source_pairs": 3684060,
+  "do_not_repeat": "All executed [0,65536) and previous q10 families; unexecuted timeout of earlier [53248,61440) carries no certificate and is superseded by newly completed separate verified slices.",
+  "control": {
+    "client_checkpoint_last_verified": 55,
+    "client_checkpoint_last_request": "onhour-20261123-1927-t6-p13-q10-neg111122-first53248-client-r55-v1",
+    "native_continuation_old": "onhour-20261123-1755-t6-exact-research-cont-ro-v1 SUCCEEDED; Source states p17 q14 preflight distinct",
+    "native_continuation_new": "onhour-20261123-1958-t6-exact-cont-ro-v1 RUNNING last observation; consume only original ID",
+    "own_session": "NOT_IDENTIFIED",
+    "own_winning_claim": "NOT_VERIFIED",
+    "run": "NOT_VERIFIED",
+    "historical_activity328": "AUTHOR_ATTRIBUTION_UNRESOLVED",
+    "protected_semantic_progress": "NOT_PUBLISHED"
+  },
+  "open_obligations": [
+    "Independent replay of published code and reviewer evaluation still pending",
+    "Current Native p17 q14 preflight and broad T6 global target OPEN",
+    "Portable GitHub science is not Native semantic PROGRESS or Result"
+  ]
+}
