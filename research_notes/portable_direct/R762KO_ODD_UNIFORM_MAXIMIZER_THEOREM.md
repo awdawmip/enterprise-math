@@ -82,6 +82,24 @@ All 18×7 Bernstein coefficients are at least 1 (minimum is **1**). The evidence
 
 These five rows are secondary regression checks; the parameter-uniform proof is (2), not finite data.
 
+
+## Corollary KO.2 — exact largest provenance fiber and bit count
+
+The same group-algebra convolution yields the **exact zero coefficient**, not merely its maximality:
+
+```text
+p_0(t)=t^8+6*t^4+16*t^2+9.
+Q_m(0) = A_m^8 + 6*A_m^4*B_m^4 + 16*A_m^2*B_m^6 + 9*B_m^8 - 3.
+```
+
+For **every integer m≥2**, Theorem KO.1 proves that this is the exact largest connected fiber. Therefore, given the support inventory and forced boundary, the minimal worst-case fixed-width binary provenance annotation is exactly
+
+```text
+bits(m) = ceil(log2(Q_m(0))) = (Q_m(0)-1).bit_length()
+```
+
+(no floating point is needed). The formula itself also holds at m=1 but its value 6 is not that model's largest fiber (which is 8). Since `A_m,B_m=m^2/8+O(m)`, this exact formula sharpens KN.3 to `Q_m(0)=m^16/2^19+O(m^15)`, hence `log2 Q_m(0)=16 log2 m -19+O(1/m)`. These information requirements concern one-shot lossless recovery of **auxiliary unordered edge-multiset provenance**, not typed signed or temporal BRC composition.
+
 ## Limits, significance, next discriminating unit
 
 This closes the **odd-m uniform maximum** question stated at the end of KN, and consequently all integer uniform `m>=2`, while preserving the `m=1` counterexample. It establishes an exact necessary residual-bits reference for the largest auxiliary provenance fiber. It does **not** determine exact maximal fiber formula for every `m`, temporal composition of residual states, a native signed Cell/Link/Port dynamics lift, or any independent review.
