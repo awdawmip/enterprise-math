@@ -102,3 +102,24 @@ For (1,2,3,4,1,2,3,4), C_m=1,822,605, all 512 b reachable, max fiber=8,863. Indi
 **Evidence/limitations.** Proof applies to the declared unsigned composite Port observer with support-indexed unordered multisets. Neither signed TRIADIC_CLOSURE_E acceptance nor native Cell/Link/Port time-update fidelity was checked. Positive branch multiplicity is distinct from signed cancellation. No independent mathematical Review has been issued.
 
 **Next frontier.** For uniform m=2..12, the maximal fiber occurs at boundary b=0; prove or refute this for every m≥2 without relying on enumeration. Then construct a composable minimal provenance state and test a typed signed/native lift. Retain this exact finite auxiliary result and the actual parent frozen inputs.
+
+
+## Theorem KN.4 — unique zero-boundary maximizer for every even uniform multiplicity
+
+For any positive even integer m=2r≥2, all eight flexible supports with multiplicity m have
+
+\[
+\boxed{Q_{(m,\ldots,m)}(0)-Q_{(m,\ldots,m)}(b)\ \geq\ (r+1)^8-3\ >0\qquad(0\ne b\in F).}\tag{6}
+\]
+
+Consequently the **unique** largest fiber is at zero forced boundary for every even m, with an explicit strictly positive gap. This closes the even-m half of the previous uniform-boundary maximum question.
+
+**Proof.** At any character \chi of the full 12-bit boundary group, each support's Fourier factor in equation (1) is either A_m+3B_m=binom(m+2,2), or A_m-B_m=r+1. Both are positive, so the eight-support Fourier product \hat P(\chi) is at least (r+1)^8. For any nonzero b in F, orthogonality gives exactly 2,048 of the 4,096 characters with \chi·b=1. Hence before the disconnected subtraction,
+
+\[
+[X^0]P-[X^b]P=2^{-11}\!\sum_{\chi:\chi\cdot b=1}\hat P(\chi)\ge(r+1)^8.
+\]
+
+When m is even, all three monochromatic disconnected source assignments have boundary zero, so the correction of equation (2) subtracts three at zero and none at nonzero b. Equation (6) follows. No large-m approximation or finite extrapolation is used. Exact m=2,4,...,12 examples satisfy the bound. QED.
+
+**Remaining scoped question:** determine the maximizer for *odd* uniform m≥3 without finite extrapolation. The auxiliary signed/native transport problem is independent of this even-m result.
