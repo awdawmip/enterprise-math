@@ -1,0 +1,95 @@
+{
+  "schema": "T6_P13_Q9_PARTIAL_PATTERN_AUTHOR_EXACT_CERT_V1",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "scientific_pin": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED_PARTIAL_PATTERN_UNREVIEWED_NOT_ADMITTED",
+  "scope": {
+    "p": 13,
+    "valuation": 1,
+    "vertical_order": 9,
+    "split": [
+      0,
+      9
+    ],
+    "negative_vertical_q_pattern": [
+      1,
+      1,
+      1,
+      1,
+      2,
+      3
+    ],
+    "source_order": "lexicographic residue tuple: first four q1 residues nondecreasing in 1..12; q2 and q3 residues 1..12. 1365*12*12=196560 total.",
+    "completed_source_range": [
+      0,
+      20000
+    ],
+    "unvisited_source_range": [
+      20000,
+      196560
+    ],
+    "cap_per_side": 2331
+  },
+  "method": "Full named composite denominator 13(13q+r), original cost 169q+13r-1, exact six mixed congruences mod 13^j, saturated 12D q0 lattice, exact rational GS floor/ceil pruning, exact two-side mass.",
+  "results": {
+    "raw_rosters": 20000,
+    "vertical_over_cap": 0,
+    "gs_nodes": 55906,
+    "relaxed_leaves": 1,
+    "budget_valid": 0
+  },
+  "source_order_sha256": "cc56de216b12b8e007d81d6dd459bb32d5e223f3bad1732a7e58adaa904b1eaf",
+  "local_run_json_sha256": "6509aa8b6b8ca55981ac1da6d4a6d6904e4fdc608052e710c7d03c722a0fe5b5",
+  "sphere_leaf": {
+    "negative_named_roster": [
+      [
+        1,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        1,
+        9
+      ],
+      [
+        2,
+        11
+      ],
+      [
+        3,
+        7
+      ]
+    ],
+    "q0_signed_u": [
+      52,
+      47,
+      -6,
+      12,
+      -5,
+      -6,
+      3,
+      -5,
+      -2,
+      5,
+      2,
+      1
+    ],
+    "original_masses": [
+      3765,
+      3779
+    ],
+    "radius_sq": 5529042
+  },
+  "code_reference": "Current local author run used same exact q0 affine kernel as published research_checks/T6_P13_Q9_SPLIT0_9_LEN1TO5_REPLAY_20261123.py with fixed partition and exact canonical index range [0,20000). Not separately postpublication replayed.",
+  "mathematical_conclusion": "In the first 20000 rosters of this six-atom partition no modular solution simultaneously obeys original two-side mass caps; 176560 other rosters in this partition were not verified by this durable slice.",
+  "native_claim": "NOT_VERIFIED",
+  "independent_review": "NOT_PERFORMED",
+  "status_global": "T6 OPEN"
+}
