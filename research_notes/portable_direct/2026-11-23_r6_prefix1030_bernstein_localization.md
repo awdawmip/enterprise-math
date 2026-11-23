@@ -4,7 +4,7 @@ Date: 2026-11-23 (Asia/Shanghai). Parent: PREFIX-1029. Research status: AUTHOR_A
 
 ## Frozen input and observer
 
-The scientific input remains \`awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d:p000_reality_foundation.json\` (P000 V5). We use the unchanged Stage46 candidate signed BRC kernel \`W=J12-6I12\`, incoming \`-e1\`, bidirectionally forbidden Link \`{0,e1}\`, exactly one negative outgoing step, and the coherent X6 Cell–terminal-port–grade square-mass observer. In particular, the contrast sequence and the six-phase Laurent spectrum are observer outputs, not a quotient that can replace native signed state or native Cell identity.
+The scientific input remains `awdawmip/enterprise-math@f42f2906d77f24085c123f3ccfe9667d41caa96d:p000_reality_foundation.json` (P000 V5). We use the unchanged Stage46 candidate signed BRC kernel `W=J12-6I12`, incoming `-e1`, bidirectionally forbidden Link `{0,e1}`, exactly one negative outgoing step, and the coherent X6 Cell–terminal-port–grade square-mass observer. In particular, the contrast sequence and the six-phase Laurent spectrum are observer outputs, not a quotient that can replace native signed state or native Cell identity.
 
 Recall from PREFIX-1026 and PREFIX-1028:
 - \(\mu\) is a probability measure on \([0,36]\), the spectral pushforward of the six phases, with \(\int y^r\,d\mu=A_6(r)\).
@@ -87,9 +87,9 @@ Insert both Bernstein errors into the defining formula for \(\nu\). Its derivati
 
 ## Exact computation: total degree at most 5000
 
-The attached Python script recomputes the exact A6 collision recurrence, the original three-shift rational formula for every \(a_m\), and the complete difference triangle \(E_{m,k}\) for \(m,k\ge0,m+k\le5000\). It uses Python integers and \`Fraction\`; signs are tested without floating-point operations.
+The attached Python script recomputes the exact A6 collision recurrence, the original three-shift rational formula for every \(a_m\), and the complete difference triangle \(E_{m,k}\) for \(m,k\ge0,m+k\le5000\). It uses Python integers and `Fraction`; signs are tested without floating-point operations.
 
-**Result:** all \((5001)(5002)/2=12,507,501\) integer entries are strictly positive. This extends PREFIX-1028's exact N=1200 frontier (721,801 entries). Its original full-triangle SHA-256 \`a7565656208a7ff3f6fd9ff269a63879b8e0d3e76c3537dcaf130e7241e60d06\` and original m≥1 hash \`b626fc2e4e12db5ce219ab6f5e69f0c0344f38d6fe63d189a768a935d888439e\` were independently reproduced in a separate N=1200 run. The first five a_m are \`[2412,25620,386028,7124592,149251656]\`.
+**Result:** all \((5001)(5002)/2=12,507,501\) integer entries are strictly positive. This extends PREFIX-1028's exact N=1200 frontier (721,801 entries). Its original full-triangle SHA-256 `a7565656208a7ff3f6fd9ff269a63879b8e0d3e76c3537dcaf130e7241e60d06` and original m≥1 hash `b626fc2e4e12db5ce219ab6f5e69f0c0344f38d6fe63d189a768a935d888439e` were independently reproduced in a separate N=1200 run. The first five a_m are `[2412,25620,386028,7124592,149251656]`.
 
 The \(D_{m,k}\) values at N=5000, obtained as exact rational numbers and displayed in decimal, include:
 | m/5000 | spectral y | D (approximate density probe) |
@@ -110,4 +110,4 @@ All density-probe figures are numerical values of **exact nonnegative rational B
 
 Prove regularity of the six-phase spectral density on each interval cut by the critical levels 0,4,16,36, and establish or refute \(g(y)\ge0\) using the explicit local formula. An exact negative proportional Bernstein probe would refute global positivity. Otherwise obtain interval-wise lower bounds sufficient for a pointwise positivity proof, including treatment at critical levels and any singular distributional terms. Keep the unchanged X6 signed/provenance observer: a positive spectral approximation is an observer-level result, not a lossless reduction of the native BRC state.
 
-Files: \`PREFIX1030_R6_BERNSTEIN_LOCALIZATION_CHECK.py\` and \`PREFIX1030_R6_INTERIOR_CERTIFICATE.json\`. Historical contributor provenance: \`EM-DIRECT-FBEA5D / RA-3FB2D033BE6048D8712FF056\`, original SID \`MCP-45ad6d29cd534c1aad25595a72e3c532\`; current formal execution authority not established. No shared CLAIM, PROGRESS, Result, Review, theorem promotion, P000 edit, or closed mother problem is asserted. Mother objective \`B_fix,odd(32) in {19,20}\` remains open.
+Files: `PREFIX1030_R6_BERNSTEIN_LOCALIZATION_CHECK.py` and `PREFIX1030_R6_INTERIOR_CERTIFICATE.json`. Historical contributor provenance: `EM-DIRECT-FBEA5D / RA-3FB2D033BE6048D8712FF056`, original SID `MCP-45ad6d29cd534c1aad25595a72e3c532`; current formal execution authority not established. No shared CLAIM, PROGRESS, Result, Review, theorem promotion, P000 edit, or closed mother problem is asserted. Mother objective `B_fix,odd(32) in {19,20}` remains open.
