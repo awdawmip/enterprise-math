@@ -1,0 +1,55 @@
+{
+  "schema": "EC49FYG_EXACT_RESIDUAL_FIBRE_QUOTIENT_V1",
+  "science_pin": "BRC16943",
+  "status": "ALL_PASS",
+  "original_states": 600,
+  "original_physical_sites": 110,
+  "support_masks": 50,
+  "states_checked_through_depth": 3,
+  "quotient_layers": [
+    {
+      "depth": 0,
+      "nodes": 1,
+      "bySeenColumns": {
+        "0": 1
+      },
+      "minCandidates": 600,
+      "maxCandidates": 600
+    },
+    {
+      "depth": 1,
+      "nodes": 20,
+      "bySeenColumns": {
+        "1": 20
+      },
+      "minCandidates": 193,
+      "maxCandidates": 407
+    },
+    {
+      "depth": 2,
+      "nodes": 555,
+      "bySeenColumns": {
+        "1": 200,
+        "2": 355
+      },
+      "minCandidates": 22,
+      "maxCandidates": 407
+    },
+    {
+      "depth": 3,
+      "nodes": 11639,
+      "bySeenColumns": {
+        "1": 1130,
+        "2": 5119,
+        "3": 5390
+      },
+      "minCandidates": 2,
+      "maxCandidates": 407
+    }
+  ],
+  "nonempty_transitions_checked": 28614,
+  "reconstructions_checked": 12215,
+  "arithmetic": "BigInt exact",
+  "independent_oracle": "600-bit state subset",
+  "claim": "Exact candidate-state quotient and Bellman recursion; Q=14 versus Q=15 remains unresolved"
+}
