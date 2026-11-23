@@ -1,0 +1,118 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT2_8_NEG1111112_AUTHOR_EXACT_SEGMENTS_V1",
+  "as_of": "2026-11-23",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "author_lane": "chatgpt-research-onhour-enterprise-math-20260923",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "published_replay": {
+    "commit": "a15dc9dd00e5d45516463ed4c4905341d8d2357b",
+    "path": "research_checks/T6_P13_Q10_SPLIT2_8_NEG1111112_SLICE_REPLAY_20261123_2000.py",
+    "blob": "096df77ac608297ad1078844c03dcac2da39678b"
+  },
+  "method": "Original published exact integer/Fraction HNF-LLL GS slice enumeration algorithm, executed locally with SymPy 1.14.0; no floating point for feasibility",
+  "params": {
+    "p": 13,
+    "v13": 1,
+    "q_order": 10,
+    "signed_split": [
+      2,
+      8
+    ],
+    "negative_q_pattern": [
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      2
+    ],
+    "positive_patterns": [
+      [
+        2
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "named_positive_per_negative": 90,
+    "budget_per_side": 2331,
+    "moduli": [
+      13,
+      169,
+      2197,
+      28561,
+      371293,
+      4826809
+    ],
+    "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+    "lattice_index": "13^21"
+  },
+  "negative_index_interval": [
+    65536,
+    74240
+  ],
+  "stats": {
+    "negative_rosters": 8704,
+    "original_signed_pairs": 783360,
+    "common_named_atom_lower_order_cancellations": 426096,
+    "vertical_mass_excess": 0,
+    "exact_gs_searches": 357264,
+    "exact_gs_nodes": 765608,
+    "modular_ball_witnesses": 0,
+    "both_side_budget_valid": 0
+  },
+  "segments": [
+    {
+      "range": [
+        65536,
+        66048
+      ],
+      "rosters": 512,
+      "pairs": 46080,
+      "canceled": 24372,
+      "gs": 21708,
+      "nodes": 46790,
+      "witnesses": 0,
+      "roster_sha256": "d8ef298932960b6f74d4f4c70e02988fc5730fcb6cff223f00fad70436cfcdcc",
+      "pair_sha256": "24974134ab1d27a0b14fabc916f80bcfd5bb533b757add875c082d5c13a97d7c",
+      "local_result_sha256": "700b6e034ffd0fc398b3493a551fce6064619faff6099c3a78cac757540ecdab"
+    },
+    {
+      "range": [
+        66048,
+        70144
+      ],
+      "rosters": 4096,
+      "pairs": 368640,
+      "canceled": 205828,
+      "gs": 162812,
+      "nodes": 348658,
+      "witnesses": 0,
+      "roster_sha256": "0dc80fb9ebb657c47cf7ae79e64c1aa70b6c82ae5e460b9c130f1f764565fdcb",
+      "pair_sha256": "a97407f7b394d1270b3378df7d4c87417b186319c456aead5b7b1393d69a52fc",
+      "local_result_sha256": "3fa6e5735da1c333e14e44adcf64f9b45056f80bd48d38342bbbbdcc1b3a8e01"
+    },
+    {
+      "range": [
+        70144,
+        74240
+      ],
+      "rosters": 4096,
+      "pairs": 368640,
+      "canceled": 195896,
+      "gs": 172744,
+      "nodes": 370160,
+      "witnesses": 0,
+      "roster_sha256": "2fb7a3096ae442b7ec83f752789794c087c7052eaab98ed9430419f9a34ce8cd",
+      "pair_sha256": "6db42a11dd91ccfcb04edb2cf94900ac883f3aa59b6b6702eac6c8e55c5e41f4",
+      "local_result_sha256": "eb1c91d7935e81db45b55d80deea51764b5cd2e2385d9d37b86faf06b37842cf"
+    }
+  ],
+  "witnesses": [],
+  "scope_note": "Common named atom cancellation uses the already established lower-q reduction; it is not a fresh GS run. Each uncanceled pair was checked by original six 13-adic congruences, signed 12D q0, and both original mass bounds. Full source-negative family remains open beyond index 74240.",
+  "proof_status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "native_claim": "NOT_ASSERTED",
+  "scientific_acceptance": false
+}
