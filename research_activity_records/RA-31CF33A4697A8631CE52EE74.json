@@ -7,7 +7,32 @@
     "task_registration": false,
     "working_truth": false
   },
-  "checkpoints": [],
+  "checkpoints": [
+    {
+      "event_id": "r2-20261123-r144-unbounded-B-two-entry-fan-source",
+      "em_sources": [
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "56c49db776c79e57b345ffdbdeb7d8d7b1284907",
+          "path": "research_notes/portable_direct/2026-11-23_r2_x6_r144_unbounded_B_two_entry_fan.md",
+          "sha256": "b28fd5d0a2feea1132bae31d55dd2cce61941081866633c6b5d188a9f7ed9f0b",
+          "publication_state": "VERIFY_EM_PUBLICATION"
+        },
+        {
+          "repository": "awdawmip/enterprise-math",
+          "commit": "28ad432a276ac4496042be98508bad2c40c48e1b",
+          "path": "research_notes/portable_direct/x6_r144_unbounded_B_two_entry_fan_verify.py",
+          "sha256": "971136747267814a5969a5d163e8ff92b5e12a52430065d877b750f26859591c",
+          "publication_state": "VERIFY_EM_PUBLICATION"
+        }
+      ],
+      "kb_sources": [
+        "awdawmip/chatgpt-global-knowledge@6113e972a7efcbbc1b7c8e9e49780e4c3141b3db:journal/enterprise-math/2026-11-23/20261123T2010-r2-x6-r144-unbounded-B-two-entry-fan.md"
+      ],
+      "state": "VERIFY_EM_PUBLICATION",
+      "repairs_event_id": null
+    }
+  ],
   "mode": "TASK_RESEARCH",
   "recorded_at": "2026-11-23T12:18:05.543215+00:00",
   "registration_key": "session:MCP-97deb0e889854b58906dfccba3c82d81:TASK_RESEARCH",
