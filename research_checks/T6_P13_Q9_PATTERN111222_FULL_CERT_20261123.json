@@ -1,0 +1,136 @@
+{
+  "schema": "T6_P13_Q9_PATTERN_EXACT_AUTHOR_CERT_V1",
+  "scientific_pin": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "task_id": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "scope": {
+    "maximal_prime": 13,
+    "valuation": 1,
+    "vertical_order": 9,
+    "split": [
+      0,
+      9
+    ],
+    "negative_vertical_q_pattern": [
+      1,
+      1,
+      1,
+      2,
+      2,
+      2
+    ],
+    "residues": "three nondecreasing residues for q1 and three nondecreasing residues for q2, each 1..12",
+    "cap_each_side": 2331
+  },
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED_UNREVIEWED_NOT_ADMITTED",
+  "counts": {
+    "complete_named_rosters": 132496,
+    "pre_affine_vertical_mass_exceeded": 457,
+    "affine_tested": 132039,
+    "gs_recursion_nodes": 364784,
+    "sphere_leaves": 2,
+    "budget_valid": 0
+  },
+  "source_order_sha256": "28f11718bea81598cd8a6092711cea311279311a395611bb21d9ac1dbdd2d6ff",
+  "local_json_sha256": "cc40af0a3fc8a14680b509da88edbff80e68879cbcce0790fcb0222d9726c56f",
+  "method": "Full signed named denominator 13(13q+r), exact six 13-adic mixed congruences, saturated index-13^21 q0 lattice, exact rational GS branch floor/ceil, original two-side mass check",
+  "relaxed_witnesses": [
+    {
+      "negative": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          8
+        ]
+      ],
+      "q0_signed": [
+        -38,
+        -22,
+        14,
+        10,
+        -3,
+        4,
+        -5,
+        -6,
+        -4,
+        2,
+        10,
+        7
+      ],
+      "side_masses": [
+        4113,
+        4583
+      ],
+      "radius_sq": 5662045
+    },
+    {
+      "negative": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          11
+        ]
+      ],
+      "q0_signed": [
+        -15,
+        -9,
+        22,
+        -15,
+        -8,
+        11,
+        6,
+        -9,
+        8,
+        -1,
+        -1,
+        6
+      ],
+      "side_masses": [
+        4081,
+        4759
+      ],
+      "radius_sq": 5637865
+    }
+  ],
+  "provenance": "Author local exact Python/SymPy completed; replay kernel matches prior published q9 code under this exact partition, not a separately published executable re-run.",
+  "independent_review": "NOT_PERFORMED",
+  "native_claim": "NOT_VERIFIED",
+  "native_semantic_progress": "NOT_PUBLISHED"
+}
