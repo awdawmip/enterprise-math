@@ -1,0 +1,83 @@
+{
+  "schema": "C90_SCIENTIFIC_SOURCE_REFERENCES_V1",
+  "date": "2026-11-24",
+  "researcher_id": "EM-DIRECT-0CF8AC",
+  "mode": "TASK_RESEARCH",
+  "activity_id": "RA-69B9FA2BC69365D95330D3C1",
+  "scope": "Informed direct continuation of C89; no formal Task CLAIM, external peer-review or canonical promotion asserted.",
+  "control_snapshot": {
+    "global_knowledge": "fd79c8857a269a460a114b3669fa4272e1daec39",
+    "enterprise_math": "a88e3e001275269cae93c40d77e6984b1ef2970f",
+    "verified_at_utc_minute": "2026-11-24 07:32 UTC",
+    "entrypoints": [
+      "awdawmip/chatgpt-global-knowledge:00_BOOTSTRAP.md",
+      "awdawmip/chatgpt-global-knowledge:OPERATING_MANUAL.md",
+      "awdawmip/enterprise-math:AGENTS.md",
+      "awdawmip/chatgpt-global-knowledge:projects/enterprise-math/00_INDEX.md"
+    ]
+  },
+  "frozen_scientific_inputs": [
+    {
+      "batch": "C89",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "6a6bb85747f6396970b1f54d999822ab710750a4",
+      "directory": "research_notes/divisor_extrema/20261124_c89_finite_separation_and_sharp_position_criterion",
+      "manifest_sha256": "2a34ed9ecdd22d4147f1a26e29c7273c3bed26efd9145b7940a98a593f4846ee",
+      "used": [
+        "joint/PAIR_LATTICE_LIMIT.md",
+        "joint/DOUBLE_SLOPE_CERTIFICATE.md",
+        "joint/MULTIBRANCH_JOINING_FRONTIER.md",
+        "joint/certify_double_slope.py",
+        "spectral/THREE_JET_EXCEPTION_ARC.md",
+        "spectral/CURVATURE_AND_ALGEBRAIC_TAIL.md",
+        "root/SHARP_MOVING_POSITION_CRITERION.md",
+        "root/LOW_PRECISION_SEPARATION_TRANSITION.md",
+        "phase/PHASE_CONDITIONED_BOUND.md"
+      ],
+      "inherited_inputs": "C89 SOURCE_REFS.json pins C81-C88; preserved offline under inputs/C89/inputs/"
+    }
+  ],
+  "restored_input_archive": {
+    "filename": "C89_PROOFS_AND_SOURCES.zip",
+    "sha256": "bf41cfbf1cede388764f68ed6de7cab266abdb3a14395bd0b944809d438ea61e",
+    "verification": "Exact SHA-256 checked before restoring original C89 science tree; code and needed earlier proofs retained without changes."
+  },
+  "new_external_inputs": [
+    {
+      "author": "Marina Ratner",
+      "title": "On measure rigidity of unipotent subgroups of semisimple groups",
+      "journal": "Acta Mathematica",
+      "volume": 165,
+      "year": 1990,
+      "pages": "229-309",
+      "doi": "10.1007/BF02391906",
+      "url": "https://archive.ymsc.tsinghua.edu.cn/pacm_download/117/6450-11511_2006_Article_BF02391906.pdf",
+      "used": "Theorem 2 and Corollary 5(1): algebraic joining structure for connected semisimple lattice quotients and ergodic unipotent elements.",
+      "observation": "Primary paper parsed text actually read, including theorem hypotheses and finite-fiber statement; no screenshot inspection claimed.",
+      "scope_note": "Only qualitative joining classification. C89 Haar horocycle mixing and exact finite-model estimates retained as frozen inputs."
+    }
+  ],
+  "proof_status": {
+    "argument": "Written mathematical proofs with shared-input project-internal cross-checks",
+    "exact_computation": "All 15 slope-pair rational interval certificates and transverse-fold/four-other-branch certificate actually executed; seven exact integer-polynomial identity checks using SymPy also actually executed",
+    "formal_verification": false,
+    "external_peer_review": false,
+    "canonical_promotion": false,
+    "new_integer_exhaustive_enumeration": false
+  },
+  "new_progress": [
+    "Full finite-separation full-inventory critical curve, jointly continuous and uniform in all three rounding origins",
+    "Global analytic extension and all 15 pair-rank certificates; non-atomic finite spectral-gap levels",
+    "One matched formula covering all integer middle positions",
+    "Two actual low-precision separation scales, with exact intermediate plateau",
+    "Exact affine void kernel for s>=1 and explicit second-order small-s expansion",
+    "Unique simple left-fold odd-gap zero, regular transverse arc and exact local reciprocal deficit with high-L exact coefficients",
+    "Exact weighted fixed-boundary-wedge deficit exponent 250/117 and corresponding R(beta) tails"
+  ],
+  "remaining_scope": [
+    "Global exact large-separation tail requires other zero arcs, folds, endpoints and simultaneous collisions",
+    "No monotonicity claim for full Psi or the first low-precision curve",
+    "No quantitative finite-c convergence rate beyond inherited controlled regimes",
+    "Continuous real-spectrum coincidences do not establish integer exact-read collisions"
+  ]
+}
