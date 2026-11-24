@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "repository_full_name": "awdawmip/enterprise-math",
+    "ref": "a1614da5a0a34256daac303434f8f6d5cd5e06af",
+    "path": "research_checks/T6_P13_Q10_SPLIT3_7_NEG111112_4096_8192_AUTHOR_EXACT_CERT_20261124.json"
+  },
+  "observation_id": "onhour-20261124-0900-q111112-4096-8192-cert-readback-v1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"schema\": \"EM_T6_P13_Q10_SPLIT3_7_NEG111112_AUTHOR_EXACT_SLICE_V1\",\n  \"mother_task\": \"RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND\",\n  \"author\": \"EM-DIRECT-D03BC9\",\n  \"activity\": \"RA-A468735D7C934B25C4B9614F\",\n  \"frozen_science\": \"awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca\",\n  \"signed_split\": [\n    3,\n    7\n  ],\n  \"negative_q_pattern\": [\n    1,\n    1,\n    1,\n    1,\n    1,\n    2\n  ],\n  \"interval\": [\n    4096,\n    8192\n  ],\n  \"total_negative_rosters\": 52416,\n  \"positive_q_patterns\": [\n    [\n      3\n    ],\n    [\n      1,\n      2\n    ],\n    [\n      1,\n      1,\n      1\n    ]\n  ],\n  \"budget_each_side\": 2331,\n  \"lattice_index\": \"13^21\",\n  \"gs_min_sq\": \"78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349\",\n  \"stats\": {\n    \"negative_rosters\": 4096,\n    \"positive_rosters\": 520,\n    \"raw_signed_pairs\": 2129920,\n    \"common_named_atom_canceled\": 1250288,\n    \"vertical_original_mass_excess\": 0,\n    \"gs_searches\": 879632,\n    \"gs_nodes\": 1767548,\n    \"relaxed_sphere_witnesses\": 0,\n    \"both_original_side_mass_valid\": 0\n  },\n  \"negative_roster_sha256\": \"82d15aff122af1f793aacdbc3fc8394e11d5a2314806c50fd66831d71be74c54\",\n  \"pair_digest_sha256\": \"b77061ec7dae67fcd1934c1bf54f9d7f84274537607d6c0c1686d8f3b52a9608\",\n  \"witnesses\": [],\n  \"author_replay_base\": \"awdawmip/enterprise-math@a466be736446891b423809b0ba23cb37ec123502:research_checks/T6_P13_Q10_SPLIT3_7_NEG1123_INTEGER_GS_REPLAY_20261124.py\",\n  \"replay_exact_replacements\": [\n    [\n      \"negatives=[((1,r),(1,s),(2,t),(3,u)) for r,s in combinations_with_replacement(range(1,13),2) for t,u in product(range(1,13),repeat=2)]\",\n      \"negatives=[tuple((1,r) for r in v)+((2,t),) for v in combinations_with_replacement(range(1,13),5) for t in range(1,13)]\"\n    ],\n    [\n      \"len(negatives)==11232\",\n      \"len(negatives)==52416\"\n    ],\n    [\n      \"negative_q_pattern=[1,1,2,3]\",\n      \"negative_q_pattern=[1,1,1,1,1,2]\"\n    ]\n  ],\n  \"validation\": \"Actual local Python/SymPy 1.14.0 exact integer GS; 10.060731893 seconds measured replay. Conditional on earlier cancellation and lattice completeness. No independent review or formal admission.\",\n  \"status\": \"AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED\",\n  \"next_action\": \"Continue [8192,52416); preserve q11122 and completed prefix [0,8192).\"\n}\n",
+      "encoding": "utf-8",
+      "sha": "0c4669482b3c04aa0e4f9f0d2410bb14a0b98fe6",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/a1614da5a0a34256daac303434f8f6d5cd5e06af/research_checks/T6_P13_Q10_SPLIT3_7_NEG111112_4096_8192_AUTHOR_EXACT_CERT_20261124.json",
+      "display_title": "T6_P13_Q10_SPLIT3_7_NEG111112_4096_8192_AUTHOR_EXACT_CERT_20261124.json"
+    }
+  },
+  "tool_name": "mcp__GitHub__fetch_file"
+}
