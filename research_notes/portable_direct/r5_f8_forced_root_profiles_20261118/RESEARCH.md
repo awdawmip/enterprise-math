@@ -1,0 +1,82 @@
+# R5 — exact forced-first-query profiles for ten eight-state f=8 witnesses
+
+Date: 2026-11-18 (Asia/Shanghai). Status: AUTHOR_PROVED / EXACT_FINITE_CHECKED / NOT_REVIEWED.
+Project: Enterprise Math / 进取数论. This is a derived scalar observer calculation, not a native X6 state quotient.
+
+## Frozen input and objective
+
+The scientific source remains `awdawmip/enterprise-math@435e77af0d180eac32bd1f9c4c464bc4010b7551`. Frozen count table `EXACT_R5_ALL_101_BUDGETS.json`: SHA-256 `50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b`. The 256 hypotheses have integer centers `N_h(k)` for physical budgets `k=214,...,314`. A correct real observation is within `tau/2` of its center; up to `f=8` observations may be arbitrarily corrupted without labels.
+
+Fifth noise interval: `L=25845652773852463277015040000`, `U=58182461585441404127941754880`, with `L <= tau < U`.
+For a finite named hypothesis set H, define `F_H(k,tau)` as the minimum worst-case *total* query cost of an adaptive strategy that is **forced to use k on the first query**, with all 101 subsequent budgets permitted; every corrupted observation counts against the corresponding candidate's separate counter.
+
+Use the original hard set `H0=(18,24,82,34,17)` and ten three-state extensions:
+
+```text
+(0,144,208), (0,16,32), (0,48,160), (0,64,128), (0,96,192),
+(1,144,208), (16,144,208), (144,160,208), (144,208,240), (48,144,208)
+```
+
+## Theorem 1 — all 101 forced-root costs at the left endpoint
+
+For **each** of the ten named eight-state sets `H=H0 union triple`, the exact `F_H(k,L)` is given by the following *exhaustive* partition:
+
+| first budget k | F_H(k,L) |
+|---|---|
+| 214 | k + 8334 |
+| 215 | k + 8325 |
+| 216–221 | k + 8119 |
+| 222 | k + 8335 |
+| 223–290 | k + 8112 |
+| 291–295 | k + 8335 |
+| 296–312 | k + 8039 |
+| 313–314 | k + 8335 |
+
+All ten root minima equal 8335. Their exact first-step minimizers are `{216,223,296}`. For any of these ten subsets, precisely **77** budgets have `F_H(k,L)>8343`; the other 24 are
+
+```text
+216–221, 223–231, 296–304.
+```
+
+At the right integer endpoint `U-1`, the same 101-budget table applies in eight of the ten cases. For the triples `(0,16,32)` and `(16,144,208)`, exactly one entry differs: `F_H(221,U-1)=8545` instead of 8340; the minimum is still 8335. This identifies a concrete adversarial-support effect of increasing noise on a *forced* first query, even though the unrestricted eight-state optimum stays constant.
+
+## Theorem 2 — necessary first-action screen for complete 256-state f=8 minimax
+
+Assume the previously established, independently pinned complete-256-state upper bound `C_8^*(tau)<=8343` throughout `[L,U)` (prior R5 frontier). For every `tau in [L,U)`, **none of the 77 budgets excluded by Theorem 1 can be the first query of a globally optimal strategy** on all 256 named states.
+
+Reason: fixing the first budget k and restricting the hypothesis set only makes the adaptive minimax problem easier. Also, increasing tau makes every correct-observation support larger or equal. Hence for all `tau>=L`,
+
+```text
+F_256(k,tau) >= F_H(k,tau) >= F_H(k,L) > 8343 >= C_8^*(tau).
+```
+
+The prior proved 7–8–7 action-core result supplies, throughout this interval, an optimal policy using only `{214,215,216,217,223,294,295,296}`, with 217 not required before
+`A=42621568083499305947627520000`. Intersecting this **sufficient** action family with the **necessary** first-query screen yields:
+
+* There exists a complete-256-state optimal strategy whose first query belongs to `{216,217,223,296}` for every `tau in [L,U)`.
+* On `[L,A)`, an optimal strategy exists whose first query belongs to `{216,223,296}`.
+
+These are first-action reductions, not claims that all later actions or the unknown exact full-256 optimum are determined. The existing bracket `8335<=C_8^*(tau)<=8343` remains intact.
+
+## Why the Bellman computation is exact
+
+For query k, a real response y has correct-candidate support `S_k(y)={h in H: |y-N_h(k)|<=tau/2}`. The inclusion-maximal supports are precisely the maximal subsets of centers lying in a window of span at most tau. A second independent enumerator sweeps both the closed doubled-response endpoints and every adjacent open interval; these constructions agree for all 20 cases and each of the 101 budgets.
+
+For error counters `e_h in {0,...,9}` (9 means eliminated), define `T_S(e)_h=min(9,e_h+1[h not in S])` for live candidates, leaving eliminated candidates at 9. With `V(e)=0` when at most one candidate has `e_h<=8`, the exact minimax recursion is
+
+```text
+V(e) = min_{budget j} (j + max_{maximal support S of j} V(T_S(e))).
+F_H(k,tau) = k + max_{maximal support S of k} V(T_S(0)).
+```
+
+For computing unrestricted V, a self-looping action cannot improve a finite value because its positive cost could be omitted; the solver skips it. In **forced-root evaluation a self-loop is legal**: it costs k once, then continuation cost V(0) applies. The supplied program handles that case explicitly. Each non-self-loop continuation increases at least one live error counter, so dynamic programming terminates. Equivalent complete support families are represented by their cheapest subsequent budget; at the forced root each original k is restored with its actual price. All 20 computations used exact C++ integer states and exact Python integer support tests.
+
+Validation observed: 20 unrestricted roots equal 8335; all `20 x 101 = 2020` original-budget forced-root values checked; 20 independent full-budget support sweeps over all 101 choices agree with center-window enumeration. Program status `PASS_R5_F8_10x2_FORCED_ROOT_EXACT`. Full per-case matrix and execution log are retained in the associated reproducibility ZIP, and the compact full-function result above is stored here. Existing eight-state roots provide an independent base-value crosscheck.
+
+## Next questions
+
+1. Compute admissible forced-root profiles for the newly saved eleven-state cylinders, with strict resource limits and root-only dynamic programming that avoids expanding all suboptimal first-step continuations; the preceding attempt at naïve eleven-state profiling exceeded the local computation budget and produced no complete 11-state profile.
+2. Within the surviving first actions, use joint 256-state error counters and source-preserving shared residuals to tighten the present eight-unit bound.
+3. Seek stronger nine-plus-state *forced-query* obstruction certificates, distinguishing endpoint statements from uniform chamber claims.
+
+No new Task/CLAIM/Result/Review or native X6 identity is asserted by this author-side GitHub scientific publication.

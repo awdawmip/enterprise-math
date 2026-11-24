@@ -1,0 +1,52 @@
+{
+  "cycle_horizon_one": [
+    {"colliding_states": 0, "collision_classes": 0, "distinct_signatures": 8, "horizon": 1, "largest_class": 1, "n": 3},
+    {"colliding_states": 4, "collision_classes": 2, "distinct_signatures": 14, "horizon": 1, "largest_class": 2, "n": 4},
+    {"colliding_states": 0, "collision_classes": 0, "distinct_signatures": 32, "horizon": 1, "largest_class": 1, "n": 5},
+    {"colliding_states": 0, "collision_classes": 0, "distinct_signatures": 64, "horizon": 1, "largest_class": 1, "n": 6},
+    {"colliding_states": 0, "collision_classes": 0, "distinct_signatures": 128, "horizon": 1, "largest_class": 1, "n": 7},
+    {"colliding_states": 4, "collision_classes": 2, "distinct_signatures": 254, "horizon": 1, "largest_class": 2, "n": 8},
+    {"colliding_states": 0, "collision_classes": 0, "distinct_signatures": 512, "horizon": 1, "largest_class": 1, "n": 9},
+    {"colliding_states": 0, "collision_classes": 0, "distinct_signatures": 1024, "horizon": 1, "largest_class": 1, "n": 10},
+    {"colliding_states": 0, "collision_classes": 0, "distinct_signatures": 2048, "horizon": 1, "largest_class": 1, "n": 11},
+    {"colliding_states": 4, "collision_classes": 2, "distinct_signatures": 4094, "horizon": 1, "largest_class": 2, "n": 12}
+  ],
+  "cycle_horizon_one_exhaustive_n": [3,4,5,6,7,8,9,10,11,12],
+  "cycle_horizon_two": [
+    {"colliding_states": 0, "collision_classes": 0, "distinct_signatures": 8, "horizon": 2, "largest_class": 1, "n": 3},
+    {"colliding_states": 0, "collision_classes": 0, "distinct_signatures": 16, "horizon": 2, "largest_class": 1, "n": 4},
+    {"colliding_states": 0, "collision_classes": 0, "distinct_signatures": 32, "horizon": 2, "largest_class": 1, "n": 5},
+    {"colliding_states": 0, "collision_classes": 0, "distinct_signatures": 64, "horizon": 2, "largest_class": 1, "n": 6},
+    {"colliding_states": 0, "collision_classes": 0, "distinct_signatures": 128, "horizon": 2, "largest_class": 1, "n": 7},
+    {"colliding_states": 0, "collision_classes": 0, "distinct_signatures": 256, "horizon": 2, "largest_class": 1, "n": 8}
+  ],
+  "cycle_horizon_two_exhaustive_n": [3,4,5,6,7,8],
+  "frozen_science_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "model": "auxiliary source-labeled radius-2 indexed-center graph kernel",
+  "name": "R5_BRANCHING_CACTUS_AND_HORIZON_TWO",
+  "review": "NOT_REVIEWED",
+  "source_labeled_cover_checks": 107,
+  "status": "PASS_R5_BRANCHING_CACTUS_AND_HORIZON_TWO",
+  "triangular_cactus_example": [
+    {"allowed": [], "extra_cost": 15, "kappa_a": 30, "source_helper_vertex_ids": []},
+    {"allowed": [2,6,10], "extra_cost": 13, "kappa_a": 28, "source_helper_vertex_ids": [6]},
+    {"allowed": [1,4,7,10], "extra_cost": 11, "kappa_a": 26, "source_helper_vertex_ids": [1,7]},
+    {"allowed": [0,2,4,6,8,10], "extra_cost": 12, "kappa_a": 27, "source_helper_vertex_ids": [0,6]},
+    {"allowed": [0,1,2,3,4,5,6,7,8,9,10], "extra_cost": 10, "kappa_a": 25, "source_helper_vertex_ids": [0,1,7]}
+  ],
+  "triangular_cactus_exhaustive_selection_checks": 97,
+  "verification_scope": "All masks n=3..12 horizon1; all masks n=3..8 all length<=2 command words; exact all subset graph minimization for windmill k<=5; five helper masks for each of 4 deterministic cactus shapes at k<=5",
+  "windmill": [
+    {"hub_available": false, "kappa_a": 6, "kappa_ab": 6, "optimal_helper_set": [], "triangles": 1},
+    {"hub_available": true, "kappa_a": 6, "kappa_ab": 6, "optimal_helper_set": [], "triangles": 1},
+    {"hub_available": false, "kappa_a": 12, "kappa_ab": 12, "optimal_helper_set": [], "triangles": 2},
+    {"hub_available": true, "kappa_a": 10, "kappa_ab": 12, "optimal_helper_set": [0], "triangles": 2},
+    {"hub_available": false, "kappa_a": 18, "kappa_ab": 18, "optimal_helper_set": [], "triangles": 3},
+    {"hub_available": true, "kappa_a": 14, "kappa_ab": 18, "optimal_helper_set": [0], "triangles": 3},
+    {"hub_available": false, "kappa_a": 24, "kappa_ab": 24, "optimal_helper_set": [], "triangles": 4},
+    {"hub_available": true, "kappa_a": 18, "kappa_ab": 24, "optimal_helper_set": [0], "triangles": 4},
+    {"hub_available": false, "kappa_a": 30, "kappa_ab": 30, "optimal_helper_set": [], "triangles": 5},
+    {"hub_available": true, "kappa_a": 22, "kappa_ab": 30, "optimal_helper_set": [0], "triangles": 5}
+  ],
+  "windmill_complete_numeric_checks": 10
+}

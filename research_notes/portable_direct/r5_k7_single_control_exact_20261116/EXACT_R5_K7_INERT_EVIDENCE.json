@@ -1,0 +1,54 @@
+{
+  "status": "PASS_R5_K7_INERT_24_EXACT_INTEGER_CERTIFICATE",
+  "frozen_scientific_input": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "model": {
+    "k": 7,
+    "slack": 2,
+    "controls": [
+      0
+    ],
+    "reset_transition": "all self-loops"
+  },
+  "exact_minimum": 24,
+  "upper": {
+    "source_centers": [
+      43,
+      47,
+      55,
+      59,
+      63,
+      75,
+      79,
+      83,
+      85,
+      87,
+      91,
+      93,
+      95,
+      101,
+      103,
+      107,
+      109,
+      111,
+      115,
+      117,
+      119,
+      123,
+      125,
+      127
+    ],
+    "covered_raw_pairs": 64,
+    "covered_raw_masks": 128,
+    "total_pair_membership_checks": 108
+  },
+  "lower": {
+    "candidate_odd_centers": 64,
+    "undominated_centers": 38,
+    "excludes_at_most": 23,
+    "visited_memoized_states": 22,
+    "cache_hits": 0,
+    "cache_misses": 22
+  },
+  "proof": "complete integer cover DFS on 64 flip pairs; all source labels genuine by inherited common-library theorem",
+  "review": "NOT_REVIEWED"
+}

@@ -1,0 +1,112 @@
+{
+  "status": "PASS_R5_EXACT_RADIUS2_ADVICE_LIBRARY",
+  "pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "domain": "auxiliary 1D indexed integer centers",
+  "theorem": "kappa_a(m,2)=kappa_ab(m,2)=max(2,2**(m-1)) for m>=1",
+  "coverage": "all 35 core candidates/mask; witness ell 0..7; all colors ell 1..4; full library crosscheck ell<=3 and sampled ell=4",
+  "rows": [
+    {
+      "mask": 1,
+      "ell": 0,
+      "minimum": 2,
+      "core_classes": {
+        "left_at_most_1": [
+          "0125",
+          "0135",
+          "0235",
+          "0345",
+          "1235",
+          "1345"
+        ],
+        "right_at_most_1": [
+          "0245",
+          "0246",
+          "0346",
+          "1246"
+        ],
+        "double_2": [
+          "1245",
+          "1346"
+        ]
+      }
+    },
+    {
+      "mask": 1,
+      "ell": 1,
+      "minimum": 2,
+      "valid_minimum_libraries": 2
+    },
+    {
+      "mask": 1,
+      "ell": 2,
+      "minimum": 4,
+      "valid_minimum_libraries": 6
+    },
+    {
+      "mask": 1,
+      "ell": 3,
+      "minimum": 8,
+      "valid_minimum_libraries": 118
+    },
+    {
+      "mask": 1,
+      "ell": 4,
+      "minimum": 16,
+      "valid_minimum_libraries": 29030
+    },
+    {
+      "mask": 3,
+      "ell": 0,
+      "minimum": 2,
+      "core_classes": {
+        "left_at_most_1": [
+          "0125",
+          "0135",
+          "0136",
+          "0145",
+          "0235",
+          "0345",
+          "1235",
+          "1345"
+        ],
+        "right_at_most_1": [
+          "0146",
+          "0236",
+          "0245",
+          "0246",
+          "0346",
+          "1246"
+        ],
+        "double_2": [
+          "1236",
+          "1245",
+          "1346"
+        ]
+      }
+    },
+    {
+      "mask": 3,
+      "ell": 1,
+      "minimum": 2,
+      "valid_minimum_libraries": 2
+    },
+    {
+      "mask": 3,
+      "ell": 2,
+      "minimum": 4,
+      "valid_minimum_libraries": 6
+    },
+    {
+      "mask": 3,
+      "ell": 3,
+      "minimum": 8,
+      "valid_minimum_libraries": 118
+    },
+    {
+      "mask": 3,
+      "ell": 4,
+      "minimum": 16,
+      "valid_minimum_libraries": 29030
+    }
+  ]
+}

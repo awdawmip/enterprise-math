@@ -1,0 +1,97 @@
+{
+  "status": "PASS_R5_ABSOLUTE_NOISE_FOUR_QUERIES_SHARP",
+  "provenance": {
+    "frozen_input": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+    "compact_sha256": "a781cf89e534587009e207e51bbda2f411e4147746f7d6a0b72a1354e80f0d4d",
+    "local_executed_verifier_sha256": "b438a31fa6811e23f3c9303f6c2412e380109947fcda6ce5035f5824cc2b5826",
+    "validation": "Python standard-library exact integer; optional previous full-table equality check passed"
+  },
+  "domain": {
+    "budgets": [
+      214,
+      314
+    ],
+    "masks": 256,
+    "unordered_pairs": 32640,
+    "pair_budget_differences": 3296640,
+    "complete_count_entries": 25856
+  },
+  "absolute_noise": {
+    "global_max_min_difference": "1882951873548292168718745600000",
+    "sharp_error_threshold": "941475936774146084359372800000",
+    "success_condition": "eta < threshold",
+    "impossibility_condition": "eta >= threshold",
+    "four_budget_decoder": [
+      217,
+      218,
+      224,
+      305
+    ],
+    "four_budget_margin": "1882951873548292168718745600000",
+    "minimizing_pairs": [
+      [
+        11,
+        14
+      ],
+      [
+        27,
+        30
+      ],
+      [
+        43,
+        46
+      ],
+      [
+        59,
+        62
+      ],
+      [
+        75,
+        78
+      ],
+      [
+        91,
+        94
+      ],
+      [
+        107,
+        110
+      ],
+      [
+        123,
+        126
+      ]
+    ],
+    "witness_unique_peak": 217
+  },
+  "fixed_three": {
+    "evaluated_first_middle_combinations": 552,
+    "six_bit_pairs_per_combination": 2016,
+    "optimal_margin": "1744659037213380157479321600000",
+    "optimal_first_middle_example": [
+      217,
+      290
+    ],
+    "third_budget_optimal": 305,
+    "third_margin": "2653627577676347634246872444436480"
+  },
+  "adaptive_three_obstruction": {
+    "witness_pairs": [
+      [
+        4,
+        10
+      ],
+      [
+        11,
+        14
+      ]
+    ],
+    "max_over_single_early_budget_of_min_witness_gap": "1752576979999614335377735680000",
+    "forced_four_query_error_interval": "1752576979999614335377735680000 / 2 <= eta < 1882951873548292168718745600000 / 2"
+  },
+  "remaining": [
+    "exact adaptive three-query margin below established obstruction interval",
+    "local early-window path-exchange explanation for budgets 217 and 218",
+    "indexed-center max-new/min-old replacement distance"
+  ]
+}

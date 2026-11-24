@@ -1,0 +1,121 @@
+{
+  "baseline": {
+    "budgets": [
+      214,
+      223,
+      294
+    ],
+    "metrics": [
+      319,
+      80960,
+      118,
+      731
+    ]
+  },
+  "best": {
+    "budget_sum": {
+      "budget_sum": 731,
+      "budgets": [
+        214,
+        223,
+        294
+      ],
+      "max_single_bits": 118,
+      "mean_total_bits_den": 256,
+      "mean_total_bits_num": 80960,
+      "worst_total_bits": 319
+    },
+    "max_single_bits": {
+      "budget_sum": 799,
+      "budgets": [
+        214,
+        291,
+        294
+      ],
+      "max_single_bits": 104,
+      "mean_total_bits_den": 256,
+      "mean_total_bits_num": 77504,
+      "worst_total_bits": 305
+    },
+    "mean_total_bits": {
+      "budget_sum": 799,
+      "budgets": [
+        214,
+        291,
+        294
+      ],
+      "max_single_bits": 104,
+      "mean_total_bits_den": 256,
+      "mean_total_bits_num": 77504,
+      "worst_total_bits": 305
+    },
+    "worst_total_bits": {
+      "budget_sum": 799,
+      "budgets": [
+        214,
+        291,
+        294
+      ],
+      "max_single_bits": 104,
+      "mean_total_bits_den": 256,
+      "mean_total_bits_num": 77504,
+      "worst_total_bits": 305
+    }
+  },
+  "bit_metric": "Positive count N.bit_length; three raw integers; budget cost=sum K; uniform 256 signatures",
+  "domain": {
+    "events": 954,
+    "gap_cuts": 28,
+    "quotient_signatures": 256,
+    "valid_triples": 8280
+  },
+  "input_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "pareto_worst_bits_vs_budget_sum": [
+    {
+      "budget_sum": 799,
+      "budgets": [
+        214,
+        291,
+        294
+      ],
+      "worst_bits": 305
+    },
+    {
+      "budget_sum": 798,
+      "budgets": [
+        214,
+        290,
+        294
+      ],
+      "worst_bits": 317
+    },
+    {
+      "budget_sum": 731,
+      "budgets": [
+        214,
+        223,
+        294
+      ],
+      "worst_bits": 319
+    }
+  ],
+  "pointwise": {
+    "A": {
+      "dominating_budget": 214,
+      "tested_budgets": 8,
+      "tested_masks": 32
+    },
+    "B": {
+      "dominating_budget": 291,
+      "tested_budgets": 69,
+      "tested_masks": 4
+    },
+    "C": {
+      "dominating_budget": 294,
+      "tested_budgets": 20,
+      "tested_masks": 4
+    }
+  },
+  "source_commit": "143ada28910f2b0e042d2d0ffcb066fee45d083e",
+  "status": "PASS_R5_DECODER_COST_EXACT"
+}

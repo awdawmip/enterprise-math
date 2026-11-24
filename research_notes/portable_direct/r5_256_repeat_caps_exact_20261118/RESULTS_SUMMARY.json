@@ -1,0 +1,135 @@
+{
+  "schema": "R5_256_REPEAT_CAP_AND_BATCH_EXACT_SUMMARY_V1",
+  "status": "PASS_R5_256_REPEAT_CAP_BATCH_18_CHAMBERS_EXACT",
+  "date": "2026-11-18",
+  "science_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "input_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+  "domain": {
+    "named_hypotheses": 256,
+    "query_budgets": "214..314",
+    "pairs": 32640,
+    "unmarked_errors": "f>=0",
+    "tau_fifth": [
+      "25845652773852463277015040000",
+      "58182461585441404127941754880"
+    ]
+  },
+  "critical_tau": "53550705027838197293383680000",
+  "response_signatures": 18,
+  "internal_thresholds": 17,
+  "minimum_pair_separation_budget_count": {
+    "early": 6,
+    "late": 5
+  },
+  "repetition_cap_threshold_for_f8": {
+    "early": 3,
+    "late": 4
+  },
+  "capacity_formula": "floor((q*d_min-1)/2)",
+  "pair_cap_criterion": "sum_{k: abs(N_a(k)-N_b(k))>tau} q[k] >= 2*f+1, for all a<b",
+  "minimal_pair_sets": {
+    "early": [
+      [
+        214,
+        215,
+        216,
+        217,
+        218,
+        219
+      ],
+      [
+        214,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221
+      ],
+      [
+        215,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221
+      ],
+      "223..290",
+      "296..312"
+    ],
+    "late": [
+      [
+        214,
+        215,
+        216,
+        217,
+        218
+      ],
+      [
+        214,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221
+      ],
+      [
+        215,
+        216,
+        217,
+        218,
+        219,
+        220,
+        221
+      ],
+      "223..290",
+      "296..312"
+    ]
+  },
+  "at_minimum_f8_cap": {
+    "early": {
+      "cap": 3,
+      "price": 13240,
+      "query_count": 54,
+      "low": 4337,
+      "middle": 3831,
+      "high": 5072,
+      "enumerated_low_vectors": 65536,
+      "unique_optimum": true,
+      "minimum_pair_separations": 17,
+      "schedule": {
+        "220": 2,
+        "228": 2,
+        "301": 2,
+        "214..219": 3,
+        "223..227": 3,
+        "296..300": 3
+      }
+    },
+    "late": {
+      "cap": 4,
+      "price": 13208,
+      "query_count": 54,
+      "low": 4329,
+      "middle": 3819,
+      "high": 5060,
+      "enumerated_low_vectors": 390625,
+      "unique_optimum": true,
+      "minimum_pair_separations": 17,
+      "schedule": {
+        "219": 2,
+        "227": 1,
+        "300": 1,
+        "214..215": 3,
+        "216..218": 4,
+        "223..226": 4,
+        "296..299": 4
+      }
+    }
+  },
+  "review": "NOT_REVIEWED",
+  "validation": "Exact pinned SHA, 18 antichains over 32640 pairs, exhaustive low integer block, direct endpoint schedules.",
+  "next": "Solve adaptive worst-case cost under q=3 or 4; unrestricted f8 8335..8343 remains unsolved"
+}

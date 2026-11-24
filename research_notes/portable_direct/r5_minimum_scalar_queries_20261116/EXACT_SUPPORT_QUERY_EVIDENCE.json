@@ -1,0 +1,40 @@
+{
+  "schema": "EM_R5_THREE_QUERY_TOMOGRAPHY_STRUCTURAL_EVIDENCE_V1",
+  "date": "2026-11-16",
+  "frozen_scientific_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "upstream": "research_notes/portable_direct/r5_global_optimizer_tomography_20261114/RESEARCH.md",
+  "upstream_inherited_results": [
+    "effective_support_E(K)_214_to_954",
+    "scalar_injectivity_at_K_214_223_294"
+  ],
+  "scope": "derived 954-event indexed nearest-center radius-two count observer, budgets 214..954",
+  "check_method": "exact finite support sets and 256-bit-mask ideal-support projection, not a rerun of 954-event dynamic programming",
+  "verified": {
+    "budgets": 741,
+    "unordered_budget_pairs": 274170,
+    "max_one_budget_support_bits": 5,
+    "max_two_budget_support_bits": 7,
+    "max_support_pairs": 176,
+    "group_A_count": 8,
+    "group_B_count": 69,
+    "group_C_count": 22,
+    "structurally_eligible_three_budget_sets": 12144,
+    "representative_two_budget_pair": [
+      214,
+      294
+    ],
+    "representative_three_budget_triple": [
+      214,
+      223,
+      294
+    ],
+    "projected_support_signatures_two_budget": 128,
+    "projected_support_signatures_three_budget": 256,
+    "count_injectivity_of_representatives": "inherited from upstream exact integer DP",
+    "min_adaptive_scalar_queries_to_decode_full_eight_bit_quotient": 3,
+    "max_adaptive_two_query_scalar_transcripts": 128,
+    "uniform_prior_preimages_per_optimal_two_budget_signature": 2097152,
+    "uniform_prior_preimages_per_full_three_budget_signature": 1048576
+  },
+  "scientific_status": "AUTHOR_PROVED_FROM_PINNED_UPSTREAM_EXACT_RESULTS / EXACT_STRUCTURAL_FINITE_CHECK / NOT_REVIEWED"
+}

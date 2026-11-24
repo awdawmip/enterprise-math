@@ -1,0 +1,251 @@
+{
+  "constructive_witness_r_3_to_8": [
+    {
+      "ambient_a": 5,
+      "ambient_ab": 6,
+      "ambient_witness": 5,
+      "d": 3,
+      "r": 3,
+      "restricted_a": 6,
+      "restricted_witness": 6,
+      "witness_checks": "PASS"
+    },
+    {
+      "ambient_a": 6,
+      "ambient_ab": 8,
+      "ambient_witness": 6,
+      "d": 4,
+      "r": 4,
+      "restricted_a": 8,
+      "restricted_witness": 8,
+      "witness_checks": "PASS"
+    },
+    {
+      "ambient_a": 7,
+      "ambient_ab": 10,
+      "ambient_witness": 7,
+      "d": 5,
+      "r": 5,
+      "restricted_a": 10,
+      "restricted_witness": 10,
+      "witness_checks": "PASS"
+    },
+    {
+      "ambient_a": 8,
+      "ambient_ab": 12,
+      "ambient_witness": 8,
+      "d": 6,
+      "r": 6,
+      "restricted_a": 12,
+      "restricted_witness": 12,
+      "witness_checks": "PASS"
+    },
+    {
+      "ambient_a": 9,
+      "ambient_ab": 14,
+      "ambient_witness": 9,
+      "d": 7,
+      "r": 7,
+      "restricted_a": 14,
+      "restricted_witness": 14,
+      "witness_checks": "PASS"
+    },
+    {
+      "ambient_a": 10,
+      "ambient_ab": 16,
+      "ambient_witness": 10,
+      "d": 8,
+      "r": 8,
+      "restricted_a": 16,
+      "restricted_witness": 16,
+      "witness_checks": "PASS"
+    }
+  ],
+  "core_distance_matrix_ab": [
+    [
+      1,
+      1,
+      1,
+      2,
+      3
+    ],
+    [
+      2,
+      2,
+      2,
+      3,
+      2
+    ],
+    [
+      1,
+      2,
+      2,
+      1,
+      2
+    ],
+    [
+      2,
+      3,
+      3,
+      2,
+      1
+    ],
+    [
+      2,
+      1,
+      2,
+      2,
+      3
+    ],
+    [
+      3,
+      2,
+      3,
+      3,
+      2
+    ]
+  ],
+  "exact_3bit_full_set_cover": {
+    "ambient_a": {
+      "size": 5,
+      "witness": [
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          1,
+          0,
+          4
+        ],
+        [
+          0,
+          1,
+          0
+        ],
+        [
+          4,
+          1,
+          0
+        ]
+      ]
+    },
+    "ambient_ab": {
+      "size": 6,
+      "witness": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          4
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          1,
+          0,
+          4
+        ]
+      ]
+    },
+    "restricted_a": {
+      "size": 6,
+      "witness": [
+        [
+          0,
+          0,
+          1
+        ],
+        [
+          0,
+          0,
+          2
+        ],
+        [
+          0,
+          0,
+          4
+        ],
+        [
+          4,
+          0,
+          1
+        ],
+        [
+          4,
+          0,
+          2
+        ],
+        [
+          4,
+          0,
+          4
+        ]
+      ]
+    },
+    "restricted_ab": {
+      "size": 6,
+      "witness": [
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          4
+        ],
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          1,
+          0,
+          4
+        ]
+      ]
+    }
+  },
+  "frozen_science_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "model": "auxiliary mixed weighted optimizer languages; exact indexed-center replacement metric",
+  "next_question": "characterize general old X/new Y with graph-annotated states and a future-observer-preserving quotient",
+  "proof_scope": "universal r>=3,d>=r via forced-baseline and one-helper contradiction; finite checks are not universal proof",
+  "status": "PASS_R5_AMBIENT_OLD_HELPER_GAP",
+  "theorem": "r>=3, d>=r: kappa_a(X=Y)=2r; kappa_a(X=Q_d)=r+2; kappa_ab both=2r, Y={unit vectors e_i:i<r}"
+}

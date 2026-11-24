@@ -1,0 +1,75 @@
+{
+  "status": "PASS_R5_FULL256_UNIFORM_93_ACTION_DOMINANCE_ALL_F",
+  "frozen_science_commit": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "frozen_input_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+  "noise_diameter_real_interval": {
+    "left_inclusive": "25845652773852463277015040000",
+    "right_exclusive": "58182461585441404127941754880"
+  },
+  "hypotheses": 256,
+  "physical_query_budgets": 101,
+  "critical_representatives": [
+    "25845652773852463277015040000",
+    "31733751127607820618301440000",
+    "33469190642398873308364800000",
+    "34543510342031429735546880000",
+    "35645376700628923507015680000",
+    "37332609562231335844577280000",
+    "37683829464034286984232960000",
+    "39667188909509775772876800000",
+    "41430175083265765807226880000",
+    "42621568083499305947627520000",
+    "45392032647559604256815185920",
+    "46856866899358422631710720000",
+    "48261746506570227190333440000",
+    "48344386483465039223193600000",
+    "50203785963598309962547200000",
+    "53550705027838197293383680000",
+    "54156731525066818867691520000",
+    "55313691201594187327733760000"
+  ],
+  "internal_center_gap_thresholds": 17,
+  "cross_checked_correct_response_families": 1818,
+  "core": [
+    214,
+    215,
+    216,
+    217,
+    223,
+    294,
+    295,
+    296
+  ],
+  "dominated_actions": 93,
+  "direct_uniform_replacement_bands": [
+    {
+      "from": 218,
+      "to": 222,
+      "with": 217
+    },
+    {
+      "from": 224,
+      "to": 290,
+      "with": 223
+    },
+    {
+      "from": 291,
+      "to": 293,
+      "with": 214
+    },
+    {
+      "from": 297,
+      "to": 312,
+      "with": 296
+    },
+    {
+      "from": 313,
+      "to": 314,
+      "with": 295
+    }
+  ],
+  "algorithm": "independent exact interval endpoint sweep and sorted-center window maximal response family equality at all representative tau values",
+  "scope": "full256 pinned scalar observer; all integer f>=0; unrestricted adaptive worst-case total physical budget; known real tau in fifth chamber",
+  "formal_review": "NOT_REVIEWED",
+  "local_execution": "Original full Python verifier passed with exit 0, 3.57 s; condensed repository verifier is supplied for independent rerun"
+}

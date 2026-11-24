@@ -1,0 +1,43 @@
+{
+  "schema": "ENTERPRISE_MATH_R5_LOW_BUDGET_UNIT_RECOURSE_EVIDENCE_V1",
+  "status": "PASS_EXACT_R5_LOW_BUDGET_ONE_SWAP",
+  "date": "2026-11-15",
+  "scientific_input_commit": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "antecedent": "R5 optimizer family support theorem PR #2427@ccd014a53eebefc7516da4b1442162749d5c1c0d",
+  "domain": "954 event indexed-center derived 1D radius-2 integer observer",
+  "result": {
+    "cut_27": {
+      "K_min": 214,
+      "K_max": 291,
+      "max_min_swap": 1,
+      "canonical_repair": "479->480",
+      "transitions": 267
+    },
+    "cut_25": {
+      "K_min": 223,
+      "K_max": 291,
+      "max_min_swap": 1,
+      "canonical_repair": "438->439",
+      "transitions": 138
+    }
+  },
+  "exhaustive_local": {
+    "transitions": 405,
+    "patterns": 22389,
+    "all_patterns_old_compatible_or_one_swap": true,
+    "strict_one_swap_in_every_transition": true
+  },
+  "output": {
+    "filename": "EXACT_R5_LOW_BUDGET_UNIT_RECOURSE.json",
+    "byte_length": 107384,
+    "sha256": "a5688e231fcd3e5954925823deb7b333bcadace5fb2eb92ad0bcc0049ae73a7b",
+    "reproduce": "python VERIFY_R5_LOW_BUDGET_UNIT_RECOURSE.py > EXACT_R5_LOW_BUDGET_UNIT_RECOURSE.json"
+  },
+  "independent_full_path_sample": {
+    "status": "PASS_R5_FULL_PATH_RANDOM_CROSSCHECK",
+    "count": 56,
+    "seed": 20261115
+  },
+  "review": "NOT_REVIEWED",
+  "open_question": "recourse of cuts 3,8,9,10 for K214..221"
+}

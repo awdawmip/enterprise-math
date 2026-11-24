@@ -1,0 +1,79 @@
+{
+  "status": "PASS_R5_MIXED_ERASURE_CORRUPTION_EXACT_FIXED_SCHEDULE",
+  "date": "2026-11-17",
+  "scientific_input_commit": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "input_compact_sha256": "a781cf89e534587009e207e51bbda2f411e4147746f7d6a0b72a1354e80f0d4d",
+  "independent_full_table_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+  "independent_full_table_checked": true,
+  "budget_count": 101,
+  "mask_count": 256,
+  "full_count_comparisons": 25856,
+  "base_budgets": [
+    214,
+    223,
+    294
+  ],
+  "base_triple_distinct_signatures": 256,
+  "supports": {
+    "16_vs_17": {
+      "first": 214,
+      "last": 221,
+      "contiguous": true,
+      "count": 8
+    },
+    "16_vs_80": {
+      "first": 223,
+      "last": 291,
+      "contiguous": true,
+      "count": 69
+    },
+    "16_vs_32": {
+      "first": 294,
+      "last": 313,
+      "contiguous": true,
+      "count": 20
+    }
+  },
+  "exact_formula": "C_fixed(e,f)=731*(e+2*f+1) for all nonnegative integer e,f",
+  "unique_optimum": "e+2*f+1 copies of each budget 214, 223, 294",
+  "trials": [
+    {
+      "e": 0,
+      "f": 0,
+      "min_distance": 1,
+      "query_count": 3,
+      "cost": 731
+    },
+    {
+      "e": 1,
+      "f": 0,
+      "min_distance": 2,
+      "query_count": 6,
+      "cost": 1462
+    },
+    {
+      "e": 0,
+      "f": 1,
+      "min_distance": 3,
+      "query_count": 9,
+      "cost": 2193
+    },
+    {
+      "e": 1,
+      "f": 1,
+      "min_distance": 4,
+      "query_count": 12,
+      "cost": 2924
+    },
+    {
+      "e": 2,
+      "f": 2,
+      "min_distance": 7,
+      "query_count": 21,
+      "cost": 5117
+    }
+  ],
+  "evidence_provenance": "Reconstructed with Python arbitrary-precision ints from verified pinned 101-budget sparse cohorts; original 25,856 full count table independently matched; 32,640 unordered mask pairs evaluated for each trial; mathematical proof in RESEARCH.md establishes unbounded e,f.",
+  "reviewer_status": "NOT_REVIEWED",
+  "claims_boundary": "fixed nonadaptive exact integer repeated reads with known erasures and arbitrary substitutions; no analog noise"
+}

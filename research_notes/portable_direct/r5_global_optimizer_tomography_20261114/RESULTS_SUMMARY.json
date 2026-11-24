@@ -1,0 +1,145 @@
+{
+  "status": "PASS_EXACT_R5_GLOBAL_OPTIMIZER_TOMOGRAPHY",
+  "date": "2026-11-14",
+  "input_commit": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "model": "frozen 954-event derived integer-coordinate radius-2 event-index-center observer",
+  "scope_K": [
+    214,
+    954
+  ],
+  "cut_count": 28,
+  "bands": [
+    {
+      "minK": 214,
+      "maxK": 221,
+      "bits": [
+        3,
+        8,
+        9,
+        10,
+        27
+      ],
+      "complete_families": 32
+    },
+    {
+      "minK": 222,
+      "maxK": 222,
+      "bits": [
+        27
+      ],
+      "complete_families": 2
+    },
+    {
+      "minK": 223,
+      "maxK": 291,
+      "bits": [
+        25,
+        27
+      ],
+      "complete_families": 4
+    },
+    {
+      "minK": 292,
+      "maxK": 292,
+      "bits": [],
+      "complete_families": 1
+    },
+    {
+      "minK": 293,
+      "maxK": 314,
+      "bits": [
+        15,
+        17
+      ],
+      "complete_families": 4
+    },
+    {
+      "minK": 315,
+      "maxK": 954,
+      "bits": [],
+      "complete_families": 1
+    }
+  ],
+  "distinct_28_bit_optimizer_family_trajectories": 256,
+  "closures_per_trajectory": 1048576,
+  "exact_count_decoder_budgets": [
+    214,
+    223,
+    294
+  ],
+  "count_decoder_distinct_values": [
+    32,
+    4,
+    4
+  ],
+  "examples": [
+    {
+      "K": 214,
+      "J": 1064,
+      "N_all": "4573020854769248525038387200000",
+      "nonzero_prerequisite_mask_types": 20
+    },
+    {
+      "K": 221,
+      "J": 1029,
+      "N_all": "10060466827209074662346588160000",
+      "nonzero_prerequisite_mask_types": 10
+    },
+    {
+      "K": 222,
+      "J": 1024,
+      "N_all": "580132637801580470678323200000",
+      "nonzero_prerequisite_mask_types": 2
+    },
+    {
+      "K": 223,
+      "J": 1020,
+      "N_all": "209661782760358268989540757667840000",
+      "nonzero_prerequisite_mask_types": 4
+    },
+    {
+      "K": 291,
+      "J": 748,
+      "N_all": "10211420035936236257356176949248",
+      "nonzero_prerequisite_mask_types": 3
+    },
+    {
+      "K": 292,
+      "J": 744,
+      "N_all": "247939829006869892620615680",
+      "nonzero_prerequisite_mask_types": 1
+    },
+    {
+      "K": 293,
+      "J": 741,
+      "N_all": "13598538917490720089529384960",
+      "nonzero_prerequisite_mask_types": 3
+    },
+    {
+      "K": 294,
+      "J": 738,
+      "N_all": "342162737216429487140162764800",
+      "nonzero_prerequisite_mask_types": 4
+    },
+    {
+      "K": 314,
+      "J": 678,
+      "N_all": "34551159313954027401935585280000",
+      "nonzero_prerequisite_mask_types": 3
+    },
+    {
+      "K": 315,
+      "J": 675,
+      "N_all": "402907218691036544772341760000",
+      "nonzero_prerequisite_mask_types": 1
+    }
+  ],
+  "executed_verifier_git_blob_sha1": "55372f41d9b551ce110e0d00d075ad1adf77af91",
+  "executed_verifier_sha256": "5ae6114ed27f0139397f6e4121ffd953c04a4896faaccd295e8bd27c61619be0",
+  "full_stdout_json_bytes": 28337,
+  "full_stdout_json_sha256": "261b3945e9efdcf1a3f4be215a42b19bccac3fee9e06e2ef3bd3eba4dc279f41",
+  "full_output_reproduction": "python VERIFY_R5_GLOBAL_OPTIMIZER_TOMOGRAPHY.py > proof_data.json",
+  "full_json_contains": "102 rows, complete 214..315 counts, exact Möbius mask-class multiplicities at designated budgets, complete support 214..315",
+  "math_review": "NOT_REVIEWED",
+  "formal_task_claim": "UNCONFIRMED"
+}

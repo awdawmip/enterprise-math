@@ -1,0 +1,60 @@
+{
+  "status": "PASS_R5_FIFTH_CHAMBER_UNIFORM_EIGHT_ACTIONS_MINIMAL_DOMINANCE",
+  "frozen_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "input_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+  "noise_tau_left_inclusive": "25845652773852463277015040000",
+  "noise_tau_right_exclusive": "58182461585441404127941754880",
+  "state_count": 256,
+  "all_101_budgets_checked": true,
+  "unordered_state_pairs": 32640,
+  "uniform_eight_query_alphabet": [
+    214,
+    215,
+    216,
+    217,
+    223,
+    294,
+    295,
+    296
+  ],
+  "minimum_cardinality_in_one_step_cost_safe_domination_class": 8,
+  "selected_frequency": {
+    "214": 4,
+    "215": 1,
+    "216": 1,
+    "217": 6,
+    "223": 68,
+    "294": 1,
+    "295": 3,
+    "296": 17
+  },
+  "essential_at_upper_integer_endpoint": [
+    214,
+    215,
+    216,
+    217,
+    223,
+    295,
+    296
+  ],
+  "lower_endpoint_counterexample": {
+    "target_budget": 294,
+    "masks": [
+      0,
+      48
+    ],
+    "cost_eligible_seven_members": [
+      214,
+      215,
+      216,
+      217,
+      223
+    ],
+    "all_five_cheaper_count_gaps": "0",
+    "target_count_gap": "45392032647559604256815185920"
+  },
+  "method": "pairwise exact integer characterization of compatibility-support refinement uniformly for all real tau in half-open chamber",
+  "scope": "every finite f of arbitrary unmarked corrupted readings, exact derived integer observer; not a formula for minimax cost when f>=4",
+  "full_101_mapping_in_reproducible_checker_and_local_results": true,
+  "independent_review": "NOT_REVIEWED"
+}

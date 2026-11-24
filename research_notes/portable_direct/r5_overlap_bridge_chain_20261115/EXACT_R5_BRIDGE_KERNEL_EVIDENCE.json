@@ -1,0 +1,297 @@
+{
+  "model": "R5 auxiliary indexed-center radius-two source-aware repair",
+  "scientific_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "local_cases": [
+    {
+      "helpers": [],
+      "kappa_a": 12,
+      "kappa_ab": 12,
+      "witness": [
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          1,
+          0,
+          4
+        ],
+        [
+          1,
+          0,
+          11
+        ],
+        [
+          1,
+          0,
+          13
+        ],
+        [
+          1,
+          0,
+          14
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          4
+        ],
+        [
+          0,
+          1,
+          13
+        ],
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          11
+        ],
+        [
+          0,
+          1,
+          14
+        ]
+      ]
+    },
+    {
+      "helpers": [
+        5
+      ],
+      "kappa_a": 11,
+      "kappa_ab": 12,
+      "witness": [
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          1,
+          0,
+          4
+        ],
+        [
+          1,
+          0,
+          11
+        ],
+        [
+          1,
+          0,
+          13
+        ],
+        [
+          1,
+          0,
+          14
+        ],
+        [
+          0,
+          1,
+          5
+        ],
+        [
+          4,
+          1,
+          5
+        ],
+        [
+          0,
+          1,
+          2
+        ],
+        [
+          0,
+          1,
+          11
+        ],
+        [
+          0,
+          1,
+          14
+        ]
+      ]
+    },
+    {
+      "helpers": [
+        10
+      ],
+      "kappa_a": 11,
+      "kappa_ab": 12,
+      "witness": [
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          1,
+          0,
+          4
+        ],
+        [
+          1,
+          0,
+          11
+        ],
+        [
+          1,
+          0,
+          13
+        ],
+        [
+          1,
+          0,
+          14
+        ],
+        [
+          0,
+          1,
+          1
+        ],
+        [
+          0,
+          1,
+          4
+        ],
+        [
+          0,
+          1,
+          13
+        ],
+        [
+          0,
+          1,
+          10
+        ],
+        [
+          4,
+          1,
+          10
+        ]
+      ]
+    },
+    {
+      "helpers": [
+        5,
+        10
+      ],
+      "kappa_a": 10,
+      "kappa_ab": 12,
+      "witness": [
+        [
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          2
+        ],
+        [
+          1,
+          0,
+          4
+        ],
+        [
+          1,
+          0,
+          11
+        ],
+        [
+          1,
+          0,
+          13
+        ],
+        [
+          1,
+          0,
+          14
+        ],
+        [
+          0,
+          1,
+          5
+        ],
+        [
+          4,
+          1,
+          5
+        ],
+        [
+          0,
+          1,
+          10
+        ],
+        [
+          4,
+          1,
+          10
+        ]
+      ]
+    }
+  ],
+  "tensors": [
+    {
+      "k": 1,
+      "suffix_dimension": 7,
+      "cases": 4,
+      "kappa_a_min": 10,
+      "kappa_a_max": 12,
+      "kappa_ab": 12
+    },
+    {
+      "k": 2,
+      "suffix_dimension": 10,
+      "cases": 16,
+      "kappa_a_min": 20,
+      "kappa_a_max": 24,
+      "kappa_ab": 24
+    },
+    {
+      "k": 3,
+      "suffix_dimension": 13,
+      "cases": 64,
+      "kappa_a_min": 30,
+      "kappa_a_max": 36,
+      "kappa_ab": 36
+    },
+    {
+      "k": 4,
+      "suffix_dimension": 16,
+      "cases": 256,
+      "kappa_a_min": 40,
+      "kappa_a_max": 48,
+      "kappa_ab": 48
+    }
+  ],
+  "universal_scope": "Proved analytically for all integer k>=1 and all helper subsets",
+  "verification_scope": "All four local cases and all 340 guarded tensor cases, exact integers"
+}

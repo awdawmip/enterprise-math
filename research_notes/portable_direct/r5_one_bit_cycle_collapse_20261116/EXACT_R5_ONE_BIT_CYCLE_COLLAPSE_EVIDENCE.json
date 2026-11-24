@@ -1,0 +1,55 @@
+{
+  "schema": "R5_ONE_BIT_CYCLE_COLLAPSE_EVIDENCE_V1",
+  "frozen_science_pin": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "theorem": "N_dyn(k,{0},s)=W(k,s) for finite one-bit Set systems",
+  "status": "PASS_R5_ONE_BIT_CYCLE_COLLAPSE",
+  "finite_function_audit": [
+    {
+      "m": 1,
+      "L": 1,
+      "ordered_function_pairs_checked": 1,
+      "recurrent_alternating_cycles": 1,
+      "max_phase_cycle_length": 2
+    },
+    {
+      "m": 2,
+      "L": 2,
+      "ordered_function_pairs_checked": 16,
+      "recurrent_alternating_cycles": 20,
+      "max_phase_cycle_length": 2
+    },
+    {
+      "m": 3,
+      "L": 6,
+      "ordered_function_pairs_checked": 729,
+      "recurrent_alternating_cycles": 1017,
+      "max_phase_cycle_length": 2
+    },
+    {
+      "m": 4,
+      "L": 12,
+      "ordered_function_pairs_checked": 65536,
+      "recurrent_alternating_cycles": 98176,
+      "max_phase_cycle_length": 4
+    }
+  ],
+  "source_witness_audit": {
+    "k": 9,
+    "s": 2,
+    "tails": 256,
+    "raw_masks": 512,
+    "centres": 32,
+    "controller_states": 44,
+    "inert_components": 20,
+    "paired_components": 12,
+    "alternating_cycles": 32,
+    "source_memberships": 512,
+    "exhaustive_word_cases": 65024,
+    "word_transition_checks": 328704,
+    "nonidempotent_double_copy_states": 88,
+    "doubled_idempotent_cycles": 64,
+    "alternating_cycle_tail_checks": 512,
+    "valid": true
+  },
+  "limitation": "Finite tests check algebraic cases and saved upper witness; universal result follows the standalone proof. W9=44 lower is inherited HiGHS-reported optimum, not a new exact unsat certificate."
+}

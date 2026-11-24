@@ -1,0 +1,100 @@
+{
+  "schema": "R5_F8_TWO_ELEVEN_STATE_INTERVALS_V1",
+  "status": "PASS_R5_TWO_ELEVEN_STATE_F8_BOTH_ENDPOINTS",
+  "scientific_source_commit": "435e77af0d180eac32bd1f9c4c464bc4010b7551",
+  "source_table_sha256": "50e87f0194cfb3780e84b7bbb6f9a2dca4f79bb4901cab06f1a5b59256fb470b",
+  "L": "25845652773852463277015040000",
+  "U_exclusive": "58182461585441404127941754880",
+  "f": 8,
+  "base": [
+    18,
+    24,
+    82,
+    34,
+    17
+  ],
+  "distinct_subsets_covered": 96,
+  "support_checks": 404,
+  "methods": [
+    "integer_center_window",
+    "doubled_observation_endpoint_sweep"
+  ],
+  "rows": [
+    {
+      "family": "A",
+      "added": [
+        0,
+        16,
+        32,
+        144,
+        208,
+        240
+      ],
+      "states": [
+        18,
+        24,
+        82,
+        34,
+        17,
+        0,
+        16,
+        32,
+        144,
+        208,
+        240
+      ],
+      "L": {
+        "root_cost": 8335,
+        "memo_states": 4043982,
+        "distinct_action_families": 10,
+        "stdout": "EXACT cost=8335 states=4043982 actions=10 time=7.45646",
+        "stdin_sha256": "d723901799f2b0de24db2a69a0292b5ec21389db8f893aab28317ed6538ea58f"
+      },
+      "U_minus_1": {
+        "root_cost": 8335,
+        "memo_states": 10317926,
+        "distinct_action_families": 10,
+        "stdout": "EXACT cost=8335 states=10317926 actions=10 time=28.5146",
+        "stdin_sha256": "ed7c6cef1bf171d93a311a95bb67ec54dcd8bd040e77ed015713ca75ba2d19c6"
+      }
+    },
+    {
+      "family": "B",
+      "added": [
+        0,
+        16,
+        48,
+        144,
+        208,
+        240
+      ],
+      "states": [
+        18,
+        24,
+        82,
+        34,
+        17,
+        0,
+        16,
+        48,
+        144,
+        208,
+        240
+      ],
+      "L": {
+        "root_cost": 8335,
+        "memo_states": 5877822,
+        "distinct_action_families": 10,
+        "stdout": "EXACT cost=8335 states=5877822 actions=10 time=10.7624",
+        "stdin_sha256": "d3ea693766fd925d490a21a6a309688c83566045e089ff06163a60268ce2584e"
+      },
+      "U_minus_1": {
+        "root_cost": 8335,
+        "memo_states": 10235929,
+        "distinct_action_families": 10,
+        "stdout": "EXACT cost=8335 states=10235929 actions=10 time=25.7177",
+        "stdin_sha256": "9a2da6b77fa562618a56633a2f4ee18135ace051efdc16504e1d4435128a2bfe"
+      }
+    }
+  ]
+}
