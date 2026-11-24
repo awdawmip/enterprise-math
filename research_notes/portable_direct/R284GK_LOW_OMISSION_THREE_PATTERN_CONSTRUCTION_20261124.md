@@ -38,3 +38,15 @@ The Gray construction supplies the matching upper bound when there are zero surv
 
 ## Next
 The global capacity may undergo its transition near q=2u, not 4u. The two-heavy obstruction alone cannot settle it. Establish global lower bounds matching the three-pattern upper construction for q<2u, and test q=2u..4u-4, especially u>=3. For low q and u>=3 the symmetric result is a construction, not a global minimum assertion. Keep exact source-group residuals, not a native geometric/BRC computation.
+
+## Additional completed u=3 scan in the same run
+Same exact C++ checker, immutable code commit 501e7fce66cecd84af712be7dc79cf249c265590, git blob 03cf7b6a2924223b43bc0486cac494a811618228 equals locally executed code. Compile with g++ -O3 -std=c++17, run executable q u. Each output survivor is a seven-integer histogram; stderr gives the complete pruning and search counts. The code uses int counts/keys, safe at all tested parameter sizes (not asserted overflow-safe for unlimited inputs).
+q,u,limit | GE pass | stable pass | nonheavy | full survivors | min survivor length:
+6,3,49 | 3864457 | 2415 | 168 | 0 | none
+5,3,45 | 2408134 | 2919 | 624 | 90 | 44
+4,3,41 | 1475091 | 4372 | 1794 | 1747 | 38
+3,3,37 | 893835 | 8076 | 4489 | 6464 | 32
+2,3,33 | 545153 | 18973 | 12437 | 18955 | 27
+1,3,29 | 350977 | 56893 | 41971 | 56893 | 22
+0,3,25 | 264340 | 146098 | 108266 | 146098 | 17
+Hence the full u=3 row is n_min=17,22,27,32,38,44,50,54,58 at q=0..8 respectively; q>=9 follows GJ. For u=2 and u=3, finite global exact results and earlier high-q theorem together match min(4q+8u+2,max(5q+5u+2,6q+4u+2)) for every nonnegative integer q. This piecewise formula is now a concrete global conjecture for arbitrary u, rather than Gray universal optimality. The proved constructive upper bound applies to every integer u>=1 and q>=0 by selecting the better of the two available constructions. Next pursue matching global lower bound; for q<2u, consider deriving it from GE and opposite cuts plus the two competing thresholds, retaining non-symmetric and mixed pattern cases.
