@@ -1,0 +1,65 @@
+{
+  "schema": "T6_P13_Q11_SPLIT0_11_LEN11_AUTHOR_EXACT_INTEGER_V1",
+  "frozen_science": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "researcher": "EM-DIRECT-D03BC9",
+  "session": "MCP-7f3df4435e40430b832e8d5ff2137718",
+  "activity": "RA-A468735D7C934B25C4B9614F",
+  "p": 13,
+  "valuation": 1,
+  "total_q": 11,
+  "split": [
+    0,
+    11
+  ],
+  "budget": 2331,
+  "length": 11,
+  "pattern_range": [
+    0,
+    1
+  ],
+  "scope": "All length-11 partitions of 11, full 12-label over-domain; conditional on prior high valuation reduction; no smoothness filter.",
+  "source_replay": "949c4114b1882b37b60e4e7de05d7ce9933fb33b:research_checks/T6_P13_Q11_SPLIT0_11_LEN1TO3_AUTHOR_REPLAY_20261125.py",
+  "reproduction": "Set length loop to range(11,12) in pinned Fraction replay. Actual local integer-scaled GS execution.",
+  "method": "HNF/weighted LLL, exact rational GS, same lattice index 13^21 and minimum D as pinned replay. For each coset c_i with common denominator B, use integer C_i=B*c_i, Z_j=B*(c_j+n_j), L_i=lcm denominators of mu[j][i], M_ji=L_i*mu[j][i]. Center numerator h_i=L_i*C_i+sum M_ji*Z_j; denominator B*L_i. Set Q=lcm denominators of D_i/(B*L_i)^2 and T_i=Q*D_i/(B*L_i)^2. Recurse E+=T_i*(h_i+B*L_i*n_i)^2 <= Q*radius_sq with floor(-h_i/(B*L_i)) and its successor. Reconstruct integer u, assert norm*Q=E and original six congruences; check both masses. Separately compute raw/over counts by convolution of sums of multiset residue labels. All 1 rows match independent DP.",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "coset_denominator": 4826809,
+  "lattice_index": "13^21",
+  "rows": [
+    {
+      "index": 0,
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "raw": 705432,
+      "over": 697211,
+      "search": 8221,
+      "nodes": 22414,
+      "leaves": 0,
+      "valid": 0,
+      "roster_sha256": "700adaea3f5636ed4f3ecd2e350d5f2f18f320cd01e3dd6fbca020d7064f6422"
+    }
+  ],
+  "witnesses": [],
+  "totals": {
+    "raw": 705432,
+    "over": 697211,
+    "search": 8221,
+    "nodes": 22414,
+    "leaves": 0,
+    "valid": 0
+  },
+  "elapsed_s": 3.21723665,
+  "provenance": "Transcribed actual local Python integer execution. Independent multiset DP coverage and exact energy/congruence/original mass checks executed. Author evidence, not formal task progress.",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "next": "Aggregate all 56 split(0,11) families, then proceed to split(1,10)."
+}
