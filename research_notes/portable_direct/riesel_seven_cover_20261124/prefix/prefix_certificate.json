@@ -1,0 +1,323 @@
+{
+  "status": "PASS: exact arithmetic support; universal completeness rests on proof.md",
+  "theorem": "For a in R2, every complete supplement Q outside P with |Q|<=7 and {5,13} subset Q also contains {19,73}.",
+  "scope": {
+    "researcher": "EM-DIRECT-970E1C",
+    "activity": "RA-D2EC212845B63844081F9A14",
+    "independent_review": false,
+    "new_native_execution": false,
+    "scientific_source_v10": "f57dd6fd49d5b3f0a12abb3703c76edd6dbd37b5",
+    "scientific_source_v9": "b1de1acbdc97b5e51d486127abd1fadd24babd99"
+  },
+  "A": [
+    1,
+    2,
+    10,
+    11,
+    12,
+    16,
+    17,
+    22,
+    25,
+    26,
+    30,
+    31,
+    32
+  ],
+  "A_incidence_counts": {
+    "1": [
+      13
+    ],
+    "5": [
+      3,
+      5,
+      5,
+      0,
+      0
+    ],
+    "7": [
+      0,
+      2,
+      3,
+      3,
+      3,
+      2,
+      0
+    ],
+    "35": [
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      0,
+      1,
+      0,
+      0,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1,
+      0,
+      0
+    ]
+  },
+  "fixed_root_phases": {
+    "19": {
+      "root_residue": 6,
+      "f": 3,
+      "v_zero_phases": [
+        0
+      ]
+    },
+    "73": {
+      "root_residue": 37,
+      "f": 3,
+      "v_zero_phases": [
+        1
+      ]
+    },
+    "433": {
+      "root_residue": 0,
+      "f": 6,
+      "v_zero_phases": []
+    },
+    "38737": {
+      "root_residue": 38733,
+      "f": 6,
+      "v_zero_phases": [
+        5
+      ]
+    }
+  },
+  "complete_factorizations": {
+    "24": {
+      "3": 2,
+      "5": 1,
+      "7": 1,
+      "13": 1,
+      "17": 1,
+      "241": 1
+    },
+    "36": {
+      "3": 3,
+      "5": 1,
+      "7": 1,
+      "13": 1,
+      "19": 1,
+      "37": 1,
+      "73": 1,
+      "109": 1
+    },
+    "48": {
+      "3": 2,
+      "5": 1,
+      "7": 1,
+      "13": 1,
+      "17": 1,
+      "97": 1,
+      "241": 1,
+      "257": 1,
+      "673": 1
+    },
+    "60": {
+      "3": 2,
+      "5": 2,
+      "7": 1,
+      "11": 1,
+      "13": 1,
+      "31": 1,
+      "41": 1,
+      "61": 1,
+      "151": 1,
+      "331": 1,
+      "1321": 1
+    },
+    "72": {
+      "3": 3,
+      "5": 1,
+      "7": 1,
+      "13": 1,
+      "17": 1,
+      "19": 1,
+      "37": 1,
+      "73": 1,
+      "109": 1,
+      "241": 1,
+      "433": 1,
+      "38737": 1
+    },
+    "84": {
+      "3": 2,
+      "5": 1,
+      "7": 2,
+      "13": 1,
+      "29": 1,
+      "43": 1,
+      "113": 1,
+      "127": 1,
+      "337": 1,
+      "1429": 1,
+      "5419": 1,
+      "14449": 1
+    },
+    "120": {
+      "3": 2,
+      "5": 2,
+      "7": 1,
+      "11": 1,
+      "13": 1,
+      "17": 1,
+      "31": 1,
+      "41": 1,
+      "61": 1,
+      "151": 1,
+      "241": 1,
+      "331": 1,
+      "1321": 1,
+      "61681": 1,
+      "4562284561": 1
+    }
+  },
+  "deterministic_primality_method": "trial division through integer square root",
+  "effective_period_inventories": {
+    "1": {
+      "eligible": [],
+      "not_fixed_inactive": [],
+      "base2_orders": {}
+    },
+    "2": {
+      "eligible": [],
+      "not_fixed_inactive": [],
+      "base2_orders": {}
+    },
+    "3": {
+      "eligible": [
+        19,
+        37,
+        73,
+        109
+      ],
+      "not_fixed_inactive": [
+        19,
+        73
+      ],
+      "base2_orders": {
+        "19": 18,
+        "37": 36,
+        "73": 9,
+        "109": 36
+      }
+    },
+    "4": {
+      "eligible": [],
+      "not_fixed_inactive": [],
+      "base2_orders": {}
+    },
+    "5": {
+      "eligible": [
+        11,
+        61,
+        331
+      ],
+      "not_fixed_inactive": [],
+      "base2_orders": {
+        "11": 10,
+        "61": 60,
+        "331": 30
+      }
+    },
+    "6": {
+      "eligible": [
+        433,
+        38737
+      ],
+      "not_fixed_inactive": [
+        38737
+      ],
+      "base2_orders": {
+        "433": 72,
+        "38737": 72
+      }
+    },
+    "7": {
+      "eligible": [
+        29,
+        43,
+        1429,
+        5419
+      ],
+      "not_fixed_inactive": [
+        29,
+        43,
+        1429,
+        5419
+      ],
+      "base2_orders": {
+        "29": 28,
+        "43": 14,
+        "1429": 84,
+        "5419": 42
+      }
+    },
+    "10": {
+      "eligible": [
+        61681,
+        4562284561
+      ],
+      "not_fixed_inactive": [
+        61681,
+        4562284561
+      ],
+      "base2_orders": {
+        "61681": 40,
+        "4562284561": 120
+      }
+    }
+  },
+  "rational_thresholds": {
+    "nonW_gcd_column_bounds": [
+      "1/6",
+      "5/26",
+      "3/13",
+      "1/13"
+    ],
+    "outside_one_W_divisible_by_3_bounds": [
+      "1/6",
+      "5/39",
+      "1/13",
+      "1/39"
+    ],
+    "m2_each_other_minimum": "2/13",
+    "m3_each_other_minimum": "3/26"
+  },
+  "finite_geometry_checks": {
+    "m2_phase_assignments": 4900,
+    "m2_common_period": 210,
+    "m2_minimum_missed_positions": 17,
+    "m3_phase_assignments": 343,
+    "m3_minimum_residual_size": 4,
+    "m4_phase_assignments": 2401,
+    "m4_minimum_residual_size": 2
+  }
+}

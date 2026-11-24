@@ -1,0 +1,1764 @@
+{
+  "status": "PASS: author exact arithmetic support; not independent project Review",
+  "scope": {
+    "activity": "RA-D2EC212845B63844081F9A14",
+    "researcher": "EM-DIRECT-970E1C",
+    "new_native_execution": false,
+    "independent_review": false
+  },
+  "old_prime_orders": {
+    "7": 3,
+    "17": 8,
+    "31": 5,
+    "41": 20,
+    "71": 35,
+    "97": 48,
+    "113": 28,
+    "127": 7,
+    "151": 15,
+    "241": 24,
+    "257": 16,
+    "281": 70,
+    "337": 21,
+    "641": 64,
+    "673": 48,
+    "1321": 60,
+    "14449": 84,
+    "29191": 105,
+    "65537": 32,
+    "6700417": 64
+  },
+  "old_private_exponents": [
+    37,
+    3,
+    89,
+    5,
+    293,
+    117,
+    413,
+    113,
+    41,
+    33,
+    87,
+    233,
+    773,
+    207,
+    237,
+    257,
+    53,
+    593,
+    63,
+    111
+  ],
+  "known_seed_primes": {
+    "Z": {
+      "prime": 87211,
+      "order2": 54
+    },
+    "R": {
+      "prime": 246241,
+      "order2": 108
+    },
+    "T0": {
+      "prime": 279073,
+      "order2": 108
+    },
+    "D1": {
+      "prime": 38737,
+      "order2": 72
+    },
+    "D2": {
+      "prime": 487824887233,
+      "order2": 144
+    },
+    "T1": {
+      "prime": 33975937,
+      "order2": 216
+    }
+  },
+  "primality_method": "deterministic trial division through integer square root",
+  "checked_k": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "patterns": [
+    {
+      "k": 0,
+      "supplement_size": 7,
+      "total_size": 27,
+      "rows": [
+        {
+          "label": "Z",
+          "m": 3,
+          "b": 0,
+          "order2": 54,
+          "u_period": 27,
+          "u_phase": 16
+        },
+        {
+          "label": "R",
+          "m": 3,
+          "b": 1,
+          "order2": 108,
+          "u_period": 54,
+          "u_phase": 34
+        },
+        {
+          "label": "T0",
+          "m": 3,
+          "b": 2,
+          "order2": 108,
+          "u_period": 54,
+          "u_phase": 52
+        }
+      ],
+      "complete_w_period": 3,
+      "private_w_residues": [
+        0,
+        1,
+        2
+      ],
+      "lifted_w_mod_35_zero": [
+        0,
+        70,
+        35
+      ],
+      "private_tail_exponents": [
+        32,
+        2552,
+        1292
+      ],
+      "multiplicity_counts": {
+        "1": 3
+      },
+      "complementary_t_phases": null
+    },
+    {
+      "k": 1,
+      "supplement_size": 8,
+      "total_size": 28,
+      "rows": [
+        {
+          "label": "D1",
+          "m": 2,
+          "b": 1,
+          "order2": 72,
+          "u_period": 36,
+          "u_phase": 34
+        },
+        {
+          "label": "R",
+          "m": 3,
+          "b": 1,
+          "order2": 108,
+          "u_period": 54,
+          "u_phase": 34
+        },
+        {
+          "label": "T0",
+          "m": 3,
+          "b": 2,
+          "order2": 108,
+          "u_period": 54,
+          "u_phase": 52
+        },
+        {
+          "label": "T1",
+          "m": 6,
+          "b": 0,
+          "order2": 216,
+          "u_period": 108,
+          "u_phase": 16
+        }
+      ],
+      "complete_w_period": 6,
+      "private_w_residues": [
+        3,
+        4,
+        2,
+        0
+      ],
+      "lifted_w_mod_35_zero": [
+        105,
+        70,
+        140,
+        0
+      ],
+      "private_tail_exponents": [
+        3812,
+        2552,
+        5072,
+        32
+      ],
+      "multiplicity_counts": {
+        "1": 4,
+        "2": 2
+      },
+      "complementary_t_phases": [
+        [
+          2
+        ],
+        [
+          1
+        ],
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "k": 2,
+      "supplement_size": 9,
+      "total_size": 29,
+      "rows": [
+        {
+          "label": "D1",
+          "m": 2,
+          "b": 1,
+          "order2": 72,
+          "u_period": 36,
+          "u_phase": 34
+        },
+        {
+          "label": "D2",
+          "m": 4,
+          "b": 2,
+          "order2": 144,
+          "u_period": 72,
+          "u_phase": 52
+        },
+        {
+          "label": "R",
+          "m": 3,
+          "b": 1,
+          "order2": 108,
+          "u_period": 54,
+          "u_phase": 34
+        },
+        {
+          "label": "T1",
+          "m": 6,
+          "b": 0,
+          "order2": 216,
+          "u_period": 108,
+          "u_phase": 16
+        },
+        {
+          "label": "T2",
+          "m": 12,
+          "b": 8,
+          "order2": 432,
+          "u_period": 216,
+          "u_phase": 160
+        }
+      ],
+      "complete_w_period": 12,
+      "private_w_residues": [
+        3,
+        2,
+        4,
+        0,
+        8
+      ],
+      "lifted_w_mod_35_zero": [
+        315,
+        350,
+        280,
+        0,
+        140
+      ],
+      "private_tail_exponents": [
+        11372,
+        12632,
+        10112,
+        32,
+        5072
+      ],
+      "multiplicity_counts": {
+        "1": 8,
+        "2": 4
+      },
+      "complementary_t_phases": [
+        [
+          1
+        ],
+        [
+          0
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "k": 3,
+      "supplement_size": 10,
+      "total_size": 30,
+      "rows": [
+        {
+          "label": "D1",
+          "m": 2,
+          "b": 1,
+          "order2": 72,
+          "u_period": 36,
+          "u_phase": 34
+        },
+        {
+          "label": "D2",
+          "m": 4,
+          "b": 2,
+          "order2": 144,
+          "u_period": 72,
+          "u_phase": 52
+        },
+        {
+          "label": "D3",
+          "m": 8,
+          "b": 4,
+          "order2": 288,
+          "u_period": 144,
+          "u_phase": 88
+        },
+        {
+          "label": "R",
+          "m": 3,
+          "b": 1,
+          "order2": 108,
+          "u_period": 54,
+          "u_phase": 34
+        },
+        {
+          "label": "T2",
+          "m": 12,
+          "b": 8,
+          "order2": 432,
+          "u_period": 216,
+          "u_phase": 160
+        },
+        {
+          "label": "T3",
+          "m": 24,
+          "b": 0,
+          "order2": 864,
+          "u_period": 432,
+          "u_phase": 16
+        }
+      ],
+      "complete_w_period": 24,
+      "private_w_residues": [
+        3,
+        2,
+        12,
+        16,
+        8,
+        0
+      ],
+      "lifted_w_mod_35_zero": [
+        315,
+        770,
+        420,
+        280,
+        560,
+        0
+      ],
+      "private_tail_exponents": [
+        11372,
+        27752,
+        15152,
+        10112,
+        20192,
+        32
+      ],
+      "multiplicity_counts": {
+        "1": 16,
+        "2": 8
+      },
+      "complementary_t_phases": [
+        [
+          2
+        ],
+        [
+          1
+        ],
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "k": 4,
+      "supplement_size": 11,
+      "total_size": 31,
+      "rows": [
+        {
+          "label": "D1",
+          "m": 2,
+          "b": 1,
+          "order2": 72,
+          "u_period": 36,
+          "u_phase": 34
+        },
+        {
+          "label": "D2",
+          "m": 4,
+          "b": 2,
+          "order2": 144,
+          "u_period": 72,
+          "u_phase": 52
+        },
+        {
+          "label": "D3",
+          "m": 8,
+          "b": 4,
+          "order2": 288,
+          "u_period": 144,
+          "u_phase": 88
+        },
+        {
+          "label": "D4",
+          "m": 16,
+          "b": 8,
+          "order2": 576,
+          "u_period": 288,
+          "u_phase": 160
+        },
+        {
+          "label": "R",
+          "m": 3,
+          "b": 1,
+          "order2": 108,
+          "u_period": 54,
+          "u_phase": 34
+        },
+        {
+          "label": "T3",
+          "m": 24,
+          "b": 0,
+          "order2": 864,
+          "u_period": 432,
+          "u_phase": 16
+        },
+        {
+          "label": "T4",
+          "m": 48,
+          "b": 32,
+          "order2": 1728,
+          "u_period": 864,
+          "u_phase": 592
+        }
+      ],
+      "complete_w_period": 48,
+      "private_w_residues": [
+        3,
+        2,
+        12,
+        8,
+        16,
+        0,
+        32
+      ],
+      "lifted_w_mod_35_zero": [
+        1155,
+        770,
+        1260,
+        1400,
+        1120,
+        0,
+        560
+      ],
+      "private_tail_exponents": [
+        41612,
+        27752,
+        45392,
+        50432,
+        40352,
+        32,
+        20192
+      ],
+      "multiplicity_counts": {
+        "1": 32,
+        "2": 16
+      },
+      "complementary_t_phases": [
+        [
+          1
+        ],
+        [
+          0
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "k": 5,
+      "supplement_size": 12,
+      "total_size": 32,
+      "rows": [
+        {
+          "label": "D1",
+          "m": 2,
+          "b": 1,
+          "order2": 72,
+          "u_period": 36,
+          "u_phase": 34
+        },
+        {
+          "label": "D2",
+          "m": 4,
+          "b": 2,
+          "order2": 144,
+          "u_period": 72,
+          "u_phase": 52
+        },
+        {
+          "label": "D3",
+          "m": 8,
+          "b": 4,
+          "order2": 288,
+          "u_period": 144,
+          "u_phase": 88
+        },
+        {
+          "label": "D4",
+          "m": 16,
+          "b": 8,
+          "order2": 576,
+          "u_period": 288,
+          "u_phase": 160
+        },
+        {
+          "label": "D5",
+          "m": 32,
+          "b": 16,
+          "order2": 1152,
+          "u_period": 576,
+          "u_phase": 304
+        },
+        {
+          "label": "R",
+          "m": 3,
+          "b": 1,
+          "order2": 108,
+          "u_period": 54,
+          "u_phase": 34
+        },
+        {
+          "label": "T4",
+          "m": 48,
+          "b": 32,
+          "order2": 1728,
+          "u_period": 864,
+          "u_phase": 592
+        },
+        {
+          "label": "T5",
+          "m": 96,
+          "b": 0,
+          "order2": 3456,
+          "u_period": 1728,
+          "u_phase": 16
+        }
+      ],
+      "complete_w_period": 96,
+      "private_w_residues": [
+        3,
+        2,
+        12,
+        8,
+        48,
+        64,
+        32,
+        0
+      ],
+      "lifted_w_mod_35_zero": [
+        1155,
+        770,
+        1260,
+        3080,
+        1680,
+        1120,
+        2240,
+        0
+      ],
+      "private_tail_exponents": [
+        41612,
+        27752,
+        45392,
+        110912,
+        60512,
+        40352,
+        80672,
+        32
+      ],
+      "multiplicity_counts": {
+        "1": 64,
+        "2": 32
+      },
+      "complementary_t_phases": [
+        [
+          2
+        ],
+        [
+          1
+        ],
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "k": 6,
+      "supplement_size": 13,
+      "total_size": 33,
+      "rows": [
+        {
+          "label": "D1",
+          "m": 2,
+          "b": 1,
+          "order2": 72,
+          "u_period": 36,
+          "u_phase": 34
+        },
+        {
+          "label": "D2",
+          "m": 4,
+          "b": 2,
+          "order2": 144,
+          "u_period": 72,
+          "u_phase": 52
+        },
+        {
+          "label": "D3",
+          "m": 8,
+          "b": 4,
+          "order2": 288,
+          "u_period": 144,
+          "u_phase": 88
+        },
+        {
+          "label": "D4",
+          "m": 16,
+          "b": 8,
+          "order2": 576,
+          "u_period": 288,
+          "u_phase": 160
+        },
+        {
+          "label": "D5",
+          "m": 32,
+          "b": 16,
+          "order2": 1152,
+          "u_period": 576,
+          "u_phase": 304
+        },
+        {
+          "label": "D6",
+          "m": 64,
+          "b": 32,
+          "order2": 2304,
+          "u_period": 1152,
+          "u_phase": 592
+        },
+        {
+          "label": "R",
+          "m": 3,
+          "b": 1,
+          "order2": 108,
+          "u_period": 54,
+          "u_phase": 34
+        },
+        {
+          "label": "T5",
+          "m": 96,
+          "b": 0,
+          "order2": 3456,
+          "u_period": 1728,
+          "u_phase": 16
+        },
+        {
+          "label": "T6",
+          "m": 192,
+          "b": 128,
+          "order2": 6912,
+          "u_period": 3456,
+          "u_phase": 2320
+        }
+      ],
+      "complete_w_period": 192,
+      "private_w_residues": [
+        3,
+        2,
+        12,
+        8,
+        48,
+        32,
+        64,
+        0,
+        128
+      ],
+      "lifted_w_mod_35_zero": [
+        1155,
+        770,
+        4620,
+        3080,
+        5040,
+        5600,
+        4480,
+        0,
+        2240
+      ],
+      "private_tail_exponents": [
+        41612,
+        27752,
+        166352,
+        110912,
+        181472,
+        201632,
+        161312,
+        32,
+        80672
+      ],
+      "multiplicity_counts": {
+        "1": 128,
+        "2": 64
+      },
+      "complementary_t_phases": [
+        [
+          1
+        ],
+        [
+          0
+        ],
+        [
+          2
+        ]
+      ]
+    },
+    {
+      "k": 7,
+      "supplement_size": 14,
+      "total_size": 34,
+      "rows": [
+        {
+          "label": "D1",
+          "m": 2,
+          "b": 1,
+          "order2": 72,
+          "u_period": 36,
+          "u_phase": 34
+        },
+        {
+          "label": "D2",
+          "m": 4,
+          "b": 2,
+          "order2": 144,
+          "u_period": 72,
+          "u_phase": 52
+        },
+        {
+          "label": "D3",
+          "m": 8,
+          "b": 4,
+          "order2": 288,
+          "u_period": 144,
+          "u_phase": 88
+        },
+        {
+          "label": "D4",
+          "m": 16,
+          "b": 8,
+          "order2": 576,
+          "u_period": 288,
+          "u_phase": 160
+        },
+        {
+          "label": "D5",
+          "m": 32,
+          "b": 16,
+          "order2": 1152,
+          "u_period": 576,
+          "u_phase": 304
+        },
+        {
+          "label": "D6",
+          "m": 64,
+          "b": 32,
+          "order2": 2304,
+          "u_period": 1152,
+          "u_phase": 592
+        },
+        {
+          "label": "D7",
+          "m": 128,
+          "b": 64,
+          "order2": 4608,
+          "u_period": 2304,
+          "u_phase": 1168
+        },
+        {
+          "label": "R",
+          "m": 3,
+          "b": 1,
+          "order2": 108,
+          "u_period": 54,
+          "u_phase": 34
+        },
+        {
+          "label": "T6",
+          "m": 192,
+          "b": 128,
+          "order2": 6912,
+          "u_period": 3456,
+          "u_phase": 2320
+        },
+        {
+          "label": "T7",
+          "m": 384,
+          "b": 0,
+          "order2": 13824,
+          "u_period": 6912,
+          "u_phase": 16
+        }
+      ],
+      "complete_w_period": 384,
+      "private_w_residues": [
+        3,
+        2,
+        12,
+        8,
+        48,
+        32,
+        192,
+        256,
+        128,
+        0
+      ],
+      "lifted_w_mod_35_zero": [
+        1155,
+        770,
+        4620,
+        3080,
+        5040,
+        12320,
+        6720,
+        4480,
+        8960,
+        0
+      ],
+      "private_tail_exponents": [
+        41612,
+        27752,
+        166352,
+        110912,
+        181472,
+        443552,
+        241952,
+        161312,
+        322592,
+        32
+      ],
+      "multiplicity_counts": {
+        "1": 256,
+        "2": 128
+      },
+      "complementary_t_phases": [
+        [
+          2
+        ],
+        [
+          1
+        ],
+        [
+          0
+        ]
+      ]
+    },
+    {
+      "k": 8,
+      "supplement_size": 15,
+      "total_size": 35,
+      "rows": [
+        {
+          "label": "D1",
+          "m": 2,
+          "b": 1,
+          "order2": 72,
+          "u_period": 36,
+          "u_phase": 34
+        },
+        {
+          "label": "D2",
+          "m": 4,
+          "b": 2,
+          "order2": 144,
+          "u_period": 72,
+          "u_phase": 52
+        },
+        {
+          "label": "D3",
+          "m": 8,
+          "b": 4,
+          "order2": 288,
+          "u_period": 144,
+          "u_phase": 88
+        },
+        {
+          "label": "D4",
+          "m": 16,
+          "b": 8,
+          "order2": 576,
+          "u_period": 288,
+          "u_phase": 160
+        },
+        {
+          "label": "D5",
+          "m": 32,
+          "b": 16,
+          "order2": 1152,
+          "u_period": 576,
+          "u_phase": 304
+        },
+        {
+          "label": "D6",
+          "m": 64,
+          "b": 32,
+          "order2": 2304,
+          "u_period": 1152,
+          "u_phase": 592
+        },
+        {
+          "label": "D7",
+          "m": 128,
+          "b": 64,
+          "order2": 4608,
+          "u_period": 2304,
+          "u_phase": 1168
+        },
+        {
+          "label": "D8",
+          "m": 256,
+          "b": 128,
+          "order2": 9216,
+          "u_period": 4608,
+          "u_phase": 2320
+        },
+        {
+          "label": "R",
+          "m": 3,
+          "b": 1,
+          "order2": 108,
+          "u_period": 54,
+          "u_phase": 34
+        },
+        {
+          "label": "T7",
+          "m": 384,
+          "b": 0,
+          "order2": 13824,
+          "u_period": 6912,
+          "u_phase": 16
+        },
+        {
+          "label": "T8",
+          "m": 768,
+          "b": 512,
+          "order2": 27648,
+          "u_period": 13824,
+          "u_phase": 9232
+        }
+      ],
+      "complete_w_period": 768,
+      "private_w_residues": [
+        3,
+        2,
+        12,
+        8,
+        48,
+        32,
+        192,
+        128,
+        256,
+        0,
+        512
+      ],
+      "lifted_w_mod_35_zero": [
+        14595,
+        770,
+        4620,
+        3080,
+        18480,
+        12320,
+        20160,
+        22400,
+        17920,
+        0,
+        8960
+      ],
+      "private_tail_exponents": [
+        525452,
+        27752,
+        166352,
+        110912,
+        665312,
+        443552,
+        725792,
+        806432,
+        645152,
+        32,
+        322592
+      ],
+      "multiplicity_counts": {
+        "1": 512,
+        "2": 256
+      },
+      "complementary_t_phases": [
+        [
+          1
+        ],
+        [
+          0
+        ],
+        [
+          2
+        ]
+      ]
+    }
+  ],
+  "adjacent_transitions": [
+    {
+      "from_k": 0,
+      "removed": [
+        "Z"
+      ],
+      "added": [
+        "D1",
+        "T1"
+      ],
+      "retained": [
+        "R",
+        "T0"
+      ],
+      "changing_orders": [
+        54,
+        72,
+        216
+      ]
+    },
+    {
+      "from_k": 1,
+      "removed": [
+        "T0"
+      ],
+      "added": [
+        "D2",
+        "T2"
+      ],
+      "retained": [
+        "D1",
+        "R",
+        "T1"
+      ],
+      "changing_orders": [
+        108,
+        144,
+        432
+      ]
+    },
+    {
+      "from_k": 2,
+      "removed": [
+        "T1"
+      ],
+      "added": [
+        "D3",
+        "T3"
+      ],
+      "retained": [
+        "D1",
+        "D2",
+        "R",
+        "T2"
+      ],
+      "changing_orders": [
+        216,
+        288,
+        864
+      ]
+    },
+    {
+      "from_k": 3,
+      "removed": [
+        "T2"
+      ],
+      "added": [
+        "D4",
+        "T4"
+      ],
+      "retained": [
+        "D1",
+        "D2",
+        "D3",
+        "R",
+        "T3"
+      ],
+      "changing_orders": [
+        432,
+        576,
+        1728
+      ]
+    },
+    {
+      "from_k": 4,
+      "removed": [
+        "T3"
+      ],
+      "added": [
+        "D5",
+        "T5"
+      ],
+      "retained": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "R",
+        "T4"
+      ],
+      "changing_orders": [
+        864,
+        1152,
+        3456
+      ]
+    },
+    {
+      "from_k": 5,
+      "removed": [
+        "T4"
+      ],
+      "added": [
+        "D6",
+        "T6"
+      ],
+      "retained": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "R",
+        "T5"
+      ],
+      "changing_orders": [
+        1728,
+        2304,
+        6912
+      ]
+    },
+    {
+      "from_k": 6,
+      "removed": [
+        "T5"
+      ],
+      "added": [
+        "D7",
+        "T7"
+      ],
+      "retained": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "D6",
+        "R",
+        "T6"
+      ],
+      "changing_orders": [
+        3456,
+        4608,
+        13824
+      ]
+    },
+    {
+      "from_k": 7,
+      "removed": [
+        "T6"
+      ],
+      "added": [
+        "D8",
+        "T8"
+      ],
+      "retained": [
+        "D1",
+        "D2",
+        "D3",
+        "D4",
+        "D5",
+        "D6",
+        "D7",
+        "R",
+        "T7"
+      ],
+      "changing_orders": [
+        6912,
+        9216,
+        27648
+      ]
+    }
+  ],
+  "concrete_complete_period_checks": [
+    {
+      "k": 0,
+      "complete_n_period": 60480,
+      "uncovered_positions": 0,
+      "all_private_exponents": [
+        37,
+        3,
+        89,
+        5,
+        293,
+        117,
+        413,
+        113,
+        41,
+        33,
+        87,
+        233,
+        773,
+        207,
+        237,
+        257,
+        53,
+        593,
+        63,
+        111,
+        6,
+        12,
+        152,
+        20,
+        32,
+        2552,
+        1292
+      ],
+      "numerical_extra_rows": [
+        {
+          "label": "P5",
+          "q": 5,
+          "order2": 4,
+          "u_period": 2,
+          "u_phase": 1,
+          "private_n": 6,
+          "root_residue": 3
+        },
+        {
+          "label": "P13",
+          "q": 13,
+          "order2": 12,
+          "u_period": 6,
+          "u_phase": 0,
+          "private_n": 12,
+          "root_residue": 1
+        },
+        {
+          "label": "P19",
+          "q": 19,
+          "order2": 18,
+          "u_period": 9,
+          "u_phase": 4,
+          "private_n": 152,
+          "root_residue": 6
+        },
+        {
+          "label": "P73",
+          "q": 73,
+          "order2": 9,
+          "u_period": 9,
+          "u_phase": 1,
+          "private_n": 20,
+          "root_residue": 37
+        },
+        {
+          "label": "Z",
+          "m": 3,
+          "b": 0,
+          "order2": 54,
+          "u_period": 27,
+          "u_phase": 16,
+          "q": 87211,
+          "root_residue": 85163
+        },
+        {
+          "label": "R",
+          "m": 3,
+          "b": 1,
+          "order2": 108,
+          "u_period": 54,
+          "u_phase": 34,
+          "q": 246241,
+          "root_residue": 182629
+        },
+        {
+          "label": "T0",
+          "m": 3,
+          "b": 2,
+          "order2": 108,
+          "u_period": 54,
+          "u_phase": 52,
+          "q": 279073,
+          "root_residue": 279069
+        }
+      ]
+    },
+    {
+      "k": 1,
+      "complete_n_period": 60480,
+      "uncovered_positions": 0,
+      "all_private_exponents": [
+        37,
+        3,
+        89,
+        5,
+        293,
+        117,
+        413,
+        113,
+        41,
+        33,
+        87,
+        233,
+        773,
+        207,
+        237,
+        257,
+        53,
+        593,
+        63,
+        111,
+        6,
+        12,
+        152,
+        20,
+        3812,
+        2552,
+        5072,
+        32
+      ],
+      "numerical_extra_rows": [
+        {
+          "label": "P5",
+          "q": 5,
+          "order2": 4,
+          "u_period": 2,
+          "u_phase": 1,
+          "private_n": 6,
+          "root_residue": 3
+        },
+        {
+          "label": "P13",
+          "q": 13,
+          "order2": 12,
+          "u_period": 6,
+          "u_phase": 0,
+          "private_n": 12,
+          "root_residue": 1
+        },
+        {
+          "label": "P19",
+          "q": 19,
+          "order2": 18,
+          "u_period": 9,
+          "u_phase": 4,
+          "private_n": 152,
+          "root_residue": 6
+        },
+        {
+          "label": "P73",
+          "q": 73,
+          "order2": 9,
+          "u_period": 9,
+          "u_phase": 1,
+          "private_n": 20,
+          "root_residue": 37
+        },
+        {
+          "label": "D1",
+          "m": 2,
+          "b": 1,
+          "order2": 72,
+          "u_period": 36,
+          "u_phase": 34,
+          "q": 38737,
+          "root_residue": 38733
+        },
+        {
+          "label": "R",
+          "m": 3,
+          "b": 1,
+          "order2": 108,
+          "u_period": 54,
+          "u_phase": 34,
+          "q": 246241,
+          "root_residue": 182629
+        },
+        {
+          "label": "T0",
+          "m": 3,
+          "b": 2,
+          "order2": 108,
+          "u_period": 54,
+          "u_phase": 52,
+          "q": 279073,
+          "root_residue": 279069
+        },
+        {
+          "label": "T1",
+          "m": 6,
+          "b": 0,
+          "order2": 216,
+          "u_period": 108,
+          "u_phase": 16,
+          "q": 33975937,
+          "root_residue": 6170892
+        }
+      ]
+    }
+  ],
+  "threshold_boundary_checks": [
+    {
+      "B_N": 1,
+      "R1_j": 0,
+      "R1_first_cost": 7,
+      "R2_j": 1,
+      "R2_first_cost": 8
+    },
+    {
+      "B_N": 53,
+      "R1_j": 0,
+      "R1_first_cost": 7,
+      "R2_j": 1,
+      "R2_first_cost": 8
+    },
+    {
+      "B_N": 54,
+      "R1_j": 1,
+      "R1_first_cost": 8,
+      "R2_j": 1,
+      "R2_first_cost": 8
+    },
+    {
+      "B_N": 71,
+      "R1_j": 1,
+      "R1_first_cost": 8,
+      "R2_j": 1,
+      "R2_first_cost": 8
+    },
+    {
+      "B_N": 72,
+      "R1_j": 1,
+      "R1_first_cost": 8,
+      "R2_j": 1,
+      "R2_first_cost": 8
+    },
+    {
+      "B_N": 107,
+      "R1_j": 1,
+      "R1_first_cost": 8,
+      "R2_j": 1,
+      "R2_first_cost": 8
+    },
+    {
+      "B_N": 108,
+      "R1_j": 2,
+      "R1_first_cost": 9,
+      "R2_j": 2,
+      "R2_first_cost": 9
+    },
+    {
+      "B_N": 143,
+      "R1_j": 2,
+      "R1_first_cost": 9,
+      "R2_j": 2,
+      "R2_first_cost": 9
+    },
+    {
+      "B_N": 144,
+      "R1_j": 2,
+      "R1_first_cost": 9,
+      "R2_j": 2,
+      "R2_first_cost": 9
+    },
+    {
+      "B_N": 179,
+      "R1_j": 2,
+      "R1_first_cost": 9,
+      "R2_j": 2,
+      "R2_first_cost": 9
+    },
+    {
+      "B_N": 180,
+      "R1_j": 2,
+      "R1_first_cost": 9,
+      "R2_j": 2,
+      "R2_first_cost": 9
+    },
+    {
+      "B_N": 215,
+      "R1_j": 2,
+      "R1_first_cost": 9,
+      "R2_j": 2,
+      "R2_first_cost": 9
+    },
+    {
+      "B_N": 216,
+      "R1_j": 3,
+      "R1_first_cost": 10,
+      "R2_j": 3,
+      "R2_first_cost": 10
+    },
+    {
+      "B_N": 431,
+      "R1_j": 3,
+      "R1_first_cost": 10,
+      "R2_j": 3,
+      "R2_first_cost": 10
+    },
+    {
+      "B_N": 432,
+      "R1_j": 4,
+      "R1_first_cost": 11,
+      "R2_j": 4,
+      "R2_first_cost": 11
+    },
+    {
+      "B_N": 864,
+      "R1_j": 5,
+      "R1_first_cost": 12,
+      "R2_j": 5,
+      "R2_first_cost": 12
+    },
+    {
+      "B_N": 1000,
+      "R1_j": 5,
+      "R1_first_cost": 12,
+      "R2_j": 5,
+      "R2_first_cost": 12
+    },
+    {
+      "B_N": 1000000,
+      "R1_j": 15,
+      "R1_first_cost": 22,
+      "R2_j": 15,
+      "R2_first_cost": 22
+    }
+  ],
+  "prime_power_observer_fixtures": [
+    {
+      "N": 1532704983264000,
+      "r_N": 1331805394829313,
+      "B_N": 100,
+      "start_k": 1,
+      "checked_through_k": 8,
+      "prime_power_lifts": [
+        {
+          "q": 2,
+          "power": 8,
+          "category": "old",
+          "residue": 1
+        },
+        {
+          "q": 3,
+          "power": 4,
+          "category": "absent",
+          "residue": 0
+        },
+        {
+          "q": 7,
+          "power": 3,
+          "category": "old",
+          "residue": 201
+        },
+        {
+          "q": 5,
+          "power": 3,
+          "category": "retained_dictionary",
+          "residue": 63
+        },
+        {
+          "q": 13,
+          "power": 2,
+          "category": "retained_dictionary",
+          "residue": 1
+        },
+        {
+          "q": 101,
+          "power": 2,
+          "category": "absent",
+          "residue": 0
+        }
+      ]
+    },
+    {
+      "N": 140011768632352253537618304121076261079348823018784,
+      "r_N": 48421348845530713659696620499606574610466618782721,
+      "B_N": 108,
+      "start_k": 2,
+      "checked_through_k": 8,
+      "prime_power_lifts": [
+        {
+          "q": 2,
+          "power": 5,
+          "category": "old",
+          "residue": 1
+        },
+        {
+          "q": 433,
+          "power": 3,
+          "category": "absent",
+          "residue": 0
+        },
+        {
+          "q": 38737,
+          "power": 2,
+          "category": "retained_dictionary",
+          "residue": 1224244144
+        },
+        {
+          "q": 246241,
+          "power": 2,
+          "category": "retained_dictionary",
+          "residue": 24387398787
+        },
+        {
+          "q": 279073,
+          "power": 2,
+          "category": "absent",
+          "residue": 0
+        },
+        {
+          "q": 87211,
+          "power": 2,
+          "category": "absent",
+          "residue": 0
+        }
+      ]
+    },
+    {
+      "N": 1425168497949790940335046277485615880336098228770984069,
+      "r_N": 344675758094283764341662008687614336945098529054844771,
+      "B_N": 216,
+      "start_k": 3,
+      "checked_through_k": 8,
+      "prime_power_lifts": [
+        {
+          "q": 487824887233,
+          "power": 2,
+          "category": "retained_dictionary",
+          "residue": 222509504808563941783753
+        },
+        {
+          "q": 33975937,
+          "power": 2,
+          "category": "absent",
+          "residue": 0
+        },
+        {
+          "q": 61,
+          "power": 3,
+          "category": "absent",
+          "residue": 0
+        },
+        {
+          "q": 109,
+          "power": 2,
+          "category": "absent",
+          "residue": 0
+        },
+        {
+          "q": 19,
+          "power": 2,
+          "category": "retained_dictionary",
+          "residue": 158
+        },
+        {
+          "q": 73,
+          "power": 2,
+          "category": "retained_dictionary",
+          "residue": 2665
+        }
+      ]
+    }
+  ],
+  "seven_budget_observer_application": {
+    "additional_primes": [
+      181,
+      577,
+      631,
+      23311,
+      54001,
+      87211,
+      246241,
+      262657,
+      279073,
+      18837001,
+      29247661,
+      487824887233
+    ],
+    "T": 35095524795781473254136196580356738045833417602831290421525609131,
+    "r_T": 21450781839625171583347380029424471704699683386785900439176732195,
+    "orders": {
+      "181": 180,
+      "577": 144,
+      "631": 45,
+      "23311": 45,
+      "54001": 180,
+      "87211": 54,
+      "246241": 108,
+      "262657": 27,
+      "279073": 108,
+      "18837001": 90,
+      "29247661": 180,
+      "487824887233": 144
+    },
+    "B_T": 180,
+    "start_k": 2,
+    "root_residues": {
+      "181": 0,
+      "577": 0,
+      "631": 0,
+      "23311": 0,
+      "54001": 0,
+      "87211": 0,
+      "246241": 182629,
+      "262657": 0,
+      "279073": 0,
+      "18837001": 0,
+      "29247661": 0,
+      "487824887233": 487823838657
+    },
+    "all_later_exact_supplementary_costs": "every integer s>=9",
+    "all_later_exact_total_costs": "20+s",
+    "fixed_plus_additional_prime_trajectory_count": 43,
+    "seven_budget_family_predicates": {
+      "binary": false,
+      "ternary": false,
+      "modulo_five": false
+    }
+  },
+  "universal_R1_threshold": "j_N=min{j>=0:54*2^j>B_N}; all costs s>=j_N+7 in one residue fiber",
+  "universal_R2_threshold": "j_N=min{j>=1:54*2^j>B_N}; all costs s>=j_N+7 in one residue fiber",
+  "necessary_order_bounds": {
+    "R1": "B_N >= (27/64)*2^b for b>=7",
+    "R2": "B_N >= (27/64)*2^b for b>=8"
+  },
+  "external_existence_input": "Inherited base-two primitive-prime theorem for every requested exact order greater than six; two order-108 primes explicitly supplied.",
+  "universal_proof": "proof.md Sections 2-7; finite checks are not an extrapolation to all k or all N"
+}
