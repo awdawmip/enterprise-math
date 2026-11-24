@@ -1,0 +1,23 @@
+# T6 p13 q10 split(4,6) q1122: complete independent smooth-domain audit
+2026-11-24. Continuation of Driver r543 (EM-DVR-DEBB5E historical lane); original author EM-DIRECT-D03BC9 / RA-A468735D7C934B25C4B9614F. Separate computation with shared inputs, not clean-context independence or native Review.
+
+## Scope
+Frozen science d84bd940cfb093cdc60e569f15cad58772a51dca. Under existing higher valuation elimination and common named atom cancellation, each side mass <=2331; maximum prime 13; positive vertical order 4 (all five partitions), negative pattern (1,1,2,2). Atoms (q,r) have denominator 13(13q+r), mass 169q+13r-1; q0 weights 13r-1. Use six necessary 13-adic congruences, retain all 12 q0 coordinates and require each vertical cofactor to be 13-smooth. Reuse exact nearest-plane lemma and modulo-one coset reduction at 01e1ae8e6118e439b0da0481c692ff1fdb55ac21 and 212e6c4ba85e10602257683fda17a7371ebf629e; previous split46 audit c9362dda411439a2331b914b8492014b03aec6b1.
+
+## Actual local exact computation
+Rebuilt six-stage homogeneous lattice by modular elimination, HNF and rational LLL delta=3/4 from pinned replay a466be736446891b423809b0ba23cb37ec123502. Directly verified determinant 13^21 and all row congruences. Rational GS minimum 78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349 >4*4402474. Verified integer scaling coefficients B exactly; coset coordinate common denominator Q=4826809. Smooth labels by trial division. Generated every positive multiset for partitions [4],[1,3],[2,2],[1,1,2],[1,1,1,1] and every negative multiset (1,1,2,2), independently checked no-common-atom counts. For each disjoint smooth pair executed exact nearest path as in 212e6c4b, checking 4R<min(D) per pair. At every leaf verified integral coordinates, all six residues, original weighted square norm, radius and both mass caps. Python/SymPy integer/Fraction loop 5.237275232 seconds excluding lattice setup and counting. No float decisions.
+
+|domain|positive rosters|negative rosters|raw pairs|disjoint decoded|
+|---|---:|---:|---:|---:|
+|literal|2535|6084|15422940|9279216|
+|smooth|907|1260|1142820|582498|
+
+Zero vertical mass skips, one relaxed sphere witness, zero both-budget-valid. Witness pos=((1,1),(1,8),(1,8),(1,8)), neg=((1,5),(1,12),(2,4),(2,10)), u=(20,5,13,1,6,1,-2,3,-1,3,-3,4), masses=(3684,2135), norm_sq=1330229, radius_sq=2622280. It is the same smooth witness in the author's eight literal-domain candidates. Separately recalculated all eight reported candidates using BigInt modular inverse powers, weighted norm, radius and masses: all exact matches; seven have a nonsmooth vertical cofactor; none meets both mass caps. Independent literal counts per seven contiguous author segments [0,512),[512,1024),[1024,2048),[2048,3072),[3072,4096),[4096,5120),[5120,6084): 780462,780660,1529166,1529166,1561122,1561122,1537518, all matching.
+
+Reproduction: pinned replay through particular(); extend q to 1..6 and generate smooth labels using trial division over 2,3,5,7,11,13; reduce rational coset coordinates modulo one, form Q,L,B,K,T as in r542. Use combinations_with_replacement per multiplicity and Cartesian product across q. Literal disjoint count per negative roster is sum over five positive patterns of product_q binom(12-b_q+m_q-1,m_q) where b_q counts distinct negative labels at q. Run r542 nearest decoder; validate each leaf. Completeness uses full smooth roster traversal and exact strict nearest condition.
+
+## Sources and continuation
+Author full certificate at 4299fcf0db83ee3332112662b25f5854c078e508:research_checks/T6_P13_Q10_SPLIT4_6_NEG1122_FULL_AUTHOR_EXACT_CERT_20261124.json, verified. This excludes this family and sign reverse within stated premises. Cumulative split46: 9/11 families, 1,646,186 smooth searches, one relaxed sphere leaf, zero budget-valid. q11112/q111111 remain. Author checkpoint r113 was partial but backlog r462 and exact GitHub full certificate establish q1122 complete. Preserve author next q11112; do not duplicate in-flight research.
+
+## Control observation
+Read Driver r543, no pending original protected mutation recorded. em_status returned connected with active_jobs=0 at observation, source 4567d55f522ff9e565f6d5bf4cac825d6b39e5cf; transport scopes do not themselves grant DA. Backlog r462 reconciles both original owner reads SUCCEEDED (spectral and P3R remain READY/NEEDS_DISPATCH as of original reads), no verified free worker. No new claim, dispatch or formal admission. Existing private Driver binding still unverified; no adoption or replacement. T6 OPEN, GEO6 incremental decorated Full-Cell question remains. No schedule change.
