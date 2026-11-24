@@ -1,0 +1,340 @@
+{
+  "schema": "T6_P13_Q11_SPLIT0_11_LEN6_AUTHOR_EXACT_INTEGER_V1",
+  "frozen_science": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "researcher": "EM-DIRECT-D03BC9",
+  "session": "MCP-7f3df4435e40430b832e8d5ff2137718",
+  "activity": "RA-A468735D7C934B25C4B9614F",
+  "p": 13,
+  "valuation": 1,
+  "total_q": 11,
+  "split": [
+    0,
+    11
+  ],
+  "budget": 2331,
+  "length": 6,
+  "pattern_range": [
+    0,
+    7
+  ],
+  "scope": "All 6-atom partitions of 11, full 12-label over-domain; conditional on prior high valuation reduction; no smoothness filter.",
+  "source_replay": "949c4114b1882b37b60e4e7de05d7ce9933fb33b:research_checks/T6_P13_Q11_SPLIT0_11_LEN1TO3_AUTHOR_REPLAY_20261125.py",
+  "reproduction": "Set length loop to range(6,7) in pinned Fraction replay. Actual local integer-scaled GS execution, same scaling as previous length5.",
+  "method": "HNF/weighted LLL, exact rational GS, same lattice index 13^21 and minimum D as pinned replay. For each coset c_i with common denominator B, use integer C_i=B*c_i, Z_j=B*(c_j+n_j), L_i=lcm denominators of mu[j][i], M_ji=L_i*mu[j][i]. Center numerator h_i=L_i*C_i+sum M_ji*Z_j; denominator B*L_i. Set Q=lcm denominators of D_i/(B*L_i)^2 and T_i=Q*D_i/(B*L_i)^2. Recurse E+=T_i*(h_i+B*L_i*n_i)^2 <= Q*radius_sq with floor(-h_i/(B*L_i)) and its successor. Reconstruct integer u, assert norm*Q=E and original six congruences; check both masses. Separately compute raw/over counts by convolution of sums of multiset residue labels. All 7 rows match independent DP.",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "coset_denominator": 4826809,
+  "lattice_index": "13^21",
+  "rows": [
+    {
+      "index": 0,
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        6
+      ],
+      "raw": 52416,
+      "over": 31510,
+      "search": 20906,
+      "nodes": 57160,
+      "leaves": 1,
+      "valid": 0,
+      "roster_sha256": "1b7881555c2aebe02e5940e175139b6a0e358f2410c26d6520d5a86b783766cb"
+    },
+    {
+      "index": 1,
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        2,
+        5
+      ],
+      "raw": 196560,
+      "over": 119038,
+      "search": 77522,
+      "nodes": 212175,
+      "leaves": 0,
+      "valid": 0,
+      "roster_sha256": "05bafce19b3d193eb42c9c3eb10ba12690838d1ab3211560595bf5eb47870312"
+    },
+    {
+      "index": 2,
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        3,
+        4
+      ],
+      "raw": 196560,
+      "over": 119038,
+      "search": 77522,
+      "nodes": 211789,
+      "leaves": 0,
+      "valid": 0,
+      "roster_sha256": "2044adac85b613ebf3f04f43016e801ae9e363c29cdf0972e6764f4ea32f98a4"
+    },
+    {
+      "index": 3,
+      "pattern": [
+        1,
+        1,
+        1,
+        2,
+        2,
+        4
+      ],
+      "raw": 340704,
+      "over": 207183,
+      "search": 133521,
+      "nodes": 363495,
+      "leaves": 0,
+      "valid": 0,
+      "roster_sha256": "19232038a659b062ba7b0124634c75c4a97d43e18f551f0fc606562149c3fdbc"
+    },
+    {
+      "index": 4,
+      "pattern": [
+        1,
+        1,
+        1,
+        2,
+        3,
+        3
+      ],
+      "raw": 340704,
+      "over": 207183,
+      "search": 133521,
+      "nodes": 364841,
+      "leaves": 1,
+      "valid": 0,
+      "roster_sha256": "be6faef76a076826cfcba05ec1cae000c51562eea156565b30ad71a6ddd2957c"
+    },
+    {
+      "index": 5,
+      "pattern": [
+        1,
+        1,
+        2,
+        2,
+        2,
+        3
+      ],
+      "raw": 340704,
+      "over": 207183,
+      "search": 133521,
+      "nodes": 363894,
+      "leaves": 1,
+      "valid": 0,
+      "roster_sha256": "1eedd3b48f96fff38bac2a6bef9040d74c5c963a13ba4b6e283c745e7a36fdd0"
+    },
+    {
+      "index": 6,
+      "pattern": [
+        1,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "raw": 52416,
+      "over": 31510,
+      "search": 20906,
+      "nodes": 56989,
+      "leaves": 0,
+      "valid": 0,
+      "roster_sha256": "0c708f606d050b5522f1a9dc6d2bb1f33950e7e2c9e5072be29825ddc4a08069"
+    }
+  ],
+  "witnesses": [
+    {
+      "neg": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          6,
+          2
+        ]
+      ],
+      "u": [
+        -1,
+        19,
+        3,
+        9,
+        -3,
+        7,
+        14,
+        -4,
+        -2,
+        -9,
+        -1,
+        -5
+      ],
+      "masses": [
+        2847,
+        5091
+      ],
+      "norm_sq": 4556709,
+      "radius_sq": 5461117,
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    },
+    {
+      "neg": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          3,
+          11
+        ]
+      ],
+      "u": [
+        -56,
+        -14,
+        -3,
+        -3,
+        -11,
+        -18,
+        -9,
+        1,
+        6,
+        3,
+        1,
+        1
+      ],
+      "masses": [
+        1483,
+        6471
+      ],
+      "norm_sq": 4372184,
+      "radius_sq": 5435962,
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    },
+    {
+      "neg": [
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "u": [
+        22,
+        31,
+        5,
+        -25,
+        -1,
+        5,
+        -8,
+        12,
+        -5,
+        3,
+        3,
+        3
+      ],
+      "masses": [
+        4128,
+        4947
+      ],
+      "norm_sq": 5414333,
+      "radius_sq": 5434090,
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    }
+  ],
+  "totals": {
+    "raw": 1520064,
+    "over": 922645,
+    "search": 597419,
+    "nodes": 1630343,
+    "leaves": 3,
+    "valid": 0
+  },
+  "elapsed_s": 13.398091237,
+  "provenance": "Transcribed actual local Python integer execution. Independent multiset DP coverage and exact energy/congruence/original mass checks executed. Author evidence, not formal task progress.",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "next": "q11 split(0,11) length7; do not repeat q10 or lengths1..6."
+}
