@@ -1,0 +1,839 @@
+{
+  "schema": "riesel-r3-zero-W-complete-eight-classification-v1",
+  "status": "PASS_AUTHOR_PROOF_AND_EXACT_ARITHMETIC_NOT_INDEPENDENT_REVIEW",
+  "A": [
+    1,
+    2,
+    10,
+    11,
+    12,
+    16,
+    17,
+    22,
+    25,
+    26,
+    30,
+    31,
+    32
+  ],
+  "A_rows_mod7": {
+    "1": [
+      1,
+      22
+    ],
+    "2": [
+      2,
+      16,
+      30
+    ],
+    "3": [
+      10,
+      17,
+      31
+    ],
+    "4": [
+      11,
+      25,
+      32
+    ],
+    "5": [
+      12,
+      26
+    ]
+  },
+  "five_class_lemma_cases": [
+    {
+      "removed_rows": [],
+      "size": 13,
+      "column_max": 5,
+      "row_max": 3,
+      "per_non7_class_bound": "5/2",
+      "total_bound": "25/2"
+    },
+    {
+      "removed_rows": [
+        1
+      ],
+      "size": 11,
+      "column_max": 4,
+      "row_max": 3,
+      "per_non7_class_bound": "2",
+      "total_bound": "8"
+    },
+    {
+      "removed_rows": [
+        2
+      ],
+      "size": 10,
+      "column_max": 4,
+      "row_max": 3,
+      "per_non7_class_bound": "2",
+      "total_bound": "8"
+    },
+    {
+      "removed_rows": [
+        3
+      ],
+      "size": 10,
+      "column_max": 4,
+      "row_max": 3,
+      "per_non7_class_bound": "2",
+      "total_bound": "8"
+    },
+    {
+      "removed_rows": [
+        4
+      ],
+      "size": 10,
+      "column_max": 4,
+      "row_max": 3,
+      "per_non7_class_bound": "2",
+      "total_bound": "8"
+    },
+    {
+      "removed_rows": [
+        5
+      ],
+      "size": 11,
+      "column_max": 4,
+      "row_max": 3,
+      "per_non7_class_bound": "2",
+      "total_bound": "8"
+    },
+    {
+      "removed_rows": [
+        1,
+        2
+      ],
+      "size": 8,
+      "column_max": 3,
+      "row_max": 3,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "9/2"
+    },
+    {
+      "removed_rows": [
+        1,
+        3
+      ],
+      "size": 8,
+      "column_max": 3,
+      "row_max": 3,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "9/2"
+    },
+    {
+      "removed_rows": [
+        1,
+        4
+      ],
+      "size": 8,
+      "column_max": 3,
+      "row_max": 3,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "9/2"
+    },
+    {
+      "removed_rows": [
+        1,
+        5
+      ],
+      "size": 9,
+      "column_max": 3,
+      "row_max": 3,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "9/2"
+    },
+    {
+      "removed_rows": [
+        2,
+        3
+      ],
+      "size": 7,
+      "column_max": 3,
+      "row_max": 3,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "9/2"
+    },
+    {
+      "removed_rows": [
+        2,
+        4
+      ],
+      "size": 7,
+      "column_max": 3,
+      "row_max": 3,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "9/2"
+    },
+    {
+      "removed_rows": [
+        2,
+        5
+      ],
+      "size": 8,
+      "column_max": 3,
+      "row_max": 3,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "9/2"
+    },
+    {
+      "removed_rows": [
+        3,
+        4
+      ],
+      "size": 7,
+      "column_max": 3,
+      "row_max": 3,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "9/2"
+    },
+    {
+      "removed_rows": [
+        3,
+        5
+      ],
+      "size": 8,
+      "column_max": 3,
+      "row_max": 3,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "9/2"
+    },
+    {
+      "removed_rows": [
+        4,
+        5
+      ],
+      "size": 8,
+      "column_max": 3,
+      "row_max": 3,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "9/2"
+    },
+    {
+      "removed_rows": [
+        1,
+        2,
+        3
+      ],
+      "size": 5,
+      "column_max": 2,
+      "row_max": 3,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "3"
+    },
+    {
+      "removed_rows": [
+        1,
+        2,
+        4
+      ],
+      "size": 5,
+      "column_max": 2,
+      "row_max": 3,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "3"
+    },
+    {
+      "removed_rows": [
+        1,
+        2,
+        5
+      ],
+      "size": 6,
+      "column_max": 2,
+      "row_max": 3,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "3"
+    },
+    {
+      "removed_rows": [
+        1,
+        3,
+        4
+      ],
+      "size": 5,
+      "column_max": 2,
+      "row_max": 3,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "3"
+    },
+    {
+      "removed_rows": [
+        1,
+        3,
+        5
+      ],
+      "size": 6,
+      "column_max": 2,
+      "row_max": 3,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "3"
+    },
+    {
+      "removed_rows": [
+        1,
+        4,
+        5
+      ],
+      "size": 6,
+      "column_max": 2,
+      "row_max": 3,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "3"
+    },
+    {
+      "removed_rows": [
+        2,
+        3,
+        4
+      ],
+      "size": 4,
+      "column_max": 2,
+      "row_max": 2,
+      "per_non7_class_bound": "1",
+      "total_bound": "2"
+    },
+    {
+      "removed_rows": [
+        2,
+        3,
+        5
+      ],
+      "size": 5,
+      "column_max": 2,
+      "row_max": 3,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "3"
+    },
+    {
+      "removed_rows": [
+        2,
+        4,
+        5
+      ],
+      "size": 5,
+      "column_max": 2,
+      "row_max": 3,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "3"
+    },
+    {
+      "removed_rows": [
+        3,
+        4,
+        5
+      ],
+      "size": 5,
+      "column_max": 2,
+      "row_max": 3,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "3"
+    },
+    {
+      "removed_rows": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "size": 2,
+      "column_max": 1,
+      "row_max": 2,
+      "per_non7_class_bound": "1",
+      "total_bound": "1"
+    },
+    {
+      "removed_rows": [
+        1,
+        2,
+        3,
+        5
+      ],
+      "size": 3,
+      "column_max": 1,
+      "row_max": 3,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "3/2"
+    },
+    {
+      "removed_rows": [
+        1,
+        2,
+        4,
+        5
+      ],
+      "size": 3,
+      "column_max": 1,
+      "row_max": 3,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "3/2"
+    },
+    {
+      "removed_rows": [
+        1,
+        3,
+        4,
+        5
+      ],
+      "size": 3,
+      "column_max": 1,
+      "row_max": 3,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "3/2"
+    },
+    {
+      "removed_rows": [
+        2,
+        3,
+        4,
+        5
+      ],
+      "size": 2,
+      "column_max": 1,
+      "row_max": 2,
+      "per_non7_class_bound": "1",
+      "total_bound": "1"
+    }
+  ],
+  "zero_W_m2_m3_cases": [
+    {
+      "removed_rows": [
+        1,
+        2
+      ],
+      "size": 8,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "6"
+    },
+    {
+      "removed_rows": [
+        1,
+        3
+      ],
+      "size": 8,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "6"
+    },
+    {
+      "removed_rows": [
+        1,
+        4
+      ],
+      "size": 8,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "6"
+    },
+    {
+      "removed_rows": [
+        1,
+        5
+      ],
+      "size": 9,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "6"
+    },
+    {
+      "removed_rows": [
+        2,
+        3
+      ],
+      "size": 7,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "6"
+    },
+    {
+      "removed_rows": [
+        2,
+        4
+      ],
+      "size": 7,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "6"
+    },
+    {
+      "removed_rows": [
+        2,
+        5
+      ],
+      "size": 8,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "6"
+    },
+    {
+      "removed_rows": [
+        3,
+        4
+      ],
+      "size": 7,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "6"
+    },
+    {
+      "removed_rows": [
+        3,
+        5
+      ],
+      "size": 8,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "6"
+    },
+    {
+      "removed_rows": [
+        4,
+        5
+      ],
+      "size": 8,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "6"
+    },
+    {
+      "removed_rows": [
+        1,
+        2,
+        3
+      ],
+      "size": 5,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "9/2"
+    },
+    {
+      "removed_rows": [
+        1,
+        2,
+        4
+      ],
+      "size": 5,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "9/2"
+    },
+    {
+      "removed_rows": [
+        1,
+        2,
+        5
+      ],
+      "size": 6,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "9/2"
+    },
+    {
+      "removed_rows": [
+        1,
+        3,
+        4
+      ],
+      "size": 5,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "9/2"
+    },
+    {
+      "removed_rows": [
+        1,
+        3,
+        5
+      ],
+      "size": 6,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "9/2"
+    },
+    {
+      "removed_rows": [
+        1,
+        4,
+        5
+      ],
+      "size": 6,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "9/2"
+    },
+    {
+      "removed_rows": [
+        2,
+        3,
+        4
+      ],
+      "size": 4,
+      "per_non7_class_bound": "1",
+      "total_bound": "3"
+    },
+    {
+      "removed_rows": [
+        2,
+        3,
+        5
+      ],
+      "size": 5,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "9/2"
+    },
+    {
+      "removed_rows": [
+        2,
+        4,
+        5
+      ],
+      "size": 5,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "9/2"
+    },
+    {
+      "removed_rows": [
+        3,
+        4,
+        5
+      ],
+      "size": 5,
+      "per_non7_class_bound": "3/2",
+      "total_bound": "9/2"
+    }
+  ],
+  "zero_W_m0_m1_bounds": [
+    "23/26",
+    "103/104"
+  ],
+  "surviving_geometries": [
+    {
+      "remaining_row": 1,
+      "split14_period": 70,
+      "split14_private_counts": [
+        6,
+        6,
+        6,
+        4,
+        2,
+        2
+      ],
+      "point35_phases": [
+        1,
+        22
+      ]
+    },
+    {
+      "remaining_row": 2,
+      "split14_period": 70,
+      "split14_private_counts": [
+        4,
+        6,
+        6,
+        4,
+        3,
+        3
+      ]
+    },
+    {
+      "remaining_row": 3,
+      "split14_period": 70,
+      "split14_private_counts": [
+        4,
+        6,
+        6,
+        4,
+        3,
+        3
+      ]
+    },
+    {
+      "remaining_row": 4,
+      "split14_period": 70,
+      "split14_private_counts": [
+        4,
+        6,
+        6,
+        4,
+        3,
+        3
+      ]
+    },
+    {
+      "remaining_row": 5,
+      "split14_period": 70,
+      "split14_private_counts": [
+        4,
+        6,
+        6,
+        6,
+        2,
+        2
+      ],
+      "point35_phases": [
+        12,
+        26
+      ]
+    }
+  ],
+  "f7_primes": [
+    29,
+    43,
+    1429,
+    5419
+  ],
+  "f14_primes": [
+    3361,
+    15790321,
+    88959882481
+  ],
+  "f35_primes": [
+    211,
+    421,
+    86171,
+    106681,
+    122921,
+    152041,
+    664441,
+    1564921,
+    7416361,
+    47392381,
+    146919792181,
+    1041815865690181
+  ],
+  "auxiliary_primality_nodes_verified": 48,
+  "phase_dictionary_counts": {
+    "split14": 720,
+    "points35": 6336,
+    "total": 7056
+  },
+  "signed_CRT_description_count": 451584,
+  "explicit_small_J_subfamily": {
+    "phase_count": 240,
+    "signed_progressions": 15360,
+    "minimum_scope": "Only the split14 subfamily using 3361 and 15790321; not the global R3 minimum.",
+    "minimum": {
+      "root": "2328897241113208259139956245185224592525672755074106541724691892931740569592108042808841670530672584946713250794691431302234925522619676019002796424675837883",
+      "R3_index": "5843132620540248",
+      "digits": 157,
+      "remaining_mod7_class": 3,
+      "v_phases": {
+        "29": 1,
+        "43": 2,
+        "5419": 4,
+        "1429": 5,
+        "3361": 10,
+        "15790321": 3
+      },
+      "root_residues": {
+        "29": 16,
+        "43": 11,
+        "1429": 256,
+        "5419": 127,
+        "3361": 56,
+        "15790321": 64
+      },
+      "root_signs": {
+        "29": -1,
+        "43": 1,
+        "1429": -1,
+        "5419": 1,
+        "3361": 1,
+        "15790321": -1
+      },
+      "progression_modulus": "204259322679088741592832217565138734637695965350870575000961485030196748613827575083623855514597522373133258789224387642400074585328683488996091753292259011997230"
+    },
+    "delta_P": 8,
+    "tau_upper_bound": 28
+  },
+  "counterexample_dictionary": [
+    5,
+    7,
+    13,
+    17,
+    29,
+    31,
+    41,
+    43,
+    71,
+    97,
+    113,
+    127,
+    151,
+    241,
+    257,
+    281,
+    337,
+    641,
+    673,
+    1321,
+    1429,
+    3361,
+    5419,
+    14449,
+    29191,
+    65537,
+    6700417,
+    15790321
+  ],
+  "counterexample_supplement": [
+    5,
+    13,
+    29,
+    43,
+    1429,
+    3361,
+    5419,
+    15790321
+  ],
+  "complete_coverage_predicate_period": 840,
+  "scalar_selected_dictionary_residue_cycle_executed": 6720,
+  "counterexample_hit_counts_in_cycle": {
+    "257": 420,
+    "641": 105,
+    "65537": 210,
+    "6700417": 105,
+    "5": 1680,
+    "7": 2240,
+    "29191": 64,
+    "71": 192,
+    "13": 560,
+    "17": 840,
+    "337": 320,
+    "1429": 80,
+    "151": 448,
+    "281": 96,
+    "29": 240,
+    "31": 1344,
+    "673": 140,
+    "97": 140,
+    "3361": 40,
+    "41": 336,
+    "1321": 112,
+    "5419": 160,
+    "43": 480,
+    "113": 240,
+    "241": 280,
+    "14449": 80,
+    "15790321": 120,
+    "127": 960
+  },
+  "counterexample_private_indices": {
+    "5": 2,
+    "17": 3,
+    "41": 5,
+    "127": 8,
+    "13": 12,
+    "7": 16,
+    "29": 20,
+    "43": 32,
+    "241": 33,
+    "151": 41,
+    "6700417": 47,
+    "14449": 53,
+    "65537": 63,
+    "337": 80,
+    "257": 87,
+    "31": 89,
+    "97": 117,
+    "3361": 128,
+    "5419": 140,
+    "1429": 152,
+    "29191": 173,
+    "641": 207,
+    "15790321": 212,
+    "281": 233,
+    "673": 237,
+    "1321": 257,
+    "71": 293,
+    "113": 413
+  },
+  "native_BRC_execution_performed": false,
+  "source_scope": "The all-prime classification is proof.md; this calculator checks its exact arithmetic and explicit construction."
+}

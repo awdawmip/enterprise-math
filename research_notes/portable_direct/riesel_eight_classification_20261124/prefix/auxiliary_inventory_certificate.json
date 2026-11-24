@@ -1,0 +1,320 @@
+{
+  "method": "Complete n-1 factorization, recursive prime certificates and one full-order Lucas witness, or deterministic trial division. All verified with integer arithmetic.",
+  "roots": [
+    71,
+    211,
+    281,
+    421,
+    3361,
+    29191,
+    86171,
+    106681,
+    122921,
+    152041,
+    664441,
+    1564921,
+    7416361,
+    15790321,
+    47392381,
+    88959882481,
+    146919792181,
+    1041815865690181
+  ],
+  "certificates": {
+    "71": {
+      "kind": "trial"
+    },
+    "211": {
+      "kind": "trial"
+    },
+    "281": {
+      "kind": "trial"
+    },
+    "421": {
+      "kind": "trial"
+    },
+    "3361": {
+      "kind": "trial"
+    },
+    "29191": {
+      "kind": "trial"
+    },
+    "86171": {
+      "kind": "trial"
+    },
+    "2": {
+      "kind": "trial"
+    },
+    "3": {
+      "kind": "trial"
+    },
+    "5": {
+      "kind": "trial"
+    },
+    "7": {
+      "kind": "trial"
+    },
+    "127": {
+      "kind": "trial"
+    },
+    "106681": {
+      "kind": "lucas_n_minus_one",
+      "factorization": {
+        "2": 3,
+        "3": 1,
+        "5": 1,
+        "7": 1,
+        "127": 1
+      },
+      "witness": 23
+    },
+    "439": {
+      "kind": "trial"
+    },
+    "122921": {
+      "kind": "lucas_n_minus_one",
+      "factorization": {
+        "2": 3,
+        "5": 1,
+        "7": 1,
+        "439": 1
+      },
+      "witness": 3
+    },
+    "181": {
+      "kind": "trial"
+    },
+    "152041": {
+      "kind": "lucas_n_minus_one",
+      "factorization": {
+        "2": 3,
+        "3": 1,
+        "5": 1,
+        "7": 1,
+        "181": 1
+      },
+      "witness": 11
+    },
+    "113": {
+      "kind": "trial"
+    },
+    "664441": {
+      "kind": "lucas_n_minus_one",
+      "factorization": {
+        "2": 3,
+        "3": 1,
+        "5": 1,
+        "7": 2,
+        "113": 1
+      },
+      "witness": 23
+    },
+    "23": {
+      "kind": "trial"
+    },
+    "1564921": {
+      "kind": "lucas_n_minus_one",
+      "factorization": {
+        "2": 3,
+        "3": 5,
+        "5": 1,
+        "7": 1,
+        "23": 1
+      },
+      "witness": 13
+    },
+    "109": {
+      "kind": "trial"
+    },
+    "7416361": {
+      "kind": "lucas_n_minus_one",
+      "factorization": {
+        "2": 3,
+        "3": 5,
+        "5": 1,
+        "7": 1,
+        "109": 1
+      },
+      "witness": 11
+    },
+    "13": {
+      "kind": "trial"
+    },
+    "241": {
+      "kind": "trial"
+    },
+    "15790321": {
+      "kind": "lucas_n_minus_one",
+      "factorization": {
+        "2": 4,
+        "3": 2,
+        "5": 1,
+        "7": 1,
+        "13": 1,
+        "241": 1
+      },
+      "witness": 19
+    },
+    "29": {
+      "kind": "trial"
+    },
+    "1297": {
+      "kind": "trial"
+    },
+    "47392381": {
+      "kind": "lucas_n_minus_one",
+      "factorization": {
+        "2": 2,
+        "3": 2,
+        "5": 1,
+        "7": 1,
+        "29": 1,
+        "1297": 1
+      },
+      "witness": 6
+    },
+    "67": {
+      "kind": "trial"
+    },
+    "983": {
+      "kind": "trial"
+    },
+    "790333": {
+      "kind": "lucas_n_minus_one",
+      "factorization": {
+        "2": 2,
+        "3": 1,
+        "67": 1,
+        "983": 1
+      },
+      "witness": 2
+    },
+    "88959882481": {
+      "kind": "lucas_n_minus_one",
+      "factorization": {
+        "2": 4,
+        "3": 1,
+        "5": 1,
+        "7": 1,
+        "67": 1,
+        "790333": 1
+      },
+      "witness": 26
+    },
+    "6121": {
+      "kind": "trial"
+    },
+    "57149": {
+      "kind": "trial"
+    },
+    "146919792181": {
+      "kind": "lucas_n_minus_one",
+      "factorization": {
+        "2": 2,
+        "3": 1,
+        "5": 1,
+        "7": 1,
+        "6121": 1,
+        "57149": 1
+      },
+      "witness": 10
+    },
+    "509": {
+      "kind": "trial"
+    },
+    "19": {
+      "kind": "trial"
+    },
+    "87959": {
+      "kind": "trial"
+    },
+    "175919": {
+      "kind": "lucas_n_minus_one",
+      "factorization": {
+        "2": 1,
+        "87959": 1
+      },
+      "witness": 7
+    },
+    "20054767": {
+      "kind": "lucas_n_minus_one",
+      "factorization": {
+        "2": 1,
+        "3": 1,
+        "19": 1,
+        "175919": 1
+      },
+      "witness": 3
+    },
+    "1041815865690181": {
+      "kind": "lucas_n_minus_one",
+      "factorization": {
+        "2": 2,
+        "3": 6,
+        "5": 1,
+        "7": 1,
+        "509": 1,
+        "20054767": 1
+      },
+      "witness": 10
+    }
+  },
+  "cyclotomic_factorizations": [
+    {
+      "order": 35,
+      "cyclotomic_value": "8727391",
+      "factors": {
+        "71": 1,
+        "122921": 1
+      }
+    },
+    {
+      "order": 70,
+      "cyclotomic_value": "24214051",
+      "factors": {
+        "281": 1,
+        "86171": 1
+      }
+    },
+    {
+      "order": 105,
+      "cyclotomic_value": "473474689919911",
+      "factors": {
+        "106681": 1,
+        "29191": 1,
+        "152041": 1
+      }
+    },
+    {
+      "order": 140,
+      "cyclotomic_value": "351479006145541",
+      "factors": {
+        "7416361": 1,
+        "47392381": 1
+      }
+    },
+    {
+      "order": 210,
+      "cyclotomic_value": "219397309247971",
+      "factors": {
+        "211": 1,
+        "1564921": 1,
+        "664441": 1
+      }
+    },
+    {
+      "order": 420,
+      "cyclotomic_value": "64439678971267470274607674381",
+      "factors": {
+        "421": 1,
+        "146919792181": 1,
+        "1041815865690181": 1
+      }
+    }
+  ],
+  "effective_period14_orders": {
+    "3361": 168,
+    "15790321": 56,
+    "88959882481": 168
+  }
+}
