@@ -1,0 +1,143 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT4_6_NEG11112_AUTHOR_EXACT_SEGMENT_V1",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "author": "EM-DIRECT-D03BC9",
+  "activity": "RA-A468735D7C934B25C4B9614F",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "signed_split": [
+    4,
+    6
+  ],
+  "negative_q_pattern": [
+    1,
+    1,
+    1,
+    1,
+    2
+  ],
+  "interval": [
+    14336,
+    16380
+  ],
+  "total_negative_rosters": 16380,
+  "positive_q_patterns": [
+    [
+      4
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      1,
+      1,
+      2
+    ],
+    [
+      1,
+      1,
+      1,
+      1
+    ]
+  ],
+  "budget_each_side": 2331,
+  "lattice_index": "13^21",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "stats": {
+    "negative_rosters": 2044,
+    "positive_rosters": 2535,
+    "raw_signed_pairs": 5181540,
+    "common_named_atom_canceled": 2620476,
+    "vertical_original_mass_excess": 0,
+    "gs_searches": 2561064,
+    "gs_nodes": 4739020,
+    "relaxed_sphere_witnesses": 1,
+    "both_original_side_mass_valid": 0
+  },
+  "negative_roster_sha256": "3abb761c3371195865149c38878b4ac9c50b9521bd38e6b420185f3e637460d5",
+  "pair_digest_sha256": "c0d596ea1ed674f1324aeea1df0e1d144938e58b1a7196ee7f6ea824e653b215",
+  "witnesses": [
+    {
+      "pos": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "u": [
+        15,
+        22,
+        -4,
+        -3,
+        5,
+        4,
+        -1,
+        -3,
+        8,
+        -1,
+        -2,
+        0
+      ],
+      "masses": [
+        3283,
+        2724
+      ],
+      "radius_sq": 2303732,
+      "norm_sq": 1640739,
+      "budget_valid": false,
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "negative_roster_index": 16177,
+      "positive_roster_index": 1985
+    }
+  ],
+  "author_replay_base": "awdawmip/enterprise-math@a466be736446891b423809b0ba23cb37ec123502:research_checks/T6_P13_Q10_SPLIT3_7_NEG1123_INTEGER_GS_REPLAY_20261124.py",
+  "replay_rule": "q6 exact replacements at 76db4fbf6106d3ac84344e51645e8e43765f6f06; negatives q11112 as in pinned segment 105fdd7e298670a3b76e159c31dc77b1f5684ca6; direct integer norm checked at leaves.",
+  "validation": "Actual local Python/SymPy 1.14.0 exact integer GS, conditional on prior high-prime elimination, common named atom reduction and lattice completeness. Separate from native p17 q14.",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "elapsed_seconds": 28.74669363099997
+}
