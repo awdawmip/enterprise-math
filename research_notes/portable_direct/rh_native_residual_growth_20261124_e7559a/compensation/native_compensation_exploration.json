@@ -1,0 +1,833 @@
+{
+  "schema": "RH_NATIVE_COMPENSATION_EXPLORATION_V1",
+  "status": "EXPLORATORY_DOUBLE_PRECISION",
+  "certified": false,
+  "sieve_limit": 1048576,
+  "prime_count": 82025,
+  "packets": 19,
+  "fields": [
+    "theta(n)-n",
+    "psi(n)-n",
+    "psi(n)-n-delta(n)"
+  ],
+  "delta_definition": "delta(n)=n(n+1)log(1+1/n)-n; evaluated by eight terms at n>=1024",
+  "rows": [
+    {
+      "kind": "midpoint",
+      "L": 1024,
+      "x": 1536,
+      "R": 2048,
+      "fields": {
+        "theta": {
+          "pool_count": 1,
+          "crossing_pool": [
+            1024,
+            2048
+          ],
+          "G_over_H": 1.0,
+          "residual_root": 0.1266656698950403,
+          "true_positive_root": 0.12666566989504272,
+          "signed_contrast_root": 0.12666566989504272
+        },
+        "psi": {
+          "pool_count": 6,
+          "crossing_pool": [
+            1487,
+            1567
+          ],
+          "G_over_H": 0.078125,
+          "residual_root": 0.009854985460226806,
+          "true_positive_root": 0.0,
+          "signed_contrast_root": -0.040748347244734834
+        },
+        "native": {
+          "pool_count": 6,
+          "crossing_pool": [
+            1487,
+            1567
+          ],
+          "G_over_H": 0.078125,
+          "residual_root": 0.0098549898811732,
+          "true_positive_root": 0.0,
+          "signed_contrast_root": -0.040747499534489605
+        }
+      },
+      "Q_root": 0.16741401713977755,
+      "K_root": 8.477102452289498e-07
+    },
+    {
+      "kind": "midpoint",
+      "L": 2048,
+      "x": 3072,
+      "R": 4096,
+      "fields": {
+        "theta": {
+          "pool_count": 2,
+          "crossing_pool": [
+            2048,
+            4093
+          ],
+          "G_over_H": 0.99853515625,
+          "residual_root": 0.2423014325198878,
+          "true_positive_root": 0.24225616938152114,
+          "signed_contrast_root": 0.24225616938152114
+        },
+        "psi": {
+          "pool_count": 15,
+          "crossing_pool": [
+            2693,
+            3557
+          ],
+          "G_over_H": 0.421875,
+          "residual_root": 0.15926164408954738,
+          "true_positive_root": 0.08665453291822912,
+          "signed_contrast_root": 0.08665453291822912
+        },
+        "native": {
+          "pool_count": 15,
+          "crossing_pool": [
+            2693,
+            3557
+          ],
+          "G_over_H": 0.421875,
+          "residual_root": 0.15926169009965618,
+          "true_positive_root": 0.08665483262912906,
+          "signed_contrast_root": 0.08665483262912906
+        }
+      },
+      "Q_root": 0.155601636463292,
+      "K_root": 2.9971089993141575e-07
+    },
+    {
+      "kind": "midpoint",
+      "L": 4096,
+      "x": 6144,
+      "R": 8192,
+      "fields": {
+        "theta": {
+          "pool_count": 1,
+          "crossing_pool": [
+            4096,
+            8192
+          ],
+          "G_over_H": 1.0,
+          "residual_root": 0.1428604044367487,
+          "true_positive_root": 0.1428604044367486,
+          "signed_contrast_root": 0.1428604044367486
+        },
+        "psi": {
+          "pool_count": 6,
+          "crossing_pool": [
+            5843,
+            6269
+          ],
+          "G_over_H": 0.10400390625,
+          "residual_root": 0.00938459033788134,
+          "true_positive_root": 0.0,
+          "signed_contrast_root": -0.03937969825951224
+        },
+        "native": {
+          "pool_count": 6,
+          "crossing_pool": [
+            5843,
+            6269
+          ],
+          "G_over_H": 0.10400390625,
+          "residual_root": 0.009384591208624147,
+          "true_positive_root": 0.0,
+          "signed_contrast_root": -0.03937959229570132
+        }
+      },
+      "Q_root": 0.18224010269626084,
+      "K_root": 1.0596381092020657e-07
+    },
+    {
+      "kind": "midpoint",
+      "L": 8192,
+      "x": 12288,
+      "R": 16384,
+      "fields": {
+        "theta": {
+          "pool_count": 16,
+          "crossing_pool": [
+            8713,
+            15359
+          ],
+          "G_over_H": 0.811279296875,
+          "residual_root": 0.15313853452099938,
+          "true_positive_root": 0.1238709364274389,
+          "signed_contrast_root": 0.1238709364274389
+        },
+        "psi": {
+          "pool_count": 32,
+          "crossing_pool": [
+            9413,
+            15287
+          ],
+          "G_over_H": 0.717041015625,
+          "residual_root": 0.034994167959601134,
+          "true_positive_root": 0.0,
+          "signed_contrast_root": -0.056120124629883694
+        },
+        "native": {
+          "pool_count": 32,
+          "crossing_pool": [
+            9413,
+            15287
+          ],
+          "G_over_H": 0.717041015625,
+          "residual_root": 0.03499418591795618,
+          "true_positive_root": 0.0,
+          "signed_contrast_root": -0.05612008716601853
+        }
+      },
+      "Q_root": 0.1799910610573226,
+      "K_root": 3.746386516290112e-08
+    },
+    {
+      "kind": "midpoint",
+      "L": 16384,
+      "x": 24576,
+      "R": 32768,
+      "fields": {
+        "theta": {
+          "pool_count": 1,
+          "crossing_pool": [
+            16384,
+            32768
+          ],
+          "G_over_H": 1.0,
+          "residual_root": 0.23480894132181135,
+          "true_positive_root": 0.23480894132180832,
+          "signed_contrast_root": 0.23480894132180832
+        },
+        "psi": {
+          "pool_count": 6,
+          "crossing_pool": [
+            22039,
+            32768
+          ],
+          "G_over_H": 0.65484619140625,
+          "residual_root": 0.1135179448932889,
+          "true_positive_root": 0.06706874228630282,
+          "signed_contrast_root": 0.06706874228630282
+        },
+        "native": {
+          "pool_count": 6,
+          "crossing_pool": [
+            22039,
+            32768
+          ],
+          "G_over_H": 0.65484619140625,
+          "residual_root": 0.11351794794277154,
+          "true_positive_root": 0.06706875553177942,
+          "signed_contrast_root": 0.06706875553177942
+        }
+      },
+      "Q_root": 0.16774019903550552,
+      "K_root": 1.3245476604417661e-08
+    },
+    {
+      "kind": "midpoint",
+      "L": 32768,
+      "x": 49152,
+      "R": 65536,
+      "fields": {
+        "theta": {
+          "pool_count": 6,
+          "crossing_pool": [
+            32783,
+            56911
+          ],
+          "G_over_H": 0.736328125,
+          "residual_root": 0.13324893692295287,
+          "true_positive_root": 0.12090074695124875,
+          "signed_contrast_root": 0.12090074695124875
+        },
+        "psi": {
+          "pool_count": 29,
+          "crossing_pool": [
+            32993,
+            56509
+          ],
+          "G_over_H": 0.7176513671875,
+          "residual_root": 0.0666937008193784,
+          "true_positive_root": 0.0,
+          "signed_contrast_root": -0.02174167019998632
+        },
+        "native": {
+          "pool_count": 29,
+          "crossing_pool": [
+            32993,
+            56509
+          ],
+          "G_over_H": 0.7176513671875,
+          "residual_root": 0.06669370320822594,
+          "true_positive_root": 0.0,
+          "signed_contrast_root": -0.021741665517003156
+        }
+      },
+      "Q_root": 0.14264241715123507,
+      "K_root": 4.6829831644445985e-09
+    },
+    {
+      "kind": "midpoint",
+      "L": 65536,
+      "x": 98304,
+      "R": 131072,
+      "fields": {
+        "theta": {
+          "pool_count": 2,
+          "crossing_pool": [
+            65537,
+            131072
+          ],
+          "G_over_H": 0.9999847412109375,
+          "residual_root": 0.16993249082337158,
+          "true_positive_root": 0.16993204333074155,
+          "signed_contrast_root": 0.16993204333074155
+        },
+        "psi": {
+          "pool_count": 33,
+          "crossing_pool": [
+            80683,
+            128971
+          ],
+          "G_over_H": 0.73681640625,
+          "residual_root": 0.06510186523139536,
+          "true_positive_root": 0.019682280721570276,
+          "signed_contrast_root": 0.019682280721570276
+        },
+        "native": {
+          "pool_count": 33,
+          "crossing_pool": [
+            80683,
+            128971
+          ],
+          "G_over_H": 0.73681640625,
+          "residual_root": 0.06510186591924794,
+          "true_positive_root": 0.01968228237725485,
+          "signed_contrast_root": 0.01968228237725485
+        }
+      },
+      "Q_root": 0.15024976260917128,
+      "K_root": 1.6556845755522076e-09
+    },
+    {
+      "kind": "midpoint",
+      "L": 131072,
+      "x": 196608,
+      "R": 262144,
+      "fields": {
+        "theta": {
+          "pool_count": 1,
+          "crossing_pool": [
+            131072,
+            262144
+          ],
+          "G_over_H": 1.0,
+          "residual_root": 0.136717122548785,
+          "true_positive_root": 0.13671712254882604,
+          "signed_contrast_root": 0.13671712254882604
+        },
+        "psi": {
+          "pool_count": 20,
+          "crossing_pool": [
+            185831,
+            208279
+          ],
+          "G_over_H": 0.1712646484375,
+          "residual_root": 0.01869588554699748,
+          "true_positive_root": 0.0,
+          "signed_contrast_root": -0.02715898762996215
+        },
+        "native": {
+          "pool_count": 20,
+          "crossing_pool": [
+            185831,
+            208279
+          ],
+          "G_over_H": 0.1712646484375,
+          "residual_root": 0.01869588556221563,
+          "true_positive_root": 0.0,
+          "signed_contrast_root": -0.027158987044589255
+        }
+      },
+      "Q_root": 0.1638761101787882,
+      "K_root": 5.853728959892557e-10
+    },
+    {
+      "kind": "midpoint",
+      "L": 262144,
+      "x": 393216,
+      "R": 524288,
+      "fields": {
+        "theta": {
+          "pool_count": 24,
+          "crossing_pool": [
+            264961,
+            517511
+          ],
+          "G_over_H": 0.9634017944335938,
+          "residual_root": 0.21539241303958123,
+          "true_positive_root": 0.21376020795364337,
+          "signed_contrast_root": 0.21376020795364337
+        },
+        "psi": {
+          "pool_count": 77,
+          "crossing_pool": [
+            319477,
+            495347
+          ],
+          "G_over_H": 0.6708908081054688,
+          "residual_root": 0.12549981875588584,
+          "true_positive_root": 0.047234460149930685,
+          "signed_contrast_root": 0.047234460149930685
+        },
+        "native": {
+          "pool_count": 77,
+          "crossing_pool": [
+            319477,
+            495347
+          ],
+          "G_over_H": 0.6708908081054688,
+          "residual_root": 0.12549981883468048,
+          "true_positive_root": 0.04723446035689125,
+          "signed_contrast_root": 0.04723446035689125
+        }
+      },
+      "Q_root": 0.16652574780371268,
+      "K_root": 2.0696056673985552e-10
+    },
+    {
+      "kind": "midpoint",
+      "L": 524288,
+      "x": 786432,
+      "R": 1048576,
+      "fields": {
+        "theta": {
+          "pool_count": 1,
+          "crossing_pool": [
+            524288,
+            1048576
+          ],
+          "G_over_H": 1.0,
+          "residual_root": 0.07940821979526963,
+          "true_positive_root": 0.07940821979523716,
+          "signed_contrast_root": 0.07940821979523716
+        },
+        "psi": {
+          "pool_count": 24,
+          "crossing_pool": [
+            524288,
+            788363
+          ],
+          "G_over_H": 0.5036830902099609,
+          "residual_root": 0.0005365946584933599,
+          "true_positive_root": 0.0,
+          "signed_contrast_root": -0.06797840906982436
+        },
+        "native": {
+          "pool_count": 24,
+          "crossing_pool": [
+            524288,
+            788363
+          ],
+          "G_over_H": 0.5036830902099609,
+          "residual_root": 0.000536594659208835,
+          "true_positive_root": 0.0,
+          "signed_contrast_root": -0.06797840899665275
+        }
+      },
+      "Q_root": 0.14738662886506151,
+      "K_root": 7.317160766184827e-11
+    },
+    {
+      "kind": "seam",
+      "L": 1536,
+      "x": 2048,
+      "R": 3072,
+      "fields": {
+        "theta": {
+          "pool_count": 2,
+          "crossing_pool": [
+            1536,
+            2713
+          ],
+          "G_over_H": 0.7662760416666666,
+          "residual_root": 0.24384160385510795,
+          "true_positive_root": 0.23973920175224597,
+          "signed_contrast_root": 0.23973920175224597
+        },
+        "psi": {
+          "pool_count": 12,
+          "crossing_pool": [
+            1567,
+            2693
+          ],
+          "G_over_H": 0.7330729166666666,
+          "residual_root": 0.07626212946792116,
+          "true_positive_root": 0.00449496318200081,
+          "signed_contrast_root": 0.00449496318200081
+        },
+        "native": {
+          "pool_count": 12,
+          "crossing_pool": [
+            1567,
+            2693
+          ],
+          "G_over_H": 0.7330729166666666,
+          "residual_root": 0.07626247295079118,
+          "true_positive_root": 0.004495482296470947,
+          "signed_contrast_root": 0.004495482296470947
+        }
+      },
+      "Q_root": 0.23524423857024515,
+      "K_root": 5.191144701374023e-07
+    },
+    {
+      "kind": "seam",
+      "L": 3072,
+      "x": 4096,
+      "R": 6144,
+      "fields": {
+        "theta": {
+          "pool_count": 3,
+          "crossing_pool": [
+            3539,
+            6144
+          ],
+          "G_over_H": 0.8479817708333334,
+          "residual_root": 0.15369023121635655,
+          "true_positive_root": 0.13891256215260397,
+          "signed_contrast_root": 0.13891256215260397
+        },
+        "psi": {
+          "pool_count": 11,
+          "crossing_pool": [
+            3613,
+            5839
+          ],
+          "G_over_H": 0.724609375,
+          "residual_root": 0.07256412945813434,
+          "true_positive_root": 0.0,
+          "signed_contrast_root": -0.04084955302402166
+        },
+        "native": {
+          "pool_count": 11,
+          "crossing_pool": [
+            3613,
+            5839
+          ],
+          "G_over_H": 0.724609375,
+          "residual_root": 0.0725641953753389,
+          "true_positive_root": 0.0,
+          "signed_contrast_root": -0.04084936948932058
+        }
+      },
+      "Q_root": 0.17976211517662563,
+      "K_root": 1.8353470108284364e-07
+    },
+    {
+      "kind": "seam",
+      "L": 6144,
+      "x": 8192,
+      "R": 12288,
+      "fields": {
+        "theta": {
+          "pool_count": 1,
+          "crossing_pool": [
+            6144,
+            12288
+          ],
+          "G_over_H": 1.0,
+          "residual_root": 0.2001361088103371,
+          "true_positive_root": 0.2001361088103412,
+          "signed_contrast_root": 0.2001361088103412
+        },
+        "psi": {
+          "pool_count": 7,
+          "crossing_pool": [
+            6263,
+            9403
+          ],
+          "G_over_H": 0.5110677083333334,
+          "residual_root": 0.08572476321030774,
+          "true_positive_root": 0.05053681682195457,
+          "signed_contrast_root": 0.05053681682195457
+        },
+        "native": {
+          "pool_count": 7,
+          "crossing_pool": [
+            6263,
+            9403
+          ],
+          "G_over_H": 0.5110677083333334,
+          "residual_root": 0.08572478637589094,
+          "true_positive_root": 0.05053688171127219,
+          "signed_contrast_root": 0.05053688171127219
+        }
+      },
+      "Q_root": 0.14959929198838662,
+      "K_root": 6.488931762055339e-08
+    },
+    {
+      "kind": "seam",
+      "L": 12288,
+      "x": 16384,
+      "R": 24576,
+      "fields": {
+        "theta": {
+          "pool_count": 31,
+          "crossing_pool": [
+            12491,
+            23029
+          ],
+          "G_over_H": 0.8575846354166666,
+          "residual_root": 0.2103470096004844,
+          "true_positive_root": 0.18983617037620892,
+          "signed_contrast_root": 0.18983617037620892
+        },
+        "psi": {
+          "pool_count": 47,
+          "crossing_pool": [
+            15277,
+            22037
+          ],
+          "G_over_H": 0.5501302083333334,
+          "residual_root": 0.09710603272775344,
+          "true_positive_root": 0.03336641504239867,
+          "signed_contrast_root": 0.03336641504239867
+        },
+        "native": {
+          "pool_count": 47,
+          "crossing_pool": [
+            15277,
+            22037
+          ],
+          "G_over_H": 0.5501302083333334,
+          "residual_root": 0.09710603656576944,
+          "true_positive_root": 0.033366437984237086,
+          "signed_contrast_root": 0.033366437984237086
+        }
+      },
+      "Q_root": 0.15646975533381025,
+      "K_root": 2.2941838415113658e-08
+    },
+    {
+      "kind": "seam",
+      "L": 24576,
+      "x": 32768,
+      "R": 49152,
+      "fields": {
+        "theta": {
+          "pool_count": 1,
+          "crossing_pool": [
+            24576,
+            49152
+          ],
+          "G_over_H": 1.0,
+          "residual_root": 0.07982605201796078,
+          "true_positive_root": 0.07982605201796232,
+          "signed_contrast_root": 0.07982605201796232
+        },
+        "psi": {
+          "pool_count": 9,
+          "crossing_pool": [
+            32573,
+            32971
+          ],
+          "G_over_H": 0.016194661458333332,
+          "residual_root": 0.00030506727720795566,
+          "true_positive_root": 0.0,
+          "signed_contrast_root": -0.09125695576168986
+        },
+        "native": {
+          "pool_count": 9,
+          "crossing_pool": [
+            32573,
+            32971
+          ],
+          "G_over_H": 0.016194661458333332,
+          "residual_root": 0.0003050672798986634,
+          "true_positive_root": 0.0,
+          "signed_contrast_root": -0.0912569476505251
+        }
+      },
+      "Q_root": 0.17108300777965219,
+      "K_root": 8.111164767621304e-09
+    },
+    {
+      "kind": "seam",
+      "L": 49152,
+      "x": 65536,
+      "R": 98304,
+      "fields": {
+        "theta": {
+          "pool_count": 11,
+          "crossing_pool": [
+            49171,
+            95089
+          ],
+          "G_over_H": 0.9342041015625,
+          "residual_root": 0.25257540719638766,
+          "true_positive_root": 0.24665286947824253,
+          "signed_contrast_root": 0.24665286947824253
+        },
+        "psi": {
+          "pool_count": 46,
+          "crossing_pool": [
+            56681,
+            92681
+          ],
+          "G_over_H": 0.732421875,
+          "residual_root": 0.1422025883125994,
+          "true_positive_root": 0.06606444867444927,
+          "signed_contrast_root": 0.06606444867444927
+        },
+        "native": {
+          "pool_count": 46,
+          "crossing_pool": [
+            56681,
+            92681
+          ],
+          "G_over_H": 0.732421875,
+          "residual_root": 0.14220258949354758,
+          "true_positive_root": 0.06606445154217909,
+          "signed_contrast_root": 0.06606445154217909
+        }
+      },
+      "Q_root": 0.18058842080379325,
+      "K_root": 2.8677298175017185e-09
+    },
+    {
+      "kind": "seam",
+      "L": 98304,
+      "x": 131072,
+      "R": 196608,
+      "fields": {
+        "theta": {
+          "pool_count": 1,
+          "crossing_pool": [
+            98304,
+            196608
+          ],
+          "G_over_H": 1.0,
+          "residual_root": 0.11920946566482904,
+          "true_positive_root": 0.11920946566481344,
+          "signed_contrast_root": 0.11920946566481344
+        },
+        "psi": {
+          "pool_count": 21,
+          "crossing_pool": [
+            128971,
+            136343
+          ],
+          "G_over_H": 0.07499186197916667,
+          "residual_root": 0.00812821600157443,
+          "true_positive_root": 0.0,
+          "signed_contrast_root": -0.046536865209143234
+        },
+        "native": {
+          "pool_count": 21,
+          "crossing_pool": [
+            128971,
+            136343
+          ],
+          "G_over_H": 0.07499186197916667,
+          "residual_root": 0.008128216007321287,
+          "true_positive_root": 0.0,
+          "signed_contrast_root": -0.04653686419524763
+        }
+      },
+      "Q_root": 0.16574633087395668,
+      "K_root": 1.0138956063610038e-09
+    },
+    {
+      "kind": "seam",
+      "L": 196608,
+      "x": 262144,
+      "R": 393216,
+      "fields": {
+        "theta": {
+          "pool_count": 3,
+          "crossing_pool": [
+            196608,
+            320011
+          ],
+          "G_over_H": 0.6276601155598959,
+          "residual_root": 0.183340666976215,
+          "true_positive_root": 0.17933897460659637,
+          "signed_contrast_root": 0.17933897460659637
+        },
+        "psi": {
+          "pool_count": 43,
+          "crossing_pool": [
+            207523,
+            319129
+          ],
+          "G_over_H": 0.567657470703125,
+          "residual_root": 0.11472509081548936,
+          "true_positive_root": 0.02919622598216046,
+          "signed_contrast_root": 0.02919622598216046
+        },
+        "native": {
+          "pool_count": 43,
+          "crossing_pool": [
+            207523,
+            319129
+          ],
+          "G_over_H": 0.567657470703125,
+          "residual_root": 0.11472509096711742,
+          "true_positive_root": 0.029196226340626682,
+          "signed_contrast_root": 0.029196226340626682
+        }
+      },
+      "Q_root": 0.1501427486244359,
+      "K_root": 3.584662219835444e-10
+    },
+    {
+      "kind": "seam",
+      "L": 393216,
+      "x": 524288,
+      "R": 786432,
+      "fields": {
+        "theta": {
+          "pool_count": 1,
+          "crossing_pool": [
+            393216,
+            786432
+          ],
+          "G_over_H": 1.0,
+          "residual_root": 0.12570836219559323,
+          "true_positive_root": 0.12570836219563133,
+          "signed_contrast_root": 0.12570836219563133
+        },
+        "psi": {
+          "pool_count": 29,
+          "crossing_pool": [
+            494693,
+            785329
+          ],
+          "G_over_H": 0.7391255696614584,
+          "residual_root": 0.026393901068372888,
+          "true_positive_root": 0.0,
+          "signed_contrast_root": -0.028150593055438256
+        },
+        "native": {
+          "pool_count": 29,
+          "crossing_pool": [
+            494693,
+            785329
+          ],
+          "G_over_H": 0.7391255696614584,
+          "residual_root": 0.026393901091055043,
+          "true_positive_root": 0.0,
+          "signed_contrast_root": -0.028150592928701305
+        }
+      },
+      "Q_root": 0.1538589552510696,
+      "K_root": 1.2673695079512548e-10
+    }
+  ]
+}

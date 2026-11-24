@@ -1,0 +1,342 @@
+{
+  "schema": "RH_SAVED_PAID_DRIFT_COMPARISON_V1",
+  "status": "EXPLORATORY_DOUBLE_PRECISION_PREDECESSOR_REUSED",
+  "certified": false,
+  "new_prime_sieves": 0,
+  "new_logarithms": 0,
+  "predecessor_commit": "3aeecbec1c6f9bfa4d8998f4a39689ef5da0a970",
+  "input_relative_path": "deficit/macroscopic_exploration.json",
+  "input_sha256": "c9767ecd0d42bb148eba88f15c6f5b1214bd9f5e84ad9a8a384b9e251282c752",
+  "packet_count": 19,
+  "all_paid_residuals_nondecreasing_to_double_precision": true,
+  "strict_paid_increases": 19,
+  "width_bound_improvements": 19,
+  "minimum_paid_increase": 0.14183542415666506,
+  "maximum_paid_increase": 0.2736912289016983,
+  "rows": [
+    {
+      "kind": "midpoint",
+      "packet": [
+        1024,
+        1536,
+        2048
+      ],
+      "drift_exact": "1/32",
+      "zero_drift_residual_root": 0.12666566989504519,
+      "fully_paid_drift_residual_root": 0.34776270913447443,
+      "increase": 0.22109703923942925,
+      "old_pool_width": 1024,
+      "new_pool_width": 78,
+      "old_width_bound": 16.0,
+      "new_width_bound": 0.5899333953857422,
+      "actual_positive_root": 0.12666566989504346
+    },
+    {
+      "kind": "midpoint",
+      "packet": [
+        2048,
+        3072,
+        4096
+      ],
+      "drift_exact": "1/46",
+      "zero_drift_residual_root": 0.24230143251988903,
+      "fully_paid_drift_residual_root": 0.4580990856262843,
+      "increase": 0.2157976531063953,
+      "old_pool_width": 2045,
+      "new_pool_width": 830,
+      "old_width_bound": 22.561174290402764,
+      "new_width_bound": 4.127582810597863,
+      "actual_positive_root": 0.2422561693815199
+    },
+    {
+      "kind": "midpoint",
+      "packet": [
+        4096,
+        6144,
+        8192
+      ],
+      "drift_exact": "1/64",
+      "zero_drift_residual_root": 0.14286040443674247,
+      "fully_paid_drift_residual_root": 0.34703226225058326,
+      "increase": 0.20417185781384078,
+      "old_pool_width": 4096,
+      "new_pool_width": 420,
+      "old_width_bound": 32.0,
+      "new_width_bound": 0.8311991691589355,
+      "actual_positive_root": 0.14286040443674963
+    },
+    {
+      "kind": "midpoint",
+      "packet": [
+        8192,
+        12288,
+        16384
+      ],
+      "drift_exact": "1/91",
+      "zero_drift_residual_root": 0.15313853452099524,
+      "fully_paid_drift_residual_root": 0.3551742711383001,
+      "increase": 0.20203573661730484,
+      "old_pool_width": 6646,
+      "new_pool_width": 3120,
+      "old_width_bound": 29.785559524508926,
+      "new_width_bound": 6.989558244878488,
+      "actual_positive_root": 0.12387093642744121
+    },
+    {
+      "kind": "midpoint",
+      "packet": [
+        16384,
+        24576,
+        32768
+      ],
+      "drift_exact": "1/128",
+      "zero_drift_residual_root": 0.2348089413218007,
+      "fully_paid_drift_residual_root": 0.4089726979430463,
+      "increase": 0.1741637566212456,
+      "old_pool_width": 16384,
+      "new_pool_width": 9842,
+      "old_width_bound": 64.0,
+      "new_width_bound": 23.413982026278973,
+      "actual_positive_root": 0.23480894132180907
+    },
+    {
+      "kind": "midpoint",
+      "packet": [
+        32768,
+        49152,
+        65536
+      ],
+      "drift_exact": "1/182",
+      "zero_drift_residual_root": 0.1332489369229616,
+      "fully_paid_drift_residual_root": 0.34598388309552164,
+      "increase": 0.21273494617256003,
+      "old_pool_width": 24128,
+      "new_pool_width": 9522,
+      "old_width_bound": 49.07245102698379,
+      "new_width_bound": 8.098094281655769,
+      "actual_positive_root": 0.12090074695124718
+    },
+    {
+      "kind": "midpoint",
+      "packet": [
+        65536,
+        98304,
+        131072
+      ],
+      "drift_exact": "1/256",
+      "zero_drift_residual_root": 0.16993249082337067,
+      "fully_paid_drift_residual_root": 0.38153707263201353,
+      "increase": 0.21160458180864286,
+      "old_pool_width": 65535,
+      "new_pool_width": 28634,
+      "old_width_bound": 127.99609377980232,
+      "new_width_bound": 24.839652012567967,
+      "actual_positive_root": 0.1699320433307463
+    },
+    {
+      "kind": "midpoint",
+      "packet": [
+        131072,
+        196608,
+        262144
+      ],
+      "drift_exact": "1/363",
+      "zero_drift_residual_root": 0.13671712254886537,
+      "fully_paid_drift_residual_root": 0.3527568335457361,
+      "increase": 0.21603971099687075,
+      "old_pool_width": 131072,
+      "new_pool_width": 21596,
+      "old_width_bound": 181.01933598375615,
+      "new_width_bound": 5.399325984212414,
+      "actual_positive_root": 0.13671712254882612
+    },
+    {
+      "kind": "midpoint",
+      "packet": [
+        262144,
+        393216,
+        524288
+      ],
+      "drift_exact": "1/512",
+      "zero_drift_residual_root": 0.21539241303956702,
+      "fully_paid_drift_residual_root": 0.411434418249327,
+      "increase": 0.19604200520976,
+      "old_pool_width": 252550,
+      "new_pool_width": 107182,
+      "old_width_bound": 237.60461248457432,
+      "new_width_bound": 43.21247856642003,
+      "actual_positive_root": 0.2137602079536407
+    },
+    {
+      "kind": "midpoint",
+      "packet": [
+        524288,
+        786432,
+        1048576
+      ],
+      "drift_exact": "1/725",
+      "zero_drift_residual_root": 0.07940821979520746,
+      "fully_paid_drift_residual_root": 0.339757969837548,
+      "increase": 0.26034975004234057,
+      "old_pool_width": 524288,
+      "new_pool_width": 3946,
+      "old_width_bound": 362.0386719675123,
+      "new_width_bound": 0.519843680618438,
+      "actual_positive_root": 0.07940821979527525
+    },
+    {
+      "kind": "seam",
+      "packet": [
+        1536,
+        2048,
+        3072
+      ],
+      "drift_exact": "1/40",
+      "zero_drift_residual_root": 0.24384160385510223,
+      "fully_paid_drift_residual_root": 0.3856770280117673,
+      "increase": 0.14183542415666506,
+      "old_pool_width": 1177,
+      "new_pool_width": 746,
+      "old_width_bound": 12.944599822540578,
+      "new_width_bound": 5.560014860835212,
+      "actual_positive_root": 0.23973920175224692
+    },
+    {
+      "kind": "seam",
+      "packet": [
+        3072,
+        4096,
+        6144
+      ],
+      "drift_exact": "1/56",
+      "zero_drift_residual_root": 0.15369023121635528,
+      "fully_paid_drift_residual_root": 0.36665632872367837,
+      "increase": 0.2129660975073231,
+      "old_pool_width": 2605,
+      "new_pool_width": 1560,
+      "old_width_bound": 22.418480074753933,
+      "new_width_bound": 8.39100673376689,
+      "actual_positive_root": 0.1389125621526034
+    },
+    {
+      "kind": "seam",
+      "packet": [
+        6144,
+        8192,
+        12288
+      ],
+      "drift_exact": "1/79",
+      "zero_drift_residual_root": 0.20013610881033872,
+      "fully_paid_drift_residual_root": 0.398275894637895,
+      "increase": 0.19813978582755626,
+      "old_pool_width": 6144,
+      "new_pool_width": 2466,
+      "old_width_bound": 44.090815370097204,
+      "new_width_bound": 7.5090270598782,
+      "actual_positive_root": 0.2001361088103416
+    },
+    {
+      "kind": "seam",
+      "packet": [
+        12288,
+        16384,
+        24576
+      ],
+      "drift_exact": "1/111",
+      "zero_drift_residual_root": 0.2103470096004912,
+      "fully_paid_drift_residual_root": 0.4249400305638894,
+      "increase": 0.2145930209633982,
+      "old_pool_width": 10538,
+      "new_pool_width": 6250,
+      "old_width_bound": 45.858211317127896,
+      "new_width_bound": 16.48498599152303,
+      "actual_positive_root": 0.189836170376207
+    },
+    {
+      "kind": "seam",
+      "packet": [
+        24576,
+        32768,
+        49152
+      ],
+      "drift_exact": "1/157",
+      "zero_drift_residual_root": 0.07982605201797682,
+      "fully_paid_drift_residual_root": 0.3535172809196751,
+      "increase": 0.2736912289016983,
+      "old_pool_width": 24576,
+      "new_pool_width": 398,
+      "old_width_bound": 88.18163074019441,
+      "new_width_bound": 0.5222388862668782,
+      "actual_positive_root": 0.07982605201796204
+    },
+    {
+      "kind": "seam",
+      "packet": [
+        49152,
+        65536,
+        98304
+      ],
+      "drift_exact": "1/222",
+      "zero_drift_residual_root": 0.2525754071964103,
+      "fully_paid_drift_residual_root": 0.44454613375539076,
+      "increase": 0.19197072655898045,
+      "old_pool_width": 45918,
+      "new_pool_width": 20640,
+      "old_width_bound": 108.83702527979239,
+      "new_width_bound": 22.390522510502283,
+      "actual_positive_root": 0.2466528694782529
+    },
+    {
+      "kind": "seam",
+      "packet": [
+        98304,
+        131072,
+        196608
+      ],
+      "drift_exact": "1/314",
+      "zero_drift_residual_root": 0.11920946566482604,
+      "fully_paid_drift_residual_root": 0.3598382050550791,
+      "increase": 0.24062873939025303,
+      "old_pool_width": 98304,
+      "new_pool_width": 6626,
+      "old_width_bound": 176.36326148038881,
+      "new_width_bound": 1.2979583393451442,
+      "actual_positive_root": 0.11920946566480554
+    },
+    {
+      "kind": "seam",
+      "packet": [
+        196608,
+        262144,
+        393216
+      ],
+      "drift_exact": "1/444",
+      "zero_drift_residual_root": 0.18334066697621385,
+      "fully_paid_drift_residual_root": 0.388680170444663,
+      "increase": 0.20533950346844917,
+      "old_pool_width": 123403,
+      "new_pool_width": 108378,
+      "old_width_bound": 98.25896479677377,
+      "new_width_bound": 76.11708321432648,
+      "actual_positive_root": 0.1793389746066106
+    },
+    {
+      "kind": "seam",
+      "packet": [
+        393216,
+        524288,
+        786432
+      ],
+      "drift_exact": "1/628",
+      "zero_drift_residual_root": 0.12570836219565712,
+      "fully_paid_drift_residual_root": 0.3608144129689679,
+      "increase": 0.23510605077331076,
+      "old_pool_width": 393216,
+      "new_pool_width": 63934,
+      "old_width_bound": 352.72652296077763,
+      "new_width_bound": 9.809210282444225,
+      "actual_positive_root": 0.12570836219565187
+    }
+  ],
+  "scope": "Descriptive reanalysis of old doubles; strict monotonicity theorem uses exact analytic argument, not these data."
+}

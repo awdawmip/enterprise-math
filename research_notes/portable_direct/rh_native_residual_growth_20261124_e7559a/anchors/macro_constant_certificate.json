@@ -1,0 +1,39 @@
+{
+  "schema": "EM_MACRO_PRIME_SQUARE_CONSTANT_V1",
+  "status": "PASS",
+  "arithmetic": "Exact rational operations; square roots enclosed by integer square-root inequalities.",
+  "mellin_single_source_checks": 1024,
+  "mellin_kernel_domain": "n=1..64; integer s=2..9; split tail at T=3n and5n",
+  "s1_laurent_cancellation": "Exact bivariate polynomial identity in gamma and t=s−1",
+  "macro_constants": [
+    {
+      "shape": "midpoint",
+      "xi": "3/2",
+      "r": "2",
+      "C": {
+        "lower": "0.14110472164033219758238140198477325358510242111888822102405131704",
+        "upper": "0.14110472164033219758238140198477325358510242111888822102405131705",
+        "integer_bounds": [
+          "14110472164033219758238140198477325358510242111888822102405131704",
+          "14110472164033219758238140198477325358510242111888822102405131705"
+        ],
+        "denominator_power_of_10": 65
+      }
+    },
+    {
+      "shape": "seam",
+      "xi": "4/3",
+      "r": "2",
+      "C": {
+        "lower": "0.14966415829397861475961187640613996594781589673143954880480266273",
+        "upper": "0.14966415829397861475961187640613996594781589673143954880480266274",
+        "integer_bounds": [
+          "14966415829397861475961187640613996594781589673143954880480266273",
+          "14966415829397861475961187640613996594781589673143954880480266274"
+        ],
+        "denominator_power_of_10": 65
+      }
+    }
+  ],
+  "scope": "Finite arithmetic checks and exact constants; unbounded Mellin/RH equivalence and prime-square limit use the analytical proof."
+}
