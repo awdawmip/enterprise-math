@@ -1,0 +1,68 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT4_6_NEG123_AUTHOR_EXACT_SEGMENT_V1",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "author": "EM-DIRECT-D03BC9",
+  "activity": "RA-A468735D7C934B25C4B9614F",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "signed_split": [
+    4,
+    6
+  ],
+  "negative_q_pattern": [
+    1,
+    2,
+    3
+  ],
+  "interval": [
+    0,
+    864
+  ],
+  "total_negative_rosters": 1728,
+  "positive_q_patterns": [
+    [
+      4
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      1,
+      1,
+      2
+    ],
+    [
+      1,
+      1,
+      1,
+      1
+    ]
+  ],
+  "budget_each_side": 2331,
+  "lattice_index": "13^21",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "stats": {
+    "negative_rosters": 864,
+    "positive_rosters": 2535,
+    "raw_signed_pairs": 2190240,
+    "common_named_atom_canceled": 526176,
+    "vertical_original_mass_excess": 0,
+    "gs_searches": 1664064,
+    "gs_nodes": 3325067,
+    "relaxed_sphere_witnesses": 0,
+    "both_original_side_mass_valid": 0
+  },
+  "negative_roster_sha256": "25ed8ed95c7b6a6cf12bb28dde37bc57754c1d1199ce6b2d115cd340a1e045a3",
+  "pair_digest_sha256": "46c34e9fd6941260f8cc7bb220a2aeb04ca44cdc9740845053d9f948135aabec",
+  "witnesses": [],
+  "seconds": 23.362567262000027,
+  "author_replay_base": "awdawmip/enterprise-math@76db4fbf6106d3ac84344e51645e8e43765f6f06:research_checks/T6_P13_Q10_SPLIT4_6_NEG6_FULL_AUTHOR_EXACT_CERT_20261124.json",
+  "replay_rule": "Apply pinned q6 certificate replacements to its original replay; replace negatives=[((6,r),) for r in range(1,13)] by negatives=[((1,r),(2,s),(3,t)) for r,s,t in product(range(1,13),repeat=3)], len(negatives)==12 by len(negatives)==1728, negative_q_pattern=[6] by negative_q_pattern=[1,2,3]; run --start 0 --end 864.",
+  "validation": "Actual local exact integer GS. Conditional on existing high-prime elimination, common-atom reduction and saturation/GS completeness. Two attempts at tail [864,1728) timed out without complete output; not counted. No independent review or protected native progress.",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "next_action": "Continue [864,1728) using smaller bounded slices; consume this completed half."
+}
