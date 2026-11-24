@@ -1,0 +1,462 @@
+{
+  "schema": "RH_ACTUAL_MATCHING_SCALE_LAPLACE_V1",
+  "status": "AUTHOR_EXACT_AND_INTERVAL_CHECKS_NOT_INDEPENDENT_REVIEW",
+  "scope": "New scale family and positive-convolution seams; no arithmetic prime-deficit acceptance",
+  "coverage": {
+    "chebyshev_families": 16,
+    "partial_fraction_polynomial_identities": 16,
+    "chebyshev_matching_moments": 136,
+    "rational_laplace_bounds": 32,
+    "fixed_count_families": 12,
+    "fixed_count_matching_moments": 78
+  },
+  "decay_exponents": [
+    {
+      "c": "14/25",
+      "positive_decay_exponent": [
+        "1285230963096209776425226606665078134336758/1000000000000000000000000000000000000000000000",
+        "1285230963096209776425226606665078134336759/1000000000000000000000000000000000000000000000"
+      ],
+      "strictly_positive": true
+    },
+    {
+      "c": "3/5",
+      "positive_decay_exponent": [
+        "65662747460460224760455599935712583715360812/1000000000000000000000000000000000000000000000",
+        "65662747460460224760455599935712583715360813/1000000000000000000000000000000000000000000000"
+      ],
+      "strictly_positive": true
+    }
+  ],
+  "chebyshev_rows": [
+    {
+      "m": 1,
+      "zero_extrapolation_weights_exact": true,
+      "partial_fraction_polynomial_exact": true,
+      "matching_moments_checked": 1,
+      "laplace_bounds": [
+        {
+          "s": "2/5",
+          "H_exact": "5/13",
+          "perturbation_bound": "5120/12493"
+        },
+        {
+          "s": "1",
+          "H_exact": "1/5",
+          "perturbation_bound": "1024/4805"
+        }
+      ]
+    },
+    {
+      "m": 2,
+      "zero_extrapolation_weights_exact": true,
+      "partial_fraction_polynomial_exact": true,
+      "matching_moments_checked": 2,
+      "laplace_bounds": [
+        {
+          "s": "2/5",
+          "H_exact": "6544075/82031307",
+          "perturbation_bound": "25600/300793"
+        },
+        {
+          "s": "1",
+          "H_exact": "261763/12843651",
+          "perturbation_bound": "1024/47089"
+        }
+      ]
+    },
+    {
+      "m": 3,
+      "zero_extrapolation_weights_exact": true,
+      "partial_fraction_polynomial_exact": true,
+      "matching_moments_checked": 3,
+      "laplace_bounds": [
+        {
+          "s": "2/5",
+          "H_exact": "1048046375/65536687359",
+          "perturbation_bound": "128000/7508293"
+        },
+        {
+          "s": "1",
+          "H_exact": "8384371/4068371775",
+          "perturbation_bound": "1024/466085"
+        }
+      ]
+    },
+    {
+      "m": 4,
+      "zero_extrapolation_weights_exact": true,
+      "partial_fraction_polynomial_exact": true,
+      "matching_moments_checked": 4,
+      "laplace_bounds": [
+        {
+          "s": "2/5",
+          "H_exact": "2542364568725625/795254927577065593",
+          "perturbation_bound": "640000/187695793"
+        },
+        {
+          "s": "1",
+          "H_exact": "321354881486919/1544367975137398855",
+          "perturbation_bound": "1024/4613761"
+        }
+      ]
+    },
+    {
+      "m": 5,
+      "zero_extrapolation_weights_exact": true,
+      "partial_fraction_polynomial_exact": true,
+      "matching_moments_checked": 5,
+      "laplace_bounds": [
+        {
+          "s": "2/5",
+          "H_exact": "154574016272534375/241644061108913944383",
+          "perturbation_bound": "3200000/4692383293"
+        },
+        {
+          "s": "1",
+          "H_exact": "4501195353856201/214030762514937478125",
+          "perturbation_bound": "1024/45671525"
+        }
+      ]
+    },
+    {
+      "m": 6,
+      "zero_extrapolation_weights_exact": true,
+      "partial_fraction_polynomial_exact": true,
+      "matching_moments_checked": 6,
+      "laplace_bounds": [
+        {
+          "s": "2/5",
+          "H_exact": "345383647648621064849264765625/2698455005909000281306149446380217",
+          "perturbation_bound": "16000000/117309570793"
+        },
+        {
+          "s": "1",
+          "H_exact": "2813306802665131582772193/1323597327951624868274035381217",
+          "perturbation_bound": "1024/452101489"
+        }
+      ]
+    },
+    {
+      "m": 7,
+      "zero_extrapolation_weights_exact": true,
+      "partial_fraction_polynomial_exact": true,
+      "matching_moments_checked": 7,
+      "laplace_bounds": [
+        {
+          "s": "2/5",
+          "H_exact": "472298989733102677693326953125/18451081734860019380788417182571437",
+          "perturbation_bound": "80000000/2932739258293"
+        },
+        {
+          "s": "1",
+          "H_exact": "15718110378317657113633921/73206568750698449934170485601925",
+          "perturbation_bound": "1024/4475343365"
+        }
+      ]
+    },
+    {
+      "m": 8,
+      "zero_extrapolation_weights_exact": true,
+      "partial_fraction_polynomial_exact": true,
+      "matching_moments_checked": 8,
+      "laplace_bounds": [
+        {
+          "s": "2/5",
+          "H_exact": "1582923483430816945833477148024951171875/309238116801428810606024617707223014497479459",
+          "perturbation_bound": "400000000/73318481445793"
+        },
+        {
+          "s": "1",
+          "H_exact": "16063108213842091962043501437255/740676915090261185005141192372980212039",
+          "perturbation_bound": "1024/44301332161"
+        }
+      ]
+    },
+    {
+      "m": 9,
+      "zero_extrapolation_weights_exact": true,
+      "partial_fraction_polynomial_exact": true,
+      "matching_moments_checked": 9,
+      "laplace_bounds": [
+        {
+          "s": "2/5",
+          "H_exact": "49222460188589670366510577752491601318359375/48076519385710913317570200791987492930975278642023",
+          "perturbation_bound": "2000000000/1832962036133293"
+        },
+        {
+          "s": "1",
+          "H_exact": "720054274758797463647240451693591425/328639765396425410180451022000062227751086469",
+          "perturbation_bound": "1024/438537978245"
+        }
+      ]
+    },
+    {
+      "m": 10,
+      "zero_extrapolation_weights_exact": true,
+      "partial_fraction_polynomial_exact": true,
+      "matching_moments_checked": 10,
+      "laplace_bounds": [
+        {
+          "s": "2/5",
+          "H_exact": "7686264782370569183762601000617790351707763671875/37537036956096463061728170987780031279685181468951610179",
+          "perturbation_bound": "10000000000/45824050903320793"
+        },
+        {
+          "s": "1",
+          "H_exact": "1546284625043990550366208606803323998716423425/6986184538219913376291985922892826017720815995454024961",
+          "perturbation_bound": "1024/4341078450289"
+        }
+      ]
+    },
+    {
+      "m": 11,
+      "zero_extrapolation_weights_exact": true,
+      "partial_fraction_polynomial_exact": true,
+      "matching_moments_checked": 11,
+      "laplace_bounds": [
+        {
+          "s": "2/5",
+          "H_exact": "17209248916989363282854366357698132681742668663427734375/420197114088617026299957497579631915236694923748419771320551231",
+          "perturbation_bound": "50000000000/1145601272583008293"
+        },
+        {
+          "s": "1",
+          "H_exact": "352445417819942160032857423005657757322089854227/15761902367142745424087095406772974018386681021308879489375",
+          "perturbation_bound": "1024/42972246524645"
+        }
+      ]
+    },
+    {
+      "m": 12,
+      "zero_extrapolation_weights_exact": true,
+      "partial_fraction_polynomial_exact": true,
+      "matching_moments_checked": 12,
+      "laplace_bounds": [
+        {
+          "s": "2/5",
+          "H_exact": "25020923598411122539586093720124508536043410975127083197021484375/3054658865485317208385641421099207180442214922379453728444073026187621719",
+          "perturbation_bound": "250000000000/28640031814575195793"
+        },
+        {
+          "s": "1",
+          "H_exact": "50271693808250235770059801054801777328872772570583093/22255076203894530773017321942697255488150958056929138402727694389",
+          "perturbation_bound": "1024/425381386796161"
+        }
+      ]
+    },
+    {
+      "m": 13,
+      "zero_extrapolation_weights_exact": true,
+      "partial_fraction_polynomial_exact": true,
+      "matching_moments_checked": 13,
+      "laplace_bounds": [
+        {
+          "s": "2/5",
+          "H_exact": "45292213965096078710462345536179299777155954861381106298065185546875/27645609813507942559862540764643431882283427788260307012135196920217579234931",
+          "perturbation_bound": "1250000000000/716000795364379883293"
+        },
+        {
+          "s": "1",
+          "H_exact": "494972645875785358448951910531993739934466185253093573/2168951340545514474325771908890758207246016411367929286711379231705",
+          "perturbation_bound": "1024/4210841621436965"
+        }
+      ]
+    },
+    {
+      "m": 14,
+      "zero_extrapolation_weights_exact": true,
+      "partial_fraction_polynomial_exact": true,
+      "matching_moments_checked": 14,
+      "laplace_bounds": [
+        {
+          "s": "2/5",
+          "H_exact": "18397345366232394342605630167712469376297924640606920803274176520233154296875/56146971327776731074546888933371174796716658748277214315330819901633973269580851493931",
+          "perturbation_bound": "6250000000000/17900019884109497070793"
+        },
+        {
+          "s": "1",
+          "H_exact": "33008140858560770989219065720690674896719456386191443416389823151927079/1431787827502137143267596602507822074568309711658899928747482194025426386917751713575",
+          "perturbation_bound": "1024/41683034827573489"
+        }
+      ]
+    },
+    {
+      "m": 15,
+      "zero_extrapolation_weights_exact": true,
+      "partial_fraction_polynomial_exact": true,
+      "matching_moments_checked": 15,
+      "laplace_bounds": [
+        {
+          "s": "2/5",
+          "H_exact": "100121875490207576445410101200182683132750782645655042732252015731941375732421875/1527803254824839889502743130210215023203318666329942427515391549575789940737838034866694571",
+          "perturbation_bound": "31250000000000/447500497102737426758293"
+        },
+        {
+          "s": "1",
+          "H_exact": "199700480977755243954281629329505244576155161044606705058722072700259/85748070251690073392138174799113661943654570346660518969470655712482552732365339375",
+          "perturbation_bound": "1024/412619506654297925"
+        }
+      ]
+    },
+    {
+      "m": 16,
+      "zero_extrapolation_weights_exact": true,
+      "partial_fraction_polynomial_exact": true,
+      "matching_moments_checked": 16,
+      "laplace_bounds": [
+        {
+          "s": "2/5",
+          "H_exact": "298741741775516646582231691070890197492776219781696360603156414397819824135303497314453125/22793403743085613716123606824825302419968613306582604773842076279914230067682880809456334085329897093",
+          "perturbation_bound": "156250000000000/11187512427568435668945793"
+        },
+        {
+          "s": "1",
+          "H_exact": "605320619563293030350937541442221757924995782480796218388048966924846995/2572919163643729946287839485114527986629606992489359716527837366680714281785541499045779",
+          "perturbation_bound": "1024/4084512031715405761"
+        }
+      ]
+    }
+  ],
+  "fixed_count_rows": [
+    {
+      "m": 1,
+      "Q": 128,
+      "moments_checked": 1,
+      "weight_total_variation": "1",
+      "remainder_coefficient": "1/256"
+    },
+    {
+      "m": 2,
+      "Q": 256,
+      "moments_checked": 2,
+      "weight_total_variation": "3",
+      "remainder_coefficient": "1/196608"
+    },
+    {
+      "m": 3,
+      "Q": 384,
+      "moments_checked": 3,
+      "weight_total_variation": "7",
+      "remainder_coefficient": "1/226492416"
+    },
+    {
+      "m": 4,
+      "Q": 512,
+      "moments_checked": 4,
+      "weight_total_variation": "15",
+      "remainder_coefficient": "1/343597383680"
+    },
+    {
+      "m": 5,
+      "Q": 640,
+      "moments_checked": 5,
+      "weight_total_variation": "31",
+      "remainder_coefficient": "1/644245094400000"
+    },
+    {
+      "m": 6,
+      "Q": 768,
+      "moments_checked": 6,
+      "weight_total_variation": "63",
+      "remainder_coefficient": "1/1436366806154477568"
+    },
+    {
+      "m": 7,
+      "Q": 896,
+      "moments_checked": 7,
+      "weight_total_variation": "127",
+      "remainder_coefficient": "1/3708907947923580387328"
+    },
+    {
+      "m": 8,
+      "Q": 1024,
+      "moments_checked": 8,
+      "weight_total_variation": "255",
+      "remainder_coefficient": "1/10880332376531662572355584"
+    },
+    {
+      "m": 9,
+      "Q": 1152,
+      "moments_checked": 9,
+      "weight_total_variation": "511",
+      "remainder_coefficient": "1/35733233047472032655207301120"
+    },
+    {
+      "m": 10,
+      "Q": 1280,
+      "moments_checked": 10,
+      "weight_total_variation": "1023",
+      "remainder_coefficient": "1/129865078278915243376640000000000"
+    },
+    {
+      "m": 11,
+      "Q": 1408,
+      "moments_checked": 11,
+      "weight_total_variation": "2047",
+      "remainder_coefficient": "1/517380967858533423076018889429090304"
+    },
+    {
+      "m": 12,
+      "Q": 1536,
+      "moments_checked": 12,
+      "weight_total_variation": "4095",
+      "remainder_coefficient": "1/2242012040772243455408773843503858843648"
+    }
+  ],
+  "finite_source": {
+    "B": 256,
+    "a": "1/256",
+    "unit_convention_D1": 0,
+    "source_sign_and_radius_checks": 255,
+    "mobius_source_identity_interval_checks": 256,
+    "full_prefix_identity_interval_checks": 256,
+    "full_prefix_bound_interval_checks": 512,
+    "arithmetic_average_source_interval_checks": 256,
+    "arithmetic_average_point_interval_checks": 256,
+    "arithmetic": "outward fixed-denominator intervals from prior harmonic module; Taylor100/101 exponential enclosure",
+    "endpoint": {
+      "y": 256,
+      "actual_road_difference": {
+        "lower": "-2.17485372646160456887492183127544642",
+        "upper": "-2.17485372646160456887492183127544641",
+        "integer_bounds": [
+          "-217485372646160456887492183127544641678453283187902615959160163733856583130983125",
+          "-217485372646160456887492183127544641678453283187902615959160163733856583110063707"
+        ],
+        "denominator_power_of_10": 80,
+        "width_upper": "10459709/50000000000000000000000000000000000000000000000000000000000000000000000000000000"
+      },
+      "shrinking_radius_upper": {
+        "lower": "85.25431090916594680802651714860301930",
+        "upper": "85.25431090916594680802651714860301931",
+        "integer_bounds": [
+          "8525431090916594680802651714860301930396838024924330301215023181410624629864239038",
+          "8525431090916594680802651714860301930396838024924330301215023181410624629864239038"
+        ],
+        "denominator_power_of_10": 80,
+        "width_upper": "0"
+      },
+      "laplace_radius_upper": {
+        "lower": "77.15655642627233731339993283543304519",
+        "upper": "77.15655642627233731339993283543304520",
+        "integer_bounds": [
+          "7715655642627233731339993283543304519927440994181757084928317153346999794106334985",
+          "7715655642627233731339993283543304519927440994181757084928317153346999794106334985"
+        ],
+        "denominator_power_of_10": 80,
+        "width_upper": "0"
+      },
+      "arithmetic_average_radius_upper": {
+        "lower": "26.27027186557063999902436846348619682",
+        "upper": "26.27027186557063999902436846348619683",
+        "integer_bounds": [
+          "2627027186557063999902436846348619682030915778744920586750245011105271849466473472",
+          "2627027186557063999902436846348619682030915778744920586750245011105271849466473472"
+        ],
+        "denominator_power_of_10": 80,
+        "width_upper": "0"
+      }
+    }
+  }
+}

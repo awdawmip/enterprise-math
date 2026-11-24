@@ -1,0 +1,17 @@
+{
+  "schema": "RH_ISOTONIC_DRIFT_REFINEMENT_V1",
+  "status": "PASS",
+  "arithmetic": "Exact fractions; no floating-point decisions",
+  "input_domain": "L=2; h=2,...,6; all A in {-2,0,3}^h",
+  "drifts_exact": [
+    "0",
+    "1/4",
+    "1/2",
+    "1"
+  ],
+  "sequences": 1089,
+  "partition_transitions": 3267,
+  "fixed_split_transitions": 14769,
+  "strict_crossing_width_decreases": 3415,
+  "scope": "Finite implementation verification; general refinement theorem is proved in ISOTONIC_LOCALIZATION.md \u00a76.1."
+}
