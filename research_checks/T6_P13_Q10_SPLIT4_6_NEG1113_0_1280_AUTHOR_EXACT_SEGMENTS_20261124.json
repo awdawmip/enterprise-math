@@ -1,0 +1,242 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT4_6_NEG1113_AUTHOR_EXACT_SEGMENTS_V1",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "author": "EM-DIRECT-D03BC9",
+  "activity": "RA-A468735D7C934B25C4B9614F",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "signed_split": [
+    4,
+    6
+  ],
+  "negative_q_pattern": [
+    1,
+    1,
+    1,
+    3
+  ],
+  "interval": [
+    0,
+    1280
+  ],
+  "total_negative_rosters": 4368,
+  "positive_q_patterns": [
+    [
+      4
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      1,
+      1,
+      2
+    ],
+    [
+      1,
+      1,
+      1,
+      1
+    ]
+  ],
+  "budget_each_side": 2331,
+  "lattice_index": "13^21",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "stats": {
+    "negative_rosters": 1280,
+    "positive_rosters": 2535,
+    "raw_signed_pairs": 3244800,
+    "common_named_atom_canceled": 1516152,
+    "vertical_original_mass_excess": 0,
+    "gs_searches": 1728648,
+    "gs_nodes": 3416277,
+    "relaxed_sphere_witnesses": 1,
+    "both_original_side_mass_valid": 0
+  },
+  "segments": [
+    {
+      "interval": [
+        0,
+        256
+      ],
+      "stats": {
+        "negative_rosters": 256,
+        "positive_rosters": 2535,
+        "raw_signed_pairs": 648960,
+        "common_named_atom_canceled": 275712,
+        "vertical_original_mass_excess": 0,
+        "gs_searches": 373248,
+        "gs_nodes": 748805,
+        "relaxed_sphere_witnesses": 0,
+        "both_original_side_mass_valid": 0
+      },
+      "negative_roster_sha256": "5b2669b45fedc3b4cf01ac08a36d6d59d8dad6e19279add614dcf6b6c4e2f66b",
+      "pair_digest_sha256": "46ac982b52c113a0013c7748aca837f50d5f52c27f18bfe93ee45ded506d7f72",
+      "witnesses": [],
+      "seconds": 4.861617588000001
+    },
+    {
+      "interval": [
+        256,
+        1280
+      ],
+      "stats": {
+        "negative_rosters": 1024,
+        "positive_rosters": 2535,
+        "raw_signed_pairs": 2595840,
+        "common_named_atom_canceled": 1240440,
+        "vertical_original_mass_excess": 0,
+        "gs_searches": 1355400,
+        "gs_nodes": 2667472,
+        "relaxed_sphere_witnesses": 1,
+        "both_original_side_mass_valid": 0
+      },
+      "negative_roster_sha256": "069fac1cbad7c58559b06f158fa1d386fee0e2c73bf7b73c738fe523311ae1cb",
+      "pair_digest_sha256": "5132295b741c21c019c581db0a1d77d8cf2ee000ec15b37cd81f553d0bb434d8",
+      "witnesses": [
+        {
+          "pos": [
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              7
+            ]
+          ],
+          "neg": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              3,
+              7
+            ]
+          ],
+          "u": [
+            16,
+            34,
+            5,
+            -22,
+            8,
+            2,
+            3,
+            5,
+            0,
+            -4,
+            4,
+            -1
+          ],
+          "masses": [
+            4106,
+            3037
+          ],
+          "radius_sq": 3360145,
+          "weighted_norm_sq": 3291238,
+          "budget_valid": false,
+          "modular_residues": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "negative_roster_index": 330,
+          "positive_roster_index": 420
+        }
+      ],
+      "seconds": 18.97792950500002
+    }
+  ],
+  "witnesses": [
+    {
+      "pos": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "u": [
+        16,
+        34,
+        5,
+        -22,
+        8,
+        2,
+        3,
+        5,
+        0,
+        -4,
+        4,
+        -1
+      ],
+      "masses": [
+        4106,
+        3037
+      ],
+      "radius_sq": 3360145,
+      "weighted_norm_sq": 3291238,
+      "budget_valid": false,
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "negative_roster_index": 330,
+      "positive_roster_index": 420
+    }
+  ],
+  "author_replay_base": "awdawmip/enterprise-math@76db4fbf6106d3ac84344e51645e8e43765f6f06:research_checks/T6_P13_Q10_SPLIT4_6_NEG6_FULL_AUTHOR_EXACT_CERT_20261124.json",
+  "replay_rule": "Apply q6 exact replacements to pinned original replay, then replace negatives with [tuple((1,r) for r in v)+((3,t),) for v in combinations_with_replacement(range(1,13),3) for t in range(1,13)]; change negative count assertion 12 to 4368 and negative_q_pattern=[6] to [1,1,1,3]. Verify abs(U.det())==13**21, all basis rows satisfy six homogeneous congruences, and at each leaf norm=sum((w*x)**2 for w,x in zip(W,u)); assert norm<=radius and spent==norm*K. Run declared intervals separately.",
+  "validation": "Actual local Python/SymPy 1.14 exact integer GS; all original weights, signed atom identities and six modular observers retained. Conditional on established high-prime elimination, common named atom reduction and lattice completeness; no independent review or protected native progress.",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "next_action": "Continue [1280,4368) if no newer coverage. Preserve p17 q14 separate."
+}
