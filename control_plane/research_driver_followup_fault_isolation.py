@@ -714,7 +714,7 @@ def _composed_blocked_definition(
 def install(root: Path = ROOT) -> None:
     """Filter exact packets and locally block their exact solely-derived task heads."""
     rows = validated_quarantines(root)
-    derived = derived_task_rows(root)
+    derived = _derived_task_rows(rows)
 
     from control_plane import research_publication_fault_isolation as publication
 
