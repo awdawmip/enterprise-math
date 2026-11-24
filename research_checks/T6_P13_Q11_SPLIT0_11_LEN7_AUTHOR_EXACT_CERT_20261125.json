@@ -1,0 +1,687 @@
+{
+  "schema": "T6_P13_Q11_SPLIT0_11_LEN7_AUTHOR_EXACT_INTEGER_V1",
+  "frozen_science": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "researcher": "EM-DIRECT-D03BC9",
+  "session": "MCP-7f3df4435e40430b832e8d5ff2137718",
+  "activity": "RA-A468735D7C934B25C4B9614F",
+  "p": 13,
+  "valuation": 1,
+  "total_q": 11,
+  "split": [
+    0,
+    11
+  ],
+  "budget": 2331,
+  "length": 7,
+  "pattern_range": [
+    0,
+    5
+  ],
+  "scope": "All 7-atom partitions of 11, full 12-label over-domain; conditional on prior high valuation reduction; no smoothness filter.",
+  "source_replay": "949c4114b1882b37b60e4e7de05d7ce9933fb33b:research_checks/T6_P13_Q11_SPLIT0_11_LEN1TO3_AUTHOR_REPLAY_20261125.py",
+  "reproduction": "Set length loop to range(7,8) in pinned Fraction replay. Actual local integer-scaled GS execution, same scaling as previous length5.",
+  "method": "HNF/weighted LLL, exact rational GS, same lattice index 13^21 and minimum D as pinned replay. For each coset c_i with common denominator B, use integer C_i=B*c_i, Z_j=B*(c_j+n_j), L_i=lcm denominators of mu[j][i], M_ji=L_i*mu[j][i]. Center numerator h_i=L_i*C_i+sum M_ji*Z_j; denominator B*L_i. Set Q=lcm denominators of D_i/(B*L_i)^2 and T_i=Q*D_i/(B*L_i)^2. Recurse E+=T_i*(h_i+B*L_i*n_i)^2 <= Q*radius_sq with floor(-h_i/(B*L_i)) and its successor. Reconstruct integer u, assert norm*Q=E and original six congruences; check both masses. Separately compute raw/over counts by convolution of sums of multiset residue labels. All 5 rows match independent DP.",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "coset_denominator": 4826809,
+  "lattice_index": "13^21",
+  "rows": [
+    {
+      "index": 0,
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        5
+      ],
+      "raw": 148512,
+      "over": 118636,
+      "search": 29876,
+      "nodes": 81448,
+      "leaves": 0,
+      "valid": 0,
+      "roster_sha256": "4e7fe8c3ab561713f92f3e6f486b50974686dd761a32eac5d3e00969dc709b5f"
+    },
+    {
+      "index": 1,
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        4
+      ],
+      "raw": 628992,
+      "over": 509123,
+      "search": 119869,
+      "nodes": 326089,
+      "leaves": 5,
+      "valid": 0,
+      "roster_sha256": "2bd821e21d8d7ac466773b5cd9cb1002003411f03cfcd5c58605f660acf51770"
+    },
+    {
+      "index": 2,
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        3,
+        3
+      ],
+      "raw": 340704,
+      "over": 275051,
+      "search": 65653,
+      "nodes": 179582,
+      "leaves": 1,
+      "valid": 0,
+      "roster_sha256": "739ca323d33de90bda9f1a20db39edce21503198a2e40b4b2afa5f6146470385"
+    },
+    {
+      "index": 3,
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        3
+      ],
+      "raw": 1277640,
+      "over": 1043053,
+      "search": 234587,
+      "nodes": 639751,
+      "leaves": 2,
+      "valid": 0,
+      "roster_sha256": "0db6f5cc3fb448a5bdaedf8362e696d89d62dbb753044c3b302b93c52567399c"
+    },
+    {
+      "index": 4,
+      "pattern": [
+        1,
+        1,
+        1,
+        2,
+        2,
+        2,
+        2
+      ],
+      "raw": 496860,
+      "over": 403370,
+      "search": 93490,
+      "nodes": 252989,
+      "leaves": 1,
+      "valid": 0,
+      "roster_sha256": "4c9e4577b1421eb70444ecfce77a6e0fbb0d3be6baf413e7c2e15ce6a1ec9ab8"
+    }
+  ],
+  "witnesses": [
+    {
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          4,
+          2
+        ]
+      ],
+      "u": [
+        102,
+        -25,
+        5,
+        9,
+        -15,
+        2,
+        -14,
+        -2,
+        -1,
+        -3,
+        -4,
+        0
+      ],
+      "masses": [
+        2027,
+        6429
+      ],
+      "norm_sq": 5196783,
+      "radius_sq": 5434137,
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    },
+    {
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          4,
+          2
+        ]
+      ],
+      "u": [
+        14,
+        -7,
+        -7,
+        -19,
+        -5,
+        -8,
+        -9,
+        9,
+        5,
+        5,
+        1,
+        8
+      ],
+      "masses": [
+        3702,
+        5424
+      ],
+      "norm_sq": 5376040,
+      "radius_sq": 5437530,
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    },
+    {
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "u": [
+        29,
+        13,
+        -2,
+        25,
+        -2,
+        10,
+        3,
+        -3,
+        0,
+        -4,
+        1,
+        -10
+      ],
+      "masses": [
+        3130,
+        4886
+      ],
+      "norm_sq": 5324715,
+      "radius_sq": 5434137,
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    },
+    {
+      "neg": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          4,
+          2
+        ]
+      ],
+      "u": [
+        -27,
+        -12,
+        -1,
+        4,
+        1,
+        -2,
+        1,
+        6,
+        5,
+        1,
+        6,
+        0
+      ],
+      "masses": [
+        2537,
+        3045
+      ],
+      "norm_sq": 1734817,
+      "radius_sq": 5443965,
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    },
+    {
+      "neg": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          4,
+          2
+        ]
+      ],
+      "u": [
+        -35,
+        12,
+        12,
+        -26,
+        13,
+        -6,
+        6,
+        7,
+        9,
+        0,
+        -4,
+        0
+      ],
+      "masses": [
+        3893,
+        4979
+      ],
+      "norm_sq": 5362281,
+      "radius_sq": 5449945,
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    },
+    {
+      "neg": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "u": [
+        -55,
+        14,
+        -1,
+        7,
+        0,
+        11,
+        -10,
+        -6,
+        -4,
+        -4,
+        6,
+        4
+      ],
+      "masses": [
+        3026,
+        5438
+      ],
+      "norm_sq": 4188182,
+      "radius_sq": 5441482,
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    },
+    {
+      "neg": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "u": [
+        -27,
+        18,
+        8,
+        13,
+        2,
+        -12,
+        5,
+        -1,
+        -4,
+        1,
+        8,
+        4
+      ],
+      "masses": [
+        3880,
+        4070
+      ],
+      "norm_sq": 3829563,
+      "radius_sq": 5439337,
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    },
+    {
+      "neg": [
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "u": [
+        -113,
+        -19,
+        -23,
+        0,
+        1,
+        7,
+        0,
+        -9,
+        -2,
+        4,
+        5,
+        -3
+      ],
+      "masses": [
+        1829,
+        6623
+      ],
+      "norm_sq": 5022588,
+      "radius_sq": 5434930,
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    },
+    {
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          8
+        ]
+      ],
+      "u": [
+        -40,
+        -7,
+        -41,
+        11,
+        0,
+        -2,
+        3,
+        13,
+        -2,
+        2,
+        2,
+        0
+      ],
+      "masses": [
+        2712,
+        4750
+      ],
+      "norm_sq": 5093691,
+      "radius_sq": 5465961,
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "budget_valid": false
+    }
+  ],
+  "totals": {
+    "raw": 2892708,
+    "over": 2349233,
+    "search": 543475,
+    "nodes": 1479859,
+    "leaves": 9,
+    "valid": 0
+  },
+  "elapsed_s": 17.810478241,
+  "provenance": "Transcribed actual local Python integer execution. Independent multiset DP coverage and exact energy/congruence/original mass checks executed. Author evidence, not formal task progress.",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "next": "q11 split(0,11) length8; do not repeat q10 or lengths1..7."
+}
