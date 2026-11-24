@@ -1,0 +1,4947 @@
+{
+  "schema": "T6_P13_Q10_SPLIT1_9_AUTHOR_AGGREGATE_COVERAGE_AUDIT_V1",
+  "date": "2026-11-24",
+  "frozen_scientific_pin": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "source_snapshot": "81497f89875aea14f9abb159b428b9aac5d79064",
+  "scope": "p13 valuation1 q10 split(1,9), original observers H0..H6, each side mass cap2331",
+  "method": "Exact independent multiset residue-sum DP, one positive q1 residue rho. For each partition of9 exclude rho from q1 residue alphabet to count no-common-atom pairs; negative vertical mass=1521+13S-ell. Count overflow only after common cancellation. Verify source interval union, count conservation and all original signed witnesses via BigInt modular inverses and masses. Prior GS execution consumed, not replayed.",
+  "partition_count": 30,
+  "totals": {
+    "raw_pairs": 20036640,
+    "common_cancel": 6254820,
+    "vertical_overbudget": 1162581,
+    "gs_searches": 12619239,
+    "gs_nodes": 30224512,
+    "ball_leaves": 67,
+    "budget_valid": 0
+  },
+  "pattern_audit": [
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "negative_rosters": 167960,
+      "raw_pairs": 2015520,
+      "common_cancel": 906984,
+      "vertical_overbudget": 399490,
+      "gs_searches": 709046,
+      "gs_nodes": 1679293,
+      "ball_leaves": 3,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "negative_rosters": 381888,
+      "raw_pairs": 4582656,
+      "common_cancel": 1782144,
+      "vertical_overbudget": 540721,
+      "gs_searches": 2259791,
+      "gs_nodes": 5377651,
+      "ball_leaves": 10,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        3
+      ],
+      "negative_rosters": 148512,
+      "raw_pairs": 1782144,
+      "common_cancel": 628992,
+      "vertical_overbudget": 66961,
+      "gs_searches": 1086191,
+      "gs_nodes": 2592835,
+      "ball_leaves": 4,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2
+      ],
+      "negative_rosters": 340704,
+      "raw_pairs": 4088448,
+      "common_cancel": 1277640,
+      "vertical_overbudget": 141940,
+      "gs_searches": 2668868,
+      "gs_nodes": 6370377,
+      "ball_leaves": 16,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        4
+      ],
+      "negative_rosters": 52416,
+      "raw_pairs": 628992,
+      "common_cancel": 196560,
+      "vertical_overbudget": 2438,
+      "gs_searches": 429994,
+      "gs_nodes": 1031061,
+      "ball_leaves": 2,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        2,
+        3
+      ],
+      "negative_rosters": 196560,
+      "raw_pairs": 2358720,
+      "common_cancel": 628992,
+      "vertical_overbudget": 6492,
+      "gs_searches": 1723236,
+      "gs_nodes": 4135522,
+      "ball_leaves": 9,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        5
+      ],
+      "negative_rosters": 16380,
+      "raw_pairs": 196560,
+      "common_cancel": 52416,
+      "vertical_overbudget": 0,
+      "gs_searches": 144144,
+      "gs_nodes": 348157,
+      "ball_leaves": 0,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        2,
+        2,
+        2
+      ],
+      "negative_rosters": 132496,
+      "raw_pairs": 1589952,
+      "common_cancel": 340704,
+      "vertical_overbudget": 4539,
+      "gs_searches": 1244709,
+      "gs_nodes": 2983610,
+      "ball_leaves": 4,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        2,
+        4
+      ],
+      "negative_rosters": 52416,
+      "raw_pairs": 628992,
+      "common_cancel": 134784,
+      "vertical_overbudget": 0,
+      "gs_searches": 494208,
+      "gs_nodes": 1193696,
+      "ball_leaves": 4,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        3,
+        3
+      ],
+      "negative_rosters": 28392,
+      "raw_pairs": 340704,
+      "common_cancel": 73008,
+      "vertical_overbudget": 0,
+      "gs_searches": 267696,
+      "gs_nodes": 647138,
+      "ball_leaves": 2,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        6
+      ],
+      "negative_rosters": 4368,
+      "raw_pairs": 52416,
+      "common_cancel": 11232,
+      "vertical_overbudget": 0,
+      "gs_searches": 41184,
+      "gs_nodes": 100135,
+      "ball_leaves": 1,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        2,
+        2,
+        3
+      ],
+      "negative_rosters": 73008,
+      "raw_pairs": 876096,
+      "common_cancel": 134784,
+      "vertical_overbudget": 0,
+      "gs_searches": 741312,
+      "gs_nodes": 1791733,
+      "ball_leaves": 6,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        2,
+        5
+      ],
+      "negative_rosters": 11232,
+      "raw_pairs": 134784,
+      "common_cancel": 20736,
+      "vertical_overbudget": 0,
+      "gs_searches": 114048,
+      "gs_nodes": 279090,
+      "ball_leaves": 0,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        3,
+        4
+      ],
+      "negative_rosters": 11232,
+      "raw_pairs": 134784,
+      "common_cancel": 20736,
+      "vertical_overbudget": 0,
+      "gs_searches": 114048,
+      "gs_nodes": 278573,
+      "ball_leaves": 0,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        7
+      ],
+      "negative_rosters": 936,
+      "raw_pairs": 11232,
+      "common_cancel": 1728,
+      "vertical_overbudget": 0,
+      "gs_searches": 9504,
+      "gs_nodes": 23394,
+      "ball_leaves": 0,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        2,
+        2,
+        2,
+        2
+      ],
+      "negative_rosters": 16380,
+      "raw_pairs": 196560,
+      "common_cancel": 16380,
+      "vertical_overbudget": 0,
+      "gs_searches": 180180,
+      "gs_nodes": 435222,
+      "ball_leaves": 2,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        2,
+        2,
+        4
+      ],
+      "negative_rosters": 11232,
+      "raw_pairs": 134784,
+      "common_cancel": 11232,
+      "vertical_overbudget": 0,
+      "gs_searches": 123552,
+      "gs_nodes": 300940,
+      "ball_leaves": 2,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        2,
+        3,
+        3
+      ],
+      "negative_rosters": 11232,
+      "raw_pairs": 134784,
+      "common_cancel": 11232,
+      "vertical_overbudget": 0,
+      "gs_searches": 123552,
+      "gs_nodes": 301289,
+      "ball_leaves": 0,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        2,
+        6
+      ],
+      "negative_rosters": 1728,
+      "raw_pairs": 20736,
+      "common_cancel": 1728,
+      "vertical_overbudget": 0,
+      "gs_searches": 19008,
+      "gs_nodes": 47139,
+      "ball_leaves": 1,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        3,
+        5
+      ],
+      "negative_rosters": 1728,
+      "raw_pairs": 20736,
+      "common_cancel": 1728,
+      "vertical_overbudget": 0,
+      "gs_searches": 19008,
+      "gs_nodes": 46925,
+      "ball_leaves": 0,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        4,
+        4
+      ],
+      "negative_rosters": 936,
+      "raw_pairs": 11232,
+      "common_cancel": 936,
+      "vertical_overbudget": 0,
+      "gs_searches": 10296,
+      "gs_nodes": 25447,
+      "ball_leaves": 0,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        8
+      ],
+      "negative_rosters": 144,
+      "raw_pairs": 1728,
+      "common_cancel": 144,
+      "vertical_overbudget": 0,
+      "gs_searches": 1584,
+      "gs_nodes": 3981,
+      "ball_leaves": 0,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        2,
+        2,
+        2,
+        3
+      ],
+      "negative_rosters": 4368,
+      "raw_pairs": 52416,
+      "common_cancel": 0,
+      "vertical_overbudget": 0,
+      "gs_searches": 52416,
+      "gs_nodes": 127824,
+      "ball_leaves": 1,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        2,
+        2,
+        5
+      ],
+      "negative_rosters": 936,
+      "raw_pairs": 11232,
+      "common_cancel": 0,
+      "vertical_overbudget": 0,
+      "gs_searches": 11232,
+      "gs_nodes": 28149,
+      "ball_leaves": 0,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        2,
+        3,
+        4
+      ],
+      "negative_rosters": 1728,
+      "raw_pairs": 20736,
+      "common_cancel": 0,
+      "vertical_overbudget": 0,
+      "gs_searches": 20736,
+      "gs_nodes": 51156,
+      "ball_leaves": 0,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        2,
+        7
+      ],
+      "negative_rosters": 144,
+      "raw_pairs": 1728,
+      "common_cancel": 0,
+      "vertical_overbudget": 0,
+      "gs_searches": 1728,
+      "gs_nodes": 4420,
+      "ball_leaves": 0,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        3,
+        3,
+        3
+      ],
+      "negative_rosters": 364,
+      "raw_pairs": 4368,
+      "common_cancel": 0,
+      "vertical_overbudget": 0,
+      "gs_searches": 4368,
+      "gs_nodes": 10726,
+      "ball_leaves": 0,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        3,
+        6
+      ],
+      "negative_rosters": 144,
+      "raw_pairs": 1728,
+      "common_cancel": 0,
+      "vertical_overbudget": 0,
+      "gs_searches": 1728,
+      "gs_nodes": 4266,
+      "ball_leaves": 0,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        4,
+        5
+      ],
+      "negative_rosters": 144,
+      "raw_pairs": 1728,
+      "common_cancel": 0,
+      "vertical_overbudget": 0,
+      "gs_searches": 1728,
+      "gs_nodes": 4378,
+      "ball_leaves": 0,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        9
+      ],
+      "negative_rosters": 12,
+      "raw_pairs": 144,
+      "common_cancel": 0,
+      "vertical_overbudget": 0,
+      "gs_searches": 144,
+      "gs_nodes": 385,
+      "ball_leaves": 0,
+      "budget_valid": 0
+    }
+  ],
+  "source_rows": [
+    {
+      "pattern": [
+        9
+      ],
+      "interval": [
+        0,
+        12
+      ],
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN1TO3_FULL_AUTHOR_EXACT_CERT_20261123.json",
+      "raw_pairs": 144,
+      "common_cancel": 0,
+      "vertical_overbudget": 0,
+      "gs_searches": 144,
+      "gs_nodes": 385,
+      "ball_leaves": 0,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        8
+      ],
+      "interval": [
+        0,
+        144
+      ],
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN1TO3_FULL_AUTHOR_EXACT_CERT_20261123.json",
+      "raw_pairs": 1728,
+      "common_cancel": 144,
+      "vertical_overbudget": 0,
+      "gs_searches": 1584,
+      "gs_nodes": 3981,
+      "ball_leaves": 0,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        2,
+        7
+      ],
+      "interval": [
+        0,
+        144
+      ],
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN1TO3_FULL_AUTHOR_EXACT_CERT_20261123.json",
+      "raw_pairs": 1728,
+      "common_cancel": 0,
+      "vertical_overbudget": 0,
+      "gs_searches": 1728,
+      "gs_nodes": 4420,
+      "ball_leaves": 0,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        3,
+        6
+      ],
+      "interval": [
+        0,
+        144
+      ],
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN1TO3_FULL_AUTHOR_EXACT_CERT_20261123.json",
+      "raw_pairs": 1728,
+      "common_cancel": 0,
+      "vertical_overbudget": 0,
+      "gs_searches": 1728,
+      "gs_nodes": 4266,
+      "ball_leaves": 0,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        4,
+        5
+      ],
+      "interval": [
+        0,
+        144
+      ],
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN1TO3_FULL_AUTHOR_EXACT_CERT_20261123.json",
+      "raw_pairs": 1728,
+      "common_cancel": 0,
+      "vertical_overbudget": 0,
+      "gs_searches": 1728,
+      "gs_nodes": 4378,
+      "ball_leaves": 0,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        7
+      ],
+      "interval": [
+        0,
+        936
+      ],
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN1TO3_FULL_AUTHOR_EXACT_CERT_20261123.json",
+      "raw_pairs": 11232,
+      "common_cancel": 1728,
+      "vertical_overbudget": 0,
+      "gs_searches": 9504,
+      "gs_nodes": 23394,
+      "ball_leaves": 0,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        2,
+        6
+      ],
+      "interval": [
+        0,
+        1728
+      ],
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN1TO3_FULL_AUTHOR_EXACT_CERT_20261123.json",
+      "raw_pairs": 20736,
+      "common_cancel": 1728,
+      "vertical_overbudget": 0,
+      "gs_searches": 19008,
+      "gs_nodes": 47139,
+      "ball_leaves": 1,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        3,
+        5
+      ],
+      "interval": [
+        0,
+        1728
+      ],
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN1TO3_FULL_AUTHOR_EXACT_CERT_20261123.json",
+      "raw_pairs": 20736,
+      "common_cancel": 1728,
+      "vertical_overbudget": 0,
+      "gs_searches": 19008,
+      "gs_nodes": 46925,
+      "ball_leaves": 0,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        4,
+        4
+      ],
+      "interval": [
+        0,
+        936
+      ],
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN1TO3_FULL_AUTHOR_EXACT_CERT_20261123.json",
+      "raw_pairs": 11232,
+      "common_cancel": 936,
+      "vertical_overbudget": 0,
+      "gs_searches": 10296,
+      "gs_nodes": 25447,
+      "ball_leaves": 0,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        2,
+        2,
+        5
+      ],
+      "interval": [
+        0,
+        936
+      ],
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN1TO3_FULL_AUTHOR_EXACT_CERT_20261123.json",
+      "raw_pairs": 11232,
+      "common_cancel": 0,
+      "vertical_overbudget": 0,
+      "gs_searches": 11232,
+      "gs_nodes": 28149,
+      "ball_leaves": 0,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        2,
+        3,
+        4
+      ],
+      "interval": [
+        0,
+        1728
+      ],
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN1TO3_FULL_AUTHOR_EXACT_CERT_20261123.json",
+      "raw_pairs": 20736,
+      "common_cancel": 0,
+      "vertical_overbudget": 0,
+      "gs_searches": 20736,
+      "gs_nodes": 51156,
+      "ball_leaves": 0,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        3,
+        3,
+        3
+      ],
+      "interval": [
+        0,
+        364
+      ],
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN1TO3_FULL_AUTHOR_EXACT_CERT_20261123.json",
+      "raw_pairs": 4368,
+      "common_cancel": 0,
+      "vertical_overbudget": 0,
+      "gs_searches": 4368,
+      "gs_nodes": 10726,
+      "ball_leaves": 0,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        6
+      ],
+      "interval": [
+        0,
+        4368
+      ],
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN4_AUTHOR_EXACT_CERT_20261123_1402.json",
+      "raw_pairs": 52416,
+      "common_cancel": 11232,
+      "vertical_overbudget": 0,
+      "gs_searches": 41184,
+      "gs_nodes": 100135,
+      "ball_leaves": 1,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        2,
+        5
+      ],
+      "interval": [
+        0,
+        11232
+      ],
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN4_AUTHOR_EXACT_CERT_20261123_1402.json",
+      "raw_pairs": 134784,
+      "common_cancel": 20736,
+      "vertical_overbudget": 0,
+      "gs_searches": 114048,
+      "gs_nodes": 279090,
+      "ball_leaves": 0,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        3,
+        4
+      ],
+      "interval": [
+        0,
+        11232
+      ],
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN4_AUTHOR_EXACT_CERT_20261123_1402.json",
+      "raw_pairs": 134784,
+      "common_cancel": 20736,
+      "vertical_overbudget": 0,
+      "gs_searches": 114048,
+      "gs_nodes": 278573,
+      "ball_leaves": 0,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        2,
+        2,
+        4
+      ],
+      "interval": [
+        0,
+        11232
+      ],
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN4_AUTHOR_EXACT_CERT_20261123_1402.json",
+      "raw_pairs": 134784,
+      "common_cancel": 11232,
+      "vertical_overbudget": 0,
+      "gs_searches": 123552,
+      "gs_nodes": 300940,
+      "ball_leaves": 2,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        2,
+        3,
+        3
+      ],
+      "interval": [
+        0,
+        11232
+      ],
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN4_AUTHOR_EXACT_CERT_20261123_1402.json",
+      "raw_pairs": 134784,
+      "common_cancel": 11232,
+      "vertical_overbudget": 0,
+      "gs_searches": 123552,
+      "gs_nodes": 301289,
+      "ball_leaves": 0,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        2,
+        2,
+        2,
+        3
+      ],
+      "interval": [
+        0,
+        4368
+      ],
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN4_AUTHOR_EXACT_CERT_20261123_1402.json",
+      "raw_pairs": 52416,
+      "common_cancel": 0,
+      "vertical_overbudget": 0,
+      "gs_searches": 52416,
+      "gs_nodes": 127824,
+      "ball_leaves": 1,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        5
+      ],
+      "interval": [
+        0,
+        16380
+      ],
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN5_ALL_PATTERNS_AUTHOR_EXACT_CERT_20261123_1417.json",
+      "raw_pairs": 196560,
+      "common_cancel": 52416,
+      "vertical_overbudget": 0,
+      "gs_searches": 144144,
+      "gs_nodes": 348157,
+      "ball_leaves": 0,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        2,
+        4
+      ],
+      "interval": [
+        0,
+        52416
+      ],
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN5_ALL_PATTERNS_AUTHOR_EXACT_CERT_20261123_1417.json",
+      "raw_pairs": 628992,
+      "common_cancel": 134784,
+      "vertical_overbudget": 0,
+      "gs_searches": 494208,
+      "gs_nodes": 1193696,
+      "ball_leaves": 4,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        3,
+        3
+      ],
+      "interval": [
+        0,
+        28392
+      ],
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN5_ALL_PATTERNS_AUTHOR_EXACT_CERT_20261123_1417.json",
+      "raw_pairs": 340704,
+      "common_cancel": 73008,
+      "vertical_overbudget": 0,
+      "gs_searches": 267696,
+      "gs_nodes": 647138,
+      "ball_leaves": 2,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        2,
+        2,
+        3
+      ],
+      "interval": [
+        0,
+        73008
+      ],
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN5_ALL_PATTERNS_AUTHOR_EXACT_CERT_20261123_1417.json",
+      "raw_pairs": 876096,
+      "common_cancel": 134784,
+      "vertical_overbudget": 0,
+      "gs_searches": 741312,
+      "gs_nodes": 1791733,
+      "ball_leaves": 6,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        2,
+        2,
+        2,
+        2
+      ],
+      "interval": [
+        0,
+        16380
+      ],
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN5_ALL_PATTERNS_AUTHOR_EXACT_CERT_20261123_1417.json",
+      "raw_pairs": 196560,
+      "common_cancel": 16380,
+      "vertical_overbudget": 0,
+      "gs_searches": 180180,
+      "gs_nodes": 435222,
+      "ball_leaves": 2,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        4
+      ],
+      "interval": [
+        0,
+        52416
+      ],
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN6_PATTERN111114_AUTHOR_EXACT_CERT_20261123_1425.json",
+      "raw_pairs": 628992,
+      "common_cancel": 196560,
+      "vertical_overbudget": 2438,
+      "gs_searches": 429994,
+      "gs_nodes": 1031061,
+      "ball_leaves": 2,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        2,
+        3
+      ],
+      "interval": [
+        0,
+        196560
+      ],
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG111123_COMPLETE_AUTHOR_EXACT_CERT_20261123.json",
+      "raw_pairs": 2358720,
+      "common_cancel": 628992,
+      "vertical_overbudget": 6492,
+      "gs_searches": 1723236,
+      "gs_nodes": 4135522,
+      "ball_leaves": 9,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        2,
+        2,
+        2
+      ],
+      "interval": [
+        0,
+        132496
+      ],
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG111222_COMPLETE_AUTHOR_EXACT_CERT_20261123.json",
+      "raw_pairs": 1589952,
+      "common_cancel": 340704,
+      "vertical_overbudget": 4539,
+      "gs_searches": 1244709,
+      "gs_nodes": 2983610,
+      "ball_leaves": 4,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        3
+      ],
+      "interval": [
+        0,
+        148512
+      ],
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG1111113_FULL_EXACT_AUTHOR_CERT_20261123_1700.json",
+      "raw_pairs": 1782144,
+      "common_cancel": 628992,
+      "vertical_overbudget": 66961,
+      "gs_searches": 1086191,
+      "gs_nodes": 2592835,
+      "ball_leaves": 4,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2
+      ],
+      "interval": [
+        0,
+        32768
+      ],
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG1111122_FIRST32768_EXACT_AUTHOR_CERT_20261123_1601.json",
+      "raw_pairs": 393216,
+      "common_cancel": 111408,
+      "vertical_overbudget": 0,
+      "gs_searches": 281808,
+      "gs_nodes": 677642,
+      "ball_leaves": 3,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2
+      ],
+      "interval": [
+        32768,
+        65536
+      ],
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG1111122_32768TO65536_EXACT_AUTHOR_CERT_20261123_1604.json",
+      "raw_pairs": 393216,
+      "common_cancel": 143170,
+      "vertical_overbudget": 9,
+      "gs_searches": 250037,
+      "gs_nodes": 597013,
+      "ball_leaves": 2,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2
+      ],
+      "interval": [
+        65536,
+        131072
+      ],
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG1111122_65536TO131072_EXACT_AUTHOR_CERT_20261123_1610.json",
+      "raw_pairs": 786432,
+      "common_cancel": 246076,
+      "vertical_overbudget": 5120,
+      "gs_searches": 535236,
+      "gs_nodes": 1276237,
+      "ball_leaves": 4,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2
+      ],
+      "interval": [
+        131072,
+        196608
+      ],
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG1111122_131072TO196608_EXACT_AUTHOR_CERT_20261123_1613.json",
+      "raw_pairs": 786432,
+      "common_cancel": 258196,
+      "vertical_overbudget": 7211,
+      "gs_searches": 521025,
+      "gs_nodes": 1243953,
+      "ball_leaves": 1,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2
+      ],
+      "interval": [
+        196608,
+        262144
+      ],
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG1111122_196608TO262144_EXACT_AUTHOR_CERT_20261123_1618.json",
+      "raw_pairs": 786432,
+      "common_cancel": 249152,
+      "vertical_overbudget": 10858,
+      "gs_searches": 526422,
+      "gs_nodes": 1254516,
+      "ball_leaves": 4,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2
+      ],
+      "interval": [
+        262144,
+        340704
+      ],
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG1111122_262144TO340704_EXACT_AUTHOR_CERT_20261123_1700.json",
+      "raw_pairs": 942720,
+      "common_cancel": 269638,
+      "vertical_overbudget": 118742,
+      "gs_searches": 554340,
+      "gs_nodes": 1321016,
+      "ball_leaves": 2,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "interval": [
+        0,
+        381888
+      ],
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG11111112_FULL_AUTHOR_EXACT_CERT_20261123_1700.json",
+      "raw_pairs": 4582656,
+      "common_cancel": 1782144,
+      "vertical_overbudget": 540721,
+      "gs_searches": 2259791,
+      "gs_nodes": 5377651,
+      "ball_leaves": 10,
+      "budget_valid": 0
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "interval": [
+        0,
+        167960
+      ],
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG111111111_FULL_AUTHOR_EXACT_CERT_20261123_1700.json",
+      "raw_pairs": 2015520,
+      "common_cancel": 906984,
+      "vertical_overbudget": 399490,
+      "gs_searches": 709046,
+      "gs_nodes": 1679293,
+      "ball_leaves": 3,
+      "budget_valid": 0
+    }
+  ],
+  "source_files": [
+    {
+      "path": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN1TO3_FULL_AUTHOR_EXACT_CERT_20261123.json",
+      "git_blob": "b0898535e1cadc1fbcbbb56aba200bd37a8a974f"
+    },
+    {
+      "path": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN4_AUTHOR_EXACT_CERT_20261123_1402.json",
+      "git_blob": "b05f0340caeb05504f9649df28e63a9b580d9eea"
+    },
+    {
+      "path": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN5_ALL_PATTERNS_AUTHOR_EXACT_CERT_20261123_1417.json",
+      "git_blob": "681a352bc9cde55acb54f1b6104f2056570f27f6"
+    },
+    {
+      "path": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN6_PATTERN111114_AUTHOR_EXACT_CERT_20261123_1425.json",
+      "git_blob": "798d7141fb3226d3b09203048dcb06fc79db7e7f"
+    },
+    {
+      "path": "research_checks/T6_P13_Q10_SPLIT1_9_NEG111123_COMPLETE_AUTHOR_EXACT_CERT_20261123.json",
+      "git_blob": "12f71f81350d0df07f18c15d2b2e7bd7ef8a1b2e"
+    },
+    {
+      "path": "research_checks/T6_P13_Q10_SPLIT1_9_NEG111222_COMPLETE_AUTHOR_EXACT_CERT_20261123.json",
+      "git_blob": "f5258a429b0b4c0d35220808f80a4f2a96e955bd"
+    },
+    {
+      "path": "research_checks/T6_P13_Q10_SPLIT1_9_NEG1111113_FULL_EXACT_AUTHOR_CERT_20261123_1700.json",
+      "git_blob": "902f2379f985206bb2e40e6a36c9d322b6c252be"
+    },
+    {
+      "path": "research_checks/T6_P13_Q10_SPLIT1_9_NEG1111122_FIRST32768_EXACT_AUTHOR_CERT_20261123_1601.json",
+      "git_blob": "ba8852c6d40d097126c05c9491c74477c0eee4d9"
+    },
+    {
+      "path": "research_checks/T6_P13_Q10_SPLIT1_9_NEG1111122_32768TO65536_EXACT_AUTHOR_CERT_20261123_1604.json",
+      "git_blob": "d1a71be18eab775dff6c7335f1147c040922b133"
+    },
+    {
+      "path": "research_checks/T6_P13_Q10_SPLIT1_9_NEG1111122_65536TO131072_EXACT_AUTHOR_CERT_20261123_1610.json",
+      "git_blob": "5fcc8408ab491a09fff0839074a0019a9a045ae2"
+    },
+    {
+      "path": "research_checks/T6_P13_Q10_SPLIT1_9_NEG1111122_131072TO196608_EXACT_AUTHOR_CERT_20261123_1613.json",
+      "git_blob": "1bc6038ecfcfa28a1f45ea2bda3a6790161c78e6"
+    },
+    {
+      "path": "research_checks/T6_P13_Q10_SPLIT1_9_NEG1111122_196608TO262144_EXACT_AUTHOR_CERT_20261123_1618.json",
+      "git_blob": "a21a188fac16a67c9b6a8c11b69ff0a65e48e293"
+    },
+    {
+      "path": "research_checks/T6_P13_Q10_SPLIT1_9_NEG1111122_262144TO340704_EXACT_AUTHOR_CERT_20261123_1700.json",
+      "git_blob": "d228acf161cdcd5583bf01d4502836dfd2ca1505"
+    },
+    {
+      "path": "research_checks/T6_P13_Q10_SPLIT1_9_NEG11111112_FULL_AUTHOR_EXACT_CERT_20261123_1700.json",
+      "git_blob": "13c73b12a8a24706efee7ada2f2411f376c4187b"
+    },
+    {
+      "path": "research_checks/T6_P13_Q10_SPLIT1_9_NEG111111111_FULL_AUTHOR_EXACT_CERT_20261123_1700.json",
+      "git_blob": "864f5bb4f01b97045f53dc77ad2e6a3a85ed422f"
+    }
+  ],
+  "witnesses": [
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN1TO3_FULL_AUTHOR_EXACT_CERT_20261123.json",
+      "pos": [
+        [
+          1,
+          4
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          6,
+          1
+        ]
+      ],
+      "u": [
+        114,
+        -4,
+        9,
+        1,
+        -14,
+        6,
+        -7,
+        3,
+        -2,
+        -5,
+        2,
+        -1
+      ],
+      "masses": [
+        3036,
+        4319
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN4_AUTHOR_EXACT_CERT_20261123_1402.json",
+      "pos": [
+        [
+          1,
+          9
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          6,
+          9
+        ]
+      ],
+      "u": [
+        34,
+        2,
+        -17,
+        4,
+        10,
+        6,
+        -1,
+        -1,
+        -3,
+        5,
+        10,
+        2
+      ],
+      "masses": [
+        4424,
+        2964
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN4_AUTHOR_EXACT_CERT_20261123_1402.json",
+      "pos": [
+        [
+          1,
+          2
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          12
+        ],
+        [
+          4,
+          2
+        ]
+      ],
+      "u": [
+        39,
+        -22,
+        -5,
+        -1,
+        -21,
+        12,
+        1,
+        10,
+        1,
+        -2,
+        -3,
+        0
+      ],
+      "masses": [
+        2822,
+        4609
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN4_AUTHOR_EXACT_CERT_20261123_1402.json",
+      "pos": [
+        [
+          1,
+          2
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "u": [
+        -41,
+        -2,
+        -6,
+        22,
+        -2,
+        -11,
+        7,
+        -7,
+        3,
+        2,
+        8,
+        1
+      ],
+      "masses": [
+        3843,
+        4399
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN4_AUTHOR_EXACT_CERT_20261123_1402.json",
+      "pos": [
+        [
+          1,
+          1
+        ]
+      ],
+      "neg": [
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          2,
+          12
+        ],
+        [
+          3,
+          10
+        ]
+      ],
+      "u": [
+        -46,
+        7,
+        2,
+        5,
+        0,
+        -11,
+        1,
+        -9,
+        2,
+        8,
+        1,
+        6
+      ],
+      "masses": [
+        3113,
+        4350
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN5_ALL_PATTERNS_AUTHOR_EXACT_CERT_20261123_1417.json",
+      "pos": [
+        [
+          1,
+          6
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          4,
+          10
+        ]
+      ],
+      "u": [
+        -7,
+        -21,
+        -25,
+        0,
+        8,
+        1,
+        4,
+        7,
+        -5,
+        -3,
+        -8,
+        5
+      ],
+      "masses": [
+        2691,
+        5620
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN5_ALL_PATTERNS_AUTHOR_EXACT_CERT_20261123_1417.json",
+      "pos": [
+        [
+          1,
+          5
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "u": [
+        -10,
+        -32,
+        -2,
+        6,
+        4,
+        -2,
+        11,
+        0,
+        -1,
+        -2,
+        0,
+        5
+      ],
+      "masses": [
+        2560,
+        3482
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN5_ALL_PATTERNS_AUTHOR_EXACT_CERT_20261123_1417.json",
+      "pos": [
+        [
+          1,
+          8
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          12
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "u": [
+        13,
+        21,
+        -15,
+        14,
+        19,
+        0,
+        4,
+        3,
+        0,
+        -8,
+        0,
+        4
+      ],
+      "masses": [
+        4172,
+        3625
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN5_ALL_PATTERNS_AUTHOR_EXACT_CERT_20261123_1417.json",
+      "pos": [
+        [
+          1,
+          11
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          4,
+          8
+        ]
+      ],
+      "u": [
+        29,
+        -9,
+        -1,
+        -10,
+        9,
+        6,
+        -7,
+        -2,
+        -4,
+        6,
+        4,
+        -6
+      ],
+      "masses": [
+        3039,
+        5117
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN5_ALL_PATTERNS_AUTHOR_EXACT_CERT_20261123_1417.json",
+      "pos": [
+        [
+          1,
+          9
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          8
+        ]
+      ],
+      "u": [
+        12,
+        -4,
+        -31,
+        -8,
+        2,
+        0,
+        5,
+        -7,
+        -7,
+        4,
+        6,
+        2
+      ],
+      "masses": [
+        2685,
+        5099
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN5_ALL_PATTERNS_AUTHOR_EXACT_CERT_20261123_1417.json",
+      "pos": [
+        [
+          1,
+          2
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "u": [
+        7,
+        2,
+        16,
+        28,
+        3,
+        8,
+        -2,
+        -6,
+        1,
+        5,
+        2,
+        6
+      ],
+      "masses": [
+        5147,
+        2587
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN5_ALL_PATTERNS_AUTHOR_EXACT_CERT_20261123_1417.json",
+      "pos": [
+        [
+          1,
+          2
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          12
+        ]
+      ],
+      "u": [
+        -68,
+        36,
+        6,
+        9,
+        -4,
+        -7,
+        9,
+        -1,
+        -7,
+        -2,
+        2,
+        -3
+      ],
+      "masses": [
+        2875,
+        5246
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN5_ALL_PATTERNS_AUTHOR_EXACT_CERT_20261123_1417.json",
+      "pos": [
+        [
+          1,
+          8
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          3,
+          8
+        ]
+      ],
+      "u": [
+        42,
+        21,
+        1,
+        4,
+        8,
+        3,
+        1,
+        8,
+        -8,
+        2,
+        2,
+        2
+      ],
+      "masses": [
+        4052,
+        2860
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN5_ALL_PATTERNS_AUTHOR_EXACT_CERT_20261123_1417.json",
+      "pos": [
+        [
+          1,
+          6
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          12
+        ]
+      ],
+      "u": [
+        -36,
+        -8,
+        0,
+        -5,
+        -1,
+        9,
+        -7,
+        -4,
+        -2,
+        -6,
+        -10,
+        4
+      ],
+      "masses": [
+        1559,
+        6286
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN5_ALL_PATTERNS_AUTHOR_EXACT_CERT_20261123_1417.json",
+      "pos": [
+        [
+          1,
+          3
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "u": [
+        5,
+        4,
+        -7,
+        -10,
+        -9,
+        1,
+        11,
+        -1,
+        -8,
+        -5,
+        0,
+        -6
+      ],
+      "masses": [
+        1434,
+        5877
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN5_ALL_PATTERNS_AUTHOR_EXACT_CERT_20261123_1417.json",
+      "pos": [
+        [
+          1,
+          7
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          11
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "u": [
+        -80,
+        -47,
+        14,
+        2,
+        -6,
+        -5,
+        4,
+        -2,
+        4,
+        0,
+        0,
+        0
+      ],
+      "masses": [
+        1717,
+        5159
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN5_ALL_PATTERNS_AUTHOR_EXACT_CERT_20261123_1417.json",
+      "pos": [
+        [
+          1,
+          8
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          12
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          3,
+          12
+        ]
+      ],
+      "u": [
+        39,
+        11,
+        -11,
+        4,
+        -3,
+        6,
+        6,
+        2,
+        -7,
+        -4,
+        5,
+        8
+      ],
+      "masses": [
+        4377,
+        4130
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN5_ALL_PATTERNS_AUTHOR_EXACT_CERT_20261123_1417.json",
+      "pos": [
+        [
+          1,
+          7
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          9
+        ]
+      ],
+      "u": [
+        37,
+        -21,
+        -4,
+        -14,
+        4,
+        0,
+        0,
+        -10,
+        -10,
+        0,
+        -6,
+        -3
+      ],
+      "masses": [
+        959,
+        6622
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN5_ALL_PATTERNS_AUTHOR_EXACT_CERT_20261123_1417.json",
+      "pos": [
+        [
+          1,
+          12
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          2,
+          10
+        ]
+      ],
+      "u": [
+        -30,
+        -36,
+        19,
+        -3,
+        -4,
+        11,
+        10,
+        -1,
+        8,
+        -2,
+        -2,
+        -1
+      ],
+      "masses": [
+        3721,
+        4492
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN6_PATTERN111114_AUTHOR_EXACT_CERT_20261123_1425.json",
+      "pos": [
+        [
+          1,
+          10
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          9
+        ]
+      ],
+      "u": [
+        -85,
+        -24,
+        -3,
+        -7,
+        7,
+        -7,
+        2,
+        -3,
+        -3,
+        5,
+        -7,
+        -3
+      ],
+      "masses": [
+        1571,
+        6651
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG_LEN6_PATTERN111114_AUTHOR_EXACT_CERT_20261123_1425.json",
+      "pos": [
+        [
+          1,
+          4
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          4,
+          6
+        ]
+      ],
+      "u": [
+        27,
+        0,
+        32,
+        12,
+        -14,
+        7,
+        3,
+        6,
+        -6,
+        3,
+        1,
+        -3
+      ],
+      "masses": [
+        4328,
+        3936
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG111123_COMPLETE_AUTHOR_EXACT_CERT_20261123.json",
+      "pos": [
+        [
+          1,
+          2
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          8
+        ]
+      ],
+      "u": [
+        -37,
+        33,
+        18,
+        4,
+        9,
+        -13,
+        -2,
+        3,
+        1,
+        6,
+        -4,
+        -4
+      ],
+      "masses": [
+        3682,
+        4614
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG111123_COMPLETE_AUTHOR_EXACT_CERT_20261123.json",
+      "pos": [
+        [
+          1,
+          11
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          9
+        ]
+      ],
+      "u": [
+        34,
+        12,
+        -10,
+        -11,
+        -3,
+        3,
+        -5,
+        10,
+        -3,
+        -5,
+        -3,
+        -5
+      ],
+      "masses": [
+        2280,
+        5669
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG111123_COMPLETE_AUTHOR_EXACT_CERT_20261123.json",
+      "pos": [
+        [
+          1,
+          6
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "u": [
+        23,
+        -17,
+        8,
+        6,
+        3,
+        2,
+        -7,
+        -3,
+        8,
+        7,
+        9,
+        -1
+      ],
+      "masses": [
+        4587,
+        3463
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG111123_COMPLETE_AUTHOR_EXACT_CERT_20261123.json",
+      "pos": [
+        [
+          1,
+          3
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "u": [
+        -11,
+        -7,
+        5,
+        10,
+        -14,
+        -11,
+        9,
+        -9,
+        -5,
+        1,
+        4,
+        4
+      ],
+      "masses": [
+        3034,
+        5501
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG111123_COMPLETE_AUTHOR_EXACT_CERT_20261123.json",
+      "pos": [
+        [
+          1,
+          1
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "u": [
+        87,
+        32,
+        -18,
+        2,
+        -8,
+        -1,
+        -2,
+        3,
+        4,
+        -4,
+        -7,
+        -5
+      ],
+      "masses": [
+        2900,
+        5734
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG111123_COMPLETE_AUTHOR_EXACT_CERT_20261123.json",
+      "pos": [
+        [
+          1,
+          1
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "u": [
+        -34,
+        8,
+        -21,
+        18,
+        17,
+        10,
+        1,
+        -4,
+        -5,
+        -1,
+        3,
+        -1
+      ],
+      "masses": [
+        3673,
+        4465
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG111123_COMPLETE_AUTHOR_EXACT_CERT_20261123.json",
+      "pos": [
+        [
+          1,
+          7
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          9
+        ]
+      ],
+      "u": [
+        2,
+        9,
+        -3,
+        -20,
+        -16,
+        7,
+        0,
+        4,
+        -4,
+        -2,
+        4,
+        -3
+      ],
+      "masses": [
+        2027,
+        5393
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG111123_COMPLETE_AUTHOR_EXACT_CERT_20261123.json",
+      "pos": [
+        [
+          1,
+          2
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "u": [
+        26,
+        4,
+        -5,
+        12,
+        0,
+        6,
+        -4,
+        -15,
+        7,
+        -1,
+        -5,
+        0
+      ],
+      "masses": [
+        2492,
+        5138
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG111123_COMPLETE_AUTHOR_EXACT_CERT_20261123.json",
+      "pos": [
+        [
+          1,
+          3
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          12
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "u": [
+        -24,
+        37,
+        -19,
+        -12,
+        17,
+        -12,
+        3,
+        -5,
+        -3,
+        -2,
+        2,
+        1
+      ],
+      "masses": [
+        2929,
+        5845
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG111222_COMPLETE_AUTHOR_EXACT_CERT_20261123.json",
+      "pos": [
+        [
+          1,
+          10
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          9
+        ]
+      ],
+      "u": [
+        26,
+        -17,
+        0,
+        21,
+        -3,
+        15,
+        3,
+        7,
+        -1,
+        5,
+        -1,
+        0
+      ],
+      "masses": [
+        4472,
+        2767
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG111222_COMPLETE_AUTHOR_EXACT_CERT_20261123.json",
+      "pos": [
+        [
+          1,
+          10
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "u": [
+        33,
+        14,
+        15,
+        5,
+        -13,
+        7,
+        -13,
+        -8,
+        -1,
+        0,
+        -3,
+        0
+      ],
+      "masses": [
+        2408,
+        5156
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG111222_COMPLETE_AUTHOR_EXACT_CERT_20261123.json",
+      "pos": [
+        [
+          1,
+          8
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          2,
+          12
+        ]
+      ],
+      "u": [
+        28,
+        13,
+        17,
+        1,
+        -12,
+        5,
+        8,
+        -1,
+        7,
+        -2,
+        4,
+        -5
+      ],
+      "masses": [
+        4115,
+        3952
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG111222_COMPLETE_AUTHOR_EXACT_CERT_20261123.json",
+      "pos": [
+        [
+          1,
+          4
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          2,
+          12
+        ]
+      ],
+      "u": [
+        -9,
+        -32,
+        -24,
+        -1,
+        4,
+        3,
+        1,
+        -5,
+        -2,
+        1,
+        0,
+        -8
+      ],
+      "masses": [
+        926,
+        6179
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG1111113_FULL_EXACT_AUTHOR_CERT_20261123_1700.json",
+      "pos": [
+        [
+          1,
+          8
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "u": [
+        3,
+        -21,
+        18,
+        4,
+        1,
+        -2,
+        -4,
+        12,
+        10,
+        -2,
+        3,
+        -3
+      ],
+      "masses": [
+        4082,
+        3744
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG1111113_FULL_EXACT_AUTHOR_CERT_20261123_1700.json",
+      "pos": [
+        [
+          1,
+          10
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          11
+        ]
+      ],
+      "u": [
+        73,
+        10,
+        0,
+        3,
+        18,
+        -2,
+        1,
+        -1,
+        -5,
+        3,
+        -7,
+        4
+      ],
+      "masses": [
+        3826,
+        3826
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG1111113_FULL_EXACT_AUTHOR_CERT_20261123_1700.json",
+      "pos": [
+        [
+          1,
+          2
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "u": [
+        -16,
+        -38,
+        -18,
+        -3,
+        -14,
+        -4,
+        8,
+        -3,
+        -8,
+        0,
+        0,
+        -4
+      ],
+      "masses": [
+        914,
+        7100
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG1111113_FULL_EXACT_AUTHOR_CERT_20261123_1700.json",
+      "pos": [
+        [
+          1,
+          1
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          3,
+          11
+        ]
+      ],
+      "u": [
+        -75,
+        -12,
+        0,
+        -6,
+        -4,
+        -3,
+        -2,
+        -5,
+        4,
+        1,
+        3,
+        8
+      ],
+      "masses": [
+        2440,
+        4852
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG1111122_FIRST32768_EXACT_AUTHOR_CERT_20261123_1601.json",
+      "pos": [
+        [
+          1,
+          2
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          8
+        ]
+      ],
+      "u": [
+        -18,
+        -9,
+        -11,
+        15,
+        2,
+        -13,
+        -6,
+        12,
+        -2,
+        -2,
+        6,
+        -1
+      ],
+      "masses": [
+        3175,
+        5144
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG1111122_FIRST32768_EXACT_AUTHOR_CERT_20261123_1601.json",
+      "pos": [
+        [
+          1,
+          12
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          5
+        ]
+      ],
+      "u": [
+        24,
+        -3,
+        5,
+        17,
+        10,
+        7,
+        7,
+        -5,
+        -2,
+        1,
+        6,
+        3
+      ],
+      "masses": [
+        4924,
+        2869
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG1111122_FIRST32768_EXACT_AUTHOR_CERT_20261123_1601.json",
+      "pos": [
+        [
+          1,
+          5
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          8
+        ]
+      ],
+      "u": [
+        -25,
+        8,
+        28,
+        -2,
+        -1,
+        3,
+        6,
+        -1,
+        -10,
+        -5,
+        1,
+        -5
+      ],
+      "masses": [
+        2410,
+        5235
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG1111122_32768TO65536_EXACT_AUTHOR_CERT_20261123_1604.json",
+      "pos": [
+        [
+          1,
+          11
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          8
+        ]
+      ],
+      "u": [
+        68,
+        -18,
+        15,
+        -5,
+        5,
+        -2,
+        8,
+        1,
+        4,
+        -5,
+        -5,
+        -1
+      ],
+      "masses": [
+        3304,
+        4351
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG1111122_32768TO65536_EXACT_AUTHOR_CERT_20261123_1604.json",
+      "pos": [
+        [
+          1,
+          2
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          5
+        ]
+      ],
+      "u": [
+        -20,
+        19,
+        -32,
+        15,
+        1,
+        5,
+        -9,
+        -8,
+        1,
+        2,
+        -5,
+        2
+      ],
+      "masses": [
+        2567,
+        5652
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG1111122_65536TO131072_EXACT_AUTHOR_CERT_20261123_1610.json",
+      "pos": [
+        [
+          1,
+          5
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "u": [
+        -21,
+        -27,
+        9,
+        -4,
+        -7,
+        3,
+        -8,
+        -5,
+        6,
+        0,
+        -1,
+        -1
+      ],
+      "masses": [
+        1502,
+        5093
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG1111122_65536TO131072_EXACT_AUTHOR_CERT_20261123_1610.json",
+      "pos": [
+        [
+          1,
+          10
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          10
+        ]
+      ],
+      "u": [
+        39,
+        36,
+        -2,
+        17,
+        0,
+        -5,
+        0,
+        8,
+        -2,
+        -5,
+        -6,
+        -3
+      ],
+      "masses": [
+        3357,
+        4793
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG1111122_65536TO131072_EXACT_AUTHOR_CERT_20261123_1610.json",
+      "pos": [
+        [
+          1,
+          5
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "u": [
+        -62,
+        -14,
+        -21,
+        4,
+        -15,
+        6,
+        3,
+        6,
+        -1,
+        -1,
+        4,
+        -5
+      ],
+      "masses": [
+        2355,
+        5776
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG1111122_65536TO131072_EXACT_AUTHOR_CERT_20261123_1610.json",
+      "pos": [
+        [
+          1,
+          7
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          10
+        ]
+      ],
+      "u": [
+        -36,
+        -3,
+        2,
+        5,
+        -2,
+        1,
+        -7,
+        -10,
+        -5,
+        -6,
+        -8,
+        -2
+      ],
+      "masses": [
+        667,
+        7168
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG1111122_131072TO196608_EXACT_AUTHOR_CERT_20261123_1613.json",
+      "pos": [
+        [
+          1,
+          1
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          2,
+          8
+        ]
+      ],
+      "u": [
+        -32,
+        -17,
+        7,
+        -16,
+        -4,
+        7,
+        -8,
+        -3,
+        8,
+        1,
+        1,
+        -7
+      ],
+      "masses": [
+        2185,
+        6146
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG1111122_196608TO262144_EXACT_AUTHOR_CERT_20261123_1618.json",
+      "pos": [
+        [
+          1,
+          9
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          8
+        ]
+      ],
+      "u": [
+        -16,
+        11,
+        0,
+        -20,
+        11,
+        3,
+        -9,
+        0,
+        -1,
+        -7,
+        5,
+        -2
+      ],
+      "masses": [
+        2205,
+        5580
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG1111122_196608TO262144_EXACT_AUTHOR_CERT_20261123_1618.json",
+      "pos": [
+        [
+          1,
+          12
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          12
+        ]
+      ],
+      "u": [
+        38,
+        2,
+        -14,
+        3,
+        -10,
+        -4,
+        -4,
+        3,
+        -2,
+        -5,
+        -7,
+        1
+      ],
+      "masses": [
+        1447,
+        5901
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG1111122_196608TO262144_EXACT_AUTHOR_CERT_20261123_1618.json",
+      "pos": [
+        [
+          1,
+          9
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          9
+        ]
+      ],
+      "u": [
+        -32,
+        17,
+        3,
+        4,
+        5,
+        0,
+        3,
+        -7,
+        14,
+        4,
+        3,
+        2
+      ],
+      "masses": [
+        4494,
+        3100
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG1111122_196608TO262144_EXACT_AUTHOR_CERT_20261123_1618.json",
+      "pos": [
+        [
+          1,
+          1
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          8
+        ]
+      ],
+      "u": [
+        -67,
+        39,
+        -12,
+        1,
+        -11,
+        -3,
+        -5,
+        -4,
+        4,
+        1,
+        1,
+        1
+      ],
+      "masses": [
+        2097,
+        5221
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG1111122_262144TO340704_EXACT_AUTHOR_CERT_20261123_1700.json",
+      "pos": [
+        [
+          1,
+          2
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          8
+        ]
+      ],
+      "u": [
+        -6,
+        54,
+        -6,
+        15,
+        6,
+        2,
+        -5,
+        -4,
+        -6,
+        4,
+        6,
+        2
+      ],
+      "masses": [
+        4525,
+        3996
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG1111122_262144TO340704_EXACT_AUTHOR_CERT_20261123_1700.json",
+      "pos": [
+        [
+          1,
+          5
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "u": [
+        -16,
+        29,
+        -18,
+        -4,
+        12,
+        3,
+        2,
+        -4,
+        2,
+        -6,
+        -2,
+        0
+      ],
+      "masses": [
+        2369,
+        4649
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG11111112_FULL_AUTHOR_EXACT_CERT_20261123_1700.json",
+      "pos": [
+        [
+          1,
+          11
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "u": [
+        -37,
+        4,
+        9,
+        9,
+        12,
+        -3,
+        4,
+        -4,
+        -10,
+        -2,
+        7,
+        4
+      ],
+      "masses": [
+        3954,
+        4343
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG11111112_FULL_AUTHOR_EXACT_CERT_20261123_1700.json",
+      "pos": [
+        [
+          1,
+          6
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "u": [
+        8,
+        17,
+        -14,
+        -9,
+        4,
+        -7,
+        -3,
+        7,
+        0,
+        -2,
+        1,
+        7
+      ],
+      "masses": [
+        2971,
+        3857
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG11111112_FULL_AUTHOR_EXACT_CERT_20261123_1700.json",
+      "pos": [
+        [
+          1,
+          12
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          12
+        ]
+      ],
+      "u": [
+        24,
+        20,
+        -15,
+        1,
+        3,
+        -1,
+        -7,
+        -2,
+        12,
+        -3,
+        -6,
+        -2
+      ],
+      "masses": [
+        2747,
+        4974
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG11111112_FULL_AUTHOR_EXACT_CERT_20261123_1700.json",
+      "pos": [
+        [
+          1,
+          5
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          8
+        ]
+      ],
+      "u": [
+        -54,
+        7,
+        -13,
+        4,
+        0,
+        17,
+        -2,
+        2,
+        3,
+        -4,
+        -3,
+        2
+      ],
+      "masses": [
+        2785,
+        4310
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG11111112_FULL_AUTHOR_EXACT_CERT_20261123_1700.json",
+      "pos": [
+        [
+          1,
+          12
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "u": [
+        15,
+        35,
+        -8,
+        1,
+        2,
+        10,
+        10,
+        7,
+        1,
+        -7,
+        0,
+        2
+      ],
+      "masses": [
+        4375,
+        3136
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG11111112_FULL_AUTHOR_EXACT_CERT_20261123_1700.json",
+      "pos": [
+        [
+          1,
+          5
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "u": [
+        32,
+        -35,
+        12,
+        -3,
+        12,
+        6,
+        1,
+        7,
+        2,
+        -2,
+        -8,
+        4
+      ],
+      "masses": [
+        3966,
+        4715
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG11111112_FULL_AUTHOR_EXACT_CERT_20261123_1700.json",
+      "pos": [
+        [
+          1,
+          3
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "u": [
+        36,
+        5,
+        -6,
+        -6,
+        12,
+        -3,
+        4,
+        9,
+        -9,
+        3,
+        6,
+        1
+      ],
+      "masses": [
+        4213,
+        3907
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG11111112_FULL_AUTHOR_EXACT_CERT_20261123_1700.json",
+      "pos": [
+        [
+          1,
+          1
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          4
+        ]
+      ],
+      "u": [
+        -2,
+        -3,
+        4,
+        4,
+        19,
+        -3,
+        -4,
+        -3,
+        -7,
+        7,
+        1,
+        -2
+      ],
+      "masses": [
+        2798,
+        4323
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG11111112_FULL_AUTHOR_EXACT_CERT_20261123_1700.json",
+      "pos": [
+        [
+          1,
+          8
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          2
+        ]
+      ],
+      "u": [
+        35,
+        -38,
+        14,
+        -7,
+        0,
+        -9,
+        4,
+        -4,
+        -1,
+        5,
+        6,
+        1
+      ],
+      "masses": [
+        3236,
+        4808
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG11111112_FULL_AUTHOR_EXACT_CERT_20261123_1700.json",
+      "pos": [
+        [
+          1,
+          2
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "u": [
+        3,
+        4,
+        18,
+        1,
+        -1,
+        8,
+        7,
+        -1,
+        5,
+        -4,
+        1,
+        -8
+      ],
+      "masses": [
+        3033,
+        4164
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG111111111_FULL_AUTHOR_EXACT_CERT_20261123_1700.json",
+      "pos": [
+        [
+          1,
+          7
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          11
+        ]
+      ],
+      "u": [
+        -61,
+        -1,
+        26,
+        2,
+        13,
+        -6,
+        3,
+        -4,
+        -2,
+        -3,
+        4,
+        -5
+      ],
+      "masses": [
+        3019,
+        5226
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG111111111_FULL_AUTHOR_EXACT_CERT_20261123_1700.json",
+      "pos": [
+        [
+          1,
+          8
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          11
+        ]
+      ],
+      "u": [
+        -12,
+        27,
+        9,
+        17,
+        3,
+        5,
+        3,
+        3,
+        -1,
+        7,
+        -7,
+        -3
+      ],
+      "masses": [
+        4215,
+        3920
+      ]
+    },
+    {
+      "source": "research_checks/T6_P13_Q10_SPLIT1_9_NEG111111111_FULL_AUTHOR_EXACT_CERT_20261123_1700.json",
+      "pos": [
+        [
+          1,
+          7
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          8
+        ]
+      ],
+      "u": [
+        38,
+        -31,
+        -10,
+        14,
+        -11,
+        6,
+        -5,
+        -6,
+        6,
+        5,
+        0,
+        2
+      ],
+      "masses": [
+        3542,
+        5115
+      ]
+    }
+  ],
+  "scientific_status": "AUTHOR_EXACT_AGGREGATE_AUDIT / UNREVIEWED / NOT_ADMITTED",
+  "native_semantic_progress": "NOT_PUBLISHED",
+  "next": "audit split(2,8); reuse split(3,7),(4,6),(5,5) aggregates"
+}
