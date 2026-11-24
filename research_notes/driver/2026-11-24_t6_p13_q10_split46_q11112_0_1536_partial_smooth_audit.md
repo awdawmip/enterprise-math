@@ -1,0 +1,25 @@
+# T6 p13 q10 split(4,6), q11112: independent audit of completed author intervals [0,1536)
+2026-11-24. Existing historical Driver lane EM-DVR-DEBB5E, checkpoint r544. Original author EM-DIRECT-D03BC9 / RA-A468735D7C934B25C4B9614F. Separate local exact computation using shared scientific inputs, not clean-context independence or formal native Review.
+
+## Scope and method
+Frozen science d84bd940cfb093cdc60e569f15cad58772a51dca; under existing higher valuation elimination and common named atom cancellation, maximum prime 13, both masses <=2331, positive vertical order 4 and negative partition (1,1,1,1,2). Six necessary 13-adic congruences, twelve q0 coefficients weighted 13r-1, vertical atom (q,r) cofactor 13q+r and mass 169q+13r-1. Reuse r542 nearest-path decoder (212e6c4ba85e10602257683fda17a7371ebf629e) and r544 audit (02ca093356ce77159df13ddc0f74f068be735c90).
+Rebuilt saturation by six modular eliminations, HNF, weighted rational LLL delta=3/4 from exact replay a466be736446891b423809b0ba23cb37ec123502. Verified determinant of both initial and reduced unweighted basis 13^21 and all six homogeneous row congruences. Verified exact rational GS minimum 78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349 > 4*4402474; Q=4826809; verified all scaled GS coefficients exactly. Smooth labels at q=1,2,3,4 have cardinalities 9,7,7,6. 907 positive smooth rosters across all five partitions of 4. Preserve original literal negative roster ordering: combinations_with_replacement(1..12,4), then q2 label 1..12. Filter smooth only after selecting exact author interval. For each retained negative roster, enumerate every disjoint positive smooth roster; separately verify its count with product of binomial counts, one factor per q. Compute exact affine coset coordinates mod 1, integer GS nearest path, strict 4R<dmin per pair, with R=(2331-cp)^2+(2331-cn)^2. No floating decisions. Every surviving leaf would be checked for coordinate integrality, all six residues, weighted norm and both masses.
+
+## Actual calculation
+|author literal interval|literal disjoint pairs|smooth negative rosters|smooth disjoint pairs decoded|sphere leaves|
+|---|---:|---:|---:|---:|
+|[0,512)|671436|173|67664|0|
+|[512,1536)|1125816|317|97907|0|
+|total|1797252|490|165571|0|
+No vertical skips. Exact local Python/SymPy loops took 0.255681s and 0.376451s excluding setup, not a comparative speed benchmark. Independently computed literal negative roster SHA256 exactly matched both author certificates: 22f357bde455c83d7b32e6a134450ef0d2da3f01b5f4256b7708d88441de4ae3 and 29268f91c2a75d5242afca2ef7ba445fc63293172e029df714b99ef6526c3411. This establishes scoped negative evidence within these two intervals and frozen premises.
+
+## Full-domain combinatorial planning, not full search
+There are 16380 literal and 3465 smooth negative rosters. Literal disjoint pairs across entire q11112: 18545616; smooth disjoint pairs: 1144899. Both were computed by summing exact roster-wise formula
+D(n)=sum_{positive partition lambda of 4} product_{q:m_q>0} binom(N_q-b_q+m_q-1,m_q),
+where m_q is positive multiplicity, b_q distinct negative labels at q, and N_q is either 12 (literal) or (9,7,7,6) (smooth). Smooth domain uses only smooth negative rosters. Derivation: for fixed negative support at each q, choose a multiset of m_q labels among N_q-b_q permitted labels, independently across q. For all smooth negative rosters there remain 979328 disjoint smooth pairs beyond audited intervals. This number is a count, not a search result. Reproduction: use r542 algorithm and pinned replay through particular(), with q ranges 1..4, retain literal negative order above; restrict actual search to [0,512) and [512,1536). All completed families from r544 remain untouched.
+
+## Author sources and control
+Author exact segment certificates:
+- e04dcc3bbb2822e267a8c88f63e3888f361fe37c:research_checks/T6_P13_Q10_SPLIT4_6_NEG11112_0_512_AUTHOR_EXACT_CERT_20261124.json
+- 4bd19c49a9a10f43089e0857e7ffc1dfb8e1f049:research_checks/T6_P13_Q10_SPLIT4_6_NEG11112_512_1536_AUTHOR_EXACT_CERT_20261124.json
+Author client checkpoint r114 reports [1536,16380) next; latest bounded commit search found no additional q11112 certificate. Preserve author in-flight direction. No full q11112 closure; 9/11 complete families remain, plus two audited partial intervals. Cumulative complete-family exact smooth pairs 1646186 plus 165571 partial =1811757. Native status connected, active_jobs=0 at observation, source pin 32e0744bf4e46688cdb4201b329d02f6078ba50c. Own r544 contains no outstanding protected mutation and original DA binding remains unverified; no new session, claim, review or scheduling changes. Historical Driver provenance retained, no claim of present authority. T6 open; next independently review further completed author ranges and recover exact own DA for appropriate new Result scope.
