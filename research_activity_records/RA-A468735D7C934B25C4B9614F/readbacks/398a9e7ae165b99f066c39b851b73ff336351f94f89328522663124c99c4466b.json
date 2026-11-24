@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_checks/T6_P13_Q10_SPLIT4_6_NEG11112_5632_6656_AUTHOR_EXACT_CERT_20261124.json",
+    "ref": "945381280fe2ceae45651ad4653f2a466acbea08",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "onhour-20261124-1700-q11112-5632-6656-source-v1-observed",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"schema\": \"EM_T6_P13_Q10_SPLIT4_6_NEG11112_AUTHOR_EXACT_SEGMENT_V1\",\n  \"mother_task\": \"RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND\",\n  \"author\": \"EM-DIRECT-D03BC9\",\n  \"activity\": \"RA-A468735D7C934B25C4B9614F\",\n  \"frozen_science\": \"awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca\",\n  \"signed_split\": [\n    4,\n    6\n  ],\n  \"negative_q_pattern\": [\n    1,\n    1,\n    1,\n    1,\n    2\n  ],\n  \"interval\": [\n    5632,\n    6656\n  ],\n  \"total_negative_rosters\": 16380,\n  \"positive_q_patterns\": [\n    [\n      4\n    ],\n    [\n      1,\n      3\n    ],\n    [\n      2,\n      2\n    ],\n    [\n      1,\n      1,\n      2\n    ],\n    [\n      1,\n      1,\n      1,\n      1\n    ]\n  ],\n  \"budget_each_side\": 2331,\n  \"lattice_index\": \"13^21\",\n  \"gs_min_sq\": \"78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349\",\n  \"stats\": {\n    \"negative_rosters\": 1024,\n    \"positive_rosters\": 2535,\n    \"raw_signed_pairs\": 2595840,\n    \"common_named_atom_canceled\": 1556736,\n    \"vertical_original_mass_excess\": 0,\n    \"gs_searches\": 1039104,\n    \"gs_nodes\": 1992502,\n    \"relaxed_sphere_witnesses\": 0,\n    \"both_original_side_mass_valid\": 0\n  },\n  \"negative_roster_sha256\": \"603b9fd241f15a94c58fe61d144f2d2644e4ad85094135b3f4c4793fa551ce41\",\n  \"pair_digest_sha256\": \"a1801a55fe34f1e42f8641cb4060ec96a042eb798cd914045ee5060fc09bb357\",\n  \"witnesses\": [],\n  \"author_replay_base\": \"awdawmip/enterprise-math@a466be736446891b423809b0ba23cb37ec123502:research_checks/T6_P13_Q10_SPLIT3_7_NEG1123_INTEGER_GS_REPLAY_20261124.py\",\n  \"replay_rule\": \"Apply q6 exact replacements at 76db4fbf6106d3ac84344e51645e8e43765f6f06; replace negatives with [tuple((1,r) for r in v)+((2,t),) for v in combinations_with_replacement(range(1,13),4) for t in range(1,13)]; len(negatives)==16380; negative_q_pattern=[1,1,1,1,2]; direct leaf norm=sum((w*x)**2 for w,x in zip(W,u)); assert norm<=radius and norm*K==spent; include norm_sq in witness output.\",\n  \"validation\": \"Actual local Python/SymPy 1.14.0 exact integer GS. Conditional on prior high-prime elimination, common named atom reduction and lattice completeness. Same frozen observer. Separate from native p17 q14.\",\n  \"status\": \"AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED\",\n  \"elapsed_seconds\": 12.926035155000008,\n  \"next_action\": \"Continue [6656,16380) after verifying intervening coverage.\"\n}\n",
+      "display_title": "T6_P13_Q10_SPLIT4_6_NEG11112_5632_6656_AUTHOR_EXACT_CERT_20261124.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/945381280fe2ceae45651ad4653f2a466acbea08/research_checks/T6_P13_Q10_SPLIT4_6_NEG11112_5632_6656_AUTHOR_EXACT_CERT_20261124.json",
+      "encoding": "utf-8",
+      "sha": "8992fbc7ce7a05486c528d70a16cb85e25b6fc45"
+    }
+  },
+  "tool_name": "mcp__GitHub__fetch_file"
+}
