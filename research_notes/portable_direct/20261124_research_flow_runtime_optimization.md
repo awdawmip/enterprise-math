@@ -2,7 +2,34 @@
 
 日期：2026-11-24（香港时间）。角色：`CONTROL_PLANE_MAINTENANCE`。
 
-## 19:17 独立复核：已部署，接续改善；端到端提速未得到验证
+## 21:48 继续追查：两处重复已修源码，线上收益待新部署验证
+
+本轮独立 C78 只读请求 `trace-flow-20261124-1329-f52de59801bc-c78-v1` 成功，总 observer 时间 **86.381814 秒**：材料准备 **44.023203 秒**、旧 `NATIVE_RUNNER` 复合阶段 **40.511458 秒**、其他 **1.847154 秒**，没有 `REVALIDATING`。Source 为 `7abe4ae0b36be17894c8bb74f7d0710ec5c8c50b`，执行代码仍为 `b9520e62e47016fc45e702b1cbfa17af8a38774f`；1,776 条事件 hash 为 `6ada23d68be393fd1081bf691be36863861f4e7975248a10025cc94307fe764a`。这与前次 113.94 秒的输入不同，不构成严格同输入提速对照。
+
+**计时纠正：此前把约 39 秒描述为“原生状态计算”不准确。** 实际旧 `NATIVE_RUNNER` 一直到最终 COMPLETE 才离开，包含子进程后验证、临时树清理、末尾 GitHub head/Issue 请求和入库。普通轮询也不会推进最后一次进度快照；保留的旧 restart_reason 不表示本轮重新执行事件页复核。
+
+已完成三项窄改：
+
+- **未变子树复用。** 如果递归根被截断，保留最近一次成功遍历中已验证的不可变 subtree chunks；每次仍获取当前固定根并完整展开、执行原预算。真实根比较中，前后两段分别有 65/69 和 57/69 子目录未变。按真实变化模式做的合成 fallback 回放，GET 为冷读 72→72、4 子树变化 72→7、12 子树变化 72→15、同树再读 72→2，完整 index 一致。生产 truncated 标志尚未观测到，不能把这些次数换算成实际秒数。
+- **同次安装的验证复用。** follow-up install 第二行直接使用第一行已经验证的 rows，完整验证次数 2→1；公开读取入口仍各自验证。主干只改一行，保留主干此前移除缓存包装的变化。
+- **纠正阶段边界。** 沿现有进度回执拆开树元数据、缓存验证、文件创建、调用准备、子进程、后校验、清理和末尾网络。当前数据树的 truncated/GET/reuse 摘要随原回执保留。没有新监控服务、schema 或每文件进度；单轮增加 14 次既有阶段写入，本地单样本合计约 6.43 ms，不作为生产承诺。
+
+### 已发布与验证
+
+- MCP main：[`a8c76c5f6f90f0c42189afc83f81833f344b91f6`](https://github.com/awdawmip/em-research-mcp/commit/a8c76c5f6f90f0c42189afc83f81833f344b91f6)，两个实现文件、两个测试、报告、限定验证数据和 b952 窄补丁共七个文件，逐文件完整远端读回一致。
+- EM main 的一行变更：[`29ea031683df1bfae2fbe9824625370444238698`](https://github.com/awdawmip/enterprise-math/commit/29ea031683df1bfae2fbe9824625370444238698)，新 blob `1c11b06909614bb92ce1577a140460011af59ac7` 已完整读回一致。
+- MCP 合并验证 **32 项标准库 unittest 通过**，含本批 16 项以及此前材料预算、guard、Activity 依赖的 16 项。EM b952 与当前 main subject 各做基线/候选限定差分，每个变体 11 项通过，输出及漂移异常一致。EM fixture 使用真实 validators，但 dispatcher/packet facade 是替身；当前-main 变体支持依赖仍来自 b952。这些结果不是完整 bootstrap、真实 C78 native 回放、完整 pytest 或数学证明。
+
+### 当前未完项与直接续接
+
+本会话没有后端主机执行入口，**本批未执行主机部署，线上节省秒数未验收**。最近实际 status 为 app `8e61d334f02fe2d0b38d8aeb02fe362b44ead472`、runtime `89a8b5b81124723e449342788ac938f7e6700840b1fa76801a23992f9059dcd3`。EM main 更新不会自动更换实际 b952 reviewed package；部署应在真实谱系上应用窄改并发布相应新 pin。不能整份覆盖主干。
+
+**单一续接入口：[本批调查、实现与 Codex 部署说明](https://github.com/awdawmip/em-research-mcp/blob/a8c76c5f6f90f0c42189afc83f81833f344b91f6/docs/evidence/research-flow-optimization-20261124/READ_PATH_FOLLOWUP.md)。** 部署后沿原 C78 读取流程观察拆开的阶段与树摘要，再决定下一项有实际收益的优化。此前速记本接续验收保持完成，不重开。更宽的 adapter 重复验证和 HTTP 连接复用暂有线索，未证明可安全合并或是主要耗时，不扩大本批。
+
+本轮没有新 CI、周期任务、生产笔记、身份、CLAIM 或数学准入要求。此记录保存控制维护进展，不作研究身份或科学结果接纳。
+
+---
+## 19:17 独立复核（历史记录；后续进展见上）
 
 本轮实际读取新 runtime、消费原部署验收回执，并通过当前 gateway 走通旧笔记、当前候选、固定来源。没有重新提交长任务查询、生产笔记、身份或 CLAIM。
 
