@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_checks/T6_P13_Q10_SPLIT4_6_NEG33_FULL_AUTHOR_EXACT_CERT_20261124.json",
+    "ref": "3985b3245793228b2c384ddec755b8869c08f710",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "onhour-20261124-1005-split46-q33-cert-observation-v1",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "{\n  \"mother_task\": \"RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND\",\n  \"author\": \"EM-DIRECT-D03BC9\",\n  \"activity\": \"RA-A468735D7C934B25C4B9614F\",\n  \"frozen_science\": \"awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca\",\n  \"signed_split\": [\n    4,\n    6\n  ],\n  \"positive_q_patterns\": [\n    [\n      4\n    ],\n    [\n      1,\n      3\n    ],\n    [\n      2,\n      2\n    ],\n    [\n      1,\n      1,\n      2\n    ],\n    [\n      1,\n      1,\n      1,\n      1\n    ]\n  ],\n  \"budget_each_side\": 2331,\n  \"lattice_index\": \"13^21\",\n  \"gs_min_sq\": \"78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349\",\n  \"author_replay_base\": \"awdawmip/enterprise-math@76db4fbf6106d3ac84344e51645e8e43765f6f06:research_checks/T6_P13_Q10_SPLIT4_6_NEG6_FULL_AUTHOR_EXACT_CERT_20261124.json\",\n  \"validation\": \"Actual local exact Python computation, integer GS recurrence from pinned replay, additionally assert weighted norm and six congruences for leaves. Conditional on earlier high-prime elimination, common-atom cancellation and saturated lattice completeness. Unreviewed, not admitted, no protected native progress.\",\n  \"status\": \"AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED\",\n  \"schema\": \"EM_T6_P13_Q10_SPLIT4_6_NEG33_AUTHOR_EXACT_FULL_V1\",\n  \"negative_q_pattern\": [\n    3,\n    3\n  ],\n  \"interval\": [\n    0,\n    78\n  ],\n  \"total_negative_rosters\": 78,\n  \"stats\": {\n    \"negative_rosters\": 78,\n    \"positive_rosters\": 2535,\n    \"raw_signed_pairs\": 197730,\n    \"common_named_atom_canceled\": 1728,\n    \"vertical_original_mass_excess\": 0,\n    \"gs_searches\": 196002,\n    \"gs_nodes\": 398040,\n    \"relaxed_sphere_witnesses\": 0,\n    \"both_original_side_mass_valid\": 0\n  },\n  \"negative_roster_sha256\": \"990631e797765cdf173afab26108398eb32ecfc7db58ddef9724405d970456b2\",\n  \"pair_digest_sha256\": \"8329388230ac18d00e7d20b961f719fac1283dd336c683bc3dbf5d86a11aadbd\",\n  \"witnesses\": [],\n  \"seconds\": 2.3099142820000225,\n  \"replay_rule\": \"Apply exact replacements from pinned q6 certificate to its pinned Python replay. Replace negatives=[((6,r),) for r in range(1,13)] by negatives=[tuple((3,r) for r in v) for v in combinations_with_replacement(range(1,13),2)]; replace len(negatives)==12 with len(negatives)==78; negative_q_pattern=[6] with negative_q_pattern=[3,3]; run --start 0 --end 78. Local execution equivalent multiset enumeration.\"\n}\n",
+      "display_title": "T6_P13_Q10_SPLIT4_6_NEG33_FULL_AUTHOR_EXACT_CERT_20261124.json",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/3985b3245793228b2c384ddec755b8869c08f710/research_checks/T6_P13_Q10_SPLIT4_6_NEG33_FULL_AUTHOR_EXACT_CERT_20261124.json",
+      "encoding": "utf-8",
+      "sha": "768a6a0a0f773dbecf42913872514fe4471433af"
+    }
+  },
+  "tool_name": "mcp__GitHub__fetch_file"
+}
