@@ -1,0 +1,2998 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT0_10_AUTHOR_COVERAGE_AUDIT_V1",
+  "date": "2026-11-24",
+  "author": "EM-DIRECT-D03BC9",
+  "activity": "RA-A468735D7C934B25C4B9614F",
+  "mother": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "frozen_science": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "scope": "p13 valuation1 q10 split(0,10) H0..H6 each side cap2331",
+  "proof": "For each integer partition p of 10, equal-order atoms form a multiset of residue labels 1..12. Coefficient of y^S in product over distinct q of [z^m_q] product_{r=1..12}(1-z*y^r)^-1 gives multiplicity at residue sum S. For length ell, vertical negative mass=1690+13S-ell, so S<=floor((641+ell)/13). Exact DP independently counted each group and convolved; all 42 partitions appear once. For each recorded relaxed witness recomputed both original masses and all six mixed residues using exact BigInt extended Euclid and modular powers. Reuse existing exact GS search evidence; no GS rerun or independent reviewer claim.",
+  "dependencies": "Prior high-valuation exclusion, common-atom reduction as applicable, saturated lattice and GS completeness and correctness of each original author computation; unreviewed and not admitted.",
+  "sources": [
+    {
+      "path": "research_checks/T6_P13_Q10_SPLIT0_10_NEG_LEN1_AUTHOR_EXACT_CERT_20261123.json",
+      "commit": "81497f89875aea14f9abb159b428b9aac5d79064",
+      "blob": "210506b6fa3c94d75ed4a8e838f7dd061860c912"
+    },
+    {
+      "path": "research_checks/T6_P13_Q10_SPLIT0_10_NEG_LEN2_AUTHOR_EXACT_CERT_20261123.json",
+      "commit": "81497f89875aea14f9abb159b428b9aac5d79064",
+      "blob": "aec159e28e9fa4bce2d81a7fe652d0acd30823d1"
+    },
+    {
+      "path": "research_checks/T6_P13_Q10_SPLIT0_10_NEG_LEN3_AUTHOR_EXACT_CERT_20261123.json",
+      "commit": "81497f89875aea14f9abb159b428b9aac5d79064",
+      "blob": "93b59bf11d00c895eb45bea93459b7cb0e317f75"
+    },
+    {
+      "path": "research_checks/T6_P13_Q10_SPLIT0_10_NEG_LEN4_AUTHOR_EXACT_CERT_20261123.json",
+      "commit": "81497f89875aea14f9abb159b428b9aac5d79064",
+      "blob": "eed50271c3dbb3d5c4034cd263dae69efafe8211"
+    },
+    {
+      "path": "research_checks/T6_P13_Q10_SPLIT0_10_NEG_LEN5_AUTHOR_EXACT_CERT_20261123.json",
+      "commit": "81497f89875aea14f9abb159b428b9aac5d79064",
+      "blob": "acdd0d106eb29d180207fc0e049e7f69b7fa10f5"
+    },
+    {
+      "path": "research_checks/T6_P13_Q10_SPLIT0_10_NEG_LEN6_FULL_AUTHOR_EXACT_CERT_20261123.json",
+      "commit": "81497f89875aea14f9abb159b428b9aac5d79064",
+      "blob": "bccaf3e0a5303988b14418aabae78e017c956a12"
+    },
+    {
+      "path": "research_checks/T6_P13_Q10_SPLIT0_10_NEG_LEN7_PATTERN1111114_AUTHOR_CERT_20261123.json",
+      "commit": "81497f89875aea14f9abb159b428b9aac5d79064",
+      "blob": "a417121e3841259cc7cb469bc5520c4f9da5f0c9"
+    },
+    {
+      "path": "research_checks/T6_P13_Q10_SPLIT0_10_NEG_LEN7_PATTERN1111123_AUTHOR_EXACT_CERT_20261123.json",
+      "commit": "81497f89875aea14f9abb159b428b9aac5d79064",
+      "blob": "679415b8232f5179a9e2db9193b7a18ca7f6d29b"
+    },
+    {
+      "path": "research_checks/T6_P13_Q10_SPLIT0_10_NEG_LEN7_PATTERN1111222_AUTHOR_EXACT_CERT_20261123.json",
+      "commit": "81497f89875aea14f9abb159b428b9aac5d79064",
+      "blob": "8bfef9406e26c56893d60698d184c87e3e70cf9f"
+    },
+    {
+      "path": "research_checks/T6_P13_Q10_SPLIT0_10_NEG_LEN8_PATTERN11111113_AUTHOR_EXACT_CERT_20261123.json",
+      "commit": "81497f89875aea14f9abb159b428b9aac5d79064",
+      "blob": "1c0439055c83da37f507d48fd11237c89f0bcb27"
+    },
+    {
+      "path": "research_checks/T6_P13_Q10_SPLIT0_10_PATTERN1111111111_FULL_AUTHOR_EXACT_CERT_20261123.json",
+      "commit": "81497f89875aea14f9abb159b428b9aac5d79064",
+      "blob": "9b34f7a067c5acf6d900e458a71f1e30cd4b6ab4"
+    },
+    {
+      "path": "research_checks/T6_P13_Q10_SPLIT0_10_PATTERN111111112_FULL_AUTHOR_EXACT_CERT_20261123.json",
+      "commit": "81497f89875aea14f9abb159b428b9aac5d79064",
+      "blob": "dc843d66eb82d11011b119fb9d0a7a2b44a82744"
+    },
+    {
+      "path": "research_checks/T6_P13_Q10_SPLIT0_10_PATTERN11111122_FULL_AUTHOR_EXACT_CERT_20261123.json",
+      "commit": "81497f89875aea14f9abb159b428b9aac5d79064",
+      "blob": "c20e8f7f98af9b3b809b0e7fa8a18a05007edc9f"
+    }
+  ],
+  "rows": [
+    {
+      "pattern": [
+        10
+      ],
+      "named": 12,
+      "mass_eligible": 12,
+      "mass_excluded": 0,
+      "gs_nodes": 26,
+      "source_blob": "210506b6fa3c94d75ed4a8e838f7dd061860c912"
+    },
+    {
+      "pattern": [
+        1,
+        9
+      ],
+      "named": 144,
+      "mass_eligible": 144,
+      "mass_excluded": 0,
+      "gs_nodes": 446,
+      "source_blob": "aec159e28e9fa4bce2d81a7fe652d0acd30823d1"
+    },
+    {
+      "pattern": [
+        2,
+        8
+      ],
+      "named": 144,
+      "mass_eligible": 144,
+      "mass_excluded": 0,
+      "gs_nodes": 394,
+      "source_blob": "aec159e28e9fa4bce2d81a7fe652d0acd30823d1"
+    },
+    {
+      "pattern": [
+        3,
+        7
+      ],
+      "named": 144,
+      "mass_eligible": 144,
+      "mass_excluded": 0,
+      "gs_nodes": 400,
+      "source_blob": "aec159e28e9fa4bce2d81a7fe652d0acd30823d1"
+    },
+    {
+      "pattern": [
+        4,
+        6
+      ],
+      "named": 144,
+      "mass_eligible": 144,
+      "mass_excluded": 0,
+      "gs_nodes": 390,
+      "source_blob": "aec159e28e9fa4bce2d81a7fe652d0acd30823d1"
+    },
+    {
+      "pattern": [
+        5,
+        5
+      ],
+      "named": 78,
+      "mass_eligible": 78,
+      "mass_excluded": 0,
+      "gs_nodes": 206,
+      "source_blob": "aec159e28e9fa4bce2d81a7fe652d0acd30823d1"
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        8
+      ],
+      "named": 936,
+      "mass_eligible": 936,
+      "mass_excluded": 0,
+      "gs_nodes": 2518,
+      "source_blob": "93b59bf11d00c895eb45bea93459b7cb0e317f75"
+    },
+    {
+      "pattern": [
+        1,
+        2,
+        7
+      ],
+      "named": 1728,
+      "mass_eligible": 1728,
+      "mass_excluded": 0,
+      "gs_nodes": 4742,
+      "source_blob": "93b59bf11d00c895eb45bea93459b7cb0e317f75"
+    },
+    {
+      "pattern": [
+        1,
+        3,
+        6
+      ],
+      "named": 1728,
+      "mass_eligible": 1728,
+      "mass_excluded": 0,
+      "gs_nodes": 4884,
+      "source_blob": "93b59bf11d00c895eb45bea93459b7cb0e317f75"
+    },
+    {
+      "pattern": [
+        1,
+        4,
+        5
+      ],
+      "named": 1728,
+      "mass_eligible": 1728,
+      "mass_excluded": 0,
+      "gs_nodes": 4840,
+      "source_blob": "93b59bf11d00c895eb45bea93459b7cb0e317f75"
+    },
+    {
+      "pattern": [
+        2,
+        2,
+        6
+      ],
+      "named": 936,
+      "mass_eligible": 936,
+      "mass_excluded": 0,
+      "gs_nodes": 2618,
+      "source_blob": "93b59bf11d00c895eb45bea93459b7cb0e317f75"
+    },
+    {
+      "pattern": [
+        2,
+        3,
+        5
+      ],
+      "named": 1728,
+      "mass_eligible": 1728,
+      "mass_excluded": 0,
+      "gs_nodes": 4831,
+      "source_blob": "93b59bf11d00c895eb45bea93459b7cb0e317f75"
+    },
+    {
+      "pattern": [
+        2,
+        4,
+        4
+      ],
+      "named": 936,
+      "mass_eligible": 936,
+      "mass_excluded": 0,
+      "gs_nodes": 2606,
+      "source_blob": "93b59bf11d00c895eb45bea93459b7cb0e317f75"
+    },
+    {
+      "pattern": [
+        3,
+        3,
+        4
+      ],
+      "named": 936,
+      "mass_eligible": 936,
+      "mass_excluded": 0,
+      "gs_nodes": 2598,
+      "source_blob": "93b59bf11d00c895eb45bea93459b7cb0e317f75"
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        7
+      ],
+      "named": 4368,
+      "mass_eligible": 4368,
+      "mass_excluded": 0,
+      "gs_nodes": 11963,
+      "source_blob": "eed50271c3dbb3d5c4034cd263dae69efafe8211"
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        2,
+        6
+      ],
+      "named": 11232,
+      "mass_eligible": 11232,
+      "mass_excluded": 0,
+      "gs_nodes": 30943,
+      "source_blob": "eed50271c3dbb3d5c4034cd263dae69efafe8211"
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        3,
+        5
+      ],
+      "named": 11232,
+      "mass_eligible": 11232,
+      "mass_excluded": 0,
+      "gs_nodes": 31092,
+      "source_blob": "eed50271c3dbb3d5c4034cd263dae69efafe8211"
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        4,
+        4
+      ],
+      "named": 6084,
+      "mass_eligible": 6084,
+      "mass_excluded": 0,
+      "gs_nodes": 16950,
+      "source_blob": "eed50271c3dbb3d5c4034cd263dae69efafe8211"
+    },
+    {
+      "pattern": [
+        1,
+        2,
+        2,
+        5
+      ],
+      "named": 11232,
+      "mass_eligible": 11232,
+      "mass_excluded": 0,
+      "gs_nodes": 30564,
+      "source_blob": "eed50271c3dbb3d5c4034cd263dae69efafe8211"
+    },
+    {
+      "pattern": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "named": 20736,
+      "mass_eligible": 20736,
+      "mass_excluded": 0,
+      "gs_nodes": 57331,
+      "source_blob": "eed50271c3dbb3d5c4034cd263dae69efafe8211"
+    },
+    {
+      "pattern": [
+        1,
+        3,
+        3,
+        3
+      ],
+      "named": 4368,
+      "mass_eligible": 4368,
+      "mass_excluded": 0,
+      "gs_nodes": 12020,
+      "source_blob": "eed50271c3dbb3d5c4034cd263dae69efafe8211"
+    },
+    {
+      "pattern": [
+        2,
+        2,
+        2,
+        4
+      ],
+      "named": 4368,
+      "mass_eligible": 4368,
+      "mass_excluded": 0,
+      "gs_nodes": 12187,
+      "source_blob": "eed50271c3dbb3d5c4034cd263dae69efafe8211"
+    },
+    {
+      "pattern": [
+        2,
+        2,
+        3,
+        3
+      ],
+      "named": 6084,
+      "mass_eligible": 6084,
+      "mass_excluded": 0,
+      "gs_nodes": 16769,
+      "source_blob": "eed50271c3dbb3d5c4034cd263dae69efafe8211"
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        6
+      ],
+      "named": 16380,
+      "mass_eligible": 16053,
+      "mass_excluded": 327,
+      "gs_nodes": 44154,
+      "source_blob": "acdd0d106eb29d180207fc0e049e7f69b7fa10f5"
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        2,
+        5
+      ],
+      "named": 52416,
+      "mass_eligible": 51585,
+      "mass_excluded": 831,
+      "gs_nodes": 141671,
+      "source_blob": "acdd0d106eb29d180207fc0e049e7f69b7fa10f5"
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        3,
+        4
+      ],
+      "named": 52416,
+      "mass_eligible": 51585,
+      "mass_excluded": 831,
+      "gs_nodes": 142136,
+      "source_blob": "acdd0d106eb29d180207fc0e049e7f69b7fa10f5"
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        2,
+        2,
+        4
+      ],
+      "named": 73008,
+      "mass_eligible": 71944,
+      "mass_excluded": 1064,
+      "gs_nodes": 198248,
+      "source_blob": "acdd0d106eb29d180207fc0e049e7f69b7fa10f5"
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        2,
+        3,
+        3
+      ],
+      "named": 73008,
+      "mass_eligible": 71944,
+      "mass_excluded": 1064,
+      "gs_nodes": 197700,
+      "source_blob": "acdd0d106eb29d180207fc0e049e7f69b7fa10f5"
+    },
+    {
+      "pattern": [
+        1,
+        2,
+        2,
+        2,
+        3
+      ],
+      "named": 52416,
+      "mass_eligible": 51585,
+      "mass_excluded": 831,
+      "gs_nodes": 142458,
+      "source_blob": "acdd0d106eb29d180207fc0e049e7f69b7fa10f5"
+    },
+    {
+      "pattern": [
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "named": 4368,
+      "mass_eligible": 4255,
+      "mass_excluded": 113,
+      "gs_nodes": 11750,
+      "source_blob": "acdd0d106eb29d180207fc0e049e7f69b7fa10f5"
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        5
+      ],
+      "named": 52416,
+      "mass_eligible": 45169,
+      "mass_excluded": 7247,
+      "gs_nodes": 124398,
+      "source_blob": "bccaf3e0a5303988b14418aabae78e017c956a12"
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        2,
+        4
+      ],
+      "named": 196560,
+      "mass_eligible": 171478,
+      "mass_excluded": 25082,
+      "gs_nodes": 471338,
+      "source_blob": "bccaf3e0a5303988b14418aabae78e017c956a12"
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        3,
+        3
+      ],
+      "named": 106470,
+      "mass_eligible": 92598,
+      "mass_excluded": 13872,
+      "gs_nodes": 253633,
+      "source_blob": "bccaf3e0a5303988b14418aabae78e017c956a12"
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        2,
+        2,
+        3
+      ],
+      "named": 340704,
+      "mass_eligible": 299164,
+      "mass_excluded": 41540,
+      "gs_nodes": 820788,
+      "source_blob": "bccaf3e0a5303988b14418aabae78e017c956a12"
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        2,
+        2,
+        2,
+        2
+      ],
+      "named": 106470,
+      "mass_eligible": 92598,
+      "mass_excluded": 13872,
+      "gs_nodes": 255519,
+      "source_blob": "bccaf3e0a5303988b14418aabae78e017c956a12"
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        4
+      ],
+      "named": 148512,
+      "mass_eligible": 95709,
+      "mass_excluded": 52803,
+      "gs_nodes": 262167,
+      "source_blob": "a417121e3841259cc7cb469bc5520c4f9da5f0c9"
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        3
+      ],
+      "named": 628992,
+      "mass_eligible": 409298,
+      "mass_excluded": 219694,
+      "gs_nodes": 1120050,
+      "source_blob": "679415b8232f5179a9e2db9193b7a18ca7f6d29b"
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2
+      ],
+      "named": 496860,
+      "mass_eligible": 324051,
+      "mass_excluded": 172809,
+      "gs_nodes": 890511,
+      "source_blob": "8bfef9406e26c56893d60698d184c87e3e70cf9f"
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        3
+      ],
+      "named": 381888,
+      "mass_eligible": 159030,
+      "mass_excluded": 222858,
+      "gs_nodes": 434429,
+      "source_blob": "1c0439055c83da37f507d48fd11237c89f0bcb27"
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "named": 352716,
+      "mass_eligible": 55442,
+      "mass_excluded": 297274,
+      "gs_nodes": 151394,
+      "source_blob": "9b34f7a067c5acf6d900e458a71f1e30cd4b6ab4"
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "named": 906984,
+      "mass_eligible": 241855,
+      "mass_excluded": 665129,
+      "gs_nodes": 659133,
+      "source_blob": "dc843d66eb82d11011b119fb9d0a7a2b44a82744"
+    },
+    {
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2
+      ],
+      "named": 965328,
+      "mass_eligible": 399003,
+      "mass_excluded": 566325,
+      "gs_nodes": 1091320,
+      "source_blob": "c20e8f7f98af9b3b809b0e7fa8a18a05007edc9f"
+    }
+  ],
+  "totals": {
+    "patterns": 42,
+    "named": 5098938,
+    "mass_eligible": 2795372,
+    "mass_excluded": 2303566,
+    "gs_nodes": 7664115,
+    "witnesses": 40,
+    "valid": 0
+  },
+  "witnesses": [
+    {
+      "source_blob": "acdd0d106eb29d180207fc0e049e7f69b7fa10f5",
+      "negative": [
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          3,
+          11
+        ],
+        [
+          4,
+          12
+        ]
+      ],
+      "u": [
+        28,
+        7,
+        -53,
+        4,
+        0,
+        7,
+        5,
+        2,
+        0,
+        0,
+        -4,
+        0
+      ],
+      "masses": [
+        1910,
+        4891
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "acdd0d106eb29d180207fc0e049e7f69b7fa10f5",
+      "negative": [
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          4,
+          4
+        ]
+      ],
+      "u": [
+        -96,
+        17,
+        23,
+        11,
+        3,
+        -10,
+        -3,
+        -9,
+        -5,
+        2,
+        1,
+        -2
+      ],
+      "masses": [
+        2452,
+        6110
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "acdd0d106eb29d180207fc0e049e7f69b7fa10f5",
+      "negative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "u": [
+        -8,
+        23,
+        -8,
+        4,
+        3,
+        3,
+        2,
+        10,
+        11,
+        8,
+        0,
+        -2
+      ],
+      "masses": [
+        4720,
+        2681
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "bccaf3e0a5303988b14418aabae78e017c956a12",
+      "negative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "u": [
+        24,
+        44,
+        -15,
+        21,
+        -8,
+        -3,
+        -1,
+        -10,
+        1,
+        -4,
+        0,
+        -3
+      ],
+      "masses": [
+        2575,
+        5709
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "bccaf3e0a5303988b14418aabae78e017c956a12",
+      "negative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          4,
+          7
+        ]
+      ],
+      "u": [
+        57,
+        31,
+        -5,
+        -26,
+        -7,
+        -9,
+        -5,
+        -4,
+        6,
+        4,
+        0,
+        -4
+      ],
+      "masses": [
+        2671,
+        6447
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "bccaf3e0a5303988b14418aabae78e017c956a12",
+      "negative": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          3,
+          11
+        ],
+        [
+          3,
+          11
+        ]
+      ],
+      "u": [
+        -9,
+        -2,
+        -9,
+        -4,
+        7,
+        3,
+        4,
+        -12,
+        4,
+        1,
+        -8,
+        -2
+      ],
+      "masses": [
+        1632,
+        5460
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "bccaf3e0a5303988b14418aabae78e017c956a12",
+      "negative": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          3,
+          8
+        ]
+      ],
+      "u": [
+        -20,
+        -25,
+        -34,
+        -8,
+        5,
+        0,
+        9,
+        0,
+        -6,
+        -4,
+        -5,
+        4
+      ],
+      "masses": [
+        1750,
+        6587
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "bccaf3e0a5303988b14418aabae78e017c956a12",
+      "negative": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          3,
+          8
+        ],
+        [
+          3,
+          8
+        ]
+      ],
+      "u": [
+        -19,
+        56,
+        8,
+        -20,
+        7,
+        -7,
+        -9,
+        2,
+        1,
+        1,
+        0,
+        -2
+      ],
+      "masses": [
+        2603,
+        5072
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "bccaf3e0a5303988b14418aabae78e017c956a12",
+      "negative": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          3,
+          11
+        ]
+      ],
+      "u": [
+        35,
+        7,
+        -30,
+        -3,
+        6,
+        6,
+        3,
+        4,
+        11,
+        -5,
+        6,
+        -2
+      ],
+      "masses": [
+        4251,
+        4413
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "bccaf3e0a5303988b14418aabae78e017c956a12",
+      "negative": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          10
+        ]
+      ],
+      "u": [
+        -11,
+        -12,
+        0,
+        2,
+        6,
+        11,
+        -10,
+        9,
+        -3,
+        10,
+        -3,
+        3
+      ],
+      "masses": [
+        4015,
+        4193
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "bccaf3e0a5303988b14418aabae78e017c956a12",
+      "negative": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          9
+        ]
+      ],
+      "u": [
+        -50,
+        -31,
+        -17,
+        -14,
+        8,
+        16,
+        -3,
+        -10,
+        0,
+        -5,
+        2,
+        1
+      ],
+      "masses": [
+        2183,
+        6806
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "bccaf3e0a5303988b14418aabae78e017c956a12",
+      "negative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "u": [
+        -102,
+        -13,
+        -9,
+        10,
+        -5,
+        0,
+        10,
+        5,
+        4,
+        -2,
+        -6,
+        -1
+      ],
+      "masses": [
+        2389,
+        5511
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "bccaf3e0a5303988b14418aabae78e017c956a12",
+      "negative": [
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "u": [
+        -106,
+        39,
+        4,
+        -6,
+        0,
+        16,
+        7,
+        1,
+        -4,
+        -2,
+        1,
+        -4
+      ],
+      "masses": [
+        3234,
+        5085
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "bccaf3e0a5303988b14418aabae78e017c956a12",
+      "negative": [
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "u": [
+        -40,
+        7,
+        -8,
+        11,
+        -9,
+        -11,
+        6,
+        1,
+        2,
+        4,
+        -4,
+        -5
+      ],
+      "masses": [
+        2127,
+        5832
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "bccaf3e0a5303988b14418aabae78e017c956a12",
+      "negative": [
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "u": [
+        38,
+        15,
+        1,
+        3,
+        15,
+        13,
+        -5,
+        -3,
+        3,
+        -1,
+        -5,
+        1
+      ],
+      "masses": [
+        3486,
+        3841
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "bccaf3e0a5303988b14418aabae78e017c956a12",
+      "negative": [
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "u": [
+        42,
+        -8,
+        40,
+        13,
+        -5,
+        0,
+        0,
+        -6,
+        -6,
+        9,
+        -1,
+        -1
+      ],
+      "masses": [
+        3848,
+        4426
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "bccaf3e0a5303988b14418aabae78e017c956a12",
+      "negative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          2,
+          12
+        ]
+      ],
+      "u": [
+        18,
+        36,
+        20,
+        4,
+        10,
+        -2,
+        3,
+        -4,
+        5,
+        2,
+        -7,
+        -2
+      ],
+      "masses": [
+        3828,
+        4165
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "a417121e3841259cc7cb469bc5520c4f9da5f0c9",
+      "negative": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          4,
+          5
+        ]
+      ],
+      "u": [
+        34,
+        42,
+        -20,
+        13,
+        -3,
+        1,
+        -3,
+        1,
+        -5,
+        1,
+        1,
+        -7
+      ],
+      "masses": [
+        2572,
+        5194
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "a417121e3841259cc7cb469bc5520c4f9da5f0c9",
+      "negative": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          4,
+          8
+        ]
+      ],
+      "u": [
+        47,
+        -5,
+        -21,
+        -14,
+        20,
+        -1,
+        -6,
+        2,
+        -4,
+        2,
+        4,
+        3
+      ],
+      "masses": [
+        3341,
+        4856
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "679415b8232f5179a9e2db9193b7a18ca7f6d29b",
+      "negative": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          12
+        ]
+      ],
+      "u": [
+        -47,
+        -16,
+        5,
+        -8,
+        -3,
+        -14,
+        6,
+        -2,
+        6,
+        -3,
+        7,
+        2
+      ],
+      "masses": [
+        2730,
+        5386
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "679415b8232f5179a9e2db9193b7a18ca7f6d29b",
+      "negative": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          8
+        ]
+      ],
+      "u": [
+        -37,
+        4,
+        14,
+        14,
+        -8,
+        -5,
+        11,
+        6,
+        3,
+        -5,
+        8,
+        2
+      ],
+      "masses": [
+        4748,
+        4085
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "679415b8232f5179a9e2db9193b7a18ca7f6d29b",
+      "negative": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          12
+        ]
+      ],
+      "u": [
+        36,
+        -25,
+        -3,
+        16,
+        -7,
+        7,
+        -11,
+        -9,
+        -7,
+        -1,
+        2,
+        -1
+      ],
+      "masses": [
+        2071,
+        6442
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "679415b8232f5179a9e2db9193b7a18ca7f6d29b",
+      "negative": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "u": [
+        45,
+        -5,
+        31,
+        10,
+        -10,
+        0,
+        -5,
+        -3,
+        -4,
+        -3,
+        -6,
+        8
+      ],
+      "masses": [
+        3468,
+        5339
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "679415b8232f5179a9e2db9193b7a18ca7f6d29b",
+      "negative": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "u": [
+        -25,
+        4,
+        17,
+        5,
+        -6,
+        -7,
+        -9,
+        2,
+        -6,
+        7,
+        -7,
+        -5
+      ],
+      "masses": [
+        2110,
+        6818
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "679415b8232f5179a9e2db9193b7a18ca7f6d29b",
+      "negative": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "u": [
+        -87,
+        -24,
+        3,
+        8,
+        16,
+        5,
+        -7,
+        5,
+        2,
+        -2,
+        7,
+        -3
+      ],
+      "masses": [
+        3672,
+        5265
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "679415b8232f5179a9e2db9193b7a18ca7f6d29b",
+      "negative": [
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          3,
+          9
+        ]
+      ],
+      "u": [
+        66,
+        9,
+        5,
+        15,
+        3,
+        12,
+        -4,
+        -1,
+        -6,
+        2,
+        4,
+        9
+      ],
+      "masses": [
+        5309,
+        3401
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "8bfef9406e26c56893d60698d184c87e3e70cf9f",
+      "negative": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          12
+        ]
+      ],
+      "u": [
+        51,
+        11,
+        -17,
+        3,
+        1,
+        -12,
+        8,
+        0,
+        -3,
+        -4,
+        -9,
+        -6
+      ],
+      "masses": [
+        1824,
+        6910
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "8bfef9406e26c56893d60698d184c87e3e70cf9f",
+      "negative": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          1
+        ]
+      ],
+      "u": [
+        9,
+        -5,
+        -27,
+        -6,
+        -5,
+        -9,
+        -2,
+        -3,
+        -10,
+        4,
+        -7,
+        0
+      ],
+      "masses": [
+        624,
+        7069
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "8bfef9406e26c56893d60698d184c87e3e70cf9f",
+      "negative": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "u": [
+        -16,
+        -13,
+        -11,
+        10,
+        -17,
+        -1,
+        -14,
+        -6,
+        -1,
+        8,
+        -2,
+        4
+      ],
+      "masses": [
+        2162,
+        6646
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "8bfef9406e26c56893d60698d184c87e3e70cf9f",
+      "negative": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          2,
+          12
+        ]
+      ],
+      "u": [
+        62,
+        13,
+        -6,
+        -9,
+        -14,
+        9,
+        4,
+        0,
+        -11,
+        -5,
+        0,
+        2
+      ],
+      "masses": [
+        2432,
+        5824
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "1c0439055c83da37f507d48fd11237c89f0bcb27",
+      "negative": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          3,
+          8
+        ]
+      ],
+      "u": [
+        -45,
+        1,
+        19,
+        24,
+        -1,
+        -5,
+        -10,
+        3,
+        9,
+        -1,
+        -4,
+        0
+      ],
+      "masses": [
+        3324,
+        4866
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "1c0439055c83da37f507d48fd11237c89f0bcb27",
+      "negative": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "u": [
+        -95,
+        0,
+        -14,
+        10,
+        8,
+        7,
+        -1,
+        5,
+        -3,
+        0,
+        -6,
+        -4
+      ],
+      "masses": [
+        2076,
+        5693
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "1c0439055c83da37f507d48fd11237c89f0bcb27",
+      "negative": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          3,
+          9
+        ]
+      ],
+      "u": [
+        27,
+        -15,
+        -17,
+        -21,
+        14,
+        10,
+        -7,
+        -1,
+        0,
+        3,
+        -8,
+        -1
+      ],
+      "masses": [
+        2377,
+        6435
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "9b34f7a067c5acf6d900e458a71f1e30cd4b6ab4",
+      "negative": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          11
+        ]
+      ],
+      "u": [
+        -1,
+        -11,
+        -5,
+        -3,
+        14,
+        -10,
+        -4,
+        3,
+        1,
+        -3,
+        10,
+        -2
+      ],
+      "masses": [
+        2741,
+        4605
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "9b34f7a067c5acf6d900e458a71f1e30cd4b6ab4",
+      "negative": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          9
+        ]
+      ],
+      "u": [
+        9,
+        33,
+        7,
+        19,
+        13,
+        5,
+        1,
+        -2,
+        3,
+        -8,
+        -4,
+        7
+      ],
+      "masses": [
+        4908,
+        4084
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "c20e8f7f98af9b3b809b0e7fa8a18a05007edc9f",
+      "negative": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          2,
+          10
+        ]
+      ],
+      "u": [
+        100,
+        -39,
+        2,
+        4,
+        -17,
+        3,
+        -2,
+        0,
+        7,
+        1,
+        -1,
+        1
+      ],
+      "masses": [
+        2807,
+        4704
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "c20e8f7f98af9b3b809b0e7fa8a18a05007edc9f",
+      "negative": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          2,
+          12
+        ]
+      ],
+      "u": [
+        -46,
+        34,
+        14,
+        -13,
+        -5,
+        3,
+        10,
+        -2,
+        6,
+        -4,
+        -1,
+        6
+      ],
+      "masses": [
+        4139,
+        4575
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "c20e8f7f98af9b3b809b0e7fa8a18a05007edc9f",
+      "negative": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          2,
+          11
+        ]
+      ],
+      "u": [
+        1,
+        -2,
+        -27,
+        -15,
+        4,
+        10,
+        0,
+        -10,
+        -5,
+        5,
+        8,
+        -1
+      ],
+      "masses": [
+        2819,
+        5912
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "c20e8f7f98af9b3b809b0e7fa8a18a05007edc9f",
+      "negative": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          3
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          2,
+          11
+        ]
+      ],
+      "u": [
+        -34,
+        16,
+        -1,
+        -9,
+        -9,
+        7,
+        -9,
+        12,
+        -2,
+        0,
+        -3,
+        -5
+      ],
+      "masses": [
+        2175,
+        5978
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "source_blob": "c20e8f7f98af9b3b809b0e7fa8a18a05007edc9f",
+      "negative": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          2,
+          6
+        ]
+      ],
+      "u": [
+        0,
+        -1,
+        12,
+        11,
+        -15,
+        8,
+        -2,
+        15,
+        2,
+        -1,
+        1,
+        6
+      ],
+      "masses": [
+        4482,
+        3600
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "next": "Audit split(1,9) and split(2,8) against exact partition domain; reuse split(3,7),(4,6),(5,5). No native protected progress."
+}
