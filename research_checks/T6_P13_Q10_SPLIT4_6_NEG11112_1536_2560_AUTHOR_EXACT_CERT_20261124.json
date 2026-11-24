@@ -1,0 +1,138 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT4_6_NEG11112_AUTHOR_EXACT_SEGMENT_V1",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "author": "EM-DIRECT-D03BC9",
+  "activity": "RA-A468735D7C934B25C4B9614F",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "signed_split": [
+    4,
+    6
+  ],
+  "negative_q_pattern": [
+    1,
+    1,
+    1,
+    1,
+    2
+  ],
+  "interval": [
+    1536,
+    2560
+  ],
+  "total_negative_rosters": 16380,
+  "positive_q_patterns": [
+    [
+      4
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      1,
+      1,
+      2
+    ],
+    [
+      1,
+      1,
+      1,
+      1
+    ]
+  ],
+  "budget_each_side": 2331,
+  "lattice_index": "13^21",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "stats": {
+    "negative_rosters": 1024,
+    "positive_rosters": 2535,
+    "raw_signed_pairs": 2595840,
+    "common_named_atom_canceled": 1553424,
+    "vertical_original_mass_excess": 0,
+    "gs_searches": 1042416,
+    "gs_nodes": 2013515,
+    "relaxed_sphere_witnesses": 1,
+    "both_original_side_mass_valid": 0
+  },
+  "negative_roster_sha256": "2b9823c943dbec21fab2f6708a8227c4ecf45117cdae3b7d1d7860cd17de3a1d",
+  "pair_digest_sha256": "03577ceb2f2ef66618f8bb2076ee3a38e2c94c09b33b67292ab8b96e24e43b90",
+  "witnesses": [
+    {
+      "pos": [
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          8
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          9
+        ]
+      ],
+      "u": [
+        29,
+        0,
+        -4,
+        10,
+        -11,
+        -10,
+        -6,
+        -5,
+        5,
+        0,
+        1,
+        -2
+      ],
+      "masses": [
+        2526,
+        4455
+      ],
+      "radius_sq": 2669914,
+      "budget_valid": false,
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "negative_roster_index": 1712,
+      "positive_roster_index": 781
+    }
+  ],
+  "author_replay_base": "awdawmip/enterprise-math@a466be736446891b423809b0ba23cb37ec123502:research_checks/T6_P13_Q10_SPLIT3_7_NEG1123_INTEGER_GS_REPLAY_20261124.py",
+  "replay_rule": "Apply q6 certificate exact replacements at 76db4fbf6106d3ac84344e51645e8e43765f6f06; replace negatives with [tuple((1,r) for r in v)+((2,t),) for v in combinations_with_replacement(range(1,13),4) for t in range(1,13)]; len(negatives)==16380; negative_q_pattern=[1,1,1,1,2]; direct leaf norm=sum((w*x)**2 for w,x in zip(W,u)); assert norm<=radius and norm*K==spent.",
+  "validation": "Actual local Python/SymPy 1.14.0 exact integer GS; conditional on earlier high-prime elimination, common named atom reduction, and lattice completeness. Same frozen observer.",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "elapsed_seconds": 12.389299332999997
+}
