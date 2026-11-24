@@ -1,0 +1,1528 @@
+{
+  "schema": "POWER_SOURCE_PROGRESS_REVIEW_EVIDENCE_V1",
+  "progress_event_id": "power-progress-audit-20261124-74b386d",
+  "power_source": "74b386de5f1ca8dcc662935f563c438e1cfeee7e",
+  "scope": "Driver source review and short checks, not a formal research Task Result or independent admission",
+  "lattice85_86": {
+    "source_commit": "74b386de5f1ca8dcc662935f563c438e1cfeee7e",
+    "true_candidate": {
+      "n": 256027,
+      "p": 503,
+      "q": 509,
+      "m": 16,
+      "residues": [
+        7,
+        13
+      ],
+      "quotient_root": [
+        31,
+        31
+      ],
+      "gcd_p_residue_n": 1
+    },
+    "scans": [
+      {
+        "case": "actual_test_inputs_defaults",
+        "tier": "16D_CANONICAL",
+        "max_quotient_bits": null,
+        "is_success": false,
+        "factors": null,
+        "candidates_tested": 4,
+        "closest_vector_bits": 13,
+        "gate_threshold": 14
+      },
+      {
+        "case": "true_residue_gate_passes",
+        "tier": "16D_CANONICAL",
+        "max_quotient_bits": 5,
+        "is_success": false,
+        "factors": null,
+        "candidates_tested": 1,
+        "closest_vector_bits": 13,
+        "gate_threshold": 14
+      },
+      {
+        "case": "true_residue_gate_passes",
+        "tier": "24D_CANONICAL",
+        "max_quotient_bits": 5,
+        "is_success": false,
+        "factors": null,
+        "candidates_tested": 1,
+        "closest_vector_bits": 13,
+        "gate_threshold": 14
+      },
+      {
+        "case": "given_factor_positive_control",
+        "tier": "16D_CANONICAL",
+        "max_quotient_bits": 5,
+        "is_success": true,
+        "factors": [
+          503,
+          509
+        ],
+        "candidates_tested": 1,
+        "closest_vector_bits": 999999,
+        "gate_threshold": 14
+      }
+    ],
+    "canonical_geometry": [
+      {
+        "dimension": 16,
+        "off_diagonal_nonzero_count": 0,
+        "reduced_is_permutation_of_input": true,
+        "residual_first_three": [
+          91,
+          6656,
+          3584
+        ],
+        "residual_other_nonzero_count": 0,
+        "distance_bits": 13
+      },
+      {
+        "dimension": 24,
+        "off_diagonal_nonzero_count": 0,
+        "reduced_is_permutation_of_input": true,
+        "residual_first_three": [
+          91,
+          6656,
+          3584
+        ],
+        "residual_other_nonzero_count": 0,
+        "distance_bits": 13
+      }
+    ],
+    "pipeline85_first_fermat_step": [
+      {
+        "n_bits": 40,
+        "factors": [
+          1000003,
+          1000033
+        ],
+        "reported_method": "selmer_2descent_direct_recovery",
+        "ceil_sqrt_n": 1000018,
+        "a_squared_minus_n": 225,
+        "defect_is_square": true,
+        "first_step_factors_match": true
+      },
+      {
+        "n_bits": 51,
+        "factors": [
+          33554467,
+          33554473
+        ],
+        "reported_method": "selmer_2descent_direct_recovery",
+        "ceil_sqrt_n": 33554470,
+        "a_squared_minus_n": 9,
+        "defect_is_square": true,
+        "first_step_factors_match": true
+      },
+      {
+        "n_bits": 63,
+        "factors": [
+          2147483647,
+          2147483659
+        ],
+        "reported_method": "selmer_2descent_direct_recovery",
+        "ceil_sqrt_n": 2147483653,
+        "a_squared_minus_n": 36,
+        "defect_is_square": true,
+        "first_step_factors_match": true
+      },
+      {
+        "n_bits": 71,
+        "factors": [
+          34359738377,
+          34359738431
+        ],
+        "reported_method": "selmer_2descent_direct_recovery",
+        "ceil_sqrt_n": 34359738404,
+        "a_squared_minus_n": 729,
+        "defect_is_square": true,
+        "first_step_factors_match": true
+      },
+      {
+        "n_bits": 79,
+        "factors": [
+          549755813911,
+          549755813927
+        ],
+        "reported_method": "selmer_2descent_direct_recovery",
+        "ceil_sqrt_n": 549755813919,
+        "a_squared_minus_n": 64,
+        "defect_is_square": true,
+        "first_step_factors_match": true
+      }
+    ]
+  },
+  "factor87_89": {
+    "repository": "awdawmip/power",
+    "source_ref": "74b386de5f1ca8dcc662935f563c438e1cfeee7e",
+    "scope": "Native engine calls, short mathematical checks, and Python trace observations; not a general factoring benchmark.",
+    "qr_masks": {
+      "primes_count": 64,
+      "max_mask_bits": 313,
+      "table_exact_for_all_64_primes": true,
+      "all_squares_0_through_4095_preserved": true
+    },
+    "stored_success_family": [
+      {
+        "n": 1000036000099,
+        "n_bits": 40,
+        "p": 1000003,
+        "q": 1000033,
+        "factor_product_correct": true,
+        "factor_gap": 30,
+        "first_center_is_true_center": true,
+        "plain_fermat_first_candidate_factors": true,
+        "native_success": true,
+        "native_candidates": 1
+      },
+      {
+        "n": 1125902456980891,
+        "n_bits": 51,
+        "p": 33554467,
+        "q": 33554473,
+        "factor_product_correct": true,
+        "factor_gap": 6,
+        "first_center_is_true_center": true,
+        "plain_fermat_first_candidate_factors": true,
+        "native_success": true,
+        "native_candidates": 1
+      },
+      {
+        "n": 4611686039902224373,
+        "n_bits": 63,
+        "p": 2147483647,
+        "q": 2147483659,
+        "factor_product_correct": true,
+        "factor_gap": 12,
+        "first_center_is_true_center": true,
+        "plain_fermat_first_candidate_factors": true,
+        "native_success": true,
+        "native_candidates": 1
+      },
+      {
+        "n": 302231454937742154138497,
+        "n_bits": 79,
+        "p": 549755813911,
+        "q": 549755813927,
+        "factor_product_correct": true,
+        "factor_gap": 16,
+        "first_center_is_true_center": true,
+        "plain_fermat_first_candidate_factors": true,
+        "native_success": true,
+        "native_candidates": 1
+      },
+      {
+        "n": 1237940039290094980759032137,
+        "n_bits": 91,
+        "p": 35184372088891,
+        "q": 35184372088907,
+        "factor_product_correct": true,
+        "factor_gap": 16,
+        "first_center_is_true_center": true,
+        "plain_fermat_first_candidate_factors": true,
+        "native_success": true,
+        "native_candidates": 1
+      },
+      {
+        "n": 1267650600228373516684779065263,
+        "n_bits": 101,
+        "p": 1125899906842679,
+        "q": 1125899906842697,
+        "factor_product_correct": true,
+        "factor_gap": 18,
+        "first_center_is_true_center": true,
+        "plain_fermat_first_candidate_factors": true,
+        "native_success": true,
+        "native_candidates": 1
+      }
+    ],
+    "bit_beam_counterexample": {
+      "p": 1009,
+      "q": 2003,
+      "n": 2021027,
+      "true_radius": 497,
+      "native": {
+        "n": 2021027,
+        "n_bits": 21,
+        "max_depth_bits": 11,
+        "beam_width": 128,
+        "total_nodes_visited": 2045,
+        "pruned_parity_nodes": 1022,
+        "pruned_archimedean_nodes": 0,
+        "elapsed_ms": 5.073719999927562,
+        "is_success": false,
+        "factors": null,
+        "surviving_branches": 128,
+        "metadata": {
+          "target_depth_bits": 11,
+          "max_fermat_radius": 65536
+        }
+      },
+      "beam_truncations": [
+        {
+          "depth": 9,
+          "before_width": 256,
+          "after_width": 128,
+          "true_pairs": [
+            [
+              467,
+              497
+            ],
+            [
+              497,
+              467
+            ]
+          ],
+          "true_pair_sorted_positions_zero_based": [
+            69,
+            99
+          ],
+          "true_pair_retained_positions_zero_based": [
+            69,
+            99
+          ]
+        },
+        {
+          "depth": 10,
+          "before_width": 256,
+          "after_width": 128,
+          "true_pairs": [
+            [
+              979,
+              1009
+            ],
+            [
+              1009,
+              979
+            ]
+          ],
+          "true_pair_sorted_positions_zero_based": [
+            233,
+            248
+          ],
+          "true_pair_retained_positions_zero_based": []
+        },
+        {
+          "depth": 11,
+          "before_width": 256,
+          "after_width": 128,
+          "true_pairs": [
+            [
+              1009,
+              2003
+            ],
+            [
+              2003,
+              1009
+            ]
+          ],
+          "true_pair_sorted_positions_zero_based": [],
+          "true_pair_retained_positions_zero_based": []
+        }
+      ]
+    },
+    "byte_counterexamples_and_control": [
+      {
+        "p": 7,
+        "q": 11,
+        "n": 77,
+        "native_factors": null,
+        "nodes": 737,
+        "pruned": 690,
+        "active": 1,
+        "first_byte_native_candidates": [
+          [
+            1,
+            77
+          ],
+          [
+            13,
+            65
+          ]
+        ],
+        "true_first_byte_pairs": [
+          [
+            7,
+            11
+          ],
+          [
+            11,
+            7
+          ]
+        ],
+        "true_first_byte_pair_retained": false,
+        "all_native_first_byte_pairs_satisfy_product_congruence": true
+      },
+      {
+        "p": 17,
+        "q": 19,
+        "n": 323,
+        "native_factors": null,
+        "nodes": 353,
+        "pruned": 330,
+        "active": 1,
+        "first_byte_native_candidates": [
+          [
+            1,
+            67
+          ]
+        ],
+        "true_first_byte_pairs": [
+          [
+            17,
+            19
+          ],
+          [
+            19,
+            17
+          ]
+        ],
+        "true_first_byte_pair_retained": false,
+        "all_native_first_byte_pairs_satisfy_product_congruence": true
+      },
+      {
+        "p": 503,
+        "q": 509,
+        "n": 256027,
+        "native_factors": null,
+        "nodes": 337,
+        "pruned": 315,
+        "active": 1,
+        "first_byte_native_candidates": [
+          [
+            1,
+            27
+          ]
+        ],
+        "true_first_byte_pairs": [
+          [
+            247,
+            253
+          ],
+          [
+            253,
+            247
+          ]
+        ],
+        "true_first_byte_pair_retained": false,
+        "all_native_first_byte_pairs_satisfy_product_congruence": true
+      },
+      {
+        "p": 257,
+        "q": 263,
+        "n": 67591,
+        "native_factors": [
+          257,
+          263
+        ],
+        "nodes": 65,
+        "pruned": 29,
+        "active": 32,
+        "first_byte_native_candidates": [
+          [
+            1,
+            7
+          ],
+          [
+            7,
+            1
+          ]
+        ],
+        "true_first_byte_pairs": [
+          [
+            1,
+            7
+          ],
+          [
+            7,
+            1
+          ]
+        ],
+        "true_first_byte_pair_retained": true,
+        "all_native_first_byte_pairs_satisfy_product_congruence": true
+      },
+      {
+        "p": 1000003,
+        "q": 1000033,
+        "n": 1000036000099,
+        "native_factors": null,
+        "nodes": 369,
+        "pruned": 346,
+        "active": 5,
+        "first_byte_native_candidates": [
+          [
+            1,
+            99
+          ]
+        ],
+        "true_first_byte_pairs": [
+          [
+            67,
+            97
+          ],
+          [
+            97,
+            67
+          ]
+        ],
+        "true_first_byte_pair_retained": false,
+        "all_native_first_byte_pairs_satisfy_product_congruence": true
+      }
+    ],
+    "rsa_radius_assumption": {
+      "n_bits": 928,
+      "probe_radius_bound": 16777216,
+      "bound_squared": 281474976710656,
+      "minimum_integer_center_defect": 34352899295097070321538863330496971388532358308265328048239994910686508251318983613551399024836136351639152958691887062687543245170329211947,
+      "minimum_defect_bits": 464,
+      "minimum_defect_exceeds_bound_squared": true,
+      "minimum_radius_floor": 5861134642293851137010999485564651373935547063065020076354028512871717,
+      "minimum_radius_floor_bits": 232,
+      "logic": "Any positive integer factor pair has S=(p+q)/2 >= ceil(sqrt(N)), so R^2=S^2-N >= minimum_integer_center_defect."
+    },
+    "rsa87_replay": [
+      {
+        "bound_name": "probe_2pow24",
+        "radius_bound_bits": 25,
+        "nodes": 14253,
+        "parity_pruned": 7126,
+        "archimedean_pruned": 2288,
+        "active": 60,
+        "success": false,
+        "factors": null,
+        "elapsed_ms_local": 6.40336500146077
+      },
+      {
+        "bound_name": "native_default",
+        "radius_bound_bits": 460,
+        "nodes": 14845,
+        "parity_pruned": 7422,
+        "archimedean_pruned": 0,
+        "active": 64,
+        "success": false,
+        "factors": null,
+        "elapsed_ms_local": 7.003749997238629
+      }
+    ],
+    "rsa89_horizon_replay": {
+      "n_bits": 928,
+      "primes_screened": 64,
+      "candidates_tested": 50000,
+      "simd_pruned": 50000,
+      "hensel_pruned": 0,
+      "elapsed_ms": 38.59581299911952,
+      "is_success": false,
+      "factors": null,
+      "active_beam": 0,
+      "throughput_candidates_per_sec": 1295477.3099647013,
+      "metadata": {
+        "start_center": 42316754995696390458380003904983624140069420419900676802287290539725136867026773625921440090103054407911474505172887234418796462843177291355,
+        "step": 2
+      }
+    },
+    "rsa89_byte_replay": [
+      {
+        "depth_bytes": 2,
+        "factors": null,
+        "nodes": 33,
+        "pruned": 15,
+        "active": 16,
+        "elapsed_ms_local": 0.05889899694011547
+      },
+      {
+        "depth_bytes": 4,
+        "factors": null,
+        "nodes": 1313,
+        "pruned": 15,
+        "active": 64,
+        "elapsed_ms_local": 1.461894000385655
+      },
+      {
+        "depth_bytes": 8,
+        "factors": null,
+        "nodes": 5409,
+        "pruned": 15,
+        "active": 64,
+        "elapsed_ms_local": 5.120650999742793
+      }
+    ],
+    "byte_trivial_factor_return": [
+      {
+        "n": 9,
+        "native_result": [
+          [
+            1,
+            9
+          ],
+          33,
+          14,
+          2
+        ]
+      },
+      {
+        "n": 15,
+        "native_result": [
+          [
+            1,
+            15
+          ],
+          33,
+          14,
+          2
+        ]
+      }
+    ],
+    "pytest_attempt": {
+      "run": false,
+      "reason": "python -m pytest could not start: No module named pytest. The standalone native checks above executed normally."
+    }
+  },
+  "synthesis88": {
+    "power_commit": "74b386de5f1ca8dcc662935f563c438e1cfeee7e",
+    "source_git_blob": "217aa66a9a4fd255333a9d49241ce89a4e39a121",
+    "scope": "Unmodified original static method; no full pipeline or RSA timing rerun",
+    "identity_lattice_early_abort_witness": {
+      "basis": [
+        [
+          1,
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          1
+        ]
+      ],
+      "target": [
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "bound_squared": 1,
+      "returned_residual": [
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "returned_distance_bits": 1,
+      "aborted": true,
+      "exact_closest_lattice_point": [
+        2,
+        0,
+        0,
+        0,
+        0
+      ],
+      "exact_distance_squared": 0,
+      "explanation": "Aborts before visiting the first basis row, which would cancel the entire remaining residual."
+    },
+    "slack_from_input_and_dimension_only": {
+      "16": -51.0,
+      "24": -29.713603387616217,
+      "32": -17.024386617639493
+    },
+    "scope_note": "RSA probe reports zero early aborts; this witness refutes the general rejection rule but does not explain an observed RSA rejection."
+  },
+  "factor_source_manifest": {
+    "repo": "awdawmip/power",
+    "commit": "74b386de5f1ca8dcc662935f563c438e1cfeee7e",
+    "files": [
+      {
+        "path": "docs/87_DYADIC_HENSEL_BRANCH_RIGIDITY_FILTER_MONOGRAPH.md",
+        "expected_sha": "fc9e259ee9db97b8252a24865480ede98ac7dc22",
+        "actual_sha": "fc9e259ee9db97b8252a24865480ede98ac7dc22",
+        "matches": true
+      },
+      {
+        "path": "docs/89_VECTORIZED_BITMASK_DYADIC_SIEVE_MONOGRAPH.md",
+        "expected_sha": "4c26e2157b6d81ff58eaa8f46c7e5f06efcba2d5",
+        "actual_sha": "4c26e2157b6d81ff58eaa8f46c7e5f06efcba2d5",
+        "matches": true
+      },
+      {
+        "path": "docs/dyadic_hensel_branch_rigidity_filter_results.json",
+        "expected_sha": "5adb1853f8c5ba85182d26a3dd86f63c8aee32e3",
+        "actual_sha": "5adb1853f8c5ba85182d26a3dd86f63c8aee32e3",
+        "matches": true
+      },
+      {
+        "path": "docs/vectorized_bitmask_dyadic_sieve_results.json",
+        "expected_sha": "f22a9eeb3ffa05feaae88495f5dffdf6048d5bbe",
+        "actual_sha": "f22a9eeb3ffa05feaae88495f5dffdf6048d5bbe",
+        "matches": true
+      },
+      {
+        "path": "src/power/weapons/dyadic_hensel_branch_rigidity_filter.py",
+        "expected_sha": "e0a72b7c8eceddf7a26620adb5c604c4ecd41dea",
+        "actual_sha": "e0a72b7c8eceddf7a26620adb5c604c4ecd41dea",
+        "matches": true
+      },
+      {
+        "path": "src/power/weapons/vectorized_bitmask_dyadic_sieve.py",
+        "expected_sha": "77eabab62650aab210c5fda2314d8d0cb01bbd99",
+        "actual_sha": "77eabab62650aab210c5fda2314d8d0cb01bbd99",
+        "matches": true
+      },
+      {
+        "path": "tests/test_dyadic_hensel_branch_rigidity_filter.py",
+        "expected_sha": "8a43acf658413ba2181eeefcb8e8f4655ee2f8fa",
+        "actual_sha": "8a43acf658413ba2181eeefcb8e8f4655ee2f8fa",
+        "matches": true
+      },
+      {
+        "path": "tests/test_vectorized_bitmask_dyadic_sieve.py",
+        "expected_sha": "e31fefd64d0d28c45caa86de54fb033b7b7b2eae",
+        "actual_sha": "e31fefd64d0d28c45caa86de54fb033b7b7b2eae",
+        "matches": true
+      },
+      {
+        "path": "scripts/test_co_optimized_joint_synthesis_probe.py",
+        "expected_sha": "cb8d9106bae29fae20cdb9575a74df526af5e192",
+        "actual_sha": "cb8d9106bae29fae20cdb9575a74df526af5e192",
+        "matches": true
+      },
+      {
+        "path": "scripts/test_multi_candidate_hensel_probe.py",
+        "expected_sha": "a09aaaf9ed2b7113613799754023b67d819ec747",
+        "actual_sha": "a09aaaf9ed2b7113613799754023b67d819ec747",
+        "matches": true
+      },
+      {
+        "path": "src/power/rsa280_spec.py",
+        "expected_sha": "64ecc3590e2eaf13364a85e6a2f799c26c1ab9e6",
+        "actual_sha": "64ecc3590e2eaf13364a85e6a2f799c26c1ab9e6",
+        "matches": true
+      }
+    ]
+  },
+  "task_status_snapshot": {
+    "observed_at": "2026-11-24 13:39:15 UTC",
+    "source_pin": "7abe4ae0b36be17894c8bb74f7d0710ec5c8c50b",
+    "original_receipts": [
+      {
+        "request_id": "power-directions-verify-task-20261124-01",
+        "status": "SUCCEEDED",
+        "observed_at": "2026-11-24T11:57:18.360293+00:00",
+        "source_sha": "de68b2863b6c1839ea59113a5e617b8908f5bd1c",
+        "state": {
+          "actor": null,
+          "claim_id": null,
+          "dispatch_state": "NEEDS_DISPATCH",
+          "event_authentication": "NO_RUNTIME_EVENT",
+          "frontier": "已有精确未来商与专门计数可复用；给定资源预算时的近似状态编译、组合误差以及任务变化后的有成本升级仍缺明确构造。",
+          "hard_block": null,
+          "identity_lane": "POWERTRANSFER",
+          "identity_source": null,
+          "ignored_events": [],
+          "kind": "RESEARCH",
+          "last_progress_at": "2026-11-24T11:29:51.000606+00:00",
+          "last_progress_ref": "TP2-D2EFEEFB3E6FCC346366",
+          "last_researcher_id": null,
+          "last_server_author_login": null,
+          "last_server_comment_id": null,
+          "lease_until": null,
+          "leverage": "HIGH",
+          "next_action": "选择有实际信息缺口的结构化任务族，给出其资源输入、误差承诺和状态编译或升级命题。",
+          "owner": "taskbook/unassigned",
+          "parent_task_id": null,
+          "priority": "P1",
+          "publication_id": "TP2-D2EFEEFB3E6FCC346366",
+          "registration_source": "IMMUTABLE_TASK_RECORD",
+          "researcher_id": null,
+          "scheduling_trace": [
+            {
+              "at": "2026-11-24T11:29:51.000606+00:00",
+              "comment_id": 0,
+              "eligible": true,
+              "event": "AVAILABLE",
+              "owner_present": false,
+              "phase": 2
+            }
+          ],
+          "source_refs": [
+            "awdawmip/enterprise-math@f20c4ac4ab48c937f570f5193051eba733a5b563:src/enterprise_math/predictive_quotient.py",
+            "awdawmip/enterprise-math@f20c4ac4ab48c937f570f5193051eba733a5b563:src/enterprise_math/precision_task_observable.py",
+            "awdawmip/enterprise-math@f20c4ac4ab48c937f570f5193051eba733a5b563:src/enterprise_math/material_future_precision.py",
+            "awdawmip/enterprise-math@f20c4ac4ab48c937f570f5193051eba733a5b563:research_task_records/RS-GBRC-R1-OBSERVER-MEMORY/TP2-664CFA2596577B114D97.json",
+            "awdawmip/enterprise-math@f20c4ac4ab48c937f570f5193051eba733a5b563:research_task_records/RS-BRC-RESTRICTED-PORT-QUOTIENT-20261005/TP2-18142D0E079087C682E1.json",
+            "awdawmip/enterprise-math@f20c4ac4ab48c937f570f5193051eba733a5b563:research_task_records/RS-BRC-FUTURE-FAITHFUL-INTEGRATION-20261028/TP2-8FD66B1B48BE87DA1AC1.json",
+            "awdawmip/enterprise-math@f20c4ac4ab48c937f570f5193051eba733a5b563:research_task_records/RS-HBW-FIRST-HIT-PRECISION-GAP-20260927/TP2-3CEE2F75878373DF70CD.json",
+            "awdawmip/enterprise-math@f20c4ac4ab48c937f570f5193051eba733a5b563:research_task_records/RS-QFT-MASS-WEIGHTED-APPROX-CERT-20260927/TP2-96E6EEEAE62D04B03180.json",
+            "https://github.com/awdawmip/chatgpt-global-knowledge/blob/ae6894814c8637560bd1e1d4b6dbc0131ddbc788/journal/power/2026-11-24/20261124T190334%2B0800-power-source-review-5561f5a.md"
+          ],
+          "state": "READY",
+          "tags": [
+            "POWER",
+            "joint-residual",
+            "user-directed-research"
+          ],
+          "task_id": "RS-POWER-TASK-PRECISION-COMPILER-20261124",
+          "title": "资源约束下的近似状态编译及任务变化后的可计算精度升级"
+        },
+        "publication_id": "TP2-D2EFEEFB3E6FCC346366"
+      },
+      {
+        "request_id": "power-directions-verify-task-20261124-02",
+        "status": "SUCCEEDED",
+        "observed_at": "2026-11-24T11:58:46.476218+00:00",
+        "source_sha": "de68b2863b6c1839ea59113a5e617b8908f5bd1c",
+        "state": {
+          "actor": null,
+          "claim_id": null,
+          "dispatch_state": "NEEDS_DISPATCH",
+          "event_authentication": "NO_RUNTIME_EVENT",
+          "frontier": "已有完整稳定商与补测前后比较；在转移、动作或观察变化后正确维护拆分和合并的增量机制及成本尚待研究。",
+          "hard_block": null,
+          "identity_lane": "POWERTRANSFER",
+          "identity_source": null,
+          "ignored_events": [],
+          "kind": "RESEARCH",
+          "last_progress_at": "2026-11-24T11:29:51.000606+00:00",
+          "last_progress_ref": "TP2-DD8B3B7291FF9E6FD8C0",
+          "last_researcher_id": null,
+          "last_server_author_login": null,
+          "last_server_comment_id": null,
+          "lease_until": null,
+          "leverage": "HIGH",
+          "next_action": "给出实际更新语义，构造可复用旧商的维护机制或刻画其必要传播范围，并与更新后完整商比较。",
+          "owner": "taskbook/unassigned",
+          "parent_task_id": null,
+          "priority": "P1",
+          "publication_id": "TP2-DD8B3B7291FF9E6FD8C0",
+          "registration_source": "IMMUTABLE_TASK_RECORD",
+          "researcher_id": null,
+          "scheduling_trace": [
+            {
+              "at": "2026-11-24T11:29:51.000606+00:00",
+              "comment_id": 0,
+              "eligible": true,
+              "event": "AVAILABLE",
+              "owner_present": false,
+              "phase": 2
+            }
+          ],
+          "source_refs": [
+            "awdawmip/enterprise-math@f20c4ac4ab48c937f570f5193051eba733a5b563:src/enterprise_math/operation_quotient.py",
+            "awdawmip/enterprise-math@f20c4ac4ab48c937f570f5193051eba733a5b563:src/enterprise_math/material_empirical_action_protocol.py",
+            "awdawmip/enterprise-math@f20c4ac4ab48c937f570f5193051eba733a5b563:src/enterprise_math/material_empirical_protocol_completion.py",
+            "awdawmip/enterprise-math@f20c4ac4ab48c937f570f5193051eba733a5b563:research_task_records/RS-GBRC-R1-OBSERVER-MEMORY/TP2-664CFA2596577B114D97.json",
+            "awdawmip/enterprise-math@f20c4ac4ab48c937f570f5193051eba733a5b563:research_task_records/RS-BRC-RESTRICTED-PORT-QUOTIENT-20261005/TP2-18142D0E079087C682E1.json",
+            "awdawmip/enterprise-math@f20c4ac4ab48c937f570f5193051eba733a5b563:research_task_records/RS-BRC-FUTURE-FAITHFUL-INTEGRATION-20261028/TP2-8FD66B1B48BE87DA1AC1.json",
+            "awdawmip/enterprise-math@f20c4ac4ab48c937f570f5193051eba733a5b563:research_task_records/RS-ROUGH-PARITY-LOCAL-STATE-UPDATE-20261101/TP2-13B36639D27B58C98C02.json",
+            "https://github.com/awdawmip/chatgpt-global-knowledge/blob/ae6894814c8637560bd1e1d4b6dbc0131ddbc788/journal/power/2026-11-24/20261124T190334%2B0800-power-source-review-5561f5a.md"
+          ],
+          "state": "READY",
+          "tags": [
+            "POWER",
+            "joint-residual",
+            "user-directed-research"
+          ],
+          "task_id": "RS-POWER-INCREMENTAL-FUTURE-QUOTIENT-20261124",
+          "title": "变化证据、动作与观察下的增量未来安全商"
+        },
+        "publication_id": "TP2-DD8B3B7291FF9E6FD8C0"
+      },
+      {
+        "request_id": "power-directions-verify-task-20261124-03",
+        "status": "SUCCEEDED",
+        "observed_at": "2026-11-24T12:21:23.467487+00:00",
+        "source_sha": "de68b2863b6c1839ea59113a5e617b8908f5bd1c",
+        "state": {
+          "actor": null,
+          "claim_id": null,
+          "dispatch_state": "NEEDS_DISPATCH",
+          "event_authentication": "NO_RUNTIME_EVENT",
+          "frontier": "现有格原型存在尺度判定、保根与势函数语义缺口；特殊算术关系下的合法压缩、所需精度及完整认证成本尚无可靠结论。",
+          "hard_block": null,
+          "identity_lane": "POWERTRANSFER",
+          "identity_source": null,
+          "ignored_events": [],
+          "kind": "RESEARCH",
+          "last_progress_at": "2026-11-24T11:29:51.000606+00:00",
+          "last_progress_ref": "TP2-3255B42C5DCC00A62CC7",
+          "last_researcher_id": null,
+          "last_server_author_login": null,
+          "last_server_comment_id": null,
+          "lease_until": null,
+          "leverage": "HIGH",
+          "next_action": "在完整保根关系或明确整数基上提出可检验的结构性精度/压缩问题，给出其正确性条件与全成本比较。",
+          "owner": "taskbook/unassigned",
+          "parent_task_id": null,
+          "priority": "P2",
+          "publication_id": "TP2-3255B42C5DCC00A62CC7",
+          "registration_source": "IMMUTABLE_TASK_RECORD",
+          "researcher_id": null,
+          "scheduling_trace": [
+            {
+              "at": "2026-11-24T11:29:51.000606+00:00",
+              "comment_id": 0,
+              "eligible": true,
+              "event": "AVAILABLE",
+              "owner_present": false,
+              "phase": 2
+            }
+          ],
+          "source_refs": [
+            "https://github.com/awdawmip/power/blob/049bc552ec90820094ecfdb4013d71cb1a668386/src/power/lattices/lll.py",
+            "https://github.com/awdawmip/power/blob/049bc552ec90820094ecfdb4013d71cb1a668386/src/power/weapons/provably_exact_adaptive_float_lll.py",
+            "https://github.com/awdawmip/power/blob/049bc552ec90820094ecfdb4013d71cb1a668386/src/power/weapons/asymptotic_high_bit_projected_bkz.py",
+            "https://github.com/awdawmip/power/blob/049bc552ec90820094ecfdb4013d71cb1a668386/src/power/weapons/schnorr_euchner_deep_insertion_lll.py",
+            "https://github.com/awdawmip/power/blob/049bc552ec90820094ecfdb4013d71cb1a668386/docs/79_ASYMPTOTIC_HIGH_BIT_PROJECTED_BKZ_MONOGRAPH.md",
+            "https://github.com/awdawmip/power/blob/049bc552ec90820094ecfdb4013d71cb1a668386/docs/83_SCHNORR_EUCHNER_DEEP_INSERTION_LLL_MONOGRAPH.md",
+            "https://github.com/awdawmip/power/blob/049bc552ec90820094ecfdb4013d71cb1a668386/docs/84_PROVABLY_EXACT_ADAPTIVE_FLOAT_LLL_MONOGRAPH.md",
+            "https://perso.ens-lyon.fr/damien.stehle/FPLLL.html",
+            "https://arxiv.org/abs/cs/0701183",
+            "https://arxiv.org/abs/1307.7534",
+            "https://github.com/awdawmip/chatgpt-global-knowledge/blob/ae6894814c8637560bd1e1d4b6dbc0131ddbc788/journal/power/2026-11-24/20261124T190334%2B0800-power-source-review-5561f5a.md"
+          ],
+          "state": "READY",
+          "tags": [
+            "POWER",
+            "joint-residual",
+            "user-directed-research"
+          ],
+          "task_id": "RS-POWER-CERTIFIED-RESIDUAL-LATTICE-20261124",
+          "title": "特殊算术残差格的保根构造与认证精度成本"
+        },
+        "publication_id": "TP2-3255B42C5DCC00A62CC7"
+      },
+      {
+        "request_id": "power-directions-verify-task-20261124-04",
+        "status": "SUCCEEDED",
+        "observed_at": "2026-11-24T12:22:48.201107+00:00",
+        "source_sha": "de68b2863b6c1839ea59113a5e617b8908f5bd1c",
+        "state": {
+          "actor": null,
+          "claim_id": null,
+          "dispatch_state": "NEEDS_DISPATCH",
+          "event_authentication": "NO_RUNTIME_EVENT",
+          "frontier": "单侧稀疏支撑不保证另一素数截面非零；尚缺明确数族的非平凡分离、环宽/种子界及可复算总成本。",
+          "hard_block": null,
+          "identity_lane": "POWERTRANSFER",
+          "identity_source": null,
+          "ignored_events": [],
+          "kind": "RESEARCH",
+          "last_progress_at": "2026-11-24T11:29:51.000606+00:00",
+          "last_progress_ref": "TP2-65B32E1AB172F45CF517",
+          "last_researcher_id": null,
+          "last_server_author_login": null,
+          "last_server_comment_id": null,
+          "lease_until": null,
+          "leverage": "MEDIUM",
+          "next_action": "在明确数族、种子与循环环宽下给出双侧系数分离或失败分类命题，并界定其相对既有短有理脊线的增量。",
+          "owner": "taskbook/unassigned",
+          "parent_task_id": null,
+          "priority": "P2",
+          "publication_id": "TP2-65B32E1AB172F45CF517",
+          "registration_source": "IMMUTABLE_TASK_RECORD",
+          "researcher_id": null,
+          "scheduling_trace": [
+            {
+              "at": "2026-11-24T11:29:51.000606+00:00",
+              "comment_id": 0,
+              "eligible": true,
+              "event": "AVAILABLE",
+              "owner_present": false,
+              "phase": 2
+            }
+          ],
+          "source_refs": [
+            "https://github.com/awdawmip/power/blob/049bc552ec90820094ecfdb4013d71cb1a668386/src/power/factor/special_structure_factorer.py",
+            "https://github.com/awdawmip/power/blob/049bc552ec90820094ecfdb4013d71cb1a668386/tests/test_special_structure_factorer.py",
+            "https://github.com/awdawmip/power/blob/049bc552ec90820094ecfdb4013d71cb1a668386/docs/20_SPECIAL_STRUCTURE_SEMIPRIMES_MONOGRAPH.md",
+            "https://github.com/awdawmip/enterprise-math/blob/f20c4ac4ab48c937f570f5193051eba733a5b563/research_tasks/ADDMUL_DELTA_FROBENIUS_DEFECT_TOWER_20260830.md",
+            "https://github.com/awdawmip/chatgpt-global-knowledge/blob/ae6894814c8637560bd1e1d4b6dbc0131ddbc788/journal/power/2026-11-24/20261124T190334%2B0800-power-source-review-5561f5a.md"
+          ],
+          "state": "READY",
+          "tags": [
+            "POWER",
+            "joint-residual",
+            "user-directed-research"
+          ],
+          "task_id": "RS-POWER-FROBENIUS-SECTION-SEPARATION-20261124",
+          "title": "循环 Frobenius 细粗层的双素数截面分离条件"
+        },
+        "publication_id": "TP2-65B32E1AB172F45CF517"
+      }
+    ],
+    "current_reads": [
+      {
+        "task_id": "RS-POWER-TASK-PRECISION-COMPILER-20261124",
+        "request_id": "power-progress-current-task-20261124-01",
+        "status": "SUCCEEDED",
+        "phase": "COMPLETE",
+        "error": null,
+        "observed_at": "2026-11-24T13:38:26.422510+00:00",
+        "source_sha": "7abe4ae0b36be17894c8bb74f7d0710ec5c8c50b",
+        "state": {
+          "actor": null,
+          "claim_id": null,
+          "dispatch_state": "NEEDS_DISPATCH",
+          "event_authentication": "NO_RUNTIME_EVENT",
+          "frontier": "已有精确未来商与专门计数可复用；给定资源预算时的近似状态编译、组合误差以及任务变化后的有成本升级仍缺明确构造。",
+          "hard_block": null,
+          "identity_lane": "POWERTRANSFER",
+          "identity_source": null,
+          "ignored_events": [],
+          "kind": "RESEARCH",
+          "last_progress_at": "2026-11-24T11:29:51.000606+00:00",
+          "last_progress_ref": "TP2-D2EFEEFB3E6FCC346366",
+          "last_researcher_id": null,
+          "last_server_author_login": null,
+          "last_server_comment_id": null,
+          "lease_until": null,
+          "leverage": "HIGH",
+          "next_action": "选择有实际信息缺口的结构化任务族，给出其资源输入、误差承诺和状态编译或升级命题。",
+          "owner": "taskbook/unassigned",
+          "parent_task_id": null,
+          "priority": "P1",
+          "publication_id": "TP2-D2EFEEFB3E6FCC346366",
+          "registration_source": "IMMUTABLE_TASK_RECORD",
+          "researcher_id": null,
+          "scheduling_trace": [
+            {
+              "at": "2026-11-24T11:29:51.000606+00:00",
+              "comment_id": 0,
+              "eligible": true,
+              "event": "AVAILABLE",
+              "owner_present": false,
+              "phase": 2
+            }
+          ],
+          "source_refs": [
+            "awdawmip/enterprise-math@f20c4ac4ab48c937f570f5193051eba733a5b563:src/enterprise_math/predictive_quotient.py",
+            "awdawmip/enterprise-math@f20c4ac4ab48c937f570f5193051eba733a5b563:src/enterprise_math/precision_task_observable.py",
+            "awdawmip/enterprise-math@f20c4ac4ab48c937f570f5193051eba733a5b563:src/enterprise_math/material_future_precision.py",
+            "awdawmip/enterprise-math@f20c4ac4ab48c937f570f5193051eba733a5b563:research_task_records/RS-GBRC-R1-OBSERVER-MEMORY/TP2-664CFA2596577B114D97.json",
+            "awdawmip/enterprise-math@f20c4ac4ab48c937f570f5193051eba733a5b563:research_task_records/RS-BRC-RESTRICTED-PORT-QUOTIENT-20261005/TP2-18142D0E079087C682E1.json",
+            "awdawmip/enterprise-math@f20c4ac4ab48c937f570f5193051eba733a5b563:research_task_records/RS-BRC-FUTURE-FAITHFUL-INTEGRATION-20261028/TP2-8FD66B1B48BE87DA1AC1.json",
+            "awdawmip/enterprise-math@f20c4ac4ab48c937f570f5193051eba733a5b563:research_task_records/RS-HBW-FIRST-HIT-PRECISION-GAP-20260927/TP2-3CEE2F75878373DF70CD.json",
+            "awdawmip/enterprise-math@f20c4ac4ab48c937f570f5193051eba733a5b563:research_task_records/RS-QFT-MASS-WEIGHTED-APPROX-CERT-20260927/TP2-96E6EEEAE62D04B03180.json",
+            "https://github.com/awdawmip/chatgpt-global-knowledge/blob/ae6894814c8637560bd1e1d4b6dbc0131ddbc788/journal/power/2026-11-24/20261124T190334%2B0800-power-source-review-5561f5a.md"
+          ],
+          "state": "READY",
+          "tags": [
+            "POWER",
+            "joint-residual",
+            "user-directed-research"
+          ],
+          "task_id": "RS-POWER-TASK-PRECISION-COMPILER-20261124",
+          "title": "资源约束下的近似状态编译及任务变化后的可计算精度升级"
+        }
+      },
+      {
+        "task_id": "RS-POWER-INCREMENTAL-FUTURE-QUOTIENT-20261124",
+        "request_id": "power-progress-current-task-20261124-02",
+        "status": "SUCCEEDED",
+        "phase": "COMPLETE",
+        "error": null,
+        "observed_at": "2026-11-24T13:35:39.491744+00:00",
+        "source_sha": "7abe4ae0b36be17894c8bb74f7d0710ec5c8c50b",
+        "state": {
+          "actor": null,
+          "claim_id": null,
+          "dispatch_state": "NEEDS_DISPATCH",
+          "event_authentication": "NO_RUNTIME_EVENT",
+          "frontier": "已有完整稳定商与补测前后比较；在转移、动作或观察变化后正确维护拆分和合并的增量机制及成本尚待研究。",
+          "hard_block": null,
+          "identity_lane": "POWERTRANSFER",
+          "identity_source": null,
+          "ignored_events": [],
+          "kind": "RESEARCH",
+          "last_progress_at": "2026-11-24T11:29:51.000606+00:00",
+          "last_progress_ref": "TP2-DD8B3B7291FF9E6FD8C0",
+          "last_researcher_id": null,
+          "last_server_author_login": null,
+          "last_server_comment_id": null,
+          "lease_until": null,
+          "leverage": "HIGH",
+          "next_action": "给出实际更新语义，构造可复用旧商的维护机制或刻画其必要传播范围，并与更新后完整商比较。",
+          "owner": "taskbook/unassigned",
+          "parent_task_id": null,
+          "priority": "P1",
+          "publication_id": "TP2-DD8B3B7291FF9E6FD8C0",
+          "registration_source": "IMMUTABLE_TASK_RECORD",
+          "researcher_id": null,
+          "scheduling_trace": [
+            {
+              "at": "2026-11-24T11:29:51.000606+00:00",
+              "comment_id": 0,
+              "eligible": true,
+              "event": "AVAILABLE",
+              "owner_present": false,
+              "phase": 2
+            }
+          ],
+          "source_refs": [
+            "awdawmip/enterprise-math@f20c4ac4ab48c937f570f5193051eba733a5b563:src/enterprise_math/operation_quotient.py",
+            "awdawmip/enterprise-math@f20c4ac4ab48c937f570f5193051eba733a5b563:src/enterprise_math/material_empirical_action_protocol.py",
+            "awdawmip/enterprise-math@f20c4ac4ab48c937f570f5193051eba733a5b563:src/enterprise_math/material_empirical_protocol_completion.py",
+            "awdawmip/enterprise-math@f20c4ac4ab48c937f570f5193051eba733a5b563:research_task_records/RS-GBRC-R1-OBSERVER-MEMORY/TP2-664CFA2596577B114D97.json",
+            "awdawmip/enterprise-math@f20c4ac4ab48c937f570f5193051eba733a5b563:research_task_records/RS-BRC-RESTRICTED-PORT-QUOTIENT-20261005/TP2-18142D0E079087C682E1.json",
+            "awdawmip/enterprise-math@f20c4ac4ab48c937f570f5193051eba733a5b563:research_task_records/RS-BRC-FUTURE-FAITHFUL-INTEGRATION-20261028/TP2-8FD66B1B48BE87DA1AC1.json",
+            "awdawmip/enterprise-math@f20c4ac4ab48c937f570f5193051eba733a5b563:research_task_records/RS-ROUGH-PARITY-LOCAL-STATE-UPDATE-20261101/TP2-13B36639D27B58C98C02.json",
+            "https://github.com/awdawmip/chatgpt-global-knowledge/blob/ae6894814c8637560bd1e1d4b6dbc0131ddbc788/journal/power/2026-11-24/20261124T190334%2B0800-power-source-review-5561f5a.md"
+          ],
+          "state": "READY",
+          "tags": [
+            "POWER",
+            "joint-residual",
+            "user-directed-research"
+          ],
+          "task_id": "RS-POWER-INCREMENTAL-FUTURE-QUOTIENT-20261124",
+          "title": "变化证据、动作与观察下的增量未来安全商"
+        }
+      },
+      {
+        "task_id": "RS-POWER-CERTIFIED-RESIDUAL-LATTICE-20261124",
+        "request_id": "power-progress-current-task-20261124-03",
+        "status": "SUCCEEDED",
+        "phase": "COMPLETE",
+        "error": null,
+        "observed_at": "2026-11-24T13:34:15.128411+00:00",
+        "source_sha": "7abe4ae0b36be17894c8bb74f7d0710ec5c8c50b",
+        "state": {
+          "actor": null,
+          "claim_id": null,
+          "dispatch_state": "NEEDS_DISPATCH",
+          "event_authentication": "NO_RUNTIME_EVENT",
+          "frontier": "现有格原型存在尺度判定、保根与势函数语义缺口；特殊算术关系下的合法压缩、所需精度及完整认证成本尚无可靠结论。",
+          "hard_block": null,
+          "identity_lane": "POWERTRANSFER",
+          "identity_source": null,
+          "ignored_events": [],
+          "kind": "RESEARCH",
+          "last_progress_at": "2026-11-24T11:29:51.000606+00:00",
+          "last_progress_ref": "TP2-3255B42C5DCC00A62CC7",
+          "last_researcher_id": null,
+          "last_server_author_login": null,
+          "last_server_comment_id": null,
+          "lease_until": null,
+          "leverage": "HIGH",
+          "next_action": "在完整保根关系或明确整数基上提出可检验的结构性精度/压缩问题，给出其正确性条件与全成本比较。",
+          "owner": "taskbook/unassigned",
+          "parent_task_id": null,
+          "priority": "P2",
+          "publication_id": "TP2-3255B42C5DCC00A62CC7",
+          "registration_source": "IMMUTABLE_TASK_RECORD",
+          "researcher_id": null,
+          "scheduling_trace": [
+            {
+              "at": "2026-11-24T11:29:51.000606+00:00",
+              "comment_id": 0,
+              "eligible": true,
+              "event": "AVAILABLE",
+              "owner_present": false,
+              "phase": 2
+            }
+          ],
+          "source_refs": [
+            "https://github.com/awdawmip/power/blob/049bc552ec90820094ecfdb4013d71cb1a668386/src/power/lattices/lll.py",
+            "https://github.com/awdawmip/power/blob/049bc552ec90820094ecfdb4013d71cb1a668386/src/power/weapons/provably_exact_adaptive_float_lll.py",
+            "https://github.com/awdawmip/power/blob/049bc552ec90820094ecfdb4013d71cb1a668386/src/power/weapons/asymptotic_high_bit_projected_bkz.py",
+            "https://github.com/awdawmip/power/blob/049bc552ec90820094ecfdb4013d71cb1a668386/src/power/weapons/schnorr_euchner_deep_insertion_lll.py",
+            "https://github.com/awdawmip/power/blob/049bc552ec90820094ecfdb4013d71cb1a668386/docs/79_ASYMPTOTIC_HIGH_BIT_PROJECTED_BKZ_MONOGRAPH.md",
+            "https://github.com/awdawmip/power/blob/049bc552ec90820094ecfdb4013d71cb1a668386/docs/83_SCHNORR_EUCHNER_DEEP_INSERTION_LLL_MONOGRAPH.md",
+            "https://github.com/awdawmip/power/blob/049bc552ec90820094ecfdb4013d71cb1a668386/docs/84_PROVABLY_EXACT_ADAPTIVE_FLOAT_LLL_MONOGRAPH.md",
+            "https://perso.ens-lyon.fr/damien.stehle/FPLLL.html",
+            "https://arxiv.org/abs/cs/0701183",
+            "https://arxiv.org/abs/1307.7534",
+            "https://github.com/awdawmip/chatgpt-global-knowledge/blob/ae6894814c8637560bd1e1d4b6dbc0131ddbc788/journal/power/2026-11-24/20261124T190334%2B0800-power-source-review-5561f5a.md"
+          ],
+          "state": "READY",
+          "tags": [
+            "POWER",
+            "joint-residual",
+            "user-directed-research"
+          ],
+          "task_id": "RS-POWER-CERTIFIED-RESIDUAL-LATTICE-20261124",
+          "title": "特殊算术残差格的保根构造与认证精度成本"
+        }
+      },
+      {
+        "task_id": "RS-POWER-FROBENIUS-SECTION-SEPARATION-20261124",
+        "request_id": "power-progress-current-task-20261124-04",
+        "status": "SUCCEEDED",
+        "phase": "COMPLETE",
+        "error": null,
+        "observed_at": "2026-11-24T13:37:03.237625+00:00",
+        "source_sha": "7abe4ae0b36be17894c8bb74f7d0710ec5c8c50b",
+        "state": {
+          "actor": null,
+          "claim_id": null,
+          "dispatch_state": "NEEDS_DISPATCH",
+          "event_authentication": "NO_RUNTIME_EVENT",
+          "frontier": "单侧稀疏支撑不保证另一素数截面非零；尚缺明确数族的非平凡分离、环宽/种子界及可复算总成本。",
+          "hard_block": null,
+          "identity_lane": "POWERTRANSFER",
+          "identity_source": null,
+          "ignored_events": [],
+          "kind": "RESEARCH",
+          "last_progress_at": "2026-11-24T11:29:51.000606+00:00",
+          "last_progress_ref": "TP2-65B32E1AB172F45CF517",
+          "last_researcher_id": null,
+          "last_server_author_login": null,
+          "last_server_comment_id": null,
+          "lease_until": null,
+          "leverage": "MEDIUM",
+          "next_action": "在明确数族、种子与循环环宽下给出双侧系数分离或失败分类命题，并界定其相对既有短有理脊线的增量。",
+          "owner": "taskbook/unassigned",
+          "parent_task_id": null,
+          "priority": "P2",
+          "publication_id": "TP2-65B32E1AB172F45CF517",
+          "registration_source": "IMMUTABLE_TASK_RECORD",
+          "researcher_id": null,
+          "scheduling_trace": [
+            {
+              "at": "2026-11-24T11:29:51.000606+00:00",
+              "comment_id": 0,
+              "eligible": true,
+              "event": "AVAILABLE",
+              "owner_present": false,
+              "phase": 2
+            }
+          ],
+          "source_refs": [
+            "https://github.com/awdawmip/power/blob/049bc552ec90820094ecfdb4013d71cb1a668386/src/power/factor/special_structure_factorer.py",
+            "https://github.com/awdawmip/power/blob/049bc552ec90820094ecfdb4013d71cb1a668386/tests/test_special_structure_factorer.py",
+            "https://github.com/awdawmip/power/blob/049bc552ec90820094ecfdb4013d71cb1a668386/docs/20_SPECIAL_STRUCTURE_SEMIPRIMES_MONOGRAPH.md",
+            "https://github.com/awdawmip/enterprise-math/blob/f20c4ac4ab48c937f570f5193051eba733a5b563/research_tasks/ADDMUL_DELTA_FROBENIUS_DEFECT_TOWER_20260830.md",
+            "https://github.com/awdawmip/chatgpt-global-knowledge/blob/ae6894814c8637560bd1e1d4b6dbc0131ddbc788/journal/power/2026-11-24/20261124T190334%2B0800-power-source-review-5561f5a.md"
+          ],
+          "state": "READY",
+          "tags": [
+            "POWER",
+            "joint-residual",
+            "user-directed-research"
+          ],
+          "task_id": "RS-POWER-FROBENIUS-SECTION-SEPARATION-20261124",
+          "title": "循环 Frobenius 细粗层的双素数截面分离条件"
+        }
+      },
+      {
+        "task_id": "RTASK-POWER-ROBUST-INTAKE-20260927",
+        "request_id": "power-progress-existing-task-20261124-01",
+        "status": "QUEUED",
+        "phase": "READY_FOR_NATIVE",
+        "error": null
+      },
+      {
+        "task_id": "RTASK-POWER-ROBUST-MARK-GAP-20260927",
+        "request_id": "power-progress-existing-task-20261124-02",
+        "status": "QUEUED",
+        "phase": "READY_FOR_NATIVE",
+        "error": null
+      },
+      {
+        "task_id": "RTASK-POWER-HIGH-ERASURE-SPARSE-20260927",
+        "request_id": "power-progress-existing-task-20261124-03",
+        "status": "FAILED",
+        "phase": "EVENT_ASSEMBLY",
+        "error": "GITHUB_HTTP_502"
+      },
+      {
+        "task_id": "RTASK-POWER-PROTECTED-CORE-TRADEOFF-20260927",
+        "request_id": "power-progress-existing-task-20261124-04",
+        "status": "QUEUED",
+        "phase": "READY_FOR_NATIVE",
+        "error": null
+      },
+      {
+        "task_id": "RS-FACTOR-BLIND-QR-CRT-PREFIX-INDEX-COST",
+        "request_id": "power-progress-existing-task-20261124-05",
+        "status": "QUEUED",
+        "phase": "READY_FOR_NATIVE",
+        "error": null
+      }
+    ],
+    "result_directories": [
+      {
+        "task_id": "RS-POWER-TASK-PRECISION-COMPILER-20261124",
+        "source_sha": "7abe4ae0b36be17894c8bb74f7d0710ec5c8c50b",
+        "error_code": "NOT_FOUND",
+        "files": null
+      },
+      {
+        "task_id": "RS-POWER-INCREMENTAL-FUTURE-QUOTIENT-20261124",
+        "source_sha": "7abe4ae0b36be17894c8bb74f7d0710ec5c8c50b",
+        "error_code": "NOT_FOUND",
+        "files": null
+      },
+      {
+        "task_id": "RS-POWER-CERTIFIED-RESIDUAL-LATTICE-20261124",
+        "source_sha": "7abe4ae0b36be17894c8bb74f7d0710ec5c8c50b",
+        "error_code": "NOT_FOUND",
+        "files": null
+      },
+      {
+        "task_id": "RS-POWER-FROBENIUS-SECTION-SEPARATION-20261124",
+        "source_sha": "7abe4ae0b36be17894c8bb74f7d0710ec5c8c50b",
+        "error_code": "NOT_FOUND",
+        "files": null
+      },
+      {
+        "task_id": "RTASK-POWER-ROBUST-INTAKE-20260927",
+        "source_sha": "7abe4ae0b36be17894c8bb74f7d0710ec5c8c50b",
+        "error_code": "NOT_FOUND",
+        "files": null
+      },
+      {
+        "task_id": "RTASK-POWER-ROBUST-MARK-GAP-20260927",
+        "source_sha": "7abe4ae0b36be17894c8bb74f7d0710ec5c8c50b",
+        "error_code": "NOT_FOUND",
+        "files": null
+      },
+      {
+        "task_id": "RTASK-POWER-HIGH-ERASURE-SPARSE-20260927",
+        "source_sha": "7abe4ae0b36be17894c8bb74f7d0710ec5c8c50b",
+        "error_code": "NOT_FOUND",
+        "files": null
+      },
+      {
+        "task_id": "RTASK-POWER-PROTECTED-CORE-TRADEOFF-20260927",
+        "source_sha": "7abe4ae0b36be17894c8bb74f7d0710ec5c8c50b",
+        "error_code": "NOT_FOUND",
+        "files": null
+      },
+      {
+        "task_id": "RS-FACTOR-BLIND-QR-CRT-PREFIX-INDEX-COST",
+        "source_sha": "7abe4ae0b36be17894c8bb74f7d0710ec5c8c50b",
+        "error_code": null,
+        "files": [
+          {
+            "name": "RR-79DED8D7DF67EEB5FB57.json",
+            "path": "research_result_records/RS-FACTOR-BLIND-QR-CRT-PREFIX-INDEX-COST/RR-79DED8D7DF67EEB5FB57.json",
+            "sha": "54504b876aba3f5e3112ef0c2908b8027a81c012"
+          }
+        ]
+      }
+    ],
+    "retry": {
+      "request_id": "power-progress-existing-high-erasure-retry-20261124-01",
+      "status": "QUEUED",
+      "phase": "READY_FOR_NATIVE",
+      "error": null
+    }
+  },
+  "source_reported_joint_telemetry": {
+    "timestamp": "2026-11-24 11:23:19 UTC",
+    "vectorized_dyadic_sieve": {
+      "weapon_id": 126,
+      "weapon_roman": "CXXVI",
+      "weapon_name": "VectorizedBitmaskDyadicSieveEngine",
+      "small_semiprime_solves": [
+        {
+          "label": "40-bit Semiprime",
+          "n": 1000036000099,
+          "n_bits": 40,
+          "is_success": true,
+          "factors": [
+            1000003,
+            1000033
+          ],
+          "candidates_tested": 1,
+          "simd_pruned": 0,
+          "throughput_candidates_per_sec": 10000.0,
+          "elapsed_ms": 0.018799968529492617
+        },
+        {
+          "label": "50-bit Semiprime",
+          "n": 1125902456980891,
+          "n_bits": 51,
+          "is_success": true,
+          "factors": [
+            33554467,
+            33554473
+          ],
+          "candidates_tested": 1,
+          "simd_pruned": 0,
+          "throughput_candidates_per_sec": 10000.0,
+          "elapsed_ms": 0.015900004655122757
+        },
+        {
+          "label": "62-bit Semiprime",
+          "n": 4611686039902224373,
+          "n_bits": 63,
+          "is_success": true,
+          "factors": [
+            2147483647,
+            2147483659
+          ],
+          "candidates_tested": 1,
+          "simd_pruned": 0,
+          "throughput_candidates_per_sec": 10000.0,
+          "elapsed_ms": 0.013299984857439995
+        },
+        {
+          "label": "78-bit Semiprime",
+          "n": 302231454937742154138497,
+          "n_bits": 79,
+          "is_success": true,
+          "factors": [
+            549755813911,
+            549755813927
+          ],
+          "candidates_tested": 1,
+          "simd_pruned": 0,
+          "throughput_candidates_per_sec": 10000.0,
+          "elapsed_ms": 0.011800031643360853
+        },
+        {
+          "label": "90-bit Semiprime",
+          "n": 1237940039290094980759032137,
+          "n_bits": 91,
+          "is_success": true,
+          "factors": [
+            35184372088891,
+            35184372088907
+          ],
+          "candidates_tested": 1,
+          "simd_pruned": 0,
+          "throughput_candidates_per_sec": 10000.0,
+          "elapsed_ms": 0.011599971912801266
+        },
+        {
+          "label": "100-bit Semiprime",
+          "n": 1267650600228373516684779065263,
+          "n_bits": 101,
+          "is_success": true,
+          "factors": [
+            1125899906842679,
+            1125899906842697
+          ],
+          "candidates_tested": 1,
+          "simd_pruned": 0,
+          "throughput_candidates_per_sec": 10000.0,
+          "elapsed_ms": 0.011300027836114168
+        }
+      ],
+      "rsa280_simd_horizon": {
+        "candidates_tested": 50000,
+        "simd_pruned": 50000,
+        "prune_percentage": 100.0,
+        "elapsed_ms": 69.98209998710081,
+        "throughput_candidates_per_sec": 714468.4141975743
+      },
+      "rsa280_byte_hensel": {
+        "depth_16b": {
+          "depth_bits": 16,
+          "depth_bytes": 2,
+          "nodes_visited": 33,
+          "pruned_nodes": 15,
+          "active_beam": 16,
+          "elapsed_ms": 0.06900000153109431
+        },
+        "depth_32b": {
+          "depth_bits": 32,
+          "depth_bytes": 4,
+          "nodes_visited": 1313,
+          "pruned_nodes": 15,
+          "active_beam": 64,
+          "elapsed_ms": 2.214799984358251
+        },
+        "depth_64b": {
+          "depth_bits": 64,
+          "depth_bytes": 8,
+          "nodes_visited": 5409,
+          "pruned_nodes": 15,
+          "active_beam": 64,
+          "elapsed_ms": 11.701300041750073
+        }
+      }
+    },
+    "co_optimized_synthesizer": {
+      "weapon_id": 125,
+      "weapon_roman": "CXXV",
+      "weapon_name": "CoOptimizedAsymptoticAlgebraicSynthesizerEngine",
+      "f2_nullity_benchmark": {
+        "iterations": 5000,
+        "elapsed_ms": 292.7386999945156,
+        "throughput_matrices_sec": 17080.07858234553
+      },
+      "bezout_resultant_benchmark": {
+        "bezout_ms": 23.191899992525578,
+        "sylvester_ms": 21.55010000569746,
+        "speedup_factor": 1.0
+      },
+      "rsa280_multi_tier_benchmarks": {
+        "16D_CO_OPT": {
+          "dimension": 16,
+          "assembly_ms": 0.05609996151179075,
+          "lll_ms": 93.15159998368472,
+          "candidates_screened": 5000,
+          "early_aborts": 0,
+          "early_abort_rate_pct": 0.0,
+          "babai_ms": 979.3520999955945,
+          "avg_babai_us": 195.8704199991189,
+          "babai_throughput_cands_sec": 5105.4161215588265,
+          "resultant_ms": 0.05909998435527086,
+          "sturm_ms": 0.017600017599761486,
+          "surplus_slack_bits": -51.0,
+          "total_ms": 1072.6956999860704
+        },
+        "24D_CO_OPT": {
+          "dimension": 24,
+          "assembly_ms": 0.10139995720237494,
+          "lll_ms": 554.1565000312403,
+          "candidates_screened": 5000,
+          "early_aborts": 0,
+          "early_abort_rate_pct": 0.0,
+          "babai_ms": 1877.8295000083745,
+          "avg_babai_us": 375.5659000016749,
+          "babai_throughput_cands_sec": 2662.6485524791797,
+          "resultant_ms": 0.062400009483098984,
+          "sturm_ms": 5.899299983866513,
+          "surplus_slack_bits": -29.713603387616217,
+          "total_ms": 2438.1143000209704
+        },
+        "32D_CO_OPT": {
+          "dimension": 32,
+          "assembly_ms": 0.16739999409765005,
+          "lll_ms": 1454.2320999898948,
+          "candidates_screened": 5000,
+          "early_aborts": 0,
+          "early_abort_rate_pct": 0.0,
+          "babai_ms": 3049.069300002884,
+          "avg_babai_us": 609.8138600005768,
+          "babai_throughput_cands_sec": 1639.8446568581667,
+          "resultant_ms": 0.07840001489967108,
+          "sturm_ms": 0.000300002284348011,
+          "surplus_slack_bits": -17.024386617639493,
+          "total_ms": 4503.6132000386715
+        }
+      }
+    }
+  }
+}
