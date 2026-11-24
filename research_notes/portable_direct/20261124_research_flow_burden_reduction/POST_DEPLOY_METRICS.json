@@ -1,0 +1,101 @@
+{
+  "observed_at_utc": "2026-11-24T07:39:02Z",
+  "gateway_build": "em-sites-gateway-20261124-light-read-r1",
+  "backend_runtime": "e294ccd6841b84ea7d9fc18802b4654fa4eae400d9681f6672f37814ea5c9c8e",
+  "deployed_application_commit": "6e1b2fd7f0954ec375156e799e89d76c26abb2b2",
+  "deployed_parent_commit": "b6c33838c05b8442b225a6c019773fb026e18607",
+  "deployment_evidence": "awdawmip/em-research-mcp@1ee30bae732f7517639f13a5dd841d57c2c4985e:docs/evidence/research-flow-20261124/REPORT.md",
+  "identity": {
+    "compact_json_characters": 3431,
+    "source_snapshot_read": false,
+    "driver_contracts_embedded": false,
+    "capabilities_locator_available": true
+  },
+  "task": {
+    "request_id": "flow-postdeploy-20261124-0733-f52de59801bc-task-v1",
+    "task_id": "RS-C78-EFFECTIVE-RATIONAL-IDENTIFICATION-20261123",
+    "status": "SUCCEEDED",
+    "error": null,
+    "created_epoch_seconds": 1795505708,
+    "updated_epoch_seconds": 1795505790,
+    "source_sha": "a88e3e001275269cae93c40d77e6984b1ef2970f",
+    "execution_code_sha": "b9520e62e47016fc45e702b1cbfa17af8a38774f",
+    "publication_id": "TP2-9B877E4C74293B30F2EF",
+    "state": "READY",
+    "dispatch_state": "NEEDS_DISPATCH",
+    "owner": "taskbook/unassigned",
+    "claim_id": null,
+    "execution_authorized": false,
+    "taskbook_verification": {
+      "source_sha": "a88e3e001275269cae93c40d77e6984b1ef2970f",
+      "publication_id": "TP2-9B877E4C74293B30F2EF",
+      "taskbook_blob": "02a01c65498dd423eb0625ef64b83bb9f903f6c8",
+      "blob_matches": true,
+      "content_matches": true,
+      "task_state": "READY",
+      "owner": "taskbook/unassigned",
+      "claim_id": null,
+      "execution_authorized": false,
+      "source_unchanged_at_completion": true,
+      "issue_unchanged_at_completion": true
+    },
+    "server_comments": 1774,
+    "events_sha256": "0ab9d27250242cb4b7a3cebbab7c37862aa04afba8de01903d01ddf642d4e45c",
+    "read_snapshot": {
+      "admitted_at": 1795505709.7788546,
+      "complete_event_pages_revalidated": true,
+      "completed_at": 1795505789.9307976,
+      "issue_unchanged_at_completion": true,
+      "latest_source_sha": "a88e3e001275269cae93c40d77e6984b1ef2970f",
+      "policy": "LATEST_AT_ADMISSION_READ_V1",
+      "requires_fresh_write_authorization": true,
+      "source_sha": "a88e3e001275269cae93c40d77e6984b1ef2970f",
+      "source_unchanged_at_completion": true,
+      "source_was_current_at_admission": true
+    },
+    "progress_timing": {
+      "clock_moved_backwards": false,
+      "completed_phase_seconds": {
+        "EVENT_ASSEMBLY": 1.2688493728637695,
+        "EVENT_INPUT_COPY": 0.012176513671875,
+        "NATIVE_RUNNER": 38.67759943008423,
+        "NON_RUNNING_WAIT": 0.012679338455200195,
+        "SOURCE_AND_NATIVE": 0.3894538879394531,
+        "SOURCE_MATERIALIZATION": 41.418904542922974
+      },
+      "first_progress_at": 1795505708.9662943,
+      "first_progress_delay_seconds": 0.9662942886352539,
+      "job_status": "SUCCEEDED",
+      "observed_at": 1795505790.7459574,
+      "observed_elapsed_seconds": 81.7796630859375,
+      "observer_generation": 1430736207733752,
+      "phase": "COMPLETE",
+      "phase_entries": {
+        "COMPLETE": 1,
+        "EVENT_ASSEMBLY": 1,
+        "EVENT_INPUT_COPY": 1,
+        "NATIVE_RUNNER": 1,
+        "NON_RUNNING_WAIT": 1,
+        "SOURCE_AND_NATIVE": 1,
+        "SOURCE_MATERIALIZATION": 2
+      },
+      "phase_started_at": 1795505790.7459574,
+      "reset_reason": "NEW_OBSERVATION",
+      "schema": "EM_CONTROL_READ_TIMING_V2",
+      "scope": "CURRENT_CONTROL_OBSERVER; ACTIVE_STEP_OR_NON_RUNNING_WAIT; WALL_TIME_NOT_CPU",
+      "work_phase": "COMPLETE"
+    },
+    "native_scope_counts_exposed_by_this_receipt": false
+  },
+  "prior_deployment_native_observation": {
+    "request_id": "maintenance-light-read-20261124-exact-task-v1",
+    "server_observation": "inv-sbj35k0je9",
+    "initial_selected_paths": 5600,
+    "initial_activity_paths": 44,
+    "demanded_paths_added": 0,
+    "attribution": "Published deployment observation for another task; not the counts of this C78 query."
+  },
+  "new_source_code_changes": false,
+  "new_hosted_ci": false,
+  "new_research_identity_or_claim": false
+}

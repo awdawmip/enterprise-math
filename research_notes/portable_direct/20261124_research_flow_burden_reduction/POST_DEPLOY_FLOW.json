@@ -1,0 +1,78 @@
+{
+  "observed_at_utc": "2026-11-24T07:35:45Z",
+  "runtime_from_parent": "e294ccd6841b84ea7d9fc18802b4654fa4eae400d9681f6672f37814ea5c9c8e",
+  "actual_read_calls": 7,
+  "recovery": {
+    "request_count": 1,
+    "returned_request_ids": [
+      "paper-k4-pell-p008-revision-20261113-f52de59801bc"
+    ],
+    "has_more_requests": false,
+    "next_cursor": null,
+    "metadata_only": true,
+    "execution_authorized": false,
+    "credentials_included": false,
+    "matches_original_registration_session": true,
+    "matches_original_registration_request": true,
+    "original_registration_status": "SUCCEEDED",
+    "live_second_page_exercised": false,
+    "second_page_reason": "There is one bound request, has_more=false and cursor=null; no extra page was fabricated.",
+    "elapsed_ms": 12124
+  },
+  "artifact": {
+    "status": "SUCCEEDED",
+    "source_commit": "4d63cb1b1fc65a21c940a17e3eae5c691017e24a",
+    "sha256": "e18122a0f1715badf7562df3072e83c483f2f9bf52f7ae78075a7296c2e5ab76",
+    "complete_artifact_hash_verified": true,
+    "metadata_equal_to_before": true,
+    "text_equal_to_before": true,
+    "task_input_admission": false,
+    "mathematical_acceptance": false
+  },
+  "rh_source": {
+    "reference": "4d63cb1b1fc65a21c940a17e3eae5c691017e24a:research_notes/portable_direct/rh_global_sampling_20261123_b5750a/REPORT.md#L1-L32",
+    "source_commit": "4d63cb1b1fc65a21c940a17e3eae5c691017e24a",
+    "path": "research_notes/portable_direct/rh_global_sampling_20261123_b5750a/REPORT.md",
+    "start_line": 1,
+    "end_line": 32,
+    "exact_response_equal_to_before": true
+  },
+  "x6": {
+    "old_id": "X6.R90.near-directions.sharp-port.20261123.routing.v1",
+    "old_current": false,
+    "old_fields": [
+      "current",
+      "id",
+      "revises",
+      "sources",
+      "text"
+    ],
+    "old_successor_or_current_note_exposed": false,
+    "latest_observed_id": "X6.R90.near-directions.sharp-port.20261123.routing.v9",
+    "latest_observed_current": true,
+    "text_characters": 4823,
+    "revises": "X6.R90.near-directions.sharp-port.20261123.routing.v8",
+    "exact_response_equal_to_before": true
+  },
+  "capabilities": {
+    "driver_contracts": [
+      "review_flow_state",
+      "review_reference",
+      "review_synthesize",
+      "followup_materialize"
+    ],
+    "compact_json_characters": 22101
+  },
+  "elapsed_ms": {
+    "recovery_page1": 12124,
+    "x6_v9": 13840,
+    "artifact": 1196,
+    "x6_old": 1031,
+    "registration": 1405,
+    "rh_source": 13753,
+    "capabilities": 2615
+  },
+  "no_new_research_identity_or_claim": true,
+  "no_production_notebook_write": true,
+  "measurement_limit": "Single concurrent batch observations, not an isolated latency benchmark."
+}
