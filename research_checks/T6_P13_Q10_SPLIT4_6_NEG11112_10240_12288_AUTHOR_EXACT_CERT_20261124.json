@@ -1,0 +1,212 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT4_6_NEG11112_AUTHOR_EXACT_SEGMENT_V1",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "author": "EM-DIRECT-D03BC9",
+  "activity": "RA-A468735D7C934B25C4B9614F",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "signed_split": [
+    4,
+    6
+  ],
+  "negative_q_pattern": [
+    1,
+    1,
+    1,
+    1,
+    2
+  ],
+  "interval": [
+    10240,
+    12288
+  ],
+  "total_negative_rosters": 16380,
+  "positive_q_patterns": [
+    [
+      4
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      1,
+      1,
+      2
+    ],
+    [
+      1,
+      1,
+      1,
+      1
+    ]
+  ],
+  "budget_each_side": 2331,
+  "lattice_index": "13^21",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "stats": {
+    "negative_rosters": 2048,
+    "positive_rosters": 2535,
+    "raw_signed_pairs": 5191680,
+    "common_named_atom_canceled": 2871012,
+    "vertical_original_mass_excess": 0,
+    "gs_searches": 2320668,
+    "gs_nodes": 4394086,
+    "relaxed_sphere_witnesses": 2,
+    "both_original_side_mass_valid": 0
+  },
+  "negative_roster_sha256": "17dfdc6f702c0775a6d7d9fbfc8e88c5d7fcd5efb01408093d694e67d9a18573",
+  "pair_digest_sha256": "b0d102c1fe71d3be86f29cc06c217e0c6b634f158c88a8eb403ac153ec0c85e6",
+  "witnesses": [
+    {
+      "pos": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          5
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          7
+        ]
+      ],
+      "u": [
+        -11,
+        22,
+        -17,
+        -13,
+        7,
+        1,
+        1,
+        8,
+        -2,
+        5,
+        -3,
+        1
+      ],
+      "masses": [
+        3682,
+        3446
+      ],
+      "radius_sq": 3036100,
+      "norm_sq": 2745868,
+      "budget_valid": false,
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "negative_roster_index": 10482,
+      "positive_roster_index": 1700
+    },
+    {
+      "pos": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          2,
+          5
+        ]
+      ],
+      "u": [
+        -18,
+        -14,
+        -11,
+        6,
+        5,
+        8,
+        2,
+        0,
+        -3,
+        6,
+        3,
+        -4
+      ],
+      "masses": [
+        3503,
+        3403
+      ],
+      "radius_sq": 2876900,
+      "norm_sq": 2237828,
+      "budget_valid": false,
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "negative_roster_index": 11644,
+      "positive_roster_index": 368
+    }
+  ],
+  "author_replay_base": "awdawmip/enterprise-math@a466be736446891b423809b0ba23cb37ec123502:research_checks/T6_P13_Q10_SPLIT3_7_NEG1123_INTEGER_GS_REPLAY_20261124.py",
+  "replay_rule": "q6 exact replacements at 76db4fbf6106d3ac84344e51645e8e43765f6f06; negatives q11112 as in pinned segment 105fdd7e298670a3b76e159c31dc77b1f5684ca6; direct integer norm checked at leaves.",
+  "validation": "Actual local Python/SymPy 1.14.0 exact integer GS, conditional on prior high-prime elimination, common named atom reduction and lattice completeness. Separate from native p17 q14.",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "elapsed_seconds": 26.98316756899999
+}
