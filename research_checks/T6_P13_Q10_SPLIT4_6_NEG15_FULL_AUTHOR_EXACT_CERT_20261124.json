@@ -1,0 +1,68 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT4_6_NEG15_AUTHOR_EXACT_FULL_V1",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "author": "EM-DIRECT-D03BC9",
+  "activity": "RA-A468735D7C934B25C4B9614F",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "signed_split": [
+    4,
+    6
+  ],
+  "negative_q_pattern": [
+    1,
+    5
+  ],
+  "interval": [
+    0,
+    144
+  ],
+  "total_negative_rosters": 144,
+  "positive_q_patterns": [
+    [
+      4
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      1,
+      1,
+      2
+    ],
+    [
+      1,
+      1,
+      1,
+      1
+    ]
+  ],
+  "budget_each_side": 2331,
+  "lattice_index": "13^21",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "stats": {
+    "negative_rosters": 144,
+    "positive_rosters": 2535,
+    "raw_signed_pairs": 365040,
+    "common_named_atom_canceled": 74880,
+    "vertical_original_mass_excess": 0,
+    "gs_searches": 290160,
+    "gs_nodes": 591038,
+    "relaxed_sphere_witnesses": 0,
+    "both_original_side_mass_valid": 0
+  },
+  "negative_roster_sha256": "c5c29f1e6ba2709873644af1e6bfb9bedd63f38197e125fcafdb51f13c80bcc5",
+  "pair_digest_sha256": "9c209ce90b7b21dbacdd1e6fb6ca25ec40aaaebb027aadc6e48792b20811d77f",
+  "witnesses": [],
+  "author_replay_base": "awdawmip/enterprise-math@76db4fbf6106d3ac84344e51645e8e43765f6f06:research_checks/T6_P13_Q10_SPLIT4_6_NEG6_FULL_AUTHOR_EXACT_CERT_20261124.json",
+  "replay_rule": "Apply the base certificate's exact replay replacements to its pinned Python replay, then replace negatives=[((6,r),) for r in range(1,13)] by negatives=[((1,r),(5,s)) for r,s in product(range(1,13),repeat=2)], len(negatives)==12 by len(negatives)==144, negative_q_pattern=[6] by negative_q_pattern=[1,5]; run --start 0 --end 144. Local execution used equivalent generic multiset roster construction and an additional exact weighted norm assertion for leaves.",
+  "seconds": 2.6243543129999978,
+  "sympy": "1.14.0",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "validation": "Conditional on existing high-prime elimination, common-named-atom reduction, saturation and GS completeness. No independent review. No protected Native PROGRESS.",
+  "next_action": "Check current coverage and continue q24 then q33."
+}
