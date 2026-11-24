@@ -1,0 +1,70 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT4_6_NEG111111_AUTHOR_EXACT_SEGMENT_V1",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "author": "EM-DIRECT-D03BC9",
+  "activity": "RA-A468735D7C934B25C4B9614F",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "signed_split": [
+    4,
+    6
+  ],
+  "negative_q_pattern": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1
+  ],
+  "interval": [
+    10240,
+    12376
+  ],
+  "total_negative_rosters": 12376,
+  "positive_q_patterns": [
+    [
+      4
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      1,
+      1,
+      2
+    ],
+    [
+      1,
+      1,
+      1,
+      1
+    ]
+  ],
+  "budget_each_side": 2331,
+  "lattice_index": "13^21",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "stats": {
+    "negative_rosters": 2136,
+    "positive_rosters": 2535,
+    "raw_signed_pairs": 5414760,
+    "common_named_atom_canceled": 3222843,
+    "vertical_original_mass_excess": 0,
+    "gs_searches": 2191917,
+    "gs_nodes": 3996341,
+    "relaxed_sphere_witnesses": 0,
+    "both_original_side_mass_valid": 0
+  },
+  "negative_roster_sha256": "5a3a61758475b7dea6847f50cec6828f0b0d80b30a6889053a0d60b296263f33",
+  "pair_digest_sha256": "1882d7a43069dccb58626c9181ffc5406da5e4f262104860b88a2896d4e9a0f3",
+  "witnesses": [],
+  "author_replay_base": "awdawmip/enterprise-math@a466be736446891b423809b0ba23cb37ec123502:research_checks/T6_P13_Q10_SPLIT3_7_NEG1123_INTEGER_GS_REPLAY_20261124.py",
+  "replay_rule": "q4 positive partition rosters in order (4),(1,3),(2,2),(1,1,2),(1,1,1,1); q6 negatives lexicographic combinations with replacement; direct integer norm checked at leaves.",
+  "validation": "Exact integer GS conditional on prior high-prime elimination, common named atom reduction and lattice completeness. Separate from native p17 q14.",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "elapsed_seconds": 26.544562885000005
+}
