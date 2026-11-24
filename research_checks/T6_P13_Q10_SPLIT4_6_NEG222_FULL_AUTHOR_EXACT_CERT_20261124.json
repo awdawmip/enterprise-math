@@ -1,0 +1,67 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT4_6_NEG222_AUTHOR_EXACT_FULL_V1",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "author": "EM-DIRECT-D03BC9",
+  "activity": "RA-A468735D7C934B25C4B9614F",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "signed_split": [
+    4,
+    6
+  ],
+  "negative_q_pattern": [
+    2,
+    2,
+    2
+  ],
+  "interval": [
+    0,
+    364
+  ],
+  "total_negative_rosters": 364,
+  "positive_q_patterns": [
+    [
+      4
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      1,
+      1,
+      2
+    ],
+    [
+      1,
+      1,
+      1,
+      1
+    ]
+  ],
+  "budget_each_side": 2331,
+  "lattice_index": "13^21",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "stats": {
+    "negative_rosters": 364,
+    "positive_rosters": 2535,
+    "raw_signed_pairs": 922740,
+    "common_named_atom_canceled": 83448,
+    "vertical_original_mass_excess": 0,
+    "gs_searches": 839292,
+    "gs_nodes": 1658080,
+    "relaxed_sphere_witnesses": 0,
+    "both_original_side_mass_valid": 0
+  },
+  "negative_roster_sha256": "f5f6ab74a79db2c493f76ccef230b3a76f0d58263112c0a72fcb6bae4dfd4282",
+  "pair_digest_sha256": "7bcef3c31a5d7c80e949b9879ad40dcd395711162a3f30921d0d2db0b623b71e",
+  "witnesses": [],
+  "author_replay_base": "awdawmip/enterprise-math@fef1fc8f8021392cd3539bc7f162a46e37ac995a:research_checks/T6_P13_Q10_SPLIT4_6_NEG123_FULL_AUTHOR_EXACT_CERT_20261124.json",
+  "replay_rule": "Apply the q123 replay base/rules; replace negatives=[((1,r),(2,s),(3,t)) for r,s,t in product(range(1,13),repeat=3)] with negatives=[tuple((2,r) for r in v) for v in combinations_with_replacement(range(1,13),3)]; change len(negatives)==1728 to 364 and negative_q_pattern=[1,2,3] to [2,2,2]. Run --start 0 --end 364. Retain direct weighted norm assertion at each leaf.",
+  "validation": "Actual local exact integer GS, 7.534766840999993 s. Conditional on established high-prime elimination, common-atom reduction and lattice completeness. No independent review or protected native progress.",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "next_action": "Check existing q1113 exact coverage, then continue q=(1,1,1,3) in split (4,6); do not redo q123/q222. Native p17 q14 remains separate."
+}
