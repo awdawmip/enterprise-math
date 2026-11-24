@@ -1,0 +1,43 @@
+# X6 R168 — Sharp seven-comparison interleaved joint BRC tree
+
+2026-11-24. AUTHOR ANALYTIC REDUCTION / EXACT FINITE CERTIFICATE / NOT_REVIEWED. Independent informed static observer; no native dynamics claim, formal Task Result or deletion of raw joint data. Frozen R121@8085ff663b5987c58a1bc0a4a3b1d7da3a1d89fd and R122@1e4ab68c4f9c91bc60c07017acc57be20829832f; reuse R162–R167 with the exact assumptions of [R167](https://github.com/awdawmip/enterprise-math/blob/c262f865574ccb95dfcb1f56798d2400e61cff66/research_notes/portable_direct/2026-11-24_r2_x6_r167_joint_optimizer_near_decision_tree.md). P000 V5, ACTIVE Heartbeat World and joint-relation preservation loaded.
+
+## Proposition
+
+Port 10, 1935 unoriented feasible nonzero integer directions, weights (17t,B,22t,D) with t,B,D>0, six pair gaps and capacities in AB,AC,AD,BC,BD,CD order as in R121. Let F_v=max_j g_j(v)/s_j, eta=min_v F_v, N={v:2F_v<3eta}. T is the 15 distinct positive optimizer terms (j,g) of R167, H the 20 R165 reduced near-threshold terms (j,g); both are generated explicitly from the frozen banks and masks by the attached checker. A query can be any ordered strict pair comparison of two T terms or a strict comparison 3a>2h for a in T and h in H, without requiring a to have been identified as eta. A leaf must name one term of T equal to eta (ties allowed) AND give the complete strict near-direction mask. In this exact binary comparison model the minimal worst depth is SEVEN. Six is impossible; seven is attained. This reduces R167's constructed two-stage upper bound ten by three. It is not a lower bound for arbitrary linear tests, unrestricted arithmetic, reverse threshold tests beyond the declared family, or full raw threshold families. Capacity construction, cross-product bit cost, one returned quotient, offline compilation and output materialization are excluded from the comparison count.
+
+## Proof of full continuous coverage
+
+By homogeneity use the open positive projective triangle of rays p=(t,B,D)>0; this is an auxiliary weight parameter space, not a native spatial plane. Each capacity s_j is the dot product with one of (17,1,0),(39,0,0),(17,0,1),(22,1,0),(0,1,1),(22,0,1). Every allowed comparison is the strict positivity of the integer form (k*g*E_h-l*f*E_j) dot p, for (k,l)=(1,1) or (3,2). A form is constant in sign in the open positive cone unless its coefficients have both signs. Discard constant tests and deduplicate nonconstant forms by primitive integer vector up to sign for arrangement construction; keep only the actual allowed orientations for queries. The resulting 197 hyperplanes carry 262 distinct oriented nonconstant predicates.
+
+Construct the exact arrangement by starting from the three coordinate rays and cutting each convex projective polygon on each form. When neighboring rays p,q have opposite signs v,w, the intersection ray is |w|p+|v|q; reduce by the common gcd. The ray is nonzero, nonnegative and on the hyperplane. The two clipped closed cells cover their predecessor and are convex in the section t+B+D=1. If a polygon has no vertices on opposite sides, it is not cut in its relative interior. All comparisons are constant on the relatively open faces of the final subdivision. To cover every face take each vertex ray, each sum of adjacent vertex rays (relative edge interior), and the sum of all vertex rays (relative cell interior); normalize each by gcd and retain only strictly positive rays. Unequal normalizing scales only change positive barycentric weights and hence do not move these samples out of their relative interiors. This yields 7311 closed full-dimensional polygons and 27611 distinct positive representatives. No floating point or random sampling.
+
+At each representative evaluate all six raw gaps for the ten R162 directions with Fraction, take eta over the six R163 witnesses, and compute the full ten-bit near mask and all 15 term indices equal to eta. R162 and R163 certify that these are the full 1935-direction outputs for the specified ratio, including boundaries. All T term orderings are fixed on each relative face. The R165 masks certify near membership from threshold tests against any term equal to eta. All such threshold signs are in the arrangement, so the joint output labels are constant on each face. For every point, tied terms have equal score, so the resulting near set is anchor independent. There are 16 distinct near masks and 162 distinct pairs (set of admissible eta terms, near mask).
+
+## Exact lower and upper bounds
+
+For a subset S of the finite representatives, a leaf (i,N) is legal iff every representative in S has that N and admits term i. Otherwise depth d is possible iff at least one permitted predicate makes a nontrivial split and both children are possible at depth d-1. This follows by induction on depth; a constant predicate is removable. Deduplicating complementary splits is safe because child feasibility and the output contract do not depend on the branch order.
+
+For pruning, partition S by near mask N. Within each nonempty group, each distinct singleton admissible eta-term label forces its own leaf. If none is singleton, at least one leaf remains required. Distinct near masks cannot share leaves. Therefore the sum over nonempty groups of max(1, number of distinct singleton term labels present) is a lower bound on leaves, and a state with bound >2^d is impossible. Root lower bound is 35 (hence at least six comparisons without restricting the split family). The checker exhaustively searches all remaining nonconstant predicate splits with this safe pruning and caching. At depth six it terminates normally with False, 4136 cache misses, not a budget interruption. At seven it returns True, 502 additional cache misses. The seven-depth tree is replayed on all 27611 positive representatives, and every leaf is checked for both the admissible eta term and the exact complete near mask. There are 73 leaves: 11 at depth five, 22 at depth six, 40 at depth seven. The proof of face coverage transfers this finite certificate to every positive real weight, strict equalities included. This establishes the sharp bound seven in the declared model.
+
+This is a genuine joint comparison method: the first query is permitted before eta is known, and subsequent query selection is conditioned on the full joint-output requirement. No raw gap, direction or provenance is deleted. The input state still includes the original six paired observations; only this static output computation uses the compiled tree.
+
+## Reproducible execution
+
+[Exact checker and tree constructor](https://github.com/awdawmip/enterprise-math/blob/af4ab6561827525b3c4d1b58f502522d3e39b4de/research_notes/portable_direct/x6_r168_interleaved_joint_verify.py). Run python x6_r168_interleaved_joint_verify.py 30000. Local actual file 4536 bytes, SHA256 840d69eedc933abb7b942d97e978a33605a32e42626e5742155b37f21b227fc8; Git blob 4c1c9e5d30da34446ea4f0b8270843ca676a513e agrees with immutable connector readback. Actual stdout:
+```
+lines 197
+cells 7311 points 27611
+predicates 262 near outputs 16 joint label sets 162 singleton joint labels 35
+root lower leaf count 35
+depth 6 found False calls 4136
+depth 7 found True calls 502
+verified depth 7 PASS
+```
+The executable prints the entire tree, with predicate index in P and leaf tuple (term index, direction bit mask) in the declared T,V order. The result depends on the prior author-proved bank/mask theorems; no new independent full-population proof or runtime timing benchmark is claimed.
+
+An exploratory expanded family used all nonzero raw near terms and both orientations of every threshold form. Actual exact arrangement: 256 lines, 11487 cells, 43685 positive representatives, 512 oriented predicates; same 162 joint label sets, 35 singleton labels. Its depth-six search did not finish before the execution timeout; whether six is achievable there remains open. This does not affect the completed narrower certificate. Next: reduce the enlarged family by preserving output-relevant split equivalence or seek a small obstruction witness set sufficient to rule out depth six; then test other ratios and Ports.
+
+## Control
+
+Own original registration r2-20261124-0310-r155-own-session-v1 was read SUCCEEDED, Researcher EM-DIRECT-AE5AD5, Activity RA-B60559848FD879270DCA6317. Read-only X6 request r2-20261124-1410-x6-current-observation returned SUCCEEDED/error=null, source afdee2632b88f4dc41d79bcc0539b2cab4ce88a0, observed 2026-11-24T06:10:55.662727Z, NO_CANONICAL_PUBLICATION_DIRECTORY; native operational view not evaluated, execution_authorized=false. No owner inferred, no CLAIM/new registration or Task mutation. Independent informed portable research.
