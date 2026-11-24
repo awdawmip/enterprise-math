@@ -1,0 +1,137 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT3_7_NEG11122_AUTHOR_EXACT_SLICE_V1",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "author": "EM-DIRECT-D03BC9",
+  "activity": "RA-A468735D7C934B25C4B9614F",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "signed_split": [
+    3,
+    7
+  ],
+  "negative_q_pattern": [
+    1,
+    1,
+    1,
+    2,
+    2
+  ],
+  "interval": [
+    12800,
+    16896
+  ],
+  "total_negative_rosters": 28392,
+  "positive_q_patterns": [
+    [
+      3
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      1,
+      1,
+      1
+    ]
+  ],
+  "budget_each_side": 2331,
+  "lattice_index": "13^21",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "stats": {
+    "negative_rosters": 4096,
+    "positive_rosters": 520,
+    "raw_signed_pairs": 2129920,
+    "common_named_atom_canceled": 935177,
+    "vertical_original_mass_excess": 0,
+    "gs_searches": 1194743,
+    "gs_nodes": 2405786,
+    "relaxed_sphere_witnesses": 1,
+    "both_original_side_mass_valid": 0
+  },
+  "negative_roster_sha256": "3cacc0707a3b2484be1d44022c8148efe1a7cacc865c8303150fe1402d85b83b",
+  "pair_digest_sha256": "0f2eceab1d3beec9968fb15d62f176b88a4a2096cc82d4cb1ed4d3b8728e26d3",
+  "witnesses": [
+    {
+      "pos": [
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          10
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          2,
+          12
+        ]
+      ],
+      "u": [
+        25,
+        2,
+        -7,
+        15,
+        -12,
+        -8,
+        -3,
+        -5,
+        1,
+        -7,
+        -1,
+        -1
+      ],
+      "masses": [
+        1931,
+        5294
+      ],
+      "radius_sq": 3111745,
+      "budget_valid": false,
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "negative_roster_index": 15754,
+      "positive_roster_index": 69
+    }
+  ],
+  "author_replay_base": "awdawmip/enterprise-math@a466be736446891b423809b0ba23cb37ec123502:research_checks/T6_P13_Q10_SPLIT3_7_NEG1123_INTEGER_GS_REPLAY_20261124.py",
+  "replay_exact_replacements": [
+    [
+      "negatives=[((1,r),(1,s),(2,t),(3,u)) for r,s in combinations_with_replacement(range(1,13),2) for t,u in product(range(1,13),repeat=2)]",
+      "negatives=[tuple((1,r) for r in v)+tuple((2,t) for t in w) for v in combinations_with_replacement(range(1,13),3) for w in combinations_with_replacement(range(1,13),2)]"
+    ],
+    [
+      "len(negatives)==11232",
+      "len(negatives)==28392"
+    ],
+    [
+      "negative_q_pattern=[1,1,2,3]",
+      "negative_q_pattern=[1,1,1,2,2]"
+    ]
+  ],
+  "validation": "Actual local Python/SymPy 1.14 exact integer GS; 12.424513109 seconds measured replay. Conditional on earlier cancellation and lattice completeness. No independent review or formal admission.",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "next_action": "Continue at index 16896 to 28392; preserve all completed intervals."
+}
