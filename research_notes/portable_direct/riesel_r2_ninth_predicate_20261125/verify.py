@@ -81,4 +81,7 @@ assert out['order_840']==dict(low=True,high=False,at_most_8=False,at_most_9=True
 assert out['order_840_off']==dict(low=False,high=False,at_most_8=False,at_most_9=False)
 assert (predicate(fixtures['order_840'],9,839) is None)
 assert out['plain7']['at_most_8'] and out['older8']['at_most_8']
+# An h=35 slot can be supplied by f=35 (prime 211), not just f=105.
+regression_root=A2+S2*843067162
+assert high_only_geometry(regression_root) and predicate(regression_root,9,840) is None
 print(json.dumps(dict(families=len(allC),all_order_layers=len(rows),low_order_layers=len(carriers(840)[0]),joint_v_period=lcm(35,*allC),fixtures=len(fixtures),**ct,core={k:dict(root_hex=hex(fixtures[k]),**out[k]) for k in case},all_outputs_sha256=sha256(json.dumps(out,sort_keys=True).encode()).hexdigest()),indent=2))

@@ -144,7 +144,7 @@ def high_only_geometry(a):
     hi=hits(a,{105:rows[1260][1]})
     if any((15,(2+3*w)%15) not in allhit for w in (0,3)):return False
     slots=[2+3*w for w in (21,26,31)]
-    return all(any((f,v%f) in allhit for f in (7,21,105)) for v in slots) and any((105,v%105) in hi for v in slots)
+    return all(any((f,v%f) in allhit for f in (7,21,35,105)) for v in slots) and any((105,v%105) in hi for v in slots)
 
 def literal(a,budget,cut=1260):
     """Unsplit residual-bit oracle with the entire finite inventory."""
