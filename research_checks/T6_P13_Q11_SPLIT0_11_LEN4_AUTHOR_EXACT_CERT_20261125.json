@@ -1,0 +1,268 @@
+{
+  "schema": "T6_P13_Q11_SPLIT0_11_LEN4_AUTHOR_EXACT_INTEGER_V1",
+  "frozen_science": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "researcher": "EM-DIRECT-D03BC9",
+  "session": "MCP-7f3df4435e40430b832e8d5ff2137718",
+  "activity": "RA-A468735D7C934B25C4B9614F",
+  "p": 13,
+  "valuation": 1,
+  "total_q": 11,
+  "split": [
+    0,
+    11
+  ],
+  "budget": 2331,
+  "length": 4,
+  "pattern_range": [
+    0,
+    11
+  ],
+  "scope": "All four-atom partitions, full 12-label over-domain, conditional on prior high valuation reduction; no smoothness filter.",
+  "source_replay": "949c4114b1882b37b60e4e7de05d7ce9933fb33b:research_checks/T6_P13_Q11_SPLIT0_11_LEN1TO3_AUTHOR_REPLAY_20261125.py",
+  "reproduction": "Set length loop to range(4,5) in pinned Fraction replay. Actual execution used exactly equivalent integer-scaled GS, not the Fraction replay. The latter is an available independent arithmetic replay, not executed in this turn.",
+  "method": "HNF/weighted LLL, exact rational GS, same lattice index 13^21 and minimum D as pinned replay. For each coset c_i with common denominator B, use integer C_i=B*c_i, Z_j=B*(c_j+n_j), L_i=lcm denominators of mu[j][i], M_ji=L_i*mu[j][i]. Center numerator h_i=L_i*C_i+sum M_ji*Z_j; denominator B*L_i. Set Q=lcm denominators of D_i/(B*L_i)^2 and T_i=Q*D_i/(B*L_i)^2. Recurse E+=T_i*(h_i+B*L_i*n_i)^2 <= Q*radius_sq with floor(-h_i/(B*L_i)) and its successor. Reconstruct integer u, assert norm*Q=E and original six congruences; check both masses. Separately compute raw/over counts by convolution of sums of multiset residue labels. All 11 rows match independent DP.",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "coset_denominator": 4826809,
+  "lattice_index": "13^21",
+  "rows": [
+    {
+      "index": 0,
+      "pattern": [
+        1,
+        1,
+        1,
+        8
+      ],
+      "raw": 4368,
+      "over": 339,
+      "search": 4029,
+      "nodes": 11289,
+      "leaves": 0,
+      "valid": 0,
+      "roster_sha256": "0a1e876f138255b5e88ea6fcd98b0357b36d92978187938b7174eec86e45f034"
+    },
+    {
+      "index": 1,
+      "pattern": [
+        1,
+        1,
+        2,
+        7
+      ],
+      "raw": 11232,
+      "over": 784,
+      "search": 10448,
+      "nodes": 28700,
+      "leaves": 1,
+      "valid": 0,
+      "roster_sha256": "4b980bdefd18f59d4d53493b776135b91bc6d5e88ed8eef635997c3d441f53c1"
+    },
+    {
+      "index": 2,
+      "pattern": [
+        1,
+        1,
+        3,
+        6
+      ],
+      "raw": 11232,
+      "over": 784,
+      "search": 10448,
+      "nodes": 28682,
+      "leaves": 0,
+      "valid": 0,
+      "roster_sha256": "4e2d2872724e1d511f5164936404fba0c5b7cf34a5351494024ae0ba8fdc0b46"
+    },
+    {
+      "index": 3,
+      "pattern": [
+        1,
+        1,
+        4,
+        5
+      ],
+      "raw": 11232,
+      "over": 784,
+      "search": 10448,
+      "nodes": 28885,
+      "leaves": 0,
+      "valid": 0,
+      "roster_sha256": "803f49267531d94a6d5f71e6f4a63d604e9b9f6d297ee434c31dae2ad5443050"
+    },
+    {
+      "index": 4,
+      "pattern": [
+        1,
+        2,
+        2,
+        6
+      ],
+      "raw": 11232,
+      "over": 784,
+      "search": 10448,
+      "nodes": 28815,
+      "leaves": 0,
+      "valid": 0,
+      "roster_sha256": "13928c5691d32e72e1452d2b8bdb211202ead4d17d307b464c75085ad53b627"
+    },
+    {
+      "index": 5,
+      "pattern": [
+        1,
+        2,
+        3,
+        5
+      ],
+      "raw": 20736,
+      "over": 1365,
+      "search": 19371,
+      "nodes": 53078,
+      "leaves": 0,
+      "valid": 0,
+      "roster_sha256": "93e55a8e9731ea20676a14429a9cf92bd4d074d189b665266ba747460c861f87"
+    },
+    {
+      "index": 6,
+      "pattern": [
+        1,
+        2,
+        4,
+        4
+      ],
+      "raw": 11232,
+      "over": 784,
+      "search": 10448,
+      "nodes": 28624,
+      "leaves": 0,
+      "valid": 0,
+      "roster_sha256": "228409d4996a346bfe42ad6ca88bb90b199a71d6c036b793ed6e585049e43f69"
+    },
+    {
+      "index": 7,
+      "pattern": [
+        1,
+        3,
+        3,
+        4
+      ],
+      "raw": 11232,
+      "over": 784,
+      "search": 10448,
+      "nodes": 28672,
+      "leaves": 0,
+      "valid": 0,
+      "roster_sha256": "3f1dcf729edc89a219fa71017321e68ec1182fdfb369b3b6004d3652d2154c9c"
+    },
+    {
+      "index": 8,
+      "pattern": [
+        2,
+        2,
+        2,
+        5
+      ],
+      "raw": 4368,
+      "over": 339,
+      "search": 4029,
+      "nodes": 11093,
+      "leaves": 0,
+      "valid": 0,
+      "roster_sha256": "7f8302f5d75f27264292187cbfe82af7bd4e65b9cd9995080f53da09f4e8a61a"
+    },
+    {
+      "index": 9,
+      "pattern": [
+        2,
+        2,
+        3,
+        4
+      ],
+      "raw": 11232,
+      "over": 784,
+      "search": 10448,
+      "nodes": 28561,
+      "leaves": 0,
+      "valid": 0,
+      "roster_sha256": "24f63cf4e616324bbbcf14043205b221e81ed4860e781114f204bf370df87158"
+    },
+    {
+      "index": 10,
+      "pattern": [
+        2,
+        3,
+        3,
+        3
+      ],
+      "raw": 4368,
+      "over": 339,
+      "search": 4029,
+      "nodes": 11111,
+      "leaves": 0,
+      "valid": 0,
+      "roster_sha256": "7aaded95bdd9812a7f693d652ca79cbdc03066c3c2b01fc4fb524b72dcc67727"
+    }
+  ],
+  "witnesses": [
+    {
+      "neg": [
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          7,
+          10
+        ]
+      ],
+      "u": [
+        39,
+        9,
+        44,
+        -1,
+        -1,
+        -6,
+        -3,
+        3,
+        -7,
+        -1,
+        7,
+        0
+      ],
+      "masses": [
+        3668,
+        4033
+      ],
+      "residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "norm_sq": 5117776,
+      "radius_sq": 5440957,
+      "budget_valid": false
+    }
+  ],
+  "totals": {
+    "raw": 112464,
+    "over": 7870,
+    "search": 104594,
+    "nodes": 287510,
+    "leaves": 1,
+    "valid": 0
+  },
+  "elapsed_s": 2.662151363999996,
+  "provenance": "Transcribed actual local Python integer execution; exact integer energy and original observers independently checked at leaf. Author evidence, not formal task progress.",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "next": "q11 split(0,11) length 5; do not repeat lengths 1..4 or q10."
+}
