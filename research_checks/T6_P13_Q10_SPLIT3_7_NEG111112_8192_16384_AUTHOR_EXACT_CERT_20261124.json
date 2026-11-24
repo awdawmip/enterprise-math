@@ -1,0 +1,146 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT3_7_NEG111112_AUTHOR_EXACT_SLICE_V1",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "author": "EM-DIRECT-D03BC9",
+  "activity": "RA-A468735D7C934B25C4B9614F",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "signed_split": [
+    3,
+    7
+  ],
+  "negative_q_pattern": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    2
+  ],
+  "interval": [
+    8192,
+    16384
+  ],
+  "total_negative_rosters": 52416,
+  "positive_q_patterns": [
+    [
+      3
+    ],
+    [
+      1,
+      2
+    ],
+    [
+      1,
+      1,
+      1
+    ]
+  ],
+  "budget_each_side": 2331,
+  "lattice_index": "13^21",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "stats": {
+    "negative_rosters": 8192,
+    "positive_rosters": 520,
+    "raw_signed_pairs": 4259840,
+    "common_named_atom_canceled": 2479412,
+    "vertical_original_mass_excess": 0,
+    "gs_searches": 1780428,
+    "gs_nodes": 3531890,
+    "relaxed_sphere_witnesses": 1,
+    "both_original_side_mass_valid": 0
+  },
+  "negative_roster_sha256": "cb59d8d19341f67cf03f2ddd3052187623eebc24c833f45d540633a58443e7fe",
+  "pair_digest_sha256": "dfa17f229c2e4758ed68ee4445f4be1a0c0e7c39b69f485f662ce951b1105e39",
+  "witnesses": [
+    {
+      "pos": [
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          1,
+          2
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          5
+        ],
+        [
+          1,
+          9
+        ],
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          3
+        ]
+      ],
+      "u": [
+        -1,
+        18,
+        15,
+        -12,
+        3,
+        -13,
+        4,
+        -3,
+        5,
+        5,
+        -1,
+        1
+      ],
+      "masses": [
+        3534,
+        3682
+      ],
+      "radius_sq": 3584626,
+      "budget_valid": false,
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "negative_roster_index": 11318,
+      "positive_roster_index": 234
+    }
+  ],
+  "author_replay_base": "awdawmip/enterprise-math@a466be736446891b423809b0ba23cb37ec123502:research_checks/T6_P13_Q10_SPLIT3_7_NEG1123_INTEGER_GS_REPLAY_20261124.py",
+  "replay_exact_replacements": [
+    [
+      "negatives=[((1,r),(1,s),(2,t),(3,u)) for r,s in combinations_with_replacement(range(1,13),2) for t,u in product(range(1,13),repeat=2)]",
+      "negatives=[tuple((1,r) for r in v)+((2,t),) for v in combinations_with_replacement(range(1,13),5) for t in range(1,13)]"
+    ],
+    [
+      "len(negatives)==11232",
+      "len(negatives)==52416"
+    ],
+    [
+      "negative_q_pattern=[1,1,2,3]",
+      "negative_q_pattern=[1,1,1,1,1,2]"
+    ]
+  ],
+  "validation": "Actual local Python/SymPy 1.14.0 exact integer GS; 21.529945099 seconds measured replay. Conditional on earlier cancellation and lattice completeness. No independent review or formal admission.",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "next_action": "Continue [16384,52416); preserve q11122 and completed prefix [0,16384)."
+}
