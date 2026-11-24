@@ -1,0 +1,2933 @@
+{
+  "schema": "T6_P13_Q10_FULL_SIGNED_CENSUS_AUTHOR_SYNTHESIS_V1",
+  "date": "2026-11-25",
+  "author": "EM-DIRECT-D03BC9",
+  "session": "MCP-7f3df4435e40430b832e8d5ff2137718",
+  "activity": "RA-A468735D7C934B25C4B9614F",
+  "frozen_scientific_pin": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "mother": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "scope": "p=13, v13=1, total vertical q=10, side cap 2331, original H0..H6 and original saturated 12-coordinate lattice; full named residue domain 1..12; sign reflection quotient; diagonal reduction",
+  "method": "For order q, with m positive and n negative multiplicities, total disjoint labeled multiset pairs is sum over d=1..min(m,12) of C(12,d) C(m-1,d-1) C(11-d+n,n) (n=0 interpreted as 1); m=0 gives C(11+n,n). Product over orders, sum over positive partitions. R(q)=[z^q] product_{k=1..q}(1-z^k)^-12. Compare each family raw/common/search/overflow conservation. For equal-side case use later families plus half the ordered disjoint within-family pairs; diagonal removed separately. This verifies census and common-atom counting, not independent GS replay. Prior per-family exact witness checks and GS certificates consumed at their stated scope. Split(0,10) witness count carried at split level. Split(3,7) numeric values transcribed from exact connector readbacks in this same turn.",
+  "R": [
+    1,
+    12,
+    90,
+    520,
+    2535,
+    10908,
+    42614,
+    153960,
+    521235,
+    1669720,
+    5098938
+  ],
+  "totals": [
+    {
+      "split": [
+        0,
+        10
+      ],
+      "families": 42,
+      "named": 5098938,
+      "raw": 5098938,
+      "common": 0,
+      "over": 2303566,
+      "search": 2795372,
+      "nodes": 7664115,
+      "leaves": 40,
+      "valid": 0
+    },
+    {
+      "split": [
+        1,
+        9
+      ],
+      "families": 30,
+      "named": 1669720,
+      "raw": 20036640,
+      "common": 6254820,
+      "over": 1162581,
+      "search": 12619239,
+      "nodes": 30224512,
+      "leaves": 67,
+      "valid": 0
+    },
+    {
+      "split": [
+        2,
+        8
+      ],
+      "families": 22,
+      "named": 521235,
+      "raw": 46911150,
+      "common": 19869084,
+      "over": 103680,
+      "search": 26938386,
+      "nodes": 58295174,
+      "leaves": 51,
+      "valid": 0
+    },
+    {
+      "split": [
+        3,
+        7
+      ],
+      "families": 15,
+      "named": 153960,
+      "raw": 80059200,
+      "common": 39177816,
+      "over": 0,
+      "search": 40881384,
+      "nodes": 82093907,
+      "leaves": 34,
+      "valid": 0
+    },
+    {
+      "split": [
+        4,
+        6
+      ],
+      "families": 11,
+      "named": 42614,
+      "raw": 108026490,
+      "common": 56303850,
+      "over": 0,
+      "search": 51722640,
+      "nodes": 99212110,
+      "leaves": 23,
+      "valid": 0
+    },
+    {
+      "split": [
+        5,
+        5
+      ],
+      "families": 7,
+      "named": 10908,
+      "raw": 59486778,
+      "common": 31614354,
+      "over": 0,
+      "search": 27872424,
+      "nodes": 52639901,
+      "leaves": 8,
+      "valid": 0
+    }
+  ],
+  "all": {
+    "families": 127,
+    "raw": 319619196,
+    "common": 153219924,
+    "over": 3569827,
+    "search": 162829445,
+    "nodes": 330129719,
+    "leaves": 223,
+    "valid": 0
+  },
+  "rows": [
+    {
+      "split": [
+        3,
+        7
+      ],
+      "pattern": [
+        7
+      ],
+      "named": 12,
+      "raw": 6240,
+      "common": 0,
+      "over": 0,
+      "search": 6240,
+      "nodes": 13564,
+      "leaves": 0,
+      "valid": 0,
+      "ref": "52a8412a2c718220b3c50017009a6f6e60da3297:research_checks/T6_P13_Q10_SPLIT3_7_NEG7_FULL_AUTHOR_EXACT_CERT_20261124.json"
+    },
+    {
+      "split": [
+        3,
+        7
+      ],
+      "pattern": [
+        1,
+        1,
+        5
+      ],
+      "named": 936,
+      "raw": 486720,
+      "common": 146016,
+      "over": 0,
+      "search": 340704,
+      "nodes": 712469,
+      "leaves": 1,
+      "valid": 0,
+      "ref": "2aee852cb13a6cc374795c0927c5310371efec79:research_checks/T6_P13_Q10_SPLIT3_7_NEG115_FULL_AUTHOR_EXACT_CERT_20261124.json"
+    },
+    {
+      "split": [
+        3,
+        7
+      ],
+      "pattern": [
+        1,
+        2,
+        4
+      ],
+      "named": 1728,
+      "raw": 898560,
+      "common": 174528,
+      "over": 0,
+      "search": 724032,
+      "nodes": 1510029,
+      "leaves": 1,
+      "valid": 0,
+      "ref": "caff02a63fc129bdc2fae8d0cca73553141bb374:research_checks/T6_P13_Q10_SPLIT3_7_NEG124_FULL_AUTHOR_EXACT_CERT_20261124.json"
+    },
+    {
+      "split": [
+        3,
+        7
+      ],
+      "pattern": [
+        1,
+        3,
+        3
+      ],
+      "named": 936,
+      "raw": 486720,
+      "common": 85968,
+      "over": 0,
+      "search": 400752,
+      "nodes": 836359,
+      "leaves": 4,
+      "valid": 0,
+      "ref": "cbc30e835d418a68735c39e94785c660af2945f7:research_checks/T6_P13_Q10_SPLIT3_7_NEG133_FULL_AUTHOR_EXACT_CERT_20261124.json"
+    },
+    {
+      "split": [
+        3,
+        7
+      ],
+      "pattern": [
+        2,
+        2,
+        3
+      ],
+      "named": 936,
+      "raw": 486720,
+      "common": 21672,
+      "over": 0,
+      "search": 465048,
+      "nodes": 967785,
+      "leaves": 1,
+      "valid": 0,
+      "ref": "cfcb23d86e1d0eb96bc6b2126f18e622b5248815:research_checks/T6_P13_Q10_SPLIT3_7_NEG223_FULL_AUTHOR_EXACT_CERT_20261124.json"
+    },
+    {
+      "split": [
+        3,
+        7
+      ],
+      "pattern": [
+        1,
+        6
+      ],
+      "named": 144,
+      "raw": 74880,
+      "common": 12960,
+      "over": 0,
+      "search": 61920,
+      "nodes": 132436,
+      "leaves": 0,
+      "valid": 0,
+      "ref": "5a109da03ed21cccd11a9116cc9f6b1187c1a9d8:research_checks/T6_P13_Q10_SPLIT3_7_NEG16_FULL_AUTHOR_EXACT_CERT_20261124.json"
+    },
+    {
+      "split": [
+        3,
+        7
+      ],
+      "pattern": [
+        2,
+        5
+      ],
+      "named": 144,
+      "raw": 74880,
+      "common": 1728,
+      "over": 0,
+      "search": 73152,
+      "nodes": 155848,
+      "leaves": 0,
+      "valid": 0,
+      "ref": "a9c16a34923db0ac09097fdc21eba2bfcf5ce8fe:research_checks/T6_P13_Q10_SPLIT3_7_NEG25_FULL_AUTHOR_EXACT_CERT_20261124.json"
+    },
+    {
+      "split": [
+        3,
+        7
+      ],
+      "pattern": [
+        3,
+        4
+      ],
+      "named": 144,
+      "raw": 74880,
+      "common": 144,
+      "over": 0,
+      "search": 74736,
+      "nodes": 159040,
+      "leaves": 1,
+      "valid": 0,
+      "ref": "00743f85e58509c7c8857b0a8277436f60372b75:research_checks/T6_P13_Q10_SPLIT3_7_NEG34_FULL_AUTHOR_EXACT_CERT_20261124.json"
+    },
+    {
+      "split": [
+        3,
+        7
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        4
+      ],
+      "named": 4368,
+      "raw": 2271360,
+      "common": 899472,
+      "over": 0,
+      "search": 1371888,
+      "nodes": 2813103,
+      "leaves": 3,
+      "valid": 0,
+      "ref": "e04eb43e490af6b3018aec58be6b84df3157916f:research_checks/T6_P13_Q10_SPLIT3_7_NEG1114_FULL_AUTHOR_EXACT_CERT_20261124.json"
+    },
+    {
+      "split": [
+        3,
+        7
+      ],
+      "pattern": [
+        1,
+        1,
+        2,
+        3
+      ],
+      "named": 11232,
+      "raw": 5840640,
+      "common": 1877472,
+      "over": 0,
+      "search": 3963168,
+      "nodes": 8110173,
+      "leaves": 5,
+      "valid": 0,
+      "ref": "b9268835edc9c86a2a0829d1768826a8c54fb803:research_checks/T6_P13_Q10_SPLIT3_7_NEG1123_FULL_AUTHOR_EXACT_CERT_20261124.json"
+    },
+    {
+      "split": [
+        3,
+        7
+      ],
+      "pattern": [
+        1,
+        2,
+        2,
+        2
+      ],
+      "named": 4368,
+      "raw": 2271360,
+      "common": 516672,
+      "over": 0,
+      "search": 1754688,
+      "nodes": 3584232,
+      "leaves": 3,
+      "valid": 0,
+      "ref": "582838fa8e252dd3c2d2eaf672a15d9c1b070233:research_checks/T6_P13_Q10_SPLIT3_7_NEG1222_FULL_AUTHOR_EXACT_CERT_20261124.json"
+    },
+    {
+      "split": [
+        3,
+        7
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        3
+      ],
+      "named": 16380,
+      "raw": 8517600,
+      "common": 4024188,
+      "over": 0,
+      "search": 4493412,
+      "nodes": 9063218,
+      "leaves": 5,
+      "valid": 0,
+      "ref": "5f53f3158bd460f97766876a4e27ee8a01344689:research_checks/T6_P13_Q10_SPLIT3_7_NEG11113_FULL_AUTHOR_EXACT_CERT_20261124.json"
+    },
+    {
+      "split": [
+        3,
+        7
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        2,
+        2
+      ],
+      "named": 28392,
+      "raw": 14763840,
+      "common": 6340776,
+      "over": 0,
+      "search": 8423064,
+      "nodes": 16950582,
+      "leaves": 6,
+      "valid": 0,
+      "ref": "0f167d4ed28c5ef52f37beb90d0cc7c79f8e4a5a:research_checks/T6_P13_Q10_SPLIT3_7_NEG11122_FULL_AUTHOR_EXACT_CERT_20261124.json"
+    },
+    {
+      "split": [
+        3,
+        7
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "named": 52416,
+      "raw": 27256320,
+      "common": 14869296,
+      "over": 0,
+      "search": 12387024,
+      "nodes": 24615069,
+      "leaves": 3,
+      "valid": 0,
+      "ref": "5475749630a2c6c3e9d27992fef914062291aabd:research_checks/T6_P13_Q10_SPLIT3_7_NEG111112_FULL_AUTHOR_EXACT_CERT_20261124.json"
+    },
+    {
+      "split": [
+        3,
+        7
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "named": 31824,
+      "raw": 16548480,
+      "common": 10206924,
+      "over": 0,
+      "search": 6341556,
+      "nodes": 12470000,
+      "leaves": 1,
+      "valid": 0,
+      "ref": "76bde7106ca18ab5ebc3643440ab1a7dda2543e8:research_checks/T6_P13_Q10_SPLIT3_7_NEG1111111_FULL_AUTHOR_EXACT_CERT_20261124.json"
+    },
+    {
+      "split": [
+        4,
+        6
+      ],
+      "pattern": [
+        6
+      ],
+      "named": 12,
+      "raw": 30420,
+      "common": 0,
+      "over": 0,
+      "search": 30420,
+      "nodes": 63607,
+      "leaves": 1,
+      "valid": 0,
+      "ref": "76db4fbf6106d3ac84344e51645e8e43765f6f06:research_checks/T6_P13_Q10_SPLIT4_6_NEG6_FULL_AUTHOR_EXACT_CERT_20261124.json"
+    },
+    {
+      "split": [
+        4,
+        6
+      ],
+      "pattern": [
+        1,
+        5
+      ],
+      "named": 144,
+      "raw": 365040,
+      "common": 74880,
+      "over": 0,
+      "search": 290160,
+      "nodes": 591038,
+      "leaves": 0,
+      "valid": 0,
+      "ref": "d1d185507702afb8ee081be6c44395c8635cd545:research_checks/T6_P13_Q10_SPLIT4_6_NEG15_FULL_AUTHOR_EXACT_CERT_20261124.json"
+    },
+    {
+      "split": [
+        4,
+        6
+      ],
+      "pattern": [
+        2,
+        4
+      ],
+      "named": 144,
+      "raw": 365040,
+      "common": 13104,
+      "over": 0,
+      "search": 351936,
+      "nodes": 713418,
+      "leaves": 1,
+      "valid": 0,
+      "ref": "a477a59b9e2cfeca7ce9ba28c9c564336d6483f7:research_checks/T6_P13_Q10_SPLIT4_6_NEG24_FULL_AUTHOR_EXACT_CERT_20261124.json"
+    },
+    {
+      "split": [
+        4,
+        6
+      ],
+      "pattern": [
+        3,
+        3
+      ],
+      "named": 78,
+      "raw": 197730,
+      "common": 1728,
+      "over": 0,
+      "search": 196002,
+      "nodes": 398040,
+      "leaves": 0,
+      "valid": 0,
+      "ref": "3985b3245793228b2c384ddec755b8869c08f710:research_checks/T6_P13_Q10_SPLIT4_6_NEG33_FULL_AUTHOR_EXACT_CERT_20261124.json"
+    },
+    {
+      "split": [
+        4,
+        6
+      ],
+      "pattern": [
+        1,
+        1,
+        4
+      ],
+      "named": 936,
+      "raw": 2372760,
+      "common": 828216,
+      "over": 0,
+      "search": 1544544,
+      "nodes": 3070689,
+      "leaves": 0,
+      "valid": 0,
+      "ref": "01e127584a530004e8c4ace0d59dd1ee8ee03522:research_checks/T6_P13_Q10_SPLIT4_6_NEG114_FULL_AUTHOR_EXACT_CERT_20261124.json"
+    },
+    {
+      "split": [
+        4,
+        6
+      ],
+      "pattern": [
+        1,
+        2,
+        3
+      ],
+      "named": 1728,
+      "raw": 4380480,
+      "common": 1052352,
+      "over": 0,
+      "search": 3328128,
+      "nodes": 6597288,
+      "leaves": 1,
+      "valid": 0,
+      "ref": "fef1fc8f8021392cd3539bc7f162a46e37ac995a:research_checks/T6_P13_Q10_SPLIT4_6_NEG123_FULL_AUTHOR_EXACT_CERT_20261124.json"
+    },
+    {
+      "split": [
+        4,
+        6
+      ],
+      "pattern": [
+        2,
+        2,
+        2
+      ],
+      "named": 364,
+      "raw": 922740,
+      "common": 83448,
+      "over": 0,
+      "search": 839292,
+      "nodes": 1658080,
+      "leaves": 0,
+      "valid": 0,
+      "ref": "972539587133573719405e778c5b3805d603fa8a:research_checks/T6_P13_Q10_SPLIT4_6_NEG222_FULL_AUTHOR_EXACT_CERT_20261124.json"
+    },
+    {
+      "split": [
+        4,
+        6
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        3
+      ],
+      "named": 4368,
+      "raw": 11072880,
+      "common": 5058144,
+      "over": 0,
+      "search": 6014736,
+      "nodes": 11688973,
+      "leaves": 3,
+      "valid": 0,
+      "ref": "39cb639638accc240cbbbce2d5d4a33083235447:research_checks/T6_P13_Q10_SPLIT4_6_NEG1113_FULL_AUTHOR_EXACT_CERT_20261124.json"
+    },
+    {
+      "split": [
+        4,
+        6
+      ],
+      "pattern": [
+        1,
+        1,
+        2,
+        2
+      ],
+      "named": 6084,
+      "raw": 15422940,
+      "common": 6143724,
+      "over": 0,
+      "search": 9279216,
+      "nodes": 17981487,
+      "leaves": 8,
+      "valid": 0,
+      "ref": "793c8cfeb368bdcc8180322700b6a52e7c2f9ad8:research_checks/T6_P13_Q10_SPLIT4_6_NEG1122_FULL_AUTHOR_EXACT_CERT_20261124.json"
+    },
+    {
+      "split": [
+        4,
+        6
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "named": 16380,
+      "raw": 41523300,
+      "common": 22977684,
+      "over": 0,
+      "search": 18545616,
+      "nodes": 35291151,
+      "leaves": 6,
+      "valid": 0,
+      "ref": "3a1157d24d3575aca373e23b8a154538c50f4a13:research_checks/T6_P13_Q10_SPLIT4_6_NEG11112_FULL_AUTHOR_EXACT_CERT_20261124.json"
+    },
+    {
+      "split": [
+        4,
+        6
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "named": 12376,
+      "raw": 31373160,
+      "common": 20070570,
+      "over": 0,
+      "search": 11302590,
+      "nodes": 21158339,
+      "leaves": 3,
+      "valid": 0,
+      "ref": "3ac87bfdd36981ee2ecf2898065e41a2da10c5f2:research_checks/T6_P13_Q10_SPLIT4_6_NEG111111_FULL_AUTHOR_EXACT_CERT_20261124.json"
+    },
+    {
+      "split": [
+        5,
+        5
+      ],
+      "pattern": [
+        5
+      ],
+      "named": 12,
+      "raw": 130818,
+      "common": 0,
+      "over": 0,
+      "search": 130818,
+      "nodes": 267576,
+      "leaves": 0,
+      "valid": 0,
+      "ref": "3428fc133e811c21a5157bbfec1ee7dc5a3f00da:research_checks/T6_P13_Q10_SPLIT5_5_NEG5_FULL_AUTHOR_EXACT_CERT_20261124.json",
+      "interval": [
+        0,
+        12
+      ]
+    },
+    {
+      "split": [
+        5,
+        5
+      ],
+      "pattern": [
+        1,
+        4
+      ],
+      "named": 144,
+      "raw": 1558584,
+      "common": 364896,
+      "over": 0,
+      "search": 1193688,
+      "nodes": 2378271,
+      "leaves": 0,
+      "valid": 0,
+      "ref": "34592f3147b4a2b2b3f188529d52e443ffd749a4:research_checks/T6_P13_Q10_SPLIT5_5_NEG14_FULL_AUTHOR_EXACT_CERT_20261124.json",
+      "interval": [
+        12,
+        156
+      ]
+    },
+    {
+      "split": [
+        5,
+        5
+      ],
+      "pattern": [
+        2,
+        3
+      ],
+      "named": 144,
+      "raw": 1537848,
+      "common": 85968,
+      "over": 0,
+      "search": 1451880,
+      "nodes": 2879762,
+      "leaves": 1,
+      "valid": 0,
+      "ref": "be839a9ac5d71e2eb80edba7613acb412d3246df:research_checks/T6_P13_Q10_SPLIT5_5_NEG23_FULL_AUTHOR_EXACT_CERT_20261124.json",
+      "interval": [
+        156,
+        300
+      ]
+    },
+    {
+      "split": [
+        5,
+        5
+      ],
+      "pattern": [
+        1,
+        1,
+        3
+      ],
+      "named": 936,
+      "raw": 9490572,
+      "common": 3854304,
+      "over": 0,
+      "search": 5636268,
+      "nodes": 10867360,
+      "leaves": 1,
+      "valid": 0,
+      "ref": "b0f22224af964e6adf4eab9e0f62a9c5a81d2fda:research_checks/T6_P13_Q10_SPLIT5_5_NEG113_FULL_AUTHOR_EXACT_CERT_20261124.json",
+      "interval": [
+        300,
+        1236
+      ]
+    },
+    {
+      "split": [
+        5,
+        5
+      ],
+      "pattern": [
+        1,
+        2,
+        2
+      ],
+      "named": 936,
+      "raw": 8614476,
+      "common": 2793672,
+      "over": 0,
+      "search": 5820804,
+      "nodes": 11141874,
+      "leaves": 2,
+      "valid": 0,
+      "ref": "3f1d2afd52203438338d1bbf1b4566e4258e48f5:research_checks/T6_P13_Q10_SPLIT5_5_NEG122_FULL_AUTHOR_EXACT_CERT_20261124.json",
+      "interval": [
+        1236,
+        2172
+      ]
+    },
+    {
+      "split": [
+        5,
+        5
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        2
+      ],
+      "named": 4368,
+      "raw": 28616952,
+      "common": 17076720,
+      "over": 0,
+      "search": 11540232,
+      "nodes": 21363646,
+      "leaves": 4,
+      "valid": 0,
+      "ref": "49fc49c55df85e2ae5ec666c927e84931ace9a66:research_checks/T6_P13_Q10_SPLIT5_5_NEG1112_FULL_AUTHOR_EXACT_CERT_20261124.json",
+      "interval": [
+        2172,
+        6540
+      ]
+    },
+    {
+      "split": [
+        5,
+        5
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "named": 4368,
+      "raw": 9537528,
+      "common": 7438794,
+      "over": 0,
+      "search": 2098734,
+      "nodes": 3741412,
+      "leaves": 0,
+      "valid": 0,
+      "ref": "22d564d990a4823aea16644a9aded9de97aa1495:research_checks/T6_P13_Q10_SPLIT5_5_NEG11111_FULL_AUTHOR_EXACT_CERT_20261124.json",
+      "interval": [
+        6540,
+        10908
+      ]
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        10
+      ],
+      "named": 12,
+      "raw": 12,
+      "common": 0,
+      "over": 0,
+      "search": 12,
+      "nodes": 26,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        1,
+        9
+      ],
+      "named": 144,
+      "raw": 144,
+      "common": 0,
+      "over": 0,
+      "search": 144,
+      "nodes": 446,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        2,
+        8
+      ],
+      "named": 144,
+      "raw": 144,
+      "common": 0,
+      "over": 0,
+      "search": 144,
+      "nodes": 394,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        3,
+        7
+      ],
+      "named": 144,
+      "raw": 144,
+      "common": 0,
+      "over": 0,
+      "search": 144,
+      "nodes": 400,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        4,
+        6
+      ],
+      "named": 144,
+      "raw": 144,
+      "common": 0,
+      "over": 0,
+      "search": 144,
+      "nodes": 390,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        5,
+        5
+      ],
+      "named": 78,
+      "raw": 78,
+      "common": 0,
+      "over": 0,
+      "search": 78,
+      "nodes": 206,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        1,
+        1,
+        8
+      ],
+      "named": 936,
+      "raw": 936,
+      "common": 0,
+      "over": 0,
+      "search": 936,
+      "nodes": 2518,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        1,
+        2,
+        7
+      ],
+      "named": 1728,
+      "raw": 1728,
+      "common": 0,
+      "over": 0,
+      "search": 1728,
+      "nodes": 4742,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        1,
+        3,
+        6
+      ],
+      "named": 1728,
+      "raw": 1728,
+      "common": 0,
+      "over": 0,
+      "search": 1728,
+      "nodes": 4884,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        1,
+        4,
+        5
+      ],
+      "named": 1728,
+      "raw": 1728,
+      "common": 0,
+      "over": 0,
+      "search": 1728,
+      "nodes": 4840,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        2,
+        2,
+        6
+      ],
+      "named": 936,
+      "raw": 936,
+      "common": 0,
+      "over": 0,
+      "search": 936,
+      "nodes": 2618,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        2,
+        3,
+        5
+      ],
+      "named": 1728,
+      "raw": 1728,
+      "common": 0,
+      "over": 0,
+      "search": 1728,
+      "nodes": 4831,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        2,
+        4,
+        4
+      ],
+      "named": 936,
+      "raw": 936,
+      "common": 0,
+      "over": 0,
+      "search": 936,
+      "nodes": 2606,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        3,
+        3,
+        4
+      ],
+      "named": 936,
+      "raw": 936,
+      "common": 0,
+      "over": 0,
+      "search": 936,
+      "nodes": 2598,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        7
+      ],
+      "named": 4368,
+      "raw": 4368,
+      "common": 0,
+      "over": 0,
+      "search": 4368,
+      "nodes": 11963,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        1,
+        1,
+        2,
+        6
+      ],
+      "named": 11232,
+      "raw": 11232,
+      "common": 0,
+      "over": 0,
+      "search": 11232,
+      "nodes": 30943,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        1,
+        1,
+        3,
+        5
+      ],
+      "named": 11232,
+      "raw": 11232,
+      "common": 0,
+      "over": 0,
+      "search": 11232,
+      "nodes": 31092,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        1,
+        1,
+        4,
+        4
+      ],
+      "named": 6084,
+      "raw": 6084,
+      "common": 0,
+      "over": 0,
+      "search": 6084,
+      "nodes": 16950,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        1,
+        2,
+        2,
+        5
+      ],
+      "named": 11232,
+      "raw": 11232,
+      "common": 0,
+      "over": 0,
+      "search": 11232,
+      "nodes": 30564,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "named": 20736,
+      "raw": 20736,
+      "common": 0,
+      "over": 0,
+      "search": 20736,
+      "nodes": 57331,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        1,
+        3,
+        3,
+        3
+      ],
+      "named": 4368,
+      "raw": 4368,
+      "common": 0,
+      "over": 0,
+      "search": 4368,
+      "nodes": 12020,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        2,
+        2,
+        2,
+        4
+      ],
+      "named": 4368,
+      "raw": 4368,
+      "common": 0,
+      "over": 0,
+      "search": 4368,
+      "nodes": 12187,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        2,
+        2,
+        3,
+        3
+      ],
+      "named": 6084,
+      "raw": 6084,
+      "common": 0,
+      "over": 0,
+      "search": 6084,
+      "nodes": 16769,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        6
+      ],
+      "named": 16380,
+      "raw": 16380,
+      "common": 0,
+      "over": 327,
+      "search": 16053,
+      "nodes": 44154,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        2,
+        5
+      ],
+      "named": 52416,
+      "raw": 52416,
+      "common": 0,
+      "over": 831,
+      "search": 51585,
+      "nodes": 141671,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        3,
+        4
+      ],
+      "named": 52416,
+      "raw": 52416,
+      "common": 0,
+      "over": 831,
+      "search": 51585,
+      "nodes": 142136,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        1,
+        1,
+        2,
+        2,
+        4
+      ],
+      "named": 73008,
+      "raw": 73008,
+      "common": 0,
+      "over": 1064,
+      "search": 71944,
+      "nodes": 198248,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        1,
+        1,
+        2,
+        3,
+        3
+      ],
+      "named": 73008,
+      "raw": 73008,
+      "common": 0,
+      "over": 1064,
+      "search": 71944,
+      "nodes": 197700,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        1,
+        2,
+        2,
+        2,
+        3
+      ],
+      "named": 52416,
+      "raw": 52416,
+      "common": 0,
+      "over": 831,
+      "search": 51585,
+      "nodes": 142458,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "named": 4368,
+      "raw": 4368,
+      "common": 0,
+      "over": 113,
+      "search": 4255,
+      "nodes": 11750,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        5
+      ],
+      "named": 52416,
+      "raw": 52416,
+      "common": 0,
+      "over": 7247,
+      "search": 45169,
+      "nodes": 124398,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        2,
+        4
+      ],
+      "named": 196560,
+      "raw": 196560,
+      "common": 0,
+      "over": 25082,
+      "search": 171478,
+      "nodes": 471338,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        3,
+        3
+      ],
+      "named": 106470,
+      "raw": 106470,
+      "common": 0,
+      "over": 13872,
+      "search": 92598,
+      "nodes": 253633,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        2,
+        2,
+        3
+      ],
+      "named": 340704,
+      "raw": 340704,
+      "common": 0,
+      "over": 41540,
+      "search": 299164,
+      "nodes": 820788,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        1,
+        1,
+        2,
+        2,
+        2,
+        2
+      ],
+      "named": 106470,
+      "raw": 106470,
+      "common": 0,
+      "over": 13872,
+      "search": 92598,
+      "nodes": 255519,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        4
+      ],
+      "named": 148512,
+      "raw": 148512,
+      "common": 0,
+      "over": 52803,
+      "search": 95709,
+      "nodes": 262167,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        3
+      ],
+      "named": 628992,
+      "raw": 628992,
+      "common": 0,
+      "over": 219694,
+      "search": 409298,
+      "nodes": 1120050,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        2,
+        2,
+        2
+      ],
+      "named": 496860,
+      "raw": 496860,
+      "common": 0,
+      "over": 172809,
+      "search": 324051,
+      "nodes": 890511,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        3
+      ],
+      "named": 381888,
+      "raw": 381888,
+      "common": 0,
+      "over": 222858,
+      "search": 159030,
+      "nodes": 434429,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "named": 352716,
+      "raw": 352716,
+      "common": 0,
+      "over": 297274,
+      "search": 55442,
+      "nodes": 151394,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "named": 906984,
+      "raw": 906984,
+      "common": 0,
+      "over": 665129,
+      "search": 241855,
+      "nodes": 659133,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        0,
+        10
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2
+      ],
+      "named": 965328,
+      "raw": 965328,
+      "common": 0,
+      "over": 566325,
+      "search": 399003,
+      "nodes": 1091320,
+      "valid": 0,
+      "ref": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602:research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        1,
+        9
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "named": 167960,
+      "raw": 2015520,
+      "common": 906984,
+      "over": 399490,
+      "search": 709046,
+      "nodes": 1679293,
+      "leaves": 3,
+      "valid": 0,
+      "ref": "537232330df7532ce0cd0e0cefbb9cc82ca9227f:research_checks/T6_P13_Q10_SPLIT1_9_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        1,
+        9
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "named": 381888,
+      "raw": 4582656,
+      "common": 1782144,
+      "over": 540721,
+      "search": 2259791,
+      "nodes": 5377651,
+      "leaves": 10,
+      "valid": 0,
+      "ref": "537232330df7532ce0cd0e0cefbb9cc82ca9227f:research_checks/T6_P13_Q10_SPLIT1_9_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        1,
+        9
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        3
+      ],
+      "named": 148512,
+      "raw": 1782144,
+      "common": 628992,
+      "over": 66961,
+      "search": 1086191,
+      "nodes": 2592835,
+      "leaves": 4,
+      "valid": 0,
+      "ref": "537232330df7532ce0cd0e0cefbb9cc82ca9227f:research_checks/T6_P13_Q10_SPLIT1_9_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        1,
+        9
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2
+      ],
+      "named": 340704,
+      "raw": 4088448,
+      "common": 1277640,
+      "over": 141940,
+      "search": 2668868,
+      "nodes": 6370377,
+      "leaves": 16,
+      "valid": 0,
+      "ref": "537232330df7532ce0cd0e0cefbb9cc82ca9227f:research_checks/T6_P13_Q10_SPLIT1_9_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        1,
+        9
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        4
+      ],
+      "named": 52416,
+      "raw": 628992,
+      "common": 196560,
+      "over": 2438,
+      "search": 429994,
+      "nodes": 1031061,
+      "leaves": 2,
+      "valid": 0,
+      "ref": "537232330df7532ce0cd0e0cefbb9cc82ca9227f:research_checks/T6_P13_Q10_SPLIT1_9_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        1,
+        9
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        2,
+        3
+      ],
+      "named": 196560,
+      "raw": 2358720,
+      "common": 628992,
+      "over": 6492,
+      "search": 1723236,
+      "nodes": 4135522,
+      "leaves": 9,
+      "valid": 0,
+      "ref": "537232330df7532ce0cd0e0cefbb9cc82ca9227f:research_checks/T6_P13_Q10_SPLIT1_9_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        1,
+        9
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        5
+      ],
+      "named": 16380,
+      "raw": 196560,
+      "common": 52416,
+      "over": 0,
+      "search": 144144,
+      "nodes": 348157,
+      "leaves": 0,
+      "valid": 0,
+      "ref": "537232330df7532ce0cd0e0cefbb9cc82ca9227f:research_checks/T6_P13_Q10_SPLIT1_9_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        1,
+        9
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        2,
+        2,
+        2
+      ],
+      "named": 132496,
+      "raw": 1589952,
+      "common": 340704,
+      "over": 4539,
+      "search": 1244709,
+      "nodes": 2983610,
+      "leaves": 4,
+      "valid": 0,
+      "ref": "537232330df7532ce0cd0e0cefbb9cc82ca9227f:research_checks/T6_P13_Q10_SPLIT1_9_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        1,
+        9
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        2,
+        4
+      ],
+      "named": 52416,
+      "raw": 628992,
+      "common": 134784,
+      "over": 0,
+      "search": 494208,
+      "nodes": 1193696,
+      "leaves": 4,
+      "valid": 0,
+      "ref": "537232330df7532ce0cd0e0cefbb9cc82ca9227f:research_checks/T6_P13_Q10_SPLIT1_9_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        1,
+        9
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        3,
+        3
+      ],
+      "named": 28392,
+      "raw": 340704,
+      "common": 73008,
+      "over": 0,
+      "search": 267696,
+      "nodes": 647138,
+      "leaves": 2,
+      "valid": 0,
+      "ref": "537232330df7532ce0cd0e0cefbb9cc82ca9227f:research_checks/T6_P13_Q10_SPLIT1_9_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        1,
+        9
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        6
+      ],
+      "named": 4368,
+      "raw": 52416,
+      "common": 11232,
+      "over": 0,
+      "search": 41184,
+      "nodes": 100135,
+      "leaves": 1,
+      "valid": 0,
+      "ref": "537232330df7532ce0cd0e0cefbb9cc82ca9227f:research_checks/T6_P13_Q10_SPLIT1_9_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        1,
+        9
+      ],
+      "pattern": [
+        1,
+        1,
+        2,
+        2,
+        3
+      ],
+      "named": 73008,
+      "raw": 876096,
+      "common": 134784,
+      "over": 0,
+      "search": 741312,
+      "nodes": 1791733,
+      "leaves": 6,
+      "valid": 0,
+      "ref": "537232330df7532ce0cd0e0cefbb9cc82ca9227f:research_checks/T6_P13_Q10_SPLIT1_9_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        1,
+        9
+      ],
+      "pattern": [
+        1,
+        1,
+        2,
+        5
+      ],
+      "named": 11232,
+      "raw": 134784,
+      "common": 20736,
+      "over": 0,
+      "search": 114048,
+      "nodes": 279090,
+      "leaves": 0,
+      "valid": 0,
+      "ref": "537232330df7532ce0cd0e0cefbb9cc82ca9227f:research_checks/T6_P13_Q10_SPLIT1_9_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        1,
+        9
+      ],
+      "pattern": [
+        1,
+        1,
+        3,
+        4
+      ],
+      "named": 11232,
+      "raw": 134784,
+      "common": 20736,
+      "over": 0,
+      "search": 114048,
+      "nodes": 278573,
+      "leaves": 0,
+      "valid": 0,
+      "ref": "537232330df7532ce0cd0e0cefbb9cc82ca9227f:research_checks/T6_P13_Q10_SPLIT1_9_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        1,
+        9
+      ],
+      "pattern": [
+        1,
+        1,
+        7
+      ],
+      "named": 936,
+      "raw": 11232,
+      "common": 1728,
+      "over": 0,
+      "search": 9504,
+      "nodes": 23394,
+      "leaves": 0,
+      "valid": 0,
+      "ref": "537232330df7532ce0cd0e0cefbb9cc82ca9227f:research_checks/T6_P13_Q10_SPLIT1_9_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        1,
+        9
+      ],
+      "pattern": [
+        1,
+        2,
+        2,
+        2,
+        2
+      ],
+      "named": 16380,
+      "raw": 196560,
+      "common": 16380,
+      "over": 0,
+      "search": 180180,
+      "nodes": 435222,
+      "leaves": 2,
+      "valid": 0,
+      "ref": "537232330df7532ce0cd0e0cefbb9cc82ca9227f:research_checks/T6_P13_Q10_SPLIT1_9_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        1,
+        9
+      ],
+      "pattern": [
+        1,
+        2,
+        2,
+        4
+      ],
+      "named": 11232,
+      "raw": 134784,
+      "common": 11232,
+      "over": 0,
+      "search": 123552,
+      "nodes": 300940,
+      "leaves": 2,
+      "valid": 0,
+      "ref": "537232330df7532ce0cd0e0cefbb9cc82ca9227f:research_checks/T6_P13_Q10_SPLIT1_9_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        1,
+        9
+      ],
+      "pattern": [
+        1,
+        2,
+        3,
+        3
+      ],
+      "named": 11232,
+      "raw": 134784,
+      "common": 11232,
+      "over": 0,
+      "search": 123552,
+      "nodes": 301289,
+      "leaves": 0,
+      "valid": 0,
+      "ref": "537232330df7532ce0cd0e0cefbb9cc82ca9227f:research_checks/T6_P13_Q10_SPLIT1_9_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        1,
+        9
+      ],
+      "pattern": [
+        1,
+        2,
+        6
+      ],
+      "named": 1728,
+      "raw": 20736,
+      "common": 1728,
+      "over": 0,
+      "search": 19008,
+      "nodes": 47139,
+      "leaves": 1,
+      "valid": 0,
+      "ref": "537232330df7532ce0cd0e0cefbb9cc82ca9227f:research_checks/T6_P13_Q10_SPLIT1_9_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        1,
+        9
+      ],
+      "pattern": [
+        1,
+        3,
+        5
+      ],
+      "named": 1728,
+      "raw": 20736,
+      "common": 1728,
+      "over": 0,
+      "search": 19008,
+      "nodes": 46925,
+      "leaves": 0,
+      "valid": 0,
+      "ref": "537232330df7532ce0cd0e0cefbb9cc82ca9227f:research_checks/T6_P13_Q10_SPLIT1_9_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        1,
+        9
+      ],
+      "pattern": [
+        1,
+        4,
+        4
+      ],
+      "named": 936,
+      "raw": 11232,
+      "common": 936,
+      "over": 0,
+      "search": 10296,
+      "nodes": 25447,
+      "leaves": 0,
+      "valid": 0,
+      "ref": "537232330df7532ce0cd0e0cefbb9cc82ca9227f:research_checks/T6_P13_Q10_SPLIT1_9_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        1,
+        9
+      ],
+      "pattern": [
+        1,
+        8
+      ],
+      "named": 144,
+      "raw": 1728,
+      "common": 144,
+      "over": 0,
+      "search": 1584,
+      "nodes": 3981,
+      "leaves": 0,
+      "valid": 0,
+      "ref": "537232330df7532ce0cd0e0cefbb9cc82ca9227f:research_checks/T6_P13_Q10_SPLIT1_9_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        1,
+        9
+      ],
+      "pattern": [
+        2,
+        2,
+        2,
+        3
+      ],
+      "named": 4368,
+      "raw": 52416,
+      "common": 0,
+      "over": 0,
+      "search": 52416,
+      "nodes": 127824,
+      "leaves": 1,
+      "valid": 0,
+      "ref": "537232330df7532ce0cd0e0cefbb9cc82ca9227f:research_checks/T6_P13_Q10_SPLIT1_9_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        1,
+        9
+      ],
+      "pattern": [
+        2,
+        2,
+        5
+      ],
+      "named": 936,
+      "raw": 11232,
+      "common": 0,
+      "over": 0,
+      "search": 11232,
+      "nodes": 28149,
+      "leaves": 0,
+      "valid": 0,
+      "ref": "537232330df7532ce0cd0e0cefbb9cc82ca9227f:research_checks/T6_P13_Q10_SPLIT1_9_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        1,
+        9
+      ],
+      "pattern": [
+        2,
+        3,
+        4
+      ],
+      "named": 1728,
+      "raw": 20736,
+      "common": 0,
+      "over": 0,
+      "search": 20736,
+      "nodes": 51156,
+      "leaves": 0,
+      "valid": 0,
+      "ref": "537232330df7532ce0cd0e0cefbb9cc82ca9227f:research_checks/T6_P13_Q10_SPLIT1_9_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        1,
+        9
+      ],
+      "pattern": [
+        2,
+        7
+      ],
+      "named": 144,
+      "raw": 1728,
+      "common": 0,
+      "over": 0,
+      "search": 1728,
+      "nodes": 4420,
+      "leaves": 0,
+      "valid": 0,
+      "ref": "537232330df7532ce0cd0e0cefbb9cc82ca9227f:research_checks/T6_P13_Q10_SPLIT1_9_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        1,
+        9
+      ],
+      "pattern": [
+        3,
+        3,
+        3
+      ],
+      "named": 364,
+      "raw": 4368,
+      "common": 0,
+      "over": 0,
+      "search": 4368,
+      "nodes": 10726,
+      "leaves": 0,
+      "valid": 0,
+      "ref": "537232330df7532ce0cd0e0cefbb9cc82ca9227f:research_checks/T6_P13_Q10_SPLIT1_9_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        1,
+        9
+      ],
+      "pattern": [
+        3,
+        6
+      ],
+      "named": 144,
+      "raw": 1728,
+      "common": 0,
+      "over": 0,
+      "search": 1728,
+      "nodes": 4266,
+      "leaves": 0,
+      "valid": 0,
+      "ref": "537232330df7532ce0cd0e0cefbb9cc82ca9227f:research_checks/T6_P13_Q10_SPLIT1_9_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        1,
+        9
+      ],
+      "pattern": [
+        4,
+        5
+      ],
+      "named": 144,
+      "raw": 1728,
+      "common": 0,
+      "over": 0,
+      "search": 1728,
+      "nodes": 4378,
+      "leaves": 0,
+      "valid": 0,
+      "ref": "537232330df7532ce0cd0e0cefbb9cc82ca9227f:research_checks/T6_P13_Q10_SPLIT1_9_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        1,
+        9
+      ],
+      "pattern": [
+        9
+      ],
+      "named": 12,
+      "raw": 144,
+      "common": 0,
+      "over": 0,
+      "search": 144,
+      "nodes": 385,
+      "leaves": 0,
+      "valid": 0,
+      "ref": "537232330df7532ce0cd0e0cefbb9cc82ca9227f:research_checks/T6_P13_Q10_SPLIT1_9_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        2,
+        8
+      ],
+      "pattern": [
+        8
+      ],
+      "named": 12,
+      "raw": 1080,
+      "common": 0,
+      "over": 0,
+      "search": 1080,
+      "nodes": 2504,
+      "leaves": 0,
+      "valid": 0,
+      "ref": "cefa26367e6281f30d248e68ab225507fbe3879e:research_checks/T6_P13_Q10_SPLIT2_8_LEN1TO6_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        2,
+        8
+      ],
+      "pattern": [
+        1,
+        7
+      ],
+      "named": 144,
+      "raw": 12960,
+      "common": 1728,
+      "over": 0,
+      "search": 11232,
+      "nodes": 25595,
+      "leaves": 0,
+      "valid": 0,
+      "ref": "cefa26367e6281f30d248e68ab225507fbe3879e:research_checks/T6_P13_Q10_SPLIT2_8_LEN1TO6_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        2,
+        8
+      ],
+      "pattern": [
+        2,
+        6
+      ],
+      "named": 144,
+      "raw": 12960,
+      "common": 144,
+      "over": 0,
+      "search": 12816,
+      "nodes": 28745,
+      "leaves": 0,
+      "valid": 0,
+      "ref": "cefa26367e6281f30d248e68ab225507fbe3879e:research_checks/T6_P13_Q10_SPLIT2_8_LEN1TO6_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        2,
+        8
+      ],
+      "pattern": [
+        3,
+        5
+      ],
+      "named": 144,
+      "raw": 12960,
+      "common": 0,
+      "over": 0,
+      "search": 12960,
+      "nodes": 29384,
+      "leaves": 0,
+      "valid": 0,
+      "ref": "cefa26367e6281f30d248e68ab225507fbe3879e:research_checks/T6_P13_Q10_SPLIT2_8_LEN1TO6_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        2,
+        8
+      ],
+      "pattern": [
+        4,
+        4
+      ],
+      "named": 78,
+      "raw": 7020,
+      "common": 0,
+      "over": 0,
+      "search": 7020,
+      "nodes": 15990,
+      "leaves": 0,
+      "valid": 0,
+      "ref": "cefa26367e6281f30d248e68ab225507fbe3879e:research_checks/T6_P13_Q10_SPLIT2_8_LEN1TO6_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        2,
+        8
+      ],
+      "pattern": [
+        1,
+        1,
+        6
+      ],
+      "named": 936,
+      "raw": 84240,
+      "common": 19944,
+      "over": 0,
+      "search": 64296,
+      "nodes": 143882,
+      "leaves": 0,
+      "valid": 0,
+      "ref": "cefa26367e6281f30d248e68ab225507fbe3879e:research_checks/T6_P13_Q10_SPLIT2_8_LEN1TO6_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        2,
+        8
+      ],
+      "pattern": [
+        1,
+        2,
+        5
+      ],
+      "named": 1728,
+      "raw": 155520,
+      "common": 22464,
+      "over": 0,
+      "search": 133056,
+      "nodes": 296849,
+      "leaves": 1,
+      "valid": 0,
+      "ref": "cefa26367e6281f30d248e68ab225507fbe3879e:research_checks/T6_P13_Q10_SPLIT2_8_LEN1TO6_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        2,
+        8
+      ],
+      "pattern": [
+        1,
+        3,
+        4
+      ],
+      "named": 1728,
+      "raw": 155520,
+      "common": 20736,
+      "over": 0,
+      "search": 134784,
+      "nodes": 302516,
+      "leaves": 0,
+      "valid": 0,
+      "ref": "cefa26367e6281f30d248e68ab225507fbe3879e:research_checks/T6_P13_Q10_SPLIT2_8_LEN1TO6_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        2,
+        8
+      ],
+      "pattern": [
+        2,
+        2,
+        4
+      ],
+      "named": 936,
+      "raw": 84240,
+      "common": 1728,
+      "over": 0,
+      "search": 82512,
+      "nodes": 183979,
+      "leaves": 0,
+      "valid": 0,
+      "ref": "cefa26367e6281f30d248e68ab225507fbe3879e:research_checks/T6_P13_Q10_SPLIT2_8_LEN1TO6_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        2,
+        8
+      ],
+      "pattern": [
+        2,
+        3,
+        3
+      ],
+      "named": 936,
+      "raw": 84240,
+      "common": 936,
+      "over": 0,
+      "search": 83304,
+      "nodes": 186329,
+      "leaves": 0,
+      "valid": 0,
+      "ref": "cefa26367e6281f30d248e68ab225507fbe3879e:research_checks/T6_P13_Q10_SPLIT2_8_LEN1TO6_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        2,
+        8
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        5
+      ],
+      "named": 4368,
+      "raw": 393120,
+      "common": 125280,
+      "over": 0,
+      "search": 267840,
+      "nodes": 592032,
+      "leaves": 1,
+      "valid": 0,
+      "ref": "cefa26367e6281f30d248e68ab225507fbe3879e:research_checks/T6_P13_Q10_SPLIT2_8_LEN1TO6_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        2,
+        8
+      ],
+      "pattern": [
+        1,
+        1,
+        2,
+        4
+      ],
+      "named": 11232,
+      "raw": 1010880,
+      "common": 250560,
+      "over": 0,
+      "search": 760320,
+      "nodes": 1680642,
+      "leaves": 1,
+      "valid": 0,
+      "ref": "cefa26367e6281f30d248e68ab225507fbe3879e:research_checks/T6_P13_Q10_SPLIT2_8_LEN1TO6_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        2,
+        8
+      ],
+      "pattern": [
+        1,
+        1,
+        3,
+        3
+      ],
+      "named": 6084,
+      "raw": 547560,
+      "common": 129636,
+      "over": 0,
+      "search": 417924,
+      "nodes": 924530,
+      "leaves": 1,
+      "valid": 0,
+      "ref": "cefa26367e6281f30d248e68ab225507fbe3879e:research_checks/T6_P13_Q10_SPLIT2_8_LEN1TO6_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        2,
+        8
+      ],
+      "pattern": [
+        1,
+        2,
+        2,
+        3
+      ],
+      "named": 11232,
+      "raw": 1010880,
+      "common": 155520,
+      "over": 0,
+      "search": 855360,
+      "nodes": 1887784,
+      "leaves": 2,
+      "valid": 0,
+      "ref": "cefa26367e6281f30d248e68ab225507fbe3879e:research_checks/T6_P13_Q10_SPLIT2_8_LEN1TO6_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        2,
+        8
+      ],
+      "pattern": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "named": 1365,
+      "raw": 122850,
+      "common": 4368,
+      "over": 0,
+      "search": 118482,
+      "nodes": 261048,
+      "leaves": 0,
+      "valid": 0,
+      "ref": "cefa26367e6281f30d248e68ab225507fbe3879e:research_checks/T6_P13_Q10_SPLIT2_8_LEN1TO6_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        2,
+        8
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        4
+      ],
+      "named": 16380,
+      "raw": 1474200,
+      "common": 567216,
+      "over": 0,
+      "search": 906984,
+      "nodes": 1982636,
+      "leaves": 0,
+      "valid": 0,
+      "ref": "cefa26367e6281f30d248e68ab225507fbe3879e:research_checks/T6_P13_Q10_SPLIT2_8_LEN1TO6_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        2,
+        8
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        2,
+        3
+      ],
+      "named": 52416,
+      "raw": 4717440,
+      "common": 1555776,
+      "over": 0,
+      "search": 3161664,
+      "nodes": 6902083,
+      "leaves": 7,
+      "valid": 0,
+      "ref": "cefa26367e6281f30d248e68ab225507fbe3879e:research_checks/T6_P13_Q10_SPLIT2_8_LEN1TO6_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        2,
+        8
+      ],
+      "pattern": [
+        1,
+        1,
+        2,
+        2,
+        2
+      ],
+      "named": 28392,
+      "raw": 2555280,
+      "common": 677976,
+      "over": 0,
+      "search": 1877304,
+      "nodes": 4090363,
+      "leaves": 3,
+      "valid": 0,
+      "ref": "cefa26367e6281f30d248e68ab225507fbe3879e:research_checks/T6_P13_Q10_SPLIT2_8_LEN1TO6_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        2,
+        8
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        3
+      ],
+      "named": 52416,
+      "raw": 4717440,
+      "common": 2070432,
+      "over": 0,
+      "search": 2647008,
+      "nodes": 5725473,
+      "leaves": 3,
+      "valid": 0,
+      "ref": "cefa26367e6281f30d248e68ab225507fbe3879e:research_checks/T6_P13_Q10_SPLIT2_8_LEN1TO6_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        2,
+        8
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        2,
+        2
+      ],
+      "named": 106470,
+      "raw": 9582300,
+      "common": 3883464,
+      "over": 0,
+      "search": 5698836,
+      "nodes": 12303306,
+      "leaves": 14,
+      "valid": 0,
+      "ref": "cefa26367e6281f30d248e68ab225507fbe3879e:research_checks/T6_P13_Q10_SPLIT2_8_LEN1TO6_COVERAGE_AUTHOR_AUDIT_20261124.json"
+    },
+    {
+      "split": [
+        2,
+        8
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2
+      ],
+      "named": 148512,
+      "raw": 13366080,
+      "common": 6615336,
+      "over": 11142,
+      "search": 6739602,
+      "nodes": 14447269,
+      "leaves": 14,
+      "valid": 0,
+      "ref": "84b09dcc412caf4978f41de6380cabb2568a987c:research_checks/T6_P13_Q10_SPLIT2_8_NEG1111112_FULL_COVERAGE_AUTHOR_AUDIT_20261125.json"
+    },
+    {
+      "split": [
+        2,
+        8
+      ],
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "named": 75582,
+      "raw": 6802380,
+      "common": 3765840,
+      "over": 92538,
+      "search": 2944002,
+      "nodes": 6282235,
+      "leaves": 4,
+      "valid": 0,
+      "ref": "d497027ea3db6a4f17ff77effabdb809ea8e4cc3:research_checks/T6_P13_Q10_SPLIT2_8_NEG11111111_FULL_COVERAGE_AUTHOR_AUDIT_20261125.json"
+    }
+  ],
+  "source_pins": [
+    {
+      "commit": "52a8412a2c718220b3c50017009a6f6e60da3297",
+      "path": "research_checks/T6_P13_Q10_SPLIT3_7_NEG7_FULL_AUTHOR_EXACT_CERT_20261124.json",
+      "blob": "bbd50af9a2279ab54f43a957e15c838ac2e9a6b0",
+      "sha256": "6b1232f725c47b87259fce1ed2d39e6faf741b3af52bfecc514b3afefb372a81"
+    },
+    {
+      "commit": "2aee852cb13a6cc374795c0927c5310371efec79",
+      "path": "research_checks/T6_P13_Q10_SPLIT3_7_NEG115_FULL_AUTHOR_EXACT_CERT_20261124.json",
+      "blob": "eb21defb075ec7fb6437b9a9025d5fb4822976f8",
+      "sha256": "fc18b752a09089178743bd637a450c2c4d83924ed17ef08c751e3a370e246b5e"
+    },
+    {
+      "commit": "caff02a63fc129bdc2fae8d0cca73553141bb374",
+      "path": "research_checks/T6_P13_Q10_SPLIT3_7_NEG124_FULL_AUTHOR_EXACT_CERT_20261124.json",
+      "blob": "6dcd814b76cbaf24596e0f80222ba2ca7129c7e3",
+      "sha256": "e1850158d59d3d634ee012851aaf6efbb6762e8cf72a9d507355d3482874e12e"
+    },
+    {
+      "commit": "cbc30e835d418a68735c39e94785c660af2945f7",
+      "path": "research_checks/T6_P13_Q10_SPLIT3_7_NEG133_FULL_AUTHOR_EXACT_CERT_20261124.json",
+      "blob": "bcbcb1d9ede86e8b1e16a9865cb05f2825251858",
+      "sha256": "0cfa83185a5e180eebbe0eb2edf06f7af7315f0c350ee53745c49178c2ca1fa6"
+    },
+    {
+      "commit": "cfcb23d86e1d0eb96bc6b2126f18e622b5248815",
+      "path": "research_checks/T6_P13_Q10_SPLIT3_7_NEG223_FULL_AUTHOR_EXACT_CERT_20261124.json",
+      "blob": "d33b849e50434fac25b631bcd91fefd8f9ee2ff8",
+      "sha256": "e84e4c1285b41194882e18048c2e23173bc69eb6b9569ce20ac3a7ecc601d24a"
+    },
+    {
+      "commit": "5a109da03ed21cccd11a9116cc9f6b1187c1a9d8",
+      "path": "research_checks/T6_P13_Q10_SPLIT3_7_NEG16_FULL_AUTHOR_EXACT_CERT_20261124.json",
+      "blob": "6776fb601a00a678d85784703b8d7d91e099d3fc",
+      "sha256": "e9c7f5bc8c43a0d02107790a1e86de5fa4b84f4b2ecc6702a6b84bdb02a9da99"
+    },
+    {
+      "commit": "a9c16a34923db0ac09097fdc21eba2bfcf5ce8fe",
+      "path": "research_checks/T6_P13_Q10_SPLIT3_7_NEG25_FULL_AUTHOR_EXACT_CERT_20261124.json",
+      "blob": "d9f2fcd21a27d3ee11cf8a5178cb18321b1d0a9b",
+      "sha256": "6472f5ed426c002cd7ba2969b092a2ea37844f1874d78b7f6d8f84be3824fd3e"
+    },
+    {
+      "commit": "00743f85e58509c7c8857b0a8277436f60372b75",
+      "path": "research_checks/T6_P13_Q10_SPLIT3_7_NEG34_FULL_AUTHOR_EXACT_CERT_20261124.json",
+      "blob": "4b059121616f3db6d957708ae730b42d6fa9fdd7",
+      "sha256": "8ccb9c621d27f806ade73aec1a25509716e8d34d21fe13d2c27f97b5d523a4d3"
+    },
+    {
+      "commit": "e04eb43e490af6b3018aec58be6b84df3157916f",
+      "path": "research_checks/T6_P13_Q10_SPLIT3_7_NEG1114_FULL_AUTHOR_EXACT_CERT_20261124.json",
+      "blob": "7e37f88f5dcc274e36053a29cf83b13491edbf51",
+      "sha256": "071c21994ae22751c5c7c1e7118aa65ab2e04e4b738b0ecfbd1759dcf31eb1fe"
+    },
+    {
+      "commit": "b9268835edc9c86a2a0829d1768826a8c54fb803",
+      "path": "research_checks/T6_P13_Q10_SPLIT3_7_NEG1123_FULL_AUTHOR_EXACT_CERT_20261124.json",
+      "blob": "967fb5188843179de5b1ff36dfe08162c762c92e",
+      "sha256": "33ce9c0c2eba91be6aded2205086957758bac43128da81d3e31a8cfbc908a576"
+    },
+    {
+      "commit": "582838fa8e252dd3c2d2eaf672a15d9c1b070233",
+      "path": "research_checks/T6_P13_Q10_SPLIT3_7_NEG1222_FULL_AUTHOR_EXACT_CERT_20261124.json",
+      "blob": "e2c8667255f86a51bfefbd29f9d1f3c6b303152b",
+      "sha256": "3dcdcdf518c3c8e253f3295e0e818a9db210e662c4e8cb26f71a77d4ca3553fd"
+    },
+    {
+      "commit": "5f53f3158bd460f97766876a4e27ee8a01344689",
+      "path": "research_checks/T6_P13_Q10_SPLIT3_7_NEG11113_FULL_AUTHOR_EXACT_CERT_20261124.json",
+      "blob": "2bdabc8caa046c6bfaf3c6d2e6e55605bfb69efa",
+      "sha256": "6c5e3bd4597a84662b47d44ad1f110244c44597961b3557234a7fe5400a0bb60"
+    },
+    {
+      "commit": "0f167d4ed28c5ef52f37beb90d0cc7c79f8e4a5a",
+      "path": "research_checks/T6_P13_Q10_SPLIT3_7_NEG11122_FULL_AUTHOR_EXACT_CERT_20261124.json",
+      "blob": "9a90efb668eb6ccd3a523db9abcc1b209835e596",
+      "sha256": "cae8f5a7824c16319ea7c3f15af2330bee237f18036851f93c635812268d128b"
+    },
+    {
+      "commit": "5475749630a2c6c3e9d27992fef914062291aabd",
+      "path": "research_checks/T6_P13_Q10_SPLIT3_7_NEG111112_FULL_AUTHOR_EXACT_CERT_20261124.json",
+      "blob": "6e2a5c6680ff8b98c786c5ef5ed746526e775a79",
+      "sha256": "f522aa03de1c75f475538b1cd9c00c6a430d0c8e8f821be984c05211aed0f5ee"
+    },
+    {
+      "commit": "76bde7106ca18ab5ebc3643440ab1a7dda2543e8",
+      "path": "research_checks/T6_P13_Q10_SPLIT3_7_NEG1111111_FULL_AUTHOR_EXACT_CERT_20261124.json",
+      "blob": "5a1abb5c55d765de921fdcd51edf2c39abe56b65",
+      "sha256": "052c0a54b249c77c4d60ef0bc14cbe6cae9867e6a3d9b51dd904047f04ae590c"
+    },
+    {
+      "commit": "31612193b2ec2310c5be6db160cfea076765838c",
+      "path": "research_checks/T6_P13_Q10_SPLIT4_6_FULL_AUTHOR_EXACT_CERT_20261124.json",
+      "blob": "7e5ad192fa99cc768806069ff54657fb04d38d4b",
+      "sha256": "cfb1166e009c38e11e2e0f314b5a197d5985cc63ee5754d72c0dfd9f64dde961"
+    },
+    {
+      "commit": "3cde57d1c792f4272c521ec583b951703e251eea",
+      "path": "research_checks/T6_P13_Q10_SPLIT5_5_FULL_AUTHOR_EXACT_CERT_20261124.json",
+      "blob": "191a26caf59212949eae9fc5f59ed130d5fc8fca",
+      "sha256": "594658d47d658cf205cccfd663f0ead236e0b50bbc3d972c28a4c4cecb6d4550"
+    },
+    {
+      "commit": "fb3d08aa97c4003c7f1bfd370fc33dae97cae602",
+      "path": "research_checks/T6_P13_Q10_SPLIT0_10_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json",
+      "blob": "fc405b95c6d4fb64e44363e22723e112d902cb9e",
+      "sha256": "ef15b45c7e3e7706afdc2af964bcb372a97c0b839dcddceb1e79841cc605da6c"
+    },
+    {
+      "commit": "537232330df7532ce0cd0e0cefbb9cc82ca9227f",
+      "path": "research_checks/T6_P13_Q10_SPLIT1_9_FULL_COVERAGE_AUTHOR_AUDIT_20261124.json",
+      "blob": "a8c72dbe6fa9edc2b364a848df3b21903dcf2fc4",
+      "sha256": "f2d59f23bfe3bc0586636c23f7acbc4faf43a6e7b9aa036d81eee8f05ea7172c"
+    },
+    {
+      "commit": "cefa26367e6281f30d248e68ab225507fbe3879e",
+      "path": "research_checks/T6_P13_Q10_SPLIT2_8_LEN1TO6_COVERAGE_AUTHOR_AUDIT_20261124.json",
+      "blob": "e4c48a7fe9dd9d905945eb01847917e766c58714",
+      "sha256": "c3175b8fdeea0449e6dc55ef3cb7af12e6cdd2e15bf1a66dad1fe6b79ec160dd"
+    },
+    {
+      "commit": "84b09dcc412caf4978f41de6380cabb2568a987c",
+      "path": "research_checks/T6_P13_Q10_SPLIT2_8_NEG1111112_FULL_COVERAGE_AUTHOR_AUDIT_20261125.json",
+      "blob": "b02ebacd516589feb403dadfbd960d0d81e5dce5",
+      "sha256": "e4a12fe5508356c8deb8bbf23939d4f4d9dc68474fa3799ae474abfd5461187d"
+    },
+    {
+      "commit": "d497027ea3db6a4f17ff77effabdb809ea8e4cc3",
+      "path": "research_checks/T6_P13_Q10_SPLIT2_8_NEG11111111_FULL_COVERAGE_AUTHOR_AUDIT_20261125.json",
+      "blob": "b3e3e1f848d36e696db7e390d6668ca47679aa1d",
+      "sha256": "a4b4d314338f712cc51b7e954edda8df100b1f983072f24da85042b49d9857ee"
+    }
+  ],
+  "dependencies": [
+    "prior high-prime and higher valuation exclusion as applicable",
+    "common named atom exact reduction, including diagonal",
+    "saturated q0 lattice completeness and correctness of historical exact integer GS traversal",
+    "original H0..H6 and both mass budgets; preserve lower-prime and H0 obligations"
+  ],
+  "status": "AUTHOR_CONDITIONAL_FINITE_SYNTHESIS / UNREVIEWED / NOT_ADMITTED",
+  "formal_claim": false,
+  "global_T6": "OPEN",
+  "protected_p17q14": "independent; no claim/run",
+  "next": "Check existing p13 higher-q/lower-prime and H0 research; choose exact unresolved unit with same scope and provenance; do not repeat q10 search."
+}
