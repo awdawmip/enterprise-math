@@ -1,0 +1,117 @@
+{
+  "schema": "C89_SCIENTIFIC_SOURCE_REFERENCES_V1",
+  "date": "2026-11-24",
+  "researcher_id": "EM-DIRECT-0CF8AC",
+  "mode": "TASK_RESEARCH",
+  "activity_id": "RA-69B9FA2BC69365D95330D3C1",
+  "scope": "Informed direct research; no formal Task CLAIM or canonical promotion asserted.",
+  "control_snapshot": {
+    "global_knowledge": "e05d7b02229d301b43d6cdd77f73333cb366354d",
+    "enterprise_math": "af4aad9526369e0cb6b1ef094e77fabc377b493b"
+  },
+  "frozen_scientific_inputs": [
+    {
+      "batch": "C81",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "0f273880149f50de8a5436972b9be4eea09d6d5b",
+      "directory": "research_notes/divisor_extrema/20261119_c81_critical_origins_and_macro_preimages",
+      "files": [
+        "LEVEL_CURVES.md"
+      ]
+    },
+    {
+      "batch": "C82",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "4628b5b87d2cf41a385228ad04bf163c06aa6586",
+      "directory": "research_notes/divisor_extrema/20261119_c82_three_stock_critical_limit",
+      "files": [
+        "CROSS_PHASE.md",
+        "LATTICE_LIMIT.md",
+        "HIGH_PRECISION.md",
+        "FIBER_STRUCTURE.md"
+      ]
+    },
+    {
+      "batch": "C83",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "20c3c2a6cb769a816cedf0ec04cf199149bfa86f",
+      "directory": "research_notes/divisor_extrema/20261119_c83_small_precision_and_cubic_root_transition",
+      "files": [
+        "HAAR_SMALL.md",
+        "CRITICAL_TRANSITION.md"
+      ]
+    },
+    {
+      "batch": "C84",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "01f50954ee37548372464c68a311f7df2dba0632",
+      "directory": "research_notes/divisor_extrema/20261119_c84_precision_design_and_branch_filter",
+      "files": [
+        "READING_POSITION.md",
+        "BRANCH_TRANSITION.md"
+      ]
+    },
+    {
+      "batch": "C85",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "e8068ac18c2cda48875ac35de4623d8821042cf3",
+      "directory": "research_notes/divisor_extrema/20261120_c85_half_area_comparison_and_triangle_bounds",
+      "files": [
+        "endpoint/ENDPOINT_LIMIT.md"
+      ]
+    },
+    {
+      "batch": "C87",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "d10f1f695627ef98bee2bc4caeeb98e1a631ba71",
+      "directory": "research_notes/divisor_extrema/20261121_c87_global_position_ordering_and_complete_triangle_integral",
+      "files": [
+        "positions/GLOBAL_POSITION_THEOREM.md",
+        "positions/ENDPOINT_AXIS_PROOF.md"
+      ]
+    },
+    {
+      "batch": "C88",
+      "repository": "awdawmip/enterprise-math",
+      "commit": "876a746768ea69b7b63ec1db67c185367166ef26",
+      "directory": "research_notes/divisor_extrema/20261123_c88_moving_inventories_and_endpoint_transition",
+      "files": [
+        "critical/FINITE_SEPARATION_BRANCH_FILTER.md",
+        "bridge/MOVING_ENDPOINT_BRIDGE.md",
+        "bridge/GENERAL_MOVING_POSITION.md"
+      ]
+    }
+  ],
+  "external_inputs": [
+    {
+      "author": "Marina Ratner",
+      "title": "The rate of mixing for geodesic and horocycle flows",
+      "year": 1987,
+      "used": "Qualitative Haar horocycle mixing; Theorem 2 and Corollary 2",
+      "url": "https://doi.org/10.1017/S0143385700004004"
+    },
+    {
+      "author": "Saugata Basu",
+      "title": "Algorithms in Real Algebraic Geometry: A Survey",
+      "used": "Theorem 2.1, real quantifier elimination only",
+      "url": "https://www.math.purdue.edu/~sbasu/raag_survey2011_final-sep4-2014.pdf"
+    },
+    {
+      "authors": [
+        "Avraham Aizenbud",
+        "Dmitry Gourevitch"
+      ],
+      "title": "De-Rham theorem and Shapiro lemma for Schwartz functions on Nash manifolds",
+      "used": "Theorem A.2.2 and Remark 2.3.20, finite Nash stratification and analyticity",
+      "url": "https://www.wisdom.weizmann.ac.il/~dimagur/RhamShap.pdf"
+    }
+  ],
+  "proof_status": {
+    "argument": "Written mathematical proofs with project-internal cross-checks",
+    "exact_computation": "Two double-slope rational interval certificates, actually executed",
+    "formal_verification": false,
+    "external_peer_review": false,
+    "canonical_promotion": false
+  },
+  "novelty_correction": "The curvature identity for B2/G and its same-fiber difference was already proved in C84 BRANCH_TRANSITION.md section 3; C89 reuses it."
+}
