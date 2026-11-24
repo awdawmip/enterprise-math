@@ -1,0 +1,3654 @@
+{
+  "schema": "riesel-r4-five-tail-without-h2-residual-mass-table-v1",
+  "status": "PASS_AUTHOR_EXACT_GEOMETRY_NOT_INDEPENDENT_REVIEW",
+  "residual_B": [
+    0,
+    3,
+    5,
+    8,
+    10,
+    15,
+    21,
+    23,
+    26,
+    28,
+    30,
+    31,
+    33
+  ],
+  "occupied_mod7_rows": [
+    0,
+    1,
+    2,
+    3,
+    5
+  ],
+  "all_order_generic_bound": "E=max(r/9,c5/3,c7/2,1) after h7 and selected h3/h4 are removed",
+  "case_count": 119,
+  "summary": [
+    {
+      "selected_fixed": "none",
+      "m": 0,
+      "case_count": 1,
+      "maximum_relative_union_bound": "25/39",
+      "minimum_absolute_uncovered_mass": "14/3"
+    },
+    {
+      "selected_fixed": "none",
+      "m": 1,
+      "case_count": 5,
+      "maximum_relative_union_bound": "3/5",
+      "minimum_absolute_uncovered_mass": "4"
+    },
+    {
+      "selected_fixed": "none",
+      "m": 2,
+      "case_count": 10,
+      "maximum_relative_union_bound": "9/14",
+      "minimum_absolute_uncovered_mass": "5/2"
+    },
+    {
+      "selected_fixed": "none",
+      "m": 3,
+      "case_count": 10,
+      "maximum_relative_union_bound": "3/5",
+      "minimum_absolute_uncovered_mass": "2"
+    },
+    {
+      "selected_fixed": "none",
+      "m": 4,
+      "case_count": 5,
+      "maximum_relative_union_bound": "1/2",
+      "minimum_absolute_uncovered_mass": "1"
+    },
+    {
+      "selected_fixed": "246241",
+      "m": 0,
+      "case_count": 1,
+      "maximum_relative_union_bound": "11/13",
+      "minimum_absolute_uncovered_mass": "2"
+    },
+    {
+      "selected_fixed": "246241",
+      "m": 1,
+      "case_count": 5,
+      "maximum_relative_union_bound": "47/60",
+      "minimum_absolute_uncovered_mass": "13/6"
+    },
+    {
+      "selected_fixed": "246241",
+      "m": 2,
+      "case_count": 10,
+      "maximum_relative_union_bound": "16/21",
+      "minimum_absolute_uncovered_mass": "5/3"
+    },
+    {
+      "selected_fixed": "246241",
+      "m": 3,
+      "case_count": 10,
+      "maximum_relative_union_bound": "19/30",
+      "minimum_absolute_uncovered_mass": "5/3"
+    },
+    {
+      "selected_fixed": "246241",
+      "m": 4,
+      "case_count": 5,
+      "maximum_relative_union_bound": "1/3",
+      "minimum_absolute_uncovered_mass": "4/3"
+    },
+    {
+      "selected_fixed": "487824887233",
+      "m": 0,
+      "case_count": 1,
+      "maximum_relative_union_bound": "119/156",
+      "minimum_absolute_uncovered_mass": "37/12"
+    },
+    {
+      "selected_fixed": "487824887233",
+      "m": 1,
+      "case_count": 5,
+      "maximum_relative_union_bound": "7/10",
+      "minimum_absolute_uncovered_mass": "3"
+    },
+    {
+      "selected_fixed": "487824887233",
+      "m": 2,
+      "case_count": 10,
+      "maximum_relative_union_bound": "19/28",
+      "minimum_absolute_uncovered_mass": "9/4"
+    },
+    {
+      "selected_fixed": "487824887233",
+      "m": 3,
+      "case_count": 10,
+      "maximum_relative_union_bound": "11/20",
+      "minimum_absolute_uncovered_mass": "2"
+    },
+    {
+      "selected_fixed": "487824887233",
+      "m": 4,
+      "case_count": 5,
+      "maximum_relative_union_bound": "1/4",
+      "minimum_absolute_uncovered_mass": "3/2"
+    },
+    {
+      "selected_fixed": "both",
+      "m": 0,
+      "case_count": 1,
+      "maximum_relative_union_bound": "23/26",
+      "minimum_absolute_uncovered_mass": "3/2"
+    },
+    {
+      "selected_fixed": "both",
+      "m": 1,
+      "case_count": 5,
+      "maximum_relative_union_bound": "4/5",
+      "minimum_absolute_uncovered_mass": "2"
+    },
+    {
+      "selected_fixed": "both",
+      "m": 2,
+      "case_count": 10,
+      "maximum_relative_union_bound": "5/7",
+      "minimum_absolute_uncovered_mass": "2"
+    },
+    {
+      "selected_fixed": "both",
+      "m": 3,
+      "case_count": 10,
+      "maximum_relative_union_bound": "1/2",
+      "minimum_absolute_uncovered_mass": "2"
+    }
+  ],
+  "cases": [
+    {
+      "selected_fixed": "none",
+      "fixed_count": 0,
+      "fixed_union_proportion": "0",
+      "deleted_mod7_rows": [],
+      "residual_B": [
+        0,
+        3,
+        5,
+        8,
+        10,
+        15,
+        21,
+        23,
+        26,
+        28,
+        30,
+        31,
+        33
+      ],
+      "residual_mass": 13,
+      "c5": 5,
+      "c7": 3,
+      "generic_single_channel_mass": "5/3",
+      "remaining_generic_slots": 5,
+      "total_union_upper_bound": "25/3",
+      "relative_upper_bound": "25/39",
+      "absolute_uncovered_mass_lower_bound": "14/3",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 0,
+      "fixed_union_target_count": 156
+    },
+    {
+      "selected_fixed": "none",
+      "fixed_count": 0,
+      "fixed_union_proportion": "0",
+      "deleted_mod7_rows": [
+        0
+      ],
+      "residual_B": [
+        3,
+        5,
+        8,
+        10,
+        15,
+        23,
+        26,
+        30,
+        31,
+        33
+      ],
+      "residual_mass": 10,
+      "c5": 4,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 4,
+      "total_union_upper_bound": "6",
+      "relative_upper_bound": "3/5",
+      "absolute_uncovered_mass_lower_bound": "4",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 0,
+      "fixed_union_target_count": 120
+    },
+    {
+      "selected_fixed": "none",
+      "fixed_count": 0,
+      "fixed_union_proportion": "0",
+      "deleted_mod7_rows": [
+        1
+      ],
+      "residual_B": [
+        0,
+        3,
+        5,
+        10,
+        21,
+        23,
+        26,
+        28,
+        30,
+        31,
+        33
+      ],
+      "residual_mass": 11,
+      "c5": 4,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 4,
+      "total_union_upper_bound": "6",
+      "relative_upper_bound": "6/11",
+      "absolute_uncovered_mass_lower_bound": "5",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 0,
+      "fixed_union_target_count": 132
+    },
+    {
+      "selected_fixed": "none",
+      "fixed_count": 0,
+      "fixed_union_proportion": "0",
+      "deleted_mod7_rows": [
+        2
+      ],
+      "residual_B": [
+        0,
+        3,
+        5,
+        8,
+        10,
+        15,
+        21,
+        26,
+        28,
+        31,
+        33
+      ],
+      "residual_mass": 11,
+      "c5": 4,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 4,
+      "total_union_upper_bound": "6",
+      "relative_upper_bound": "6/11",
+      "absolute_uncovered_mass_lower_bound": "5",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 0,
+      "fixed_union_target_count": 132
+    },
+    {
+      "selected_fixed": "none",
+      "fixed_count": 0,
+      "fixed_union_proportion": "0",
+      "deleted_mod7_rows": [
+        3
+      ],
+      "residual_B": [
+        0,
+        5,
+        8,
+        15,
+        21,
+        23,
+        26,
+        28,
+        30,
+        33
+      ],
+      "residual_mass": 10,
+      "c5": 4,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 4,
+      "total_union_upper_bound": "6",
+      "relative_upper_bound": "3/5",
+      "absolute_uncovered_mass_lower_bound": "4",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 0,
+      "fixed_union_target_count": 120
+    },
+    {
+      "selected_fixed": "none",
+      "fixed_count": 0,
+      "fixed_union_proportion": "0",
+      "deleted_mod7_rows": [
+        5
+      ],
+      "residual_B": [
+        0,
+        3,
+        8,
+        10,
+        15,
+        21,
+        23,
+        28,
+        30,
+        31
+      ],
+      "residual_mass": 10,
+      "c5": 4,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 4,
+      "total_union_upper_bound": "6",
+      "relative_upper_bound": "3/5",
+      "absolute_uncovered_mass_lower_bound": "4",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 0,
+      "fixed_union_target_count": 120
+    },
+    {
+      "selected_fixed": "none",
+      "fixed_count": 0,
+      "fixed_union_proportion": "0",
+      "deleted_mod7_rows": [
+        0,
+        1
+      ],
+      "residual_B": [
+        3,
+        5,
+        10,
+        23,
+        26,
+        30,
+        31,
+        33
+      ],
+      "residual_mass": 8,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 3,
+      "total_union_upper_bound": "9/2",
+      "relative_upper_bound": "9/16",
+      "absolute_uncovered_mass_lower_bound": "7/2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 0,
+      "fixed_union_target_count": 96
+    },
+    {
+      "selected_fixed": "none",
+      "fixed_count": 0,
+      "fixed_union_proportion": "0",
+      "deleted_mod7_rows": [
+        0,
+        2
+      ],
+      "residual_B": [
+        3,
+        5,
+        8,
+        10,
+        15,
+        26,
+        31,
+        33
+      ],
+      "residual_mass": 8,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 3,
+      "total_union_upper_bound": "9/2",
+      "relative_upper_bound": "9/16",
+      "absolute_uncovered_mass_lower_bound": "7/2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 0,
+      "fixed_union_target_count": 96
+    },
+    {
+      "selected_fixed": "none",
+      "fixed_count": 0,
+      "fixed_union_proportion": "0",
+      "deleted_mod7_rows": [
+        0,
+        3
+      ],
+      "residual_B": [
+        5,
+        8,
+        15,
+        23,
+        26,
+        30,
+        33
+      ],
+      "residual_mass": 7,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 3,
+      "total_union_upper_bound": "9/2",
+      "relative_upper_bound": "9/14",
+      "absolute_uncovered_mass_lower_bound": "5/2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 0,
+      "fixed_union_target_count": 84
+    },
+    {
+      "selected_fixed": "none",
+      "fixed_count": 0,
+      "fixed_union_proportion": "0",
+      "deleted_mod7_rows": [
+        0,
+        5
+      ],
+      "residual_B": [
+        3,
+        8,
+        10,
+        15,
+        23,
+        30,
+        31
+      ],
+      "residual_mass": 7,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 3,
+      "total_union_upper_bound": "9/2",
+      "relative_upper_bound": "9/14",
+      "absolute_uncovered_mass_lower_bound": "5/2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 0,
+      "fixed_union_target_count": 84
+    },
+    {
+      "selected_fixed": "none",
+      "fixed_count": 0,
+      "fixed_union_proportion": "0",
+      "deleted_mod7_rows": [
+        1,
+        2
+      ],
+      "residual_B": [
+        0,
+        3,
+        5,
+        10,
+        21,
+        26,
+        28,
+        31,
+        33
+      ],
+      "residual_mass": 9,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 3,
+      "total_union_upper_bound": "9/2",
+      "relative_upper_bound": "1/2",
+      "absolute_uncovered_mass_lower_bound": "9/2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 0,
+      "fixed_union_target_count": 108
+    },
+    {
+      "selected_fixed": "none",
+      "fixed_count": 0,
+      "fixed_union_proportion": "0",
+      "deleted_mod7_rows": [
+        1,
+        3
+      ],
+      "residual_B": [
+        0,
+        5,
+        21,
+        23,
+        26,
+        28,
+        30,
+        33
+      ],
+      "residual_mass": 8,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 3,
+      "total_union_upper_bound": "9/2",
+      "relative_upper_bound": "9/16",
+      "absolute_uncovered_mass_lower_bound": "7/2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 0,
+      "fixed_union_target_count": 96
+    },
+    {
+      "selected_fixed": "none",
+      "fixed_count": 0,
+      "fixed_union_proportion": "0",
+      "deleted_mod7_rows": [
+        1,
+        5
+      ],
+      "residual_B": [
+        0,
+        3,
+        10,
+        21,
+        23,
+        28,
+        30,
+        31
+      ],
+      "residual_mass": 8,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 3,
+      "total_union_upper_bound": "9/2",
+      "relative_upper_bound": "9/16",
+      "absolute_uncovered_mass_lower_bound": "7/2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 0,
+      "fixed_union_target_count": 96
+    },
+    {
+      "selected_fixed": "none",
+      "fixed_count": 0,
+      "fixed_union_proportion": "0",
+      "deleted_mod7_rows": [
+        2,
+        3
+      ],
+      "residual_B": [
+        0,
+        5,
+        8,
+        15,
+        21,
+        26,
+        28,
+        33
+      ],
+      "residual_mass": 8,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 3,
+      "total_union_upper_bound": "9/2",
+      "relative_upper_bound": "9/16",
+      "absolute_uncovered_mass_lower_bound": "7/2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 0,
+      "fixed_union_target_count": 96
+    },
+    {
+      "selected_fixed": "none",
+      "fixed_count": 0,
+      "fixed_union_proportion": "0",
+      "deleted_mod7_rows": [
+        2,
+        5
+      ],
+      "residual_B": [
+        0,
+        3,
+        8,
+        10,
+        15,
+        21,
+        28,
+        31
+      ],
+      "residual_mass": 8,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 3,
+      "total_union_upper_bound": "9/2",
+      "relative_upper_bound": "9/16",
+      "absolute_uncovered_mass_lower_bound": "7/2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 0,
+      "fixed_union_target_count": 96
+    },
+    {
+      "selected_fixed": "none",
+      "fixed_count": 0,
+      "fixed_union_proportion": "0",
+      "deleted_mod7_rows": [
+        3,
+        5
+      ],
+      "residual_B": [
+        0,
+        8,
+        15,
+        21,
+        23,
+        28,
+        30
+      ],
+      "residual_mass": 7,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 3,
+      "total_union_upper_bound": "9/2",
+      "relative_upper_bound": "9/14",
+      "absolute_uncovered_mass_lower_bound": "5/2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 0,
+      "fixed_union_target_count": 84
+    },
+    {
+      "selected_fixed": "none",
+      "fixed_count": 0,
+      "fixed_union_proportion": "0",
+      "deleted_mod7_rows": [
+        0,
+        1,
+        2
+      ],
+      "residual_B": [
+        3,
+        5,
+        10,
+        26,
+        31,
+        33
+      ],
+      "residual_mass": 6,
+      "c5": 2,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 2,
+      "total_union_upper_bound": "3",
+      "relative_upper_bound": "1/2",
+      "absolute_uncovered_mass_lower_bound": "3",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 0,
+      "fixed_union_target_count": 72
+    },
+    {
+      "selected_fixed": "none",
+      "fixed_count": 0,
+      "fixed_union_proportion": "0",
+      "deleted_mod7_rows": [
+        0,
+        1,
+        3
+      ],
+      "residual_B": [
+        5,
+        23,
+        26,
+        30,
+        33
+      ],
+      "residual_mass": 5,
+      "c5": 2,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 2,
+      "total_union_upper_bound": "3",
+      "relative_upper_bound": "3/5",
+      "absolute_uncovered_mass_lower_bound": "2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 0,
+      "fixed_union_target_count": 60
+    },
+    {
+      "selected_fixed": "none",
+      "fixed_count": 0,
+      "fixed_union_proportion": "0",
+      "deleted_mod7_rows": [
+        0,
+        1,
+        5
+      ],
+      "residual_B": [
+        3,
+        10,
+        23,
+        30,
+        31
+      ],
+      "residual_mass": 5,
+      "c5": 2,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 2,
+      "total_union_upper_bound": "3",
+      "relative_upper_bound": "3/5",
+      "absolute_uncovered_mass_lower_bound": "2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 0,
+      "fixed_union_target_count": 60
+    },
+    {
+      "selected_fixed": "none",
+      "fixed_count": 0,
+      "fixed_union_proportion": "0",
+      "deleted_mod7_rows": [
+        0,
+        2,
+        3
+      ],
+      "residual_B": [
+        5,
+        8,
+        15,
+        26,
+        33
+      ],
+      "residual_mass": 5,
+      "c5": 2,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 2,
+      "total_union_upper_bound": "3",
+      "relative_upper_bound": "3/5",
+      "absolute_uncovered_mass_lower_bound": "2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 0,
+      "fixed_union_target_count": 60
+    },
+    {
+      "selected_fixed": "none",
+      "fixed_count": 0,
+      "fixed_union_proportion": "0",
+      "deleted_mod7_rows": [
+        0,
+        2,
+        5
+      ],
+      "residual_B": [
+        3,
+        8,
+        10,
+        15,
+        31
+      ],
+      "residual_mass": 5,
+      "c5": 2,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 2,
+      "total_union_upper_bound": "3",
+      "relative_upper_bound": "3/5",
+      "absolute_uncovered_mass_lower_bound": "2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 0,
+      "fixed_union_target_count": 60
+    },
+    {
+      "selected_fixed": "none",
+      "fixed_count": 0,
+      "fixed_union_proportion": "0",
+      "deleted_mod7_rows": [
+        0,
+        3,
+        5
+      ],
+      "residual_B": [
+        8,
+        15,
+        23,
+        30
+      ],
+      "residual_mass": 4,
+      "c5": 2,
+      "c7": 2,
+      "generic_single_channel_mass": "1",
+      "remaining_generic_slots": 2,
+      "total_union_upper_bound": "2",
+      "relative_upper_bound": "1/2",
+      "absolute_uncovered_mass_lower_bound": "2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 0,
+      "fixed_union_target_count": 48
+    },
+    {
+      "selected_fixed": "none",
+      "fixed_count": 0,
+      "fixed_union_proportion": "0",
+      "deleted_mod7_rows": [
+        1,
+        2,
+        3
+      ],
+      "residual_B": [
+        0,
+        5,
+        21,
+        26,
+        28,
+        33
+      ],
+      "residual_mass": 6,
+      "c5": 2,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 2,
+      "total_union_upper_bound": "3",
+      "relative_upper_bound": "1/2",
+      "absolute_uncovered_mass_lower_bound": "3",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 0,
+      "fixed_union_target_count": 72
+    },
+    {
+      "selected_fixed": "none",
+      "fixed_count": 0,
+      "fixed_union_proportion": "0",
+      "deleted_mod7_rows": [
+        1,
+        2,
+        5
+      ],
+      "residual_B": [
+        0,
+        3,
+        10,
+        21,
+        28,
+        31
+      ],
+      "residual_mass": 6,
+      "c5": 2,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 2,
+      "total_union_upper_bound": "3",
+      "relative_upper_bound": "1/2",
+      "absolute_uncovered_mass_lower_bound": "3",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 0,
+      "fixed_union_target_count": 72
+    },
+    {
+      "selected_fixed": "none",
+      "fixed_count": 0,
+      "fixed_union_proportion": "0",
+      "deleted_mod7_rows": [
+        1,
+        3,
+        5
+      ],
+      "residual_B": [
+        0,
+        21,
+        23,
+        28,
+        30
+      ],
+      "residual_mass": 5,
+      "c5": 2,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 2,
+      "total_union_upper_bound": "3",
+      "relative_upper_bound": "3/5",
+      "absolute_uncovered_mass_lower_bound": "2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 0,
+      "fixed_union_target_count": 60
+    },
+    {
+      "selected_fixed": "none",
+      "fixed_count": 0,
+      "fixed_union_proportion": "0",
+      "deleted_mod7_rows": [
+        2,
+        3,
+        5
+      ],
+      "residual_B": [
+        0,
+        8,
+        15,
+        21,
+        28
+      ],
+      "residual_mass": 5,
+      "c5": 2,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 2,
+      "total_union_upper_bound": "3",
+      "relative_upper_bound": "3/5",
+      "absolute_uncovered_mass_lower_bound": "2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 0,
+      "fixed_union_target_count": 60
+    },
+    {
+      "selected_fixed": "none",
+      "fixed_count": 0,
+      "fixed_union_proportion": "0",
+      "deleted_mod7_rows": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "residual_B": [
+        5,
+        26,
+        33
+      ],
+      "residual_mass": 3,
+      "c5": 1,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 1,
+      "total_union_upper_bound": "3/2",
+      "relative_upper_bound": "1/2",
+      "absolute_uncovered_mass_lower_bound": "3/2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 0,
+      "fixed_union_target_count": 36
+    },
+    {
+      "selected_fixed": "none",
+      "fixed_count": 0,
+      "fixed_union_proportion": "0",
+      "deleted_mod7_rows": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "residual_B": [
+        3,
+        10,
+        31
+      ],
+      "residual_mass": 3,
+      "c5": 1,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 1,
+      "total_union_upper_bound": "3/2",
+      "relative_upper_bound": "1/2",
+      "absolute_uncovered_mass_lower_bound": "3/2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 0,
+      "fixed_union_target_count": 36
+    },
+    {
+      "selected_fixed": "none",
+      "fixed_count": 0,
+      "fixed_union_proportion": "0",
+      "deleted_mod7_rows": [
+        0,
+        1,
+        3,
+        5
+      ],
+      "residual_B": [
+        23,
+        30
+      ],
+      "residual_mass": 2,
+      "c5": 1,
+      "c7": 2,
+      "generic_single_channel_mass": "1",
+      "remaining_generic_slots": 1,
+      "total_union_upper_bound": "1",
+      "relative_upper_bound": "1/2",
+      "absolute_uncovered_mass_lower_bound": "1",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 0,
+      "fixed_union_target_count": 24
+    },
+    {
+      "selected_fixed": "none",
+      "fixed_count": 0,
+      "fixed_union_proportion": "0",
+      "deleted_mod7_rows": [
+        0,
+        2,
+        3,
+        5
+      ],
+      "residual_B": [
+        8,
+        15
+      ],
+      "residual_mass": 2,
+      "c5": 1,
+      "c7": 2,
+      "generic_single_channel_mass": "1",
+      "remaining_generic_slots": 1,
+      "total_union_upper_bound": "1",
+      "relative_upper_bound": "1/2",
+      "absolute_uncovered_mass_lower_bound": "1",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 0,
+      "fixed_union_target_count": 24
+    },
+    {
+      "selected_fixed": "none",
+      "fixed_count": 0,
+      "fixed_union_proportion": "0",
+      "deleted_mod7_rows": [
+        1,
+        2,
+        3,
+        5
+      ],
+      "residual_B": [
+        0,
+        21,
+        28
+      ],
+      "residual_mass": 3,
+      "c5": 1,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 1,
+      "total_union_upper_bound": "3/2",
+      "relative_upper_bound": "1/2",
+      "absolute_uncovered_mass_lower_bound": "3/2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 0,
+      "fixed_union_target_count": 36
+    },
+    {
+      "selected_fixed": "246241",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/3",
+      "deleted_mod7_rows": [],
+      "residual_B": [
+        0,
+        3,
+        5,
+        8,
+        10,
+        15,
+        21,
+        23,
+        26,
+        28,
+        30,
+        31,
+        33
+      ],
+      "residual_mass": 13,
+      "c5": 5,
+      "c7": 3,
+      "generic_single_channel_mass": "5/3",
+      "remaining_generic_slots": 4,
+      "total_union_upper_bound": "11",
+      "relative_upper_bound": "11/13",
+      "absolute_uncovered_mass_lower_bound": "2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 52,
+      "fixed_union_target_count": 156
+    },
+    {
+      "selected_fixed": "246241",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/3",
+      "deleted_mod7_rows": [
+        0
+      ],
+      "residual_B": [
+        3,
+        5,
+        8,
+        10,
+        15,
+        23,
+        26,
+        30,
+        31,
+        33
+      ],
+      "residual_mass": 10,
+      "c5": 4,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 3,
+      "total_union_upper_bound": "47/6",
+      "relative_upper_bound": "47/60",
+      "absolute_uncovered_mass_lower_bound": "13/6",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 40,
+      "fixed_union_target_count": 120
+    },
+    {
+      "selected_fixed": "246241",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/3",
+      "deleted_mod7_rows": [
+        1
+      ],
+      "residual_B": [
+        0,
+        3,
+        5,
+        10,
+        21,
+        23,
+        26,
+        28,
+        30,
+        31,
+        33
+      ],
+      "residual_mass": 11,
+      "c5": 4,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 3,
+      "total_union_upper_bound": "49/6",
+      "relative_upper_bound": "49/66",
+      "absolute_uncovered_mass_lower_bound": "17/6",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 44,
+      "fixed_union_target_count": 132
+    },
+    {
+      "selected_fixed": "246241",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/3",
+      "deleted_mod7_rows": [
+        2
+      ],
+      "residual_B": [
+        0,
+        3,
+        5,
+        8,
+        10,
+        15,
+        21,
+        26,
+        28,
+        31,
+        33
+      ],
+      "residual_mass": 11,
+      "c5": 4,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 3,
+      "total_union_upper_bound": "49/6",
+      "relative_upper_bound": "49/66",
+      "absolute_uncovered_mass_lower_bound": "17/6",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 44,
+      "fixed_union_target_count": 132
+    },
+    {
+      "selected_fixed": "246241",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/3",
+      "deleted_mod7_rows": [
+        3
+      ],
+      "residual_B": [
+        0,
+        5,
+        8,
+        15,
+        21,
+        23,
+        26,
+        28,
+        30,
+        33
+      ],
+      "residual_mass": 10,
+      "c5": 4,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 3,
+      "total_union_upper_bound": "47/6",
+      "relative_upper_bound": "47/60",
+      "absolute_uncovered_mass_lower_bound": "13/6",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 40,
+      "fixed_union_target_count": 120
+    },
+    {
+      "selected_fixed": "246241",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/3",
+      "deleted_mod7_rows": [
+        5
+      ],
+      "residual_B": [
+        0,
+        3,
+        8,
+        10,
+        15,
+        21,
+        23,
+        28,
+        30,
+        31
+      ],
+      "residual_mass": 10,
+      "c5": 4,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 3,
+      "total_union_upper_bound": "47/6",
+      "relative_upper_bound": "47/60",
+      "absolute_uncovered_mass_lower_bound": "13/6",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 40,
+      "fixed_union_target_count": 120
+    },
+    {
+      "selected_fixed": "246241",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/3",
+      "deleted_mod7_rows": [
+        0,
+        1
+      ],
+      "residual_B": [
+        3,
+        5,
+        10,
+        23,
+        26,
+        30,
+        31,
+        33
+      ],
+      "residual_mass": 8,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 2,
+      "total_union_upper_bound": "17/3",
+      "relative_upper_bound": "17/24",
+      "absolute_uncovered_mass_lower_bound": "7/3",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 32,
+      "fixed_union_target_count": 96
+    },
+    {
+      "selected_fixed": "246241",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/3",
+      "deleted_mod7_rows": [
+        0,
+        2
+      ],
+      "residual_B": [
+        3,
+        5,
+        8,
+        10,
+        15,
+        26,
+        31,
+        33
+      ],
+      "residual_mass": 8,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 2,
+      "total_union_upper_bound": "17/3",
+      "relative_upper_bound": "17/24",
+      "absolute_uncovered_mass_lower_bound": "7/3",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 32,
+      "fixed_union_target_count": 96
+    },
+    {
+      "selected_fixed": "246241",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/3",
+      "deleted_mod7_rows": [
+        0,
+        3
+      ],
+      "residual_B": [
+        5,
+        8,
+        15,
+        23,
+        26,
+        30,
+        33
+      ],
+      "residual_mass": 7,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 2,
+      "total_union_upper_bound": "16/3",
+      "relative_upper_bound": "16/21",
+      "absolute_uncovered_mass_lower_bound": "5/3",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 28,
+      "fixed_union_target_count": 84
+    },
+    {
+      "selected_fixed": "246241",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/3",
+      "deleted_mod7_rows": [
+        0,
+        5
+      ],
+      "residual_B": [
+        3,
+        8,
+        10,
+        15,
+        23,
+        30,
+        31
+      ],
+      "residual_mass": 7,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 2,
+      "total_union_upper_bound": "16/3",
+      "relative_upper_bound": "16/21",
+      "absolute_uncovered_mass_lower_bound": "5/3",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 28,
+      "fixed_union_target_count": 84
+    },
+    {
+      "selected_fixed": "246241",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/3",
+      "deleted_mod7_rows": [
+        1,
+        2
+      ],
+      "residual_B": [
+        0,
+        3,
+        5,
+        10,
+        21,
+        26,
+        28,
+        31,
+        33
+      ],
+      "residual_mass": 9,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 2,
+      "total_union_upper_bound": "6",
+      "relative_upper_bound": "2/3",
+      "absolute_uncovered_mass_lower_bound": "3",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 36,
+      "fixed_union_target_count": 108
+    },
+    {
+      "selected_fixed": "246241",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/3",
+      "deleted_mod7_rows": [
+        1,
+        3
+      ],
+      "residual_B": [
+        0,
+        5,
+        21,
+        23,
+        26,
+        28,
+        30,
+        33
+      ],
+      "residual_mass": 8,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 2,
+      "total_union_upper_bound": "17/3",
+      "relative_upper_bound": "17/24",
+      "absolute_uncovered_mass_lower_bound": "7/3",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 32,
+      "fixed_union_target_count": 96
+    },
+    {
+      "selected_fixed": "246241",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/3",
+      "deleted_mod7_rows": [
+        1,
+        5
+      ],
+      "residual_B": [
+        0,
+        3,
+        10,
+        21,
+        23,
+        28,
+        30,
+        31
+      ],
+      "residual_mass": 8,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 2,
+      "total_union_upper_bound": "17/3",
+      "relative_upper_bound": "17/24",
+      "absolute_uncovered_mass_lower_bound": "7/3",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 32,
+      "fixed_union_target_count": 96
+    },
+    {
+      "selected_fixed": "246241",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/3",
+      "deleted_mod7_rows": [
+        2,
+        3
+      ],
+      "residual_B": [
+        0,
+        5,
+        8,
+        15,
+        21,
+        26,
+        28,
+        33
+      ],
+      "residual_mass": 8,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 2,
+      "total_union_upper_bound": "17/3",
+      "relative_upper_bound": "17/24",
+      "absolute_uncovered_mass_lower_bound": "7/3",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 32,
+      "fixed_union_target_count": 96
+    },
+    {
+      "selected_fixed": "246241",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/3",
+      "deleted_mod7_rows": [
+        2,
+        5
+      ],
+      "residual_B": [
+        0,
+        3,
+        8,
+        10,
+        15,
+        21,
+        28,
+        31
+      ],
+      "residual_mass": 8,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 2,
+      "total_union_upper_bound": "17/3",
+      "relative_upper_bound": "17/24",
+      "absolute_uncovered_mass_lower_bound": "7/3",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 32,
+      "fixed_union_target_count": 96
+    },
+    {
+      "selected_fixed": "246241",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/3",
+      "deleted_mod7_rows": [
+        3,
+        5
+      ],
+      "residual_B": [
+        0,
+        8,
+        15,
+        21,
+        23,
+        28,
+        30
+      ],
+      "residual_mass": 7,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 2,
+      "total_union_upper_bound": "16/3",
+      "relative_upper_bound": "16/21",
+      "absolute_uncovered_mass_lower_bound": "5/3",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 28,
+      "fixed_union_target_count": 84
+    },
+    {
+      "selected_fixed": "246241",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/3",
+      "deleted_mod7_rows": [
+        0,
+        1,
+        2
+      ],
+      "residual_B": [
+        3,
+        5,
+        10,
+        26,
+        31,
+        33
+      ],
+      "residual_mass": 6,
+      "c5": 2,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 1,
+      "total_union_upper_bound": "7/2",
+      "relative_upper_bound": "7/12",
+      "absolute_uncovered_mass_lower_bound": "5/2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 24,
+      "fixed_union_target_count": 72
+    },
+    {
+      "selected_fixed": "246241",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/3",
+      "deleted_mod7_rows": [
+        0,
+        1,
+        3
+      ],
+      "residual_B": [
+        5,
+        23,
+        26,
+        30,
+        33
+      ],
+      "residual_mass": 5,
+      "c5": 2,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 1,
+      "total_union_upper_bound": "19/6",
+      "relative_upper_bound": "19/30",
+      "absolute_uncovered_mass_lower_bound": "11/6",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 20,
+      "fixed_union_target_count": 60
+    },
+    {
+      "selected_fixed": "246241",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/3",
+      "deleted_mod7_rows": [
+        0,
+        1,
+        5
+      ],
+      "residual_B": [
+        3,
+        10,
+        23,
+        30,
+        31
+      ],
+      "residual_mass": 5,
+      "c5": 2,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 1,
+      "total_union_upper_bound": "19/6",
+      "relative_upper_bound": "19/30",
+      "absolute_uncovered_mass_lower_bound": "11/6",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 20,
+      "fixed_union_target_count": 60
+    },
+    {
+      "selected_fixed": "246241",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/3",
+      "deleted_mod7_rows": [
+        0,
+        2,
+        3
+      ],
+      "residual_B": [
+        5,
+        8,
+        15,
+        26,
+        33
+      ],
+      "residual_mass": 5,
+      "c5": 2,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 1,
+      "total_union_upper_bound": "19/6",
+      "relative_upper_bound": "19/30",
+      "absolute_uncovered_mass_lower_bound": "11/6",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 20,
+      "fixed_union_target_count": 60
+    },
+    {
+      "selected_fixed": "246241",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/3",
+      "deleted_mod7_rows": [
+        0,
+        2,
+        5
+      ],
+      "residual_B": [
+        3,
+        8,
+        10,
+        15,
+        31
+      ],
+      "residual_mass": 5,
+      "c5": 2,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 1,
+      "total_union_upper_bound": "19/6",
+      "relative_upper_bound": "19/30",
+      "absolute_uncovered_mass_lower_bound": "11/6",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 20,
+      "fixed_union_target_count": 60
+    },
+    {
+      "selected_fixed": "246241",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/3",
+      "deleted_mod7_rows": [
+        0,
+        3,
+        5
+      ],
+      "residual_B": [
+        8,
+        15,
+        23,
+        30
+      ],
+      "residual_mass": 4,
+      "c5": 2,
+      "c7": 2,
+      "generic_single_channel_mass": "1",
+      "remaining_generic_slots": 1,
+      "total_union_upper_bound": "7/3",
+      "relative_upper_bound": "7/12",
+      "absolute_uncovered_mass_lower_bound": "5/3",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 16,
+      "fixed_union_target_count": 48
+    },
+    {
+      "selected_fixed": "246241",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/3",
+      "deleted_mod7_rows": [
+        1,
+        2,
+        3
+      ],
+      "residual_B": [
+        0,
+        5,
+        21,
+        26,
+        28,
+        33
+      ],
+      "residual_mass": 6,
+      "c5": 2,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 1,
+      "total_union_upper_bound": "7/2",
+      "relative_upper_bound": "7/12",
+      "absolute_uncovered_mass_lower_bound": "5/2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 24,
+      "fixed_union_target_count": 72
+    },
+    {
+      "selected_fixed": "246241",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/3",
+      "deleted_mod7_rows": [
+        1,
+        2,
+        5
+      ],
+      "residual_B": [
+        0,
+        3,
+        10,
+        21,
+        28,
+        31
+      ],
+      "residual_mass": 6,
+      "c5": 2,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 1,
+      "total_union_upper_bound": "7/2",
+      "relative_upper_bound": "7/12",
+      "absolute_uncovered_mass_lower_bound": "5/2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 24,
+      "fixed_union_target_count": 72
+    },
+    {
+      "selected_fixed": "246241",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/3",
+      "deleted_mod7_rows": [
+        1,
+        3,
+        5
+      ],
+      "residual_B": [
+        0,
+        21,
+        23,
+        28,
+        30
+      ],
+      "residual_mass": 5,
+      "c5": 2,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 1,
+      "total_union_upper_bound": "19/6",
+      "relative_upper_bound": "19/30",
+      "absolute_uncovered_mass_lower_bound": "11/6",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 20,
+      "fixed_union_target_count": 60
+    },
+    {
+      "selected_fixed": "246241",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/3",
+      "deleted_mod7_rows": [
+        2,
+        3,
+        5
+      ],
+      "residual_B": [
+        0,
+        8,
+        15,
+        21,
+        28
+      ],
+      "residual_mass": 5,
+      "c5": 2,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 1,
+      "total_union_upper_bound": "19/6",
+      "relative_upper_bound": "19/30",
+      "absolute_uncovered_mass_lower_bound": "11/6",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 20,
+      "fixed_union_target_count": 60
+    },
+    {
+      "selected_fixed": "246241",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/3",
+      "deleted_mod7_rows": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "residual_B": [
+        5,
+        26,
+        33
+      ],
+      "residual_mass": 3,
+      "c5": 1,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 0,
+      "total_union_upper_bound": "1",
+      "relative_upper_bound": "1/3",
+      "absolute_uncovered_mass_lower_bound": "2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 12,
+      "fixed_union_target_count": 36
+    },
+    {
+      "selected_fixed": "246241",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/3",
+      "deleted_mod7_rows": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "residual_B": [
+        3,
+        10,
+        31
+      ],
+      "residual_mass": 3,
+      "c5": 1,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 0,
+      "total_union_upper_bound": "1",
+      "relative_upper_bound": "1/3",
+      "absolute_uncovered_mass_lower_bound": "2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 12,
+      "fixed_union_target_count": 36
+    },
+    {
+      "selected_fixed": "246241",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/3",
+      "deleted_mod7_rows": [
+        0,
+        1,
+        3,
+        5
+      ],
+      "residual_B": [
+        23,
+        30
+      ],
+      "residual_mass": 2,
+      "c5": 1,
+      "c7": 2,
+      "generic_single_channel_mass": "1",
+      "remaining_generic_slots": 0,
+      "total_union_upper_bound": "2/3",
+      "relative_upper_bound": "1/3",
+      "absolute_uncovered_mass_lower_bound": "4/3",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 8,
+      "fixed_union_target_count": 24
+    },
+    {
+      "selected_fixed": "246241",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/3",
+      "deleted_mod7_rows": [
+        0,
+        2,
+        3,
+        5
+      ],
+      "residual_B": [
+        8,
+        15
+      ],
+      "residual_mass": 2,
+      "c5": 1,
+      "c7": 2,
+      "generic_single_channel_mass": "1",
+      "remaining_generic_slots": 0,
+      "total_union_upper_bound": "2/3",
+      "relative_upper_bound": "1/3",
+      "absolute_uncovered_mass_lower_bound": "4/3",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 8,
+      "fixed_union_target_count": 24
+    },
+    {
+      "selected_fixed": "246241",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/3",
+      "deleted_mod7_rows": [
+        1,
+        2,
+        3,
+        5
+      ],
+      "residual_B": [
+        0,
+        21,
+        28
+      ],
+      "residual_mass": 3,
+      "c5": 1,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 0,
+      "total_union_upper_bound": "1",
+      "relative_upper_bound": "1/3",
+      "absolute_uncovered_mass_lower_bound": "2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 12,
+      "fixed_union_target_count": 36
+    },
+    {
+      "selected_fixed": "487824887233",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/4",
+      "deleted_mod7_rows": [],
+      "residual_B": [
+        0,
+        3,
+        5,
+        8,
+        10,
+        15,
+        21,
+        23,
+        26,
+        28,
+        30,
+        31,
+        33
+      ],
+      "residual_mass": 13,
+      "c5": 5,
+      "c7": 3,
+      "generic_single_channel_mass": "5/3",
+      "remaining_generic_slots": 4,
+      "total_union_upper_bound": "119/12",
+      "relative_upper_bound": "119/156",
+      "absolute_uncovered_mass_lower_bound": "37/12",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 39,
+      "fixed_union_target_count": 156
+    },
+    {
+      "selected_fixed": "487824887233",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/4",
+      "deleted_mod7_rows": [
+        0
+      ],
+      "residual_B": [
+        3,
+        5,
+        8,
+        10,
+        15,
+        23,
+        26,
+        30,
+        31,
+        33
+      ],
+      "residual_mass": 10,
+      "c5": 4,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 3,
+      "total_union_upper_bound": "7",
+      "relative_upper_bound": "7/10",
+      "absolute_uncovered_mass_lower_bound": "3",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 30,
+      "fixed_union_target_count": 120
+    },
+    {
+      "selected_fixed": "487824887233",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/4",
+      "deleted_mod7_rows": [
+        1
+      ],
+      "residual_B": [
+        0,
+        3,
+        5,
+        10,
+        21,
+        23,
+        26,
+        28,
+        30,
+        31,
+        33
+      ],
+      "residual_mass": 11,
+      "c5": 4,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 3,
+      "total_union_upper_bound": "29/4",
+      "relative_upper_bound": "29/44",
+      "absolute_uncovered_mass_lower_bound": "15/4",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 33,
+      "fixed_union_target_count": 132
+    },
+    {
+      "selected_fixed": "487824887233",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/4",
+      "deleted_mod7_rows": [
+        2
+      ],
+      "residual_B": [
+        0,
+        3,
+        5,
+        8,
+        10,
+        15,
+        21,
+        26,
+        28,
+        31,
+        33
+      ],
+      "residual_mass": 11,
+      "c5": 4,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 3,
+      "total_union_upper_bound": "29/4",
+      "relative_upper_bound": "29/44",
+      "absolute_uncovered_mass_lower_bound": "15/4",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 33,
+      "fixed_union_target_count": 132
+    },
+    {
+      "selected_fixed": "487824887233",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/4",
+      "deleted_mod7_rows": [
+        3
+      ],
+      "residual_B": [
+        0,
+        5,
+        8,
+        15,
+        21,
+        23,
+        26,
+        28,
+        30,
+        33
+      ],
+      "residual_mass": 10,
+      "c5": 4,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 3,
+      "total_union_upper_bound": "7",
+      "relative_upper_bound": "7/10",
+      "absolute_uncovered_mass_lower_bound": "3",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 30,
+      "fixed_union_target_count": 120
+    },
+    {
+      "selected_fixed": "487824887233",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/4",
+      "deleted_mod7_rows": [
+        5
+      ],
+      "residual_B": [
+        0,
+        3,
+        8,
+        10,
+        15,
+        21,
+        23,
+        28,
+        30,
+        31
+      ],
+      "residual_mass": 10,
+      "c5": 4,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 3,
+      "total_union_upper_bound": "7",
+      "relative_upper_bound": "7/10",
+      "absolute_uncovered_mass_lower_bound": "3",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 30,
+      "fixed_union_target_count": 120
+    },
+    {
+      "selected_fixed": "487824887233",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/4",
+      "deleted_mod7_rows": [
+        0,
+        1
+      ],
+      "residual_B": [
+        3,
+        5,
+        10,
+        23,
+        26,
+        30,
+        31,
+        33
+      ],
+      "residual_mass": 8,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 2,
+      "total_union_upper_bound": "5",
+      "relative_upper_bound": "5/8",
+      "absolute_uncovered_mass_lower_bound": "3",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 24,
+      "fixed_union_target_count": 96
+    },
+    {
+      "selected_fixed": "487824887233",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/4",
+      "deleted_mod7_rows": [
+        0,
+        2
+      ],
+      "residual_B": [
+        3,
+        5,
+        8,
+        10,
+        15,
+        26,
+        31,
+        33
+      ],
+      "residual_mass": 8,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 2,
+      "total_union_upper_bound": "5",
+      "relative_upper_bound": "5/8",
+      "absolute_uncovered_mass_lower_bound": "3",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 24,
+      "fixed_union_target_count": 96
+    },
+    {
+      "selected_fixed": "487824887233",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/4",
+      "deleted_mod7_rows": [
+        0,
+        3
+      ],
+      "residual_B": [
+        5,
+        8,
+        15,
+        23,
+        26,
+        30,
+        33
+      ],
+      "residual_mass": 7,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 2,
+      "total_union_upper_bound": "19/4",
+      "relative_upper_bound": "19/28",
+      "absolute_uncovered_mass_lower_bound": "9/4",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 21,
+      "fixed_union_target_count": 84
+    },
+    {
+      "selected_fixed": "487824887233",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/4",
+      "deleted_mod7_rows": [
+        0,
+        5
+      ],
+      "residual_B": [
+        3,
+        8,
+        10,
+        15,
+        23,
+        30,
+        31
+      ],
+      "residual_mass": 7,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 2,
+      "total_union_upper_bound": "19/4",
+      "relative_upper_bound": "19/28",
+      "absolute_uncovered_mass_lower_bound": "9/4",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 21,
+      "fixed_union_target_count": 84
+    },
+    {
+      "selected_fixed": "487824887233",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/4",
+      "deleted_mod7_rows": [
+        1,
+        2
+      ],
+      "residual_B": [
+        0,
+        3,
+        5,
+        10,
+        21,
+        26,
+        28,
+        31,
+        33
+      ],
+      "residual_mass": 9,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 2,
+      "total_union_upper_bound": "21/4",
+      "relative_upper_bound": "7/12",
+      "absolute_uncovered_mass_lower_bound": "15/4",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 27,
+      "fixed_union_target_count": 108
+    },
+    {
+      "selected_fixed": "487824887233",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/4",
+      "deleted_mod7_rows": [
+        1,
+        3
+      ],
+      "residual_B": [
+        0,
+        5,
+        21,
+        23,
+        26,
+        28,
+        30,
+        33
+      ],
+      "residual_mass": 8,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 2,
+      "total_union_upper_bound": "5",
+      "relative_upper_bound": "5/8",
+      "absolute_uncovered_mass_lower_bound": "3",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 24,
+      "fixed_union_target_count": 96
+    },
+    {
+      "selected_fixed": "487824887233",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/4",
+      "deleted_mod7_rows": [
+        1,
+        5
+      ],
+      "residual_B": [
+        0,
+        3,
+        10,
+        21,
+        23,
+        28,
+        30,
+        31
+      ],
+      "residual_mass": 8,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 2,
+      "total_union_upper_bound": "5",
+      "relative_upper_bound": "5/8",
+      "absolute_uncovered_mass_lower_bound": "3",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 24,
+      "fixed_union_target_count": 96
+    },
+    {
+      "selected_fixed": "487824887233",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/4",
+      "deleted_mod7_rows": [
+        2,
+        3
+      ],
+      "residual_B": [
+        0,
+        5,
+        8,
+        15,
+        21,
+        26,
+        28,
+        33
+      ],
+      "residual_mass": 8,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 2,
+      "total_union_upper_bound": "5",
+      "relative_upper_bound": "5/8",
+      "absolute_uncovered_mass_lower_bound": "3",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 24,
+      "fixed_union_target_count": 96
+    },
+    {
+      "selected_fixed": "487824887233",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/4",
+      "deleted_mod7_rows": [
+        2,
+        5
+      ],
+      "residual_B": [
+        0,
+        3,
+        8,
+        10,
+        15,
+        21,
+        28,
+        31
+      ],
+      "residual_mass": 8,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 2,
+      "total_union_upper_bound": "5",
+      "relative_upper_bound": "5/8",
+      "absolute_uncovered_mass_lower_bound": "3",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 24,
+      "fixed_union_target_count": 96
+    },
+    {
+      "selected_fixed": "487824887233",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/4",
+      "deleted_mod7_rows": [
+        3,
+        5
+      ],
+      "residual_B": [
+        0,
+        8,
+        15,
+        21,
+        23,
+        28,
+        30
+      ],
+      "residual_mass": 7,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 2,
+      "total_union_upper_bound": "19/4",
+      "relative_upper_bound": "19/28",
+      "absolute_uncovered_mass_lower_bound": "9/4",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 21,
+      "fixed_union_target_count": 84
+    },
+    {
+      "selected_fixed": "487824887233",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/4",
+      "deleted_mod7_rows": [
+        0,
+        1,
+        2
+      ],
+      "residual_B": [
+        3,
+        5,
+        10,
+        26,
+        31,
+        33
+      ],
+      "residual_mass": 6,
+      "c5": 2,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 1,
+      "total_union_upper_bound": "3",
+      "relative_upper_bound": "1/2",
+      "absolute_uncovered_mass_lower_bound": "3",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 18,
+      "fixed_union_target_count": 72
+    },
+    {
+      "selected_fixed": "487824887233",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/4",
+      "deleted_mod7_rows": [
+        0,
+        1,
+        3
+      ],
+      "residual_B": [
+        5,
+        23,
+        26,
+        30,
+        33
+      ],
+      "residual_mass": 5,
+      "c5": 2,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 1,
+      "total_union_upper_bound": "11/4",
+      "relative_upper_bound": "11/20",
+      "absolute_uncovered_mass_lower_bound": "9/4",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 15,
+      "fixed_union_target_count": 60
+    },
+    {
+      "selected_fixed": "487824887233",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/4",
+      "deleted_mod7_rows": [
+        0,
+        1,
+        5
+      ],
+      "residual_B": [
+        3,
+        10,
+        23,
+        30,
+        31
+      ],
+      "residual_mass": 5,
+      "c5": 2,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 1,
+      "total_union_upper_bound": "11/4",
+      "relative_upper_bound": "11/20",
+      "absolute_uncovered_mass_lower_bound": "9/4",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 15,
+      "fixed_union_target_count": 60
+    },
+    {
+      "selected_fixed": "487824887233",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/4",
+      "deleted_mod7_rows": [
+        0,
+        2,
+        3
+      ],
+      "residual_B": [
+        5,
+        8,
+        15,
+        26,
+        33
+      ],
+      "residual_mass": 5,
+      "c5": 2,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 1,
+      "total_union_upper_bound": "11/4",
+      "relative_upper_bound": "11/20",
+      "absolute_uncovered_mass_lower_bound": "9/4",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 15,
+      "fixed_union_target_count": 60
+    },
+    {
+      "selected_fixed": "487824887233",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/4",
+      "deleted_mod7_rows": [
+        0,
+        2,
+        5
+      ],
+      "residual_B": [
+        3,
+        8,
+        10,
+        15,
+        31
+      ],
+      "residual_mass": 5,
+      "c5": 2,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 1,
+      "total_union_upper_bound": "11/4",
+      "relative_upper_bound": "11/20",
+      "absolute_uncovered_mass_lower_bound": "9/4",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 15,
+      "fixed_union_target_count": 60
+    },
+    {
+      "selected_fixed": "487824887233",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/4",
+      "deleted_mod7_rows": [
+        0,
+        3,
+        5
+      ],
+      "residual_B": [
+        8,
+        15,
+        23,
+        30
+      ],
+      "residual_mass": 4,
+      "c5": 2,
+      "c7": 2,
+      "generic_single_channel_mass": "1",
+      "remaining_generic_slots": 1,
+      "total_union_upper_bound": "2",
+      "relative_upper_bound": "1/2",
+      "absolute_uncovered_mass_lower_bound": "2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 12,
+      "fixed_union_target_count": 48
+    },
+    {
+      "selected_fixed": "487824887233",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/4",
+      "deleted_mod7_rows": [
+        1,
+        2,
+        3
+      ],
+      "residual_B": [
+        0,
+        5,
+        21,
+        26,
+        28,
+        33
+      ],
+      "residual_mass": 6,
+      "c5": 2,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 1,
+      "total_union_upper_bound": "3",
+      "relative_upper_bound": "1/2",
+      "absolute_uncovered_mass_lower_bound": "3",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 18,
+      "fixed_union_target_count": 72
+    },
+    {
+      "selected_fixed": "487824887233",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/4",
+      "deleted_mod7_rows": [
+        1,
+        2,
+        5
+      ],
+      "residual_B": [
+        0,
+        3,
+        10,
+        21,
+        28,
+        31
+      ],
+      "residual_mass": 6,
+      "c5": 2,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 1,
+      "total_union_upper_bound": "3",
+      "relative_upper_bound": "1/2",
+      "absolute_uncovered_mass_lower_bound": "3",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 18,
+      "fixed_union_target_count": 72
+    },
+    {
+      "selected_fixed": "487824887233",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/4",
+      "deleted_mod7_rows": [
+        1,
+        3,
+        5
+      ],
+      "residual_B": [
+        0,
+        21,
+        23,
+        28,
+        30
+      ],
+      "residual_mass": 5,
+      "c5": 2,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 1,
+      "total_union_upper_bound": "11/4",
+      "relative_upper_bound": "11/20",
+      "absolute_uncovered_mass_lower_bound": "9/4",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 15,
+      "fixed_union_target_count": 60
+    },
+    {
+      "selected_fixed": "487824887233",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/4",
+      "deleted_mod7_rows": [
+        2,
+        3,
+        5
+      ],
+      "residual_B": [
+        0,
+        8,
+        15,
+        21,
+        28
+      ],
+      "residual_mass": 5,
+      "c5": 2,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 1,
+      "total_union_upper_bound": "11/4",
+      "relative_upper_bound": "11/20",
+      "absolute_uncovered_mass_lower_bound": "9/4",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 15,
+      "fixed_union_target_count": 60
+    },
+    {
+      "selected_fixed": "487824887233",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/4",
+      "deleted_mod7_rows": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "residual_B": [
+        5,
+        26,
+        33
+      ],
+      "residual_mass": 3,
+      "c5": 1,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 0,
+      "total_union_upper_bound": "3/4",
+      "relative_upper_bound": "1/4",
+      "absolute_uncovered_mass_lower_bound": "9/4",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 9,
+      "fixed_union_target_count": 36
+    },
+    {
+      "selected_fixed": "487824887233",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/4",
+      "deleted_mod7_rows": [
+        0,
+        1,
+        2,
+        5
+      ],
+      "residual_B": [
+        3,
+        10,
+        31
+      ],
+      "residual_mass": 3,
+      "c5": 1,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 0,
+      "total_union_upper_bound": "3/4",
+      "relative_upper_bound": "1/4",
+      "absolute_uncovered_mass_lower_bound": "9/4",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 9,
+      "fixed_union_target_count": 36
+    },
+    {
+      "selected_fixed": "487824887233",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/4",
+      "deleted_mod7_rows": [
+        0,
+        1,
+        3,
+        5
+      ],
+      "residual_B": [
+        23,
+        30
+      ],
+      "residual_mass": 2,
+      "c5": 1,
+      "c7": 2,
+      "generic_single_channel_mass": "1",
+      "remaining_generic_slots": 0,
+      "total_union_upper_bound": "1/2",
+      "relative_upper_bound": "1/4",
+      "absolute_uncovered_mass_lower_bound": "3/2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 6,
+      "fixed_union_target_count": 24
+    },
+    {
+      "selected_fixed": "487824887233",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/4",
+      "deleted_mod7_rows": [
+        0,
+        2,
+        3,
+        5
+      ],
+      "residual_B": [
+        8,
+        15
+      ],
+      "residual_mass": 2,
+      "c5": 1,
+      "c7": 2,
+      "generic_single_channel_mass": "1",
+      "remaining_generic_slots": 0,
+      "total_union_upper_bound": "1/2",
+      "relative_upper_bound": "1/4",
+      "absolute_uncovered_mass_lower_bound": "3/2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 6,
+      "fixed_union_target_count": 24
+    },
+    {
+      "selected_fixed": "487824887233",
+      "fixed_count": 1,
+      "fixed_union_proportion": "1/4",
+      "deleted_mod7_rows": [
+        1,
+        2,
+        3,
+        5
+      ],
+      "residual_B": [
+        0,
+        21,
+        28
+      ],
+      "residual_mass": 3,
+      "c5": 1,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 0,
+      "total_union_upper_bound": "3/4",
+      "relative_upper_bound": "1/4",
+      "absolute_uncovered_mass_lower_bound": "9/4",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 9,
+      "fixed_union_target_count": 36
+    },
+    {
+      "selected_fixed": "both",
+      "fixed_count": 2,
+      "fixed_union_proportion": "1/2",
+      "deleted_mod7_rows": [],
+      "residual_B": [
+        0,
+        3,
+        5,
+        8,
+        10,
+        15,
+        21,
+        23,
+        26,
+        28,
+        30,
+        31,
+        33
+      ],
+      "residual_mass": 13,
+      "c5": 5,
+      "c7": 3,
+      "generic_single_channel_mass": "5/3",
+      "remaining_generic_slots": 3,
+      "total_union_upper_bound": "23/2",
+      "relative_upper_bound": "23/26",
+      "absolute_uncovered_mass_lower_bound": "3/2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 78,
+      "fixed_union_target_count": 156
+    },
+    {
+      "selected_fixed": "both",
+      "fixed_count": 2,
+      "fixed_union_proportion": "1/2",
+      "deleted_mod7_rows": [
+        0
+      ],
+      "residual_B": [
+        3,
+        5,
+        8,
+        10,
+        15,
+        23,
+        26,
+        30,
+        31,
+        33
+      ],
+      "residual_mass": 10,
+      "c5": 4,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 2,
+      "total_union_upper_bound": "8",
+      "relative_upper_bound": "4/5",
+      "absolute_uncovered_mass_lower_bound": "2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 60,
+      "fixed_union_target_count": 120
+    },
+    {
+      "selected_fixed": "both",
+      "fixed_count": 2,
+      "fixed_union_proportion": "1/2",
+      "deleted_mod7_rows": [
+        1
+      ],
+      "residual_B": [
+        0,
+        3,
+        5,
+        10,
+        21,
+        23,
+        26,
+        28,
+        30,
+        31,
+        33
+      ],
+      "residual_mass": 11,
+      "c5": 4,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 2,
+      "total_union_upper_bound": "17/2",
+      "relative_upper_bound": "17/22",
+      "absolute_uncovered_mass_lower_bound": "5/2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 66,
+      "fixed_union_target_count": 132
+    },
+    {
+      "selected_fixed": "both",
+      "fixed_count": 2,
+      "fixed_union_proportion": "1/2",
+      "deleted_mod7_rows": [
+        2
+      ],
+      "residual_B": [
+        0,
+        3,
+        5,
+        8,
+        10,
+        15,
+        21,
+        26,
+        28,
+        31,
+        33
+      ],
+      "residual_mass": 11,
+      "c5": 4,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 2,
+      "total_union_upper_bound": "17/2",
+      "relative_upper_bound": "17/22",
+      "absolute_uncovered_mass_lower_bound": "5/2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 66,
+      "fixed_union_target_count": 132
+    },
+    {
+      "selected_fixed": "both",
+      "fixed_count": 2,
+      "fixed_union_proportion": "1/2",
+      "deleted_mod7_rows": [
+        3
+      ],
+      "residual_B": [
+        0,
+        5,
+        8,
+        15,
+        21,
+        23,
+        26,
+        28,
+        30,
+        33
+      ],
+      "residual_mass": 10,
+      "c5": 4,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 2,
+      "total_union_upper_bound": "8",
+      "relative_upper_bound": "4/5",
+      "absolute_uncovered_mass_lower_bound": "2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 60,
+      "fixed_union_target_count": 120
+    },
+    {
+      "selected_fixed": "both",
+      "fixed_count": 2,
+      "fixed_union_proportion": "1/2",
+      "deleted_mod7_rows": [
+        5
+      ],
+      "residual_B": [
+        0,
+        3,
+        8,
+        10,
+        15,
+        21,
+        23,
+        28,
+        30,
+        31
+      ],
+      "residual_mass": 10,
+      "c5": 4,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 2,
+      "total_union_upper_bound": "8",
+      "relative_upper_bound": "4/5",
+      "absolute_uncovered_mass_lower_bound": "2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 60,
+      "fixed_union_target_count": 120
+    },
+    {
+      "selected_fixed": "both",
+      "fixed_count": 2,
+      "fixed_union_proportion": "1/2",
+      "deleted_mod7_rows": [
+        0,
+        1
+      ],
+      "residual_B": [
+        3,
+        5,
+        10,
+        23,
+        26,
+        30,
+        31,
+        33
+      ],
+      "residual_mass": 8,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 1,
+      "total_union_upper_bound": "11/2",
+      "relative_upper_bound": "11/16",
+      "absolute_uncovered_mass_lower_bound": "5/2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 48,
+      "fixed_union_target_count": 96
+    },
+    {
+      "selected_fixed": "both",
+      "fixed_count": 2,
+      "fixed_union_proportion": "1/2",
+      "deleted_mod7_rows": [
+        0,
+        2
+      ],
+      "residual_B": [
+        3,
+        5,
+        8,
+        10,
+        15,
+        26,
+        31,
+        33
+      ],
+      "residual_mass": 8,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 1,
+      "total_union_upper_bound": "11/2",
+      "relative_upper_bound": "11/16",
+      "absolute_uncovered_mass_lower_bound": "5/2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 48,
+      "fixed_union_target_count": 96
+    },
+    {
+      "selected_fixed": "both",
+      "fixed_count": 2,
+      "fixed_union_proportion": "1/2",
+      "deleted_mod7_rows": [
+        0,
+        3
+      ],
+      "residual_B": [
+        5,
+        8,
+        15,
+        23,
+        26,
+        30,
+        33
+      ],
+      "residual_mass": 7,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 1,
+      "total_union_upper_bound": "5",
+      "relative_upper_bound": "5/7",
+      "absolute_uncovered_mass_lower_bound": "2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 42,
+      "fixed_union_target_count": 84
+    },
+    {
+      "selected_fixed": "both",
+      "fixed_count": 2,
+      "fixed_union_proportion": "1/2",
+      "deleted_mod7_rows": [
+        0,
+        5
+      ],
+      "residual_B": [
+        3,
+        8,
+        10,
+        15,
+        23,
+        30,
+        31
+      ],
+      "residual_mass": 7,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 1,
+      "total_union_upper_bound": "5",
+      "relative_upper_bound": "5/7",
+      "absolute_uncovered_mass_lower_bound": "2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 42,
+      "fixed_union_target_count": 84
+    },
+    {
+      "selected_fixed": "both",
+      "fixed_count": 2,
+      "fixed_union_proportion": "1/2",
+      "deleted_mod7_rows": [
+        1,
+        2
+      ],
+      "residual_B": [
+        0,
+        3,
+        5,
+        10,
+        21,
+        26,
+        28,
+        31,
+        33
+      ],
+      "residual_mass": 9,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 1,
+      "total_union_upper_bound": "6",
+      "relative_upper_bound": "2/3",
+      "absolute_uncovered_mass_lower_bound": "3",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 54,
+      "fixed_union_target_count": 108
+    },
+    {
+      "selected_fixed": "both",
+      "fixed_count": 2,
+      "fixed_union_proportion": "1/2",
+      "deleted_mod7_rows": [
+        1,
+        3
+      ],
+      "residual_B": [
+        0,
+        5,
+        21,
+        23,
+        26,
+        28,
+        30,
+        33
+      ],
+      "residual_mass": 8,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 1,
+      "total_union_upper_bound": "11/2",
+      "relative_upper_bound": "11/16",
+      "absolute_uncovered_mass_lower_bound": "5/2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 48,
+      "fixed_union_target_count": 96
+    },
+    {
+      "selected_fixed": "both",
+      "fixed_count": 2,
+      "fixed_union_proportion": "1/2",
+      "deleted_mod7_rows": [
+        1,
+        5
+      ],
+      "residual_B": [
+        0,
+        3,
+        10,
+        21,
+        23,
+        28,
+        30,
+        31
+      ],
+      "residual_mass": 8,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 1,
+      "total_union_upper_bound": "11/2",
+      "relative_upper_bound": "11/16",
+      "absolute_uncovered_mass_lower_bound": "5/2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 48,
+      "fixed_union_target_count": 96
+    },
+    {
+      "selected_fixed": "both",
+      "fixed_count": 2,
+      "fixed_union_proportion": "1/2",
+      "deleted_mod7_rows": [
+        2,
+        3
+      ],
+      "residual_B": [
+        0,
+        5,
+        8,
+        15,
+        21,
+        26,
+        28,
+        33
+      ],
+      "residual_mass": 8,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 1,
+      "total_union_upper_bound": "11/2",
+      "relative_upper_bound": "11/16",
+      "absolute_uncovered_mass_lower_bound": "5/2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 48,
+      "fixed_union_target_count": 96
+    },
+    {
+      "selected_fixed": "both",
+      "fixed_count": 2,
+      "fixed_union_proportion": "1/2",
+      "deleted_mod7_rows": [
+        2,
+        5
+      ],
+      "residual_B": [
+        0,
+        3,
+        8,
+        10,
+        15,
+        21,
+        28,
+        31
+      ],
+      "residual_mass": 8,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 1,
+      "total_union_upper_bound": "11/2",
+      "relative_upper_bound": "11/16",
+      "absolute_uncovered_mass_lower_bound": "5/2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 48,
+      "fixed_union_target_count": 96
+    },
+    {
+      "selected_fixed": "both",
+      "fixed_count": 2,
+      "fixed_union_proportion": "1/2",
+      "deleted_mod7_rows": [
+        3,
+        5
+      ],
+      "residual_B": [
+        0,
+        8,
+        15,
+        21,
+        23,
+        28,
+        30
+      ],
+      "residual_mass": 7,
+      "c5": 3,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 1,
+      "total_union_upper_bound": "5",
+      "relative_upper_bound": "5/7",
+      "absolute_uncovered_mass_lower_bound": "2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 42,
+      "fixed_union_target_count": 84
+    },
+    {
+      "selected_fixed": "both",
+      "fixed_count": 2,
+      "fixed_union_proportion": "1/2",
+      "deleted_mod7_rows": [
+        0,
+        1,
+        2
+      ],
+      "residual_B": [
+        3,
+        5,
+        10,
+        26,
+        31,
+        33
+      ],
+      "residual_mass": 6,
+      "c5": 2,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 0,
+      "total_union_upper_bound": "3",
+      "relative_upper_bound": "1/2",
+      "absolute_uncovered_mass_lower_bound": "3",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 36,
+      "fixed_union_target_count": 72
+    },
+    {
+      "selected_fixed": "both",
+      "fixed_count": 2,
+      "fixed_union_proportion": "1/2",
+      "deleted_mod7_rows": [
+        0,
+        1,
+        3
+      ],
+      "residual_B": [
+        5,
+        23,
+        26,
+        30,
+        33
+      ],
+      "residual_mass": 5,
+      "c5": 2,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 0,
+      "total_union_upper_bound": "5/2",
+      "relative_upper_bound": "1/2",
+      "absolute_uncovered_mass_lower_bound": "5/2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 30,
+      "fixed_union_target_count": 60
+    },
+    {
+      "selected_fixed": "both",
+      "fixed_count": 2,
+      "fixed_union_proportion": "1/2",
+      "deleted_mod7_rows": [
+        0,
+        1,
+        5
+      ],
+      "residual_B": [
+        3,
+        10,
+        23,
+        30,
+        31
+      ],
+      "residual_mass": 5,
+      "c5": 2,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 0,
+      "total_union_upper_bound": "5/2",
+      "relative_upper_bound": "1/2",
+      "absolute_uncovered_mass_lower_bound": "5/2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 30,
+      "fixed_union_target_count": 60
+    },
+    {
+      "selected_fixed": "both",
+      "fixed_count": 2,
+      "fixed_union_proportion": "1/2",
+      "deleted_mod7_rows": [
+        0,
+        2,
+        3
+      ],
+      "residual_B": [
+        5,
+        8,
+        15,
+        26,
+        33
+      ],
+      "residual_mass": 5,
+      "c5": 2,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 0,
+      "total_union_upper_bound": "5/2",
+      "relative_upper_bound": "1/2",
+      "absolute_uncovered_mass_lower_bound": "5/2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 30,
+      "fixed_union_target_count": 60
+    },
+    {
+      "selected_fixed": "both",
+      "fixed_count": 2,
+      "fixed_union_proportion": "1/2",
+      "deleted_mod7_rows": [
+        0,
+        2,
+        5
+      ],
+      "residual_B": [
+        3,
+        8,
+        10,
+        15,
+        31
+      ],
+      "residual_mass": 5,
+      "c5": 2,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 0,
+      "total_union_upper_bound": "5/2",
+      "relative_upper_bound": "1/2",
+      "absolute_uncovered_mass_lower_bound": "5/2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 30,
+      "fixed_union_target_count": 60
+    },
+    {
+      "selected_fixed": "both",
+      "fixed_count": 2,
+      "fixed_union_proportion": "1/2",
+      "deleted_mod7_rows": [
+        0,
+        3,
+        5
+      ],
+      "residual_B": [
+        8,
+        15,
+        23,
+        30
+      ],
+      "residual_mass": 4,
+      "c5": 2,
+      "c7": 2,
+      "generic_single_channel_mass": "1",
+      "remaining_generic_slots": 0,
+      "total_union_upper_bound": "2",
+      "relative_upper_bound": "1/2",
+      "absolute_uncovered_mass_lower_bound": "2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 24,
+      "fixed_union_target_count": 48
+    },
+    {
+      "selected_fixed": "both",
+      "fixed_count": 2,
+      "fixed_union_proportion": "1/2",
+      "deleted_mod7_rows": [
+        1,
+        2,
+        3
+      ],
+      "residual_B": [
+        0,
+        5,
+        21,
+        26,
+        28,
+        33
+      ],
+      "residual_mass": 6,
+      "c5": 2,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 0,
+      "total_union_upper_bound": "3",
+      "relative_upper_bound": "1/2",
+      "absolute_uncovered_mass_lower_bound": "3",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 36,
+      "fixed_union_target_count": 72
+    },
+    {
+      "selected_fixed": "both",
+      "fixed_count": 2,
+      "fixed_union_proportion": "1/2",
+      "deleted_mod7_rows": [
+        1,
+        2,
+        5
+      ],
+      "residual_B": [
+        0,
+        3,
+        10,
+        21,
+        28,
+        31
+      ],
+      "residual_mass": 6,
+      "c5": 2,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 0,
+      "total_union_upper_bound": "3",
+      "relative_upper_bound": "1/2",
+      "absolute_uncovered_mass_lower_bound": "3",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 36,
+      "fixed_union_target_count": 72
+    },
+    {
+      "selected_fixed": "both",
+      "fixed_count": 2,
+      "fixed_union_proportion": "1/2",
+      "deleted_mod7_rows": [
+        1,
+        3,
+        5
+      ],
+      "residual_B": [
+        0,
+        21,
+        23,
+        28,
+        30
+      ],
+      "residual_mass": 5,
+      "c5": 2,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 0,
+      "total_union_upper_bound": "5/2",
+      "relative_upper_bound": "1/2",
+      "absolute_uncovered_mass_lower_bound": "5/2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 30,
+      "fixed_union_target_count": 60
+    },
+    {
+      "selected_fixed": "both",
+      "fixed_count": 2,
+      "fixed_union_proportion": "1/2",
+      "deleted_mod7_rows": [
+        2,
+        3,
+        5
+      ],
+      "residual_B": [
+        0,
+        8,
+        15,
+        21,
+        28
+      ],
+      "residual_mass": 5,
+      "c5": 2,
+      "c7": 3,
+      "generic_single_channel_mass": "3/2",
+      "remaining_generic_slots": 0,
+      "total_union_upper_bound": "5/2",
+      "relative_upper_bound": "1/2",
+      "absolute_uncovered_mass_lower_bound": "5/2",
+      "fixed_union_check_period": 420,
+      "fixed_union_hit_count": 30,
+      "fixed_union_target_count": 60
+    }
+  ],
+  "only_unexcluded_pattern": {
+    "selected_fixed": "none",
+    "h7_count": 5,
+    "h7_phases": [
+      0,
+      1,
+      2,
+      3,
+      5
+    ],
+    "remaining_residual_mass": 0
+  },
+  "native_BRC_execution_claimed": false,
+  "independent_project_review_claimed": false
+}

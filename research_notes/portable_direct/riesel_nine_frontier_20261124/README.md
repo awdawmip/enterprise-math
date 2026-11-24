@@ -1,0 +1,66 @@
+# Riesel continuation v14: complete nine-budget R4 classification and exact compact total costs
+
+Date: 2026-11-24, Asia/Hong_Kong.
+
+Researcher-ID: `EM-DIRECT-970E1C / TASK_RESEARCH`  
+Activity-ID: `RA-D2EC212845B63844081F9A14`
+
+## Scientific result
+
+The full integer trajectory remains \(F_n(a)=a^2 2^n-1\), advanced by the positive singleton BRC action \(x\mapsto2x+1\) at the fixed Heartbeat X6 anchor. The old dictionary P and historical fibers R1, R2, R3 retain their definitions. This continuation proves the following.
+
+1. **Exact unrestricted costs for the original compact minima.** The 76-digit R1 cost-six minimum, 84-digit R2 cost-seven minimum and 146-digit R3 cost-eight minimum have \(\tau=26,27,28\), respectively. Explicit pairwise-coprime integer terms prove the lower bounds without altering the roots. The new 156-digit conditional R3 cost-nine minimum also has \(\tau=29\). See [the exact-total proof](totals/proof.md).
+2. **Budget nine still forces the basic pair throughout R1.** Every complete supplement of at most nine primes contains 5 and 13. If both are omitted, the maximum residual capacity is \(2375/2376\); omission of either gives a positive uniform gap. See [the prefix proof](prefix/proof.md).
+3. **The complete irredundant one-W branch on R3.** A nine-prime supplement retaining exactly one of 19,73 has the fully classified four-mod-seven plus two-mod-twenty-one structure. There are 4,800 phase dictionaries and 307,200 signed CRT descriptions, with exact-cost-nine realizations. The displayed 160-digit root also has exact unrestricted total cost 29, proved by 29 full pairwise-coprime terms. This is a branch classification, not all R3 nine-covers. See the same [prefix proof](prefix/proof.md).
+4. **Every two-tail completion after the fixed seven-prime prefix is classified.** The conditional family has fifty phase dictionaries. Its exact-cost-nine part has a 156-digit minimum on R3. All eight-budget alternatives are included when excluding lower cost. See [the two-tail proof](tail/proof.md).
+5. **Full nine-budget classification on a new fixed 74-prime fiber.** Let T8 be the complete 31-coordinate R3 budget-eight observer modulus, and set \(R_4=\{a\in R_3:a=0\pmod{T_8}\}\). Every nine-prime supplement on R4 contains \(Q_0=\{5,13,19,73\}\). Its remaining five primes have exactly four types, totaling 192 phase dictionaries and 4,392 signed CRT descriptions. These reduce to three root predicates. See [the complete R4 proof](r4/proof.md), [all-prime tail reduction](r4/tail_proof.md) and [observer/prefix proof](r4/observer_proof.md).
+6. **The complete minimal R4 observer.** Thirteen free prime coordinates, of orders up to 720, are individually necessary and jointly sufficient. For every positive N, observation modulo N decides \(\delta_P\le9\) on R4 iff their product divides N; the full-future version has exactly the same criterion. Every coordinate has an explicit finite exact-cost 9/10 counterfactual pair. Hence \(\Omega_9(R_4)=\widehat\Omega_9(R_4)=720\), while \(720\le\Omega_9(R_i)\le26880\) for i=1,2,3. The upper bound uses the forced basic pair and the established covering-interval theorem.
+7. **The global R4 cost-nine minimum and exact frequency.** The minimum is the 371-digit integer \(A_4+75240521932528635S_4\), with \(\delta_P=9\) and \(\tau=29\). All 4,392 CRT starts were compared. The exact relative natural frequency of cost nine in R4 is \(8.9428657228405933706561002742181955773152113864121\ldots\times10^{-18}\), counted as a Boolean union rather than by adding overlapping descriptions. See [R4 proof and certificate](r4/proof.md).
+8. **The full finite spectrum inside the same 74 observations.** For every integer s at least nine, infinitely many ordinary roots in R4 satisfy \(\delta_P=s\) and \(\tau=20+s\). Every further finite modulus has one root residue containing all sufficiently large finite exact costs. The first repeated-order refinement is justified by an explicit order-864 factorization; no unproved prime-multiplicity assumption or primality assumption on its 73-digit cofactor is used. See [the spectrum proof](spectrum/proof.md).
+
+## What was actually checked
+
+The new standard-library arithmetic checks complete small-order inventories using deterministic primality certificates, the 22 basic-pair residual cases, all 4,800 one-W phase patterns, the fifty conditional two-tail patterns, all 192 R4 dictionary patterns and 4,392 signed CRT starts, exact union counts, thirteen essential-coordinate root pairs, and complete periodic upper covers. The all-prime reductions and the unbounded spectrum are carried by the written proofs.
+
+The five compact roots in the native-enabled certificates retain 139 full integer witnesses and 1,866 distinct pairwise gcds, all equal to one. The scalar one-W certificate adds 29 witnesses and 406 gcds for the unchanged 160-digit root. Thus all six compact roots have 168 retained witnesses and 2,272 pairwise gcd checks in total. Separate large cost-nine and cost-ten spectrum examples retain 29 and 30 private terms with another 841 gcds equal to one.
+
+New native execution uses the unchanged package at commit `b1efc6c805661ed7b476e6e730107da6043176ee` and actually completes:
+
+| Operation | Count |
+|---|---:|
+| One-step native BRC updates | 7,906 |
+| Two-step composed evaluations | 3,952 |
+| Native independent prime quotient/remainder readouts | 307,585 |
+| Native joint readouts and recompositions | 7,906 each |
+| R4 minimum fixed-74 coordinate comparisons | 108,928 |
+
+These native runs produce the finite witnesses. The separate arithmetic scripts check their complete periodic covering upper bounds; native witness intervals are not described as full covering periods. Every native update retains the complete integer and verifies the positive singleton weight and multiplicity, cofactor readouts and joint reconstruction.
+
+## Reproduction
+
+Run the following from this directory with Python 3:
+
+```sh
+python prefix/verify_nine_prefix.py
+python prefix/verify_compact_coprime.py
+python tail/verify_two_tail.py
+python spectrum/verify_nine_spectrum.py
+python r4/verify_no_h2_mass.py
+python totals/verify_exact_totals.py
+python r4/verify_r4_nine.py
+```
+
+For the two native-enabled components, add `--source-dir /path/to/src`, where the directory contains the frozen `enterprise_math` package. The user reproduction archive includes the four exact module files under `src/`. The scientific repository refers to their existing immutable source rather than copying that runtime into this note.
+
+The saved total and R4 certificates were generated with native execution enabled. The spectrum and one-W period calculations are scalar arithmetic. No new native execution is attributed to those scalar components.
+
+## Dependencies and claim scope
+
+- Previous complete R3 budget-eight source: `awdawmip/enterprise-math@e78c84e2516caff59d206123bdc5e348e9733a6a:research_notes/portable_direct/riesel_eight_classification_20261124`.
+- Previous spectrum/refinement source: `awdawmip/enterprise-math@5cfe4d64429f284232029341c6ba774e2eb6f727:research_notes/portable_direct/riesel_eight_spectrum_20261124`.
+- The original compact cost-six and cost-seven minimum scopes are reused at the immutable citations in `totals/proof.md`. Their total-cost lower bounds are new and directly checkable.
+- The external Bang primitive-divisor theorem and Crittenden–Vanden Eynden interval theorem retain their classical roles; all new classifications, CRT minima, observer predicates and counts are this author-level continuation.
+
+The complete R3 nine-prime classification and its global cost-nine minimum remain open here. The 371-digit minimum and the exact observation order 720 belong to R4. The 156-digit minimum belongs to the Q7-containing cost-nine subfamily of R3. No infinite covering cost is asserted for the original fixed root a_star. The maximum-prime-order metric is not a bound on the number of observed composite moduli, modulus bit length or computational time.
+
+The reviews in `reviews/` and `r4/` are shared-context mathematical checking. The scientific files, Activity association and knowledge journal have separate source states. Independent project Review, formal proof acceptance and Foundation promotion are not claimed.

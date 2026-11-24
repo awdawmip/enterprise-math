@@ -1,0 +1,1130 @@
+{
+  "schema": "RIESEL_COMPACT_EXACT_TOTAL_V14",
+  "status": "PASS",
+  "date": "2026-11-24",
+  "old_dictionary": [
+    7,
+    17,
+    31,
+    41,
+    71,
+    97,
+    113,
+    127,
+    151,
+    241,
+    257,
+    281,
+    337,
+    641,
+    673,
+    1321,
+    14449,
+    29191,
+    65537,
+    6700417
+  ],
+  "prime_verification": "Deterministic trial division through floor(sqrt(q)), with every odd trial divisor.",
+  "exact_orders": {
+    "5": 4,
+    "7": 3,
+    "13": 12,
+    "17": 8,
+    "19": 18,
+    "31": 5,
+    "41": 20,
+    "71": 35,
+    "73": 9,
+    "97": 48,
+    "113": 28,
+    "127": 7,
+    "151": 15,
+    "181": 180,
+    "193": 96,
+    "241": 24,
+    "257": 16,
+    "281": 70,
+    "337": 21,
+    "433": 72,
+    "631": 45,
+    "641": 64,
+    "673": 48,
+    "1153": 288,
+    "1321": 60,
+    "14449": 84,
+    "23311": 45,
+    "29191": 105,
+    "38737": 72,
+    "65537": 32,
+    "246241": 108,
+    "6700417": 64,
+    "33975937": 216,
+    "4261383649": 432,
+    "487824887233": 144
+  },
+  "cases": [
+    {
+      "name": "minimum_R1_cost_six",
+      "root": "1597463687996365290740241630260436015028835427889255944107518938773290244463",
+      "root_digits": 76,
+      "family": "R1",
+      "minimum_provenance": {
+        "commit": "f57dd6fd49d5b3f0a12abb3703c76edd6dbd37b5",
+        "path": "research_notes/portable_direct/riesel_finite_observers_20261124/six/proof.md"
+      },
+      "supplement": [
+        5,
+        13,
+        19,
+        73,
+        433,
+        38737
+      ],
+      "dictionary": [
+        5,
+        7,
+        13,
+        17,
+        19,
+        31,
+        41,
+        71,
+        73,
+        97,
+        113,
+        127,
+        151,
+        241,
+        257,
+        281,
+        337,
+        433,
+        641,
+        673,
+        1321,
+        14449,
+        29191,
+        38737,
+        65537,
+        6700417
+      ],
+      "cover_period": 20160,
+      "uncovered": 0,
+      "zero_phases": {
+        "5": 2,
+        "7": 1,
+        "13": 0,
+        "17": 3,
+        "19": 8,
+        "31": 4,
+        "41": 5,
+        "71": 13,
+        "73": 2,
+        "97": 21,
+        "113": 21,
+        "127": 1,
+        "151": 11,
+        "241": 9,
+        "257": 7,
+        "281": 23,
+        "337": 17,
+        "433": 68,
+        "641": 15,
+        "673": 45,
+        "1321": 17,
+        "14449": 53,
+        "29191": 68,
+        "38737": 32,
+        "65537": 31,
+        "6700417": 47
+      },
+      "delta_exact": 6,
+      "tau_exact": 26,
+      "witness_count": 26,
+      "max_witness_index": 773,
+      "pairwise_gcd_one_count": 325,
+      "witnesses": [
+        {
+          "prime": 5,
+          "n": 6,
+          "state_hex": "0x31e4bda1a8bdbb16ddc538d894d71ad97d9332e7f6f17d6d573b5cb7634a1e0a5674ca2a0e70e6f3a8327e287c28fc4fa0da85e22451fa4e91aeb695797883f",
+          "cofactor_hex": "0x9fa8c538825f237c5f43e91b75e3891e5ea3d6197c9e5e2ab0bdf57e0a86c6877b0f53b9c7cfafd880a193b4c083276535ee793a0dd320fb6bc8aeab1e4e73"
+        },
+        {
+          "prime": 7,
+          "n": 16,
+          "state_hex": "0xc792f686a2f6ec5b7714e362535c6b65f64ccb9fdbc5f5b55ced72dd8d28782959d328a839c39bcea0c9f8a1f0a3f13e836a17889147e93a46bada55e5e20ffff",
+          "cofactor_hex": "0x1c82b580f2b58f7ac7de69a0550d33e9fe9d41a91f656c3e7afd598d5d4eec9831674ef375f75f66a9416ca96b852276a50f27eef02ed82ce588685569fbb9249"
+        },
+        {
+          "prime": 13,
+          "n": 12,
+          "state_hex": "0xc792f686a2f6ec5b7714e362535c6b65f64ccb9fdbc5f5b55ced72dd8d28782959d328a839c39bcea0c9f8a1f0a3f13e836a17889147e93a46bada55e5e20fff",
+          "cofactor_hex": "0xf5a12f6aa12fe7d308b73f3df071bf426a3721ffd369cbf2e886b4c1e8cf58d06e8dbbe2bd3f84af8ad13202633fedd6c9201cf6da311f0ca5d247cc2ea013b"
+        },
+        {
+          "prime": 17,
+          "n": 3,
+          "state_hex": "0x63c97b43517b762dbb8a71b129ae35b2fb2665cfede2fadaae76b96ec6943c14ace994541ce1cde75064fc50f851f89f41b50bc448a3f49d235d6d2af2f107",
+          "cofactor_hex": "0x5deace5d79dd9c674718e37990a3f64e198d8cffeef3beebef7ecca47ea9a1f557726d7c576b1c25005f0b97804d263b8922dde5ea03b90c5d851b73b7797"
+        },
+        {
+          "prime": 19,
+          "n": 152,
+          "state_hex": "0xc792f686a2f6ec5b7714e362535c6b65f64ccb9fdbc5f5b55ced72dd8d28782959d328a839c39bcea0c9f8a1f0a3f13e836a17889147e93a46bada55e5e20ffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0xa80ff80596b4fceeb51f1052ccef82dc998409c9fc70cee9919f89265bec2f4b3e2b14c38ef590ae00aa14be43e85f5d1059572fa2c34b2399e0b7dc8bb0e50d79435e50d79435e50d79435e50d79435e5"
+        },
+        {
+          "prime": 31,
+          "n": 89,
+          "state_hex": "0x18f25ed0d45edd8b6ee29c6c4a6b8d6cbec99973fb78beb6ab9dae5bb1a50f052b3a651507387379d4193f143e147e27d06d42f11228fd2748d75b4abcbc41ffffffffffffffffffffff",
+          "cofactor_hex": "0xce030efe97b490e28b7066970bba3d507a1db96b357181c378b30b37476394cfd897e7e7756f1472325cdf9ee7e3098ada3bf742a67bc775f66e4cbbc4022108421084210842108421"
+        },
+        {
+          "prime": 41,
+          "n": 5,
+          "state_hex": "0x18f25ed0d45edd8b6ee29c6c4a6b8d6cbec99973fb78beb6ab9dae5bb1a50f052b3a651507387379d4193f143e147e27d06d42f11228fd2748d75b4abcbc41f",
+          "cofactor_hex": "0x9bc3dfa146ff28dd3db8e36bf622ab3cd935b1a8799442e4f75baad261af3213c93aa91926d71bf2710189dc0cfcd54385c97006afd439273d729deba0b07"
+        },
+        {
+          "prime": 71,
+          "n": 293,
+          "state_hex": "0x18f25ed0d45edd8b6ee29c6c4a6b8d6cbec99973fb78beb6ab9dae5bb1a50f052b3a651507387379d4193f143e147e27d06d42f11228fd2748d75b4abcbc41fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x59f2e9b3aacd092cd45186ef051ed64396aba0480c847d2a143fc063daa9ad24aa49894f6cf6cf3cad6d0eb527f35ab39c94c6197ec6450f72cece92e233689039b0ad12073615a240e6c2b4481cd85689039b0ad12073615a240e6c2b4481cd85689"
+        },
+        {
+          "prime": 73,
+          "n": 20,
+          "state_hex": "0xc792f686a2f6ec5b7714e362535c6b65f64ccb9fdbc5f5b55ced72dd8d28782959d328a839c39bcea0c9f8a1f0a3f13e836a17889147e93a46bada55e5e20fffff",
+          "cofactor_hex": "0x2bbe04efeb9bd19cd074cc2394063a9b9baea3dce6869108306c273410e94ef083e824f74846ed8bf928c2c4cf0b6276e8334ecd466af07cfdf7dbb0a29ac0e07"
+        },
+        {
+          "prime": 97,
+          "n": 117,
+          "state_hex": "0x18f25ed0d45edd8b6ee29c6c4a6b8d6cbec99973fb78beb6ab9dae5bb1a50f052b3a651507387379d4193f143e147e27d06d42f11228fd2748d75b4abcbc41fffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x41d6c02c6a8b85656e8ad9875d7adc2c31956034bca0510ef711a1ef5b6f000da43b1a9bc928c731b115c381f5a79190aa089b8eb3e2f091e7d4133ea591d5c5f02a3a0fd5c5f02a3a0fd5c5f"
+        },
+        {
+          "prime": 113,
+          "n": 413,
+          "state_hex": "0x18f25ed0d45edd8b6ee29c6c4a6b8d6cbec99973fb78beb6ab9dae5bb1a50f052b3a651507387379d4193f143e147e27d06d42f11228fd2748d75b4abcbc41fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x38843cc02e26355711dd22f0ccd879087c1ecf2f88ff6c182c708d458963d078740e7cc9b13520cb815b2d7d26b1d30ae80beb7a7f3ae0a17e81f0cd906443f6f0243f6f0243f6f0243f6f0243f6f0243f6f0243f6f0243f6f0243f6f0243f6f0243f6f0243f6f0243f6f0243f6f0243f6f"
+        },
+        {
+          "prime": 127,
+          "n": 113,
+          "state_hex": "0x18f25ed0d45edd8b6ee29c6c4a6b8d6cbec99973fb78beb6ab9dae5bb1a50f052b3a651507387379d4193f143e147e27d06d42f11228fd2748d75b4abcbc41ffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x324950422d17eaecb733a018c663e29ebb094572dcaad3137e37cc500350bf89694758dbc5fce0b512572c817f274ae56bb1e9b58f70dc069eec8fb4e33f0204081020408102040810204081"
+        },
+        {
+          "prime": 151,
+          "n": 41,
+          "state_hex": "0x18f25ed0d45edd8b6ee29c6c4a6b8d6cbec99973fb78beb6ab9dae5bb1a50f052b3a651507387379d4193f143e147e27d06d42f11228fd2748d75b4abcbc41ffffffffff",
+          "cofactor_hex": "0x2a4b39547ab1c8f9f3f0150fc049d656081dd6624d174d8049f1e57b3e204fb762b7c4cd2fd81374b07c2de8ad1017ffaf589a2de5254777286b699b872e36406c80d9"
+        },
+        {
+          "prime": 241,
+          "n": 33,
+          "state_hex": "0x18f25ed0d45edd8b6ee29c6c4a6b8d6cbec99973fb78beb6ab9dae5bb1a50f052b3a651507387379d4193f143e147e27d06d42f11228fd2748d75b4abcbc41ffffffff",
+          "cofactor_hex": "0x1a7fdcc015a3712d12ff9639ab778eca9e0c524616ceddb43b13d803ec8097ebff2e1884cf5f04c125487e7d9a1c244808f387e7a4d13fe5bf08e0716171ef010fef"
+        },
+        {
+          "prime": 257,
+          "n": 87,
+          "state_hex": "0x63c97b43517b762dbb8a71b129ae35b2fb2665cfede2fadaae76b96ec6943c14ace994541ce1cde75064fc50f851f89f41b50bc448a3f49d235d6d2af2f107fffffffffffffffffffff",
+          "cofactor_hex": "0x6366152e23581e0fabde931e0ba2931fdb4b1ab538aa508a24526707bed566adfeeaa9aa726f5e88c79d5ef2064bacf24f65a61e2a797b22015c1119d917f00ff00ff00ff00ff00ff"
+        },
+        {
+          "prime": 281,
+          "n": 233,
+          "state_hex": "0x18f25ed0d45edd8b6ee29c6c4a6b8d6cbec99973fb78beb6ab9dae5bb1a50f052b3a651507387379d4193f143e147e27d06d42f11228fd2748d75b4abcbc41ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x16ba301de8a698a37826d1ec38dde252abfdd020c7f21a28b2365f12da52f51604c3521155d680e39a0de3d47dcb9bed9c2ce0f8c6c037b6773357b99c74d8d35c03a4e5947f8b634d700e939651fe2d8d35c03a4e5947f8b634d7"
+        },
+        {
+          "prime": 337,
+          "n": 773,
+          "state_hex": "0x18f25ed0d45edd8b6ee29c6c4a6b8d6cbec99973fb78beb6ab9dae5bb1a50f052b3a651507387379d4193f143e147e27d06d42f11228fd2748d75b4abcbc41fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x12f35e0e4dc3e2c9a27a01d733371d306c77b82d90b0cda55a1b1adc10713b447f08a7f19693b6ad118bf62f483a1b771f7838edd28b01a2c7aa6e5ec182184f00c2780613c0309e0184f00c2780613c0309e0184f00c2780613c0309e0184f00c2780613c0309e0184f00c2780613c0309e0184f00c2780613c0309e0184f00c2780613c0309e0184f00c2780613c0309e0184f00c2780613c0309e0184f"
+        },
+        {
+          "prime": 433,
+          "n": 212,
+          "state_hex": "0xc792f686a2f6ec5b7714e362535c6b65f64ccb9fdbc5f5b55ced72dd8d28782959d328a839c39bcea0c9f8a1f0a3f13e836a17889147e93a46bada55e5e20fffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x75fe3456b1effdd8a9bac2bd625b4be982d67e4cc6846910c4d5b278582f934f6e7490a5ad16d38b4f1967d6942f438b3dbb78ecd33ba93983178fdda610975a750ff68a58af00975a750ff68a58af00975a750ff68a58af"
+        },
+        {
+          "prime": 641,
+          "n": 207,
+          "state_hex": "0x63c97b43517b762dbb8a71b129ae35b2fb2665cfede2fadaae76b96ec6943c14ace994541ce1cde75064fc50f851f89f41b50bc448a3f49d235d6d2af2f107fffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x27da406790c4472907679da169b500477b1154fdf99090ea4e76812bd77eb2276899fdbc26b13ea9dc36b5716929ec47973f1ea8a6656c79dd66691a56a427f00663d80ff99c27f00663d80ff99c27f00663d80ff99c27f"
+        },
+        {
+          "prime": 673,
+          "n": 237,
+          "state_hex": "0x18f25ed0d45edd8b6ee29c6c4a6b8d6cbec99973fb78beb6ab9dae5bb1a50f052b3a651507387379d4193f143e147e27d06d42f11228fd2748d75b4abcbc41fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x97d49b9904eb05378288daa24ad49321d357b6ae1bf9e21ba9fa4152f69c50c3c917530b33eef71ab977ccbfab47d962e91c995236fd4505ea7e2d240f206160ff9e9f006160ff9e9f006160ff9e9f006160ff9e9f006160ff9e9f"
+        },
+        {
+          "prime": 1321,
+          "n": 257,
+          "state_hex": "0x18f25ed0d45edd8b6ee29c6c4a6b8d6cbec99973fb78beb6ab9dae5bb1a50f052b3a651507387379d4193f143e147e27d06d42f11228fd2748d75b4abcbc41ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x4d5a196599a9ed25950ee0f2c12847151bd41fa2ecba0679d7a9be0ef123a55e201a079e6a7e96b225205a2a3939257f221306fd50252c777bba90b306598e700319c63ff398e700319c63ff398e700319c63ff398e700319c63ff398e7"
+        },
+        {
+          "prime": 14449,
+          "n": 53,
+          "state_hex": "0x18f25ed0d45edd8b6ee29c6c4a6b8d6cbec99973fb78beb6ab9dae5bb1a50f052b3a651507387379d4193f143e147e27d06d42f11228fd2748d75b4abcbc41fffffffffffff",
+          "cofactor_hex": "0x712683b9fcaf37c846c6442588784aa3a71627a6c3eee5c5b3e148c2a356ac9fde7337e1a76296aa9f04d21016c20b713460a5dacbcdd8319fb6363a84243ffeddb776f"
+        },
+        {
+          "prime": 29191,
+          "n": 593,
+          "state_hex": "0x18f25ed0d45edd8b6ee29c6c4a6b8d6cbec99973fb78beb6ab9dae5bb1a50f052b3a651507387379d4193f143e147e27d06d42f11228fd2748d75b4abcbc41ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x3801e2470e6f179839c37075419a67c0eab1cfec74c9192f1dedba11149c0f2a1d5d663d2768231868444199b59e602b14c4ed0a4e52bea1d88339b87f4e1865ccd63ab489200047d7a8a70c32e66b1d5a44900023ebd453861973358ead22480011f5ea29c30cb99ac75691240008faf514e1865ccd63ab489200047d7a8a70c32e66b1d5a449"
+        },
+        {
+          "prime": 38737,
+          "n": 32,
+          "state_hex": "0xc792f686a2f6ec5b7714e362535c6b65f64ccb9fdbc5f5b55ced72dd8d28782959d328a839c39bcea0c9f8a1f0a3f13e836a17889147e93a46bada55e5e20ffffffff",
+          "cofactor_hex": "0x151a4abf2d424f541e3934bea7a5b0cdde8698d19cac967636efd2bac795d5c9a5d3760dd6028ffb8507aece83b9c1c90e938746c0c06f5dee89ab60e0ffe4ee4f"
+        },
+        {
+          "prime": 65537,
+          "n": 95,
+          "state_hex": "0x63c97b43517b762dbb8a71b129ae35b2fb2665cfede2fadaae76b96ec6943c14ace994541ce1cde75064fc50f851f89f41b50bc448a3f49d235d6d2af2f107fffffffffffffffffffffff",
+          "cofactor_hex": "0x63c9177a3a013c2c7f5df253375afe57fcce690184e175f9387d80f145a2f671b677dddc3f058ee1c1833acdbd843b1b069a052a4379b1237239faf0f8000ffff0000ffff0000ffff"
+        },
+        {
+          "prime": 6700417,
+          "n": 111,
+          "state_hex": "0x63c97b43517b762dbb8a71b129ae35b2fb2665cfede2fadaae76b96ec6943c14ace994541ce1cde75064fc50f851f89f41b50bc448a3f49d235d6d2af2f107fffffffffffffffffffffffffff",
+          "cofactor_hex": "0xf9db7da2952aa545ed6b0166abf2330e7ae8f1df27bc643e671ae20ff81e485fccd69406cf7ad08960d20b3d5cf3344966931e2d134f6950623d8508280fffffd7f00000280fffffd7f"
+        }
+      ],
+      "native": {
+        "updates": 773,
+        "full_witnesses_retained": 26,
+        "last_state_hex": "0x18f25ed0d45edd8b6ee29c6c4a6b8d6cbec99973fb78beb6ab9dae5bb1a50f052b3a651507387379d4193f143e147e27d06d42f11228fd2748d75b4abcbc41fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+        "last_state_bits": 1273,
+        "integer_stream_sha256": "bf9c01ee0ee66c1d1ababd8ff6aada28e08ce8177a0426692b9041b002f98b44",
+        "executed_interval_scope": "Witness production through the last listed index; complete-period upper coverage is checked separately above."
+      }
+    },
+    {
+      "name": "minimum_R2_cost_seven",
+      "root": "168515727251568031139784117408423468924151126118048106286760549300706338389494633573",
+      "root_digits": 84,
+      "family": "R2",
+      "minimum_provenance": {
+        "commit": "cadc7197ec1f1169aba937894a5988e05ed5ed24",
+        "path": "research_notes/portable_direct/riesel_seven_cover_20261124/observer/proof.md"
+      },
+      "supplement": [
+        5,
+        13,
+        19,
+        73,
+        181,
+        631,
+        23311
+      ],
+      "dictionary": [
+        5,
+        7,
+        13,
+        17,
+        19,
+        31,
+        41,
+        71,
+        73,
+        97,
+        113,
+        127,
+        151,
+        181,
+        241,
+        257,
+        281,
+        337,
+        631,
+        641,
+        673,
+        1321,
+        14449,
+        23311,
+        29191,
+        65537,
+        6700417
+      ],
+      "cover_period": 20160,
+      "uncovered": 0,
+      "zero_phases": {
+        "5": 2,
+        "7": 1,
+        "13": 0,
+        "17": 3,
+        "19": 8,
+        "31": 4,
+        "41": 5,
+        "71": 13,
+        "73": 2,
+        "97": 21,
+        "113": 21,
+        "127": 1,
+        "151": 11,
+        "181": 68,
+        "241": 9,
+        "257": 7,
+        "281": 23,
+        "337": 17,
+        "631": 32,
+        "641": 15,
+        "673": 45,
+        "1321": 17,
+        "14449": 53,
+        "23311": 5,
+        "29191": 68,
+        "65537": 31,
+        "6700417": 47
+      },
+      "delta_exact": 7,
+      "tau_exact": 27,
+      "witness_count": 27,
+      "max_witness_index": 1133,
+      "pairwise_gcd_one_count": 351,
+      "witnesses": [
+        {
+          "prime": 5,
+          "n": 6,
+          "state_hex": "0x7b4873a4a857601525f9e3239d45c550ad130b201b39a7539ab0f9f5462d517257367d8c62672506d417e592353677fe2c7601b568bc919043d05415af9154990c13273bf63f",
+          "cofactor_hex": "0x18a81720ee77e0043acb93d3ec4127768903cf066bd854aa522365310e09104a11714c4f46e16dce2a6b2dea0aa47e6608e466bde1bf50500d9010d1231d10eb68d0a1726473"
+        },
+        {
+          "prime": 7,
+          "n": 16,
+          "state_hex": "0x1ed21ce92a15d805497e78c8e75171542b44c2c806ce69d4e6ac3e7d518b545c95cd9f631899c941b505f9648d4d9dff8b1d806d5a2f246410f415056be455264304c9cefd8ffff",
+          "cofactor_hex": "0x46728b3984c436e7836a38a6a3034c2e19c1bd36eafc5f9d7cf76a4303879c41566847bdef165e4d0b7b5e9cb0b16923871edc67a990532ddd9b9dc33fc0c2a0992f8422439249"
+        },
+        {
+          "prime": 13,
+          "n": 12,
+          "state_hex": "0x1ed21ce92a15d805497e78c8e75171542b44c2c806ce69d4e6ac3e7d518b545c95cd9f631899c941b505f9648d4d9dff8b1d806d5a2f246410f415056be455264304c9cefd8fff",
+          "cofactor_hex": "0x25eee8816edfcecb6e2580f7441577ca0dde7993b99b95f256fb609a3cfa4071f3733a52946e818bf27d81b6d54bd626d29a76adf8d78f4014dda3b7e74068cca140f8613813b"
+        },
+        {
+          "prime": 17,
+          "n": 3,
+          "state_hex": "0xf690e74950aec02a4bf3c6473a8b8aa15a26164036734ea73561f3ea8c5aa2e4ae6cfb18c4ce4a0da82fcb246a6ceffc58ec036ad179232087a0a82b5f22a93218264e77ec7",
+          "cofactor_hex": "0xe80fe8bd791cf118bff47e61280adcd4189c512d606c86430510e591750a02b91ca2ce356def54c18f3c0a7ca06687841774b7ec107202f1709734dd86b735d4cb6f58e957"
+        },
+        {
+          "prime": 19,
+          "n": 152,
+          "state_hex": "0x1ed21ce92a15d805497e78c8e75171542b44c2c806ce69d4e6ac3e7d518b545c95cd9f631899c941b505f9648d4d9dff8b1d806d5a2f246410f415056be455264304c9cefd8ffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x19f44e3d9cb4143a58d64ac4211c298a3f62532f2e2715c0c240349f6d1703ac48415dccb6668e882ca6b7114e923435829f9491fb1a3997a27cb362e197dbea5362591a18e50d79435e50d79435e50d79435e50d79435e5"
+        },
+        {
+          "prime": 31,
+          "n": 89,
+          "state_hex": "0x3da439d2542bb00a92fcf191cea2e2a8568985900d9cd3a9cd587cfaa316a8b92b9b3ec6313392836a0bf2c91a9b3bff163b00dab45e48c821e82a0ad7c8aa4c8609939dfb1ffffffffffffffffffffff",
+          "cofactor_hex": "0x1fd0a1f8f1a2ef81541f746c499e6477ea998f42178abfd382c251057d770cc2ab26d613b64c2a9668483b3e81586107c968c6a26d9c0488539099d40c468971d1915472922108421084210842108421"
+        },
+        {
+          "prime": 41,
+          "n": 125,
+          "state_hex": "0x3da439d2542bb00a92fcf191cea2e2a8568985900d9cd3a9cd587cfaa316a8b92b9b3ec6313392836a0bf2c91a9b3bff163b00dab45e48c821e82a0ad7c8aa4c8609939dfb1fffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x180e230d6587aed86b4ffa5e5d205873a4e47f0c8230b680b4098e6e4c21d173f80aa1dcf3fb2671b8fe6b3bbf74c63e1529c1e4f537868c8a1c2961e3d16e2a59c54c56a07063e7063e7063e7063e7063e7063e7"
+        },
+        {
+          "prime": 71,
+          "n": 1133,
+          "state_hex": "0x3da439d2542bb00a92fcf191cea2e2a8568985900d9cd3a9cd587cfaa316a8b92b9b3ec6313392836a0bf2c91a9b3bff163b00dab45e48c821e82a0ad7c8aa4c8609939dfb1fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0xde41b73e7b34f554fff4fad7a48c34d98e8e8039e1c2146b74a0687ce3795cbfb677debc2f99800c4f7e02d51b6d0397bfedfbde7beb642bbec34bdefb9d70da39d334b43689039b0ad12073615a240e6c2b4481cd85689039b0ad12073615a240e6c2b4481cd85689039b0ad12073615a240e6c2b4481cd85689039b0ad12073615a240e6c2b4481cd85689039b0ad12073615a240e6c2b4481cd85689039b0ad12073615a240e6c2b4481cd85689039b0ad12073615a240e6c2b4481cd85689039b0ad12073615a240e6c2b4481cd85689"
+        },
+        {
+          "prime": 73,
+          "n": 20,
+          "state_hex": "0x1ed21ce92a15d805497e78c8e75171542b44c2c806ce69d4e6ac3e7d518b545c95cd9f631899c941b505f9648d4d9dff8b1d806d5a2f246410f415056be455264304c9cefd8fffff",
+          "cofactor_hex": "0x6c156fe807501c2091836873634eb40097bc880017de6199f45505393a04a998d8bc0be0c67d7f258c5b166b2421b9db54918a43dd93c942dcc4abe8ee1635207ace29692c0e07"
+        },
+        {
+          "prime": 97,
+          "n": 117,
+          "state_hex": "0x3da439d2542bb00a92fcf191cea2e2a8568985900d9cd3a9cd587cfaa316a8b92b9b3ec6313392836a0bf2c91a9b3bff163b00dab45e48c821e82a0ad7c8aa4c8609939dfb1fffffffffffffffffffffffffffff",
+          "cofactor_hex": "0xa2aec81b426e05632a31fedd2e8b92e3dc7823cb5b59465e7cf417b2818d9d9eccd1245a3d3b928269b0b04240f0c8916241fcf9f1230f4254353788d29045684f4623f01d5c5f02a3a0fd5c5f02a3a0fd5c5f"
+        },
+        {
+          "prime": 113,
+          "n": 413,
+          "state_hex": "0x3da439d2542bb00a92fcf191cea2e2a8568985900d9cd3a9cd587cfaa316a8b92b9b3ec6313392836a0bf2c91a9b3bff163b00dab45e48c821e82a0ad7c8aa4c8609939dfb1fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x8ba5e468f50f269b5a97a8efb46a37dc849d80245e45d6755b670d8ba350c90062ca2f104b37ab130ff6d23457765614960b55c2299cf671930bb311c49b8f6722112a2d443f6f0243f6f0243f6f0243f6f0243f6f0243f6f0243f6f0243f6f0243f6f0243f6f0243f6f0243f6f0243f6f0243f6f0243f6f"
+        },
+        {
+          "prime": 127,
+          "n": 113,
+          "state_hex": "0x3da439d2542bb00a92fcf191cea2e2a8568985900d9cd3a9cd587cfaa316a8b92b9b3ec6313392836a0bf2c91a9b3bff163b00dab45e48c821e82a0ad7c8aa4c8609939dfb1ffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x7c40f58fc7e72e720a0dff21e107d4faa257ba9545c531b708c27ef32c865e2eb49fbd066f45b067a35ea2d7e50078f00c8f1ff553635840c55b0a2a039885a454bca07cf0204081020408102040810204081"
+        },
+        {
+          "prime": 151,
+          "n": 41,
+          "state_hex": "0x3da439d2542bb00a92fcf191cea2e2a8568985900d9cd3a9cd587cfaa316a8b92b9b3ec6313392836a0bf2c91a9b3bff163b00dab45e48c821e82a0ad7c8aa4c8609939dfb1ffffffffff",
+          "cofactor_hex": "0x68813b0908c421fa312533d397f754300b153a98ac4537604ce09da223c0b18b4f03ce739c50a70417d07139d18eced411582a231a0e0b7f607a583b1248554665c907d3e36406c80d9"
+        },
+        {
+          "prime": 181,
+          "n": 788,
+          "state_hex": "0x1ed21ce92a15d805497e78c8e75171542b44c2c806ce69d4e6ac3e7d518b545c95cd9f631899c941b505f9648d4d9dff8b1d806d5a2f246410f415056be455264304c9cefd8fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x2b977f2aa9d82d49f3f82e5ea045ee140a47cb5bf8a77acfc58c5e0a59dfef8a05610eb0ee768111f8f6101d1166b509413948bc9bd72f3a15264dd1ec0bc90d197c2a2900cbab235bef071263016a13cd153729043e3b673fa57b0cbab235bef071263016a13cd153729043e3b673fa57b0cbab235bef071263016a13cd153729043e3b673fa57b0cbab235bef071263016a13cd153729043e3b673fa57b0cbab235bef071263"
+        },
+        {
+          "prime": 241,
+          "n": 81,
+          "state_hex": "0x3da439d2542bb00a92fcf191cea2e2a8568985900d9cd3a9cd587cfaa316a8b92b9b3ec6313392836a0bf2c91a9b3bff163b00dab45e48c821e82a0ad7c8aa4c8609939dfb1ffffffffffffffffffff",
+          "cofactor_hex": "0x417a65c91cdc9d4168163f46f71d9ef8ec6357b3933d6d0d99546f835512c2189ccb260034438773297a1a5407047f77102dae0d7ecc40909afcfcdbb789bc5589119bbe1ef010fef010fef010fef"
+        },
+        {
+          "prime": 257,
+          "n": 87,
+          "state_hex": "0xf690e74950aec02a4bf3c6473a8b8aa15a26164036734ea73561f3ea8c5aa2e4ae6cfb18c4ce4a0da82fcb246a6ceffc58ec036ad179232087a0a82b5f22a93218264e77ec7fffffffffffffffffffff",
+          "cofactor_hex": "0xf59b4bfd535b64c5866d58ee4c3f4b560421f44bea88c5e1540de60487d2d01499d327f0d3fa4fbdea45859ecba14eadab40c2a8294fd34d3a6641e975acfc35e2440a6d7f00ff00ff00ff00ff00ff"
+        },
+        {
+          "prime": 281,
+          "n": 233,
+          "state_hex": "0x3da439d2542bb00a92fcf191cea2e2a8568985900d9cd3a9cd587cfaa316a8b92b9b3ec6313392836a0bf2c91a9b3bff163b00dab45e48c821e82a0ad7c8aa4c8609939dfb1ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x38284a8ac6c2ad223b34c9db620f621459c5421b6120a3add3aca13bcc26dd20f3cc4b68f19b65979bd439331ccb5fa7b5815e9d56e231e86f0fa31d028942c714fce1964d8d35c03a4e5947f8b634d700e939651fe2d8d35c03a4e5947f8b634d7"
+        },
+        {
+          "prime": 337,
+          "n": 773,
+          "state_hex": "0x3da439d2542bb00a92fcf191cea2e2a8568985900d9cd3a9cd587cfaa316a8b92b9b3ec6313392836a0bf2c91a9b3bff163b00dab45e48c821e82a0ad7c8aa4c8609939dfb1fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x2ed35a431932a8ac1d9df68eaaa4c172f6885f6208d24a307786d3ecbbb3045901fade67752360dd5efdae8e21e28d4a82d57664cee725d100b05cb56f80e299d886e51f2184f00c2780613c0309e0184f00c2780613c0309e0184f00c2780613c0309e0184f00c2780613c0309e0184f00c2780613c0309e0184f00c2780613c0309e0184f00c2780613c0309e0184f00c2780613c0309e0184f00c2780613c0309e0184f"
+        },
+        {
+          "prime": 631,
+          "n": 32,
+          "state_hex": "0x1ed21ce92a15d805497e78c8e75171542b44c2c806ce69d4e6ac3e7d518b545c95cd9f631899c941b505f9648d4d9dff8b1d806d5a2f246410f415056be455264304c9cefd8ffffffff",
+          "cofactor_hex": "0xc810f616f9a82a53d0e641f333f7838de079c837593704fe24033514530d17d99aeb4b224c1d720be490437665c58716987b5860690e4f9f0f8532d9c27152845621843bfb8988b9"
+        },
+        {
+          "prime": 641,
+          "n": 207,
+          "state_hex": "0xf690e74950aec02a4bf3c6473a8b8aa15a26164036734ea73561f3ea8c5aa2e4ae6cfb18c4ce4a0da82fcb246a6ceffc58ec036ad179232087a0a82b5f22a93218264e77ec7fffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x6278f8ecf4b0d2efbe7bb76cb8bab98fea7e3cce29b709724e07f7faa0b0c73ef96170a9a477212b651ddee89a543e4c0529241c4879dd4e1703db5337f77a4985d9c846427f00663d80ff99c27f00663d80ff99c27f00663d80ff99c27f"
+        },
+        {
+          "prime": 673,
+          "n": 333,
+          "state_hex": "0x3da439d2542bb00a92fcf191cea2e2a8568985900d9cd3a9cd587cfaa316a8b92b9b3ec6313392836a0bf2c91a9b3bff163b00dab45e48c821e82a0ad7c8aa4c8609939dfb1fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x1772950b28016719b44c6fab7b1b581e8f3ac727f5f66ca993b8ac4e9a1712ea009c6e9b454e93c90065ec84cb5b61c207b205a67f306ace384302adc6dc1dc8a9aaa1e6206160ff9e9f006160ff9e9f006160ff9e9f006160ff9e9f006160ff9e9f006160ff9e9f006160ff9e9f"
+        },
+        {
+          "prime": 1321,
+          "n": 377,
+          "state_hex": "0x3da439d2542bb00a92fcf191cea2e2a8568985900d9cd3a9cd587cfaa316a8b92b9b3ec6313392836a0bf2c91a9b3bff163b00dab45e48c821e82a0ad7c8aa4c8609939dfb1ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0xbf217387515735089025088c7bacb38d8c3a3484b810844907144fc70ff8bdd58196f31745088eac35a1a820e121170cdda360a36b88baea1fe1809da5cc303655c5b65598e700319c63ff398e700319c63ff398e700319c63ff398e700319c63ff398e700319c63ff398e700319c63ff398e7"
+        },
+        {
+          "prime": 14449,
+          "n": 53,
+          "state_hex": "0x3da439d2542bb00a92fcf191cea2e2a8568985900d9cd3a9cd587cfaa316a8b92b9b3ec6313392836a0bf2c91a9b3bff163b00dab45e48c821e82a0ad7c8aa4c8609939dfb1fffffffffffff",
+          "cofactor_hex": "0x1179602c50e937217d46e839a22bdf17134e0d3c2a7ba7879b5227142f030a12dd40306939ba3fc0559fc786d782a069c33935f1a2cdd9fcbdf9d86e5ef09d6a81aaccf4243ffeddb776f"
+        },
+        {
+          "prime": 23311,
+          "n": 320,
+          "state_hex": "0x1ed21ce92a15d805497e78c8e75171542b44c2c806ce69d4e6ac3e7d518b545c95cd9f631899c941b505f9648d4d9dff8b1d806d5a2f246410f415056be455264304c9cefd8ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x56a614329570c6159b5ddf0ac9aa8d9a5d76f43777b7fa84d84d8f515c353e920ec16ddd481db57ecc384968cb0208198326dea9a6a9d9d976bfa5648439e8cf1bcdcf78800167db3044000b3ed982200059f6cc110002cfb6608800167db3044000b3ed982200059f6cc11"
+        },
+        {
+          "prime": 29191,
+          "n": 593,
+          "state_hex": "0x3da439d2542bb00a92fcf191cea2e2a8568985900d9cd3a9cd587cfaa316a8b92b9b3ec6313392836a0bf2c91a9b3bff163b00dab45e48c821e82a0ad7c8aa4c8609939dfb1ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x8a63cc8f200411cecadab737af69be5a1f9a2db0f682707f627f8a162503b2ccfb8312645ada05baf6dec2aeaa49286980c6b259701b7059f5c69c521e66ece0aa6dd8f4e1865ccd63ab489200047d7a8a70c32e66b1d5a44900023ebd453861973358ead22480011f5ea29c30cb99ac75691240008faf514e1865ccd63ab489200047d7a8a70c32e66b1d5a449"
+        },
+        {
+          "prime": 65537,
+          "n": 255,
+          "state_hex": "0xf690e74950aec02a4bf3c6473a8b8aa15a26164036734ea73561f3ea8c5aa2e4ae6cfb18c4ce4a0da82fcb246a6ceffc58ec036ad179232087a0a82b5f22a93218264e77ec7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0xf68ff0b95ff56034ebbeda8860032a9e2f87e6b84fbafeec3675bd74cee5d3feda6e20aaa423a5ea0245c8dea18e4e6e0a7df8ecd88c4a943d0c6b1ef403b52e62f7eb8000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff0000ffff"
+        },
+        {
+          "prime": 6700417,
+          "n": 111,
+          "state_hex": "0xf690e74950aec02a4bf3c6473a8b8aa15a26164036734ea73561f3ea8c5aa2e4ae6cfb18c4ce4a0da82fcb246a6ceffc58ec036ad179232087a0a82b5f22a93218264e77ec7fffffffffffffffffffffffffff",
+          "cofactor_hex": "0x26960d31c29a4bc0dbe88a76a9b0ebeb367aa9f0360ac18ed4bfe2ad0fd70c70d9b4e19ab697a6dc0c8a53de565d5870174d16d8d01aee36771ea61ad274b67f9472c8280fffffd7f00000280fffffd7f"
+        }
+      ],
+      "native": {
+        "updates": 1133,
+        "full_witnesses_retained": 27,
+        "last_state_hex": "0x3da439d2542bb00a92fcf191cea2e2a8568985900d9cd3a9cd587cfaa316a8b92b9b3ec6313392836a0bf2c91a9b3bff163b00dab45e48c821e82a0ad7c8aa4c8609939dfb1fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+        "last_state_bits": 1686,
+        "integer_stream_sha256": "7287d829cd73e5c70660a974df858b67243327a147d78b85cefc4c48de7bffb2",
+        "executed_interval_scope": "Witness production through the last listed index; complete-period upper coverage is checked separately above."
+      }
+    },
+    {
+      "name": "minimum_R3_cost_eight",
+      "root": "25391491002591320391732108159477707323814206756039394016382357924666368039179689189103105696777816709091120408108658618711788120139363377072408503",
+      "root_digits": 146,
+      "family": "R3",
+      "minimum_provenance": {
+        "commit": "e78c84e2516caff59d206123bdc5e348e9733a6a",
+        "path": "research_notes/portable_direct/riesel_eight_classification_20261124/minimum/proof.md"
+      },
+      "supplement": [
+        5,
+        13,
+        19,
+        73,
+        38737,
+        487824887233,
+        1153,
+        193
+      ],
+      "dictionary": [
+        5,
+        7,
+        13,
+        17,
+        19,
+        31,
+        41,
+        71,
+        73,
+        97,
+        113,
+        127,
+        151,
+        193,
+        241,
+        257,
+        281,
+        337,
+        641,
+        673,
+        1153,
+        1321,
+        14449,
+        29191,
+        38737,
+        65537,
+        6700417,
+        487824887233
+      ],
+      "cover_period": 20160,
+      "uncovered": 0,
+      "zero_phases": {
+        "5": 2,
+        "7": 1,
+        "13": 0,
+        "17": 3,
+        "19": 8,
+        "31": 4,
+        "41": 5,
+        "71": 13,
+        "73": 2,
+        "97": 21,
+        "113": 21,
+        "127": 1,
+        "151": 11,
+        "193": 80,
+        "241": 9,
+        "257": 7,
+        "281": 23,
+        "337": 17,
+        "641": 15,
+        "673": 45,
+        "1153": 32,
+        "1321": 17,
+        "14449": 53,
+        "29191": 68,
+        "38737": 68,
+        "65537": 31,
+        "6700417": 47,
+        "487824887233": 104
+      },
+      "delta_exact": 8,
+      "tau_exact": 28,
+      "witness_count": 28,
+      "max_witness_index": 2480,
+      "pairwise_gcd_one_count": 378,
+      "witnesses": [
+        {
+          "prime": 5,
+          "n": 6,
+          "state_hex": "0x108a182f4d713dfefd166c6ed98c036110949e4d43170df8982514ded54253511f82911553ec2a1ec2764f4f9bd54dac03348d9f8a36ef999a7c443df910ebb76a93df56daa6774e739f3744b6f3c9fdd31fb463269b4e2ffde697b89c0f1e3ffce6d46c2056394bf16b241fd338231445605c0a967b3c21343f",
+          "cofactor_hex": "0x34ed1a30f7d0c66329e15afc51c00ad0350ec75da37cf981e6dd0f95dda10a9d31a1d0443fc086c8d4adca985910f88cd70e91fe871631eb87f40d931d02f24aeea5fde2bbae4a94a530b0dbe30c1ff909ff0e0a15242d665faeb24ec03060ccc2e2a7c0677a50f3048a0d32a3e6d6a744678ceeae5726d0a73"
+        },
+        {
+          "prime": 7,
+          "n": 16,
+          "state_hex": "0x422860bd35c4f7fbf459b1bb66300d84425279350c5c37e26094537b55094d447e0a44554fb0a87b09d93d3e6f5536b00cd2367e28dbbe6669f110f7e443aeddaa4f7d5b6a99dd39ce7cdd12dbcf27f74c7ed18c9a6d38bff79a5ee2703c78fff39b51b08158e52fc5ac907f4ce08c511581702a59ecf084d0ffff",
+          "cofactor_hex": "0x9737b88be89da48909f1963ea06dd5c09797f07940d2c8e0dcc0bed0c25e6777fb852e79dab85c86f1f08bfc6c307d001d4e336981f6457c5fdddda452e3d8d617911e87cf168bf1d7f8d4bd6422a47e65b4281cceb081b6c83c4697dbf7efffe3ac286ede820bdae865dc90afb81c270c9592a9f21d9378b9249"
+        },
+        {
+          "prime": 13,
+          "n": 12,
+          "state_hex": "0x422860bd35c4f7fbf459b1bb66300d84425279350c5c37e26094537b55094d447e0a44554fb0a87b09d93d3e6f5536b00cd2367e28dbbe6669f110f7e443aeddaa4f7d5b6a99dd39ce7cdd12dbcf27f74c7ed18c9a6d38bff79a5ee2703c78fff39b51b08158e52fc5ac907f4ce08c511581702a59ecf084d0fff",
+          "cofactor_hex": "0x516cc5d52e7c44e7541f9fab917638053def5a19e7d3f602ed05530df2819a2ce9e54068ff9e5934f86dd5392690434ed4b3f44c810e742f475014e25404887347c44b84346e9a1fc30fd50384b031305e25ee36e572bbfff5aa4d657671cffff0bf2976c694cb4e7d2327ff238a85501a77ec82e4d4d941013b"
+        },
+        {
+          "prime": 17,
+          "n": 3,
+          "state_hex": "0x2114305e9ae27bfdfa2cd8ddb31806c221293c9a862e1bf1304a29bdaa84a6a23f05222aa7d8543d84ec9e9f37aa9b5806691b3f146ddf3334f8887bf221d76ed527beadb54cee9ce73e6e896de793fba63f68c64d369c5ffbcd2f71381e3c7ff9cda8d840ac7297e2d6483fa67046288ac0b8152cf67842687",
+          "cofactor_hex": "0x1f220f68194da1dffa848fdfb79e247a79903909e7b2ed1f3c82092afad7336b869b6b7370cb9a9440deb368acdcce70f6f9830e315859999b4444386b6b251d04da1cdfb9b1d1849d67ef9067708b47330e80baa30638d2cedf3bb5da76cf8781b280cb8829d543a85134f09ca5e7adafc47104df0616d517"
+        },
+        {
+          "prime": 19,
+          "n": 152,
+          "state_hex": "0x422860bd35c4f7fbf459b1bb66300d84425279350c5c37e26094537b55094d447e0a44554fb0a87b09d93d3e6f5536b00cd2367e28dbbe6669f110f7e443aeddaa4f7d5b6a99dd39ce7cdd12dbcf27f74c7ed18c9a6d38bff79a5ee2703c78fff39b51b08158e52fc5ac907f4ce08c511581702a59ecf084d0ffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x37b63684632c9aef1e9c5fc63b1afde8a3a3c46291253c88bd1e97247d8118a5779cdb3a5e0e07243e303392e47da750e2602de380b90c205936caebb2bfbbad311a8482e08191dfd64e336e325d9aeb32f1880a9cfda90d7231277b510a80d789c629d8012270283aac43c9841b68b0121c288f7425d8040e50d79435e50d79435e50d79435e50d79435e5"
+        },
+        {
+          "prime": 31,
+          "n": 509,
+          "state_hex": "0x8450c17a6b89eff7e8b36376cc601b0884a4f26a18b86fc4c128a6f6aa129a88fc1488aa9f6150f613b27a7cdeaa6d6019a46cfc51b77cccd3e221efc8875dbb549efab6d533ba739cf9ba25b79e4fee98fda31934da717fef34bdc4e078f1ffe736a36102b1ca5f8b5920fe99c118a22b02e054b3d9e109a1fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x444ab670bba2083de3755ca0697beceb9f4ce036c26fb58ed74ec9c9a21a1e362f867815ffae19453374e4617b2eac10915d1f79f8a0c48abff095a50ca8f6923c310587a7d8a24c2ffcc32c3dbd107b25ac3325c8b2cf39c5c8a402845f74a51c7f4c1109a615debb88d739158cf3f09a5410afd8b284aa22108421084210842108421084210842108421084210842108421084210842108421084210842108421084210842108421084210842108421084210842108421"
+        },
+        {
+          "prime": 41,
+          "n": 5,
+          "state_hex": "0x8450c17a6b89eff7e8b36376cc601b0884a4f26a18b86fc4c128a6f6aa129a88fc1488aa9f6150f613b27a7cdeaa6d6019a46cfc51b77cccd3e221efc8875dbb549efab6d533ba739cf9ba25b79e4fee98fda31934da717fef34bdc4e078f1ffe736a36102b1ca5f8b5920fe99c118a22b02e054b3d9e109a1f",
+          "cofactor_hex": "0x33a2a2eb173c12b828dbdbe36ef9cc1c4cbd3f619941bb3a0cf0a50f16a999f704b6d7acbb133ed06b96d2243deb17f38d20f255fa6d117ba3db5e6a0fd0ec621488f7b17ee87ab67bb2a00eb80bd44422ba651c9180f418f333cd2d9c482c7cd71b90eda9a30a4abfbee12b29451c5842bc7084f503daf107"
+        },
+        {
+          "prime": 71,
+          "n": 293,
+          "state_hex": "0x8450c17a6b89eff7e8b36376cc601b0884a4f26a18b86fc4c128a6f6aa129a88fc1488aa9f6150f613b27a7cdeaa6d6019a46cfc51b77cccd3e221efc8875dbb549efab6d533ba739cf9ba25b79e4fee98fda31934da717fef34bdc4e078f1ffe736a36102b1ca5f8b5920fe99c118a22b02e054b3d9e109a1fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x1dd14c0d2a43240c9965b8aaff2ee5a42c5070519966dbe439f386fa4a61f0588f578e929e821974bfee87c59abdd7bf1f049a5ceac0c931c3944fc2a7c7f8470f76c18357b51f334b09673e958c3d47cbf10b83e0a49b61565b3594ee140b447c379497aa126e81b33bbf529d3d8af5abf239c3c392739d3689039b0ad12073615a240e6c2b4481cd85689039b0ad12073615a240e6c2b4481cd85689"
+        },
+        {
+          "prime": 73,
+          "n": 20,
+          "state_hex": "0x422860bd35c4f7fbf459b1bb66300d84425279350c5c37e26094537b55094d447e0a44554fb0a87b09d93d3e6f5536b00cd2367e28dbbe6669f110f7e443aeddaa4f7d5b6a99dd39ce7cdd12dbcf27f74c7ed18c9a6d38bff79a5ee2703c78fff39b51b08158e52fc5ac907f4ce08c511581702a59ecf084d0fffff",
+          "cofactor_hex": "0xe801533fdc1f73abad10764b0b2dc632012138d6164dea8d98d38df6a4f307f3b2fd6de187ae24c102f9d34427be1e77689408bdedf81671aba18c29b3c6c76b89db24521e299b17dea457edf851347bc9a0adc2fdfd454283de3b3623e59a4cfb1d2c8004b97ee6a72f9186503a081fdb32a1e52d53f3cac0e07"
+        },
+        {
+          "prime": 97,
+          "n": 117,
+          "state_hex": "0x8450c17a6b89eff7e8b36376cc601b0884a4f26a18b86fc4c128a6f6aa129a88fc1488aa9f6150f613b27a7cdeaa6d6019a46cfc51b77cccd3e221efc8875dbb549efab6d533ba739cf9ba25b79e4fee98fda31934da717fef34bdc4e078f1ffe736a36102b1ca5f8b5920fe99c118a22b02e054b3d9e109a1fffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x15d3423924366c3372eb720e513770aa4ff0fb1eb2435ef8dde1c1cef477313e2edbcca5618c17e93ff336837143b307ef1dc2cd3f9f95e7b9620051c7584ecd15e0295adbe8dcc688bcfc653b518939d49df5f4529d6f17bde3c04ab38ab66ed452e8ce05b909a0ea1e8966b26f06b3d24fa652971176ef1d5c5f02a3a0fd5c5f02a3a0fd5c5f"
+        },
+        {
+          "prime": 113,
+          "n": 413,
+          "state_hex": "0x8450c17a6b89eff7e8b36376cc601b0884a4f26a18b86fc4c128a6f6aa129a88fc1488aa9f6150f613b27a7cdeaa6d6019a46cfc51b77cccd3e221efc8875dbb549efab6d533ba739cf9ba25b79e4fee98fda31934da717fef34bdc4e078f1ffe736a36102b1ca5f8b5920fe99c118a22b02e054b3d9e109a1fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x12bc247503e638a1f82b862779d2b48922a3d0c442ef121753fcb1b1a6ce8727c912c40f18d5246246c0ead48335952687076c51094e1633a8322485a20ea2cb3b8e94c6109850c59be3ed0c230f9e930eddaee1963595bc06af1d22ac3e6f4abf527f587f3fafe947d63f930ef95bd787390b5fd0f8563c443f6f0243f6f0243f6f0243f6f0243f6f0243f6f0243f6f0243f6f0243f6f0243f6f0243f6f0243f6f0243f6f0243f6f0243f6f"
+        },
+        {
+          "prime": 127,
+          "n": 953,
+          "state_hex": "0x8450c17a6b89eff7e8b36376cc601b0884a4f26a18b86fc4c128a6f6aa129a88fc1488aa9f6150f613b27a7cdeaa6d6019a46cfc51b77cccd3e221efc8875dbb549efab6d533ba739cf9ba25b79e4fee98fda31934da717fef34bdc4e078f1ffe736a36102b1ca5f8b5920fe99c118a22b02e054b3d9e109a1ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x10ab6f0d6841c18201189daa2de7d3071ed242d2e8e8dfb808357fde926721944812b682589d64e8939d8a64649e8ac186410fbf08477e96c80c5cf7e8e2b1199dcf7e5381a9cae43c176610d8a514261f5e7145b1ff4cc99108a90ab172024485f2b9dfe016661821ae81221766f0f631c3e3d23af11e5df0204081020408102040810204081020408102040810204081020408102040810204081020408102040810204081020408102040810204081020408102040810204081020408102040810204081020408102040810204081020408102040810204081020408102040810204081020408102040810204081"
+        },
+        {
+          "prime": 151,
+          "n": 41,
+          "state_hex": "0x8450c17a6b89eff7e8b36376cc601b0884a4f26a18b86fc4c128a6f6aa129a88fc1488aa9f6150f613b27a7cdeaa6d6019a46cfc51b77cccd3e221efc8875dbb549efab6d533ba739cf9ba25b79e4fee98fda31934da717fef34bdc4e078f1ffe736a36102b1ca5f8b5920fe99c118a22b02e054b3d9e109a1ffffffffff",
+          "cofactor_hex": "0xe052a8a6db9d900d689aefd546257a1f651e6d34b8521e1fcbb6827b3149ec90147af8a733816243f1ec7780a07e2e69484b515a653ddc0ef7534c2f1a53b18ef8937630e1d375beeb9d34ce5ae71950b1ff627f8099559d8ec2873cd306b051369d0e3492fa8f0b18534a9635d5c76e7bc7d7df48a5f0ce36406c80d9"
+        },
+        {
+          "prime": 193,
+          "n": 2480,
+          "state_hex": "0x422860bd35c4f7fbf459b1bb66300d84425279350c5c37e26094537b55094d447e0a44554fb0a87b09d93d3e6f5536b00cd2367e28dbbe6669f110f7e443aeddaa4f7d5b6a99dd39ce7cdd12dbcf27f74c7ed18c9a6d38bff79a5ee2703c78fff39b51b08158e52fc5ac907f4ce08c511581702a59ecf084d0ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x57c0d53555e968c4402214de0adc41ae1af4b0b07a824779347fc4f32d258a4d95f06fdc9974459c91b4b60b30315c6f7c725ad9bed13c38423e6e0d1edbc4220b05f4892c91b9ffbe536240ceab50dde8c80caa952020d42f398724651f227c9ea639f367ebf6f669ae82a633914eaddf8292204cd5796490948f40feac6f6b70bf015390948f40feac6f6b70bf015390948f40feac6f6b70bf015390948f40feac6f6b70bf015390948f40feac6f6b70bf015390948f40feac6f6b70bf015390948f40feac6f6b70bf015390948f40feac6f6b70bf015390948f40feac6f6b70bf015390948f40feac6f6b70bf015390948f40feac6f6b70bf015390948f40feac6f6b70bf015390948f40feac6f6b70bf015390948f40feac6f6b70bf015390948f40feac6f6b70bf015390948f40feac6f6b70bf015390948f40feac6f6b70bf015390948f40feac6f6b70bf015390948f40feac6f6b70bf015390948f40feac6f6b70bf015390948f40feac6f6b70bf015390948f40feac6f6b70bf015390948f40feac6f6b70bf015390948f40feac6f6b70bf015390948f40feac6f6b70bf015390948f40feac6f6b70bf"
+        },
+        {
+          "prime": 241,
+          "n": 33,
+          "state_hex": "0x8450c17a6b89eff7e8b36376cc601b0884a4f26a18b86fc4c128a6f6aa129a88fc1488aa9f6150f613b27a7cdeaa6d6019a46cfc51b77cccd3e221efc8875dbb549efab6d533ba739cf9ba25b79e4fee98fda31934da717fef34bdc4e078f1ffe736a36102b1ca5f8b5920fe99c118a22b02e054b3d9e109a1ffffffff",
+          "cofactor_hex": "0x8c8d04c1c6262c949df4ba6292fcecea3e4b5cdaec952d6e3657cbe9561e624b671f5f3f55620fe476a637c130820c1559e9153ac326c22d7e485f88cc830b665383b2272014f4cb8a10b4bcc74bc0317f7585f26901887f6631a686c6141fdde7cb90de04fc973c104dae33a02327f9ce162cf72fa484d1ef010fef"
+        },
+        {
+          "prime": 257,
+          "n": 135,
+          "state_hex": "0x2114305e9ae27bfdfa2cd8ddb31806c221293c9a862e1bf1304a29bdaa84a6a23f05222aa7d8543d84ec9e9f37aa9b5806691b3f146ddf3334f8887bf221d76ed527beadb54cee9ce73e6e896de793fba63f68c64d369c5ffbcd2f71381e3c7ff9cda8d840ac7297e2d6483fa67046288ac0b8152cf67842687fffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x20f33d21796912eb0f1dbb2290877f42de4af1a8dd50cb260a3fe9d3d6adf8a9956fb2782fa8ab91f2f9a4fa3d6d2e29dc8c8eb06409d55dd7216714dd4492dbf92e901d97b5396383bab3d5984f44b6ef5018ad9f97055aa12c036dca53e897626b3d9aa6066c2bb71f29168fe065c2c7f8bf55d71f58e97f00ff00ff00ff00ff00ff00ff00ff00ff"
+        },
+        {
+          "prime": 281,
+          "n": 233,
+          "state_hex": "0x8450c17a6b89eff7e8b36376cc601b0884a4f26a18b86fc4c128a6f6aa129a88fc1488aa9f6150f613b27a7cdeaa6d6019a46cfc51b77cccd3e221efc8875dbb549efab6d533ba739cf9ba25b79e4fee98fda31934da717fef34bdc4e078f1ffe736a36102b1ca5f8b5920fe99c118a22b02e054b3d9e109a1ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x788b2a57d77e938ef2f910d243c22561f3d52215f3e6e38c1346be5f5a4224edc3f1e8eb9d0b3872dc31a1b2719310bd95fe90d74b5b8c1de834f5ebc28813cc5f5026e9fba101528d30093e9a871e008b61265a6158c626341dd40f6016b9d9a60094d7ec970a5c8298428017768596792d705bbe4520d4d8d35c03a4e5947f8b634d700e939651fe2d8d35c03a4e5947f8b634d7"
+        },
+        {
+          "prime": 337,
+          "n": 773,
+          "state_hex": "0x8450c17a6b89eff7e8b36376cc601b0884a4f26a18b86fc4c128a6f6aa129a88fc1488aa9f6150f613b27a7cdeaa6d6019a46cfc51b77cccd3e221efc8875dbb549efab6d533ba739cf9ba25b79e4fee98fda31934da717fef34bdc4e078f1ffe736a36102b1ca5f8b5920fe99c118a22b02e054b3d9e109a1fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x64833b9d90bddd08497547c250ceb40f9623a9b725c51455a73e06cf20b84ada0194893e010c6500d16e83077f5dc2c10690a7ded17251214b1dba108c2d18dd4eb70ef9cbbcf1e8eab61b7587afb705c5801aa98eb39cddc42506a94e9a2a8a2e801ae01a5aff861c5f0dab6049c230beaddd4ec6e9e0e2184f00c2780613c0309e0184f00c2780613c0309e0184f00c2780613c0309e0184f00c2780613c0309e0184f00c2780613c0309e0184f00c2780613c0309e0184f00c2780613c0309e0184f00c2780613c0309e0184f00c2780613c0309e0184f"
+        },
+        {
+          "prime": 641,
+          "n": 207,
+          "state_hex": "0x2114305e9ae27bfdfa2cd8ddb31806c221293c9a862e1bf1304a29bdaa84a6a23f05222aa7d8543d84ec9e9f37aa9b5806691b3f146ddf3334f8887bf221d76ed527beadb54cee9ce73e6e896de793fba63f68c64d369c5ffbcd2f71381e3c7ff9cda8d840ac7297e2d6483fa67046288ac0b8152cf67842687fffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0xd35fdc0576ad3aa8642a27e1534542bfbabd382ce2662392fa43569b386d9837e35f8143b0bb69c5d063cf41b063ba4f3c8877ca31de6eb50a98c5fd41f1689b7c66350f4efff722ed30aff5f69aa86d95c051a1474101ff18b0e8dddb36a08c6cf8a1f40918d3777bf69ef16240da45c28398b0d905cc2427f00663d80ff99c27f00663d80ff99c27f00663d80ff99c27f"
+        },
+        {
+          "prime": 673,
+          "n": 237,
+          "state_hex": "0x8450c17a6b89eff7e8b36376cc601b0884a4f26a18b86fc4c128a6f6aa129a88fc1488aa9f6150f613b27a7cdeaa6d6019a46cfc51b77cccd3e221efc8875dbb549efab6d533ba739cf9ba25b79e4fee98fda31934da717fef34bdc4e078f1ffe736a36102b1ca5f8b5920fe99c118a22b02e054b3d9e109a1fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x3254bbb65d664cd375ce5132e522a7c355d4ff0438923c0354819456385327622243e96e2b20d561c9deb53fdaf9b229e16edab777b6c5582f1f9f5b9736ea37482115f424f96e1a7adaffacf7dde24dd37dc513dbceb7eaac64b4371bf2aa69b5e7e5e5c1e17d4a008348457572270a559758c180e4f25206160ff9e9f006160ff9e9f006160ff9e9f006160ff9e9f006160ff9e9f"
+        },
+        {
+          "prime": 1153,
+          "n": 32,
+          "state_hex": "0x422860bd35c4f7fbf459b1bb66300d84425279350c5c37e26094537b55094d447e0a44554fb0a87b09d93d3e6f5536b00cd2367e28dbbe6669f110f7e443aeddaa4f7d5b6a99dd39ce7cdd12dbcf27f74c7ed18c9a6d38bff79a5ee2703c78fff39b51b08158e52fc5ac907f4ce08c511581702a59ecf084d0ffffffff",
+          "cofactor_hex": "0xeb06014b204362bf3a4e668386fea2240041a060169833198a9b3f36b06ba5796c45555541492a56ba693427bbe8c79aeeb66055d388f8516697a8da179613819615b8e30fadcf82f9f630aa0434f41c97da0df0d31c8a8bc315f72714998c19955c634112c61f4d9128dc3e58d1c44a0320dcd748c87ff4b0bc47f"
+        },
+        {
+          "prime": 1321,
+          "n": 257,
+          "state_hex": "0x8450c17a6b89eff7e8b36376cc601b0884a4f26a18b86fc4c128a6f6aa129a88fc1488aa9f6150f613b27a7cdeaa6d6019a46cfc51b77cccd3e221efc8875dbb549efab6d533ba739cf9ba25b79e4fee98fda31934da717fef34bdc4e078f1ffe736a36102b1ca5f8b5920fe99c118a22b02e054b3d9e109a1ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x19a449ed7a319948a792951dce13031b6cd7ae4cc2b5163dc5b2ff37bf49907aaaf0cb394a1a39294af0654116cd80c042fba011e409fa575df77fb270e3c6f9166810078687fd5fda34a8a0cb054afc0bd1ce9a1ae8a3138f724998af47b151f49b8b9aa60562b676dcc135cc04169a4a9cc114df385ec598e700319c63ff398e700319c63ff398e700319c63ff398e700319c63ff398e7"
+        },
+        {
+          "prime": 14449,
+          "n": 53,
+          "state_hex": "0x8450c17a6b89eff7e8b36376cc601b0884a4f26a18b86fc4c128a6f6aa129a88fc1488aa9f6150f613b27a7cdeaa6d6019a46cfc51b77cccd3e221efc8875dbb549efab6d533ba739cf9ba25b79e4fee98fda31934da717fef34bdc4e078f1ffe736a36102b1ca5f8b5920fe99c118a22b02e054b3d9e109a1fffffffffffff",
+          "cofactor_hex": "0x25823e2ea52c6665ebae89f02c9cdd7a613d32e9dce024c969e832061b20dc21ccf5ffcc9549fd42b1564bb898d7b52041aa796e7cf8410080198cfedb9945802353d9dc9fba2fdbe36eb5c9ab3cd77f0b5ab3028e83698b02b2c459c1dfea7496cd07d085261f2ea9a7b2777ad6292d8746b5fb4610de4243ffeddb776f"
+        },
+        {
+          "prime": 29191,
+          "n": 1853,
+          "state_hex": "0x8450c17a6b89eff7e8b36376cc601b0884a4f26a18b86fc4c128a6f6aa129a88fc1488aa9f6150f613b27a7cdeaa6d6019a46cfc51b77cccd3e221efc8875dbb549efab6d533ba739cf9ba25b79e4fee98fda31934da717fef34bdc4e078f1ffe736a36102b1ca5f8b5920fe99c118a22b02e054b3d9e109a1fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x1290ee5363cc1be2347445b291b8309fe4de6e308bb77b701af6938559c972dd03d7fab0f9899063c6be3fe52e5f2d6fc01b002a23d42f275376aee1055848db6eaef483e8e93d401d52a70405504769740cc0c64c157ee3fd1e091217a83951ccd4ea6b02ca2f6d4df800a172f6d95a419e0f0af6e281f4e1865ccd63ab489200047d7a8a70c32e66b1d5a44900023ebd453861973358ead22480011f5ea29c30cb99ac75691240008faf514e1865ccd63ab489200047d7a8a70c32e66b1d5a44900023ebd453861973358ead22480011f5ea29c30cb99ac75691240008faf514e1865ccd63ab489200047d7a8a70c32e66b1d5a44900023ebd453861973358ead22480011f5ea29c30cb99ac75691240008faf514e1865ccd63ab489200047d7a8a70c32e66b1d5a44900023ebd453861973358ead22480011f5ea29c30cb99ac75691240008faf514e1865ccd63ab489200047d7a8a70c32e66b1d5a449"
+        },
+        {
+          "prime": 38737,
+          "n": 212,
+          "state_hex": "0x422860bd35c4f7fbf459b1bb66300d84425279350c5c37e26094537b55094d447e0a44554fb0a87b09d93d3e6f5536b00cd2367e28dbbe6669f110f7e443aeddaa4f7d5b6a99dd39ce7cdd12dbcf27f74c7ed18c9a6d38bff79a5ee2703c78fff39b51b08158e52fc5ac907f4ce08c511581702a59ecf084d0fffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x6fed4a04baf3d1f353aefd3a1c7bd47d80310492d21088bc60982e55e804e61735bca228b1b2bf72600eff267db7d67f75d06bbc4e74d80a44fd033e7ffb3bf8b15f904f44b23b0dc4e2724f2849980a7f726d163028a9571e94aca935bcfb42e23c9612af5c3eba5cbff209b1b0deb15f9736cb779a71001b11b0fffe4ee4f0001b11b0fffe4ee4f0001b11b0fffe4ee4f"
+        },
+        {
+          "prime": 65537,
+          "n": 95,
+          "state_hex": "0x2114305e9ae27bfdfa2cd8ddb31806c221293c9a862e1bf1304a29bdaa84a6a23f05222aa7d8543d84ec9e9f37aa9b5806691b3f146ddf3334f8887bf221d76ed527beadb54cee9ce73e6e896de793fba63f68c64d369c5ffbcd2f71381e3c7ff9cda8d840ac7297e2d6483fa67046288ac0b8152cf67842687fffffffffffffffffffffff",
+          "cofactor_hex": "0x21140f4a8b97f06609c6cf16e40122c0fe683e3247fbd3f55c54cd68dd1bc986757eacabfb2c59112bdb72c3c4e6d6712ff7eb472926b60c7eec098fe891eedce64ad862dcea11b2d58b98fdd4e9bf11e72d8198cb9dd0c22b0b046633b808c7f105b7d288d9e9bdf9184f275748eedf9be11c3410c2678000ffff0000ffff0000ffff"
+        },
+        {
+          "prime": 6700417,
+          "n": 495,
+          "state_hex": "0x2114305e9ae27bfdfa2cd8ddb31806c221293c9a862e1bf1304a29bdaa84a6a23f05222aa7d8543d84ec9e9f37aa9b5806691b3f146ddf3334f8887bf221d76ed527beadb54cee9ce73e6e896de793fba63f68c64d369c5ffbcd2f71381e3c7ff9cda8d840ac7297e2d6483fa67046288ac0b8152cf67842687fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x52d38d1c8efd8b5a606cbfa8bd0269435805d77b91f39c7b57f6160890000f33afcbcb591e78df94eb5b9997bf06955fa90697d949208405ee81c9b86ac4f2b418f391bcda020fba0501430c172f967d04152edb83408eb0d23c3519ab478062c5347362b4bb578b9a3f335bc57fec4fbdeca09d47a88280fffffd7f00000280fffffd7f00000280fffffd7f00000280fffffd7f00000280fffffd7f00000280fffffd7f00000280fffffd7f00000280fffffd7f"
+        },
+        {
+          "prime": 487824887233,
+          "n": 968,
+          "state_hex": "0x422860bd35c4f7fbf459b1bb66300d84425279350c5c37e26094537b55094d447e0a44554fb0a87b09d93d3e6f5536b00cd2367e28dbbe6669f110f7e443aeddaa4f7d5b6a99dd39ce7cdd12dbcf27f74c7ed18c9a6d38bff79a5ee2703c78fff39b51b08158e52fc5ac907f4ce08c511581702a59ecf084d0ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x951d029f9332fd65121bfb767fe8b2db06b83e4e963f21d33c818d265a63e10036cfc9d73766cc24ee279091145ab32f9707e80eaecfbfcbbc79742b7324fc1b4dadd1b3bcfb31ae73e55fc0351f356422df055191b15b9b591cf984205677bc4104af09607c24ec79a57dac6cd74f0a1b1b5b1341000240fffffffffdbefffdbf000000000241000240fffffffffdbefffdbf000000000241000240fffffffffdbefffdbf000000000241000240fffffffffdbefffdbf000000000241000240fffffffffdbefffdbf000000000241000240fffffffffdbefffdbf000000000241000240fffffffffdbefffdbf"
+        }
+      ],
+      "native": {
+        "updates": 2480,
+        "full_witnesses_retained": 28,
+        "last_state_hex": "0x422860bd35c4f7fbf459b1bb66300d84425279350c5c37e26094537b55094d447e0a44554fb0a87b09d93d3e6f5536b00cd2367e28dbbe6669f110f7e443aeddaa4f7d5b6a99dd39ce7cdd12dbcf27f74c7ed18c9a6d38bff79a5ee2703c78fff39b51b08158e52fc5ac907f4ce08c511581702a59ecf084d0ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+        "last_state_bits": 3447,
+        "integer_stream_sha256": "492f88eb450c4c84e8d8e52ad0027236fbea5e8845642cc95b7d0ce7a92531e3",
+        "executed_interval_scope": "Witness production through the last listed index; complete-period upper coverage is checked separately above."
+      }
+    },
+    {
+      "name": "minimum_R3_cost_nine_with_fixed_seven_prefix",
+      "root": "112755110470612891256156246069109596727720684467884590849485136661471023397130974501713495184000901218767521913670185762743636668514043005915407753161112053",
+      "root_digits": 156,
+      "family": "R3 with a complete nine-prime supplement containing Q7",
+      "minimum_provenance": {
+        "path": "../tail/proof.md",
+        "scope": "Minimum over exact-cost-nine roots admitting a complete supplement containing Q7; not the minimum over all R3 cost-nine roots."
+      },
+      "supplement": [
+        5,
+        13,
+        19,
+        73,
+        38737,
+        246241,
+        487824887233,
+        33975937,
+        4261383649
+      ],
+      "dictionary": [
+        5,
+        7,
+        13,
+        17,
+        19,
+        31,
+        41,
+        71,
+        73,
+        97,
+        113,
+        127,
+        151,
+        241,
+        257,
+        281,
+        337,
+        641,
+        673,
+        1321,
+        14449,
+        29191,
+        38737,
+        65537,
+        246241,
+        6700417,
+        33975937,
+        4261383649,
+        487824887233
+      ],
+      "cover_period": 60480,
+      "uncovered": 0,
+      "zero_phases": {
+        "5": 2,
+        "7": 1,
+        "13": 0,
+        "17": 3,
+        "19": 8,
+        "31": 4,
+        "41": 5,
+        "71": 13,
+        "73": 2,
+        "97": 21,
+        "113": 21,
+        "127": 1,
+        "151": 11,
+        "241": 9,
+        "257": 7,
+        "281": 23,
+        "337": 17,
+        "641": 15,
+        "673": 45,
+        "1321": 17,
+        "14449": 53,
+        "29191": 68,
+        "38737": 68,
+        "65537": 31,
+        "246241": 68,
+        "6700417": 47,
+        "33975937": 32,
+        "4261383649": 320,
+        "487824887233": 104
+      },
+      "delta_exact": 9,
+      "tau_exact": 29,
+      "witness_count": 29,
+      "max_witness_index": 2048,
+      "pairwise_gcd_one_count": 406,
+      "witnesses": [
+        {
+          "prime": 5,
+          "n": 6,
+          "state_hex": "0x11ae3b962c762ff01b6fbffd0c64e26355b084c53a553fec1fb77fad67f5779c17aa66f5f456341ab7b4ce37b1d0e10493d82a173c8821f29ec1bc843507f6c8974a4c89fb024ed41976ba8d7999d8af398f0ab027a99beef667c0775bda67d90b6fe8fdf04eec7791644725f8c0262008b68e2f6aa97b09042df4f951f88b611e3f",
+          "cofactor_hex": "0x3893f1e08e46ffcd2498ccc35adc6e0aabce75aa5443ffc0657e655e1977e526b221497974470d224bdc2d7f05cf9cdb72b3b9e3f4e6d308626bf4da434caf4eb0edc1b989a0fc40517bee91851f8230b8302233b21ebfc97ae59b178c547f8357cc832c9a9627e5047416dfe8cd46cce8ae93caeeeb23500d5fdcb76cb4f136c73"
+        },
+        {
+          "prime": 7,
+          "n": 16,
+          "state_hex": "0x46b8ee58b1d8bfc06dbefff43193898d56c21314e954ffb07eddfeb59fd5de705ea99bd7d158d06aded338dec74384124f60a85cf22087ca7b06f210d41fdb225d293227ec093b5065daea35e66762bce63c2ac09ea66fbbd99f01dd6f699f642dbfa3f7c13bb1de45911c97e300988022da38bdaaa5ec2410b7d3e547e22d8478ffff",
+          "cofactor_hex": "0xa1a6b313dfa6489343fdb6c071513a67a1bb99545e7923dc8fb246316d568eb7b3ccd1ed4c38b7cfb42befb4109a5272fe93c9f904dca417f4a2294b096d6297b05e297fd25e3e6e9fab3be8ea10e1afc51bcf6f217c6d1b15fdbb1eb583b57743ff2da402d1968e55ddf8369925eedbbd6081b1860d897701a42d79c8e0680a39249"
+        },
+        {
+          "prime": 13,
+          "n": 12,
+          "state_hex": "0x46b8ee58b1d8bfc06dbefff43193898d56c21314e954ffb07eddfeb59fd5de705ea99bd7d158d06aded338dec74384124f60a85cf22087ca7b06f210d41fdb225d293227ec093b5065daea35e66762bce63c2ac09ea66fbbd99f01dd6f699f642dbfa3f7c13bb1de45911c97e300988022da38bdaaa5ec2410b7d3e547e22d8478fff",
+          "cofactor_hex": "0x570afdf70245d84f4bfec4ddc6dcf8106ac779f25a413ab1d7389bf33adfd6b1af95ac1d506d4f4874b5324d440453c7c42831ad78c5936f5c57514fc9ffd2a072a8db44d3bc97c569aaf8dfe07f3e7256716fb1fe56b0e73339dae926a961b65fb0c9ce77abee9b69502331176331d8c86f0ac20d1afb4014937af2cea03805813b"
+        },
+        {
+          "prime": 17,
+          "n": 3,
+          "state_hex": "0x235c772c58ec5fe036df7ffa18c9c4c6ab61098a74aa7fd83f6eff5acfeaef382f54cdebe8ac68356f699c6f63a1c20927b0542e791043e53d8379086a0fed912e949913f6049da832ed751af333b15e731e15604f5337ddeccf80eeb7b4cfb216dfd1fbe09dd8ef22c88e4bf1804c40116d1c5ed552f612085be9f2a3f116c23c7",
+          "cofactor_hex": "0x2147f7b144a23c1e51c34b45bcfa229cdd88817340a078530e8695fb1e0a4a8f3b9b1c29537516c8e15456ff6cd47a62f82d7c67f978b85f48f435ad90ffeea6c26dbd3ff69aeebc6c2ac891d5d64c95210d414b95f3f8586668f1d19dd75a1106784d294bdfdb3b6c080d74a70f56d2e339841d0502c97a623863b730e2e83e57"
+        },
+        {
+          "prime": 19,
+          "n": 152,
+          "state_hex": "0x46b8ee58b1d8bfc06dbefff43193898d56c21314e954ffb07eddfeb59fd5de705ea99bd7d158d06aded338dec74384124f60a85cf22087ca7b06f210d41fdb225d293227ec093b5065daea35e66762bce63c2ac09ea66fbbd99f01dd6f699f642dbfa3f7c13bb1de45911c97e300988022da38bdaaa5ec2410b7d3e547e22d8478ffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x3b8e41f9d92250a20b935e46e6614b698c6d8954fa628679ae3434ced770bb51274b75c337076c2419f53d5d497c3952c994c3ac96007259aaf8600e2be4ee6dc7b6e6de4007c628c18feda6a713b176a6ef4c6c4fb493fc815d7ad56b4b78c026866f217a4d3777cecb0a9ada1b72f2a41614d59d2d688a2906977db5cbf06f8e50d79435e50d79435e50d79435e50d79435e5"
+        },
+        {
+          "prime": 31,
+          "n": 89,
+          "state_hex": "0x8d71dcb163b17f80db7dffe86327131aad842629d2a9ff60fdbbfd6b3fabbce0bd5337afa2b1a0d5bda671bd8e8708249ec150b9e4410f94f60de421a83fb644ba52644fd81276a0cbb5d46bcccec579cc7855813d4cdf77b33e03baded33ec85b7f47ef827763bc8b22392fc601310045b4717b554bd848216fa7ca8fc45b08f1ffffffffffffffffffffff",
+          "cofactor_hex": "0x4900f608f9a5ef3a3fbce72d9e87c7cbb4653cfccfd39c95281ef668e70e50f81fa6d26b2aae427ed57f32725a14253c30e7e799c021946dea59c0115f18a02378f0b7e72532d1df60e1fa06172065ec48802c21ac06a4e2f12843fd5a3b7b3e1eb54e6b1a0c1271d432b2292c63b631b05d21cc0afddafbf039a0ecad4c921522108421084210842108421"
+        },
+        {
+          "prime": 41,
+          "n": 125,
+          "state_hex": "0x8d71dcb163b17f80db7dffe86327131aad842629d2a9ff60fdbbfd6b3fabbce0bd5337afa2b1a0d5bda671bd8e8708249ec150b9e4410f94f60de421a83fb644ba52644fd81276a0cbb5d46bcccec579cc7855813d4cdf77b33e03baded33ec85b7f47ef827763bc8b22392fc601310045b4717b554bd848216fa7ca8fc45b08f1fffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x3732ad89e877380055a7ce0345e9c9042abcefac6b2f9bdaec6256684acc62af1e2cf682faceaf27b427fa6f6fd0cafb8f1fbb99b6bbbb276643dc261c31d6bd297dcfbb4196d0a2a6e94ca6f24434168e3b7289d97ba860a9d9c3043dfb05c4d28915d419f026ebeb5e86b4fc1970c7e9402c491b0addc4bbe0a561c7b6c5de07063e7063e7063e7063e7063e7063e7"
+        },
+        {
+          "prime": 71,
+          "n": 293,
+          "state_hex": "0x8d71dcb163b17f80db7dffe86327131aad842629d2a9ff60fdbbfd6b3fabbce0bd5337afa2b1a0d5bda671bd8e8708249ec150b9e4410f94f60de421a83fb644ba52644fd81276a0cbb5d46bcccec579cc7855813d4cdf77b33e03baded33ec85b7f47ef827763bc8b22392fc601310045b4717b554bd848216fa7ca8fc45b08f1fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x1fdff80b21487344b3440e66d90c69434ec3a3a47796157e6ba88fa4c9d760a6069bc46fb1487ac79a83414b2aef8e746be3738b3e4123f64d152897cf614986794fdcea54bfa75a51f67f31884b71023549fda28867dbd2dcac9f7d0a8d59ddd3b7b9acf5bd2881061d589afdbf5df8d99fa6316d5ccf632f3266b6a9698b803689039b0ad12073615a240e6c2b4481cd85689039b0ad12073615a240e6c2b4481cd85689"
+        },
+        {
+          "prime": 73,
+          "n": 20,
+          "state_hex": "0x46b8ee58b1d8bfc06dbefff43193898d56c21314e954ffb07eddfeb59fd5de705ea99bd7d158d06aded338dec74384124f60a85cf22087ca7b06f210d41fdb225d293227ec093b5065daea35e66762bce63c2ac09ea66fbbd99f01dd6f699f642dbfa3f7c13bb1de45911c97e300988022da38bdaaa5ec2410b7d3e547e22d8478fffff",
+          "cofactor_hex": "0xf80343d85aa3f11a0d23115f5d32faec25ba1fd91d381af737a4cde2a0bce8fdca36bcd1c599a649307b84ce207c8c8658feccaba5447d8370507776a1c05f27d9fd2e22cb8612a2b5d9204cccd041b600d2ff21bc24995e28c0e6fa83334782614f6595ef4892d35d2a795042a367743415d180958f823f5a307de16c4dc632c0e07"
+        },
+        {
+          "prime": 97,
+          "n": 117,
+          "state_hex": "0x8d71dcb163b17f80db7dffe86327131aad842629d2a9ff60fdbbfd6b3fabbce0bd5337afa2b1a0d5bda671bd8e8708249ec150b9e4410f94f60de421a83fb644ba52644fd81276a0cbb5d46bcccec579cc7855813d4cdf77b33e03baded33ec85b7f47ef827763bc8b22392fc601310045b4717b554bd848216fa7ca8fc45b08f1fffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x1754c2c0e3940a798b21fab4d8eeb156370352d4c11966d34c2990ba99049347613550716ca6895ff50e4244372e069f1cd359da0b422784c6efd12d23ab7fb6e2084fe2f17f1634ea2dd3dcff79330c2c48a1e5d00cae1905d02ad790f5fa8556599d05328d185e70ae8d644054a66ee3e8faf7500c82af86d5b76364400f041d5c5f02a3a0fd5c5f02a3a0fd5c5f"
+        },
+        {
+          "prime": 113,
+          "n": 413,
+          "state_hex": "0x8d71dcb163b17f80db7dffe86327131aad842629d2a9ff60fdbbfd6b3fabbce0bd5337afa2b1a0d5bda671bd8e8708249ec150b9e4410f94f60de421a83fb644ba52644fd81276a0cbb5d46bcccec579cc7855813d4cdf77b33e03baded33ec85b7f47ef827763bc8b22392fc601310045b4717b554bd848216fa7ca8fc45b08f1fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x14070f63e0ce5f1482c28c7276406f72c946d14c26e3f6d9a0875c84fdb01abe67d5694cf995c0af415dcc23e6df036b21ce5874f0be737b09eb4fe08490f34b6e3471e286ce82123c8f8d160f6809d657daaab0e22a99fa4b385b25c97643cacfc986c98f132b92c46886f6e7ee0b781bfe5d184272f394686a6dd8b778b001443f6f0243f6f0243f6f0243f6f0243f6f0243f6f0243f6f0243f6f0243f6f0243f6f0243f6f0243f6f0243f6f0243f6f0243f6f"
+        },
+        {
+          "prime": 127,
+          "n": 113,
+          "state_hex": "0x8d71dcb163b17f80db7dffe86327131aad842629d2a9ff60fdbbfd6b3fabbce0bd5337afa2b1a0d5bda671bd8e8708249ec150b9e4410f94f60de421a83fb644ba52644fd81276a0cbb5d46bcccec579cc7855813d4cdf77b33e03baded33ec85b7f47ef827763bc8b22392fc601310045b4717b554bd848216fa7ca8fc45b08f1ffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x11d1df54d62274d9cf0ddbb4754f816621f46da07b4bd79b5664483de3bcf17f15d6131c2caf93413a292078a3170f22d98b40986d62e7c22307cc1c6de3be45218d6758ac5b04ddd520fc8686a726fd33f6f8a16a7e992138d9735e180a7cd2b0d18c161c87fc707248d8d7a81046ad637d8941ee868819369b2b4ff1dc43e8f0204081020408102040810204081"
+        },
+        {
+          "prime": 151,
+          "n": 41,
+          "state_hex": "0x8d71dcb163b17f80db7dffe86327131aad842629d2a9ff60fdbbfd6b3fabbce0bd5337afa2b1a0d5bda671bd8e8708249ec150b9e4410f94f60de421a83fb644ba52644fd81276a0cbb5d46bcccec579cc7855813d4cdf77b33e03baded33ec85b7f47ef827763bc8b22392fc601310045b4717b554bd848216fa7ca8fc45b08f1ffffffffff",
+          "cofactor_hex": "0xefcce7be8a7fff28726c80b0f97a31579cd942656bef0ad083c9bb334857b6e46ebff1e7a5a06deb375a9b8892b21132378829eb78cd3e05052d971c3d747de97fb2ad74b738bb8e1076630b874d9963af6b5fcbd98405e0f9a11594f8ec1247cfad674ed9cc1aadd93bb76a6c82de18325c4d1bb0d1f64e354bb50cd1d485fe36406c80d9"
+        },
+        {
+          "prime": 241,
+          "n": 33,
+          "state_hex": "0x8d71dcb163b17f80db7dffe86327131aad842629d2a9ff60fdbbfd6b3fabbce0bd5337afa2b1a0d5bda671bd8e8708249ec150b9e4410f94f60de421a83fb644ba52644fd81276a0cbb5d46bcccec579cc7855813d4cdf77b33e03baded33ec85b7f47ef827763bc8b22392fc601310045b4717b554bd848216fa7ca8fc45b08f1ffffffff",
+          "cofactor_hex": "0x963f968311bb7bc12d230db60df8a4c20c3ba4d222b2742fca9b1390ba9acf01d90ada7cf50d6a0c78b94d449326464284851d73ab4a6be786f652fe92da8400c5eb2be2177226e869ea93095906216f524ab62dee42c9429a483f72959719434d026c47b62377c0d7c6e054bd1572b91e7dd0b5ff40a1c2875e2c6472797921ef010fef"
+        },
+        {
+          "prime": 257,
+          "n": 87,
+          "state_hex": "0x235c772c58ec5fe036df7ffa18c9c4c6ab61098a74aa7fd83f6eff5acfeaef382f54cdebe8ac68356f699c6f63a1c20927b0542e791043e53d8379086a0fed912e949913f6049da832ed751af333b15e731e15604f5337ddeccf80eeb7b4cfb216dfd1fbe09dd8ef22c88e4bf1804c40116d1c5ed552f612085be9f2a3f116c23c7fffffffffffffffffffff",
+          "cofactor_hex": "0x23393dee6a81de0234aad524f3d5eed7d38d7c0e66443b9ca2cc3327a842ac8ba3b11ccf1992d5600f5a422d366b56b2753b191563ac974def93e52346c9246cc1d2c64da85c4166cc2153c72c07a9b4be5fb5aaa4ae8954983749a512a22d84924d84776934a44ad7f09dae433d0f30e08c8fcf064ca9689fbc2dc4df1204bd7f00ff00ff00ff00ff00ff"
+        },
+        {
+          "prime": 281,
+          "n": 233,
+          "state_hex": "0x8d71dcb163b17f80db7dffe86327131aad842629d2a9ff60fdbbfd6b3fabbce0bd5337afa2b1a0d5bda671bd8e8708249ec150b9e4410f94f60de421a83fb644ba52644fd81276a0cbb5d46bcccec579cc7855813d4cdf77b33e03baded33ec85b7f47ef827763bc8b22392fc601310045b4717b554bd848216fa7ca8fc45b08f1ffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x80dc5817216dc71044c69aca9a1a7ce80506835662ff1635be29e5f6348a3ced8ac5e4620f35698781f578ee495cf4497291243118d4536f1c4a9afec6d4eb4a74e7c2557eb2fc045e7bbeca11226933bed57c5c3b7d9b4d2a20cf78235ef88383a43de438e8ab08b1c5e5c005786e3c604cee37e0624007684147c8071374a4d8d35c03a4e5947f8b634d700e939651fe2d8d35c03a4e5947f8b634d7"
+        },
+        {
+          "prime": 337,
+          "n": 773,
+          "state_hex": "0x8d71dcb163b17f80db7dffe86327131aad842629d2a9ff60fdbbfd6b3fabbce0bd5337afa2b1a0d5bda671bd8e8708249ec150b9e4410f94f60de421a83fb644ba52644fd81276a0cbb5d46bcccec579cc7855813d4cdf77b33e03baded33ec85b7f47ef827763bc8b22392fc601310045b4717b554bd848216fa7ca8fc45b08f1fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x6b7299f97583097f83085b1652eac962824a8eefe9b71284ee538d9cacf2e30a6fea22b484b4834b0203604711df5c068c591e2d7f0db8469e0c1254d1d9cc8c53ce2941f87556512071d138d246792511d431c2a69712962e85b5598a1f54ea3de8aa1c7e74857f45fd2190eb7e3f0d1eebd38c070fd5ac89d3adccc5549732184f00c2780613c0309e0184f00c2780613c0309e0184f00c2780613c0309e0184f00c2780613c0309e0184f00c2780613c0309e0184f00c2780613c0309e0184f00c2780613c0309e0184f00c2780613c0309e0184f00c2780613c0309e0184f"
+        },
+        {
+          "prime": 641,
+          "n": 207,
+          "state_hex": "0x235c772c58ec5fe036df7ffa18c9c4c6ab61098a74aa7fd83f6eff5acfeaef382f54cdebe8ac68356f699c6f63a1c20927b0542e791043e53d8379086a0fed912e949913f6049da832ed751af333b15e731e15604f5337ddeccf80eeb7b4cfb216dfd1fbe09dd8ef22c88e4bf1804c40116d1c5ed552f612085be9f2a3f116c23c7fffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0xe1f56559aed60ffafacbae614489812a37f0435b2c97c24d76fd3031eb8160da7124b0d249cb7cbdb05d5d7050b7c385fb9d7560e00e798a857a6f3c8e934f1b1f441ed9cf642f54bda3df2007ae297f1452019af0e76f5fc54782f69b7a339257dbb4d07d59aee7b521814beb3d69099ee1284ecf599c9b2aa198a0a5c4a96427f00663d80ff99c27f00663d80ff99c27f00663d80ff99c27f"
+        },
+        {
+          "prime": 673,
+          "n": 237,
+          "state_hex": "0x8d71dcb163b17f80db7dffe86327131aad842629d2a9ff60fdbbfd6b3fabbce0bd5337afa2b1a0d5bda671bd8e8708249ec150b9e4410f94f60de421a83fb644ba52644fd81276a0cbb5d46bcccec579cc7855813d4cdf77b33e03baded33ec85b7f47ef827763bc8b22392fc601310045b4717b554bd848216fa7ca8fc45b08f1fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x35cdbc8e08407988e2845fd2803f8d8b194d466f0164cd2c1f1733219190111228d33278d2ff7a6bee5e813b8d52efb2a317b432ee37f0a020bbde9375a250be785312c1f00d1c01d301138f545f63d79a3c3a6421f7f6ab0f4ebed9e97d9eeb36f6fa450b3566fc05c1b39d036cdd013ea6c7201445ee9c02115de042dbffa206160ff9e9f006160ff9e9f006160ff9e9f006160ff9e9f006160ff9e9f"
+        },
+        {
+          "prime": 1321,
+          "n": 257,
+          "state_hex": "0x8d71dcb163b17f80db7dffe86327131aad842629d2a9ff60fdbbfd6b3fabbce0bd5337afa2b1a0d5bda671bd8e8708249ec150b9e4410f94f60de421a83fb644ba52644fd81276a0cbb5d46bcccec579cc7855813d4cdf77b33e03baded33ec85b7f47ef827763bc8b22392fc601310045b4717b554bd848216fa7ca8fc45b08f1ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x1b6933e07cbe3500bf5e607da7142b3c669dc6ab474025167a6ce8d379d4ed5f4ba460d5e05a3c3cccf6fa54685cd533166eb777efc54aeaacdf9d942f55681e5f6887b71a90457fdd0faa09a69fd5a6d0ffdef594e411b9c9fa939e1c10e850afddc0cfa68ee68fe64061e6c35804d853460b86f1b77dd373f8f4e9d29b7d9598e700319c63ff398e700319c63ff398e700319c63ff398e700319c63ff398e7"
+        },
+        {
+          "prime": 14449,
+          "n": 53,
+          "state_hex": "0x8d71dcb163b17f80db7dffe86327131aad842629d2a9ff60fdbbfd6b3fabbce0bd5337afa2b1a0d5bda671bd8e8708249ec150b9e4410f94f60de421a83fb644ba52644fd81276a0cbb5d46bcccec579cc7855813d4cdf77b33e03baded33ec85b7f47ef827763bc8b22392fc601310045b4717b554bd848216fa7ca8fc45b08f1fffffffffffff",
+          "cofactor_hex": "0x2818c3f072b8ef420730eafa875e94532e4ce696167a12a3d03aad6e65b61d574a85f86f299a3b4e89fdae51d5e02729280677ba5ffe99901eea28ae6279365843225be68372e335c007527cec27b1781ee40c430a3cbc268a045cd57e93cc4631139f3e871aa22e9bfcbb8101f7cc43e6551034d25aeae85034e9bda5d2a34243ffeddb776f"
+        },
+        {
+          "prime": 29191,
+          "n": 1013,
+          "state_hex": "0x8d71dcb163b17f80db7dffe86327131aad842629d2a9ff60fdbbfd6b3fabbce0bd5337afa2b1a0d5bda671bd8e8708249ec150b9e4410f94f60de421a83fb644ba52644fd81276a0cbb5d46bcccec579cc7855813d4cdf77b33e03baded33ec85b7f47ef827763bc8b22392fc601310045b4717b554bd848216fa7ca8fc45b08f1fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x13d8de02483ce5bc1e7b9a14e8b3d3b59f2a7546874572aa8070d04a1f550e8caf205d683f97456cd2d007ae57e5223b2d985510602728341f555be6610bf729a093ab2fda43c91e6dcf68a82462a560c3ab0cb9c74d25dad39469efcaef80d793d0a5b4a22aba88458bc2d0138137155b8f364a9b99cace833d81ced851a4f4e1865ccd63ab489200047d7a8a70c32e66b1d5a44900023ebd453861973358ead22480011f5ea29c30cb99ac75691240008faf514e1865ccd63ab489200047d7a8a70c32e66b1d5a44900023ebd453861973358ead22480011f5ea29c30cb99ac75691240008faf514e1865ccd63ab489200047d7a8a70c32e66b1d5a449"
+        },
+        {
+          "prime": 38737,
+          "n": 212,
+          "state_hex": "0x46b8ee58b1d8bfc06dbefff43193898d56c21314e954ffb07eddfeb59fd5de705ea99bd7d158d06aded338dec74384124f60a85cf22087ca7b06f210d41fdb225d293227ec093b5065daea35e66762bce63c2ac09ea66fbbd99f01dd6f699f642dbfa3f7c13bb1de45911c97e300988022da38bdaaa5ec2410b7d3e547e22d8478fffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x77a64510af9584fd33ee509d235c2446f8097be6138e17476cf503b4799ca28c9c44183d48d3887476a238ddbaabff6842c740f67dafea2e6d13623786e0181fc176a57e677c96b4eaff412e3e57953c7d9e61b8497a62596649fd6115859ddcc98fe08a869dd72fc8cfce9100357447c9fb71e5f08fc774e7cdf55e568599001b11b0fffe4ee4f0001b11b0fffe4ee4f0001b11b0fffe4ee4f"
+        },
+        {
+          "prime": 65537,
+          "n": 95,
+          "state_hex": "0x235c772c58ec5fe036df7ffa18c9c4c6ab61098a74aa7fd83f6eff5acfeaef382f54cdebe8ac68356f699c6f63a1c20927b0542e791043e53d8379086a0fed912e949913f6049da832ed751af333b15e731e15604f5337ddeccf80eeb7b4cfb216dfd1fbe09dd8ef22c88e4bf1804c40116d1c5ed552f612085be9f2a3f116c23c7fffffffffffffffffffffff",
+          "cofactor_hex": "0x235c53d0051c5ac3dc1ba3de74eb4fdb5b85ae04c6a5b932863c791e56cc986b96e93702b1a9b68bb8dde391801041f8e5b76e770a99394c043774d0f53ef852364262d193330a7528784ca2a6910acd6850ad0fa243959a573529b98dfb41b6d528fcd2e3caf5242da460a790d8bb675605c6590ef9e7182143c8aedb423b8000ffff0000ffff0000ffff"
+        },
+        {
+          "prime": 246241,
+          "n": 1040,
+          "state_hex": "0x46b8ee58b1d8bfc06dbefff43193898d56c21314e954ffb07eddfeb59fd5de705ea99bd7d158d06aded338dec74384124f60a85cf22087ca7b06f210d41fdb225d293227ec093b5065daea35e66762bce63c2ac09ea66fbbd99f01dd6f699f642dbfa3f7c13bb1de45911c97e300988022da38bdaaa5ec2410b7d3e547e22d8478ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x12d28cff67fd6e0585b2e0c32b6ea60a7f359db0f76bc3ca089a9efbf9b4b7f8305b666df698a97ce95e10d5a3b1da5fbc222de7a6e66260f838aed129e66f3ec232c0369b0cc67b975ecd1714cf46be20ccf183f4b97fc944639a53536d4c8a7f5708eaaac03b61c94a1bd3a0a213319e90e0acac52b4773255ef0c9167ba0883fffeef777bddf00004422210883fffeef777bddf00004422210883fffeef777bddf00004422210883fffeef777bddf00004422210883fffeef777bddf00004422210883fffeef777bddf00004422210883fffeef777bddf00004422210883fffeef777bddf00004422210883fffeef777bddf00004422210883fffeef777bddf"
+        },
+        {
+          "prime": 6700417,
+          "n": 111,
+          "state_hex": "0x235c772c58ec5fe036df7ffa18c9c4c6ab61098a74aa7fd83f6eff5acfeaef382f54cdebe8ac68356f699c6f63a1c20927b0542e791043e53d8379086a0fed912e949913f6049da832ed751af333b15e731e15604f5337ddeccf80eeb7b4cfb216dfd1fbe09dd8ef22c88e4bf1804c40116d1c5ed552f612085be9f2a3f116c23c7fffffffffffffffffffffffffff",
+          "cofactor_hex": "0x588a8665b21d55aab74849c680c8ebeef2550cf4bbc9dd27bb0b103aa79030c106f326daaaa48a132152e69fc7252039253b628f37e65771c71fda9c4a72073c3b300c0ebfd182b367b30f8513415f986afcf3edbba26af4f25126e0c7aa952c239bd79b89cf64933c48c7b8eb6977338038bcd5f3ebfd4d3302277b597c8280fffffd7f00000280fffffd7f"
+        },
+        {
+          "prime": 33975937,
+          "n": 32,
+          "state_hex": "0x46b8ee58b1d8bfc06dbefff43193898d56c21314e954ffb07eddfeb59fd5de705ea99bd7d158d06aded338dec74384124f60a85cf22087ca7b06f210d41fdb225d293227ec093b5065daea35e66762bce63c2ac09ea66fbbd99f01dd6f699f642dbfa3f7c13bb1de45911c97e300988022da38bdaaa5ec2410b7d3e547e22d8478ffffffff",
+          "cofactor_hex": "0x22ec29278a6fdbe320ca5baa6bd0b89b1a3c9c92d3328a27dd76fa8ed49c6fbb912e4ff4b1df6c2009ac70a15a87127dad7ee6ff60dc87079420da97664306d25d135f590d3537be16486da53574b72da732912f529c3757a616f7bf75c574bb8ffab145511c2092d48a473431c3a9afc12661d0355294286c14458bf37f84f42e7f"
+        },
+        {
+          "prime": 4261383649,
+          "n": 2048,
+          "state_hex": "0x46b8ee58b1d8bfc06dbefff43193898d56c21314e954ffb07eddfeb59fd5de705ea99bd7d158d06aded338dec74384124f60a85cf22087ca7b06f210d41fdb225d293227ec093b5065daea35e66762bce63c2ac09ea66fbbd99f01dd6f699f642dbfa3f7c13bb1de45911c97e300988022da38bdaaa5ec2410b7d3e547e22d8478ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x47479d59eb6db3e28f412e8ba8836449d4fe1508eb4e20cf66bdcf31fb0c4fe912e2d92c7877da2722c1943eae148a430f8e60298e4d48c2a6159ace2c05749d5a754e1a51a8ba521062cb07f0a8d3854365ebbea84975ae4d86ee5ba02594f73d1d012154e97fb6f6a456417234987955ca4c3b9b4e4f230479f50b3836457359322b06309d31c97620fffffffefdfb8402c7cdd4f9ce60c9ba8ca6cdd4f9cf62ce3689df0000000102047bfd38322b06319f36457359322b06309d31c97620fffffffefdfb8402c7cdd4f9ce60c9ba8ca6cdd4f9cf62ce3689df0000000102047bfd38322b06319f36457359322b06309d31c97620fffffffefdfb8402c7cdd4f9ce60c9ba8ca6cdd4f9cf62ce3689df0000000102047bfd38322b06319f36457359322b06309d31c97620fffffffefdfb8402c7cdd4f9ce60c9ba8ca6cdd4f9cf62ce3689df0000000102047bfd38322b06319f36457359322b06309d31c97620fffffffefdfb8402c7cdd4f9ce60c9ba8ca6cdd4f9cf62ce3689df"
+        },
+        {
+          "prime": 487824887233,
+          "n": 1832,
+          "state_hex": "0x46b8ee58b1d8bfc06dbefff43193898d56c21314e954ffb07eddfeb59fd5de705ea99bd7d158d06aded338dec74384124f60a85cf22087ca7b06f210d41fdb225d293227ec093b5065daea35e66762bce63c2ac09ea66fbbd99f01dd6f699f642dbfa3f7c13bb1de45911c97e300988022da38bdaaa5ec2410b7d3e547e22d8478ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+          "cofactor_hex": "0x9f66d1d54faabe19904448cae9ecc3ad34843049e26ba9ab095223b505b9b60edb5d5163161bb579aa8c76bcf61c3f16ea6afc47a9a0af4e03b24bfaf119c42741c31033f9e9c0e70f1f5708dabeff472ae408c80a56befcb3765590cf75ed99eb79bb06f6a8a762e86c7db21bbf21680ffd2634595e1d99819794bb41000240fffffffffdbefffdbf000000000241000240fffffffffdbefffdbf000000000241000240fffffffffdbefffdbf000000000241000240fffffffffdbefffdbf000000000241000240fffffffffdbefffdbf000000000241000240fffffffffdbefffdbf000000000241000240fffffffffdbefffdbf000000000241000240fffffffffdbefffdbf000000000241000240fffffffffdbefffdbf000000000241000240fffffffffdbefffdbf000000000241000240fffffffffdbefffdbf000000000241000240fffffffffdbefffdbf000000000241000240fffffffffdbefffdbf"
+        }
+      ],
+      "native": {
+        "updates": 2048,
+        "full_witnesses_retained": 29,
+        "last_state_hex": "0x46b8ee58b1d8bfc06dbefff43193898d56c21314e954ffb07eddfeb59fd5de705ea99bd7d158d06aded338dec74384124f60a85cf22087ca7b06f210d41fdb225d293227ec093b5065daea35e66762bce63c2ac09ea66fbbd99f01dd6f699f642dbfa3f7c13bb1de45911c97e300988022da38bdaaa5ec2410b7d3e547e22d8478ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+        "last_state_bits": 3079,
+        "integer_stream_sha256": "fd36e3a1502816d72529aa715c2a414489fe035e82c858b9aada24cd9e83069a",
+        "executed_interval_scope": "Witness production through the last listed index; complete-period upper coverage is checked separately above."
+      }
+    }
+  ],
+  "classification_dependency": "Only the stated global-minimum scopes use previous classification theorems; each displayed delta and tau equality is proved by this certificate.",
+  "native_execution": true,
+  "actual_counts": {
+    "one_step_updates": 6434,
+    "two_step_evaluations": 3216,
+    "prime_readouts": 179521,
+    "joint_readouts": 6434,
+    "joint_recompositions": 6434,
+    "retained_witnesses": 110,
+    "gcd_one_pairs": 1460
+  },
+  "elapsed_seconds": 0.466728675000013,
+  "native_source_commit": "b1efc6c805661ed7b476e6e730107da6043176ee",
+  "native_source_blobs": {
+    "brc_transport.py": "be1debe367263931bd5e93fd750be3ed54624fe1",
+    "brc_histogram.py": "9a3962ec095095f14e63a91cfe6b7ebf07d9a1d1",
+    "brc_rational_holonomy.py": "2591640fe348da9cd7f293a957bea9ae92c82943",
+    "brc_weighted_recurrent.py": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb"
+  },
+  "native_semantics": "Fixed X6 anchor, full typed integer register, positive singleton BRC weight and multiplicity one; x -> 2x+1, with joint quotient-chain reconstruction.",
+  "independent_review": "Not claimed"
+}
