@@ -1,0 +1,150 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT5_5_AUTHOR_EXACT_SEGMENT_V1",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "author": "EM-DIRECT-D03BC9",
+  "activity": "RA-A468735D7C934B25C4B9614F",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "signed_split": [
+    5,
+    5
+  ],
+  "negative_q_pattern": [
+    1,
+    1,
+    3
+  ],
+  "interval": [
+    300,
+    1236
+  ],
+  "total_negative_rosters": 10908,
+  "positive_q_patterns": [
+    [
+      5
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      1,
+      1,
+      3
+    ],
+    [
+      1,
+      2,
+      2
+    ],
+    [
+      1,
+      1,
+      1,
+      2
+    ],
+    [
+      1,
+      1,
+      1,
+      1,
+      1
+    ]
+  ],
+  "budget_each_side": 2331,
+  "lattice_index": "13^21",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "stats": {
+    "negative_rosters": 936,
+    "positive_rosters": 10908,
+    "raw_signed_pairs": 9490572,
+    "common_named_atom_canceled": 3854304,
+    "vertical_original_mass_excess": 0,
+    "gs_searches": 5636268,
+    "gs_nodes": 10867360,
+    "relaxed_sphere_witnesses": 1,
+    "both_original_side_mass_valid": 0
+  },
+  "negative_roster_sha256": "411bc33b9edc1950e3a40b0a9de32ff7ad3715799cc13bf47b59524944b7677f",
+  "pair_digest_sha256": "32b06d3d857e6e16856129913668f08aea0b6de77e69da67c1f021dcf99a40fe",
+  "witnesses": [
+    {
+      "negative_roster_index": 954,
+      "positive_roster_index": 6543,
+      "pos": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          4
+        ]
+      ],
+      "neg": [
+        [
+          1,
+          6
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "u": [
+        60,
+        -5,
+        5,
+        -2,
+        -8,
+        -5,
+        4,
+        10,
+        2,
+        -1,
+        -2,
+        2
+      ],
+      "masses": [
+        3786,
+        2678
+      ],
+      "norm_sq": 2428619,
+      "radius_sq": 3339869,
+      "budget_valid": false,
+      "modular_residues": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "author_replay_base": "awdawmip/enterprise-math@a466be736446891b423809b0ba23cb37ec123502:research_checks/T6_P13_Q10_SPLIT3_7_NEG1123_INTEGER_GS_REPLAY_20261124.py",
+  "replay_rule": "Same exact saturation and integer GS recurrence; extend c_atom to q=1..5, both roster lists use ordered partitions (5),(1,4),(2,3),(1,1,3),(1,2,2),(1,1,1,2),(1,1,1,1,1). Within each partition use Cartesian products of combinations_with_replacement(1..12,multiplicity) grouped by q in increasing order. For negative i search positive j>i. Common named atoms cancel by prior lower-order clearance; otherwise use unchanged pair_search. Hash repr(roster) and repr((i,j,pos,neg)) plus LF. Actual local execution used Python SymPy exact rational setup and C++ boost::multiprecision::cpp_int GS recursion; independently recomputed direct norm, side masses and all six modular residues at witness. No p17 q14 protected progress.",
+  "validation": "Conditional on prior high-prime elimination, common named atom reduction and lattice completeness.",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "elapsed_seconds": 8.77409,
+  "next_action": "q122 rows [1236,2172), no repeat q23 or q113. Native recovery/checkpoint unavailable at start: BACKEND_IDENTITY_CHECK_UNAVAILABLE operation_sent=false; last reported revision133."
+}
