@@ -1,0 +1,68 @@
+{
+  "record_schema": "ENTERPRISE_MATH_TASK_PUBLICATION_RECORD_V2",
+  "record_state": "ACTIVE",
+  "task_id": "RS-X6-GAP-RANDOMIZED-FINITE-P-20261124",
+  "registry_key": "RS-X6-GAP-RANDOMIZED-FINITE-P-20261124",
+  "publication_id": "TP2-FDA1B2C41E17B0700B0D",
+  "publication_generation": 1,
+  "supersedes_publication_id": null,
+  "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+  "template_version": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+  "publication_transaction": "RESEARCH_TASK_IMMUTABLE_PUBLICATION_V2",
+  "taskbook_path": "research_tasks/RS-X6-GAP-RANDOMIZED-FINITE-P-20261124.md",
+  "taskbook_blob_sha1": "sha1:46ff85333d8458a004fe804e1a6a388c069b21ee",
+  "publisher_role": "RESEARCHER",
+  "publisher_id": "EM-DIRECT-83EEFF",
+  "published_at": "2026-11-24T11:27:26.507072+00:00",
+  "parent_objective_id": "PO-X6-UPPER-STRUCTURE-20260906",
+  "origin_kind": "DIRECT_USER_DIRECTION",
+  "origin_candidate_id": null,
+  "origin_candidate_state": null,
+  "kind": "RESEARCH",
+  "task_lineage": "CONTINUATION",
+  "parent_task_id": "RS-X6-UPPER-STRUCTURE-INTEGRATION-V2",
+  "claimable": true,
+  "effective_priority": "P2",
+  "effective_leverage": "MEDIUM",
+  "priority_source": "RESEARCHER_DEFAULT",
+  "publisher_priority_request": "P2",
+  "publisher_leverage_request": "MEDIUM",
+  "owner": "taskbook/unassigned",
+  "frontier": "已证明 P≥585 时 R0(P)=79/18、硬至多五读类 R0^{≤5}(P)=53/12；137≤P≤584 的两个精确谱及各自最早稳定阈值仍未闭合，585仅为充分阈值。",
+  "next_action": "消费冻结报告第一、三部分的上下界与完整竞争态，选择一个尚未闭合的预算区间，构造匹配的全域正确随机协议与下界，或收紧稳定阈值。",
+  "research_value": "将已闭合的大预算最优值推进为有限预算可复核的精确资源谱，明确随机期望读数与硬支路上限分别何时产生优势。",
+  "terminal_scope": "TASK",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false,
+  "identity_lane": "X6G",
+  "source_refs": [
+    "awdawmip/enterprise-math@210ab8798f12f4a42feb2d2ac64f88c8dfe860f9:research_notes/20261124_x6_randomized_exact_and_control_b47ea3cd.md",
+    "awdawmip/enterprise-math@76ca048da602b36236e6e559fa9bf07cc9c542e4:research_notes/20261124_x6_gap_lower_bounds_deepened_b47ea3cd.md",
+    "awdawmip/enterprise-math@f8b2361632efee3d844bb1fe78d283a760822d26:p000_reality_foundation.json",
+    "awdawmip/enterprise-math@f8b2361632efee3d844bb1fe78d283a760822d26:definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json",
+    "awdawmip/enterprise-math@f8b2361632efee3d844bb1fe78d283a760822d26:definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json",
+    "awdawmip/enterprise-math@f8b2361632efee3d844bb1fe78d283a760822d26:research_constraints/heartbeat_brc_only.json",
+    "awdawmip/enterprise-math@f8b2361632efee3d844bb1fe78d283a760822d26:research_tasks/RS_X6_UPPER_STRUCTURE_INTEGRATION_V2_20260909.md",
+    "awdawmip/enterprise-math@f8b2361632efee3d844bb1fe78d283a760822d26:research_task_records/RS-X6-UPPER-STRUCTURE-INTEGRATION-V2/TP2-9AC22B43194DA7427684.json"
+  ],
+  "dependencies": [
+    {
+      "target": "awdawmip/enterprise-math@210ab8798f12f4a42feb2d2ac64f88c8dfe860f9:research_notes/20261124_x6_randomized_exact_and_control_b47ea3cd.md",
+      "action": "CONSUME",
+      "satisfied": true
+    }
+  ],
+  "evidence_status": "SOURCE_AUTHOR_PROOFS_AND_COLLABORATIVE_CHECKS; INDEPENDENT_REVIEW_NOT_RECORDED; FOLLOWUP_OPEN",
+  "successor_gate": {
+    "new_information_gap": "137≤P≤584 的 R0(P)、R0^{≤5}(P) 及二者各自最早稳定预算未知。",
+    "why_parent_result_does_not_close_it": "母任务提供操作安全的上层状态/观察接口整合目标，没有给出本具名间距模型的有限预算随机谱；直接作者前沿只把大预算闭合并给出小预算部分界。",
+    "discriminating_outcomes": [
+      "闭合精确预算段并给出匹配上下界。",
+      "证明更小的充分稳定阈值，并区分是否已证明最早。",
+      "给出冻结前沿中受影响命题的同假设反例或精确修正。"
+    ],
+    "kill_condition": "若对称性、域外竞争者、整数性或预算条件不成立，淘汰受影响证书并保留实际成立范围；有限搜索未命中只报告覆盖范围。",
+    "alternative_route_or_free_exploration_considered": "可保持现有大预算结论并结束该分支，或研究另外两项控制/原生实现问题；有限预算精确谱具有独立信息增益，可与其并行。",
+    "why_new_stage_or_task_is_better_than_same_task_or_closure": "问题固定为一个明确观察模型中的两个有限预算最优化量，便于独立领取与验证，并将精确资源接口回馈母任务而不接管其整体整合工作。"
+  }
+}

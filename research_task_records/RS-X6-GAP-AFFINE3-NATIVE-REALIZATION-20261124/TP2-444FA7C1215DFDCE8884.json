@@ -1,0 +1,70 @@
+{
+  "record_schema": "ENTERPRISE_MATH_TASK_PUBLICATION_RECORD_V2",
+  "record_state": "ACTIVE",
+  "task_id": "RS-X6-GAP-AFFINE3-NATIVE-REALIZATION-20261124",
+  "registry_key": "RS-X6-GAP-AFFINE3-NATIVE-REALIZATION-20261124",
+  "publication_id": "TP2-444FA7C1215DFDCE8884",
+  "publication_generation": 1,
+  "supersedes_publication_id": null,
+  "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+  "template_version": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+  "publication_transaction": "RESEARCH_TASK_IMMUTABLE_PUBLICATION_V2",
+  "taskbook_path": "research_tasks/RS-X6-GAP-AFFINE3-NATIVE-REALIZATION-20261124.md",
+  "taskbook_blob_sha1": "sha1:d3443fd03099d13cdec0c530572fed3694ed1822",
+  "publisher_role": "RESEARCHER",
+  "publisher_id": "EM-DIRECT-83EEFF",
+  "published_at": "2026-11-24T11:27:26.507072+00:00",
+  "parent_objective_id": "PO-X6-UPPER-STRUCTURE-20260906",
+  "origin_kind": "DIRECT_USER_DIRECTION",
+  "origin_candidate_id": null,
+  "origin_candidate_state": null,
+  "kind": "RESEARCH",
+  "task_lineage": "CONTINUATION",
+  "parent_task_id": "RS-X6-CELL-CHANNEL-INTERNAL-STATE",
+  "claimable": true,
+  "effective_priority": "P2",
+  "effective_leverage": "MEDIUM",
+  "priority_source": "RESEARCHER_DEFAULT",
+  "publisher_priority_request": "P2",
+  "publisher_leverage_request": "MEDIUM",
+  "owner": "taskbook/unassigned",
+  "frontier": "T(a)=3a+e1 的整数同余三读解码、固定标量增益类最小增益3及状态/位移界已有证明；具名原生操作的许可、联合读出、完整状态保持和实际成本尚未落实。",
+  "next_action": "将冻结增益三协议逐项对应到具名原生源律、Cell/Port和实际控制类型，选择一个有来源的机制，证明合法实现或定位具体阻断/缺少条件。",
+  "research_value": "把条件性三读辨识定理推进到具名原生接口的实际实现或有范围的障碍，明确常参数下仍随预算增长的真实资源成本。",
+  "terminal_scope": "TASK",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false,
+  "identity_lane": "X6G",
+  "source_refs": [
+    "awdawmip/enterprise-math@210ab8798f12f4a42feb2d2ac64f88c8dfe860f9:research_notes/20261124_x6_randomized_exact_and_control_b47ea3cd.md",
+    "awdawmip/enterprise-math@76ca048da602b36236e6e559fa9bf07cc9c542e4:research_notes/20261124_x6_gap_lower_bounds_deepened_b47ea3cd.md",
+    "awdawmip/enterprise-math@f8b2361632efee3d844bb1fe78d283a760822d26:p000_reality_foundation.json",
+    "awdawmip/enterprise-math@f8b2361632efee3d844bb1fe78d283a760822d26:definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json",
+    "awdawmip/enterprise-math@f8b2361632efee3d844bb1fe78d283a760822d26:definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json",
+    "awdawmip/enterprise-math@f8b2361632efee3d844bb1fe78d283a760822d26:research_constraints/heartbeat_brc_only.json",
+    "awdawmip/enterprise-math@f8b2361632efee3d844bb1fe78d283a760822d26:research_tasks/RS_X6_CELL_CHANNEL_INTERNAL_STATE_20260906.md",
+    "awdawmip/enterprise-math@f8b2361632efee3d844bb1fe78d283a760822d26:research_task_records/RS-X6-CELL-CHANNEL-INTERNAL-STATE/TP2-B5E2097A3C6418DF42E5.json",
+    "awdawmip/enterprise-math@f8b2361632efee3d844bb1fe78d283a760822d26:src/enterprise_math/brc_transport.py",
+    "awdawmip/enterprise-math@f8b2361632efee3d844bb1fe78d283a760822d26:src/enterprise_math/brc_control_port.py"
+  ],
+  "dependencies": [
+    {
+      "target": "awdawmip/enterprise-math@210ab8798f12f4a42feb2d2ac64f88c8dfe860f9:research_notes/20261124_x6_randomized_exact_and_control_b47ea3cd.md",
+      "action": "CONSUME",
+      "satisfied": true
+    }
+  ],
+  "evidence_status": "SOURCE_AUTHOR_PROOFS_AND_COLLABORATIVE_CHECKS; INDEPENDENT_REVIEW_NOT_RECORDED; FOLLOWUP_OPEN",
+  "successor_gate": {
+    "new_information_gap": "对未知输入实现 T(a)=3a+e1 的具名原生机制及三标签联合读出是否被实际源律允许，实际资源是多少。",
+    "why_parent_result_does_not_close_it": "Cell母任务定义承载具名通道、三力端口和BRC来源的内态问题，尚未由本次读取材料给出该具体增益控制；直接报告只证明允许该仿射接口时的解码和资源界。",
+    "discriminating_outcomes": [
+      "给出来源明确的合法原生实现与可复算执行证据。",
+      "给出有限条件/预算/接口下的实现，并明确新增条件。",
+      "在具体操作类上给出严格障碍、最小反例或准确缺少的源律条件。"
+    ],
+    "kill_condition": "若候选仅在类型中填写Affine参数、直接使用未知输入、改动未获许可的原生规则或丢失所需来源/支路，淘汰该实现主张；保留已成立的条件性数学结论。",
+    "alternative_route_or_free_exploration_considered": "共同整数平移Pe3、更多静态读取或显式有理参考接口均可作为实际资源比较；因增益三具有固定整数参数，值得单独核对其原生条件，不预设一定可实现。",
+    "why_new_stage_or_task_is_better_than_same_task_or_closure": "这是具名控制、读取、完整状态与资源之间的有限桥接单元，可独立领取并回馈Cell母任务；与V39连续窗口采集的目标和数据类型不同。"
+  }
+}

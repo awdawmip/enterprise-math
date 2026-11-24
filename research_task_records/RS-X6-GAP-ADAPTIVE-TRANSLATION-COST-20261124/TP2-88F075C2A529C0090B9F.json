@@ -1,0 +1,68 @@
+{
+  "record_schema": "ENTERPRISE_MATH_TASK_PUBLICATION_RECORD_V2",
+  "record_state": "ACTIVE",
+  "task_id": "RS-X6-GAP-ADAPTIVE-TRANSLATION-COST-20261124",
+  "registry_key": "RS-X6-GAP-ADAPTIVE-TRANSLATION-COST-20261124",
+  "publication_id": "TP2-88F075C2A529C0090B9F",
+  "publication_generation": 1,
+  "supersedes_publication_id": null,
+  "publication_contract": "RESEARCH_TASK_PUBLICATION_V1",
+  "template_version": "RESEARCH_TASK_PUBLICATION_TEMPLATE_V1",
+  "publication_transaction": "RESEARCH_TASK_IMMUTABLE_PUBLICATION_V2",
+  "taskbook_path": "research_tasks/RS-X6-GAP-ADAPTIVE-TRANSLATION-COST-20261124.md",
+  "taskbook_blob_sha1": "sha1:fffd03ffac26e173358d7ad000a0ca0a38138432",
+  "publisher_role": "RESEARCHER",
+  "publisher_id": "EM-DIRECT-83EEFF",
+  "published_at": "2026-11-24T11:27:26.507072+00:00",
+  "parent_objective_id": "PO-X6-UPPER-STRUCTURE-20260906",
+  "origin_kind": "DIRECT_USER_DIRECTION",
+  "origin_candidate_id": null,
+  "origin_candidate_state": null,
+  "kind": "RESEARCH",
+  "task_lineage": "CONTINUATION",
+  "parent_task_id": "RS-X6-UPPER-STRUCTURE-INTEGRATION-V2",
+  "claimable": true,
+  "effective_priority": "P2",
+  "effective_leverage": "MEDIUM",
+  "priority_source": "RESEARCHER_DEFAULT",
+  "publisher_priority_request": "P2",
+  "publisher_leverage_request": "MEDIUM",
+  "owner": "taskbook/unassigned",
+  "frontier": "共同固定偏移三读门槛已精确解决；任意逐次自适应整数偏移仅知 max(0,P−251)≤C3*(P)≤P 及首偏移同一下界，有限 P 精确值和最佳加性常数开放。",
+  "next_action": "消费冻结报告第二部分3节的六测试向量、七核线和24割证书，研究逐次改变偏移能否严格优于共同偏移的半径P，给出全域协议或改进下界。",
+  "research_value": "揭示减少读取次数实际需要多少控制资源，区分证明模板常数、全部协议最优控制半径与原生实现成本。",
+  "terminal_scope": "TASK",
+  "working_truth_granted": false,
+  "canonical_promotion_granted": false,
+  "identity_lane": "X6G",
+  "source_refs": [
+    "awdawmip/enterprise-math@210ab8798f12f4a42feb2d2ac64f88c8dfe860f9:research_notes/20261124_x6_randomized_exact_and_control_b47ea3cd.md",
+    "awdawmip/enterprise-math@76ca048da602b36236e6e559fa9bf07cc9c542e4:research_notes/20261124_x6_gap_lower_bounds_deepened_b47ea3cd.md",
+    "awdawmip/enterprise-math@f8b2361632efee3d844bb1fe78d283a760822d26:p000_reality_foundation.json",
+    "awdawmip/enterprise-math@f8b2361632efee3d844bb1fe78d283a760822d26:definitions/HEARTBEAT_WORLD_NATIVE_X6_TIME.json",
+    "awdawmip/enterprise-math@f8b2361632efee3d844bb1fe78d283a760822d26:definitions/ENTERPRISE_JOINT_RELATION_OBSERVER_PRESERVATION_20260905.json",
+    "awdawmip/enterprise-math@f8b2361632efee3d844bb1fe78d283a760822d26:research_constraints/heartbeat_brc_only.json",
+    "awdawmip/enterprise-math@f8b2361632efee3d844bb1fe78d283a760822d26:research_tasks/RS_X6_UPPER_STRUCTURE_INTEGRATION_V2_20260909.md",
+    "awdawmip/enterprise-math@f8b2361632efee3d844bb1fe78d283a760822d26:research_task_records/RS-X6-UPPER-STRUCTURE-INTEGRATION-V2/TP2-9AC22B43194DA7427684.json"
+  ],
+  "dependencies": [
+    {
+      "target": "awdawmip/enterprise-math@210ab8798f12f4a42feb2d2ac64f88c8dfe860f9:research_notes/20261124_x6_randomized_exact_and_control_b47ea3cd.md",
+      "action": "CONSUME",
+      "satisfied": true
+    }
+  ],
+  "evidence_status": "SOURCE_AUTHOR_PROOFS_AND_COLLABORATIVE_CHECKS; INDEPENDENT_REVIEW_NOT_RECORDED; FOLLOWUP_OPEN",
+  "successor_gate": {
+    "new_information_gap": "逐次改变整数累计偏移的硬三读协议是否能以小于P的最坏控制半径恢复原始反号类，以及精确有限预算函数和最佳加性常数。",
+    "why_parent_result_does_not_close_it": "母任务的操作安全接口目标未确定本观察器的三读资源最优值；直接作者报告证明了渐近首项系数1和共同偏移精确值，尚未闭合一般逐次偏移。",
+    "discriminating_outcomes": [
+      "给出 C3*(P)<P 的全域三读协议和准确资源收益。",
+      "给出新的全协议下界及匹配上界，闭合一个预算范围。",
+      "分别确定或改进首偏移障碍常数、最大累计偏移最优常数或现有证书模板常数。"
+    ],
+    "kill_condition": "候选协议若利用隐藏输入、合法性反馈或遗漏分支，淘汰该构造；下界见证若不整、超预算或落在同一反号类，修正所声称范围。",
+    "alternative_route_or_free_exploration_considered": "共同偏移已给出半径P的有效基线，可沿该接口实现；也可改变为仿射增益观察器。该任务保留整数平移类以回答是否真能在同一类中节省控制。",
+    "why_new_stage_or_task_is_better_than_same_task_or_closure": "这是操作能力固定后的独立资源最优化问题，可并行研究并回馈母任务的操作安全和资源接口，无需等待原生硬件/源法实现。"
+  }
+}
