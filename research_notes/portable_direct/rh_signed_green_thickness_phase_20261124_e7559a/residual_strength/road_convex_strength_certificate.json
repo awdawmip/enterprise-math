@@ -1,0 +1,56 @@
+{
+  "schema": "EM_ROAD_CONVEX_RESIDUAL_STRENGTH_V1",
+  "status": "PASS",
+  "arithmetic": "Exact fractions and integer square roots; no float admission.",
+  "road_inputs": {
+    "L": [
+      2,
+      7,
+      19
+    ],
+    "h": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "q_nodes": "all vectors in {-3,-1,2}^{h+1}"
+  },
+  "representations": [
+    "weighted PAV of E_n=n q_(n+1)-(n+1)q_n",
+    "physical-node monotone-chain lower convex hull",
+    "independent enumeration of all crossing chords"
+  ],
+  "counts": {
+    "roads": 3240,
+    "split_checks": 11502,
+    "subhat_denominator_cancellations": 52083,
+    "affine_invariance_checks": 11502,
+    "curvature_roads": 448,
+    "curvature_split_checks": 1680,
+    "strict_sqrt_multiplier_gaps": 2300
+  },
+  "sqrt_multiplier_check": {
+    "domain": "2<=L<=24; L+2<=R<=2L; L<x<R; xi=x/L and r=R/L",
+    "root_decimal_digits": 65,
+    "minimum_certified_gap_lower_rational": "40845258624871418992120876494374979279623754861572228508181759/200000000000000000000000000000000000000000000000000000000000000000",
+    "meaning": "Strict lower bound for sqrt(xi)-alpha-beta sqrt(r), valid for every imaginary phase at Re(s)=1/2."
+  },
+  "local_positive_energy_counterexample": {
+    "nodes": [
+      2,
+      3,
+      4
+    ],
+    "q": [
+      "-2",
+      "-15/8",
+      "-2"
+    ],
+    "positive_energy": "0",
+    "residual": "1/4",
+    "second_difference": "-1/4",
+    "scope": "General local roads, not a modification of the fixed reference road."
+  },
+  "scope": "Finite author verification of representation, geometry, strict gaps and boundaries. Unbounded growth indices are proved analytically in ROAD_CONVEX_ENVELOPE_AND_STRENGTH.md; not an independent Review."
+}

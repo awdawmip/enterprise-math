@@ -1,0 +1,24 @@
+{
+  "schema": "EM_UNIFORM_SINGLE_THICKNESS_IDENTITY_V1",
+  "status": "PASS",
+  "arithmetic": "Exact rational arithmetic and symbolic polynomials; no floating-point admission",
+  "scope": "Finite identities and interpolation-bound checks only; the all-positive-thickness asymptotic is proved analytically in the companion document",
+  "integer_thicknesses": [
+    1,
+    2,
+    3,
+    5
+  ],
+  "maximum_source_integer": 128,
+  "counts": {
+    "source_product_divisor": 512,
+    "unit_subtraction": 512,
+    "hyperbola": 512,
+    "complete_prefix_kernel": 512,
+    "small_node_grids": 152,
+    "small_node_signed_vectors": 1648,
+    "closed_integer_evaluations": 61260
+  },
+  "formal_laurent_identity_checks": 4,
+  "unit_convention": "D_a(1)=0; complete prefix subtracts (y-1)/a"
+}
