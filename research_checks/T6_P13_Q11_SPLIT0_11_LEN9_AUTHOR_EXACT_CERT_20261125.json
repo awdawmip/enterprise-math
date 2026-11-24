@@ -1,0 +1,84 @@
+{
+  "schema": "T6_P13_Q11_SPLIT0_11_LEN9_AUTHOR_EXACT_INTEGER_V1",
+  "frozen_science": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "researcher": "EM-DIRECT-D03BC9",
+  "session": "MCP-7f3df4435e40430b832e8d5ff2137718",
+  "activity": "RA-A468735D7C934B25C4B9614F",
+  "p": 13,
+  "valuation": 1,
+  "total_q": 11,
+  "split": [
+    0,
+    11
+  ],
+  "budget": 2331,
+  "length": 9,
+  "pattern_range": [
+    0,
+    2
+  ],
+  "scope": "All length-9 partitions of 11, full 12-label over-domain; conditional on prior high valuation reduction; no smoothness filter.",
+  "source_replay": "949c4114b1882b37b60e4e7de05d7ce9933fb33b:research_checks/T6_P13_Q11_SPLIT0_11_LEN1TO3_AUTHOR_REPLAY_20261125.py",
+  "reproduction": "Set length loop to range(9,10) in pinned Fraction replay. Actual local integer-scaled GS execution.",
+  "method": "HNF/weighted LLL, exact rational GS, same lattice index 13^21 and minimum D as pinned replay. For each coset c_i with common denominator B, use integer C_i=B*c_i, Z_j=B*(c_j+n_j), L_i=lcm denominators of mu[j][i], M_ji=L_i*mu[j][i]. Center numerator h_i=L_i*C_i+sum M_ji*Z_j; denominator B*L_i. Set Q=lcm denominators of D_i/(B*L_i)^2 and T_i=Q*D_i/(B*L_i)^2. Recurse E+=T_i*(h_i+B*L_i*n_i)^2 <= Q*radius_sq with floor(-h_i/(B*L_i)) and its successor. Reconstruct integer u, assert norm*Q=E and original six congruences; check both masses. Separately compute raw/over counts by convolution of sums of multiset residue labels. All 2 rows match independent DP.",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "coset_denominator": 4826809,
+  "lattice_index": "13^21",
+  "rows": [
+    {
+      "index": 0,
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        3
+      ],
+      "raw": 906984,
+      "over": 863483,
+      "search": 43501,
+      "nodes": 119046,
+      "leaves": 0,
+      "valid": 0,
+      "roster_sha256": "193dabc2b1741bc94812a64221b6111ba8a369fd4e9103e08df929ca3500f86f"
+    },
+    {
+      "index": 1,
+      "pattern": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        2,
+        2
+      ],
+      "raw": 2482272,
+      "over": 2378220,
+      "search": 104052,
+      "nodes": 284439,
+      "leaves": 0,
+      "valid": 0,
+      "roster_sha256": "a69089ab042d2414de6b29262d8de3d7593e4114722e0ff5ce9798773d6f5ea6"
+    }
+  ],
+  "witnesses": [],
+  "totals": {
+    "raw": 3389256,
+    "over": 3241703,
+    "search": 147553,
+    "nodes": 403485,
+    "leaves": 0,
+    "valid": 0
+  },
+  "elapsed_s": null,
+  "provenance": "Two disjoint runs: original pattern0 completed, emitted row with zero leaves and passed both count checks before process timeout; preserved in GK@de7cb6c0291891b8d611a086383a9a50a4c995f6 and client revision143; pattern1 separately executed, 10.846089005 seconds. No full length9 timing asserted. Both rows actual, no rerun of completed pattern0.",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "next": "q11 split(0,11) length10; do not repeat q10 or lengths1..9."
+}
