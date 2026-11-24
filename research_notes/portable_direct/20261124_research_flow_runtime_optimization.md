@@ -1,4 +1,45 @@
-# 研究流程减负：已发布实现与待部署前沿
+# 研究流程减负：实现与线上效果
+
+日期：2026-11-24（香港时间）。角色：`CONTROL_PLANE_MAINTENANCE`。
+
+## 19:17 独立复核：已部署，接续改善；端到端提速未得到验证
+
+本轮实际读取新 runtime、消费原部署验收回执，并通过当前 gateway 走通旧笔记、当前候选、固定来源。没有重新提交长任务查询、生产笔记、身份或 CLAIM。
+
+- 线上 app 已于 **17:23:55 HKT** 切换为 `8e61d334f02fe2d0b38d8aeb02fe362b44ead472`，本轮轻量 status 读到 runtime `89a8b5b81124723e449342788ac938f7e6700840b1fa76801a23992f9059dcd3`，与部署记录一致。
+- Nollm 已将窄补丁回移到 `945ec6f83f1983a08cc56c8232ad317079176ada`；EM reviewed code 仍是 `b9520e62e47016fc45e702b1cbfa17af8a38774f`。
+- 旧 X6 `routing.v1` 经 gateway 返回 `native_revision_slot / unique`，实际候选为 `routing.v9`、坐标 `[0,2,-1]`；候选 `current=true`。旧 v1 的全部原有字段、1,345 字符正文与四条来源和之前快照一致。当前 v9 的 4,823 字符正文与四条来源也保持一致。
+- 顺着候选的来源 #3，回读 `59e7d1e4...:research_notes/portable_direct/2026-11-23_r2_x6_r130_class_iv_port10_D_ray.md#L1-L20`，与 GitHub 固定提交逐行一致。三次工具往返为 1.002、1.164、1.432 秒；这是单次现场观察，不作严格速度归因。
+
+**先前“尚未部署”与“gateway 新字段待验证”两项已关闭。** 作用范围仍是原生修订位置；没有据此宣布全局语义定理去重或改变证明接纳状态。
+
+### 最近一次完整任务验收的真实耗时
+
+原请求 `flow-optimization-postdeploy-20261124-c78-task-v1` 为 `SUCCEEDED`、error=null。本轮只消费这个原回执。它于 17:24–17:26 HKT 执行，Source 为 `f3e2a822d4578da4430b7928ff250cf7f78217eb`。
+
+| Observer 墙钟阶段 | 先前验收 | 新部署验收 |
+|---|---:|---:|
+| 材料准备 | 41.4189 秒 | 50.0043 秒 |
+| 原生 runner | 38.6776 秒 | 38.6749 秒 |
+| 事件页复核 | 未出现 | 22.7609 秒 |
+| 其余阶段合计 | 1.6832 秒 | 2.5016 秒 |
+| 总计 | 81.7797 秒 | 113.9417 秒 |
+
+本次增加 32.1620 秒，约 39.3%；新增复核占差额约 70.8%，材料准备增加约 8.5854 秒，native 基本未变。即便仅作算术扣除复核阶段，余下仍为 91.1808 秒，不能据此声称整体已经加速。
+
+两次任务书 blob、reviewed code、1,774 条事件及事件 hash 相同；Source 前进 50 个提交，190 个路径变化。因此这不是严格同输入 A/B，不能把材料准备增时因果归给本批改动，也不能把离线样例降幅当作线上收益。
+
+### 事件复核的触发边界
+
+实际部署源码 `EventCollection._ensure_issue` 比较旧 spool 的 `id/comments/updated_at`；本次旧缓存 1,773 条与当前 1,774 条不同，触发新 generation。following 读取复用 `current_read_collector`，同一缓存世代在 guard 未变化时不应为同一差异反复重建。进程重启、collector 重建、Issue 再变化或特定 freshness 错误会重新触发检查。`restart_reason` 会留在 admission 中，后续回执仍显示旧理由不等于重新支付该阶段耗时。本轮没有另起长查询证明后续缓存命中耗时。
+
+下一步应定位仍占约 50 秒的材料准备和约 39 秒的原生状态计算内部成本；事件复核按实际复用行为观察，不直接删除一致性检查。速记本接续已产生可用收益；正式任务读取的主要等待仍需优化。没有新增 CI、周期巡检、登记入口或科学准入步骤。
+
+依据：[部署完成记录](https://github.com/awdawmip/em-research-mcp/blob/46ecd63f0aefb1e893458d6d2d57980e9784865c/docs/evidence/research-flow-optimization-20261124/DEPLOYMENT_COMPLETION.md)；[实际 EventCollection](https://github.com/awdawmip/em-research-mcp/blob/8e61d334f02fe2d0b38d8aeb02fe362b44ead472/src/control_event_collection.py)；[实际共享 collector 调用](https://github.com/awdawmip/em-research-mcp/blob/8e61d334f02fe2d0b38d8aeb02fe362b44ead472/src/control_jobs.py)。
+
+---
+
+## 16:50 交付时记录（历史保留，以以上更新为当前状态）
 
 日期：2026-11-24（香港时间）。角色：`CONTROL_PLANE_MAINTENANCE`。本记录保存工程进展，不是数学结果、研究任务发布或执行授权。
 
