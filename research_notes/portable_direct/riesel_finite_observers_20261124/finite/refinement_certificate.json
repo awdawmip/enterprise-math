@@ -1,0 +1,687 @@
+{
+  "schema": "riesel-uniform-refinement-family-input-v2",
+  "status": "AUTHOR_EXACT_FINITE_CHECK; NOT_INDEPENDENT_REVIEW",
+  "checked_k_values": [
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "patterns": [
+    {
+      "k": 2,
+      "rows": [
+        {
+          "modulus": 2,
+          "phase": 0
+        },
+        {
+          "modulus": 4,
+          "phase": 1
+        },
+        {
+          "modulus": 3,
+          "phase": 0
+        },
+        {
+          "modulus": 6,
+          "phase": 5
+        },
+        {
+          "modulus": 12,
+          "phase": 7
+        }
+      ],
+      "full_period": 12,
+      "cost_increment": 4,
+      "largest_period_factor": 12,
+      "private_residue_sets": [
+        [
+          2,
+          4,
+          8,
+          10
+        ],
+        [
+          1
+        ],
+        [
+          3
+        ],
+        [
+          11
+        ],
+        [
+          7
+        ]
+      ],
+      "selected_private_residues": [
+        2,
+        1,
+        3,
+        11,
+        7
+      ],
+      "covering_multiplicity_counts": {
+        "1": 8,
+        "2": 4
+      },
+      "dyadic_complement": [
+        3,
+        7,
+        11
+      ],
+      "three_complementary_t_phases": [
+        0,
+        2,
+        1
+      ],
+      "relative_child_order_multipliers": [
+        4,
+        8,
+        6,
+        12,
+        24
+      ]
+    },
+    {
+      "k": 3,
+      "rows": [
+        {
+          "modulus": 2,
+          "phase": 0
+        },
+        {
+          "modulus": 4,
+          "phase": 1
+        },
+        {
+          "modulus": 8,
+          "phase": 3
+        },
+        {
+          "modulus": 3,
+          "phase": 0
+        },
+        {
+          "modulus": 12,
+          "phase": 7
+        },
+        {
+          "modulus": 24,
+          "phase": 23
+        }
+      ],
+      "full_period": 24,
+      "cost_increment": 5,
+      "largest_period_factor": 24,
+      "private_residue_sets": [
+        [
+          2,
+          4,
+          8,
+          10,
+          14,
+          16,
+          20,
+          22
+        ],
+        [
+          1,
+          5,
+          13,
+          17
+        ],
+        [
+          11
+        ],
+        [
+          15
+        ],
+        [
+          7
+        ],
+        [
+          23
+        ]
+      ],
+      "selected_private_residues": [
+        2,
+        1,
+        11,
+        15,
+        7,
+        23
+      ],
+      "covering_multiplicity_counts": {
+        "1": 16,
+        "2": 8
+      },
+      "dyadic_complement": [
+        7,
+        15,
+        23
+      ],
+      "three_complementary_t_phases": [
+        1,
+        0,
+        2
+      ],
+      "relative_child_order_multipliers": [
+        4,
+        8,
+        16,
+        6,
+        24,
+        48
+      ]
+    },
+    {
+      "k": 4,
+      "rows": [
+        {
+          "modulus": 2,
+          "phase": 0
+        },
+        {
+          "modulus": 4,
+          "phase": 1
+        },
+        {
+          "modulus": 8,
+          "phase": 3
+        },
+        {
+          "modulus": 16,
+          "phase": 7
+        },
+        {
+          "modulus": 3,
+          "phase": 0
+        },
+        {
+          "modulus": 24,
+          "phase": 23
+        },
+        {
+          "modulus": 48,
+          "phase": 31
+        }
+      ],
+      "full_period": 48,
+      "cost_increment": 6,
+      "largest_period_factor": 48,
+      "private_residue_sets": [
+        [
+          2,
+          4,
+          8,
+          10,
+          14,
+          16,
+          20,
+          22,
+          26,
+          28,
+          32,
+          34,
+          38,
+          40,
+          44,
+          46
+        ],
+        [
+          1,
+          5,
+          13,
+          17,
+          25,
+          29,
+          37,
+          41
+        ],
+        [
+          11,
+          19,
+          35,
+          43
+        ],
+        [
+          7
+        ],
+        [
+          15
+        ],
+        [
+          47
+        ],
+        [
+          31
+        ]
+      ],
+      "selected_private_residues": [
+        2,
+        1,
+        11,
+        7,
+        15,
+        47,
+        31
+      ],
+      "covering_multiplicity_counts": {
+        "1": 32,
+        "2": 16
+      },
+      "dyadic_complement": [
+        15,
+        31,
+        47
+      ],
+      "three_complementary_t_phases": [
+        0,
+        2,
+        1
+      ],
+      "relative_child_order_multipliers": [
+        4,
+        8,
+        16,
+        32,
+        6,
+        48,
+        96
+      ]
+    },
+    {
+      "k": 5,
+      "rows": [
+        {
+          "modulus": 2,
+          "phase": 0
+        },
+        {
+          "modulus": 4,
+          "phase": 1
+        },
+        {
+          "modulus": 8,
+          "phase": 3
+        },
+        {
+          "modulus": 16,
+          "phase": 7
+        },
+        {
+          "modulus": 32,
+          "phase": 15
+        },
+        {
+          "modulus": 3,
+          "phase": 0
+        },
+        {
+          "modulus": 48,
+          "phase": 31
+        },
+        {
+          "modulus": 96,
+          "phase": 95
+        }
+      ],
+      "full_period": 96,
+      "cost_increment": 7,
+      "largest_period_factor": 96,
+      "private_residue_sets": [
+        [
+          2,
+          4,
+          8,
+          10,
+          14,
+          16,
+          20,
+          22,
+          26,
+          28,
+          32,
+          34,
+          38,
+          40,
+          44,
+          46,
+          50,
+          52,
+          56,
+          58,
+          62,
+          64,
+          68,
+          70,
+          74,
+          76,
+          80,
+          82,
+          86,
+          88,
+          92,
+          94
+        ],
+        [
+          1,
+          5,
+          13,
+          17,
+          25,
+          29,
+          37,
+          41,
+          49,
+          53,
+          61,
+          65,
+          73,
+          77,
+          85,
+          89
+        ],
+        [
+          11,
+          19,
+          35,
+          43,
+          59,
+          67,
+          83,
+          91
+        ],
+        [
+          7,
+          23,
+          55,
+          71
+        ],
+        [
+          47
+        ],
+        [
+          63
+        ],
+        [
+          31
+        ],
+        [
+          95
+        ]
+      ],
+      "selected_private_residues": [
+        2,
+        1,
+        11,
+        7,
+        47,
+        63,
+        31,
+        95
+      ],
+      "covering_multiplicity_counts": {
+        "1": 64,
+        "2": 32
+      },
+      "dyadic_complement": [
+        31,
+        63,
+        95
+      ],
+      "three_complementary_t_phases": [
+        1,
+        0,
+        2
+      ],
+      "relative_child_order_multipliers": [
+        4,
+        8,
+        16,
+        32,
+        64,
+        6,
+        96,
+        192
+      ]
+    },
+    {
+      "k": 6,
+      "rows": [
+        {
+          "modulus": 2,
+          "phase": 0
+        },
+        {
+          "modulus": 4,
+          "phase": 1
+        },
+        {
+          "modulus": 8,
+          "phase": 3
+        },
+        {
+          "modulus": 16,
+          "phase": 7
+        },
+        {
+          "modulus": 32,
+          "phase": 15
+        },
+        {
+          "modulus": 64,
+          "phase": 31
+        },
+        {
+          "modulus": 3,
+          "phase": 0
+        },
+        {
+          "modulus": 96,
+          "phase": 95
+        },
+        {
+          "modulus": 192,
+          "phase": 127
+        }
+      ],
+      "full_period": 192,
+      "cost_increment": 8,
+      "largest_period_factor": 192,
+      "private_residue_sets": [
+        [
+          2,
+          4,
+          8,
+          10,
+          14,
+          16,
+          20,
+          22,
+          26,
+          28,
+          32,
+          34,
+          38,
+          40,
+          44,
+          46,
+          50,
+          52,
+          56,
+          58,
+          62,
+          64,
+          68,
+          70,
+          74,
+          76,
+          80,
+          82,
+          86,
+          88,
+          92,
+          94,
+          98,
+          100,
+          104,
+          106,
+          110,
+          112,
+          116,
+          118,
+          122,
+          124,
+          128,
+          130,
+          134,
+          136,
+          140,
+          142,
+          146,
+          148,
+          152,
+          154,
+          158,
+          160,
+          164,
+          166,
+          170,
+          172,
+          176,
+          178,
+          182,
+          184,
+          188,
+          190
+        ],
+        [
+          1,
+          5,
+          13,
+          17,
+          25,
+          29,
+          37,
+          41,
+          49,
+          53,
+          61,
+          65,
+          73,
+          77,
+          85,
+          89,
+          97,
+          101,
+          109,
+          113,
+          121,
+          125,
+          133,
+          137,
+          145,
+          149,
+          157,
+          161,
+          169,
+          173,
+          181,
+          185
+        ],
+        [
+          11,
+          19,
+          35,
+          43,
+          59,
+          67,
+          83,
+          91,
+          107,
+          115,
+          131,
+          139,
+          155,
+          163,
+          179,
+          187
+        ],
+        [
+          7,
+          23,
+          55,
+          71,
+          103,
+          119,
+          151,
+          167
+        ],
+        [
+          47,
+          79,
+          143,
+          175
+        ],
+        [
+          31
+        ],
+        [
+          63
+        ],
+        [
+          191
+        ],
+        [
+          127
+        ]
+      ],
+      "selected_private_residues": [
+        2,
+        1,
+        11,
+        7,
+        47,
+        31,
+        63,
+        191,
+        127
+      ],
+      "covering_multiplicity_counts": {
+        "1": 128,
+        "2": 64
+      },
+      "dyadic_complement": [
+        63,
+        127,
+        191
+      ],
+      "three_complementary_t_phases": [
+        0,
+        2,
+        1
+      ],
+      "relative_child_order_multipliers": [
+        4,
+        8,
+        16,
+        32,
+        64,
+        128,
+        6,
+        192,
+        384
+      ]
+    }
+  ],
+  "all_k_proof": "Section 2 of proof.md: dyadic partition and three complementary t classes; every row has an explicit private witness.",
+  "cost_increment_formula": "k+2 for every integer k>=2; therefore every increment>=4.",
+  "observer_threshold_formula": "k_N=min{k>=2:216*2^k>B_N}; all costs>=k_N+12 in one residue fiber.",
+  "necessary_budget_order_bound": "B_N>=(27/512)*2^b for any modulus deciding delta_P<=b throughout R1, b>=14.",
+  "scope": "Complete finite covering periods for the displayed k values; universal assertions use the written proof, not extrapolation.",
+  "inherited_primitive_prime_input": "For every requested base-2 order>6, a prime of that exact order exists; same dependency as v7 spectrum/proof.md."
+}

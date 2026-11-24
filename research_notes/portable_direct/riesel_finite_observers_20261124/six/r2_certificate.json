@@ -1,0 +1,421 @@
+{
+  "schema": "riesel-r2-sharp-budget-six-and-non-nested-optima-v1",
+  "status": "AUTHOR_PROOF_AND_EXACT_ARITHMETIC; NOT_INDEPENDENT_REVIEW",
+  "R2": {
+    "observer_channels": 31,
+    "observer_modulus": 1354510679787418425415,
+    "observer_residue": 602924359709868072943,
+    "additional_residues": {
+      "433": 0,
+      "38737": 38733
+    },
+    "base_root": "9807947978443488306255509703402695727949968778703073231931137913705883712843",
+    "root_progression_modulus": "11356718000553566643685496313583434507970452519839503606327232707476034989690"
+  },
+  "source_dependency": {
+    "commit": "b1de1acbdc97b5e51d486127abd1fadd24babd99",
+    "path": "research_notes/portable_direct/riesel_five_cover_20261123",
+    "scope": "Old holes, complete small order exclusions and sharp R1 budgets0through5."
+  },
+  "six_classification_companion": "proof.md, Sections3.1-3.2, for new fixed-phase prefix exclusion bounds.",
+  "residual_w_set_mod35": [
+    0,
+    3,
+    5,
+    8,
+    10,
+    15,
+    21,
+    23,
+    26,
+    28,
+    30,
+    31,
+    33
+  ],
+  "w_mod5_counts": [
+    5,
+    3,
+    0,
+    5,
+    0
+  ],
+  "v_mod7_counts_before_W": [
+    0,
+    2,
+    3,
+    3,
+    3,
+    2,
+    0
+  ],
+  "strict_alternative_gaps": {
+    "neither_basic": "5/126",
+    "exactly_one_basic": "1/105",
+    "no_W_all_order7": "1/210",
+    "no_W_mixed_orders": "1/280",
+    "one_W": "13/2520",
+    "keep_38737_after_both_W": "13/5040"
+  },
+  "complete_factorization_2_180_minus_1": {
+    "3": 3,
+    "5": 2,
+    "7": 1,
+    "11": 1,
+    "13": 1,
+    "19": 1,
+    "31": 1,
+    "37": 1,
+    "41": 1,
+    "61": 1,
+    "73": 1,
+    "109": 1,
+    "151": 1,
+    "181": 1,
+    "331": 1,
+    "631": 1,
+    "1321": 1,
+    "23311": 1,
+    "54001": 1,
+    "18837001": 1,
+    "29247661": 1
+  },
+  "effective_order5_candidates": [
+    181,
+    631,
+    23311,
+    54001,
+    18837001,
+    29247661
+  ],
+  "base2_orders": {
+    "181": 180,
+    "631": 45,
+    "23311": 45,
+    "54001": 180,
+    "18837001": 90,
+    "29247661": 180
+  },
+  "phase_root_table": {
+    "181": {
+      "0": {
+        "w_category": 0,
+        "period_u": 90,
+        "phase_u": 16,
+        "root_residues": [
+          13,
+          168
+        ]
+      },
+      "3": {
+        "w_category": 3,
+        "period_u": 90,
+        "phase_u": 70,
+        "root_residues": [
+          43,
+          138
+        ]
+      },
+      "1": {
+        "w_category": 1,
+        "period_u": 90,
+        "phase_u": 34,
+        "root_residues": [
+          3,
+          178
+        ]
+      }
+    },
+    "631": {
+      "0": {
+        "w_category": 0,
+        "period_u": 45,
+        "phase_u": 16,
+        "root_residues": [
+          294,
+          337
+        ]
+      },
+      "3": {
+        "w_category": 3,
+        "period_u": 45,
+        "phase_u": 25,
+        "root_residues": [
+          146,
+          485
+        ]
+      },
+      "1": {
+        "w_category": 1,
+        "period_u": 45,
+        "phase_u": 34,
+        "root_residues": [
+          155,
+          476
+        ]
+      }
+    },
+    "23311": {
+      "0": {
+        "w_category": 0,
+        "period_u": 45,
+        "phase_u": 16,
+        "root_residues": [
+          4729,
+          18582
+        ]
+      },
+      "3": {
+        "w_category": 3,
+        "period_u": 45,
+        "phase_u": 25,
+        "root_residues": [
+          419,
+          22892
+        ]
+      },
+      "1": {
+        "w_category": 1,
+        "period_u": 45,
+        "phase_u": 34,
+        "root_residues": [
+          2048,
+          21263
+        ]
+      }
+    },
+    "54001": {
+      "0": {
+        "w_category": 0,
+        "period_u": 90,
+        "phase_u": 16,
+        "root_residues": [
+          7158,
+          46843
+        ]
+      },
+      "3": {
+        "w_category": 3,
+        "period_u": 90,
+        "phase_u": 70,
+        "root_residues": [
+          22557,
+          31444
+        ]
+      },
+      "1": {
+        "w_category": 1,
+        "period_u": 90,
+        "phase_u": 34,
+        "root_residues": [
+          11004,
+          42997
+        ]
+      }
+    },
+    "18837001": {
+      "0": {
+        "w_category": 0,
+        "period_u": 45,
+        "phase_u": 16,
+        "root_residues": [
+          9402117,
+          9434884
+        ]
+      },
+      "3": {
+        "w_category": 3,
+        "period_u": 45,
+        "phase_u": 25,
+        "root_residues": [
+          1048576,
+          17788425
+        ]
+      },
+      "1": {
+        "w_category": 1,
+        "period_u": 45,
+        "phase_u": 34,
+        "root_residues": [
+          2048,
+          18834953
+        ]
+      }
+    },
+    "29247661": {
+      "0": {
+        "w_category": 0,
+        "period_u": 90,
+        "phase_u": 16,
+        "root_residues": [
+          10413142,
+          18834519
+        ]
+      },
+      "3": {
+        "w_category": 3,
+        "period_u": 90,
+        "phase_u": 70,
+        "root_residues": [
+          1048576,
+          28199085
+        ]
+      },
+      "1": {
+        "w_category": 1,
+        "period_u": 90,
+        "phase_u": 34,
+        "root_residues": [
+          11494225,
+          17753436
+        ]
+      }
+    }
+  },
+  "sharp_staircase_denominator": 5040,
+  "sharp_staircase_numerators": [
+    864,
+    432,
+    156,
+    104,
+    52,
+    26,
+    12,
+    0
+  ],
+  "no_simultaneous_nested_budget5_and6_optimum": true,
+  "best_gap_extending_a_budget5_optimum": "13/5040",
+  "unrestricted_budget6_sharp_gap": "1/420",
+  "strict_nesting_penalty": "1/5040",
+  "observer_modulus_T": 79208819702303143625098260481,
+  "budget6_equality": {
+    "true_root_classes": 5823767115854050658573528,
+    "relative_density": "5823767115854050658573528/79208819702303143625098260481",
+    "least_additive_period": 79208819702303143625098260481,
+    "phase_dictionaries": 30,
+    "CRT_progression_starts": 120,
+    "minimum": {
+      "root": "74907363161629215503412103697786153275793084337120229356960030843718156640718393",
+      "root_digits": 80,
+      "category_to_prime": {
+        "0": 181,
+        "3": 631
+      },
+      "root_residues": {
+        "181": 13,
+        "631": 146
+      },
+      "progression_modulus": "1297062119561223399941964219470677638589813352743389546382239574753545432207484590"
+    },
+    "minimum_scope": "All R2 roots attaining the sharp residual-density bound at budget6; no exact full-cover cost asserted for this minimum."
+  },
+  "optimal6_then_full7": {
+    "true_root_classes": 2068723011224822069760,
+    "relative_density": "2068723011224822069760/79208819702303143625098260481",
+    "least_additive_period": 79208819702303143625098260481,
+    "phase_dictionaries": 120,
+    "CRT_progression_starts": 960,
+    "minimum": {
+      "root": "168515727251568031139784117408423468924151126118048106286760549300706338389494633573",
+      "root_digits": 84,
+      "category_to_prime": {
+        "0": 631,
+        "3": 23311,
+        "1": 181
+      },
+      "root_residues": {
+        "631": 337,
+        "23311": 22892,
+        "181": 178
+      },
+      "progression_modulus": "30235815069091678676047127920080966433167139065801153715716386727079897570188673277490"
+    },
+    "minimum_scope": "R2 roots admitting a complete seven-prime cover extending a budget6 equality dictionary; not all delta_P=7 roots.",
+    "exact_supplementary_cost": 7,
+    "total_cost_upper_bound": 27
+  },
+  "same_root_crossing_witness": {
+    "root": "5638859082119336258239285976823481197493104557616679794390344515886945665210917791971325889059624133",
+    "root_digits": 100,
+    "progression_modulus": "8510624835127511876489545248420652436304394097035645501004462335184978101205243100860378745723543090",
+    "extra_phase_rows": [
+      {
+        "prime": 181,
+        "phase_u": 16,
+        "root_residue": 13
+      },
+      {
+        "prime": 631,
+        "phase_u": 25,
+        "root_residue": 485
+      },
+      {
+        "prime": 23311,
+        "phase_u": 34,
+        "root_residue": 2048
+      },
+      {
+        "prime": 577,
+        "phase_u": 16,
+        "root_residue": 546
+      },
+      {
+        "prime": 487824887233,
+        "phase_u": 52,
+        "root_residue": 487823838657
+      }
+    ],
+    "chains": [
+      {
+        "label": "modulo_five",
+        "primes": [
+          5,
+          13,
+          19,
+          73,
+          181,
+          631,
+          23311
+        ],
+        "uncovered_counts_mod5040": [
+          864,
+          432,
+          156,
+          104,
+          52,
+          32,
+          12,
+          0
+        ],
+        "all_assigned_divisors_proper": true
+      },
+      {
+        "label": "binary",
+        "primes": [
+          5,
+          13,
+          19,
+          73,
+          38737,
+          577,
+          487824887233
+        ],
+        "uncovered_counts_mod5040": [
+          864,
+          432,
+          156,
+          104,
+          52,
+          26,
+          13,
+          0
+        ],
+        "all_assigned_divisors_proper": true
+      }
+    ],
+    "exact_supplementary_cost": 7,
+    "total_cost_upper_bound": 27,
+    "native_execution_claimed": false
+  },
+  "logical_scope": "Complete all-prime classification of sharp budget6 equality. Complete classification of a seventh channel extending such equality. The binary route is an explicit seven-cover outside that subclass; all seven-covers are not classified."
+}

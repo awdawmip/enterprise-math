@@ -1,0 +1,592 @@
+{
+  "schema": "riesel-complete-six-observer-and-r2-spectrum-v1",
+  "status": "Author derivation and exact finite arithmetic; no independent Review.",
+  "all_prime_six_classification_dependency": "../six/proof.md",
+  "reused_v9_source": {
+    "commit": "b1de1acbdc97b5e51d486127abd1fadd24babd99",
+    "path": "research_notes/portable_direct/riesel_five_cover_20261123/fiber/fiber_certificate.json"
+  },
+  "R1_complete_delta6": {
+    "period_Z": 16773121,
+    "binary_root_table": {
+      "433": {
+        "0": [
+          150,
+          283
+        ],
+        "1": [
+          4,
+          429
+        ]
+      },
+      "38737": {
+        "0": [
+          2677,
+          36060
+        ],
+        "1": [
+          4,
+          38733
+        ]
+      }
+    },
+    "phase_dictionary_count": 2,
+    "root_class_count": 8,
+    "classes_mod_Z": [
+      3215175,
+      4263747,
+      5229491,
+      6278071,
+      10495050,
+      11543630,
+      12509374,
+      13557946
+    ],
+    "density": "8/16773121",
+    "least_additive_period": 16773121,
+    "least_period_witnesses_reused": [
+      {
+        "prime": 433,
+        "false_residue": 5270909,
+        "true_residue": 6278071,
+        "period": 16773121
+      },
+      {
+        "prime": 38737,
+        "false_residue": 4222333,
+        "true_residue": 3215175,
+        "period": 16773121
+      }
+    ],
+    "least_root_reused": "1597463687996365290740241630260436015028835427889255944107518938773290244463",
+    "minimum_scope": "All R1 roots with additional cost six, by the new complete six-prime theorem.",
+    "minimum_computation_reused_without_rerun": true,
+    "native_membership_reused": {
+      "commit": "b1de1acbdc97b5e51d486127abd1fadd24babd99",
+      "path": "research_notes/portable_direct/riesel_five_cover_20261123/native/native_certificate.json",
+      "case_label": "R1_least_nested_optimal_six_root"
+    },
+    "total_cost_bound": 26,
+    "total_cost_equality_claimed": false,
+    "category_partition": {
+      "none": 16616457,
+      "one_active": 156648,
+      "same_phase": 8,
+      "opposite_phases": 8
+    },
+    "E5_count": 156664,
+    "E5_but_not_delta6_count": 156656,
+    "conditional_delta6_density_given_E5": "1/19583"
+  },
+  "R2": {
+    "observer_channel_count": 31,
+    "observer_modulus": 1354510679787418425415,
+    "observer_residue": 602924359709868072943,
+    "new_root_residues": {
+      "433": 0,
+      "38737": 38733
+    },
+    "base_root": "9807947978443488306255509703402695727949968778703073231931137913705883712843",
+    "root_progression_modulus": "11356718000553566643685496313583434507970452519839503606327232707476034989690",
+    "all_roots_delta_lower_bound": 7,
+    "all_finite_exact_costs": "Every integer s>=7, with infinitely many roots for each s and total cost20+s.",
+    "construction_change": "Use seeds7,8, a translated five-child refinement forseed9, and refinement of433 inseed6 forseed10; then add4 repeatedly.",
+    "modified_four_seeds": [
+      {
+        "additional_count": 7,
+        "hole_period_u": 2520,
+        "rows": [
+          {
+            "prime_or_symbol": "5",
+            "order_2": 4,
+            "period_u": 2,
+            "phase_u": 1
+          },
+          {
+            "prime_or_symbol": "13",
+            "order_2": 12,
+            "period_u": 6,
+            "phase_u": 0
+          },
+          {
+            "prime_or_symbol": "19",
+            "order_2": 18,
+            "period_u": 9,
+            "phase_u": 4
+          },
+          {
+            "prime_or_symbol": "73",
+            "order_2": 9,
+            "period_u": 9,
+            "phase_u": 1
+          },
+          {
+            "prime_or_symbol": "38737",
+            "order_2": 72,
+            "period_u": 36,
+            "phase_u": 34
+          },
+          {
+            "prime_or_symbol": "577",
+            "order_2": 144,
+            "period_u": 72,
+            "phase_u": 16
+          },
+          {
+            "prime_or_symbol": "487824887233",
+            "order_2": 144,
+            "period_u": 72,
+            "phase_u": 52
+          }
+        ],
+        "private_old_hole_u": {
+          "5": 3,
+          "13": 6,
+          "73": 10,
+          "577": 16,
+          "38737": 70,
+          "19": 76,
+          "487824887233": 196
+        },
+        "prime_existence_scope": "Named earlier seed primes reuse their exact proofs; new order-labelled rows use the inherited primitive-prime theorem."
+      },
+      {
+        "additional_count": 8,
+        "hole_period_u": 5040,
+        "rows": [
+          {
+            "prime_or_symbol": "5",
+            "order_2": 4,
+            "period_u": 2,
+            "phase_u": 1
+          },
+          {
+            "prime_or_symbol": "13",
+            "order_2": 12,
+            "period_u": 6,
+            "phase_u": 0
+          },
+          {
+            "prime_or_symbol": "19",
+            "order_2": 18,
+            "period_u": 9,
+            "phase_u": 4
+          },
+          {
+            "prime_or_symbol": "73",
+            "order_2": 9,
+            "period_u": 9,
+            "phase_u": 1
+          },
+          {
+            "prime_or_symbol": "38737",
+            "order_2": 72,
+            "period_u": 36,
+            "phase_u": 34
+          },
+          {
+            "prime_or_symbol": "487824887233",
+            "order_2": 144,
+            "period_u": 72,
+            "phase_u": 52
+          },
+          {
+            "prime_or_symbol": "1153",
+            "order_2": 288,
+            "period_u": 144,
+            "phase_u": 16
+          },
+          {
+            "prime_or_symbol": "6337",
+            "order_2": 288,
+            "period_u": 144,
+            "phase_u": 88
+          }
+        ],
+        "private_old_hole_u": {
+          "5": 3,
+          "13": 6,
+          "73": 10,
+          "1153": 16,
+          "38737": 70,
+          "19": 76,
+          "487824887233": 196,
+          "6337": 520
+        },
+        "prime_existence_scope": "Named earlier seed primes reuse their exact proofs; new order-labelled rows use the inherited primitive-prime theorem."
+      },
+      {
+        "additional_count": 9,
+        "hole_period_u": 7560,
+        "rows": [
+          {
+            "prime_or_symbol": "5",
+            "order_2": 4,
+            "period_u": 2,
+            "phase_u": 1
+          },
+          {
+            "prime_or_symbol": "13",
+            "order_2": 12,
+            "period_u": 6,
+            "phase_u": 0
+          },
+          {
+            "prime_or_symbol": "19",
+            "order_2": 18,
+            "period_u": 9,
+            "phase_u": 4
+          },
+          {
+            "prime_or_symbol": "73",
+            "order_2": 9,
+            "period_u": 9,
+            "phase_u": 1
+          },
+          {
+            "prime_or_symbol": "38737",
+            "order_2": 72,
+            "period_u": 36,
+            "phase_u": 34
+          },
+          {
+            "prime_or_symbol": "primitive_order_108",
+            "order_2": 108,
+            "period_u": 54,
+            "phase_u": 34
+          },
+          {
+            "prime_or_symbol": "primitive_order_144",
+            "order_2": 144,
+            "period_u": 72,
+            "phase_u": 52
+          },
+          {
+            "prime_or_symbol": "primitive_order_216",
+            "order_2": 216,
+            "period_u": 108,
+            "phase_u": 16
+          },
+          {
+            "prime_or_symbol": "primitive_order_432",
+            "order_2": 432,
+            "period_u": 216,
+            "phase_u": 160
+          }
+        ],
+        "private_old_hole_u": {
+          "5": 3,
+          "13": 6,
+          "73": 10,
+          "primitive_order_216": 16,
+          "38737": 70,
+          "19": 76,
+          "primitive_order_432": 160,
+          "primitive_order_144": 484,
+          "primitive_order_108": 520
+        },
+        "prime_existence_scope": "Named earlier seed primes reuse their exact proofs; new order-labelled rows use the inherited primitive-prime theorem."
+      },
+      {
+        "additional_count": 10,
+        "hole_period_u": 15120,
+        "rows": [
+          {
+            "prime_or_symbol": "5",
+            "order_2": 4,
+            "period_u": 2,
+            "phase_u": 1
+          },
+          {
+            "prime_or_symbol": "13",
+            "order_2": 12,
+            "period_u": 6,
+            "phase_u": 0
+          },
+          {
+            "prime_or_symbol": "19",
+            "order_2": 18,
+            "period_u": 9,
+            "phase_u": 4
+          },
+          {
+            "prime_or_symbol": "73",
+            "order_2": 9,
+            "period_u": 9,
+            "phase_u": 1
+          },
+          {
+            "prime_or_symbol": "38737",
+            "order_2": 72,
+            "period_u": 36,
+            "phase_u": 34
+          },
+          {
+            "prime_or_symbol": "primitive_order_144",
+            "order_2": 144,
+            "period_u": 72,
+            "phase_u": 16
+          },
+          {
+            "prime_or_symbol": "primitive_order_216",
+            "order_2": 216,
+            "period_u": 108,
+            "phase_u": 16
+          },
+          {
+            "prime_or_symbol": "primitive_order_288",
+            "order_2": 288,
+            "period_u": 144,
+            "phase_u": 52
+          },
+          {
+            "prime_or_symbol": "primitive_order_432",
+            "order_2": 432,
+            "period_u": 216,
+            "phase_u": 196
+          },
+          {
+            "prime_or_symbol": "primitive_order_864",
+            "order_2": 864,
+            "period_u": 432,
+            "phase_u": 268
+          }
+        ],
+        "private_old_hole_u": {
+          "5": 3,
+          "13": 6,
+          "73": 10,
+          "38737": 70,
+          "19": 76,
+          "primitive_order_144": 160,
+          "primitive_order_288": 484,
+          "primitive_order_216": 556,
+          "primitive_order_864": 700,
+          "primitive_order_432": 1276
+        },
+        "prime_existence_scope": "Named earlier seed primes reuse their exact proofs; new order-labelled rows use the inherited primitive-prime theorem."
+      }
+    ],
+    "translated_refinement_cover": [
+      [
+        2,
+        1
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        6,
+        0
+      ],
+      [
+        12,
+        8
+      ]
+    ],
+    "translated_private_v": [
+      3,
+      4,
+      2,
+      12,
+      8
+    ],
+    "forcing_old_private_index_pairs": {
+      "gap36": [
+        5,
+        41
+      ],
+      "gap60": [
+        3,
+        63
+      ],
+      "gap72": [
+        41,
+        113
+      ]
+    },
+    "existing_root_membership_checks": [
+      {
+        "additional_cost": 6,
+        "source": "v8",
+        "root_decimal_sha256": "c2ebacd563cff116685cc756d8413b2b847d1de6ea4553aa80d06767feec55ae",
+        "R2_member": false,
+        "root_residues_433_38737": [
+          150,
+          38733
+        ],
+        "new_check": "R2 congruence only; existing exact-cost, pairwise-gcd and native evidence reused."
+      },
+      {
+        "additional_cost": 7,
+        "source": "v8",
+        "root_decimal_sha256": "77774a440ba43c3479d26dedb7ef946b9e8b4cf8a0b88c78d6138d369877c44a",
+        "R2_member": true,
+        "root_residues_433_38737": [
+          0,
+          38733
+        ],
+        "new_check": "R2 congruence only; existing exact-cost, pairwise-gcd and native evidence reused."
+      },
+      {
+        "additional_cost": 8,
+        "source": "v7",
+        "root_decimal_sha256": "c33287dad27f115f330d2263a41f2a4a4ddd9e3482d31a01758673ceab288718",
+        "R2_member": true,
+        "root_residues_433_38737": [
+          0,
+          38733
+        ],
+        "new_check": "R2 congruence only; existing exact-cost, pairwise-gcd and native evidence reused."
+      }
+    ],
+    "compact_cost7_example": {
+      "root": "142182133093029631521252488222753720130073171510309885943518183289197140261893115365205303",
+      "root_digits": 90,
+      "root_sha256": "b77347758b1f4fce17e1b083c3db0b9bbffb1c6dca2df7cfe80a718d909ced8a",
+      "ordered_rows": [
+        {
+          "q": 5,
+          "order_2": 4,
+          "phase_u": 1,
+          "root_residue": 3
+        },
+        {
+          "q": 13,
+          "order_2": 12,
+          "phase_u": 0,
+          "root_residue": 1
+        },
+        {
+          "q": 19,
+          "order_2": 18,
+          "phase_u": 4,
+          "root_residue": 6
+        },
+        {
+          "q": 73,
+          "order_2": 9,
+          "phase_u": 1,
+          "root_residue": 37
+        },
+        {
+          "q": 38737,
+          "order_2": 72,
+          "phase_u": 34,
+          "root_residue": 38733
+        },
+        {
+          "q": 577,
+          "order_2": 144,
+          "phase_u": 16,
+          "root_residue": 31
+        },
+        {
+          "q": 487824887233,
+          "order_2": 144,
+          "phase_u": 52,
+          "root_residue": 1048576
+        }
+      ],
+      "full_coverage_period_n": 5040,
+      "uncovered_counts": [
+        864,
+        432,
+        156,
+        104,
+        52,
+        26,
+        13,
+        0
+      ],
+      "private_old_hole_indices": {
+        "5": 6,
+        "13": 12,
+        "73": 20,
+        "577": 32,
+        "38737": 140,
+        "19": 152,
+        "487824887233": 392
+      },
+      "all_assigned_divisors_proper": true,
+      "minimum_scope": "Only the eight specified binary completion progressions in R2; no density-optimality or all-cost-seven minimum claim.",
+      "delta_P": 7,
+      "delta_lower_bound_dependency": "Complete six-prime classification on R1; 433 is inactive throughout R2.",
+      "total_cover_minimum_equality_claimed": false,
+      "native_execution_claimed_here": false
+    },
+    "binary_progressions_checked": 8,
+    "binary_progression_minima": [
+      {
+        "a": "142182133093029631521252488222753720130073171510309885943518183289197140261893115365205303",
+        "phase_577": 16,
+        "phase_large": 52,
+        "residue_577": 31,
+        "residue_large": 1048576,
+        "progression_modulus": "3196631744181203355489864485208981735657802986787718134742816052713974367904695749521223290"
+      },
+      {
+        "a": "3066248801967980861774958735830538072259339367311702484297718359857739600487762336463470933",
+        "phase_577": 16,
+        "phase_large": 52,
+        "residue_577": 31,
+        "residue_large": 487823838657,
+        "progression_modulus": "3196631744181203355489864485208981735657802986787718134742816052713974367904695749521223290"
+      },
+      {
+        "a": "1577065359683899075319995818671846041681842623118661700325475475581951665889824136380797733",
+        "phase_577": 16,
+        "phase_large": 52,
+        "residue_577": 546,
+        "residue_large": 1048576,
+        "progression_modulus": "3196631744181203355489864485208981735657802986787718134742816052713974367904695749521223290"
+      },
+      {
+        "a": "1304500284377646950083837581070648658153305832132336163936859599436519758210997607957840073",
+        "phase_577": 16,
+        "phase_large": 52,
+        "residue_577": 546,
+        "residue_large": 487823838657,
+        "progression_modulus": "3196631744181203355489864485208981735657802986787718134742816052713974367904695749521223290"
+      },
+      {
+        "a": "1564481017641975821798144186181396224979268744477492361290903719782832000069012828812579853",
+        "phase_577": 52,
+        "phase_large": 16,
+        "residue_577": 167,
+        "residue_large": 4294967040,
+        "progression_modulus": "3196631744181203355489864485208981735657802986787718134742816052713974367904695749521223290"
+      },
+      {
+        "a": "607953147641071019025615289632589528297476275229609625593475627770494330285186634869703393",
+        "phase_577": 52,
+        "phase_large": 16,
+        "residue_577": 167,
+        "residue_large": 483529920193,
+        "progression_modulus": "3196631744181203355489864485208981735657802986787718134742816052713974367904695749521223290"
+      },
+      {
+        "a": "838729269829605562579474779660812849985902728413036424286902154955222568187704088453341983",
+        "phase_577": 52,
+        "phase_large": 16,
+        "residue_577": 410,
+        "residue_large": 4294967040,
+        "progression_modulus": "3196631744181203355489864485208981735657802986787718134742816052713974367904695749521223290"
+      },
+      {
+        "a": "3078833144009904115296810368320987888961913245952871823332290115656859266308573644031688813",
+        "phase_577": 52,
+        "phase_large": 16,
+        "residue_577": 410,
+        "residue_large": 483529920193,
+        "progression_modulus": "3196631744181203355489864485208981735657802986787718134742816052713974367904695749521223290"
+      }
+    ],
+    "optimization_scope": "No all-seven classification or density-optimality claim is made here."
+  }
+}

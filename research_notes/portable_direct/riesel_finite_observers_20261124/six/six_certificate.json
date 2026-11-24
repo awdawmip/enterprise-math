@@ -1,0 +1,280 @@
+{
+  "schema": "riesel-r1-complete-six-classification-v1",
+  "status": "AUTHOR_PROOF_AND_EXACT_ARITHMETIC; NOT_INDEPENDENT_REVIEW",
+  "scope": "All complete supplements of at most six distinct new primes for every positive root in the fixed R1 fiber; no prime-size or order cutoff.",
+  "source_dependency": {
+    "commit": "b1de1acbdc97b5e51d486127abd1fadd24babd99",
+    "path": "research_notes/portable_direct/riesel_five_cover_20261123",
+    "scope": "Old holes, all-prime incidence bounds, complete earlier small factorizations, R1 trajectory and nested-six calculation."
+  },
+  "new_complete_factorization_2_28_minus_1": {
+    "3": 1,
+    "5": 1,
+    "29": 1,
+    "43": 1,
+    "113": 1,
+    "127": 1
+  },
+  "small_parity_order_exclusions": {
+    "1": {
+      "3": 1,
+      "5": 1
+    },
+    "2": {
+      "3": 1,
+      "5": 1,
+      "17": 1
+    },
+    "3": {
+      "3": 2,
+      "5": 1,
+      "7": 1,
+      "13": 1
+    },
+    "4": {
+      "3": 1,
+      "5": 1,
+      "17": 1,
+      "257": 1
+    },
+    "5": {
+      "3": 1,
+      "5": 2,
+      "11": 1,
+      "31": 1,
+      "41": 1
+    },
+    "6": {
+      "3": 2,
+      "5": 1,
+      "7": 1,
+      "13": 1,
+      "17": 1,
+      "241": 1
+    }
+  },
+  "parity_effective_order_7_candidates": [
+    29,
+    43
+  ],
+  "parity_effective_order_9_candidates": [
+    19,
+    37,
+    73,
+    109
+  ],
+  "fixed_phase_counts_inside_both_parities": [
+    {
+      "parity_u": 0,
+      "old_holes": 108,
+      "fixed_channel_hits": {
+        "19": 13,
+        "73": 13
+      }
+    },
+    {
+      "parity_u": 1,
+      "old_holes": 108,
+      "fixed_channel_hits": {
+        "19": 13,
+        "73": 13
+      }
+    }
+  ],
+  "new_strict_bounds": {
+    "no_basic_primes": "83/108",
+    "exactly_one_basic_prime": "8/9",
+    "parity_generic_cap": "1/6",
+    "one_W_each_other_required": "8/39",
+    "one_W_after_order_7_forcing": "31/39"
+  },
+  "A_incidence_maxima": {
+    "1": 13,
+    "5": 5,
+    "7": 3,
+    "35": 1
+  },
+  "forced_order_7_candidates_in_one_W_case": [
+    29,
+    43,
+    1429,
+    5419
+  ],
+  "final_binary_candidates": [
+    433,
+    38737
+  ],
+  "complete_prime_set": [
+    5,
+    13,
+    19,
+    73,
+    433,
+    38737
+  ],
+  "complete_phase_dictionary_count": 2,
+  "complete_phase_dictionaries": [
+    {
+      "rows": [
+        {
+          "prime": 5,
+          "period_u": 2,
+          "phase_u": 1,
+          "root_residues": [
+            2,
+            3
+          ]
+        },
+        {
+          "prime": 13,
+          "period_u": 6,
+          "phase_u": 0,
+          "root_residues": [
+            1,
+            12
+          ]
+        },
+        {
+          "prime": 19,
+          "period_u": 9,
+          "phase_u": 4,
+          "root_residues": [
+            6,
+            13
+          ]
+        },
+        {
+          "prime": 73,
+          "period_u": 9,
+          "phase_u": 1,
+          "root_residues": [
+            36,
+            37
+          ]
+        },
+        {
+          "prime": 433,
+          "period_u": 36,
+          "phase_u": 16,
+          "root_residues": [
+            150,
+            283
+          ]
+        },
+        {
+          "prime": 38737,
+          "period_u": 36,
+          "phase_u": 34,
+          "root_residues": [
+            4,
+            38733
+          ]
+        }
+      ],
+      "complete_period_u": 1260,
+      "private_old_hole_n": {
+        "5": 6,
+        "13": 12,
+        "73": 20,
+        "433": 32,
+        "38737": 140,
+        "19": 152
+      }
+    },
+    {
+      "rows": [
+        {
+          "prime": 5,
+          "period_u": 2,
+          "phase_u": 1,
+          "root_residues": [
+            2,
+            3
+          ]
+        },
+        {
+          "prime": 13,
+          "period_u": 6,
+          "phase_u": 0,
+          "root_residues": [
+            1,
+            12
+          ]
+        },
+        {
+          "prime": 19,
+          "period_u": 9,
+          "phase_u": 4,
+          "root_residues": [
+            6,
+            13
+          ]
+        },
+        {
+          "prime": 73,
+          "period_u": 9,
+          "phase_u": 1,
+          "root_residues": [
+            36,
+            37
+          ]
+        },
+        {
+          "prime": 433,
+          "period_u": 36,
+          "phase_u": 34,
+          "root_residues": [
+            4,
+            429
+          ]
+        },
+        {
+          "prime": 38737,
+          "period_u": 36,
+          "phase_u": 16,
+          "root_residues": [
+            2677,
+            36060
+          ]
+        }
+      ],
+      "complete_period_u": 1260,
+      "private_old_hole_n": {
+        "5": 6,
+        "13": 12,
+        "73": 20,
+        "38737": 32,
+        "433": 140,
+        "19": 152
+      }
+    }
+  ],
+  "all_roots_delta_lower_bound": 6,
+  "complete_delta6_observer": {
+    "modulus": 16773121,
+    "true_root_classes": [
+      3215175,
+      4263747,
+      5229491,
+      6278071,
+      10495050,
+      11543630,
+      12509374,
+      13557946
+    ],
+    "class_count": 8,
+    "relative_density": "8/16773121",
+    "least_additive_period": 16773121
+  },
+  "reused_minimum": {
+    "root_decimal": "1597463687996365290740241630260436015028835427889255944107518938773290244463",
+    "root_decimal_digits": 76,
+    "new_scope": "Least positive root among all delta_P=6 roots in R1.",
+    "old_scope": "R1 roots admitting a nested simultaneous optimum through budget 6; eight CRT classes.",
+    "calculation_status": "REUSED_V9_COMPLETE_EIGHT_CLASS_CALCULATION",
+    "native_execution_status": "REUSED_V9_NATIVE_EXECUTION",
+    "total_cost_upper_bound": 26,
+    "exact_total_cost_claimed": false
+  },
+  "logical_role": "The written all-prime necessity proof establishes exhaustiveness. This calculation checks its new exact arithmetic and final phase coverage; unchanged prior CRT and native results are reused."
+}

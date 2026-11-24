@@ -1,0 +1,470 @@
+{
+  "schema": "riesel-finite-observers-and-crossing-routes-native-v1",
+  "status": "AUTHOR_NATIVE_EXECUTION; NOT_INDEPENDENT_REVIEW",
+  "native_source_commit": "b1efc6c805661ed7b476e6e730107da6043176ee",
+  "native_source_blobs": [
+    {
+      "module": "brc_transport.py",
+      "git_blob": "be1debe367263931bd5e93fd750be3ed54624fe1"
+    },
+    {
+      "module": "brc_histogram.py",
+      "git_blob": "9a3962ec095095f14e63a91cfe6b7ebf07d9a1d1"
+    },
+    {
+      "module": "brc_rational_holonomy.py",
+      "git_blob": "2591640fe348da9cd7f293a957bea9ae92c82943"
+    },
+    {
+      "module": "brc_weighted_recurrent.py",
+      "git_blob": "4e6b3132580e3cd70a20a0d8bd4d28792b961afb"
+    }
+  ],
+  "base_certificate_git_blob": "c1909a5e2e209b0f6bd5f613d0f758dde45caee9",
+  "reused_mathematical_inputs": {
+    "commit": "b1de1acbdc97b5e51d486127abd1fadd24babd99",
+    "path": "research_notes/portable_direct/riesel_five_cover_20261123",
+    "scope": "Old hole predicate, R1 minimum root and rows; new execution compares them with the two R2 roots."
+  },
+  "cases": [
+    {
+      "label": "R1_complete_cost_six_minimum",
+      "root": "1597463687996365290740241630260436015028835427889255944107518938773290244463",
+      "root_digits": 76,
+      "fixed_fiber": "R1",
+      "observed_period_n": 2520,
+      "readout_channels": [
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        31,
+        37,
+        41,
+        61,
+        71,
+        73,
+        97,
+        109,
+        113,
+        127,
+        151,
+        241,
+        257,
+        281,
+        331,
+        337,
+        433,
+        641,
+        673,
+        1321,
+        14449,
+        29191,
+        38737,
+        65537,
+        6700417
+      ],
+      "routes": [
+        {
+          "label": "six_completion",
+          "ordered_rows": [
+            {
+              "q": 5,
+              "phase_u": 1,
+              "order2": 4,
+              "root_residue": 3
+            },
+            {
+              "q": 13,
+              "phase_u": 0,
+              "order2": 12,
+              "root_residue": 1
+            },
+            {
+              "q": 19,
+              "phase_u": 4,
+              "order2": 18,
+              "root_residue": 6
+            },
+            {
+              "q": 73,
+              "phase_u": 1,
+              "order2": 9,
+              "root_residue": 37
+            },
+            {
+              "q": 433,
+              "phase_u": 34,
+              "order2": 72,
+              "root_residue": 429
+            },
+            {
+              "q": 38737,
+              "phase_u": 16,
+              "order2": 72,
+              "root_residue": 2677
+            }
+          ],
+          "coverage_period_n": 2520,
+          "uncovered_counts_over_observed_period": [
+            432,
+            216,
+            78,
+            52,
+            26,
+            13,
+            0
+          ],
+          "proper_private_old_hole_indices": {
+            "5": 6,
+            "13": 12,
+            "73": 20,
+            "38737": 32,
+            "433": 140,
+            "19": 152
+          },
+          "all_assigned_divisors_proper": true
+        }
+      ],
+      "native_single_step_updates": 2520,
+      "native_two_step_evaluations": 1260,
+      "native_readouts": 78120,
+      "formula_readout_checks": 78120,
+      "old_projection_equalities": 50400,
+      "additional_fixed_fiber_equalities": 22680,
+      "last_native_state_bits": 3020,
+      "last_native_state_sha256_unsigned_big_endian": "c88d27b7bf55f8b3c5019d4bd038cfa3760208b0deec5eb217d910c158e26d74"
+    },
+    {
+      "label": "R2_compact_binary_cost_seven",
+      "root": "142182133093029631521252488222753720130073171510309885943518183289197140261893115365205303",
+      "root_digits": 90,
+      "fixed_fiber": "R2",
+      "observed_period_n": 5040,
+      "readout_channels": [
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        31,
+        37,
+        41,
+        61,
+        71,
+        73,
+        97,
+        109,
+        113,
+        127,
+        151,
+        241,
+        257,
+        281,
+        331,
+        337,
+        433,
+        577,
+        641,
+        673,
+        1321,
+        14449,
+        29191,
+        38737,
+        65537,
+        6700417,
+        487824887233
+      ],
+      "routes": [
+        {
+          "label": "binary",
+          "ordered_rows": [
+            {
+              "q": 5,
+              "phase_u": 1,
+              "order2": 4,
+              "root_residue": 3
+            },
+            {
+              "q": 13,
+              "phase_u": 0,
+              "order2": 12,
+              "root_residue": 1
+            },
+            {
+              "q": 19,
+              "phase_u": 4,
+              "order2": 18,
+              "root_residue": 6
+            },
+            {
+              "q": 73,
+              "phase_u": 1,
+              "order2": 9,
+              "root_residue": 37
+            },
+            {
+              "q": 38737,
+              "phase_u": 34,
+              "order2": 72,
+              "root_residue": 38733
+            },
+            {
+              "q": 577,
+              "phase_u": 16,
+              "order2": 144,
+              "root_residue": 31
+            },
+            {
+              "q": 487824887233,
+              "phase_u": 52,
+              "order2": 144,
+              "root_residue": 1048576
+            }
+          ],
+          "coverage_period_n": 5040,
+          "uncovered_counts_over_observed_period": [
+            864,
+            432,
+            156,
+            104,
+            52,
+            26,
+            13,
+            0
+          ],
+          "proper_private_old_hole_indices": {
+            "5": 6,
+            "13": 12,
+            "73": 20,
+            "577": 32,
+            "38737": 140,
+            "19": 152,
+            "487824887233": 392
+          },
+          "all_assigned_divisors_proper": true
+        }
+      ],
+      "native_single_step_updates": 5040,
+      "native_two_step_evaluations": 2520,
+      "native_readouts": 166320,
+      "formula_readout_checks": 166320,
+      "old_projection_equalities": 100800,
+      "additional_fixed_fiber_equalities": 55440,
+      "last_native_state_bits": 5633,
+      "last_native_state_sha256_unsigned_big_endian": "5dde66b94f60f9e65bfba60954529014198ae61c8614600518a3887c2f63e7ee"
+    },
+    {
+      "label": "R2_same_root_crossing_routes",
+      "root": "5638859082119336258239285976823481197493104557616679794390344515886945665210917791971325889059624133",
+      "root_digits": 100,
+      "fixed_fiber": "R2",
+      "observed_period_n": 5040,
+      "readout_channels": [
+        5,
+        7,
+        11,
+        13,
+        17,
+        19,
+        31,
+        37,
+        41,
+        61,
+        71,
+        73,
+        97,
+        109,
+        113,
+        127,
+        151,
+        181,
+        241,
+        257,
+        281,
+        331,
+        337,
+        433,
+        577,
+        631,
+        641,
+        673,
+        1321,
+        14449,
+        23311,
+        29191,
+        38737,
+        65537,
+        6700417,
+        487824887233
+      ],
+      "routes": [
+        {
+          "label": "modulo_five",
+          "ordered_rows": [
+            {
+              "q": 5,
+              "phase_u": 1,
+              "order2": 4,
+              "root_residue": 3
+            },
+            {
+              "q": 13,
+              "phase_u": 0,
+              "order2": 12,
+              "root_residue": 1
+            },
+            {
+              "q": 19,
+              "phase_u": 4,
+              "order2": 18,
+              "root_residue": 6
+            },
+            {
+              "q": 73,
+              "phase_u": 1,
+              "order2": 9,
+              "root_residue": 37
+            },
+            {
+              "q": 181,
+              "phase_u": 16,
+              "order2": 180,
+              "root_residue": 13
+            },
+            {
+              "q": 631,
+              "phase_u": 25,
+              "order2": 45,
+              "root_residue": 485
+            },
+            {
+              "q": 23311,
+              "phase_u": 34,
+              "order2": 45,
+              "root_residue": 2048
+            }
+          ],
+          "coverage_period_n": 1260,
+          "uncovered_counts_over_observed_period": [
+            864,
+            432,
+            156,
+            104,
+            52,
+            32,
+            12,
+            0
+          ],
+          "proper_private_old_hole_indices": {
+            "5": 6,
+            "13": 12,
+            "73": 20,
+            "181": 32,
+            "631": 140,
+            "19": 152,
+            "23311": 788
+          },
+          "all_assigned_divisors_proper": true
+        },
+        {
+          "label": "binary",
+          "ordered_rows": [
+            {
+              "q": 5,
+              "phase_u": 1,
+              "order2": 4,
+              "root_residue": 3
+            },
+            {
+              "q": 13,
+              "phase_u": 0,
+              "order2": 12,
+              "root_residue": 1
+            },
+            {
+              "q": 19,
+              "phase_u": 4,
+              "order2": 18,
+              "root_residue": 6
+            },
+            {
+              "q": 73,
+              "phase_u": 1,
+              "order2": 9,
+              "root_residue": 37
+            },
+            {
+              "q": 38737,
+              "phase_u": 34,
+              "order2": 72,
+              "root_residue": 38733
+            },
+            {
+              "q": 577,
+              "phase_u": 16,
+              "order2": 144,
+              "root_residue": 546
+            },
+            {
+              "q": 487824887233,
+              "phase_u": 52,
+              "order2": 144,
+              "root_residue": 487823838657
+            }
+          ],
+          "coverage_period_n": 5040,
+          "uncovered_counts_over_observed_period": [
+            864,
+            432,
+            156,
+            104,
+            52,
+            26,
+            13,
+            0
+          ],
+          "proper_private_old_hole_indices": {
+            "5": 6,
+            "13": 12,
+            "73": 20,
+            "577": 32,
+            "38737": 140,
+            "19": 152,
+            "487824887233": 392
+          },
+          "all_assigned_divisors_proper": true
+        }
+      ],
+      "native_single_step_updates": 5040,
+      "native_two_step_evaluations": 2520,
+      "native_readouts": 181440,
+      "formula_readout_checks": 181440,
+      "old_projection_equalities": 100800,
+      "additional_fixed_fiber_equalities": 55440,
+      "last_native_state_bits": 5703,
+      "last_native_state_sha256_unsigned_big_endian": "57530a5e88bfad4afc713ba68dac6cfdfe15c091bba24d04f1aa62addb0323ec"
+    }
+  ],
+  "native_single_step_updates": 12600,
+  "native_two_step_evaluations": 6300,
+  "native_readouts": 425880,
+  "formula_readout_checks": 425880,
+  "old_projection_equalities": 252000,
+  "additional_fixed_fiber_equalities": 133560,
+  "native_effect_evaluations_total": 18900,
+  "between_root_R1_29_channel_equalities": 146160,
+  "between_root_R2_31_channel_equalities": 156240,
+  "all_future_root_congruences": {
+    "all_three_roots_equal_modulo": "112846400704173924495879412400187125858195507362041761203606976378815",
+    "two_R2_roots_equal_modulo": "1892786333425594440614249385597239084661742086639917267721205451246005831615",
+    "proof": "For equal root residues modulo N, a^2*2^n-1 has the same residue for every n>=0."
+  },
+  "all_future_coverage_bridge": "The previously proved old-hole predicate has period210 in n. New zero predicates have exact periods ord_q(2). The complete coverage periods are2520,5040 and1260 for the specified routes; the modulo-five route is counted over four complete periods in the common5040 comparison. Residue-value trajectories need not have those smaller periods.",
+  "mathematical_scope": "Native execution proves these concrete trajectories and counts. Complete-six classification, sharp budget-six equality, all-cost observer limitations and lower bounds require the companion written proofs. Dictionary privacy alone is not a total-minimum certificate.",
+  "native_scope": "Fixed X6 anchor and typed integer register; positive singleton BRC weight1 and multiplicity1. The arithmetic index is not physical time, and prime readouts are observations, not axes or extra branches.",
+  "observer_scope": "Finite residue observations retain exact stated congruence scope; the full integer state and joint cofactor relations are retained."
+}
