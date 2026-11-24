@@ -1,0 +1,70 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT4_6_NEG11112_AUTHOR_EXACT_SEGMENT_V1",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "author": "EM-DIRECT-D03BC9",
+  "activity": "RA-A468735D7C934B25C4B9614F",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "signed_split": [
+    4,
+    6
+  ],
+  "negative_q_pattern": [
+    1,
+    1,
+    1,
+    1,
+    2
+  ],
+  "interval": [
+    512,
+    1536
+  ],
+  "total_negative_rosters": 16380,
+  "positive_q_patterns": [
+    [
+      4
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      1,
+      1,
+      2
+    ],
+    [
+      1,
+      1,
+      1,
+      1
+    ]
+  ],
+  "budget_each_side": 2331,
+  "lattice_index": "13^21",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "stats": {
+    "negative_rosters": 1024,
+    "positive_rosters": 2535,
+    "raw_signed_pairs": 2595840,
+    "common_named_atom_canceled": 1470024,
+    "vertical_original_mass_excess": 0,
+    "gs_searches": 1125816,
+    "gs_nodes": 2192725,
+    "relaxed_sphere_witnesses": 0,
+    "both_original_side_mass_valid": 0
+  },
+  "negative_roster_sha256": "29268f91c2a75d5242afca2ef7ba445fc63293172e029df714b99ef6526c3411",
+  "pair_digest_sha256": "02fb9fe3ad77e502b7cc0385b9ba2ad40a57447f4de024485d2970663a450c09",
+  "witnesses": [],
+  "author_replay_base": "awdawmip/enterprise-math@a466be736446891b423809b0ba23cb37ec123502:research_checks/T6_P13_Q10_SPLIT3_7_NEG1123_INTEGER_GS_REPLAY_20261124.py",
+  "replay_rule": "Apply q6 certificate exact replacements at 76db4fbf6106d3ac84344e51645e8e43765f6f06. Replace negatives with [tuple((1,r) for r in v)+((2,t),) for v in combinations_with_replacement(range(1,13),4) for t in range(1,13)]; len(negatives)==16380; negative_q_pattern=[1,1,1,1,2]; direct leaf norm=sum((w*x)**2 for w,x in zip(W,u)); assert norm<=radius and norm*K==spent. Run --start 512 --end 1536.",
+  "validation": "Actual local Python/SymPy 1.14.0 integer GS; conditional on prior common named atom reduction, high-prime elimination and lattice completeness. Same frozen observer. No independent review or protected PROGRESS.",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "next_action": "Continue first uncovered q11112 interval starting 1536; q111111 and split (5,5) remain. Native p17 q14 separate.",
+  "elapsed_seconds": 14.583773614000009
+}
