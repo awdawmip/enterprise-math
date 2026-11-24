@@ -1,0 +1,68 @@
+{
+  "schema": "EM_T6_P13_Q10_SPLIT4_6_NEG114_AUTHOR_EXACT_FULL_V1",
+  "mother_task": "RS-T6-SHAPE-MOMENT-GLOBAL-LOWER-BOUND",
+  "author": "EM-DIRECT-D03BC9",
+  "activity": "RA-A468735D7C934B25C4B9614F",
+  "frozen_science": "awdawmip/enterprise-math@d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "signed_split": [
+    4,
+    6
+  ],
+  "negative_q_pattern": [
+    1,
+    1,
+    4
+  ],
+  "interval": [
+    0,
+    936
+  ],
+  "total_negative_rosters": 936,
+  "positive_q_patterns": [
+    [
+      4
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      2,
+      2
+    ],
+    [
+      1,
+      1,
+      2
+    ],
+    [
+      1,
+      1,
+      1,
+      1
+    ]
+  ],
+  "budget_each_side": 2331,
+  "lattice_index": "13^21",
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "stats": {
+    "negative_rosters": 936,
+    "positive_rosters": 2535,
+    "raw_signed_pairs": 2372760,
+    "common_named_atom_canceled": 828216,
+    "vertical_original_mass_excess": 0,
+    "gs_searches": 1544544,
+    "gs_nodes": 3070689,
+    "relaxed_sphere_witnesses": 0,
+    "both_original_side_mass_valid": 0
+  },
+  "negative_roster_sha256": "216ed82f448b9393b8737b84950db007cc22692487412e10c34dd16771502e62",
+  "pair_digest_sha256": "a806ce738a6fdd595475de25a848436794508e514971193be2e677dbd6bc029c",
+  "witnesses": [],
+  "seconds": 20.97122512499999,
+  "author_replay_base": "awdawmip/enterprise-math@76db4fbf6106d3ac84344e51645e8e43765f6f06:research_checks/T6_P13_Q10_SPLIT4_6_NEG6_FULL_AUTHOR_EXACT_CERT_20261124.json",
+  "replay_rule": "Apply base q6 certificate replacements to its pinned Python replay, replace negatives=[((6,r),) for r in range(1,13)] by negatives=[tuple((1,r) for r in v)+((4,t),) for v in combinations_with_replacement(range(1,13),2) for t in range(1,13)], len(negatives)==12 by len(negatives)==936, negative_q_pattern=[6] by negative_q_pattern=[1,1,4]; run --start 0 --end 936. Actual local execution used equivalent generic multiset generator and explicit norm check for leaves.",
+  "validation": "Conditional on earlier high-prime elimination, common named atom reduction and lattice completeness. Exact scaled integer GS, no independent review or protected progress.",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "next_action": "Check and enumerate q123, then q222 and remaining partitions."
+}
