@@ -1,6 +1,6 @@
 # PREFIX-1093 — Linear-step grouped Euler occupancy recurrence and direct row anchors
 
-2026-11-26 Asia/Shanghai. AUTHOR_EXACT_ALGEBRAIC_REDUCTION / FINITE_EXACT_COMPUTATION / NOT_REVIEWED. Independent R6 continuation; original own session registration recovered (MCP-f6d93209fc8e4c5bb2c3b44f69a47174, EM-DIRECT-780BBE, TASK_RESEARCH, RA-0ABD84561C86E53067DB0322). Owner query r6-20261126-0352-owner-read last read RUNNING / NATIVE_RUNNER, error=null; no fresh owner conclusion, no new CLAIM or shared Task state mutation.
+2026-11-26 Asia/Shanghai. AUTHOR_EXACT_ALGEBRAIC_REDUCTION / FINITE_EXACT_COMPUTATION / NOT_REVIEWED. Independent R6 continuation; original own session registration recovered (MCP-f6d93209fc8e4c5bb2c3b44f69a47174, EM-DIRECT-780BBE, TASK_RESEARCH, RA-0ABD84561C86E53067DB0322). Owner query r6-20261126-0352-owner-read returned SUCCEEDED, error=null; see original durable receipt for exact snapshot and inventory. No new CLAIM or shared Task state mutation.
 
 Frozen science: P000 V5 f42f2906d77f24085c123f3ccfe9667d41caa96d:p000_reality_foundation.json; Stage46 chart O, incoming -e1, reversal -5 (phase cover 5q), other weights 1, next incoming -d, both orientations of Link {O,e1} blocked without renormalization, exactly two negative steps. Full paired six-axis Cell equality, signs, phase, ports and ordered multiplicities preserved. Exact CT observer correspondence inherited; these recurrences calculate that observer, not a new native kernel or time evolution.
 
@@ -63,7 +63,7 @@ If A_M>0, the exact local positive integral of chi_{s,b} x^M y^Q0 is >=A_M. On i
 
 This uses only the same-row anchor, with no Jensen power a^M. The earlier all-Q finite termwise maximum B_M from 1092 applies unchanged whenever (M+6)/(M+6+Q0-3)<=v. Strict B_M<A_M certifies the entire row. If the two-anchor bound A*a^M is available too, use the maximum of it and A_M (each separately valid, including when A_M<=0). Failure of a sufficient test does not assert a negative observation.
 
-Use the same hypothetical delta=1/24, s=1/27,b=1/26,v=1/25,w=1/24. Exact signed T triangle through M+Q<=2000. Direct row tests M=0..40, each Q0 in {1000,1100,1200,1400,1600,1800,1900}. The passing M sets are precisely:
+Use the same hypothetical delta=1/24, s=1/27,b=1/26,v=1/25,w=1/24. Exact signed T recurrence on M+Q<=2000 with Q<=1900; explicit sign tracking for M=0..40. Direct row tests M=0..40, each Q0 in {1000,1100,1200,1400,1600,1800,1900}. The passing M sets are precisely:
   1000: 0..1
   1100: 0..2
   1200: 0..4
