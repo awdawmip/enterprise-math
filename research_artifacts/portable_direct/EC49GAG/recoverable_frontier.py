@@ -122,5 +122,4 @@ def main():
         out.append(dict(index=i,n=n,k=k,frontier=list(fam),obstructions=list(bad),missed_sizes=sizes))
     print(json.dumps(dict(counts=counts,frontier_hist=hist,obstruction_rank_hist=rankhist,timings=timings,witness=witness,rows=out),sort_keys=True))
 
-
 if __name__=='__main__':main()
