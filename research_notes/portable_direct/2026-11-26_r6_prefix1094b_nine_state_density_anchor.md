@@ -101,13 +101,13 @@ rr,piv=dm.rref()
 assert piv==tuple(range(28))
 T=-rr.to_Matrix()[:28,28:]
 assert sum(v!=0 for v in T)==163
-assert all(sy.denom(sy.cancel(v))==1 for v in T) # rational coefficients as expanded polynomial
+assert all(sy.Poly(sy.denom(sy.cancel(v)),R).degree()==0 for v in T)
 assert max(sy.Poly(v,R).degree() for v in T if v!=0)==3
 assert hashlib.sha256(json.dumps([[str(v) for v in row] for row in T.tolist()],
     separators=(',',':')).encode()).hexdigest()=='333adb48c52ac3c5530e8d0509a7b45b77db62a99e65557cafbd70ce38bba312'
 ```
 
-The exact run reported the denominator LCM via monic polynomial denominators, equal to 1 (constant rational denominators are allowed). If a SymPy version exposes a constant denominator directly in the final assert, equivalently check sy.Poly(v,R) over QQ for every coefficient; this is the mathematical condition. The hash is tied to the executed SymPy string serialization. No density anchor value, interval propagation or new sign certificate was actually evaluated in this addendum. No independent review.
+The exact run reported the denominator LCM via monic polynomial denominators, equal to 1 (constant rational denominators are allowed). The hash is tied to the executed SymPy string serialization. No density anchor value, interval propagation or new sign certificate was actually evaluated in this addendum. No independent review.
 
 ## 4. Next
 
