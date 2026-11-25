@@ -1,0 +1,2078 @@
+{
+ "scope": "Non-author informed scientific audit continuation; no current native Driver authority asserted. Exact finite witness exclusion, normalized branch assumptions as in existing independent audit f37da30dcf7b18617858473823094f8347651256; preserves original author's contribution. New disjoint periods only.",
+ "source": "37ea7118715feab970a943d0deacfb164e912eb8:research_notes/portable_direct/riesel_r4_eighteen_sharp_20261125/reproduction.json",
+ "previous_audit": "0a4c92589dca24fd3bb381a3fed3c0f9f291967a:research_notes/portable_direct/2026-11-26_riesel18_independent_audit_71680_68040_67200.json",
+ "method": "Global W(h/gcd(h,35))<=13; branch W(h/gcd(h,L))<=k-1; integer capacity filter with exact BigInt common scale. For each candidate h0 and representative private x in D, enumerate all surviving-period residue masks not covering x, on finite witnesses inside D mod L and outside h0 class. Allow duplicate-period classes and ignore prime-stock limits (relaxation). Contained masks can be replaced by supersets; sum of largest slots remaining intersections bounds any union. DFS branches on all maximal masks containing an uncovered point. Caps only throw or lead to inconclusive, never exclusion. Final finite witnesses encoded sorted deltas in base36 separated by dots; decode by cumulative addition, first delta from zero. Reproducible function below. Author case counts 104,65,182 agree.",
+ "reproduce_js": "function audit(targets) {\n const B=[0,3,5,8,10,15,21,23,26,28,30,31,33], F0=[[2,1],[3,1],[4,2]], R0=[0,1,2,3,5], ps=[2,3,5,7,11,13];\n const gcd=(a,b)=>b?gcd(b,a%b):a, lcm=(a,b)=>a/gcd(a,b)*b;\n function factors(n){const a=[];for(let p=2;p*p<=n;p++)if(n%p===0){let e=0;while(n%p===0){n/=p;e++}a.push([p,e]);}if(n>1)a.push([n,1]);return a;}\n const W=n=>factors(n).reduce((s,[p,e])=>s+e*(p-1),0);\n const M=[];function gen(i,m,b){if(i===ps.length){M.push(m);return;}for(let p=ps[i];b>=0;b-=p-1,m*=p)gen(i+1,m,b);}gen(0,1,13);\n const H=[...new Set(M.flatMap(m=>[1,5,7,35].map(g=>m*g).filter(h=>h/gcd(h,35)===m)))].filter(h=>h>=9&&h!==10).sort((a,b)=>a-b);\n const scale=M.map(BigInt).reduce(lcm,1n), max=a=>a.reduce((x,y)=>x>y?x:y,0n);\n function inv(a,m){let [r,s,x,y]=[a,m,1n,0n];while(s){const q=r/s;[r,s]=[s,r-q*s];[x,y]=[y,x-q*y];}if(r!==1n)throw Error(\"inverse\");return (x%m+m)%m;}\n function pop(x){let c=0;while(x){x&=x-1n;c++;}return c;}\n const rows=[],witnesses=[];\n for(let f=0;f<8;f++)for(let r=0;r<32;r++){\n   const F=F0.filter((_,i)=>f>>i&1), R=R0.filter((_,i)=>r>>i&1), k=14-F.length-R.length,L=F.reduce((n,[m])=>lcm(n,m),35);\n   const D=Array.from({length:L},(_,x)=>x).filter(x=>B.includes(x%35)&&!R.includes(x%7)&&!F.some(([m,b])=>x%m===b));if(!D.length)continue;\n   const C=H.flatMap(h=>{const g=gcd(h,L),m=h/g,w=W(m);if(w>k-1)return [];const a=Array(g).fill(0);for(const x of D)a[x%g]++;if(scale%BigInt(m)!==0n)throw Error(\"scale\");const cap=BigInt(Math.max(...a))*scale/BigInt(m);return cap?[{h,m,w,cap}]:[];});\n   const best=max(C.map(x=>x.cap)),cache=new Map;function at(z){if(!cache.has(z))cache.set(z,max(C.filter(x=>x.m%z===0).map(x=>x.cap)));return cache.get(z);}\n   const hs=C.filter(x=>{let s=x.cap+BigInt(k-1-x.w)*best;for(const [p,e]of factors(x.m))for(let j=1;j<=e;j++)s+=BigInt(p-1)*at(p**j);return s>=BigInt(D.length)*scale;}).map(x=>x.h);\n   const selected=targets.filter(h=>hs.includes(h));if(!selected.length)continue;\n   const Pbig=hs.map(BigInt).reduce(lcm,BigInt(L));if(Pbig>BigInt(Number.MAX_SAFE_INTEGER))throw Error(\"unsafe P\");const P=Number(Pbig),fp=new Map(factors(P)),fl=new Map(factors(L));\n   for(const h0 of selected){let closed=0,nodes=0,rounds=0,maxPts=0;\n     for(const x of D){const points=new Set;const add=n=>{if(n%h0!==x%h0)points.add(n);};\n       for(const [p,e]of factors(h0)){const pe=BigInt(p)**BigInt(fp.get(p)),other=Pbig/pe,crt=other*inv(other%pe,pe);for(let i=fl.get(p)??0;i<e;i++)for(let a=1;a<p;a++)add(Number((BigInt(x)+crt*BigInt(a)*BigInt(p)**BigInt(i))%Pbig));}\n       for(let j=0;j<3;j++)for(const d of D)add(d+j*L);\n       let done=false;\n       for(let round=0;round<12;round++){rounds++;const pts=[...points],N=pts.length;maxPts=Math.max(maxPts,N);if(pts.some(n=>!Number.isSafeInteger(n)||!D.includes(n%L)||n%h0===x%h0))throw Error(\"invalid witness\");\n         const masks=new Map;\n         for(const h of hs){const groups=new Map;for(let i=0;i<N;i++){let b=pts[i]%h;if(b===x%h)continue;groups.set(b,(groups.get(b)??0n)|(1n<<BigInt(i)));}for(const [b,m]of groups)if(!masks.has(m))masks.set(m,[h,b]);}\n         const O=[...masks].map(([m,hr])=>({m,hr,n:pop(m)})).sort((a,b)=>b.n-a.n),maximal=[];for(const o of O)if(!maximal.some(z=>(z.m&o.m)===o.m))maximal.push(o);\n         const by=pts.map((_,i)=>maximal.filter(o=>o.m&(1n<<BigInt(i)))),failed=new Set;let nNodes=0;\n         function dfs(todo,slots){if(++nNodes>1000000)throw Error(\"node cap\");if(!todo)return [];if(!slots)return null;const rem=pop(todo),bounds=maximal.map(o=>pop(o.m&todo)).sort((a,b)=>b-a);if(bounds.slice(0,slots).reduce((a,b)=>a+b,0)<rem)return null;const key=slots+\":\"+todo;if(failed.has(key))return null;let opts=null;for(let i=0;i<N;i++)if(todo&(1n<<BigInt(i)))if(opts===null||by[i].length<opts.length)opts=by[i];for(const o of opts??[]){const res=dfs(todo&~o.m,slots-1);if(res!==null)return [o.hr,...res];}failed.add(key);return null;}\n         const cover=dfs((1n<<BigInt(N))-1n,k-1);nodes+=nNodes;\n         if(cover===null){closed++;done=true;const sorted=pts.slice().sort((a,b)=>a-b);witnesses.push({f,r,h:h0,x,nodes:nNodes,delta36:sorted.map((v,i)=>(v-(i?sorted[i-1]:0)).toString(36)).join(\".\")});break;}\n         if(cover.length>k-1||cover.some(([h,b])=>x%h===b)||pts.some(n=>!cover.some(([h,b])=>n%h===b)))throw Error(\"cover verification\");cover.push([h0,x%h0]);\n         const before=points.size;outer:for(let j=0;j<100000;j++)for(const d of D){const n=j*L+d;if(!cover.some(([h,b])=>n%h===b)){add(n);if(points.size>=before+8)break outer;}}\n         if(points.size===before)break;\n       }\n       if(!done)throw Error(\"inconclusive \"+[f,r,h0,x]);\n     }rows.push({f,r,L,k,h:h0,P,periods:hs.length,cases:D.length,closed,rounds,nodes,maxPts});\n   }\n }\n const totals=targets.map(h=>{const s=rows.filter(x=>x.h===h);return {h,branches:s.length,cases:s.reduce((a,b)=>a+b.cases,0),closed:s.reduce((a,b)=>a+b.closed,0),rounds:s.reduce((a,b)=>a+b.rounds,0),nodes:s.reduce((a,b)=>a+b.nodes,0),maxPts:Math.max(...s.map(x=>x.maxPts))};});\n if(new Set(witnesses.map(w=>[w.f,w.r,w.h,w.x].join(\",\"))).size!==witnesses.length)throw Error(\"duplicate case\");\n return {totals,rows,witnesses};\n}\nconsole.log(JSON.stringify(audit([53760])));",
+ "authorForward": [
+  770,
+  0
+ ],
+ "authorReverse": [
+  770,
+  0
+ ],
+ "totals": [
+  {
+   "h": 53760,
+   "branches": 49,
+   "cases": 770,
+   "closed": 770,
+   "rounds": 1382,
+   "nodes": 20497,
+   "maxPts": 240
+  }
+ ],
+ "rows": [
+  {
+   "f": 1,
+   "r": 0,
+   "L": 70,
+   "k": 13,
+   "h": 53760,
+   "P": 435891456000,
+   "periods": 321,
+   "cases": 13,
+   "closed": 13,
+   "rounds": 26,
+   "nodes": 2070,
+   "maxPts": 56
+  },
+  {
+   "f": 1,
+   "r": 1,
+   "L": 70,
+   "k": 12,
+   "h": 53760,
+   "P": 5588352000,
+   "periods": 257,
+   "cases": 10,
+   "closed": 10,
+   "rounds": 10,
+   "nodes": 327,
+   "maxPts": 39
+  },
+  {
+   "f": 1,
+   "r": 2,
+   "L": 70,
+   "k": 12,
+   "h": 53760,
+   "P": 5588352000,
+   "periods": 248,
+   "cases": 11,
+   "closed": 11,
+   "rounds": 11,
+   "nodes": 272,
+   "maxPts": 42
+  },
+  {
+   "f": 1,
+   "r": 4,
+   "L": 70,
+   "k": 12,
+   "h": 53760,
+   "P": 5588352000,
+   "periods": 248,
+   "cases": 11,
+   "closed": 11,
+   "rounds": 11,
+   "nodes": 311,
+   "maxPts": 42
+  },
+  {
+   "f": 1,
+   "r": 8,
+   "L": 70,
+   "k": 12,
+   "h": 53760,
+   "P": 5588352000,
+   "periods": 257,
+   "cases": 10,
+   "closed": 10,
+   "rounds": 10,
+   "nodes": 386,
+   "maxPts": 39
+  },
+  {
+   "f": 1,
+   "r": 16,
+   "L": 70,
+   "k": 12,
+   "h": 53760,
+   "P": 5588352000,
+   "periods": 257,
+   "cases": 10,
+   "closed": 10,
+   "rounds": 10,
+   "nodes": 397,
+   "maxPts": 39
+  },
+  {
+   "f": 2,
+   "r": 0,
+   "L": 105,
+   "k": 13,
+   "h": 53760,
+   "P": 108972864000,
+   "periods": 290,
+   "cases": 26,
+   "closed": 26,
+   "rounds": 26,
+   "nodes": 311,
+   "maxPts": 86
+  },
+  {
+   "f": 3,
+   "r": 0,
+   "L": 210,
+   "k": 12,
+   "h": 53760,
+   "P": 16765056000,
+   "periods": 311,
+   "cases": 26,
+   "closed": 26,
+   "rounds": 55,
+   "nodes": 1743,
+   "maxPts": 101
+  },
+  {
+   "f": 3,
+   "r": 1,
+   "L": 210,
+   "k": 11,
+   "h": 53760,
+   "P": 8382528000,
+   "periods": 253,
+   "cases": 20,
+   "closed": 20,
+   "rounds": 40,
+   "nodes": 553,
+   "maxPts": 75
+  },
+  {
+   "f": 3,
+   "r": 2,
+   "L": 210,
+   "k": 11,
+   "h": 53760,
+   "P": 1676505600,
+   "periods": 251,
+   "cases": 22,
+   "closed": 22,
+   "rounds": 44,
+   "nodes": 588,
+   "maxPts": 81
+  },
+  {
+   "f": 3,
+   "r": 4,
+   "L": 210,
+   "k": 11,
+   "h": 53760,
+   "P": 1676505600,
+   "periods": 251,
+   "cases": 22,
+   "closed": 22,
+   "rounds": 44,
+   "nodes": 597,
+   "maxPts": 81
+  },
+  {
+   "f": 3,
+   "r": 8,
+   "L": 210,
+   "k": 11,
+   "h": 53760,
+   "P": 8382528000,
+   "periods": 253,
+   "cases": 20,
+   "closed": 20,
+   "rounds": 40,
+   "nodes": 544,
+   "maxPts": 75
+  },
+  {
+   "f": 3,
+   "r": 9,
+   "L": 210,
+   "k": 10,
+   "h": 53760,
+   "P": 50803200,
+   "periods": 207,
+   "cases": 14,
+   "closed": 14,
+   "rounds": 14,
+   "nodes": 126,
+   "maxPts": 49
+  },
+  {
+   "f": 3,
+   "r": 16,
+   "L": 210,
+   "k": 11,
+   "h": 53760,
+   "P": 8382528000,
+   "periods": 253,
+   "cases": 20,
+   "closed": 20,
+   "rounds": 40,
+   "nodes": 532,
+   "maxPts": 75
+  },
+  {
+   "f": 3,
+   "r": 17,
+   "L": 210,
+   "k": 10,
+   "h": 53760,
+   "P": 50803200,
+   "periods": 207,
+   "cases": 14,
+   "closed": 14,
+   "rounds": 14,
+   "nodes": 120,
+   "maxPts": 49
+  },
+  {
+   "f": 3,
+   "r": 24,
+   "L": 210,
+   "k": 10,
+   "h": 53760,
+   "P": 50803200,
+   "periods": 207,
+   "cases": 14,
+   "closed": 14,
+   "rounds": 14,
+   "nodes": 133,
+   "maxPts": 49
+  },
+  {
+   "f": 5,
+   "r": 0,
+   "L": 140,
+   "k": 12,
+   "h": 53760,
+   "P": 67060224000,
+   "periods": 327,
+   "cases": 13,
+   "closed": 13,
+   "rounds": 31,
+   "nodes": 493,
+   "maxPts": 63
+  },
+  {
+   "f": 5,
+   "r": 1,
+   "L": 140,
+   "k": 11,
+   "h": 53760,
+   "P": 33530112000,
+   "periods": 263,
+   "cases": 10,
+   "closed": 10,
+   "rounds": 21,
+   "nodes": 223,
+   "maxPts": 54
+  },
+  {
+   "f": 5,
+   "r": 2,
+   "L": 140,
+   "k": 11,
+   "h": 53760,
+   "P": 33530112000,
+   "periods": 261,
+   "cases": 11,
+   "closed": 11,
+   "rounds": 26,
+   "nodes": 285,
+   "maxPts": 57
+  },
+  {
+   "f": 5,
+   "r": 3,
+   "L": 140,
+   "k": 10,
+   "h": 53760,
+   "P": 101606400,
+   "periods": 201,
+   "cases": 8,
+   "closed": 8,
+   "rounds": 16,
+   "nodes": 157,
+   "maxPts": 40
+  },
+  {
+   "f": 5,
+   "r": 4,
+   "L": 140,
+   "k": 11,
+   "h": 53760,
+   "P": 33530112000,
+   "periods": 261,
+   "cases": 11,
+   "closed": 11,
+   "rounds": 24,
+   "nodes": 260,
+   "maxPts": 57
+  },
+  {
+   "f": 5,
+   "r": 5,
+   "L": 140,
+   "k": 10,
+   "h": 53760,
+   "P": 101606400,
+   "periods": 201,
+   "cases": 8,
+   "closed": 8,
+   "rounds": 16,
+   "nodes": 157,
+   "maxPts": 40
+  },
+  {
+   "f": 5,
+   "r": 6,
+   "L": 140,
+   "k": 10,
+   "h": 53760,
+   "P": 101606400,
+   "periods": 199,
+   "cases": 9,
+   "closed": 9,
+   "rounds": 18,
+   "nodes": 171,
+   "maxPts": 43
+  },
+  {
+   "f": 5,
+   "r": 8,
+   "L": 140,
+   "k": 11,
+   "h": 53760,
+   "P": 33530112000,
+   "periods": 263,
+   "cases": 10,
+   "closed": 10,
+   "rounds": 24,
+   "nodes": 260,
+   "maxPts": 62
+  },
+  {
+   "f": 5,
+   "r": 9,
+   "L": 140,
+   "k": 10,
+   "h": 53760,
+   "P": 101606400,
+   "periods": 202,
+   "cases": 7,
+   "closed": 7,
+   "rounds": 15,
+   "nodes": 149,
+   "maxPts": 45
+  },
+  {
+   "f": 5,
+   "r": 10,
+   "L": 140,
+   "k": 10,
+   "h": 53760,
+   "P": 101606400,
+   "periods": 201,
+   "cases": 8,
+   "closed": 8,
+   "rounds": 17,
+   "nodes": 168,
+   "maxPts": 48
+  },
+  {
+   "f": 5,
+   "r": 12,
+   "L": 140,
+   "k": 10,
+   "h": 53760,
+   "P": 101606400,
+   "periods": 201,
+   "cases": 8,
+   "closed": 8,
+   "rounds": 17,
+   "nodes": 167,
+   "maxPts": 48
+  },
+  {
+   "f": 5,
+   "r": 16,
+   "L": 140,
+   "k": 11,
+   "h": 53760,
+   "P": 33530112000,
+   "periods": 263,
+   "cases": 10,
+   "closed": 10,
+   "rounds": 23,
+   "nodes": 251,
+   "maxPts": 54
+  },
+  {
+   "f": 5,
+   "r": 17,
+   "L": 140,
+   "k": 10,
+   "h": 53760,
+   "P": 101606400,
+   "periods": 202,
+   "cases": 7,
+   "closed": 7,
+   "rounds": 15,
+   "nodes": 147,
+   "maxPts": 45
+  },
+  {
+   "f": 5,
+   "r": 18,
+   "L": 140,
+   "k": 10,
+   "h": 53760,
+   "P": 101606400,
+   "periods": 201,
+   "cases": 8,
+   "closed": 8,
+   "rounds": 17,
+   "nodes": 169,
+   "maxPts": 48
+  },
+  {
+   "f": 5,
+   "r": 20,
+   "L": 140,
+   "k": 10,
+   "h": 53760,
+   "P": 101606400,
+   "periods": 201,
+   "cases": 8,
+   "closed": 8,
+   "rounds": 16,
+   "nodes": 159,
+   "maxPts": 40
+  },
+  {
+   "f": 5,
+   "r": 24,
+   "L": 140,
+   "k": 10,
+   "h": 53760,
+   "P": 101606400,
+   "periods": 202,
+   "cases": 7,
+   "closed": 7,
+   "rounds": 17,
+   "nodes": 164,
+   "maxPts": 45
+  },
+  {
+   "f": 6,
+   "r": 0,
+   "L": 420,
+   "k": 12,
+   "h": 53760,
+   "P": 1676505600,
+   "periods": 267,
+   "cases": 78,
+   "closed": 78,
+   "rounds": 78,
+   "nodes": 624,
+   "maxPts": 240
+  },
+  {
+   "f": 7,
+   "r": 0,
+   "L": 420,
+   "k": 11,
+   "h": 53760,
+   "P": 33530112000,
+   "periods": 304,
+   "cases": 26,
+   "closed": 26,
+   "rounds": 58,
+   "nodes": 2305,
+   "maxPts": 100
+  },
+  {
+   "f": 7,
+   "r": 1,
+   "L": 420,
+   "k": 10,
+   "h": 53760,
+   "P": 304819200,
+   "periods": 256,
+   "cases": 20,
+   "closed": 20,
+   "rounds": 40,
+   "nodes": 449,
+   "maxPts": 74
+  },
+  {
+   "f": 7,
+   "r": 2,
+   "L": 420,
+   "k": 10,
+   "h": 53760,
+   "P": 304819200,
+   "periods": 254,
+   "cases": 22,
+   "closed": 22,
+   "rounds": 44,
+   "nodes": 492,
+   "maxPts": 80
+  },
+  {
+   "f": 7,
+   "r": 3,
+   "L": 420,
+   "k": 9,
+   "h": 53760,
+   "P": 50803200,
+   "periods": 201,
+   "cases": 16,
+   "closed": 16,
+   "rounds": 32,
+   "nodes": 288,
+   "maxPts": 62
+  },
+  {
+   "f": 7,
+   "r": 4,
+   "L": 420,
+   "k": 10,
+   "h": 53760,
+   "P": 304819200,
+   "periods": 254,
+   "cases": 22,
+   "closed": 22,
+   "rounds": 46,
+   "nodes": 515,
+   "maxPts": 88
+  },
+  {
+   "f": 7,
+   "r": 5,
+   "L": 420,
+   "k": 9,
+   "h": 53760,
+   "P": 50803200,
+   "periods": 201,
+   "cases": 16,
+   "closed": 16,
+   "rounds": 32,
+   "nodes": 289,
+   "maxPts": 62
+  },
+  {
+   "f": 7,
+   "r": 6,
+   "L": 420,
+   "k": 9,
+   "h": 53760,
+   "P": 50803200,
+   "periods": 201,
+   "cases": 18,
+   "closed": 18,
+   "rounds": 36,
+   "nodes": 327,
+   "maxPts": 68
+  },
+  {
+   "f": 7,
+   "r": 8,
+   "L": 420,
+   "k": 10,
+   "h": 53760,
+   "P": 304819200,
+   "periods": 256,
+   "cases": 20,
+   "closed": 20,
+   "rounds": 41,
+   "nodes": 474,
+   "maxPts": 82
+  },
+  {
+   "f": 7,
+   "r": 9,
+   "L": 420,
+   "k": 9,
+   "h": 53760,
+   "P": 50803200,
+   "periods": 205,
+   "cases": 14,
+   "closed": 14,
+   "rounds": 28,
+   "nodes": 249,
+   "maxPts": 56
+  },
+  {
+   "f": 7,
+   "r": 10,
+   "L": 420,
+   "k": 9,
+   "h": 53760,
+   "P": 50803200,
+   "periods": 201,
+   "cases": 16,
+   "closed": 16,
+   "rounds": 32,
+   "nodes": 288,
+   "maxPts": 62
+  },
+  {
+   "f": 7,
+   "r": 12,
+   "L": 420,
+   "k": 9,
+   "h": 53760,
+   "P": 50803200,
+   "periods": 201,
+   "cases": 16,
+   "closed": 16,
+   "rounds": 32,
+   "nodes": 284,
+   "maxPts": 62
+  },
+  {
+   "f": 7,
+   "r": 16,
+   "L": 420,
+   "k": 10,
+   "h": 53760,
+   "P": 304819200,
+   "periods": 256,
+   "cases": 20,
+   "closed": 20,
+   "rounds": 41,
+   "nodes": 452,
+   "maxPts": 82
+  },
+  {
+   "f": 7,
+   "r": 17,
+   "L": 420,
+   "k": 9,
+   "h": 53760,
+   "P": 50803200,
+   "periods": 205,
+   "cases": 14,
+   "closed": 14,
+   "rounds": 28,
+   "nodes": 250,
+   "maxPts": 56
+  },
+  {
+   "f": 7,
+   "r": 18,
+   "L": 420,
+   "k": 9,
+   "h": 53760,
+   "P": 50803200,
+   "periods": 201,
+   "cases": 16,
+   "closed": 16,
+   "rounds": 32,
+   "nodes": 286,
+   "maxPts": 62
+  },
+  {
+   "f": 7,
+   "r": 20,
+   "L": 420,
+   "k": 9,
+   "h": 53760,
+   "P": 50803200,
+   "periods": 201,
+   "cases": 16,
+   "closed": 16,
+   "rounds": 32,
+   "nodes": 284,
+   "maxPts": 62
+  },
+  {
+   "f": 7,
+   "r": 24,
+   "L": 420,
+   "k": 9,
+   "h": 53760,
+   "P": 50803200,
+   "periods": 205,
+   "cases": 14,
+   "closed": 14,
+   "rounds": 28,
+   "nodes": 251,
+   "maxPts": 56
+  }
+ ],
+ "witness_offset": 600,
+ "witness_count": 170,
+ "witnesses": [
+  {
+   "f": 7,
+   "r": 5,
+   "h": 53760,
+   "x": 276,
+   "nodes": 7,
+   "delta36": "8.1o.c.g.c.c.1o.1k.c.c.s.w.s.c.1k.c.1o.c.g.c.c.1o.1k.c.c.g.c.w.s.c.1k.c.1o.c.g.c.c.1o.1k.c.c.g.c.w.s.c.1k.20c.1z4.1kw.1z4.3k0.2rk.1z4.3k0.3rjuo.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 5,
+   "h": 53760,
+   "x": 288,
+   "nodes": 7,
+   "delta36": "8.1o.c.g.c.c.1o.1k.c.c.g.18.s.c.1k.c.1o.c.g.c.c.1o.1k.c.c.g.c.w.s.c.1k.c.1o.c.g.c.c.1o.1k.c.c.g.c.w.s.c.1k.u0.1z4.2rk.1z4.1kw.1z4.3k0.2rk.3rlts.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 5,
+   "h": 53760,
+   "x": 320,
+   "nodes": 7,
+   "delta36": "8.1o.c.g.c.c.1o.1k.c.c.g.c.1o.c.1k.c.1o.c.g.c.c.1o.1k.c.c.g.c.w.s.c.1k.c.1o.c.g.c.c.1o.1k.c.c.g.c.w.s.c.1k.194.3k0.3y8.3k0.sg.3y8.3k0.1z4.3rgow.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 5,
+   "h": 53760,
+   "x": 348,
+   "nodes": 7,
+   "delta36": "8.1o.c.g.c.c.1o.1k.c.c.g.c.w.14.1k.c.1o.c.g.c.c.1o.1k.c.c.g.c.w.s.c.1k.c.1o.c.g.c.c.1o.1k.c.c.g.c.w.s.c.1k.390.3k0.sg.3y8.3k0.1z4.1kw.1z4.3rio0.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 5,
+   "h": 53760,
+   "x": 360,
+   "nodes": 7,
+   "delta36": "8.1o.c.g.c.c.1o.1k.c.c.g.c.w.s.1w.c.1o.c.g.c.c.1o.1k.c.c.g.c.w.s.c.1k.c.1o.c.g.c.c.1o.1k.c.c.g.c.w.s.c.1k.2v4.8ao.9hc.3k0.4qo.3k0.3k0.8ao.3quyo.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 5,
+   "h": 53760,
+   "x": 416,
+   "nodes": 7,
+   "delta36": "8.1o.c.g.c.c.1o.1k.c.c.g.c.w.s.c.1w.1o.c.g.c.c.1o.1k.c.c.g.c.w.s.c.1k.c.1o.c.g.c.c.1o.1k.c.c.g.c.w.s.c.1k.54.3y8.3k0.1z4.1kw.1z4.2rk.1z4.3rlfk.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 6,
+   "h": 53760,
+   "x": 0,
+   "nodes": 7,
+   "delta36": "1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.4.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.4.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.7s.2rk.3k0.1z4.1kw.1z4.2rk.1z4.3rm80.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 6,
+   "h": 53760,
+   "x": 56,
+   "nodes": 7,
+   "delta36": "0.1w.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.4.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.4.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.3tc.3k0.8ao.16o.8ao.3k0.4qo.3k0.3r22o.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 6,
+   "h": 53760,
+   "x": 68,
+   "nodes": 7,
+   "delta36": "0.1k.o.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.4.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.4.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.124.1kw.1z4.2rk.1z4.1kw.1z4.3k0.3rmm8.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 6,
+   "h": 53760,
+   "x": 80,
+   "nodes": 7,
+   "delta36": "0.1k.c.s.c.w.s.c.1k.c.s.w.c.g.c.c.1k.4.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.4.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.2nc.1z4.1kw.1z4.2rk.1z4.1kw.1z4.3rmm8.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 6,
+   "h": 53760,
+   "x": 96,
+   "nodes": 7,
+   "delta36": "0.1k.c.c.s.w.s.c.1k.c.s.w.c.g.c.c.1k.4.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.4.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.1vc.1z4.1kw.1z4.3k0.2rk.16o.sg.3rneo.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 6,
+   "h": 53760,
+   "x": 108,
+   "nodes": 7,
+   "delta36": "0.1k.c.c.g.18.s.c.1k.c.s.w.c.g.c.c.1k.4.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.4.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.p0.1z4.2rk.1z4.1kw.1z4.3k0.2rk.3rlts.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 6,
+   "h": 53760,
+   "x": 140,
+   "nodes": 7,
+   "delta36": "0.1k.c.c.g.c.1o.c.1k.c.s.w.c.g.c.c.1k.4.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.4.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.bo.sg.3k0.3y8.3k0.sg.16o.2rk.3rm80.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 6,
+   "h": 53760,
+   "x": 168,
+   "nodes": 7,
+   "delta36": "0.1k.c.c.g.c.w.14.1k.c.s.w.c.g.c.c.1k.4.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.4.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.7gg.16o.8ao.3k0.4qo.3k0.3k0.4qo.3r22o.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 6,
+   "h": 53760,
+   "x": 180,
+   "nodes": 7,
+   "delta36": "0.1k.c.c.g.c.w.s.1w.c.s.w.c.g.c.c.1k.4.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.4.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.2q4.3y8.3k0.sg.16o.2rk.3k0.1z4.3rio0.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 6,
+   "h": 53760,
+   "x": 236,
+   "nodes": 7,
+   "delta36": "0.1k.c.c.g.c.w.s.c.1w.s.w.c.g.c.c.1k.4.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.4.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.4.16o.2rk.3k0.1z4.1kw.1z4.2rk.3rneo.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 6,
+   "h": 53760,
+   "x": 248,
+   "nodes": 7,
+   "delta36": "0.1k.c.c.g.c.w.s.c.1k.14.w.c.g.c.c.1k.4.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.4.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.2s0.4qo.3k0.3k0.4qo.3k0.8ao.16o.3r6tc.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 6,
+   "h": 53760,
+   "x": 276,
+   "nodes": 7,
+   "delta36": "0.1k.c.c.g.c.w.s.c.1k.c.1o.c.g.c.c.1k.4.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.4.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.20c.3k0.1z4.1kw.1z4.2rk.1z4.1kw.3rlts.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 6,
+   "h": 53760,
+   "x": 308,
+   "nodes": 7,
+   "delta36": "0.1k.c.c.g.c.w.s.c.1k.c.s.18.g.c.c.1k.4.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.4.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.18s.3k0.2rk.16o.sg.3k0.3y8.3k0.3rio0.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 6,
+   "h": 53760,
+   "x": 320,
+   "nodes": 7,
+   "delta36": "0.1k.c.c.g.c.w.s.c.1k.c.s.w.s.c.c.1k.4.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.4.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.194.1kw.1z4.3k0.2rk.16o.sg.3k0.3rmm8.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 6,
+   "h": 53760,
+   "x": 336,
+   "nodes": 7,
+   "delta36": "0.1k.c.c.g.c.w.s.c.1k.c.s.w.c.s.c.1k.4.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.4.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.220.16o.sg.3k0.3y8.3k0.sg.16o.3rm80.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 6,
+   "h": 53760,
+   "x": 348,
+   "nodes": 7,
+   "delta36": "0.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.o.1k.4.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.4.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.2us.2rk.16o.sg.3k0.3y8.3k0.sg.3rjuo.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 6,
+   "h": 53760,
+   "x": 360,
+   "nodes": 7,
+   "delta36": "0.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.1w.4.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.4.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.2v4.3k0.4qo.3k0.8ao.16o.8ao.3k0.3r39c.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 6,
+   "h": 53760,
+   "x": 416,
+   "nodes": 7,
+   "delta36": "0.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1o.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.4.1k.c.c.g.c.w.s.c.1k.c.s.w.c.g.c.c.1k.54.3k0.3y8.3k0.sg.16o.2rk.3k0.3rjuo.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 8,
+   "h": 53760,
+   "x": 0,
+   "nodes": 10,
+   "delta36": "8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.2lc.2dc.5xc.16o.8ao.3k0.4qo.3k0.gzktc.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 8,
+   "h": 53760,
+   "x": 8,
+   "nodes": 13,
+   "delta36": "0.1k.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.1ew.3k0.2dc.5xc.16o.8ao.3k0.4qo.gzm00.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 8,
+   "h": 53760,
+   "x": 56,
+   "nodes": 16,
+   "delta36": "0.8.1o.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.3tk.3k0.5xc.2dc.3k0.2dc.5xc.16o.gzodc.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 8,
+   "h": 53760,
+   "x": 68,
+   "nodes": 13,
+   "delta36": "0.8.1c.14.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.2n8.4qo.3k0.5xc.2dc.3k0.2dc.5xc.gzm00.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 8,
+   "h": 53760,
+   "x": 96,
+   "nodes": 13,
+   "delta36": "0.8.1c.c.1g.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.7eo.3k0.4qo.3k0.5xc.2dc.3k0.2dc.gzjmo.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 8,
+   "h": 53760,
+   "x": 120,
+   "nodes": 12,
+   "delta36": "0.8.1c.c.s.w.c.s.c.1k.4.k.s.k.c.g.c.w.s.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.520.16o.8ao.3k0.4qo.3k0.5xc.2dc.gzig0.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 8,
+   "h": 53760,
+   "x": 128,
+   "nodes": 13,
+   "delta36": "0.8.1c.c.s.o.k.s.c.1k.4.k.s.k.c.g.c.w.s.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.1i8.5xc.16o.8ao.3k0.4qo.3k0.5xc.gzig0.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 8,
+   "h": 53760,
+   "x": 140,
+   "nodes": 10,
+   "delta36": "0.8.1c.c.s.o.8.14.c.1k.4.k.s.k.c.g.c.w.s.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.2p8.2dc.5xc.16o.8ao.3k0.4qo.3k0.gzktc.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 8,
+   "h": 53760,
+   "x": 168,
+   "nodes": 13,
+   "delta36": "0.8.1c.c.s.o.8.c.14.1k.4.k.s.k.c.g.c.w.s.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.53c.2dc.3k0.2dc.5xc.16o.8ao.3k0.gzktc.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 8,
+   "h": 53760,
+   "x": 180,
+   "nodes": 13,
+   "delta36": "0.8.1c.c.s.o.8.c.s.1w.4.k.s.k.c.g.c.w.s.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.2qc.5xc.2dc.3k0.2dc.5xc.16o.8ao.gzktc.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 8,
+   "h": 53760,
+   "x": 236,
+   "nodes": 13,
+   "delta36": "0.8.1c.c.s.o.8.c.s.c.1o.k.s.k.c.g.c.w.s.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.7ik.3k0.4qo.3k0.5xc.2dc.3k0.2dc.gzjmo.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 8,
+   "h": 53760,
+   "x": 240,
+   "nodes": 12,
+   "delta36": "0.8.1c.c.s.o.8.c.s.c.1k.o.s.k.c.g.c.w.s.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.eo.8ao.3k0.4qo.3k0.5xc.2dc.3k0.gzktc.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 8,
+   "h": 53760,
+   "x": 260,
+   "nodes": 10,
+   "delta36": "0.8.1c.c.s.o.8.c.s.c.1k.4.1c.k.c.g.c.w.s.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.55w.16o.8ao.3k0.4qo.3k0.5xc.2dc.gzig0.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 8,
+   "h": 53760,
+   "x": 288,
+   "nodes": 16,
+   "delta36": "0.8.1c.c.s.o.8.c.s.c.1k.4.k.1c.c.g.c.w.s.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.1mo.3k0.2dc.5xc.16o.8ao.3k0.4qo.gzm00.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 8,
+   "h": 53760,
+   "x": 308,
+   "nodes": 9,
+   "delta36": "0.8.1c.c.s.o.8.c.s.c.1k.4.k.s.w.g.c.w.s.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.578.2dc.3k0.2dc.5xc.16o.8ao.3k0.gzktc.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 8,
+   "h": 53760,
+   "x": 320,
+   "nodes": 13,
+   "delta36": "0.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.s.c.w.s.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.2u8.5xc.2dc.3k0.2dc.5xc.16o.8ao.gzktc.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 8,
+   "h": 53760,
+   "x": 336,
+   "nodes": 16,
+   "delta36": "0.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.s.w.s.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.41c.3k0.5xc.2dc.3k0.2dc.5xc.16o.gzodc.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 8,
+   "h": 53760,
+   "x": 348,
+   "nodes": 10,
+   "delta36": "0.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.18.s.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.2v0.4qo.3k0.5xc.2dc.3k0.2dc.5xc.gzm00.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 8,
+   "h": 53760,
+   "x": 380,
+   "nodes": 11,
+   "delta36": "0.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.1o.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.ik.4cg.2dc.1kw.3k0.sg.16o.2rk.3k0.1z4.3y8.2dc.3k0.2dc.iyo.8ao.gyr6o.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 8,
+   "h": 53760,
+   "x": 408,
+   "nodes": 10,
+   "delta36": "0.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.14.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.c.8.1c.c.s.o.8.c.s.c.1k.4.k.s.k.c.g.c.w.s.1q0.5xc.16o.8ao.3k0.4qo.3k0.5xc.gzig0.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 9,
+   "h": 53760,
+   "x": 8,
+   "nodes": 7,
+   "delta36": "1w.s.o.8.1g.1k.4.k.s.w.s.w.s.k.1o.s.o.8.1g.1k.4.k.s.w.s.w.s.k.1o.s.o.8.1g.1k.4.k.s.w.s.w.s.4yw.2dc.5xc.16o.8ao.8ao.feo.2dc.3qq80.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 9,
+   "h": 53760,
+   "x": 68,
+   "nodes": 7,
+   "delta36": "8.2g.o.8.1g.1k.4.k.s.w.s.w.s.k.1o.s.o.8.1g.1k.4.k.s.w.s.w.s.k.1o.s.o.8.1g.1k.4.k.s.w.s.w.s.3fo.16o.2rk.5j4.3y8.4cg.1kw.2dc.3rdxc.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 9,
+   "h": 53760,
+   "x": 96,
+   "nodes": 10,
+   "delta36": "8.1o.1g.8.1g.1k.4.k.s.w.s.w.s.k.1o.s.o.8.1g.1k.4.k.s.w.s.w.s.k.1o.s.o.8.1g.1k.4.k.s.w.s.w.s.1vk.5j4.3y8.4cg.1kw.2dc.5j4.e8.3rdj4.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 9,
+   "h": 53760,
+   "x": 120,
+   "nodes": 7,
+   "delta36": "8.1o.s.w.1g.1k.4.k.s.w.s.w.s.k.1o.s.o.8.1g.1k.4.k.s.w.s.w.s.k.1o.s.o.8.1g.1k.4.k.s.w.s.w.s.520.16o.8ao.8ao.9hc.5xc.8ao.16o.3qreo.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 9,
+   "h": 53760,
+   "x": 128,
+   "nodes": 7,
+   "delta36": "8.1o.s.o.1o.1k.4.k.s.w.s.w.s.k.1o.s.o.8.1g.1k.4.k.s.w.s.w.s.k.1o.s.o.8.1g.1k.4.k.s.w.s.w.s.1i8.5xc.16o.8ao.8ao.9hc.8ao.5xc.3qq80.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 9,
+   "h": 53760,
+   "x": 180,
+   "nodes": 7,
+   "delta36": "8.1o.s.o.8.30.4.k.s.w.s.w.s.k.1o.s.o.8.1g.1k.4.k.s.w.s.w.s.k.1o.s.o.8.1g.1k.4.k.s.w.s.w.s.8no.5xc.2dc.5xc.16o.8ao.hs0.5xc.3qj40.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 9,
+   "h": 53760,
+   "x": 236,
+   "nodes": 10,
+   "delta36": "8.1o.s.o.8.1g.1o.k.s.w.s.w.s.k.1o.s.o.8.1g.1k.4.k.s.w.s.w.s.k.1o.s.o.8.1g.1k.4.k.s.w.s.w.s.3kc.2dc.1kw.4cg.16o.2rk.5j4.3y8.3rdxc.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 9,
+   "h": 53760,
+   "x": 240,
+   "nodes": 7,
+   "delta36": "8.1o.s.o.8.1g.1k.o.s.w.s.w.s.k.1o.s.o.8.1g.1k.4.k.s.w.s.w.s.k.1o.s.o.8.1g.1k.4.k.s.w.s.w.s.eo.8ao.8ao.9hc.5xc.2dc.740.8ao.3qp1c.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 9,
+   "h": 53760,
+   "x": 260,
+   "nodes": 7,
+   "delta36": "8.1o.s.o.8.1g.1k.4.1c.w.s.w.s.k.1o.s.o.8.1g.1k.4.k.s.w.s.w.s.k.1o.s.o.8.1g.1k.4.k.s.w.s.w.s.55w.16o.8ao.8ao.9hc.5xc.8ao.16o.3qreo.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 9,
+   "h": 53760,
+   "x": 288,
+   "nodes": 7,
+   "delta36": "8.1o.s.o.8.1g.1k.4.k.1o.s.w.s.k.1o.s.o.8.1g.1k.4.k.s.w.s.w.s.k.1o.s.o.8.1g.1k.4.k.s.w.s.w.s.56o.2dc.5xc.16o.8ao.8ao.feo.2dc.3qq80.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 9,
+   "h": 53760,
+   "x": 320,
+   "nodes": 7,
+   "delta36": "8.1o.s.o.8.1g.1k.4.k.s.1o.w.s.k.1o.s.o.8.1g.1k.4.k.s.w.s.w.s.k.1o.s.o.8.1g.1k.4.k.s.w.s.w.s.4tc.3y8.4cg.1kw.2dc.5j4.e8.16o.3rf40.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 9,
+   "h": 53760,
+   "x": 348,
+   "nodes": 7,
+   "delta36": "8.1o.s.o.8.1g.1k.4.k.s.w.1o.s.k.1o.s.o.8.1g.1k.4.k.s.w.s.w.s.k.1o.s.o.8.1g.1k.4.k.s.w.s.w.s.7lo.9hc.5xc.2dc.5xc.16o.glc.9hc.3qgqo.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 9,
+   "h": 53760,
+   "x": 380,
+   "nodes": 7,
+   "delta36": "8.1o.s.o.8.1g.1k.4.k.s.w.s.1o.k.1o.s.o.8.1g.1k.4.k.s.w.s.w.s.k.1o.s.o.8.1g.1k.4.k.s.w.s.w.s.ik.8ao.8ao.9hc.5xc.2dc.740.8ao.3qp1c.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 9,
+   "h": 53760,
+   "x": 408,
+   "nodes": 7,
+   "delta36": "8.1o.s.o.8.1g.1k.4.k.s.w.s.w.1c.1o.s.o.8.1g.1k.4.k.s.w.s.w.s.k.1o.s.o.8.1g.1k.4.k.s.w.s.w.s.1q0.5xc.16o.8ao.8ao.9hc.8ao.5xc.3qq80.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 10,
+   "h": 53760,
+   "x": 0,
+   "nodes": 7,
+   "delta36": "1k.c.s.w.c.s.c.1k.4.1w.c.g.c.w.s.c.1k.c.s.w.c.s.c.1k.4.1w.c.g.c.w.s.c.1k.c.s.w.c.s.c.1k.4.1w.c.g.c.w.s.2lc.3y8.3k0.sg.16o.2rk.3k0.1z4.3rio0.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 10,
+   "h": 53760,
+   "x": 56,
+   "nodes": 7,
+   "delta36": "0.1w.s.w.c.s.c.1k.4.1w.c.g.c.w.s.c.1k.c.s.w.c.s.c.1k.4.1w.c.g.c.w.s.c.1k.c.s.w.c.s.c.1k.4.1w.c.g.c.w.s.3tk.3k0.8ao.3k0.8ao.16o.8ao.8ao.3qts0.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 10,
+   "h": 53760,
+   "x": 68,
+   "nodes": 7,
+   "delta36": "0.1k.14.w.c.s.c.1k.4.1w.c.g.c.w.s.c.1k.c.s.w.c.s.c.1k.4.1w.c.g.c.w.s.c.1k.c.s.w.c.s.c.1k.4.1w.c.g.c.w.s.2n8.sg.16o.2rk.3k0.1z4.3k0.2rk.3rjuo.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 10,
+   "h": 53760,
+   "x": 96,
+   "nodes": 7,
+   "delta36": "0.1k.c.1o.c.s.c.1k.4.1w.c.g.c.w.s.c.1k.c.s.w.c.s.c.1k.4.1w.c.g.c.w.s.c.1k.c.s.w.c.s.c.1k.4.1w.c.g.c.w.s.1vk.3k0.1z4.3k0.2rk.1z4.1kw.1z4.3rjuo.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 10,
+   "h": 53760,
+   "x": 128,
+   "nodes": 7,
+   "delta36": "0.1k.c.s.18.s.c.1k.4.1w.c.g.c.w.s.c.1k.c.s.w.c.s.c.1k.4.1w.c.g.c.w.s.c.1k.c.s.w.c.s.c.1k.4.1w.c.g.c.w.s.140.6bk.16o.sg.3k0.3y8.3k0.sg.3rhvk.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 10,
+   "h": 53760,
+   "x": 140,
+   "nodes": 7,
+   "delta36": "0.1k.c.s.w.14.c.1k.4.1w.c.g.c.w.s.c.1k.c.s.w.c.s.c.1k.4.1w.c.g.c.w.s.c.1k.c.s.w.c.s.c.1k.4.1w.c.g.c.w.s.14c.1kw.1z4.6bk.16o.sg.3k0.3y8.3rio0.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 10,
+   "h": 53760,
+   "x": 168,
+   "nodes": 7,
+   "delta36": "0.1k.c.s.w.c.14.1k.4.1w.c.g.c.w.s.c.1k.c.s.w.c.s.c.1k.4.1w.c.g.c.w.s.c.1k.c.s.w.c.s.c.1k.4.1w.c.g.c.w.s.5hk.16o.sg.3k0.3y8.3k0.sg.16o.3rio0.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 10,
+   "h": 53760,
+   "x": 180,
+   "nodes": 7,
+   "delta36": "0.1k.c.s.w.c.s.1w.4.1w.c.g.c.w.s.c.1k.c.s.w.c.s.c.1k.4.1w.c.g.c.w.s.c.1k.c.s.w.c.s.c.1k.4.1w.c.g.c.w.s.2qc.8ao.3k0.8ao.16o.8ao.3k0.8ao.3quyo.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 10,
+   "h": 53760,
+   "x": 236,
+   "nodes": 7,
+   "delta36": "0.1k.c.s.w.c.s.c.1o.1w.c.g.c.w.s.c.1k.c.s.w.c.s.c.1k.4.1w.c.g.c.w.s.c.1k.c.s.w.c.s.c.1k.4.1w.c.g.c.w.s.c.3k0.3y8.3k0.sg.16o.2rk.3k0.3rjuo.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 10,
+   "h": 53760,
+   "x": 240,
+   "nodes": 7,
+   "delta36": "0.1k.c.s.w.c.s.c.1k.20.c.g.c.w.s.c.1k.c.s.w.c.s.c.1k.4.1w.c.g.c.w.s.c.1k.c.s.w.c.s.c.1k.4.1w.c.g.c.w.s.eo.2rk.3k0.1z4.3k0.2rk.1z4.1kw.3rkn4.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 10,
+   "h": 53760,
+   "x": 308,
+   "nodes": 7,
+   "delta36": "0.1k.c.s.w.c.s.c.1k.4.28.g.c.w.s.c.1k.c.s.w.c.s.c.1k.4.1w.c.g.c.w.s.c.1k.c.s.w.c.s.c.1k.4.1w.c.g.c.w.s.190.3k0.2rk.1z4.1kw.1z4.6bk.16o.3rio0.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 10,
+   "h": 53760,
+   "x": 320,
+   "nodes": 7,
+   "delta36": "0.1k.c.s.w.c.s.c.1k.4.1w.s.c.w.s.c.1k.c.s.w.c.s.c.1k.4.1w.c.g.c.w.s.c.1k.c.s.w.c.s.c.1k.4.1w.c.g.c.w.s.2u8.1z4.3k0.2rk.1z4.1kw.1z4.6bk.3rgao.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 10,
+   "h": 53760,
+   "x": 336,
+   "nodes": 7,
+   "delta36": "0.1k.c.s.w.c.s.c.1k.4.1w.c.s.w.s.c.1k.c.s.w.c.s.c.1k.4.1w.c.g.c.w.s.c.1k.c.s.w.c.s.c.1k.4.1w.c.g.c.w.s.228.1z4.1kw.1z4.6bk.16o.sg.3k0.3rjuo.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 10,
+   "h": 53760,
+   "x": 348,
+   "nodes": 7,
+   "delta36": "0.1k.c.s.w.c.s.c.1k.4.1w.c.g.18.s.c.1k.c.s.w.c.s.c.1k.4.1w.c.g.c.w.s.c.1k.c.s.w.c.s.c.1k.4.1w.c.g.c.w.s.2v0.4qo.3k0.8ao.3k0.8ao.16o.buo.3quyo.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 10,
+   "h": 53760,
+   "x": 380,
+   "nodes": 7,
+   "delta36": "0.1k.c.s.w.c.s.c.1k.4.1w.c.g.c.1o.c.1k.c.s.w.c.s.c.1k.4.1w.c.g.c.w.s.c.1k.c.s.w.c.s.c.1k.4.1w.c.g.c.w.s.ik.sg.3k0.3y8.3k0.sg.16o.2rk.3rm80.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 10,
+   "h": 53760,
+   "x": 408,
+   "nodes": 7,
+   "delta36": "0.1k.c.s.w.c.s.c.1k.4.1w.c.g.c.w.14.1k.c.s.w.c.s.c.1k.4.1w.c.g.c.w.s.c.1k.c.s.w.c.s.c.1k.4.1w.c.g.c.w.s.3aw.3k0.sg.16o.2rk.3k0.1z4.3k0.3rio0.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 12,
+   "h": 53760,
+   "x": 0,
+   "nodes": 7,
+   "delta36": "8.1c.c.s.o.k.s.c.1k.o.s.k.c.g.c.20.8.1c.c.s.o.k.s.c.1k.o.s.k.c.g.c.20.8.1c.c.s.o.k.s.c.1k.o.s.k.c.g.c.50c.1kw.3k0.1z4.2rk.3k0.1z4.3k0.3rf40.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 12,
+   "h": 53760,
+   "x": 8,
+   "nodes": 7,
+   "delta36": "0.1k.c.s.o.k.s.c.1k.o.s.k.c.g.c.20.8.1c.c.s.o.k.s.c.1k.o.s.k.c.g.c.20.8.1c.c.s.o.k.s.c.1k.o.s.k.c.g.c.1gk.5xc.740.8ao.3k0.4qo.3k0.8ao.3qw5c.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 12,
+   "h": 53760,
+   "x": 56,
+   "nodes": 7,
+   "delta36": "0.8.1o.s.o.k.s.c.1k.o.s.k.c.g.c.20.8.1c.c.s.o.k.s.c.1k.o.s.k.c.g.c.20.8.1c.c.s.o.k.s.c.1k.o.s.k.c.g.c.3v8.3k0.5xc.2dc.5xc.740.8ao.8ao.3qts0.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 12,
+   "h": 53760,
+   "x": 68,
+   "nodes": 7,
+   "delta36": "0.8.1c.14.o.k.s.c.1k.o.s.k.c.g.c.20.8.1c.c.s.o.k.s.c.1k.o.s.k.c.g.c.20.8.1c.c.s.o.k.s.c.1k.o.s.k.c.g.c.2ow.1z4.2rk.3k0.1z4.3k0.e8.2dc.3rjuo.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 12,
+   "h": 53760,
+   "x": 96,
+   "nodes": 7,
+   "delta36": "0.8.1c.c.1g.k.s.c.1k.o.s.k.c.g.c.20.8.1c.c.s.o.k.s.c.1k.o.s.k.c.g.c.20.8.1c.c.s.o.k.s.c.1k.o.s.k.c.g.c.1x8.3k0.1z4.3k0.e8.2dc.1z4.3k0.3rjuo.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 12,
+   "h": 53760,
+   "x": 120,
+   "nodes": 9,
+   "delta36": "0.8.1c.c.s.18.s.c.1k.o.s.k.c.g.c.20.8.1c.c.s.o.k.s.c.1k.o.s.k.c.g.c.20.8.1c.c.s.o.k.s.c.1k.o.s.k.c.g.c.r8.3k0.1z4.2rk.3k0.1z4.3k0.e8.3rkn4.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 12,
+   "h": 53760,
+   "x": 140,
+   "nodes": 7,
+   "delta36": "0.8.1c.c.s.o.1c.c.1k.o.s.k.c.g.c.20.8.1c.c.s.o.k.s.c.1k.o.s.k.c.g.c.20.8.1c.c.s.o.k.s.c.1k.o.s.k.c.g.c.160.3k0.e8.5j4.1kw.sg.5xc.1kw.3rio0.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 12,
+   "h": 53760,
+   "x": 168,
+   "nodes": 7,
+   "delta36": "0.8.1c.c.s.o.k.14.1k.o.s.k.c.g.c.20.8.1c.c.s.o.k.s.c.1k.o.s.k.c.g.c.20.8.1c.c.s.o.k.s.c.1k.o.s.k.c.g.c.550.2dc.5xc.740.8ao.3k0.4qo.9hc.3qslc.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 12,
+   "h": 53760,
+   "x": 180,
+   "nodes": 7,
+   "delta36": "0.8.1c.c.s.o.k.s.1w.o.s.k.c.g.c.20.8.1c.c.s.o.k.s.c.1k.o.s.k.c.g.c.20.8.1c.c.s.o.k.s.c.1k.o.s.k.c.g.c.2s0.5xc.2dc.5xc.740.8ao.3k0.8ao.3quyo.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 12,
+   "h": 53760,
+   "x": 236,
+   "nodes": 7,
+   "delta36": "0.8.1c.c.s.o.k.s.c.28.s.k.c.g.c.20.8.1c.c.s.o.k.s.c.1k.o.s.k.c.g.c.20.8.1c.c.s.o.k.s.c.1k.o.s.k.c.g.c.20.5xc.1kw.3k0.1z4.2rk.3k0.1z4.3rhvk.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 12,
+   "h": 53760,
+   "x": 260,
+   "nodes": 7,
+   "delta36": "0.8.1c.c.s.o.k.s.c.1k.1g.k.c.g.c.20.8.1c.c.s.o.k.s.c.1k.o.s.k.c.g.c.20.8.1c.c.s.o.k.s.c.1k.o.s.k.c.g.c.4tc.1kw.sg.5xc.1kw.3k0.1z4.2rk.3rgao.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 12,
+   "h": 53760,
+   "x": 288,
+   "nodes": 9,
+   "delta36": "0.8.1c.c.s.o.k.s.c.1k.o.1c.c.g.c.20.8.1c.c.s.o.k.s.c.1k.o.s.k.c.g.c.20.8.1c.c.s.o.k.s.c.1k.o.s.k.c.g.c.vw.sg.5xc.1kw.3k0.1z4.2rk.3k0.3ri9s.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 12,
+   "h": 53760,
+   "x": 308,
+   "nodes": 7,
+   "delta36": "0.8.1c.c.s.o.k.s.c.1k.o.s.w.g.c.20.8.1c.c.s.o.k.s.c.1k.o.s.k.c.g.c.20.8.1c.c.s.o.k.s.c.1k.o.s.k.c.g.c.1ao.3k0.e8.2dc.1z4.3k0.e8.5j4.3rk8w.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 12,
+   "h": 53760,
+   "x": 320,
+   "nodes": 7,
+   "delta36": "0.8.1c.c.s.o.k.s.c.1k.o.s.k.s.c.20.8.1c.c.s.o.k.s.c.1k.o.s.k.c.g.c.20.8.1c.c.s.o.k.s.c.1k.o.s.k.c.g.c.2vw.5xc.2dc.5xc.740.8ao.3k0.8ao.3quyo.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 12,
+   "h": 53760,
+   "x": 336,
+   "nodes": 7,
+   "delta36": "0.8.1c.c.s.o.k.s.c.1k.o.s.k.c.s.20.8.1c.c.s.o.k.s.c.1k.o.s.k.c.g.c.20.8.1c.c.s.o.k.s.c.1k.o.s.k.c.g.c.430.3k0.5xc.2dc.5xc.740.8ao.8ao.3qts0.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 12,
+   "h": 53760,
+   "x": 348,
+   "nodes": 7,
+   "delta36": "0.8.1c.c.s.o.k.s.c.1k.o.s.k.c.g.2c.8.1c.c.s.o.k.s.c.1k.o.s.k.c.g.c.20.8.1c.c.s.o.k.s.c.1k.o.s.k.c.g.c.2wo.4qo.3k0.5xc.2dc.5xc.740.buo.3quyo.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 16,
+   "h": 53760,
+   "x": 0,
+   "nodes": 13,
+   "delta36": "8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.7s.2dc.2dc.3k0.2dc.5xc.740.8ao.gzktc.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 16,
+   "h": 53760,
+   "x": 8,
+   "nodes": 13,
+   "delta36": "0.1k.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.1eo.16o.2dc.2dc.3k0.2dc.5xc.740.gzqqo.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 16,
+   "h": 53760,
+   "x": 56,
+   "nodes": 16,
+   "delta36": "0.8.20.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.7dc.5xc.2dc.16o.2dc.2dc.3k0.2dc.gzpk0.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 16,
+   "h": 53760,
+   "x": 80,
+   "nodes": 10,
+   "delta36": "0.8.1c.1g.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.67c.8ao.5xc.2dc.16o.2dc.2dc.3k0.gzktc.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 16,
+   "h": 53760,
+   "x": 108,
+   "nodes": 9,
+   "delta36": "0.8.1c.o.14.8.c.s.20.8.c.g.c.k.s.o.k.s.8.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.1hg.5xc.740.8ao.5xc.2dc.16o.2dc.gzig0.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 16,
+   "h": 53760,
+   "x": 120,
+   "nodes": 12,
+   "delta36": "0.8.1c.o.s.k.c.s.20.8.c.g.c.k.s.o.k.s.8.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.2og.2dc.5xc.740.8ao.5xc.2dc.16o.gzh9c.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 16,
+   "h": 53760,
+   "x": 128,
+   "nodes": 9,
+   "delta36": "0.8.1c.o.s.c.k.s.20.8.c.g.c.k.s.o.k.s.8.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.1i0.3k0.2dc.5xc.740.8ao.5xc.2dc.gzg2o.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 16,
+   "h": 53760,
+   "x": 140,
+   "nodes": 10,
+   "delta36": "0.8.1c.o.s.c.8.14.20.8.c.g.c.k.s.o.k.s.8.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.bo.2dc.2dc.3k0.2dc.5xc.740.8ao.gzktc.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 16,
+   "h": 53760,
+   "x": 168,
+   "nodes": 12,
+   "delta36": "0.8.1c.o.s.c.8.c.2s.8.c.g.c.k.s.o.k.s.8.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.534.2dc.16o.2dc.2dc.3k0.2dc.5xc.gzrxc.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 16,
+   "h": 53760,
+   "x": 240,
+   "nodes": 12,
+   "delta36": "0.8.1c.o.s.c.8.c.s.28.c.g.c.k.s.o.k.s.8.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.554.740.8ao.5xc.2dc.16o.2dc.2dc.gzig0.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 16,
+   "h": 53760,
+   "x": 248,
+   "nodes": 10,
+   "delta36": "0.8.1c.o.s.c.8.c.s.20.k.g.c.k.s.o.k.s.8.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.1lc.5xc.740.8ao.5xc.2dc.16o.2dc.gzig0.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 16,
+   "h": 53760,
+   "x": 260,
+   "nodes": 13,
+   "delta36": "0.8.1c.o.s.c.8.c.s.20.8.s.c.k.s.o.k.s.8.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.2sc.2dc.5xc.740.8ao.5xc.2dc.16o.gzh9c.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 16,
+   "h": 53760,
+   "x": 276,
+   "nodes": 13,
+   "delta36": "0.8.1c.o.s.c.8.c.s.20.8.c.s.k.s.o.k.s.8.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.1m4.2dc.3k0.2dc.5xc.740.8ao.5xc.gzg2o.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 16,
+   "h": 53760,
+   "x": 288,
+   "nodes": 13,
+   "delta36": "0.8.1c.o.s.c.8.c.s.20.8.c.g.w.s.o.k.s.8.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.1mg.16o.2dc.2dc.3k0.2dc.5xc.740.gzqqo.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 16,
+   "h": 53760,
+   "x": 308,
+   "nodes": 13,
+   "delta36": "0.8.1c.o.s.c.8.c.s.20.8.c.g.c.1c.o.k.s.8.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.570.2dc.16o.2dc.2dc.3k0.2dc.5xc.gzrxc.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 16,
+   "h": 53760,
+   "x": 336,
+   "nodes": 13,
+   "delta36": "0.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.1g.k.s.8.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.7l4.5xc.2dc.16o.2dc.2dc.3k0.2dc.gzpk0.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 16,
+   "h": 53760,
+   "x": 360,
+   "nodes": 10,
+   "delta36": "0.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.18.s.8.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.6f4.8ao.5xc.2dc.16o.2dc.2dc.3k0.gzktc.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 16,
+   "h": 53760,
+   "x": 380,
+   "nodes": 11,
+   "delta36": "0.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.1c.8.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.2hg.2dc.e8.1z4.3k0.2dc.5xc.1kw.5xc.2dc.3k0.2dc.3k0.8ao.740.e80.gyl9c.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 16,
+   "h": 53760,
+   "x": 408,
+   "nodes": 9,
+   "delta36": "0.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.10.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.1ps.3k0.2dc.5xc.740.8ao.5xc.2dc.gzg2o.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 16,
+   "h": 53760,
+   "x": 416,
+   "nodes": 13,
+   "delta36": "0.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.c.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.4.8.1c.o.s.c.8.c.s.20.8.c.g.c.k.s.o.k.s.8.1q0.2dc.3k0.2dc.5xc.740.8ao.5xc.gzg2o.h0i00.y1000.v6x00.10v300.494i0.kk3r0"
+  },
+  {
+   "f": 7,
+   "r": 17,
+   "h": 53760,
+   "x": 8,
+   "nodes": 7,
+   "delta36": "28.s.c.8.34.8.c.g.c.20.k.s.8.c.20.s.c.8.34.8.c.g.c.20.k.s.8.c.20.s.c.8.34.8.c.g.c.20.k.s.8.2lc.2dc.2dc.3k0.2dc.5xc.ow0.2dc.3qslc.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 17,
+   "h": 53760,
+   "x": 80,
+   "nodes": 7,
+   "delta36": "8.2s.c.8.34.8.c.g.c.20.k.s.8.c.20.s.c.8.34.8.c.g.c.20.k.s.8.c.20.s.c.8.34.8.c.g.c.20.k.s.8.12g.3k0.2dc.5xc.7i8.3k0.2dc.2dc.3radc.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 17,
+   "h": 53760,
+   "x": 108,
+   "nodes": 7,
+   "delta36": "8.20.14.8.34.8.c.g.c.20.k.s.8.c.20.s.c.8.34.8.c.g.c.20.k.s.8.c.20.s.c.8.34.8.c.g.c.20.k.s.8.1hg.5xc.7i8.3k0.2dc.2dc.3k0.1z4.3radc.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 17,
+   "h": 53760,
+   "x": 120,
+   "nodes": 7,
+   "delta36": "8.20.s.k.34.8.c.g.c.20.k.s.8.c.20.s.c.8.34.8.c.g.c.20.k.s.8.c.20.s.c.8.34.8.c.g.c.20.k.s.8.2og.2dc.5xc.lc0.3k0.2dc.5xc.2dc.3qslc.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 17,
+   "h": 53760,
+   "x": 128,
+   "nodes": 7,
+   "delta36": "8.20.s.c.3c.8.c.g.c.20.k.s.8.c.20.s.c.8.34.8.c.g.c.20.k.s.8.c.20.s.c.8.34.8.c.g.c.20.k.s.8.1i0.3k0.2dc.5xc.lc0.3k0.4qo.3k0.3qslc.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 17,
+   "h": 53760,
+   "x": 240,
+   "nodes": 7,
+   "delta36": "8.20.s.c.8.3c.c.g.c.20.k.s.8.c.20.s.c.8.34.8.c.g.c.20.k.s.8.c.20.s.c.8.34.8.c.g.c.20.k.s.8.554.lc0.3k0.2dc.2dc.3k0.8ao.lc0.3q79c.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 17,
+   "h": 53760,
+   "x": 248,
+   "nodes": 9,
+   "delta36": "8.20.s.c.8.34.k.g.c.20.k.s.8.c.20.s.c.8.34.8.c.g.c.20.k.s.8.c.20.s.c.8.34.8.c.g.c.20.k.s.8.174.e8.35s.2dc.e8.1z4.3k0.2dc.3rnsw.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 17,
+   "h": 53760,
+   "x": 260,
+   "nodes": 7,
+   "delta36": "8.20.s.c.8.34.8.s.c.20.k.s.8.c.20.s.c.8.34.8.c.g.c.20.k.s.8.c.20.s.c.8.34.8.c.g.c.20.k.s.8.2sc.2dc.5xc.lc0.3k0.2dc.5xc.2dc.3qslc.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 17,
+   "h": 53760,
+   "x": 276,
+   "nodes": 7,
+   "delta36": "8.20.s.c.8.34.8.c.s.20.k.s.8.c.20.s.c.8.34.8.c.g.c.20.k.s.8.c.20.s.c.8.34.8.c.g.c.20.k.s.8.1m4.e8.1z4.3k0.2dc.5xc.7i8.3k0.3rccg.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 17,
+   "h": 53760,
+   "x": 288,
+   "nodes": 7,
+   "delta36": "8.20.s.c.8.34.8.c.g.2c.k.s.8.c.20.s.c.8.34.8.c.g.c.20.k.s.8.c.20.s.c.8.34.8.c.g.c.20.k.s.8.2t4.2dc.2dc.3k0.2dc.5xc.ow0.2dc.3qslc.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 17,
+   "h": 53760,
+   "x": 360,
+   "nodes": 7,
+   "delta36": "8.20.s.c.8.34.8.c.g.c.2k.s.8.c.20.s.c.8.34.8.c.g.c.20.k.s.8.c.20.s.c.8.34.8.c.g.c.20.k.s.8.6tc.3k0.2dc.2dc.3k0.1z4.e8.35s.3rf40.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 17,
+   "h": 53760,
+   "x": 380,
+   "nodes": 7,
+   "delta36": "8.20.s.c.8.34.8.c.g.c.20.1c.8.c.20.s.c.8.34.8.c.g.c.20.k.s.8.c.20.s.c.8.34.8.c.g.c.20.k.s.8.2hg.2dc.e8.1z4.3k0.2dc.5xc.7i8.3rcqo.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 17,
+   "h": 53760,
+   "x": 408,
+   "nodes": 7,
+   "delta36": "8.20.s.c.8.34.8.c.g.c.20.k.10.c.20.s.c.8.34.8.c.g.c.20.k.s.8.c.20.s.c.8.34.8.c.g.c.20.k.s.8.1ps.3k0.2dc.5xc.lc0.3k0.4qo.3k0.3qslc.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 17,
+   "h": 53760,
+   "x": 416,
+   "nodes": 7,
+   "delta36": "8.20.s.c.8.34.8.c.g.c.20.k.s.k.20.s.c.8.34.8.c.g.c.20.k.s.8.c.20.s.c.8.34.8.c.g.c.20.k.s.8.1q0.2dc.3k0.1z4.e8.35s.2dc.e8.3rneo.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 18,
+   "h": 53760,
+   "x": 0,
+   "nodes": 7,
+   "delta36": "1k.o.s.k.c.s.20.8.s.w.s.o.k.s.8.4.1k.o.s.k.c.s.20.8.s.w.s.o.k.s.8.4.1k.o.s.k.c.s.20.8.s.w.s.o.k.s.8.7s.2dc.e8.5j4.1kw.sg.5xc.1kw.3rkn4.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 18,
+   "h": 53760,
+   "x": 56,
+   "nodes": 7,
+   "delta36": "0.28.s.k.c.s.20.8.s.w.s.o.k.s.8.4.1k.o.s.k.c.s.20.8.s.w.s.o.k.s.8.4.1k.o.s.k.c.s.20.8.s.w.s.o.k.s.8.7dc.8ao.16o.2dc.5xc.2dc.5xc.feo.3qq80.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 18,
+   "h": 53760,
+   "x": 80,
+   "nodes": 7,
+   "delta36": "0.1k.1g.k.c.s.20.8.s.w.s.o.k.s.8.4.1k.o.s.k.c.s.20.8.s.w.s.o.k.s.8.4.1k.o.s.k.c.s.20.8.s.w.s.o.k.s.8.4mg.1kw.sg.5xc.1kw.5j4.2rk.16o.3rf40.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 18,
+   "h": 53760,
+   "x": 108,
+   "nodes": 7,
+   "delta36": "0.1k.o.1c.c.s.20.8.s.w.s.o.k.s.8.4.1k.o.s.k.c.s.20.8.s.w.s.o.k.s.8.4.1k.o.s.k.c.s.20.8.s.w.s.o.k.s.8.p0.sg.5xc.1kw.5j4.2rk.16o.2dc.3ri9s.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 18,
+   "h": 53760,
+   "x": 128,
+   "nodes": 7,
+   "delta36": "0.1k.o.s.w.s.20.8.s.w.s.o.k.s.8.4.1k.o.s.k.c.s.20.8.s.w.s.o.k.s.8.4.1k.o.s.k.c.s.20.8.s.w.s.o.k.s.8.13s.3y8.2dc.1z4.16o.2dc.e8.5j4.3rk8w.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 18,
+   "h": 53760,
+   "x": 140,
+   "nodes": 7,
+   "delta36": "0.1k.o.s.k.14.20.8.s.w.s.o.k.s.8.4.1k.o.s.k.c.s.20.8.s.w.s.o.k.s.8.4.1k.o.s.k.c.s.20.8.s.w.s.o.k.s.8.bo.2dc.1z4.3y8.2dc.1z4.16o.2dc.3rmm8.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 18,
+   "h": 53760,
+   "x": 168,
+   "nodes": 7,
+   "delta36": "0.1k.o.s.k.c.2s.8.s.w.s.o.k.s.8.4.1k.o.s.k.c.s.20.8.s.w.s.o.k.s.8.4.1k.o.s.k.c.s.20.8.s.w.s.o.k.s.8.340.2dc.1z4.16o.2dc.e8.5j4.1kw.3rkn4.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 18,
+   "h": 53760,
+   "x": 240,
+   "nodes": 7,
+   "delta36": "0.1k.o.s.k.c.s.28.s.w.s.o.k.s.8.4.1k.o.s.k.c.s.20.8.s.w.s.o.k.s.8.4.1k.o.s.k.c.s.20.8.s.w.s.o.k.s.8.554.1kw.5j4.2rk.16o.2dc.1z4.3y8.3reps.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 18,
+   "h": 53760,
+   "x": 248,
+   "nodes": 7,
+   "delta36": "0.1k.o.s.k.c.s.20.10.w.s.o.k.s.8.4.1k.o.s.k.c.s.20.8.s.w.s.o.k.s.8.4.1k.o.s.k.c.s.20.8.s.w.s.o.k.s.8.1lc.5xc.740.8ao.8ao.16o.2dc.8ao.3qw5c.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 18,
+   "h": 53760,
+   "x": 276,
+   "nodes": 7,
+   "delta36": "0.1k.o.s.k.c.s.20.8.1o.s.o.k.s.8.4.1k.o.s.k.c.s.20.8.s.w.s.o.k.s.8.4.1k.o.s.k.c.s.20.8.s.w.s.o.k.s.8.1m4.5xc.2dc.5xc.740.8ao.8ao.3k0.3qw5c.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 18,
+   "h": 53760,
+   "x": 308,
+   "nodes": 7,
+   "delta36": "0.1k.o.s.k.c.s.20.8.s.1o.o.k.s.8.4.1k.o.s.k.c.s.20.8.s.w.s.o.k.s.8.4.1k.o.s.k.c.s.20.8.s.w.s.o.k.s.8.4ss.2rk.16o.2dc.1z4.3y8.2dc.1z4.3rhvk.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 18,
+   "h": 53760,
+   "x": 336,
+   "nodes": 7,
+   "delta36": "0.1k.o.s.k.c.s.20.8.s.w.1g.k.s.8.4.1k.o.s.k.c.s.20.8.s.w.s.o.k.s.8.4.1k.o.s.k.c.s.20.8.s.w.s.o.k.s.8.220.16o.2dc.1z4.3y8.2dc.1z4.16o.3rm80.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 18,
+   "h": 53760,
+   "x": 360,
+   "nodes": 7,
+   "delta36": "0.1k.o.s.k.c.s.20.8.s.w.s.18.s.8.4.1k.o.s.k.c.s.20.8.s.w.s.o.k.s.8.4.1k.o.s.k.c.s.20.8.s.w.s.o.k.s.8.w0.5j4.2rk.16o.2dc.1z4.3y8.2dc.3ri9s.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 18,
+   "h": 53760,
+   "x": 380,
+   "nodes": 7,
+   "delta36": "0.1k.o.s.k.c.s.20.8.s.w.s.o.1c.8.4.1k.o.s.k.c.s.20.8.s.w.s.o.k.s.8.4.1k.o.s.k.c.s.20.8.s.w.s.o.k.s.8.1as.16o.2dc.e8.5j4.1kw.sg.5xc.3rk8w.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 18,
+   "h": 53760,
+   "x": 408,
+   "nodes": 7,
+   "delta36": "0.1k.o.s.k.c.s.20.8.s.w.s.o.k.10.4.1k.o.s.k.c.s.20.8.s.w.s.o.k.s.8.4.1k.o.s.k.c.s.20.8.s.w.s.o.k.s.8.59s.2dc.5xc.740.8ao.8ao.16o.8ao.3qslc.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 18,
+   "h": 53760,
+   "x": 416,
+   "nodes": 7,
+   "delta36": "0.1k.o.s.k.c.s.20.8.s.w.s.o.k.s.c.1k.o.s.k.c.s.20.8.s.w.s.o.k.s.8.4.1k.o.s.k.c.s.20.8.s.w.s.o.k.s.8.1q0.1z4.3y8.2dc.1z4.16o.2dc.e8.3rneo.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 20,
+   "h": 53760,
+   "x": 0,
+   "nodes": 7,
+   "delta36": "8.1c.o.s.c.k.s.28.c.g.c.k.s.o.1k.4.8.1c.o.s.c.k.s.28.c.g.c.k.s.o.1k.4.8.1c.o.s.c.k.s.28.c.g.c.k.s.o.1k.7s.2rk.1z4.3k0.1kw.6ps.1kw.5j4.3rf40.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 20,
+   "h": 53760,
+   "x": 8,
+   "nodes": 7,
+   "delta36": "0.1k.o.s.c.k.s.28.c.g.c.k.s.o.1k.4.8.1c.o.s.c.k.s.28.c.g.c.k.s.o.1k.4.8.1c.o.s.c.k.s.28.c.g.c.k.s.o.1k.1eo.16o.4cg.e8.3k0.1z4.2dc.16o.3rmm8.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 20,
+   "h": 53760,
+   "x": 56,
+   "nodes": 7,
+   "delta36": "0.8.20.s.c.k.s.28.c.g.c.k.s.o.1k.4.8.1c.o.s.c.k.s.28.c.g.c.k.s.o.1k.4.8.1c.o.s.c.k.s.28.c.g.c.k.s.o.1k.5sg.1kw.5j4.e8.2dc.16o.4cg.e8.3rhhc.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 20,
+   "h": 53760,
+   "x": 80,
+   "nodes": 7,
+   "delta36": "0.8.1c.1g.c.k.s.28.c.g.c.k.s.o.1k.4.8.1c.o.s.c.k.s.28.c.g.c.k.s.o.1k.4.8.1c.o.s.c.k.s.28.c.g.c.k.s.o.1k.67c.8ao.5xc.2dc.16o.4qo.3k0.feo.3qreo.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 20,
+   "h": 53760,
+   "x": 108,
+   "nodes": 7,
+   "delta36": "0.8.1c.o.14.k.s.28.c.g.c.k.s.o.1k.4.8.1c.o.s.c.k.s.28.c.g.c.k.s.o.1k.4.8.1c.o.s.c.k.s.28.c.g.c.k.s.o.1k.7es.740.8ao.5xc.2dc.16o.4qo.buo.3qq80.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 20,
+   "h": 53760,
+   "x": 120,
+   "nodes": 7,
+   "delta36": "0.8.1c.o.s.w.s.28.c.g.c.k.s.o.1k.4.8.1c.o.s.c.k.s.28.c.g.c.k.s.o.1k.4.8.1c.o.s.c.k.s.28.c.g.c.k.s.o.1k.2og.1kw.6ps.1kw.5j4.e8.2dc.16o.3rh34.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 20,
+   "h": 53760,
+   "x": 140,
+   "nodes": 7,
+   "delta36": "0.8.1c.o.s.c.1c.28.c.g.c.k.s.o.1k.4.8.1c.o.s.c.k.s.28.c.g.c.k.s.o.1k.4.8.1c.o.s.c.k.s.28.c.g.c.k.s.o.1k.bo.4cg.e8.3k0.1z4.2dc.16o.2rk.3rm80.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 20,
+   "h": 53760,
+   "x": 168,
+   "nodes": 7,
+   "delta36": "0.8.1c.o.s.c.k.30.c.g.c.k.s.o.1k.4.8.1c.o.s.c.k.s.28.c.g.c.k.s.o.1k.4.8.1c.o.s.c.k.s.28.c.g.c.k.s.o.1k.534.2dc.16o.4qo.3k0.8ao.740.e80.3qslc.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 20,
+   "h": 53760,
+   "x": 248,
+   "nodes": 7,
+   "delta36": "0.8.1c.o.s.c.k.s.2k.g.c.k.s.o.1k.4.8.1c.o.s.c.k.s.28.c.g.c.k.s.o.1k.4.8.1c.o.s.c.k.s.28.c.g.c.k.s.o.1k.174.2dc.16o.2rk.1z4.3k0.1kw.6ps.3rhvk.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 20,
+   "h": 53760,
+   "x": 260,
+   "nodes": 7,
+   "delta36": "0.8.1c.o.s.c.k.s.28.s.c.k.s.o.1k.4.8.1c.o.s.c.k.s.28.c.g.c.k.s.o.1k.4.8.1c.o.s.c.k.s.28.c.g.c.k.s.o.1k.2sc.1z4.2dc.16o.2rk.1z4.3k0.1kw.3rl1c.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 20,
+   "h": 53760,
+   "x": 276,
+   "nodes": 7,
+   "delta36": "0.8.1c.o.s.c.k.s.28.c.s.k.s.o.1k.4.8.1c.o.s.c.k.s.28.c.g.c.k.s.o.1k.4.8.1c.o.s.c.k.s.28.c.g.c.k.s.o.1k.20c.1z4.3k0.1kw.6ps.1kw.5j4.e8.3rfwg.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 20,
+   "h": 53760,
+   "x": 288,
+   "nodes": 7,
+   "delta36": "0.8.1c.o.s.c.k.s.28.c.g.w.s.o.1k.4.8.1c.o.s.c.k.s.28.c.g.c.k.s.o.1k.4.8.1c.o.s.c.k.s.28.c.g.c.k.s.o.1k.1mg.16o.2rk.1z4.3k0.1kw.6ps.1kw.3ri9s.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 20,
+   "h": 53760,
+   "x": 308,
+   "nodes": 7,
+   "delta36": "0.8.1c.o.s.c.k.s.28.c.g.c.1c.o.1k.4.8.1c.o.s.c.k.s.28.c.g.c.k.s.o.1k.4.8.1c.o.s.c.k.s.28.c.g.c.k.s.o.1k.4ss.e8.2dc.16o.4cg.e8.3k0.1z4.3rk8w.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 20,
+   "h": 53760,
+   "x": 336,
+   "nodes": 7,
+   "delta36": "0.8.1c.o.s.c.k.s.28.c.g.c.k.1g.1k.4.8.1c.o.s.c.k.s.28.c.g.c.k.s.o.1k.4.8.1c.o.s.c.k.s.28.c.g.c.k.s.o.1k.7l4.5xc.2dc.16o.4qo.3k0.8ao.feo.3qq80.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 20,
+   "h": 53760,
+   "x": 360,
+   "nodes": 7,
+   "delta36": "0.8.1c.o.s.c.k.s.28.c.g.c.k.s.28.4.8.1c.o.s.c.k.s.28.c.g.c.k.s.o.1k.4.8.1c.o.s.c.k.s.28.c.g.c.k.s.o.1k.w0.5j4.e8.2dc.16o.4cg.e8.3k0.3rkn4.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 20,
+   "h": 53760,
+   "x": 416,
+   "nodes": 7,
+   "delta36": "0.8.1c.o.s.c.k.s.28.c.g.c.k.s.o.1o.8.1c.o.s.c.k.s.28.c.g.c.k.s.o.1k.4.8.1c.o.s.c.k.s.28.c.g.c.k.s.o.1k.43c.3k0.8ao.740.8ao.5xc.2dc.5xc.3qts0.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 24,
+   "h": 53760,
+   "x": 0,
+   "nodes": 7,
+   "delta36": "8.1c.1s.8.c.s.20.k.s.k.s.18.s.c.8.1c.1s.8.c.s.20.k.s.k.s.18.s.c.8.1c.1s.8.c.s.20.k.s.k.s.18.s.2lc.2dc.54w.sg.7i8.5j4.e8.2dc.3rccg.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 24,
+   "h": 53760,
+   "x": 8,
+   "nodes": 7,
+   "delta36": "0.1k.1s.8.c.s.20.k.s.k.s.18.s.c.8.1c.1s.8.c.s.20.k.s.k.s.18.s.c.8.1c.1s.8.c.s.20.k.s.k.s.18.s.1ew.3k0.2dc.5xc.d1c.8ao.8ao.3k0.3qslc.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 24,
+   "h": 53760,
+   "x": 56,
+   "nodes": 7,
+   "delta36": "0.8.34.8.c.s.20.k.s.k.s.18.s.c.8.1c.1s.8.c.s.20.k.s.k.s.18.s.c.8.1c.1s.8.c.s.20.k.s.k.s.18.s.7dk.5xc.2dc.3k0.2dc.5xc.lc0.5xc.3qkao.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 24,
+   "h": 53760,
+   "x": 120,
+   "nodes": 7,
+   "delta36": "0.8.1c.20.c.s.20.k.s.k.s.18.s.c.8.1c.1s.8.c.s.20.k.s.k.s.18.s.c.8.1c.1s.8.c.s.20.k.s.k.s.18.s.520.d1c.8ao.5xc.2dc.3k0.8ao.d1c.3qfk0.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 24,
+   "h": 53760,
+   "x": 128,
+   "nodes": 7,
+   "delta36": "0.8.1c.1s.k.s.20.k.s.k.s.18.s.c.8.1c.1s.8.c.s.20.k.s.k.s.18.s.c.8.1c.1s.8.c.s.20.k.s.k.s.18.s.1i8.5xc.d1c.8ao.5xc.2dc.5xc.5xc.3qq80.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 24,
+   "h": 53760,
+   "x": 140,
+   "nodes": 9,
+   "delta36": "0.8.1c.1s.8.14.20.k.s.k.s.18.s.c.8.1c.1s.8.c.s.20.k.s.k.s.18.s.c.8.1c.1s.8.c.s.20.k.s.k.s.18.s.2p8.1z4.e8.5j4.e8.1z4.3k0.2dc.3rk8w.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 24,
+   "h": 53760,
+   "x": 168,
+   "nodes": 7,
+   "delta36": "0.8.1c.1s.8.c.2s.k.s.k.s.18.s.c.8.1c.1s.8.c.s.20.k.s.k.s.18.s.c.8.1c.1s.8.c.s.20.k.s.k.s.18.s.53c.2dc.3k0.2dc.5xc.d1c.e80.2dc.3qq80.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 24,
+   "h": 53760,
+   "x": 240,
+   "nodes": 7,
+   "delta36": "0.8.1c.1s.8.c.s.2k.s.k.s.18.s.c.8.1c.1s.8.c.s.20.k.s.k.s.18.s.c.8.1c.1s.8.c.s.20.k.s.k.s.18.s.c9c.8ao.5xc.2dc.3k0.2dc.iyo.8ao.3qd6o.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 24,
+   "h": 53760,
+   "x": 260,
+   "nodes": 7,
+   "delta36": "0.8.1c.1s.8.c.s.20.1c.k.s.18.s.c.8.1c.1s.8.c.s.20.k.s.k.s.18.s.c.8.1c.1s.8.c.s.20.k.s.k.s.18.s.55w.d1c.8ao.5xc.2dc.3k0.8ao.d1c.3qfk0.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 24,
+   "h": 53760,
+   "x": 288,
+   "nodes": 7,
+   "delta36": "0.8.1c.1s.8.c.s.20.k.1c.s.18.s.c.8.1c.1s.8.c.s.20.k.s.k.s.18.s.c.8.1c.1s.8.c.s.20.k.s.k.s.18.s.1mo.3k0.2dc.5xc.d1c.8ao.8ao.3k0.3qslc.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 24,
+   "h": 53760,
+   "x": 308,
+   "nodes": 7,
+   "delta36": "0.8.1c.1s.8.c.s.20.k.s.1c.18.s.c.8.1c.1s.8.c.s.20.k.s.k.s.18.s.c.8.1c.1s.8.c.s.20.k.s.k.s.18.s.4t0.e8.2dc.3k0.1z4.e8.5j4.e8.3rjuo.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 24,
+   "h": 53760,
+   "x": 336,
+   "nodes": 7,
+   "delta36": "0.8.1c.1s.8.c.s.20.k.s.k.20.s.c.8.1c.1s.8.c.s.20.k.s.k.s.18.s.c.8.1c.1s.8.c.s.20.k.s.k.s.18.s.7lc.5xc.2dc.3k0.2dc.5xc.lc0.5xc.3qkao.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 24,
+   "h": 53760,
+   "x": 380,
+   "nodes": 9,
+   "delta36": "0.8.1c.1s.8.c.s.20.k.s.k.s.20.c.8.1c.1s.8.c.s.20.k.s.k.s.18.s.c.8.1c.1s.8.c.s.20.k.s.k.s.18.s.1b0.3k0.2dc.54w.sg.7i8.5j4.e8.3rcqo.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  },
+  {
+   "f": 7,
+   "r": 24,
+   "h": 53760,
+   "x": 408,
+   "nodes": 7,
+   "delta36": "0.8.1c.1s.8.c.s.20.k.s.k.s.18.14.8.1c.1s.8.c.s.20.k.s.k.s.18.s.c.8.1c.1s.8.c.s.20.k.s.k.s.18.s.1q0.5xc.d1c.8ao.5xc.2dc.5xc.5xc.3qq80.3s400.y100.16j90.5fnr0.1w200.2d2i0"
+  }
+ ]
+}
