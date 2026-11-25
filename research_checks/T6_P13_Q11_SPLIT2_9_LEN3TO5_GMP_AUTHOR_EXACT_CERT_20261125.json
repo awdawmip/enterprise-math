@@ -1,0 +1,2917 @@
+{
+  "schema": "T6_P13_Q11_SPLIT2_9_LEN3TO5_GMP_AUTHOR_EXACT_COMPACT_V1",
+  "author": "EM-DIRECT-D03BC9",
+  "activity": "RA-A468735D7C934B25C4B9614F",
+  "frozen_science": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "p": 13,
+  "valuation": 1,
+  "total_q": 11,
+  "split": [
+    2,
+    9
+  ],
+  "budget": 2331,
+  "coset_denominator": 4826809,
+  "lattice_index": "13^21",
+  "dependency": "0b097eb89c104b579e024289cbc6f26a0bb11f86:research_checks/T6_P13_Q11_GMP_REPLAY_20261125/t6_q11_split011_exact.py",
+  "method": "Exact GMP integer recursion generalized to both positive rosters of order 2; enumerate negative rosters in nondecreasing labels within each equal-q group, positive labels independently; preserve common atoms; same signed coset and both masses. All leaves reconstructed and checked locally; this compact serialization independently rechecks all 210 congruences, original masses and norms in BigInt/integers. Conditional on frozen saturation/high-valuation reductions. No claim or formal Result.",
+  "local_output_sha256": {
+    "3": "a0b2311dab94b1b0cf58c67d87181089ccc8fb5d30941ef640c7a91c4114fe5d",
+    "4": "653bbdb9a336998aaf3fc2ac7519c55905055d78573ed56be40cae487be82c04",
+    "5": "872223a2f8c1e5be56e77d5a60882f18782c1d2e5181e7d64227fa5c5188e729"
+  },
+  "local_code_sha256": {
+    "kernel": "f2d0f2f7487bd6fe6feb9bb201b4ad6f336998bcf9caacdac78d99e79863c7d5",
+    "cpp": "b890329aa63c4f1aba0ac7f6b8245bd72054565366a513d51c06f8b7641d2099",
+    "wrapper": "b013723ce94cb1be7431ae1a0a80f2f2158439af9a828868470d864198106a76"
+  },
+  "core_elapsed_s": [
+    0.6620520959999965,
+    3.6837886750000166,
+    12.296063481000004
+  ],
+  "blocks": [
+    {
+      "length": 3,
+      "rows": [
+        {
+          "pos_pattern": [
+            2
+          ],
+          "neg_pattern": [
+            1,
+            1,
+            7
+          ],
+          "raw": 11232,
+          "over": 0,
+          "common_included": 0,
+          "search": 11232,
+          "nodes": 25349,
+          "leaves": 0,
+          "valid": 0,
+          "witnesses": []
+        },
+        {
+          "pos_pattern": [
+            1,
+            1
+          ],
+          "neg_pattern": [
+            1,
+            1,
+            7
+          ],
+          "raw": 73008,
+          "over": 0,
+          "common_included": 19944,
+          "search": 73008,
+          "nodes": 157735,
+          "leaves": 0,
+          "valid": 0,
+          "witnesses": []
+        },
+        {
+          "pos_pattern": [
+            2
+          ],
+          "neg_pattern": [
+            1,
+            2,
+            6
+          ],
+          "raw": 20736,
+          "over": 0,
+          "common_included": 1728,
+          "search": 20736,
+          "nodes": 47003,
+          "leaves": 0,
+          "valid": 0,
+          "witnesses": []
+        },
+        {
+          "pos_pattern": [
+            1,
+            1
+          ],
+          "neg_pattern": [
+            1,
+            2,
+            6
+          ],
+          "raw": 134784,
+          "over": 0,
+          "common_included": 20736,
+          "search": 134784,
+          "nodes": 291295,
+          "leaves": 1,
+          "valid": 0,
+          "witnesses": [
+            {
+              "pos": [
+                [
+                  1,
+                  2
+                ],
+                [
+                  1,
+                  2
+                ]
+              ],
+              "neg": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  2,
+                  11
+                ],
+                [
+                  6,
+                  5
+                ]
+              ],
+              "u": [
+                -42,
+                -4,
+                12,
+                10,
+                -2,
+                -3,
+                -10,
+                4,
+                7,
+                -7,
+                -2,
+                4
+              ],
+              "masses": [
+                3198,
+                4789
+              ],
+              "residues": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "norm_sq": 3721350,
+              "radius_sq": 4125713,
+              "budget_valid": false
+            }
+          ]
+        },
+        {
+          "pos_pattern": [
+            2
+          ],
+          "neg_pattern": [
+            1,
+            3,
+            5
+          ],
+          "raw": 20736,
+          "over": 0,
+          "common_included": 0,
+          "search": 20736,
+          "nodes": 46725,
+          "leaves": 0,
+          "valid": 0,
+          "witnesses": []
+        },
+        {
+          "pos_pattern": [
+            1,
+            1
+          ],
+          "neg_pattern": [
+            1,
+            3,
+            5
+          ],
+          "raw": 134784,
+          "over": 0,
+          "common_included": 20736,
+          "search": 134784,
+          "nodes": 291487,
+          "leaves": 1,
+          "valid": 0,
+          "witnesses": [
+            {
+              "pos": [
+                [
+                  1,
+                  2
+                ],
+                [
+                  1,
+                  11
+                ]
+              ],
+              "neg": [
+                [
+                  1,
+                  6
+                ],
+                [
+                  3,
+                  5
+                ],
+                [
+                  5,
+                  12
+                ]
+              ],
+              "u": [
+                -28,
+                -2,
+                4,
+                -11,
+                -3,
+                -11,
+                9,
+                1,
+                -4,
+                8,
+                3,
+                3
+              ],
+              "masses": [
+                3493,
+                4267
+              ],
+              "residues": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "norm_sq": 3552224,
+              "radius_sq": 3598472,
+              "budget_valid": false
+            }
+          ]
+        },
+        {
+          "pos_pattern": [
+            2
+          ],
+          "neg_pattern": [
+            1,
+            4,
+            4
+          ],
+          "raw": 11232,
+          "over": 0,
+          "common_included": 0,
+          "search": 11232,
+          "nodes": 25336,
+          "leaves": 0,
+          "valid": 0,
+          "witnesses": []
+        },
+        {
+          "pos_pattern": [
+            1,
+            1
+          ],
+          "neg_pattern": [
+            1,
+            4,
+            4
+          ],
+          "raw": 73008,
+          "over": 0,
+          "common_included": 11232,
+          "search": 73008,
+          "nodes": 158114,
+          "leaves": 0,
+          "valid": 0,
+          "witnesses": []
+        },
+        {
+          "pos_pattern": [
+            2
+          ],
+          "neg_pattern": [
+            2,
+            2,
+            5
+          ],
+          "raw": 11232,
+          "over": 0,
+          "common_included": 1728,
+          "search": 11232,
+          "nodes": 25337,
+          "leaves": 0,
+          "valid": 0,
+          "witnesses": []
+        },
+        {
+          "pos_pattern": [
+            1,
+            1
+          ],
+          "neg_pattern": [
+            2,
+            2,
+            5
+          ],
+          "raw": 73008,
+          "over": 0,
+          "common_included": 0,
+          "search": 73008,
+          "nodes": 157379,
+          "leaves": 0,
+          "valid": 0,
+          "witnesses": []
+        },
+        {
+          "pos_pattern": [
+            2
+          ],
+          "neg_pattern": [
+            2,
+            3,
+            4
+          ],
+          "raw": 20736,
+          "over": 0,
+          "common_included": 1728,
+          "search": 20736,
+          "nodes": 46779,
+          "leaves": 0,
+          "valid": 0,
+          "witnesses": []
+        },
+        {
+          "pos_pattern": [
+            1,
+            1
+          ],
+          "neg_pattern": [
+            2,
+            3,
+            4
+          ],
+          "raw": 134784,
+          "over": 0,
+          "common_included": 0,
+          "search": 134784,
+          "nodes": 291762,
+          "leaves": 0,
+          "valid": 0,
+          "witnesses": []
+        },
+        {
+          "pos_pattern": [
+            2
+          ],
+          "neg_pattern": [
+            3,
+            3,
+            3
+          ],
+          "raw": 4368,
+          "over": 0,
+          "common_included": 0,
+          "search": 4368,
+          "nodes": 9852,
+          "leaves": 0,
+          "valid": 0,
+          "witnesses": []
+        },
+        {
+          "pos_pattern": [
+            1,
+            1
+          ],
+          "neg_pattern": [
+            3,
+            3,
+            3
+          ],
+          "raw": 28392,
+          "over": 0,
+          "common_included": 0,
+          "search": 28392,
+          "nodes": 61315,
+          "leaves": 0,
+          "valid": 0,
+          "witnesses": []
+        }
+      ],
+      "totals": {
+        "raw": 752040,
+        "over": 0,
+        "common_included": 77832,
+        "search": 752040,
+        "nodes": 1635468,
+        "leaves": 2,
+        "valid": 0
+      }
+    },
+    {
+      "length": 4,
+      "rows": [
+        {
+          "pos_pattern": [
+            2
+          ],
+          "neg_pattern": [
+            1,
+            1,
+            1,
+            6
+          ],
+          "raw": 52416,
+          "over": 0,
+          "common_included": 0,
+          "search": 52416,
+          "nodes": 117230,
+          "leaves": 0,
+          "valid": 0,
+          "witnesses": []
+        },
+        {
+          "pos_pattern": [
+            1,
+            1
+          ],
+          "neg_pattern": [
+            1,
+            1,
+            1,
+            6
+          ],
+          "raw": 340704,
+          "over": 0,
+          "common_included": 125280,
+          "search": 340704,
+          "nodes": 729932,
+          "leaves": 0,
+          "valid": 0,
+          "witnesses": []
+        },
+        {
+          "pos_pattern": [
+            2
+          ],
+          "neg_pattern": [
+            1,
+            1,
+            2,
+            5
+          ],
+          "raw": 134784,
+          "over": 0,
+          "common_included": 11232,
+          "search": 134784,
+          "nodes": 301322,
+          "leaves": 0,
+          "valid": 0,
+          "witnesses": []
+        },
+        {
+          "pos_pattern": [
+            1,
+            1
+          ],
+          "neg_pattern": [
+            1,
+            1,
+            2,
+            5
+          ],
+          "raw": 876096,
+          "over": 0,
+          "common_included": 239328,
+          "search": 876096,
+          "nodes": 1873628,
+          "leaves": 0,
+          "valid": 0,
+          "witnesses": []
+        },
+        {
+          "pos_pattern": [
+            2
+          ],
+          "neg_pattern": [
+            1,
+            1,
+            3,
+            4
+          ],
+          "raw": 134784,
+          "over": 0,
+          "common_included": 0,
+          "search": 134784,
+          "nodes": 300461,
+          "leaves": 0,
+          "valid": 0,
+          "witnesses": []
+        },
+        {
+          "pos_pattern": [
+            1,
+            1
+          ],
+          "neg_pattern": [
+            1,
+            1,
+            3,
+            4
+          ],
+          "raw": 876096,
+          "over": 0,
+          "common_included": 239328,
+          "search": 876096,
+          "nodes": 1873265,
+          "leaves": 0,
+          "valid": 0,
+          "witnesses": []
+        },
+        {
+          "pos_pattern": [
+            2
+          ],
+          "neg_pattern": [
+            1,
+            2,
+            2,
+            4
+          ],
+          "raw": 134784,
+          "over": 0,
+          "common_included": 20736,
+          "search": 134784,
+          "nodes": 301544,
+          "leaves": 2,
+          "valid": 0,
+          "witnesses": [
+            {
+              "pos": [
+                [
+                  2,
+                  12
+                ]
+              ],
+              "neg": [
+                [
+                  1,
+                  6
+                ],
+                [
+                  2,
+                  7
+                ],
+                [
+                  2,
+                  11
+                ],
+                [
+                  4,
+                  3
+                ]
+              ],
+              "u": [
+                -21,
+                -33,
+                14,
+                8,
+                -7,
+                -15,
+                -5,
+                -4,
+                2,
+                -4,
+                2,
+                1
+              ],
+              "masses": [
+                2104,
+                5926
+              ],
+              "residues": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "norm_sq": 3525351,
+              "radius_sq": 3592613,
+              "budget_valid": false
+            },
+            {
+              "pos": [
+                [
+                  2,
+                  6
+                ]
+              ],
+              "neg": [
+                [
+                  1,
+                  6
+                ],
+                [
+                  2,
+                  7
+                ],
+                [
+                  2,
+                  12
+                ],
+                [
+                  4,
+                  1
+                ]
+              ],
+              "u": [
+                -27,
+                -3,
+                -19,
+                5,
+                12,
+                -5,
+                6,
+                0,
+                5,
+                3,
+                1,
+                6
+              ],
+              "masses": [
+                4017,
+                3361
+              ],
+              "residues": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "norm_sq": 3097792,
+              "radius_sq": 3897632,
+              "budget_valid": false
+            }
+          ]
+        },
+        {
+          "pos_pattern": [
+            1,
+            1
+          ],
+          "neg_pattern": [
+            1,
+            2,
+            2,
+            4
+          ],
+          "raw": 876096,
+          "over": 0,
+          "common_included": 134784,
+          "search": 876096,
+          "nodes": 1876949,
+          "leaves": 1,
+          "valid": 0,
+          "witnesses": [
+            {
+              "pos": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  10
+                ]
+              ],
+              "neg": [
+                [
+                  1,
+                  2
+                ],
+                [
+                  2,
+                  3
+                ],
+                [
+                  2,
+                  8
+                ],
+                [
+                  4,
+                  11
+                ]
+              ],
+              "u": [
+                80,
+                -8,
+                11,
+                -2,
+                -3,
+                4,
+                -8,
+                4,
+                -4,
+                -5,
+                -5,
+                4
+              ],
+              "masses": [
+                3197,
+                4862
+              ],
+              "residues": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "norm_sq": 3486421,
+              "radius_sq": 3681908,
+              "budget_valid": false
+            }
+          ]
+        },
+        {
+          "pos_pattern": [
+            2
+          ],
+          "neg_pattern": [
+            1,
+            2,
+            3,
+            3
+          ],
+          "raw": 134784,
+          "over": 0,
+          "common_included": 11232,
+          "search": 134784,
+          "nodes": 300133,
+          "leaves": 2,
+          "valid": 0,
+          "witnesses": [
+            {
+              "pos": [
+                [
+                  2,
+                  10
+                ]
+              ],
+              "neg": [
+                [
+                  1,
+                  4
+                ],
+                [
+                  2,
+                  6
+                ],
+                [
+                  3,
+                  6
+                ],
+                [
+                  3,
+                  10
+                ]
+              ],
+              "u": [
+                -6,
+                -11,
+                10,
+                8,
+                -7,
+                4,
+                6,
+                -10,
+                -5,
+                -4,
+                6,
+                -3
+              ],
+              "masses": [
+                2955,
+                5241
+              ],
+              "residues": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "norm_sq": 3584526,
+              "radius_sq": 3701072,
+              "budget_valid": false
+            },
+            {
+              "pos": [
+                [
+                  2,
+                  3
+                ]
+              ],
+              "neg": [
+                [
+                  1,
+                  12
+                ],
+                [
+                  2,
+                  6
+                ],
+                [
+                  3,
+                  8
+                ],
+                [
+                  3,
+                  9
+                ]
+              ],
+              "u": [
+                38,
+                33,
+                15,
+                1,
+                -2,
+                -1,
+                4,
+                -10,
+                -1,
+                -1,
+                -4,
+                6
+              ],
+              "masses": [
+                3568,
+                4020
+              ],
+              "residues": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "norm_sq": 3646496,
+              "radius_sq": 3950906,
+              "budget_valid": false
+            }
+          ]
+        },
+        {
+          "pos_pattern": [
+            1,
+            1
+          ],
+          "neg_pattern": [
+            1,
+            2,
+            3,
+            3
+          ],
+          "raw": 876096,
+          "over": 0,
+          "common_included": 134784,
+          "search": 876096,
+          "nodes": 1871700,
+          "leaves": 1,
+          "valid": 0,
+          "witnesses": [
+            {
+              "pos": [
+                [
+                  1,
+                  2
+                ],
+                [
+                  1,
+                  6
+                ]
+              ],
+              "neg": [
+                [
+                  1,
+                  5
+                ],
+                [
+                  2,
+                  9
+                ],
+                [
+                  3,
+                  6
+                ],
+                [
+                  3,
+                  11
+                ]
+              ],
+              "u": [
+                41,
+                -39,
+                3,
+                -13,
+                2,
+                9,
+                0,
+                -5,
+                -6,
+                0,
+                4,
+                -2
+              ],
+              "masses": [
+                2435,
+                5079
+              ],
+              "residues": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "norm_sq": 3310252,
+              "radius_sq": 3744802,
+              "budget_valid": false
+            }
+          ]
+        },
+        {
+          "pos_pattern": [
+            2
+          ],
+          "neg_pattern": [
+            2,
+            2,
+            2,
+            3
+          ],
+          "raw": 52416,
+          "over": 0,
+          "common_included": 11232,
+          "search": 52416,
+          "nodes": 117005,
+          "leaves": 0,
+          "valid": 0,
+          "witnesses": []
+        },
+        {
+          "pos_pattern": [
+            1,
+            1
+          ],
+          "neg_pattern": [
+            2,
+            2,
+            2,
+            3
+          ],
+          "raw": 340704,
+          "over": 0,
+          "common_included": 0,
+          "search": 340704,
+          "nodes": 729457,
+          "leaves": 0,
+          "valid": 0,
+          "witnesses": []
+        }
+      ],
+      "totals": {
+        "raw": 4829760,
+        "over": 0,
+        "common_included": 927936,
+        "search": 4829760,
+        "nodes": 10392626,
+        "leaves": 6,
+        "valid": 0
+      }
+    },
+    {
+      "length": 5,
+      "rows": [
+        {
+          "pos_pattern": [
+            2
+          ],
+          "neg_pattern": [
+            1,
+            1,
+            1,
+            1,
+            5
+          ],
+          "raw": 196560,
+          "over": 0,
+          "common_included": 0,
+          "search": 196560,
+          "nodes": 435750,
+          "leaves": 1,
+          "valid": 0,
+          "witnesses": [
+            {
+              "pos": [
+                [
+                  2,
+                  6
+                ]
+              ],
+              "neg": [
+                [
+                  1,
+                  2
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  5,
+                  8
+                ]
+              ],
+              "u": [
+                73,
+                -4,
+                17,
+                -10,
+                2,
+                0,
+                -13,
+                -3,
+                0,
+                -4,
+                -5,
+                1
+              ],
+              "masses": [
+                2220,
+                5208
+              ],
+              "residues": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "norm_sq": 3729938,
+              "radius_sq": 3862900,
+              "budget_valid": false
+            }
+          ]
+        },
+        {
+          "pos_pattern": [
+            1,
+            1
+          ],
+          "neg_pattern": [
+            1,
+            1,
+            1,
+            1,
+            5
+          ],
+          "raw": 1277640,
+          "over": 0,
+          "common_included": 567216,
+          "search": 1277640,
+          "nodes": 2708481,
+          "leaves": 1,
+          "valid": 0,
+          "witnesses": [
+            {
+              "pos": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ]
+              ],
+              "neg": [
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  1,
+                  10
+                ],
+                [
+                  1,
+                  10
+                ],
+                [
+                  5,
+                  7
+                ]
+              ],
+              "u": [
+                -16,
+                24,
+                1,
+                6,
+                -2,
+                3,
+                5,
+                -8,
+                4,
+                1,
+                -8,
+                2
+              ],
+              "masses": [
+                2890,
+                4303
+              ],
+              "residues": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "norm_sq": 3061698,
+              "radius_sq": 3971825,
+              "budget_valid": false
+            }
+          ]
+        },
+        {
+          "pos_pattern": [
+            2
+          ],
+          "neg_pattern": [
+            1,
+            1,
+            1,
+            2,
+            4
+          ],
+          "raw": 628992,
+          "over": 0,
+          "common_included": 52416,
+          "search": 628992,
+          "nodes": 1391064,
+          "leaves": 2,
+          "valid": 0,
+          "witnesses": [
+            {
+              "pos": [
+                [
+                  2,
+                  6
+                ]
+              ],
+              "neg": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  4,
+                  5
+                ]
+              ],
+              "u": [
+                -40,
+                -17,
+                2,
+                5,
+                -8,
+                13,
+                1,
+                -4,
+                -6,
+                -2,
+                1,
+                -8
+              ],
+              "masses": [
+                1979,
+                5695
+              ],
+              "residues": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "norm_sq": 4032559,
+              "radius_sq": 4105337,
+              "budget_valid": false
+            },
+            {
+              "pos": [
+                [
+                  2,
+                  5
+                ]
+              ],
+              "neg": [
+                [
+                  1,
+                  7
+                ],
+                [
+                  1,
+                  8
+                ],
+                [
+                  1,
+                  10
+                ],
+                [
+                  2,
+                  11
+                ],
+                [
+                  4,
+                  11
+                ]
+              ],
+              "u": [
+                -7,
+                -29,
+                7,
+                -3,
+                3,
+                -13,
+                -1,
+                -6,
+                -1,
+                4,
+                7,
+                -2
+              ],
+              "masses": [
+                2370,
+                5224
+              ],
+              "residues": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "norm_sq": 3419583,
+              "radius_sq": 3762657,
+              "budget_valid": false
+            }
+          ]
+        },
+        {
+          "pos_pattern": [
+            1,
+            1
+          ],
+          "neg_pattern": [
+            1,
+            1,
+            1,
+            2,
+            4
+          ],
+          "raw": 4088448,
+          "over": 0,
+          "common_included": 1503360,
+          "search": 4088448,
+          "nodes": 8663268,
+          "leaves": 13,
+          "valid": 0,
+          "witnesses": [
+            {
+              "pos": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  3
+                ]
+              ],
+              "neg": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  6
+                ],
+                [
+                  1,
+                  9
+                ],
+                [
+                  2,
+                  11
+                ],
+                [
+                  4,
+                  8
+                ]
+              ],
+              "u": [
+                -45,
+                23,
+                2,
+                -22,
+                -2,
+                2,
+                0,
+                1,
+                1,
+                0,
+                -7,
+                0
+              ],
+              "masses": [
+                1412,
+                4755
+              ],
+              "residues": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "norm_sq": 2939086,
+              "radius_sq": 3904849,
+              "budget_valid": false
+            },
+            {
+              "pos": [
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  11
+                ]
+              ],
+              "neg": [
+                [
+                  1,
+                  2
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  12
+                ],
+                [
+                  2,
+                  1
+                ],
+                [
+                  4,
+                  12
+                ]
+              ],
+              "u": [
+                -47,
+                -26,
+                -36,
+                4,
+                4,
+                2,
+                2,
+                1,
+                3,
+                2,
+                3,
+                0
+              ],
+              "masses": [
+                2473,
+                4488
+              ],
+              "residues": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "norm_sq": 3155041,
+              "radius_sq": 3373994,
+              "budget_valid": false
+            },
+            {
+              "pos": [
+                [
+                  1,
+                  2
+                ],
+                [
+                  1,
+                  3
+                ]
+              ],
+              "neg": [
+                [
+                  1,
+                  2
+                ],
+                [
+                  1,
+                  6
+                ],
+                [
+                  1,
+                  9
+                ],
+                [
+                  2,
+                  11
+                ],
+                [
+                  4,
+                  8
+                ]
+              ],
+              "u": [
+                -45,
+                23,
+                2,
+                -22,
+                -2,
+                2,
+                0,
+                1,
+                1,
+                0,
+                -7,
+                0
+              ],
+              "masses": [
+                1425,
+                4768
+              ],
+              "residues": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "norm_sq": 2939086,
+              "radius_sq": 3845309,
+              "budget_valid": false
+            },
+            {
+              "pos": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  3
+                ]
+              ],
+              "neg": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  6
+                ],
+                [
+                  1,
+                  9
+                ],
+                [
+                  2,
+                  11
+                ],
+                [
+                  4,
+                  8
+                ]
+              ],
+              "u": [
+                -45,
+                23,
+                2,
+                -22,
+                -2,
+                2,
+                0,
+                1,
+                1,
+                0,
+                -7,
+                0
+              ],
+              "masses": [
+                1438,
+                4781
+              ],
+              "residues": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "norm_sq": 2939086,
+              "radius_sq": 3786445,
+              "budget_valid": false
+            },
+            {
+              "pos": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  4
+                ]
+              ],
+              "neg": [
+                [
+                  1,
+                  4
+                ],
+                [
+                  1,
+                  6
+                ],
+                [
+                  1,
+                  9
+                ],
+                [
+                  2,
+                  11
+                ],
+                [
+                  4,
+                  8
+                ]
+              ],
+              "u": [
+                -45,
+                23,
+                2,
+                -22,
+                -2,
+                2,
+                0,
+                1,
+                1,
+                0,
+                -7,
+                0
+              ],
+              "masses": [
+                1451,
+                4794
+              ],
+              "residues": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "norm_sq": 2939086,
+              "radius_sq": 3728257,
+              "budget_valid": false
+            },
+            {
+              "pos": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ]
+              ],
+              "neg": [
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  6
+                ],
+                [
+                  1,
+                  9
+                ],
+                [
+                  2,
+                  11
+                ],
+                [
+                  4,
+                  8
+                ]
+              ],
+              "u": [
+                -45,
+                23,
+                2,
+                -22,
+                -2,
+                2,
+                0,
+                1,
+                1,
+                0,
+                -7,
+                0
+              ],
+              "masses": [
+                1464,
+                4807
+              ],
+              "residues": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "norm_sq": 2939086,
+              "radius_sq": 3670745,
+              "budget_valid": false
+            },
+            {
+              "pos": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  6
+                ]
+              ],
+              "neg": [
+                [
+                  1,
+                  6
+                ],
+                [
+                  1,
+                  6
+                ],
+                [
+                  1,
+                  9
+                ],
+                [
+                  2,
+                  11
+                ],
+                [
+                  4,
+                  8
+                ]
+              ],
+              "u": [
+                -45,
+                23,
+                2,
+                -22,
+                -2,
+                2,
+                0,
+                1,
+                1,
+                0,
+                -7,
+                0
+              ],
+              "masses": [
+                1477,
+                4820
+              ],
+              "residues": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "norm_sq": 2939086,
+              "radius_sq": 3613909,
+              "budget_valid": false
+            },
+            {
+              "pos": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  7
+                ]
+              ],
+              "neg": [
+                [
+                  1,
+                  6
+                ],
+                [
+                  1,
+                  7
+                ],
+                [
+                  1,
+                  9
+                ],
+                [
+                  2,
+                  11
+                ],
+                [
+                  4,
+                  8
+                ]
+              ],
+              "u": [
+                -45,
+                23,
+                2,
+                -22,
+                -2,
+                2,
+                0,
+                1,
+                1,
+                0,
+                -7,
+                0
+              ],
+              "masses": [
+                1490,
+                4833
+              ],
+              "residues": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "norm_sq": 2939086,
+              "radius_sq": 3557749,
+              "budget_valid": false
+            },
+            {
+              "pos": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  8
+                ]
+              ],
+              "neg": [
+                [
+                  1,
+                  6
+                ],
+                [
+                  1,
+                  8
+                ],
+                [
+                  1,
+                  9
+                ],
+                [
+                  2,
+                  11
+                ],
+                [
+                  4,
+                  8
+                ]
+              ],
+              "u": [
+                -45,
+                23,
+                2,
+                -22,
+                -2,
+                2,
+                0,
+                1,
+                1,
+                0,
+                -7,
+                0
+              ],
+              "masses": [
+                1503,
+                4846
+              ],
+              "residues": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "norm_sq": 2939086,
+              "radius_sq": 3502265,
+              "budget_valid": false
+            },
+            {
+              "pos": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  9
+                ]
+              ],
+              "neg": [
+                [
+                  1,
+                  6
+                ],
+                [
+                  1,
+                  9
+                ],
+                [
+                  1,
+                  9
+                ],
+                [
+                  2,
+                  11
+                ],
+                [
+                  4,
+                  8
+                ]
+              ],
+              "u": [
+                -45,
+                23,
+                2,
+                -22,
+                -2,
+                2,
+                0,
+                1,
+                1,
+                0,
+                -7,
+                0
+              ],
+              "masses": [
+                1516,
+                4859
+              ],
+              "residues": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "norm_sq": 2939086,
+              "radius_sq": 3447457,
+              "budget_valid": false
+            },
+            {
+              "pos": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  10
+                ]
+              ],
+              "neg": [
+                [
+                  1,
+                  6
+                ],
+                [
+                  1,
+                  9
+                ],
+                [
+                  1,
+                  10
+                ],
+                [
+                  2,
+                  11
+                ],
+                [
+                  4,
+                  8
+                ]
+              ],
+              "u": [
+                -45,
+                23,
+                2,
+                -22,
+                -2,
+                2,
+                0,
+                1,
+                1,
+                0,
+                -7,
+                0
+              ],
+              "masses": [
+                1529,
+                4872
+              ],
+              "residues": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "norm_sq": 2939086,
+              "radius_sq": 3393325,
+              "budget_valid": false
+            },
+            {
+              "pos": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  11
+                ]
+              ],
+              "neg": [
+                [
+                  1,
+                  6
+                ],
+                [
+                  1,
+                  9
+                ],
+                [
+                  1,
+                  11
+                ],
+                [
+                  2,
+                  11
+                ],
+                [
+                  4,
+                  8
+                ]
+              ],
+              "u": [
+                -45,
+                23,
+                2,
+                -22,
+                -2,
+                2,
+                0,
+                1,
+                1,
+                0,
+                -7,
+                0
+              ],
+              "masses": [
+                1542,
+                4885
+              ],
+              "residues": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "norm_sq": 2939086,
+              "radius_sq": 3339869,
+              "budget_valid": false
+            },
+            {
+              "pos": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  12
+                ]
+              ],
+              "neg": [
+                [
+                  1,
+                  6
+                ],
+                [
+                  1,
+                  9
+                ],
+                [
+                  1,
+                  12
+                ],
+                [
+                  2,
+                  11
+                ],
+                [
+                  4,
+                  8
+                ]
+              ],
+              "u": [
+                -45,
+                23,
+                2,
+                -22,
+                -2,
+                2,
+                0,
+                1,
+                1,
+                0,
+                -7,
+                0
+              ],
+              "masses": [
+                1555,
+                4898
+              ],
+              "residues": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "norm_sq": 2939086,
+              "radius_sq": 3287089,
+              "budget_valid": false
+            }
+          ]
+        },
+        {
+          "pos_pattern": [
+            2
+          ],
+          "neg_pattern": [
+            1,
+            1,
+            1,
+            3,
+            3
+          ],
+          "raw": 340704,
+          "over": 0,
+          "common_included": 0,
+          "search": 340704,
+          "nodes": 753161,
+          "leaves": 2,
+          "valid": 0,
+          "witnesses": [
+            {
+              "pos": [
+                [
+                  2,
+                  10
+                ]
+              ],
+              "neg": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  3,
+                  3
+                ],
+                [
+                  3,
+                  9
+                ]
+              ],
+              "u": [
+                95,
+                -14,
+                12,
+                -5,
+                -1,
+                6,
+                0,
+                1,
+                1,
+                6,
+                1,
+                3
+              ],
+              "masses": [
+                4125,
+                2432
+              ],
+              "residues": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "norm_sq": 2772131,
+              "radius_sq": 3797120,
+              "budget_valid": false
+            },
+            {
+              "pos": [
+                [
+                  2,
+                  7
+                ]
+              ],
+              "neg": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  6
+                ],
+                [
+                  3,
+                  8
+                ],
+                [
+                  3,
+                  11
+                ]
+              ],
+              "u": [
+                -57,
+                -17,
+                -12,
+                -13,
+                -2,
+                -15,
+                0,
+                -1,
+                0,
+                -2,
+                -2,
+                6
+              ],
+              "masses": [
+                1358,
+                6101
+              ],
+              "residues": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "norm_sq": 3669124,
+              "radius_sq": 3770405,
+              "budget_valid": false
+            }
+          ]
+        },
+        {
+          "pos_pattern": [
+            1,
+            1
+          ],
+          "neg_pattern": [
+            1,
+            1,
+            1,
+            3,
+            3
+          ],
+          "raw": 2214576,
+          "over": 0,
+          "common_included": 814320,
+          "search": 2214576,
+          "nodes": 4689261,
+          "leaves": 1,
+          "valid": 0,
+          "witnesses": [
+            {
+              "pos": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  9
+                ]
+              ],
+              "neg": [
+                [
+                  1,
+                  2
+                ],
+                [
+                  1,
+                  2
+                ],
+                [
+                  1,
+                  8
+                ],
+                [
+                  3,
+                  6
+                ],
+                [
+                  3,
+                  7
+                ]
+              ],
+              "u": [
+                74,
+                -30,
+                -4,
+                4,
+                -6,
+                5,
+                3,
+                -4,
+                6,
+                5,
+                2,
+                -5
+              ],
+              "masses": [
+                3864,
+                4314
+              ],
+              "residues": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "norm_sq": 3535811,
+              "radius_sq": 3622021,
+              "budget_valid": false
+            }
+          ]
+        },
+        {
+          "pos_pattern": [
+            2
+          ],
+          "neg_pattern": [
+            1,
+            1,
+            2,
+            2,
+            3
+          ],
+          "raw": 876096,
+          "over": 0,
+          "common_included": 134784,
+          "search": 876096,
+          "nodes": 1936569,
+          "leaves": 1,
+          "valid": 0,
+          "witnesses": [
+            {
+              "pos": [
+                [
+                  2,
+                  6
+                ]
+              ],
+              "neg": [
+                [
+                  1,
+                  3
+                ],
+                [
+                  1,
+                  3
+                ],
+                [
+                  2,
+                  7
+                ],
+                [
+                  2,
+                  9
+                ],
+                [
+                  3,
+                  11
+                ]
+              ],
+              "u": [
+                -7,
+                20,
+                2,
+                -3,
+                21,
+                -13,
+                4,
+                3,
+                -3,
+                0,
+                2,
+                -2
+              ],
+              "masses": [
+                3288,
+                3841
+              ],
+              "residues": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "norm_sq": 3617519,
+              "radius_sq": 3820052,
+              "budget_valid": false
+            }
+          ]
+        },
+        {
+          "pos_pattern": [
+            1,
+            1
+          ],
+          "neg_pattern": [
+            1,
+            1,
+            2,
+            2,
+            3
+          ],
+          "raw": 5694624,
+          "over": 0,
+          "common_included": 1555632,
+          "search": 5694624,
+          "nodes": 12065474,
+          "leaves": 3,
+          "valid": 0,
+          "witnesses": [
+            {
+              "pos": [
+                [
+                  1,
+                  5
+                ],
+                [
+                  1,
+                  9
+                ]
+              ],
+              "neg": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  6
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  3,
+                  1
+                ]
+              ],
+              "u": [
+                -59,
+                23,
+                -14,
+                -16,
+                3,
+                3,
+                -4,
+                -2,
+                -5,
+                -1,
+                -1,
+                3
+              ],
+              "masses": [
+                1981,
+                5197
+              ],
+              "residues": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "norm_sq": 2632460,
+              "radius_sq": 3655418,
+              "budget_valid": false
+            },
+            {
+              "pos": [
+                [
+                  1,
+                  9
+                ],
+                [
+                  1,
+                  9
+                ]
+              ],
+              "neg": [
+                [
+                  1,
+                  6
+                ],
+                [
+                  1,
+                  10
+                ],
+                [
+                  2,
+                  6
+                ],
+                [
+                  2,
+                  8
+                ],
+                [
+                  3,
+                  12
+                ]
+              ],
+              "u": [
+                -11,
+                -3,
+                -1,
+                -7,
+                0,
+                -18,
+                8,
+                -1,
+                2,
+                4,
+                2,
+                -2
+              ],
+              "masses": [
+                2322,
+                4463
+              ],
+              "residues": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "norm_sq": 3098783,
+              "radius_sq": 3173482,
+              "budget_valid": false
+            },
+            {
+              "pos": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  6
+                ]
+              ],
+              "neg": [
+                [
+                  1,
+                  7
+                ],
+                [
+                  1,
+                  11
+                ],
+                [
+                  2,
+                  1
+                ],
+                [
+                  2,
+                  12
+                ],
+                [
+                  3,
+                  6
+                ]
+              ],
+              "u": [
+                63,
+                -5,
+                6,
+                -10,
+                10,
+                -2,
+                -3,
+                3,
+                -10,
+                -6,
+                2,
+                0
+              ],
+              "masses": [
+                2644,
+                4990
+              ],
+              "residues": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "norm_sq": 3526274,
+              "radius_sq": 3736772,
+              "budget_valid": false
+            }
+          ]
+        },
+        {
+          "pos_pattern": [
+            2
+          ],
+          "neg_pattern": [
+            1,
+            2,
+            2,
+            2,
+            2
+          ],
+          "raw": 196560,
+          "over": 0,
+          "common_included": 52416,
+          "search": 196560,
+          "nodes": 437087,
+          "leaves": 0,
+          "valid": 0,
+          "witnesses": []
+        },
+        {
+          "pos_pattern": [
+            1,
+            1
+          ],
+          "neg_pattern": [
+            1,
+            2,
+            2,
+            2,
+            2
+          ],
+          "raw": 1277640,
+          "over": 0,
+          "common_included": 196560,
+          "search": 1277640,
+          "nodes": 2713863,
+          "leaves": 3,
+          "valid": 0,
+          "witnesses": [
+            {
+              "pos": [
+                [
+                  1,
+                  4
+                ],
+                [
+                  1,
+                  4
+                ]
+              ],
+              "neg": [
+                [
+                  1,
+                  6
+                ],
+                [
+                  2,
+                  1
+                ],
+                [
+                  2,
+                  1
+                ],
+                [
+                  2,
+                  4
+                ],
+                [
+                  2,
+                  4
+                ]
+              ],
+              "u": [
+                51,
+                13,
+                -2,
+                -9,
+                -10,
+                15,
+                -1,
+                2,
+                3,
+                1,
+                1,
+                3
+              ],
+              "masses": [
+                3822,
+                2989
+              ],
+              "residues": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "norm_sq": 2864921,
+              "radius_sq": 3944330,
+              "budget_valid": false
+            },
+            {
+              "pos": [
+                [
+                  1,
+                  1
+                ],
+                [
+                  1,
+                  10
+                ]
+              ],
+              "neg": [
+                [
+                  1,
+                  7
+                ],
+                [
+                  2,
+                  6
+                ],
+                [
+                  2,
+                  6
+                ],
+                [
+                  2,
+                  7
+                ],
+                [
+                  2,
+                  9
+                ]
+              ],
+              "u": [
+                26,
+                24,
+                6,
+                -2,
+                8,
+                -1,
+                -7,
+                6,
+                8,
+                2,
+                1,
+                -1
+              ],
+              "masses": [
+                4077,
+                2935
+              ],
+              "residues": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "norm_sq": 2538566,
+              "radius_sq": 3559504,
+              "budget_valid": false
+            },
+            {
+              "pos": [
+                [
+                  1,
+                  4
+                ],
+                [
+                  1,
+                  6
+                ]
+              ],
+              "neg": [
+                [
+                  1,
+                  11
+                ],
+                [
+                  2,
+                  1
+                ],
+                [
+                  2,
+                  1
+                ],
+                [
+                  2,
+                  11
+                ],
+                [
+                  2,
+                  11
+                ]
+              ],
+              "u": [
+                45,
+                7,
+                -6,
+                9,
+                -6,
+                -4,
+                6,
+                6,
+                3,
+                -1,
+                3,
+                0
+              ],
+              "masses": [
+                3572,
+                3020
+              ],
+              "residues": [
+                0,
+                0,
+                0,
+                0,
+                0,
+                0
+              ],
+              "norm_sq": 1819955,
+              "radius_sq": 3607825,
+              "budget_valid": false
+            }
+          ]
+        }
+      ],
+      "totals": {
+        "raw": 16791840,
+        "over": 0,
+        "common_included": 4876704,
+        "search": 16791840,
+        "nodes": 35793978,
+        "leaves": 27,
+        "valid": 0
+      }
+    }
+  ],
+  "unfinished": "Length 6 multi-family process timed out before final JSON; partial console rows are not counted as completed. Preserve next action: split 2,9 negative length 6, resume from first family with missing raw witness output; do not repeat lengths 1–5.",
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED"
+}
