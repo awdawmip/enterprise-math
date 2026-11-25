@@ -1,0 +1,1480 @@
+{
+  "scope": "Informed nonauthor Driver exact finite witness audit; original author EM-DIRECT-970E1C; no formal admission.",
+  "source": "37ea7118715feab970a943d0deacfb164e912eb8:research_notes/portable_direct/riesel_r4_eighteen_sharp_20261125/reproduction.json",
+  "kernel": {
+    "commit": "9365815476154308e3bec636b2911f17b5a2ee73",
+    "path": "research_notes/portable_direct/2026-11-26_riesel18_independent_audit_34020_33600_32256_index.json",
+    "blob": "26d4e12b2389ff900326d0734f30d9ab231001cf"
+  },
+  "reproduce_js": "function audit(targets) {\n const B=[0,3,5,8,10,15,21,23,26,28,30,31,33], F0=[[2,1],[3,1],[4,2]], R0=[0,1,2,3,5], ps=[2,3,5,7,11,13];\n const gcd=(a,b)=>b?gcd(b,a%b):a, lcm=(a,b)=>a/gcd(a,b)*b;\n function factors(n){const a=[];for(let p=2;p*p<=n;p++)if(n%p===0){let e=0;while(n%p===0){n/=p;e++;}a.push([p,e]);}if(n>1)a.push([n,1]);return a;}\n const W=n=>factors(n).reduce((s,[p,e])=>s+e*(p-1),0);\n const M=[];function gen(i,m,b){if(i===ps.length){M.push(m);return;}for(let p=ps[i];b>=0;b-=p-1,m*=p)gen(i+1,m,b);}gen(0,1,13);\n const H=[...new Set(M.flatMap(m=>[1,5,7,35].map(g=>m*g).filter(h=>h/gcd(h,35)===m)))].filter(h=>h>=9&&h!==10).sort((a,b)=>a-b);\n const scale=M.map(BigInt).reduce(lcm,1n), max=a=>a.reduce((x,y)=>x>y?x:y,0n);\n function inv(a,m){let [r,s,x,y]=[a,m,1n,0n];while(s){const q=r/s;[r,s]=[s,r-q*s];[x,y]=[y,x-q*y];}if(r!==1n)throw Error(\"inverse\");return (x%m+m)%m;}\n function pop(x){let c=0;while(x){x&=x-1n;c++;}return c;}\n const rows=[],witnesses=[];\n for(let f=0;f<8;f++)for(let r=0;r<32;r++){\n   const F=F0.filter((_,i)=>f>>i&1), R=R0.filter((_,i)=>r>>i&1), k=14-F.length-R.length,L=F.reduce((n,[m])=>lcm(n,m),35);\n   const D=Array.from({length:L},(_,x)=>x).filter(x=>B.includes(x%35)&&!R.includes(x%7)&&!F.some(([m,b])=>x%m===b));if(!D.length)continue;\n   const C=H.flatMap(h=>{const g=gcd(h,L),m=h/g,w=W(m);if(w>k-1)return [];const a=Array(g).fill(0);for(const x of D)a[x%g]++;if(scale%BigInt(m)!==0n)throw Error(\"scale\");const cap=BigInt(Math.max(...a))*scale/BigInt(m);return cap?[{h,m,w,cap}]:[];});\n   const best=max(C.map(x=>x.cap)),cache=new Map;function at(z){if(!cache.has(z))cache.set(z,max(C.filter(x=>x.m%z===0).map(x=>x.cap)));return cache.get(z);}\n   const hs=C.filter(x=>{let s=x.cap+BigInt(k-1-x.w)*best;for(const [p,e]of factors(x.m))for(let j=1;j<=e;j++)s+=BigInt(p-1)*at(p**j);return s>=BigInt(D.length)*scale;}).map(x=>x.h);\n   const selected=targets.filter(h=>hs.includes(h));if(!selected.length)continue;\n   const Pbig=hs.map(BigInt).reduce(lcm,BigInt(L));if(Pbig>BigInt(Number.MAX_SAFE_INTEGER))throw Error(\"unsafe P\");const P=Number(Pbig),fp=new Map(factors(P)),fl=new Map(factors(L));\n   for(const h0 of selected){let closed=0,nodes=0,rounds=0,maxPts=0;\n     for(const x of D){const points=new Set;const add=n=>{if(n%h0!==x%h0)points.add(n);};\n       for(const [p,e]of factors(h0)){const pe=BigInt(p)**BigInt(fp.get(p)),other=Pbig/pe,crt=other*inv(other%pe,pe);for(let i=fl.get(p)??0;i<e;i++)for(let a=1;a<p;a++)add(Number((BigInt(x)+crt*BigInt(a)*BigInt(p)**BigInt(i))%Pbig));}\n       for(let j=0;j<3;j++)for(const d of D)add(d+j*L);\n       let done=false;\n       for(let round=0;round<12;round++){rounds++;const pts=[...points],N=pts.length;maxPts=Math.max(maxPts,N);if(pts.some(n=>!Number.isSafeInteger(n)||!D.includes(n%L)||n%h0===x%h0))throw Error(\"invalid witness\");\n         const masks=new Map;\n         for(const h of hs){const groups=new Map;for(let i=0;i<N;i++){let b=pts[i]%h;if(b===x%h)continue;groups.set(b,(groups.get(b)??0n)|(1n<<BigInt(i)));}for(const [b,m]of groups)if(!masks.has(m))masks.set(m,[h,b]);}\n         const O=[...masks].map(([m,hr])=>({m,hr,n:pop(m)})).sort((a,b)=>b.n-a.n),maximal=[];for(const o of O)if(!maximal.some(z=>(z.m&o.m)===o.m))maximal.push(o);\n         const by=pts.map((_,i)=>maximal.filter(o=>o.m&(1n<<BigInt(i)))),failed=new Set;let nNodes=0;\n         function dfs(todo,slots){if(++nNodes>1000000)throw Error(\"node cap\");if(!todo)return [];if(!slots)return null;const rem=pop(todo),bounds=maximal.map(o=>pop(o.m&todo)).sort((a,b)=>b-a);if(bounds.slice(0,slots).reduce((a,b)=>a+b,0)<rem)return null;const key=slots+\":\"+todo;if(failed.has(key))return null;let opts=null;for(let i=0;i<N;i++)if(todo&(1n<<BigInt(i)))if(opts===null||by[i].length<opts.length)opts=by[i];for(const o of opts??[]){const res=dfs(todo&~o.m,slots-1);if(res!==null)return [o.hr,...res];}failed.add(key);return null;}\n         const cover=dfs((1n<<BigInt(N))-1n,k-1);nodes+=nNodes;\n         if(cover===null){closed++;done=true;const sorted=pts.slice().sort((a,b)=>a-b);witnesses.push({f,r,h:h0,x,nodes:nNodes,delta36:sorted.map((v,i)=>(v-(i?sorted[i-1]:0)).toString(36)).join(\".\")});break;}\n         if(cover.length>k-1||cover.some(([h,b])=>x%h===b)||pts.some(n=>!cover.some(([h,b])=>n%h===b)))throw Error(\"cover verification\");cover.push([h0,x%h0]);\n         const before=points.size;outer:for(let j=0;j<100000;j++)for(const d of D){const n=j*L+d;if(!cover.some(([h,b])=>n%h===b)){add(n);if(points.size>=before+8)break outer;}}\n         if(points.size===before)break;\n       }\n       if(!done)throw Error(\"inconclusive \"+[f,r,h0,x]);\n     }rows.push({f,r,L,k,h:h0,P,periods:hs.length,cases:D.length,closed,rounds,nodes,maxPts});\n   }\n }\n const totals=targets.map(h=>{const s=rows.filter(x=>x.h===h);return {h,branches:s.length,cases:s.reduce((a,b)=>a+b.cases,0),closed:s.reduce((a,b)=>a+b.closed,0),rounds:s.reduce((a,b)=>a+b.rounds,0),nodes:s.reduce((a,b)=>a+b.nodes,0),maxPts:Math.max(...s.map(x=>x.maxPts))};});\n if(new Set(witnesses.map(w=>[w.f,w.r,w.h,w.x].join(\",\"))).size!==witnesses.length)throw Error(\"duplicate case\");\n return {totals,rows,witnesses};\n}\nfunction decode(rows){let prev=\"\";return rows.map(([f,r,h,x,nodes,p,s,middle])=>{if(!Number.isInteger(p)||!Number.isInteger(s)||p<0||s<0||p+s>prev.length)throw Error(\"bad delta overlap\");const delta36=prev.slice(0,p)+middle+prev.slice(prev.length-s);prev=delta36;return {f,r,h,x,nodes,delta36};});}\nconsole.log(JSON.stringify(audit([24192,23520,23040,22680,22400,21504,21000,20480])));",
+  "method": "Same independent exact kernel, disjoint periods. Author counts match. Lexical prefix/suffix encoding. All eight witness shards verified. Original publication interrupted by definitive 409 conflict at part6; parts6–8 absent on main. Recovery enumerated full case keys and skipped all 2317 already archived witnesses; computed only missing 1248, reconstructed exact original shard boundary and both aggregate payload sizes. No prior shard overwritten.",
+  "encoding": {
+    "rawBytes": 1044335,
+    "encodedBytes": 623176,
+    "ratio": 1.675826732736819
+  },
+  "totals": [
+    {
+      "h": 24192,
+      "branches": 16,
+      "cases": 390,
+      "closed": 390,
+      "rounds": 437,
+      "nodes": 5215,
+      "maxPts": 242
+    },
+    {
+      "h": 23520,
+      "branches": 4,
+      "cases": 78,
+      "closed": 78,
+      "rounds": 81,
+      "nodes": 784,
+      "maxPts": 87
+    },
+    {
+      "h": 23040,
+      "branches": 9,
+      "cases": 182,
+      "closed": 182,
+      "rounds": 226,
+      "nodes": 2407,
+      "maxPts": 102
+    },
+    {
+      "h": 22680,
+      "branches": 102,
+      "cases": 2222,
+      "closed": 2222,
+      "rounds": 2837,
+      "nodes": 108556,
+      "maxPts": 248
+    },
+    {
+      "h": 22400,
+      "branches": 29,
+      "cases": 394,
+      "closed": 394,
+      "rounds": 448,
+      "nodes": 4599,
+      "maxPts": 125
+    },
+    {
+      "h": 21504,
+      "branches": 14,
+      "cases": 234,
+      "closed": 234,
+      "rounds": 458,
+      "nodes": 5368,
+      "maxPts": 94
+    },
+    {
+      "h": 21000,
+      "branches": 3,
+      "cases": 52,
+      "closed": 52,
+      "rounds": 52,
+      "nodes": 568,
+      "maxPts": 86
+    },
+    {
+      "h": 20480,
+      "branches": 1,
+      "cases": 13,
+      "closed": 13,
+      "rounds": 26,
+      "nodes": 314,
+      "maxPts": 56
+    }
+  ],
+  "rows": [
+    {
+      "f": 5,
+      "r": 0,
+      "h": 20480,
+      "cases": 13,
+      "finalSearchNodes": 130
+    },
+    {
+      "f": 1,
+      "r": 0,
+      "h": 21000,
+      "cases": 13,
+      "finalSearchNodes": 117
+    },
+    {
+      "f": 5,
+      "r": 0,
+      "h": 21000,
+      "cases": 13,
+      "finalSearchNodes": 138
+    },
+    {
+      "f": 7,
+      "r": 0,
+      "h": 21000,
+      "cases": 26,
+      "finalSearchNodes": 313
+    },
+    {
+      "f": 1,
+      "r": 0,
+      "h": 21504,
+      "cases": 13,
+      "finalSearchNodes": 350
+    },
+    {
+      "f": 3,
+      "r": 0,
+      "h": 21504,
+      "cases": 26,
+      "finalSearchNodes": 329
+    },
+    {
+      "f": 5,
+      "r": 0,
+      "h": 21504,
+      "cases": 13,
+      "finalSearchNodes": 140
+    },
+    {
+      "f": 5,
+      "r": 1,
+      "h": 21504,
+      "cases": 10,
+      "finalSearchNodes": 86
+    },
+    {
+      "f": 5,
+      "r": 2,
+      "h": 21504,
+      "cases": 11,
+      "finalSearchNodes": 97
+    },
+    {
+      "f": 5,
+      "r": 4,
+      "h": 21504,
+      "cases": 11,
+      "finalSearchNodes": 98
+    },
+    {
+      "f": 5,
+      "r": 8,
+      "h": 21504,
+      "cases": 10,
+      "finalSearchNodes": 86
+    },
+    {
+      "f": 5,
+      "r": 16,
+      "h": 21504,
+      "cases": 10,
+      "finalSearchNodes": 89
+    },
+    {
+      "f": 7,
+      "r": 0,
+      "h": 21504,
+      "cases": 26,
+      "finalSearchNodes": 528
+    },
+    {
+      "f": 7,
+      "r": 1,
+      "h": 21504,
+      "cases": 20,
+      "finalSearchNodes": 160
+    },
+    {
+      "f": 7,
+      "r": 2,
+      "h": 21504,
+      "cases": 22,
+      "finalSearchNodes": 176
+    },
+    {
+      "f": 7,
+      "r": 4,
+      "h": 21504,
+      "cases": 22,
+      "finalSearchNodes": 176
+    },
+    {
+      "f": 7,
+      "r": 8,
+      "h": 21504,
+      "cases": 20,
+      "finalSearchNodes": 172
+    },
+    {
+      "f": 7,
+      "r": 16,
+      "h": 21504,
+      "cases": 20,
+      "finalSearchNodes": 160
+    },
+    {
+      "f": 1,
+      "r": 0,
+      "h": 22400,
+      "cases": 13,
+      "finalSearchNodes": 251
+    },
+    {
+      "f": 1,
+      "r": 1,
+      "h": 22400,
+      "cases": 10,
+      "finalSearchNodes": 106
+    },
+    {
+      "f": 1,
+      "r": 2,
+      "h": 22400,
+      "cases": 11,
+      "finalSearchNodes": 98
+    },
+    {
+      "f": 1,
+      "r": 4,
+      "h": 22400,
+      "cases": 11,
+      "finalSearchNodes": 98
+    },
+    {
+      "f": 1,
+      "r": 8,
+      "h": 22400,
+      "cases": 10,
+      "finalSearchNodes": 97
+    },
+    {
+      "f": 1,
+      "r": 16,
+      "h": 22400,
+      "cases": 10,
+      "finalSearchNodes": 99
+    },
+    {
+      "f": 3,
+      "r": 0,
+      "h": 22400,
+      "cases": 26,
+      "finalSearchNodes": 293
+    },
+    {
+      "f": 4,
+      "r": 0,
+      "h": 22400,
+      "cases": 39,
+      "finalSearchNodes": 282
+    },
+    {
+      "f": 5,
+      "r": 0,
+      "h": 22400,
+      "cases": 13,
+      "finalSearchNodes": 190
+    },
+    {
+      "f": 5,
+      "r": 1,
+      "h": 22400,
+      "cases": 10,
+      "finalSearchNodes": 112
+    },
+    {
+      "f": 5,
+      "r": 2,
+      "h": 22400,
+      "cases": 11,
+      "finalSearchNodes": 114
+    },
+    {
+      "f": 5,
+      "r": 3,
+      "h": 22400,
+      "cases": 8,
+      "finalSearchNodes": 66
+    },
+    {
+      "f": 5,
+      "r": 4,
+      "h": 22400,
+      "cases": 11,
+      "finalSearchNodes": 123
+    },
+    {
+      "f": 5,
+      "r": 5,
+      "h": 22400,
+      "cases": 8,
+      "finalSearchNodes": 67
+    },
+    {
+      "f": 5,
+      "r": 8,
+      "h": 22400,
+      "cases": 10,
+      "finalSearchNodes": 108
+    },
+    {
+      "f": 5,
+      "r": 9,
+      "h": 22400,
+      "cases": 7,
+      "finalSearchNodes": 62
+    },
+    {
+      "f": 5,
+      "r": 10,
+      "h": 22400,
+      "cases": 8,
+      "finalSearchNodes": 68
+    },
+    {
+      "f": 5,
+      "r": 12,
+      "h": 22400,
+      "cases": 8,
+      "finalSearchNodes": 69
+    },
+    {
+      "f": 5,
+      "r": 16,
+      "h": 22400,
+      "cases": 10,
+      "finalSearchNodes": 110
+    },
+    {
+      "f": 5,
+      "r": 17,
+      "h": 22400,
+      "cases": 7,
+      "finalSearchNodes": 61
+    },
+    {
+      "f": 5,
+      "r": 18,
+      "h": 22400,
+      "cases": 8,
+      "finalSearchNodes": 68
+    },
+    {
+      "f": 5,
+      "r": 20,
+      "h": 22400,
+      "cases": 8,
+      "finalSearchNodes": 67
+    },
+    {
+      "f": 5,
+      "r": 24,
+      "h": 22400,
+      "cases": 7,
+      "finalSearchNodes": 63
+    },
+    {
+      "f": 7,
+      "r": 0,
+      "h": 22400,
+      "cases": 26,
+      "finalSearchNodes": 304
+    },
+    {
+      "f": 7,
+      "r": 1,
+      "h": 22400,
+      "cases": 20,
+      "finalSearchNodes": 171
+    },
+    {
+      "f": 7,
+      "r": 2,
+      "h": 22400,
+      "cases": 22,
+      "finalSearchNodes": 189
+    },
+    {
+      "f": 7,
+      "r": 4,
+      "h": 22400,
+      "cases": 22,
+      "finalSearchNodes": 187
+    },
+    {
+      "f": 7,
+      "r": 8,
+      "h": 22400,
+      "cases": 20,
+      "finalSearchNodes": 180
+    },
+    {
+      "f": 7,
+      "r": 16,
+      "h": 22400,
+      "cases": 20,
+      "finalSearchNodes": 176
+    },
+    {
+      "f": 0,
+      "r": 0,
+      "h": 22680,
+      "cases": 13,
+      "finalSearchNodes": 709
+    },
+    {
+      "f": 0,
+      "r": 1,
+      "h": 22680,
+      "cases": 10,
+      "finalSearchNodes": 148
+    },
+    {
+      "f": 0,
+      "r": 8,
+      "h": 22680,
+      "cases": 10,
+      "finalSearchNodes": 135
+    },
+    {
+      "f": 0,
+      "r": 16,
+      "h": 22680,
+      "cases": 10,
+      "finalSearchNodes": 181
+    },
+    {
+      "f": 1,
+      "r": 0,
+      "h": 22680,
+      "cases": 13,
+      "finalSearchNodes": 706
+    },
+    {
+      "f": 1,
+      "r": 1,
+      "h": 22680,
+      "cases": 10,
+      "finalSearchNodes": 438
+    },
+    {
+      "f": 1,
+      "r": 2,
+      "h": 22680,
+      "cases": 11,
+      "finalSearchNodes": 320
+    },
+    {
+      "f": 1,
+      "r": 4,
+      "h": 22680,
+      "cases": 11,
+      "finalSearchNodes": 317
+    },
+    {
+      "f": 1,
+      "r": 8,
+      "h": 22680,
+      "cases": 10,
+      "finalSearchNodes": 413
+    },
+    {
+      "f": 1,
+      "r": 16,
+      "h": 22680,
+      "cases": 10,
+      "finalSearchNodes": 354
+    },
+    {
+      "f": 2,
+      "r": 0,
+      "h": 22680,
+      "cases": 26,
+      "finalSearchNodes": 7306
+    },
+    {
+      "f": 2,
+      "r": 1,
+      "h": 22680,
+      "cases": 20,
+      "finalSearchNodes": 2500
+    },
+    {
+      "f": 2,
+      "r": 2,
+      "h": 22680,
+      "cases": 22,
+      "finalSearchNodes": 2747
+    },
+    {
+      "f": 2,
+      "r": 3,
+      "h": 22680,
+      "cases": 16,
+      "finalSearchNodes": 356
+    },
+    {
+      "f": 2,
+      "r": 4,
+      "h": 22680,
+      "cases": 22,
+      "finalSearchNodes": 2726
+    },
+    {
+      "f": 2,
+      "r": 5,
+      "h": 22680,
+      "cases": 16,
+      "finalSearchNodes": 370
+    },
+    {
+      "f": 2,
+      "r": 6,
+      "h": 22680,
+      "cases": 18,
+      "finalSearchNodes": 253
+    },
+    {
+      "f": 2,
+      "r": 8,
+      "h": 22680,
+      "cases": 20,
+      "finalSearchNodes": 2136
+    },
+    {
+      "f": 2,
+      "r": 9,
+      "h": 22680,
+      "cases": 14,
+      "finalSearchNodes": 283
+    },
+    {
+      "f": 2,
+      "r": 10,
+      "h": 22680,
+      "cases": 16,
+      "finalSearchNodes": 342
+    },
+    {
+      "f": 2,
+      "r": 11,
+      "h": 22680,
+      "cases": 10,
+      "finalSearchNodes": 97
+    },
+    {
+      "f": 2,
+      "r": 12,
+      "h": 22680,
+      "cases": 16,
+      "finalSearchNodes": 308
+    },
+    {
+      "f": 2,
+      "r": 13,
+      "h": 22680,
+      "cases": 10,
+      "finalSearchNodes": 92
+    },
+    {
+      "f": 2,
+      "r": 16,
+      "h": 22680,
+      "cases": 20,
+      "finalSearchNodes": 2340
+    },
+    {
+      "f": 2,
+      "r": 17,
+      "h": 22680,
+      "cases": 14,
+      "finalSearchNodes": 259
+    },
+    {
+      "f": 2,
+      "r": 18,
+      "h": 22680,
+      "cases": 16,
+      "finalSearchNodes": 341
+    },
+    {
+      "f": 2,
+      "r": 19,
+      "h": 22680,
+      "cases": 10,
+      "finalSearchNodes": 89
+    },
+    {
+      "f": 2,
+      "r": 20,
+      "h": 22680,
+      "cases": 16,
+      "finalSearchNodes": 347
+    },
+    {
+      "f": 2,
+      "r": 21,
+      "h": 22680,
+      "cases": 10,
+      "finalSearchNodes": 91
+    },
+    {
+      "f": 2,
+      "r": 24,
+      "h": 22680,
+      "cases": 14,
+      "finalSearchNodes": 226
+    },
+    {
+      "f": 2,
+      "r": 26,
+      "h": 22680,
+      "cases": 10,
+      "finalSearchNodes": 88
+    },
+    {
+      "f": 2,
+      "r": 28,
+      "h": 22680,
+      "cases": 10,
+      "finalSearchNodes": 88
+    },
+    {
+      "f": 3,
+      "r": 0,
+      "h": 22680,
+      "cases": 26,
+      "finalSearchNodes": 3419
+    },
+    {
+      "f": 3,
+      "r": 1,
+      "h": 22680,
+      "cases": 20,
+      "finalSearchNodes": 539
+    },
+    {
+      "f": 3,
+      "r": 2,
+      "h": 22680,
+      "cases": 22,
+      "finalSearchNodes": 589
+    },
+    {
+      "f": 3,
+      "r": 3,
+      "h": 22680,
+      "cases": 16,
+      "finalSearchNodes": 275
+    },
+    {
+      "f": 3,
+      "r": 4,
+      "h": 22680,
+      "cases": 22,
+      "finalSearchNodes": 594
+    },
+    {
+      "f": 3,
+      "r": 5,
+      "h": 22680,
+      "cases": 16,
+      "finalSearchNodes": 280
+    },
+    {
+      "f": 3,
+      "r": 6,
+      "h": 22680,
+      "cases": 18,
+      "finalSearchNodes": 214
+    },
+    {
+      "f": 3,
+      "r": 8,
+      "h": 22680,
+      "cases": 20,
+      "finalSearchNodes": 542
+    },
+    {
+      "f": 3,
+      "r": 9,
+      "h": 22680,
+      "cases": 14,
+      "finalSearchNodes": 241
+    },
+    {
+      "f": 3,
+      "r": 10,
+      "h": 22680,
+      "cases": 16,
+      "finalSearchNodes": 262
+    },
+    {
+      "f": 3,
+      "r": 12,
+      "h": 22680,
+      "cases": 16,
+      "finalSearchNodes": 263
+    },
+    {
+      "f": 3,
+      "r": 16,
+      "h": 22680,
+      "cases": 20,
+      "finalSearchNodes": 535
+    },
+    {
+      "f": 3,
+      "r": 17,
+      "h": 22680,
+      "cases": 14,
+      "finalSearchNodes": 262
+    },
+    {
+      "f": 3,
+      "r": 18,
+      "h": 22680,
+      "cases": 16,
+      "finalSearchNodes": 251
+    },
+    {
+      "f": 3,
+      "r": 20,
+      "h": 22680,
+      "cases": 16,
+      "finalSearchNodes": 256
+    },
+    {
+      "f": 3,
+      "r": 24,
+      "h": 22680,
+      "cases": 14,
+      "finalSearchNodes": 230
+    },
+    {
+      "f": 4,
+      "r": 0,
+      "h": 22680,
+      "cases": 39,
+      "finalSearchNodes": 508
+    },
+    {
+      "f": 4,
+      "r": 1,
+      "h": 22680,
+      "cases": 30,
+      "finalSearchNodes": 238
+    },
+    {
+      "f": 4,
+      "r": 2,
+      "h": 22680,
+      "cases": 33,
+      "finalSearchNodes": 231
+    },
+    {
+      "f": 4,
+      "r": 4,
+      "h": 22680,
+      "cases": 33,
+      "finalSearchNodes": 231
+    },
+    {
+      "f": 4,
+      "r": 8,
+      "h": 22680,
+      "cases": 30,
+      "finalSearchNodes": 242
+    },
+    {
+      "f": 4,
+      "r": 16,
+      "h": 22680,
+      "cases": 30,
+      "finalSearchNodes": 234
+    },
+    {
+      "f": 5,
+      "r": 0,
+      "h": 22680,
+      "cases": 13,
+      "finalSearchNodes": 197
+    },
+    {
+      "f": 5,
+      "r": 1,
+      "h": 22680,
+      "cases": 10,
+      "finalSearchNodes": 109
+    },
+    {
+      "f": 5,
+      "r": 2,
+      "h": 22680,
+      "cases": 11,
+      "finalSearchNodes": 117
+    },
+    {
+      "f": 5,
+      "r": 3,
+      "h": 22680,
+      "cases": 8,
+      "finalSearchNodes": 63
+    },
+    {
+      "f": 5,
+      "r": 4,
+      "h": 22680,
+      "cases": 11,
+      "finalSearchNodes": 103
+    },
+    {
+      "f": 5,
+      "r": 5,
+      "h": 22680,
+      "cases": 8,
+      "finalSearchNodes": 61
+    },
+    {
+      "f": 5,
+      "r": 6,
+      "h": 22680,
+      "cases": 9,
+      "finalSearchNodes": 71
+    },
+    {
+      "f": 5,
+      "r": 8,
+      "h": 22680,
+      "cases": 10,
+      "finalSearchNodes": 102
+    },
+    {
+      "f": 5,
+      "r": 9,
+      "h": 22680,
+      "cases": 7,
+      "finalSearchNodes": 54
+    },
+    {
+      "f": 5,
+      "r": 10,
+      "h": 22680,
+      "cases": 8,
+      "finalSearchNodes": 64
+    },
+    {
+      "f": 5,
+      "r": 12,
+      "h": 22680,
+      "cases": 8,
+      "finalSearchNodes": 61
+    },
+    {
+      "f": 5,
+      "r": 16,
+      "h": 22680,
+      "cases": 10,
+      "finalSearchNodes": 94
+    },
+    {
+      "f": 5,
+      "r": 17,
+      "h": 22680,
+      "cases": 7,
+      "finalSearchNodes": 54
+    },
+    {
+      "f": 5,
+      "r": 18,
+      "h": 22680,
+      "cases": 8,
+      "finalSearchNodes": 65
+    },
+    {
+      "f": 5,
+      "r": 20,
+      "h": 22680,
+      "cases": 8,
+      "finalSearchNodes": 63
+    },
+    {
+      "f": 5,
+      "r": 24,
+      "h": 22680,
+      "cases": 7,
+      "finalSearchNodes": 56
+    },
+    {
+      "f": 6,
+      "r": 0,
+      "h": 22680,
+      "cases": 78,
+      "finalSearchNodes": 38218
+    },
+    {
+      "f": 6,
+      "r": 1,
+      "h": 22680,
+      "cases": 60,
+      "finalSearchNodes": 2751
+    },
+    {
+      "f": 6,
+      "r": 2,
+      "h": 22680,
+      "cases": 66,
+      "finalSearchNodes": 2814
+    },
+    {
+      "f": 6,
+      "r": 3,
+      "h": 22680,
+      "cases": 48,
+      "finalSearchNodes": 528
+    },
+    {
+      "f": 6,
+      "r": 4,
+      "h": 22680,
+      "cases": 66,
+      "finalSearchNodes": 2814
+    },
+    {
+      "f": 6,
+      "r": 5,
+      "h": 22680,
+      "cases": 48,
+      "finalSearchNodes": 528
+    },
+    {
+      "f": 6,
+      "r": 6,
+      "h": 22680,
+      "cases": 54,
+      "finalSearchNodes": 378
+    },
+    {
+      "f": 6,
+      "r": 8,
+      "h": 22680,
+      "cases": 60,
+      "finalSearchNodes": 2845
+    },
+    {
+      "f": 6,
+      "r": 9,
+      "h": 22680,
+      "cases": 42,
+      "finalSearchNodes": 456
+    },
+    {
+      "f": 6,
+      "r": 10,
+      "h": 22680,
+      "cases": 48,
+      "finalSearchNodes": 528
+    },
+    {
+      "f": 6,
+      "r": 12,
+      "h": 22680,
+      "cases": 48,
+      "finalSearchNodes": 528
+    },
+    {
+      "f": 6,
+      "r": 16,
+      "h": 22680,
+      "cases": 60,
+      "finalSearchNodes": 2792
+    },
+    {
+      "f": 6,
+      "r": 17,
+      "h": 22680,
+      "cases": 42,
+      "finalSearchNodes": 456
+    },
+    {
+      "f": 6,
+      "r": 18,
+      "h": 22680,
+      "cases": 48,
+      "finalSearchNodes": 528
+    },
+    {
+      "f": 6,
+      "r": 20,
+      "h": 22680,
+      "cases": 48,
+      "finalSearchNodes": 528
+    },
+    {
+      "f": 6,
+      "r": 24,
+      "h": 22680,
+      "cases": 42,
+      "finalSearchNodes": 456
+    },
+    {
+      "f": 7,
+      "r": 0,
+      "h": 22680,
+      "cases": 26,
+      "finalSearchNodes": 1952
+    },
+    {
+      "f": 7,
+      "r": 1,
+      "h": 22680,
+      "cases": 20,
+      "finalSearchNodes": 342
+    },
+    {
+      "f": 7,
+      "r": 2,
+      "h": 22680,
+      "cases": 22,
+      "finalSearchNodes": 394
+    },
+    {
+      "f": 7,
+      "r": 3,
+      "h": 22680,
+      "cases": 16,
+      "finalSearchNodes": 152
+    },
+    {
+      "f": 7,
+      "r": 4,
+      "h": 22680,
+      "cases": 22,
+      "finalSearchNodes": 365
+    },
+    {
+      "f": 7,
+      "r": 5,
+      "h": 22680,
+      "cases": 16,
+      "finalSearchNodes": 156
+    },
+    {
+      "f": 7,
+      "r": 6,
+      "h": 22680,
+      "cases": 18,
+      "finalSearchNodes": 178
+    },
+    {
+      "f": 7,
+      "r": 8,
+      "h": 22680,
+      "cases": 20,
+      "finalSearchNodes": 332
+    },
+    {
+      "f": 7,
+      "r": 9,
+      "h": 22680,
+      "cases": 14,
+      "finalSearchNodes": 133
+    },
+    {
+      "f": 7,
+      "r": 10,
+      "h": 22680,
+      "cases": 16,
+      "finalSearchNodes": 153
+    },
+    {
+      "f": 7,
+      "r": 12,
+      "h": 22680,
+      "cases": 16,
+      "finalSearchNodes": 153
+    },
+    {
+      "f": 7,
+      "r": 16,
+      "h": 22680,
+      "cases": 20,
+      "finalSearchNodes": 332
+    },
+    {
+      "f": 7,
+      "r": 17,
+      "h": 22680,
+      "cases": 14,
+      "finalSearchNodes": 126
+    },
+    {
+      "f": 7,
+      "r": 18,
+      "h": 22680,
+      "cases": 16,
+      "finalSearchNodes": 154
+    },
+    {
+      "f": 7,
+      "r": 20,
+      "h": 22680,
+      "cases": 16,
+      "finalSearchNodes": 156
+    },
+    {
+      "f": 7,
+      "r": 24,
+      "h": 22680,
+      "cases": 14,
+      "finalSearchNodes": 129
+    },
+    {
+      "f": 1,
+      "r": 0,
+      "h": 23040,
+      "cases": 13,
+      "finalSearchNodes": 137
+    },
+    {
+      "f": 3,
+      "r": 0,
+      "h": 23040,
+      "cases": 26,
+      "finalSearchNodes": 339
+    },
+    {
+      "f": 5,
+      "r": 0,
+      "h": 23040,
+      "cases": 13,
+      "finalSearchNodes": 132
+    },
+    {
+      "f": 7,
+      "r": 0,
+      "h": 23040,
+      "cases": 26,
+      "finalSearchNodes": 311
+    },
+    {
+      "f": 7,
+      "r": 1,
+      "h": 23040,
+      "cases": 20,
+      "finalSearchNodes": 180
+    },
+    {
+      "f": 7,
+      "r": 2,
+      "h": 23040,
+      "cases": 22,
+      "finalSearchNodes": 198
+    },
+    {
+      "f": 7,
+      "r": 4,
+      "h": 23040,
+      "cases": 22,
+      "finalSearchNodes": 198
+    },
+    {
+      "f": 7,
+      "r": 8,
+      "h": 23040,
+      "cases": 20,
+      "finalSearchNodes": 179
+    },
+    {
+      "f": 7,
+      "r": 16,
+      "h": 23040,
+      "cases": 20,
+      "finalSearchNodes": 180
+    },
+    {
+      "f": 1,
+      "r": 0,
+      "h": 23520,
+      "cases": 13,
+      "finalSearchNodes": 136
+    },
+    {
+      "f": 3,
+      "r": 0,
+      "h": 23520,
+      "cases": 26,
+      "finalSearchNodes": 234
+    },
+    {
+      "f": 5,
+      "r": 0,
+      "h": 23520,
+      "cases": 13,
+      "finalSearchNodes": 140
+    },
+    {
+      "f": 7,
+      "r": 0,
+      "h": 23520,
+      "cases": 26,
+      "finalSearchNodes": 234
+    },
+    {
+      "f": 1,
+      "r": 0,
+      "h": 24192,
+      "cases": 13,
+      "finalSearchNodes": 148
+    },
+    {
+      "f": 2,
+      "r": 0,
+      "h": 24192,
+      "cases": 26,
+      "finalSearchNodes": 479
+    },
+    {
+      "f": 3,
+      "r": 0,
+      "h": 24192,
+      "cases": 26,
+      "finalSearchNodes": 615
+    },
+    {
+      "f": 3,
+      "r": 1,
+      "h": 24192,
+      "cases": 20,
+      "finalSearchNodes": 184
+    },
+    {
+      "f": 3,
+      "r": 2,
+      "h": 24192,
+      "cases": 22,
+      "finalSearchNodes": 198
+    },
+    {
+      "f": 3,
+      "r": 4,
+      "h": 24192,
+      "cases": 22,
+      "finalSearchNodes": 197
+    },
+    {
+      "f": 3,
+      "r": 8,
+      "h": 24192,
+      "cases": 20,
+      "finalSearchNodes": 183
+    },
+    {
+      "f": 3,
+      "r": 16,
+      "h": 24192,
+      "cases": 20,
+      "finalSearchNodes": 183
+    },
+    {
+      "f": 5,
+      "r": 0,
+      "h": 24192,
+      "cases": 13,
+      "finalSearchNodes": 131
+    },
+    {
+      "f": 6,
+      "r": 0,
+      "h": 24192,
+      "cases": 78,
+      "finalSearchNodes": 1083
+    },
+    {
+      "f": 7,
+      "r": 0,
+      "h": 24192,
+      "cases": 26,
+      "finalSearchNodes": 321
+    },
+    {
+      "f": 7,
+      "r": 1,
+      "h": 24192,
+      "cases": 20,
+      "finalSearchNodes": 180
+    },
+    {
+      "f": 7,
+      "r": 2,
+      "h": 24192,
+      "cases": 22,
+      "finalSearchNodes": 198
+    },
+    {
+      "f": 7,
+      "r": 4,
+      "h": 24192,
+      "cases": 22,
+      "finalSearchNodes": 198
+    },
+    {
+      "f": 7,
+      "r": 8,
+      "h": 24192,
+      "cases": 20,
+      "finalSearchNodes": 180
+    },
+    {
+      "f": 7,
+      "r": 16,
+      "h": 24192,
+      "cases": 20,
+      "finalSearchNodes": 180
+    }
+  ],
+  "row_scope": "Actual case counts and final search node sums reconstructed from durable witness data; original aggregate rounds/nodes in totals, original per-branch round counts not retained.",
+  "recovery": {
+    "previous": 2317,
+    "recomputedMissing": 1248,
+    "recoveryTotals": [
+      {
+        "h": 24192,
+        "branches": 16,
+        "cases": 390,
+        "closed": 103,
+        "rounds": 108,
+        "nodes": 1073,
+        "maxPts": 242
+      },
+      {
+        "h": 23520,
+        "branches": 4,
+        "cases": 78,
+        "closed": 9,
+        "rounds": 10,
+        "nodes": 100,
+        "maxPts": 87
+      },
+      {
+        "h": 23040,
+        "branches": 9,
+        "cases": 182,
+        "closed": 33,
+        "rounds": 37,
+        "nodes": 372,
+        "maxPts": 94
+      },
+      {
+        "h": 22680,
+        "branches": 102,
+        "cases": 2222,
+        "closed": 876,
+        "rounds": 1136,
+        "nodes": 21426,
+        "maxPts": 248
+      },
+      {
+        "h": 22400,
+        "branches": 29,
+        "cases": 394,
+        "closed": 150,
+        "rounds": 170,
+        "nodes": 1713,
+        "maxPts": 125
+      },
+      {
+        "h": 21504,
+        "branches": 14,
+        "cases": 234,
+        "closed": 68,
+        "rounds": 135,
+        "nodes": 1512,
+        "maxPts": 94
+      },
+      {
+        "h": 21000,
+        "branches": 3,
+        "cases": 52,
+        "closed": 6,
+        "rounds": 6,
+        "nodes": 62,
+        "maxPts": 86
+      },
+      {
+        "h": 20480,
+        "branches": 1,
+        "cases": 13,
+        "closed": 3,
+        "rounds": 6,
+        "nodes": 71,
+        "maxPts": 56
+      }
+    ],
+    "recoveredPartCounts": [
+      541,
+      484,
+      223
+    ]
+  },
+  "shards": [
+    {
+      "path": "research_notes/portable_direct/2026-11-26_riesel18_independent_audit_24192_through_20480_part1.json",
+      "sha": "e323e6b4a31d89828a1744009abb3a2f8d7f27da",
+      "blob": "f3bf1c347900a3d772b7fbad27d048dac3e44437",
+      "n": 474,
+      "bytes": 85364
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-26_riesel18_independent_audit_24192_through_20480_part2.json",
+      "sha": "cc32e9e3b3821c82588951f54623a02794ce32cd",
+      "blob": "8a2522876ade0360a462d742fe6318e9b0510323",
+      "n": 308,
+      "bytes": 85519
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-26_riesel18_independent_audit_24192_through_20480_part3.json",
+      "sha": "79dd332488ed21e1c52abe0947da1c16dc0e64b2",
+      "blob": "240f48bd41509b46d397b4fb1df484a12927b6e0",
+      "n": 337,
+      "bytes": 85516
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-26_riesel18_independent_audit_24192_through_20480_part4.json",
+      "sha": "37fe8c26530d0bbf78d2a44cc3ebd1caea2ae900",
+      "blob": "3180cf3319e32e34deed9f5fb01cdd39c958fa03",
+      "n": 573,
+      "bytes": 85497
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-26_riesel18_independent_audit_24192_through_20480_part5.json",
+      "sha": "251003c76048da9881ae3f43e1ee9bb3151d5419",
+      "blob": "91c094c8c571b2064dea893d5032b0459145a944",
+      "n": 625,
+      "bytes": 85458
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-26_riesel18_independent_audit_24192_through_20480_part6.json",
+      "sha": "68b8819dbf2086477ffde37266e9e2608ecf0856",
+      "blob": "00f9bcdec9b17d55f632bca5eaa565925e79f76f",
+      "n": 541,
+      "bytes": 85357
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-26_riesel18_independent_audit_24192_through_20480_part7.json",
+      "sha": "380ce4ec3b1a76fc3835fc1dd8533685c9c75c99",
+      "blob": "366552a964a33d03240c3093add47528332cd18e",
+      "n": 484,
+      "bytes": 85480
+    },
+    {
+      "path": "research_notes/portable_direct/2026-11-26_riesel18_independent_audit_24192_through_20480_part8.json",
+      "sha": "e53605e2663657203fe24d0936993fe6f58f4b2f",
+      "blob": "d35480d4354e4c51087e85115afae982d940cdd2",
+      "n": 223,
+      "bytes": 29281
+    }
+  ]
+}
