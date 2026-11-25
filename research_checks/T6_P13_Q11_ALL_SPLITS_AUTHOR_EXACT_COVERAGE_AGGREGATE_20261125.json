@@ -1,0 +1,352 @@
+{
+  "schema": "T6_P13_Q11_ALL_SPLITS_AUTHOR_EXACT_COVERAGE_AGGREGATE_V1",
+  "frozen_science": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "p": 13,
+  "valuation": 1,
+  "q": 11,
+  "budget": 2331,
+  "scope": "All unordered side splits of valuation-one vertical total 11, including common named atoms, with signed integer residual and separate side mass budgets; conditional finite author evidence only. Aggregation consumes previous author certificates; it is not independent review of completeness of the search kernel.",
+  "count_method": "Independent coefficient DP for product (1-x^k)^(-12), k=1..11; partition count via product (1-x^k)^(-1); exchange sides gives remaining ordered splits. All source raw/search/over counts matched DP, no repeated computation.",
+  "labelled_partition_counts": [
+    1,
+    12,
+    90,
+    520,
+    2535,
+    10908,
+    42614,
+    153960,
+    521235,
+    1669720,
+    5098938,
+    14931072
+  ],
+  "partition_counts": [
+    1,
+    1,
+    2,
+    3,
+    5,
+    7,
+    11,
+    15,
+    22,
+    30,
+    42,
+    56
+  ],
+  "splits": [
+    {
+      "split": [
+        0,
+        11
+      ],
+      "negative_families": 56,
+      "signed_rows": 56,
+      "independent_raw": 14931072,
+      "raw": 14931072,
+      "over": 12803162,
+      "search": 2127910,
+      "nodes": 5809048,
+      "leaves": 22,
+      "valid": 0
+    },
+    {
+      "split": [
+        1,
+        10
+      ],
+      "negative_families": 42,
+      "signed_rows": 42,
+      "independent_raw": 61187256,
+      "raw": 61187256,
+      "over": 27642792,
+      "search": 33544464,
+      "nodes": 79693820,
+      "leaves": 145,
+      "valid": 0
+    },
+    {
+      "split": [
+        2,
+        9
+      ],
+      "negative_families": 30,
+      "signed_rows": 60,
+      "independent_raw": 150274800,
+      "raw": 150274800,
+      "over": 14078610,
+      "search": 136196190,
+      "nodes": 287297709,
+      "leaves": 155,
+      "valid": 0
+    },
+    {
+      "split": [
+        3,
+        8
+      ],
+      "negative_families": 22,
+      "signed_rows": 66,
+      "independent_raw": 271042200,
+      "raw": 271042200,
+      "over": 1089920,
+      "search": 269952280,
+      "nodes": 517930730,
+      "leaves": 79,
+      "valid": 0
+    },
+    {
+      "split": [
+        4,
+        7
+      ],
+      "negative_families": 15,
+      "signed_rows": 75,
+      "independent_raw": 390288600,
+      "raw": 390288600,
+      "over": 0,
+      "search": 390288600,
+      "nodes": 702088309,
+      "leaves": 31,
+      "valid": 0
+    },
+    {
+      "split": [
+        5,
+        6
+      ],
+      "negative_families": 11,
+      "signed_rows": 77,
+      "independent_raw": 464833512,
+      "raw": 464833512,
+      "over": 0,
+      "search": 464833512,
+      "nodes": 808077618,
+      "leaves": 29,
+      "valid": 0
+    }
+  ],
+  "totals": {
+    "raw": 1352557440,
+    "over": 55614484,
+    "search": 1296942956,
+    "nodes": 2400897234,
+    "leaves": 461,
+    "valid": 0,
+    "negative_families": 176,
+    "signed_rows": 376
+  },
+  "sources": [
+    {
+      "commit": "963e7b86382fc56414d8e2533f1a4a527bf60757",
+      "path": "research_checks/T6_P13_Q11_SPLIT0_11_FULL_AUTHOR_EXACT_CERT_20261125.json",
+      "blob": "af19c3b2e0654cd8fe602002d3547c5bec5d6584",
+      "totals": {
+        "raw": 14931072,
+        "over": 12803162,
+        "search": 2127910,
+        "nodes": 5809048,
+        "leaves": 22,
+        "valid": 0
+      }
+    },
+    {
+      "commit": "1a9441c2e5fa9d6c4b7b0f9f7196a2e63e06022b",
+      "path": "research_checks/T6_P13_Q11_SPLIT1_10_FULL_AUTHOR_EXACT_CERT_20261125.json",
+      "blob": "8083416b564d4cb603b477c1c1fa0b2d12462ee8",
+      "totals": {
+        "raw": 61187256,
+        "over": 27642792,
+        "search": 33544464,
+        "nodes": 79693820,
+        "leaves": 145,
+        "valid": 0
+      }
+    },
+    {
+      "commit": "416c1415df58cbe145951d1ecf6062e43cfa587f",
+      "path": "research_checks/T6_P13_Q11_SPLIT2_9_LEN8TO9_GMP_AUTHOR_EXACT_CERT_20261125.json",
+      "blob": "813df366e71c86e3f7c6cc689ff0692cdee95a29",
+      "totals": {
+        "raw": 150274800,
+        "over": 14078610,
+        "search": 136196190,
+        "nodes": 287297709,
+        "leaves": 155,
+        "valid": 0
+      }
+    },
+    {
+      "commit": "9d073912aeb500486ca823ef2e93fdc687ec3b17",
+      "path": "research_checks/T6_P13_Q11_SPLIT3_8_LEN1TO3_GMP_AUTHOR_EXACT_CERT_20261125.json",
+      "blob": "6fba9e90a04ae1a8485d50d01d996d92563a9f44",
+      "totals": {
+        "raw": 3528720,
+        "over": 0,
+        "search": 3528720,
+        "nodes": 7086488,
+        "leaves": 2,
+        "valid": 0
+      }
+    },
+    {
+      "commit": "2b35748c54710d648cc82760b93f93e2c662def4",
+      "path": "research_checks/T6_P13_Q11_SPLIT3_8_LEN4TO5_GMP_AUTHOR_EXACT_CERT_20261125.json",
+      "blob": "44e7328568faf9991812d41a6acf269aebf6fa38",
+      "totals": {
+        "raw": 68363880,
+        "over": 0,
+        "search": 68363880,
+        "nodes": 133325315,
+        "leaves": 15,
+        "valid": 0
+      }
+    },
+    {
+      "commit": "039eeabd9c6fe4cbb7adb294cbee9c1c8c73d27b",
+      "path": "research_checks/T6_P13_Q11_SPLIT3_8_LEN6_GMP_AUTHOR_EXACT_CERT_20261125.json",
+      "blob": "0705fbc0b412556eaa2b52fe9b51ba92da76e31f",
+      "totals": {
+        "raw": 82620720,
+        "over": 0,
+        "search": 82620720,
+        "nodes": 158576520,
+        "leaves": 36,
+        "valid": 0
+      }
+    },
+    {
+      "commit": "dd665ad469d1ef6bf1e52e013eada5f56fc8290f",
+      "path": "research_checks/T6_P13_Q11_SPLIT3_8_LEN7_FIRST_TWO_GMP_AUTHOR_EXACT_CERT_20261125.json",
+      "blob": "3e47b8f71eeadb8ace94a0507f0f55af834c2e56",
+      "totals": {
+        "raw": 23167872,
+        "over": 28548,
+        "search": 23139324,
+        "nodes": 45304341,
+        "leaves": 5,
+        "valid": 0
+      }
+    },
+    {
+      "commit": "715e7eb62c485935ea134aa82bb67f3182745a6c",
+      "path": "research_checks/T6_P13_Q11_SPLIT3_8_LEN7_LAST_SHARDED_AUTHOR_EXACT_CERT_20261125.json",
+      "blob": "3e0f3d91e137c223cfa8f05e0dc51f9c190348fd",
+      "totals": {
+        "raw": 54058368,
+        "over": 66612,
+        "search": 53991756,
+        "nodes": 101310257,
+        "leaves": 4,
+        "valid": 0
+      }
+    },
+    {
+      "commit": "ce020d5ce01d8c56327e14b8401a401c0f5db162",
+      "path": "research_checks/T6_P13_Q11_SPLIT3_8_LEN8_SHARDED_AUTHOR_EXACT_CERT_20261125.json",
+      "blob": "c3d25a116a13303254bdeeb2525bb1fef06192bc",
+      "totals": {
+        "raw": 39302640,
+        "over": 994760,
+        "search": 38307880,
+        "nodes": 72327809,
+        "leaves": 17,
+        "valid": 0
+      }
+    },
+    {
+      "commit": "a12fc60bbdbf88652df759427997fb5f651b8d44",
+      "path": "research_checks/T6_P13_Q11_SPLIT4_7_LEN7_SHARDED_AUTHOR_EXACT_CERT_20261125.json",
+      "blob": "a2ccac576113679f2298fec7b4c1adedce78c537",
+      "totals": {
+        "raw": 390288600,
+        "over": 0,
+        "search": 390288600,
+        "nodes": 702088309,
+        "leaves": 31,
+        "valid": 0
+      }
+    },
+    {
+      "commit": "0df5e45b148a57793ac450a50dbb9086d9bb7c24",
+      "path": "research_checks/T6_P13_Q11_SPLIT5_6_LEN1_SHARDED_AUTHOR_EXACT_CERT_20261125.json",
+      "blob": "4c7d85f7ddd6a3c6d99e73e73c77bff8c5190663",
+      "totals": {
+        "raw": 130896,
+        "over": 0,
+        "search": 130896,
+        "nodes": 252654,
+        "leaves": 0,
+        "valid": 0
+      }
+    },
+    {
+      "commit": "9e5d1db1e6d5d46bb10ea457262b42f9d53ada9b",
+      "path": "research_checks/T6_P13_Q11_SPLIT5_6_LEN2_SHARDED_AUTHOR_EXACT_CERT_20261125.json",
+      "blob": "86dd695976f7d1291fa84a23c0eae337f198973a",
+      "totals": {
+        "raw": 3992328,
+        "over": 0,
+        "search": 3992328,
+        "nodes": 7475302,
+        "leaves": 0,
+        "valid": 0
+      }
+    },
+    {
+      "commit": "ba09c17e74c2b76a79fadfff508af9f458875e2e",
+      "path": "research_checks/T6_P13_Q11_SPLIT5_6_LEN3_SHARDED_AUTHOR_EXACT_CERT_20261125.json",
+      "blob": "33e903c87057dec47cff62f1173d91b5eaa17394",
+      "totals": {
+        "raw": 33029424,
+        "over": 0,
+        "search": 33029424,
+        "nodes": 60133508,
+        "leaves": 3,
+        "valid": 0
+      }
+    },
+    {
+      "commit": "df3722506d00f219a31f9de2fcafa193ad27a9b2",
+      "path": "research_checks/T6_P13_Q11_SPLIT5_6_LEN4_FINAL_THREE_SHARDED_AUTHOR_EXACT_CERT_20261125.json",
+      "blob": "21cadb88ad63d9528836915675e57872e6990383",
+      "totals": {
+        "raw": 114010416,
+        "over": 0,
+        "search": 114010416,
+        "nodes": 202264896,
+        "leaves": 12,
+        "valid": 0
+      }
+    },
+    {
+      "commit": "40b9b6c658683c1eb9083ec7cf9a516de5fbc7e3",
+      "path": "research_checks/T6_P13_Q11_SPLIT5_6_LEN5_FINAL_TWO_SHARDED_AUTHOR_EXACT_CERT_20261125.json",
+      "blob": "d51ba7a5ff4544d31f71dc0cd2cb6d1a85beb3fb",
+      "totals": {
+        "raw": 178673040,
+        "over": 0,
+        "search": 178673040,
+        "nodes": 309334967,
+        "leaves": 11,
+        "valid": 0
+      }
+    },
+    {
+      "commit": "9b2abeb9b8c83e67b7426d93082ac6c254c07f12",
+      "path": "research_checks/T6_P13_Q11_SPLIT5_6_LEN6_SHARDED_AUTHOR_EXACT_CERT_20261125.json",
+      "blob": "c3b0c354e9b03d23a9c6d606a09e342847a58d64",
+      "totals": {
+        "raw": 134997408,
+        "over": 0,
+        "search": 134997408,
+        "nodes": 228616291,
+        "leaves": 3,
+        "valid": 0
+      }
+    }
+  ],
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED",
+  "next": "T6 open; assess q12..22 exact frozen obligations and reuse earlier admissible reductions; no protected progress or formal result."
+}
