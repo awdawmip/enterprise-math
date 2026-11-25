@@ -4,7 +4,7 @@
 
 ## Main theorem
 
-For integer u,q with 0<=q<u and d=u-q, if d^2>=441u, both true ratios K(q,u+1)/K(q,u) and K(q,u)/K(q+1,u) exceed 1+1/[8(u+1)]. The condition implies u>=441 and d>=441? Only d>=21 sqrt(u)>=441, so the neighbor is valid. In the direct band d<=u/100 the stronger margin 1+1/[2(u+1)] holds. This removes the logarithmic factor in HX's sufficient boundary for the true K, with an explicit square-root constant 21. Remaining smaller-deficit band is open as an effective uniform proof problem, apart from existing fixed strips and finite verification. A second result improves the signed residual bound in the parabolic baseline region to 16 exp(-36d^2/(625u)), rather than a prefactor growing like u^2/d^2.
+For integer u,q with 0<=q<u and d=u-q, if d^2>=441u, both true ratios K(q,u+1)/K(q,u) and K(q,u)/K(q+1,u) exceed 1+1/[8(u+1)]. The condition implies u>=441 and d>=21 sqrt(u)>=441, so both neighboring locations are valid. In the direct band d<=u/100 the stronger margin 1+1/[2(u+1)] holds. This removes the logarithmic factor in HX's sufficient boundary for the true K, with an explicit square-root constant 21. Remaining smaller-deficit band is open as an effective uniform proof problem, apart from existing fixed strips and finite verification. A second result improves the signed residual bound in the parabolic baseline region to 16 exp(-36d^2/(625u)), rather than a prefactor growing like u^2/d^2.
 
 ## Definitions and exact factorization
 
