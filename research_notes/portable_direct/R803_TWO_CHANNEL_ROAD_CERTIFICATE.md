@@ -136,3 +136,42 @@ console.log(JSON.stringify(verify(),null,2));
 ## 5. Next
 
 Use the exact residual ratios e1,e2 to choose a globally budgeted cut/retain strategy under graph separation constraints; investigate whether branching-node tensor contractions yield a general direct approximation beyond the long-road regime. Retain raw road, P, E, rank-two and rank-one certificates for all later stronger observations. R802's Activity link remains pending; repair with actual identity/provenance without duplicating its proof.
+
+
+## 6. Sharp extremal refinement: both ranks, all inhomogeneous inputs
+
+The coarse rational bounds in section 2 admit exact worst constants. Put A_l=(N(7/8)^l)_{11}, d_l=(N(7/8)^l)_{22}, t_l=4^(-l)/A_l, s_l=(-1)^l. A_0=1, A_1=7/4, with the same recurrence as d_l. For every allowed activity sequence of length l>=2, define t=|E|/A and s=s_l (when E=0 the sign convention is immaterial). Monotonicity of nonnegative products gives D>=d_l, A>=A_l, and t<=t_l. Section 2 exact errors become
+ e1=(1+t)/(D-s t), e2=t/(D-s t-1).
+They are nonincreasing in D and increasing in t on the declared domain D-s t>1: the t derivatives have numerators D+s and D-1, respectively, over positive squared denominators. For odd l D-1>0; for even l likewise. Therefore their simultaneous maxima are attained by the homogeneous minimum sequence a_i=7/8. The *sharp uniform constants for these particular approximants* are
+ b1*=(1+t_l)/(d_l-s_l t_l),
+ b2*=t_l/(d_l-s_l t_l-1).
+The formulas are exact rational, and the homogeneous minimum realizes equality in the worst entrywise relative error. As both A_l and d_l are Theta(lambda^l), b2*=Theta((1/(4 lambda^2))^l), stronger than section 2's coarse bound.
+
+In fact this second exponential order is optimal in the worst case among all rank-at-most-two approximants, not merely the specific T. For all a_i=7/8, P=M(7/8)^l is real symmetric with orthogonal spectral channels and eigenvalues lambda^l, 1, mu^l where mu=-1/(4lambda). For any real rank<=2 matrix S, choose unit vector x in its kernel; ||P-S||_2 >= ||Px||_2 >= |mu|^l. If |P_ij-S_ij|<=epsilon P_ij for all entries, then for all unit x,y,
+ |y^T(P-S)x| <= epsilon |y|^T P |x| <= epsilon ||P||_2 = epsilon lambda^l.
+Consequently epsilon >= (1/(4lambda^2))^l. The sharp uniform order of rank-one and rank-two compression is therefore Theta(lambda^-l) and Theta((4lambda^2)^-l), respectively, in the declared entrywise error regime (changing relative denominator from P to positive approximant changes bounds by at most 1/(1-epsilon) when epsilon<1). This is a genuine resource distinction; binary channel retention captures the slower anti-channel, leaving only the much faster determinant residual. The spectral argument is about the auxiliary transfer matrix and does not assert native physical amplitudes.
+
+Exact independent BigInt refinement test: compare errors of each sequence to those of all-minimum at the same length. All sequences over {7/8,15/16,1} for lengths 2..9, plus one deterministic mixed sequence per length 10..80. The two inequalities are checked by integer cross multiplication.
+
+```json
+{
+  "cases": 29591,
+  "inequalities": 59182,
+  "equalities1": 8,
+  "equalities2": 8,
+  "mismatches": 0
+}
+```
+```javascript
+function verifySharp(){
+ const assert=x=>{if(!x)throw Error("mismatch")},abs=x=>x<0n?-x:x,I=[[1n,0n,0n],[0n,1n,0n],[0n,0n,1n]], M=b=>[[2n*BigInt(b),16n,16n],[16n,16n,0n],[16n,0n,16n]],mul=(A,B)=>A.map(r=>B[0].map((_,j)=>r.reduce((s,x,k)=>s+x*B[k][j],0n)));
+ const allMin=[I];for(let i=1;i<=80;i++)allMin.push(mul(allMin[i-1],M(14)));
+ function errors(P,l){let A=P[0][0],B=P[0][1],C=P[1][0],D=P[1][1]+P[1][2],s=16n**BigInt(l),E=abs(A*D-2n*B*C);return [A*s+E,2n*B*C,E,2n*B*C-A*s]}
+ let cases=0,equalities1=0,equalities2=0;
+ function check(P,l){let [a,b,c,d]=errors(P,l),[e,f,g,h]=errors(allMin[l],l);assert(a*f<=b*e&&c*h<=d*g);if(a*f===b*e)equalities1++;if(c*h===d*g)equalities2++;cases++}
+ function seq(P,l){if(l>=2)check(P,l);if(l<9)for(let b of [14,15,16])seq(mul(P,M(b)),l+1)}
+ seq(I,0);for(let l=10;l<=80;l++){let P=I;for(let i=0;i<l;i++)P=mul(P,M(14+(i*7+l)%3));check(P,l)}
+ return {cases,inequalities:2*cases,equalities1,equalities2,mismatches:0};
+}
+console.log(JSON.stringify(verifySharp(),null,2));
+```
