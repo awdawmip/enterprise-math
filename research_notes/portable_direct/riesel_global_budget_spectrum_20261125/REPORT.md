@@ -15,7 +15,7 @@
 
 [原先九预算的孔集公式](https://github.com/awdawmip/enterprise-math/blob/9b3680ea1c07b1364af5464a3469313ee616d408/research_notes/portable_direct/riesel_nine_frontier_20261124/prefix/proof.md)表明，旧字典未覆盖的指数恰为 \(n=2u\)，其中 \(u\bmod105\) 落在固定36点集 \(H\)。全部 \(P\) 的共同周期是6720，但“有无被 \(P\) 覆盖”的布尔图周期已经是210。重放脚本从原根固定余数出发逐位核完6720项，验证两个孔集写法相同。原 \(R_1\) 的定义固定了全部 \(P\) 坐标，所有子族共用这些相位。
 
-若 \(a>1\) 是正根，选任一包含极小的至多 \(b\) 枚补全。对其中某枚非空通道取它的私有指数 \(n_0\)，在 \(n\equiv n_0\bmod210\) 的整条进程里没有旧字典命中。目标通道在这条进程的相对周期为 \(m=d/\gcd(d,210)\)。套用[私有点数位引理](https://github.com/awdawmip/enterprise-math/blob/2ae5de00bf7e8f1e2571ef5666e95f82a25dc429/research_notes/portable_direct/riesel_r4_twelve_observer_lower_20261125/REPORT.md)：\(\sum e(p-1)\le b-1\)。这是对字典每一枚补充素数单独成立的充要筛选方向。因此所有可能的最小补全都在 \(\mathcal D_b\) 内，可由相位布尔判据读出。原根族的正根已大于1；若讨论一般整数根，严格真因子的有限小值边界需另查。
+若 \(a>1\) 是正根，选任一包含极小的至多 \(b\) 枚补全。对其中某枚非空通道取它的私有指数 \(n_0\)，在 \(n\equiv n_0\bmod210\) 的整条进程里没有旧字典命中。目标通道在这条进程的相对周期为 \(m=d/\gcd(d,210)\)。套用[私有点数位引理](https://github.com/awdawmip/enterprise-math/blob/2ae5de00bf7e8f1e2571ef5666e95f82a25dc429/research_notes/portable_direct/riesel_r4_twelve_observer_lower_20261125/REPORT.md)：\(\sum e(p-1)\le b-1\)。这是每一枚补充素数的必要筛选条件。因此所有可能的最小补全都在 \(\mathcal D_b\) 内，可由相位布尔判据读出。真因子也没有小值例外：补全只处理偶数指数 (n=2u)（(uge1)），而 (F_{2u}(a)=(a2^u-1)(a2^u+1)) 对原族的 (a>1) 必为合数；旧 (P) 的真因子性质已由固定原族保证。
 
 因为 \(p\le 2^{p-1}\)，有 \(m\le2^{b-1}\)，而 \(d/m\mid210\)，所以可用的上界从字典轨迹证明的 \(6720\cdot2^{b-1}\) 降为 \(210\cdot2^{b-1}\)。专门的十二预算已有更强上界120960，不被这个通用界替代。
 
