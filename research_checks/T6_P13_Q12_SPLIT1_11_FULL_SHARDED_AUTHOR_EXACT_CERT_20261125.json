@@ -1,0 +1,201 @@
+{
+  "schema": "T6_P13_Q12_SPLIT1_11_SHARDED_AUTHOR_EXACT_INTEGER_V1",
+  "frozen_science": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "p": 13,
+  "valuation": 1,
+  "total_q": 12,
+  "split": [
+    1,
+    11
+  ],
+  "budget": 2331,
+  "positive_patterns": [
+    [
+      1
+    ]
+  ],
+  "gs_min_sq": "78577530278042129705264382752517501995032553011464356025/4243983974238642688103181306691645151538473248349",
+  "lattice_index": "13^21",
+  "coset_denominator": 4826809,
+  "source_commit": "fae1c2fbae9ab4ec2e0e98156d93d786a72383f5",
+  "replay": {
+    "dir": "research_checks/T6_P13_Q12_GMP_REPLAY_20261125",
+    "init": "t6_q12_exact_init.py",
+    "kernel": "t6_q12_generic_shard.cpp",
+    "wrapper": "t6_q12_split1_11_shard_resume.py",
+    "wrapper_sha256": "b9f8c063aa6f2bab3fbef6c1c27ab81ebf343a0576a879d42c5099009681f384",
+    "wrapper_git_blob": "2cb58e151419ac4609e9de490461591ff11b9aeb",
+    "command": "g++ -O3 -std=c++17 t6_q12_generic_shard.cpp -lgmpxx -lgmp -o /tmp/t6_q12; python t6_q12_split1_11_shard_resume.py 1 2 3 4 5 6 7 8 9 10 11"
+  },
+  "length_columns": [
+    "negative_length",
+    "families",
+    "raw",
+    "over",
+    "common_included",
+    "search",
+    "nodes",
+    "leaves",
+    "valid"
+  ],
+  "lengths": [
+    [
+      1,
+      1,
+      144,
+      0,
+      0,
+      144,
+      318,
+      0,
+      0
+    ],
+    [
+      2,
+      5,
+      8640,
+      0,
+      144,
+      8640,
+      20569,
+      0,
+      0
+    ],
+    [
+      3,
+      10,
+      159840,
+      0,
+      7848,
+      159840,
+      379808,
+      1,
+      0
+    ],
+    [
+      4,
+      11,
+      1349568,
+      94440,
+      127872,
+      1255128,
+      2977743,
+      6,
+      0
+    ],
+    [
+      5,
+      10,
+      6331104,
+      1986792,
+      956448,
+      4344312,
+      10300060,
+      17,
+      0
+    ],
+    [
+      6,
+      7,
+      18240768,
+      11071740,
+      3888144,
+      7169028,
+      17000430,
+      24,
+      0
+    ],
+    [
+      7,
+      5,
+      34712496,
+      28190796,
+      9631440,
+      6521700,
+      15458062,
+      34,
+      0
+    ],
+    [
+      8,
+      3,
+      45047808,
+      41342808,
+      15292368,
+      3705000,
+      8766868,
+      21,
+      0
+    ],
+    [
+      9,
+      2,
+      40671072,
+      38900436,
+      16166592,
+      1770636,
+      4187682,
+      5,
+      0
+    ],
+    [
+      10,
+      1,
+      24186240,
+      23684400,
+      10883808,
+      501840,
+      1185299,
+      0,
+      0
+    ],
+    [
+      11,
+      1,
+      8465184,
+      8366532,
+      4232592,
+      98652,
+      233249,
+      1,
+      0
+    ]
+  ],
+  "totals": {
+    "families": 56,
+    "raw": 179172864,
+    "over": 153637944,
+    "common_included": 61187256,
+    "search": 25534920,
+    "nodes": 60510088,
+    "leaves": 109,
+    "valid": 0
+  },
+  "payload": {
+    "encoding": "gzip+base64",
+    "decoded_sha256": "1deb71947c0c00690712776bb47d95a10c831ad651a256dc1e7fc43d040e7be1",
+    "base64_sha256": "19fd51c52944f53cbd18358bfdf5c4762e98ed7cee1e0136a5dc30bdb0f06e15",
+    "row_columns": [
+      "negative_pattern",
+      "raw",
+      "over",
+      "common_included",
+      "search",
+      "nodes",
+      "leaves",
+      "valid"
+    ],
+    "witness_columns": [
+      "positive_q1_label",
+      "negative_atoms_q_r",
+      "u",
+      "masses",
+      "norm_sq",
+      "radius_sq"
+    ],
+    "data": "H4sIAAAAAAAC/61by44kOY78lz5HAKKo5/5KoY9zmMsuMD3AHBb772tmlLsrwiOze2oKWZ2VleEuii+jkVL/72//+J9//fHbf/348cPs94eV8kj44t9ugz///sBHD8Pf1vNYn+nHkko6nsiPeT6Q1sdWzgX8Me4fj3Z8XB79w9vl+Lg+2u3jVG3bnaRb9nx8Hv/I3Xq6HsvcRU7d2/FY/KOM0fx6zLmbT49Nz/16rHBXHx/LuV2P1Ue99jbx+dpa6+6X9bIssJ5K5zNe5/WM7wLTKa20zQuF0u7PZNjaDlf4vqNLVru86VinfHqmX06h1Y0GrbkYZKR2WL0ML/y5bDvjs6Gjlz7KY5Z02Mty9d4eedbpL6tL32+e7zO1/Xnp/t3zUHEPhvy+fmz/ev4teGS3jGDhQ83HYV68VGp+1Gpldjx1vhBG/FrAKBBgV9j5nzzfe5l7yGRuaDN/Ok3v4/XJ28pp20WejkfOIMPXF6uW/pp0/KJLZ6vwdHM+FS+aezYsZrX29PqKrN7ymBOaQTiibm2seOqwo6WcE+I172/J9n/yVmrJLvNHREBtL6knQFYahpe7J0aG52pyWUVM2B6jMuroLU1socOQp6SGjVXoVrLPXl/fCgM36zRuTeZY/QgVs1isFUS47XotY7/uMCx47jAVZEXZozZT1qstlrtOU1RP2wYjAvxdrTDFpdVoDOk9vDJfenFv2lw77cV08XU51/uwnI7Xc02jQ59Zis/3IJLNs1c8kbSTgh2tZaYnWO6BmGje/bLEERflL7xZU3vb6rIivDUK1IKrGjZ6GMhkFKgwUurZX4Nq2fLPXu2zAUDgjNfgyp/ePZx5vQszdZSOF6/j6924K1YO2wLh+t0lJlzsI6tyI3obovJYpw6G2aioWf3duBZG6rUAahH/lmYhZJzmRhih7CF8hQzt/e0XOzmirRnRrHeWmj76IDqPVkqaj/EeERF71d0YlkAra4217DDdMKQGNgUr1zHx5Lt7Za46GzKJEIZNMpWXdCCrDYZ7a1imfTKaKUDqyIhf0BFE7hinGWFFY8FLyeSx++vafwYSV/GRCWzIMOJhTOsNRi+kQb0yWO+mlwI2U58l84XaGqDkVMkqUhEJ7LWPhAfmJxVMVoTNEMrcrmMbCLhDLbg9ySfeekp3/6+N/M7iA58zm0b1ERasw8VnGMWQjwKegEafTamFWD2Nz8Lu3uBGiDz3BtAU1hrMMm8I8fIFICut4vEHIqhVUg7CJa04GryRAVGof9zI74/f/vX3f/733/74429iuVnYRjYL0okN/SA9w18zPZ6Cs2fFD1l/zceTDA3f9Es8JVhvQCJgNkw3UDhLw+9G5RLBCvHTEiAeeQh4GiXgPwbjQ/GKhadYwtNieR+zAnMmXvZWB2IOioHoNq6Gd0Un9/Vd64O4U3xHMCMntX3S1KfYIJeXB3+UiSUYMVwdwajgQ/5SHFbh4k2LV63drr3XEcaQSblbrENUkV24NBGWTBRvIjhqqoCS4h1FDR82LT21tPYhG/E7l4apzbk8lIVo/Pfk9p/hAm7CrTB/OwtlRdkpMLrP2Vrs9sdaVuzyh6/Fs2xeaY8sG9D0KHbE4yf+GQbiC7kx9gqRypms2DoKNWrj2rqahuhvsHoo0MOjJHtcGI0S1hykw/hitZZjMnDFk3Pf4AEwOCS0lts87a2Y0pq77dvy6BMwhzB+Zm5fMK54oTspTyFgA79OGVsskNAdugIsOp2M3R4+FU9f3wXpkCHPMgppfoYNf2QJsCz/wkTP2FuGYUhE8LNPJCt6koKgRJ7iw74p4vpetvAxZuCP3BWFpEJYs8m56AjlCOKFgj9nWBK5DC/i2xj4VwHMoTYsN79KMSWMNIJZZK42H7WHpzvXlhQ1bGcCAxYKQQ+7K6BOAGGogjCdAQg/Tm/0XYgFUHjE1KSNjDKQcQ9ar4S0GrEHEIQzKpO4l4YCD5dU1LB6uqScdrIDivxKCRqKkRuuKY/lm7bk+Eo5sHc4ZUzSxwzmAb9WR2VMp7k2HY4UCcAYv0sagU1OEDQ96BhBnV15DT8j9WguFAjYi0KIHPUM4fIWvAF6ZYEejMVlbSqCFQBGn7eHdHlyP5m4hKwmeNQOtgwDFxBpaTJO0At9IhuPPAyPoHd/OtnGk+3gU2DVSSikj9RPSAyQK6biBOntBNaW66gnPoXbQwM7I9gjtEqlu7FwDmQyikjrxxRqgBxBjVqa4hcMiTDVga5XuoeMC0gCwD3UAIIinjJXzhpVhEJSQTtCj9nI+7BH5DgCjHaqpW4g288sv5YOVfhBj4Sr8oL+PFWERNsXGjaGN6onHe42yXT4Q7Iz1ccVtoel6mUpZ0NrWi8Sg6g1KIjSVePQmRTQIsYt0n3ATGAO4FZcN5/DppeQzSs/FLiTGTCYH77ycASMpMcyVAKvwK6JJGzBKAIM1Xt6q9IRtXZz97NEvJIHSBchCZ3RQpJeT8WYgBwp1VxBzjTSstk3RSL37JR2OCQSHXV1PkKOkFcWW1U1gsoHq1cbJkYAntU1+QItlheu2lfOCpg31KIxYPdaV14UFadBbQS9coi6qjldkNiiACK8KPMlbq8ydeS7BXNQNSQOZpe9BFoPeryL3ggQOtCZeaEkB/ckQwC4CxXNNjG+geMSs/G0IwMpqR4xFuWdZYs0RfsGSQDBpLSOjK8cGKJXKeUER9+EXSKjzNdluycbhCVJ8EVqxZArIewAMEJW65WJiWyseEWA3+oJYDvi17tqEQ6lqNYPhgBgQkolSX4K3bRNkGwwUIZyEf1nrYEZ7QJL22SV92QtK00RiOUMbtXgLnKhaSWoInLGnUzF0VSi/6CU2Ub+GBO+Bd+8ElWmY9wFt2awi7uo2oisRY+dKcbRh/hgUKC+zFMZ30zWNzwIlhduair7K7wjKMAEoowFSWJJ6SabdXQy0ib13s9o2D0zzloWObvIJCeojbhmDzUKTNekKiO7NlgMG495EzqiwkqJ8ukn5oRfbPP+2IAnKCXIAkvAEP6H1/NBMldJRq1/cNLIMpNR00xp69YXIrzRpHxC6YHWEWxDkT2kBsd/lGBRNKNZSNgKejUWm9IaOQ0AqBY7WYxtNqubPr6ImRCuiPCx/rdHXfVMfKZIS3GM0VGbI1fBmxotZ9PyRclsQ55xBsFRQyMIMvMxUQZnvLKhR21Y+It+CkyZeOMtmfhSwQ9K0n7DH98gu2xinoXgk5SoR0dHI7bgNVBQb6KuARGIdhwUpMGimtLM44y4/EucxPZmSMzhpDpRvutHNnux/6twq4/B4hFffjDNrgZvQatgByURJY5VGz1An+wzOnhgOsPBf4lCgPc8WFMvhTh8vRTay8PPi+EEYpLUnGIKpzB25lDbQm6eRfwIuXH0TqAAbKOjgz8a/EUKe8Sthm3OyoOWGJBdWF7jFy+J1LY6Xq7isNghVy1NHVpgnVmIZX9TH4tHk5DQ+eBsaAbzlki2GW+ZzTYO1DdJPSkEjOOEZ34EFQoq94yyFzAEuYMWQ8gNTjrf1dpBe+dbc2dAPCogPAgV2qKNLaivaCVoz4MDIaID8IjsBPxnpisi2ltwv/G6aKUba6tFympSefB4Khj2c80JW0xfHOWiqnErERVpI79zs9/r6IGbsmU+BQMXf3bNjNOVTShCPHTUcN1As4cYcbdy1r12E+G7asIiAmsOU2nwo1HSylttqEEMspV9O6ps7xxbIms3eNhr0v7dL95wkiFNOYID6Wc6Tl2K6AqAI8oTi2QtrLUoGGmy+22IxqvTshvz8rdKcojMHJARwLMOWJTOC2ZF82FqEHyq19AtUpQzNsoZ7ztJ2b9fhf6gld3UVFT1qkHBNSVi1YoKn411ykgaSrLKo76C4PBhb+L8RmMvxncM67LgYXJyxNrI+B9HRJYFUlYZgCkyrFqfzDAfbb4xvXcmdsZn2hrxEpPHpwZIaseDi9WgGBGWlWcOmvOwgU0+GS8eIL8SYHfejpEbpqzxWBshUQOr51zYESp2/Qnqj8BFeGRV/w7aIV6bLb3Fy43Pnt3VPvAjJmcR2kXWQ2wUMo50+SKg/tHQqGlmVjW6RI1xdu4vTCC/dSI7Rp8CNbNsGv4d7qtqedWxDs7Fh2t+woEoQ9Q8OoN6q2f793lhWAkMw65zGE79j6lYE75KjOh/VGOP5S6e27yy1CB+IvfyTVp7sWXa/JePmYcaUevSSMMVzW9WCQBEYsHVm3ozjuFJEWZ6Y6J3YAn6dgB0IPQ84gTxE+WA06aHGgglhA2oDDymvJ5Qa0hJM3CtvQ0I7ZYQPykPfq3Ask1e7an7eKvcnwHtJ+S5OFbf5bEstI9w7beR678tj5cW2kibPCjYtvOAr+TVn5PHUt44aLjkoX8Z76l+l9d+Tl4HoHcd1hzyzjz3W57Xfe6bNuIfAOr1OCASWyG0CLjbYz3Hk1DUuxTTuZxyEJVtSJ6/wM628deAznWiEK2/TqLssThFYIxgbDBc2FKgtOdUNEgbs6XvqvvOKM5DpDBn5tyRZanGOCB6dxFo9eq8deUccqDBBWUpW2GfX2TfCx1bQwidCCASRPZ6HLHxGFAQuliEridAlou5NOPRCdxZRv0mNJduvjWIY51e2RA4l8XH8tHZPJbxPeseCXVLaAkDOGe9kZa9IvSNoe2+K5p45xjdKFrUjsY5hBaYzoN7VtWSG8crHBSjIa0fO3i/SRt775auAzQdc8iU69RPPFS9Lzg9Mi9rxJeyqATHcPVjxct3c+4tcNNRl+IjQkXDifoo5ylLMc6mTWWPV89aYmi6DPyh/f0lGg5nrtdNw4py2/0axn5VzvOt2QIfXy2WaarcoqNb5yIxU+KdBZ9sd/B9oNCDFXJeUj82xL9ExclBl41dRZt59rfe2L8I0n9fYuOoqbttElFx0+xv7OU+pPtpicj02tUsnxJTrXJju0lsv0IigL322jeJDm6/pca7B/9jibwl12OCuyTmWQR2L0NPv41uflpig3f68F0iR+/9jRfWm455k6judk5VJBuBo8+x7kgMnRkrh3T6H6cvgBwnvT5pYb7N826ofTTxUhAMLK9ZXn2sOwLHzL8eY0pvLbi88xpvIdCpSerftri3TSya7SMGYXH8rRZ3nSiL+QozWud1BxOTqSWu3iE/dSz60ijdYbW89brrEFPHJ4+++l11ZXPdQDlysfCUZuoSBBo1VkRwbvO3opG/6CeuXFnTeR0MaSjCwpijWrW4WpDXFQZecgGpoS9h3ukc+yFFWylvPeh3c4R80VONe3nykNeNDFcnk8+DSF+txWQM1aZj+owmbep6Qy55O1v7QuTOPBbnaDEC4m23B09ZGcElpNVIGqF2gutB2TjjnDY75z8JwG7+sb+wG/StHqpv8+9pa07CWhIlcx22SrgOJ3gdaxSpCqSzUFzB9YHG3RnrC7sqx2Ayr8NvOtRKyOP4pEf16ijJvMbFHM2pJw3DszjJh7TZhc5d1e0ws0YcWTuJa4mMKWugHJx88mAucaiBCloLKTsPZMZ3PUe7gf3YiGuJw7k4WuCNE1G99GjXvNez8xoDo4ftVK/RecQ5073zqF+AYdvmieOxteJPgoQYQ4rD4pgXTR7UkP87CFHlJRhUFl2meI3h+wCnvk0bDm7ZdXoW/xNGHHTYcQaqIO0jkYZg2cx5GDse3vgr85tjz13bbaKyDU4Rkhw8zHUpq2oDc90ULs4Dm6T4rQlxzK61dZ/lmzbEb/TrOBCLSMJvZ9zbWdhgxyWeVQSNrXItuvYkZsn4nXGiN/6C0P5yYqn5esBtTPNrFLm0rmE+F5DxJnYtcYGuoqAl1VFL7TrDtm9mjYeu+dJV59byJrurwN+kiX6KMROBPg9dXGnouXghKI1RU/oG9l+O6F++q1WTGbsSph5ejSPGuBdHEwL7enQovDjLA22QeBH619C9z5PGh9m4FNV9rBoXFGNmvE6CzxtgpjszI6mjTchThW+28rlN8dv5o73yecbSVHXJR0/2XNf/7Lh3KRwbhIc5Bfy9tDI3UMp/YSD4k0YGiergn5uR65zVt2lr/mJUvoutl5GLPda1yVAvK1fbcbmHo1weGpOZpVbRdPICKArefBuI+K/VE9btmtJdevpsX4TwV9PzC4h9jV5nXRcLNDvocdUo2Gg7DqlAI+roJa59aYzA28fZPjr214pmyz1G30RX/u9T9aOtf61o9sKT9r1Em9Xyfip8F/qfi2aPGsT4EA21fT9CuwNzudWhukX2WNeE3XT6GdxNV3kj1nWTNygyC+7s0rv0QsJsDqpTv5lHf0XT3xtMO8aOFmwj+Go5AMWjENsiHHlS8z4Y88ltsFKIXoEq/d//Ay0GLMtzOQAA"
+  },
+  "checks": "Local replay verifies independent mass/count DP, common-included count, all six congruences, coset, norm and both original budgets per witness. All 56 rows, 672 disjoint shards executed; no budget-valid witness. Encoded payload checked against local SHA256 before publication.",
+  "min_witness_max_side_mass": 3711,
+  "status": "AUTHOR_EXACT_FINITE_EXECUTED / UNREVIEWED / NOT_ADMITTED"
+}
