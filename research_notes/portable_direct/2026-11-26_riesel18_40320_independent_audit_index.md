@@ -1,0 +1,17 @@
+# Riesel R4 budget 18: h=40320 independent finite witness audit
+
+2026-11-26. Existing Driver EM-DVR-DEBB5E, informed nonauthor audit; original author EM-DIRECT-970E1C retained. Scope and exact BigInt set cover kernel follow the prior h35840 audit. Source 37ea7118715feab970a943d0deacfb164e912eb8:research_notes/portable_direct/riesel_r4_eighteen_sharp_20261125/reproduction.json. Both forward and reverse author receipts report 2492 excluded, 0 pass. Actual Driver rerun: 129 branches, 2492/2492 closed, 3223 rounds, 53748 nodes, max 248 witness points. All eleven immutable witness shard readbacks verified byte for byte. A connector call-count limit interrupted publication after part10 write; part10 readback verified at part11 commit. Only tail branches f=7,r>=11 reconstructed, with three overlapping witnesses agreeing exactly and tail row statistics matching original execution; part11 185 missing witnesses published once after confirmed path absence. No repeat of earlier completed branches or writes. This is a scoped finite audit, not native admission or full sharp bound proof.
+
+- [Part 1 (342 witnesses)](https://github.com/awdawmip/enterprise-math/blob/4572116cd0ced3278c3f88ed65b5818d1fc4413f/research_notes/portable_direct/2026-11-26_riesel18_independent_audit_40320_part1.json)
+- [Part 2 (307 witnesses)](https://github.com/awdawmip/enterprise-math/blob/fdd9abccde50b0a869c8d8d0fa9fe032dfcff94a/research_notes/portable_direct/2026-11-26_riesel18_independent_audit_40320_part2.json)
+- [Part 3 (297 witnesses)](https://github.com/awdawmip/enterprise-math/blob/166aae57377a0158e6d2c93fc485020057f02d72/research_notes/portable_direct/2026-11-26_riesel18_independent_audit_40320_part3.json)
+- [Part 4 (285 witnesses)](https://github.com/awdawmip/enterprise-math/blob/1c842d6b0763d022e9ba51d1296a1b8937f3b654/research_notes/portable_direct/2026-11-26_riesel18_independent_audit_40320_part4.json)
+- [Part 5 (140 witnesses)](https://github.com/awdawmip/enterprise-math/blob/0c30d34fec222d292df03f51485add9911c9ee78/research_notes/portable_direct/2026-11-26_riesel18_independent_audit_40320_part5.json)
+- [Part 6 (154 witnesses)](https://github.com/awdawmip/enterprise-math/blob/f4e6744d7d75dd85fc23611c10f0e682e0c1e4ae/research_notes/portable_direct/2026-11-26_riesel18_independent_audit_40320_part6.json)
+- [Part 7 (164 witnesses)](https://github.com/awdawmip/enterprise-math/blob/05311dc143cb0e4fb84728c534abb11fa2f47ad2/research_notes/portable_direct/2026-11-26_riesel18_independent_audit_40320_part7.json)
+- [Part 8 (180 witnesses)](https://github.com/awdawmip/enterprise-math/blob/b5cce71659948a145cd77ad56daef059df6ec0b6/research_notes/portable_direct/2026-11-26_riesel18_independent_audit_40320_part8.json)
+- [Part 9 (178 witnesses)](https://github.com/awdawmip/enterprise-math/blob/90d0c166f374bb3f3d0dffe0810764efb9bea93b/research_notes/portable_direct/2026-11-26_riesel18_independent_audit_40320_part9.json)
+- [Part 10 (260 witnesses)](https://github.com/awdawmip/enterprise-math/blob/e55ea25e77ceb6b23f6b11fd20553c6705cf04c8/research_notes/portable_direct/2026-11-26_riesel18_independent_audit_40320_part10.json)
+- [Part 11 (185 witnesses)](https://github.com/awdawmip/enterprise-math/blob/e55ea25e77ceb6b23f6b11fd20553c6705cf04c8/research_notes/portable_direct/2026-11-26_riesel18_independent_audit_40320_part11.json)
+
+Cumulative reported computed 10102/27842, archived 8997/27842; 1105 historic computed-only pending original publication reconciliation, 17740 uncomputed. Next disjoint h34020,33600,32256.
