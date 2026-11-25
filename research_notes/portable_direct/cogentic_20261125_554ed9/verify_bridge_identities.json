@@ -1,0 +1,238 @@
+{
+  "scope": "Exact rational examples and algebra checks; paper headline theorems remain unreviewed",
+  "discrete_energy": [
+    {
+      "input": [
+        "3",
+        "-1",
+        "2",
+        "-2",
+        "1/3"
+      ],
+      "rho": [
+        "0",
+        "1/2",
+        "3/4"
+      ],
+      "initial": [
+        "0",
+        "0",
+        "0"
+      ],
+      "terminal_values": [
+        "1/3",
+        "-5/96",
+        "373/3072"
+      ],
+      "weights": [
+        "1",
+        "1",
+        "1",
+        "1",
+        "1"
+      ],
+      "lhs": "357994679/84934656",
+      "variance": "98114473/42467328",
+      "boundary": "442987/56623104",
+      "weight_drop": "0",
+      "increment_energy": "107400835/56623104",
+      "identity_exact": true
+    },
+    {
+      "input": [
+        "0",
+        "0",
+        "0"
+      ],
+      "rho": [
+        "1/2",
+        "3/4"
+      ],
+      "initial": [
+        "2",
+        "-3"
+      ],
+      "terminal_values": [
+        "1/4",
+        "-81/64"
+      ],
+      "weights": [
+        "1",
+        "1",
+        "1"
+      ],
+      "lhs": "-16401/16384",
+      "variance": "72273/16384",
+      "boundary": "-107037/16384",
+      "weight_drop": "0",
+      "increment_energy": "18363/16384",
+      "identity_exact": true
+    },
+    {
+      "input": [
+        "3",
+        "-1",
+        "2",
+        "-2",
+        "1/3"
+      ],
+      "rho": [
+        "0",
+        "1/2",
+        "3/4"
+      ],
+      "initial": [
+        "0",
+        "0",
+        "0"
+      ],
+      "terminal_values": [
+        "1/3",
+        "-5/96",
+        "373/3072"
+      ],
+      "weights": [
+        "1/16",
+        "1/25",
+        "1/36",
+        "1/49",
+        "1/64"
+      ],
+      "lhs": "1246359631423/6658877030400",
+      "variance": "309920639009/3329438515200",
+      "boundary": "442987/3623878656",
+      "weight_drop": "5324397077/277453209600",
+      "increment_energy": "331945889963/4439251353600",
+      "identity_exact": true
+    }
+  ],
+  "riesel": {
+    "a": 7,
+    "M": 195,
+    "q": 17,
+    "target_root_mod_q": 4,
+    "t": 6,
+    "changed_a": 1177,
+    "checked_n": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "all_old_channels_preserved": true,
+    "new_root_condition_met": true,
+    "rows": [
+      {
+        "n": 0,
+        "old_mod_195": 48,
+        "new_mod_195": 48
+      },
+      {
+        "n": 1,
+        "old_mod_195": 97,
+        "new_mod_195": 97
+      },
+      {
+        "n": 2,
+        "old_mod_195": 0,
+        "new_mod_195": 0
+      },
+      {
+        "n": 3,
+        "old_mod_195": 1,
+        "new_mod_195": 1
+      },
+      {
+        "n": 4,
+        "old_mod_195": 3,
+        "new_mod_195": 3
+      },
+      {
+        "n": 5,
+        "old_mod_195": 7,
+        "new_mod_195": 7
+      },
+      {
+        "n": 6,
+        "old_mod_195": 15,
+        "new_mod_195": 15
+      },
+      {
+        "n": 7,
+        "old_mod_195": 31,
+        "new_mod_195": 31
+      },
+      {
+        "n": 8,
+        "old_mod_195": 63,
+        "new_mod_195": 63
+      },
+      {
+        "n": 9,
+        "old_mod_195": 127,
+        "new_mod_195": 127
+      },
+      {
+        "n": 10,
+        "old_mod_195": 60,
+        "new_mod_195": 60
+      },
+      {
+        "n": 11,
+        "old_mod_195": 121,
+        "new_mod_195": 121
+      },
+      {
+        "n": 12,
+        "old_mod_195": 48,
+        "new_mod_195": 48
+      },
+      {
+        "n": 13,
+        "old_mod_195": 97,
+        "new_mod_195": 97
+      },
+      {
+        "n": 14,
+        "old_mod_195": 0,
+        "new_mod_195": 0
+      },
+      {
+        "n": 15,
+        "old_mod_195": 1,
+        "new_mod_195": 1
+      }
+    ],
+    "scope": "Finite examples of an all-n algebraic identity, not a new Riesel covering result"
+  },
+  "Boolean_closure": [
+    {
+      "name": "rank_one_mean",
+      "mean_abs_residual": "3/4",
+      "mean_square_residual": "3/4",
+      "Boolean_closure_defect": "3/4",
+      "exact_bound": "9/4",
+      "passed": true
+    },
+    {
+      "name": "uniform_shrink",
+      "mean_abs_residual": "1/4",
+      "mean_square_residual": "1/16",
+      "Boolean_closure_defect": "7/16",
+      "exact_bound": "9/16",
+      "passed": true
+    }
+  ]
+}
