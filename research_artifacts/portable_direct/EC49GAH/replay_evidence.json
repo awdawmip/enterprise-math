@@ -1,0 +1,41 @@
+{
+  "schema": "EC49GAH_REPLAY_EVIDENCE_V1",
+  "input": "ga_nodes.txt (SHA256 c69d3222a0378363f8e2e238cedc6a4839edfd867435155fef83d8268c3812f0)",
+  "row_order": "original 180 frozen records, zero-based implicit index",
+  "row_fields": [
+    "cold_misses",
+    "representative_builds",
+    "independent_replays",
+    "witnesses"
+  ],
+  "row_encoding": "base64(zlib(compact JSON))",
+  "row_data": "eNqlVluWKyEI3BAfCqKwlpzZ/zZu2Um36Iw9uZmvPhXeWEAej8zEhYpR/aIHC0kjS2QAuZGUE3ClWolZKStg4UPRDllJlLNQrtDNSV/abWiLQyFFhcl3tpCCJJJ6SbbJyZzPXa4yJ7Pk9h/1f2a1y3IC0huTqAlwcX6ajg7DgVgElyTDoBk1ht2BE88YfiKGcei1x15vX0F5qqLFt9cS00yNHDXBTp/1MpmTwalKt/RoaQHgkwso1GrnUjoSrWiJkzOMn84zuQ3slQrC1cMegcDCF3ANEkXh5QwjepRlPzyAhQ4LB1A1uBa0zJE1NPR4pYTfhVq1Z3v1yOMM8B5JVMkQoxZifyV8uZjATK2/P6REIkEfT1Xw4VN1GZr6Dv2XYWsldL96APss3UFXCNNvsQxUz0Nxeumms5Obhk+kKJ1hoQ0Zer+n3ECBMqJ1GINjJotehMTE+MV7DRIUjninmoWXx1ANCWyCGhzkK0EECiIPHvbML97zOW1yAIaoF/PR7AHe9DaBycGevTe8xm4Y7rL3/cBjFPc8wSYZEzzv4K3NQvh1/d+dmxaj/f20refrw7lvH0zv92OSuuY4Jn37+dh+DnEeYl9OE0bEJVyD7R1Z99S7y+f2Ym+780PRsUifa5bvxJhym7U//J+wHO1+RzdH/OsfWBYhLQ==",
+  "decoded_sha256": "804a5bc5fd32a71128aa648ec92b76876fae4188eac29dab288b99d2679cbc34",
+  "concatenated_ascii_row_tree_sha256": "c677be5a0bf6a8d4f8668d43d84d41a2ca6c92d7b80ed08432070635b44d7742",
+  "cached_raw_sha256": "df39c62b3c729bf99c60ecbe85d43adfa43da939970e854871d9db2866835674",
+  "uncached_raw_sha256": "30e2a41e8f571f5ebc2a24ca5e8717b69bf0f5ef36fabd5ebc3ddddb615f9dd8",
+  "totals": {
+    "answer_checks": 176555,
+    "cold_hits": 77905,
+    "cold_misses": 9595,
+    "cold_products": 302936,
+    "independent_replays": 47079,
+    "leaves": 40593,
+    "queries": 37236,
+    "representative_builds": 8971,
+    "root_keys": 84,
+    "shared_hits": 23402,
+    "shared_misses": 1428,
+    "shared_products": 163766,
+    "state_visits": 47079,
+    "witnesses": 3357
+  },
+  "timing_ns": {
+    "cold": 909768243,
+    "shared": 401746921,
+    "input": 104448262,
+    "replay_cached": 1184232678,
+    "replay_uncached": 7663064937
+  },
+  "raw_data_scope": "Complete raw outputs and per-row full tree hashes in local reproduction archive. This remote artifact preserves all 180 row counts and full aggregate digest."
+}
