@@ -153,3 +153,25 @@ Frontier 1890 YES / 27 NO / 476 UNKNOWN of 2393; ordered 3820 / 46 / 829 of 4695
 
 ## Next
 Use actual FZX pair obstruction masks to prioritize small designated sets, then test conditional pairs for triple obstructions after cheaper checks. Preserve full residual populations and physical labels. Measure incremental pruning (not just theoretical strength) and total overhead in the frozen model; continue the remaining 476 roots. AUTHOR_PROVED / EXACT_FINITE_MULTI_TARGET_CHECK / PARTIAL_EXACT_BRANCH_REPLAY / NOT_REVIEWED. No task closure or review asserted.
+
+## Additional independent witness check
+After the initial publication, execute the following exact check in the same reproduction directory:
+```python
+from multi_target import model
+from itertools import combinations
+import json
+w=json.load(open('multi_target.out'))['examples']
+for name in w:
+    a=w[name];full,qs,c,s,r,allowed=model(len(a['states']),a['masks']); sizes=range(1,len(a['targets'])); count=0
+    for size in sizes:
+        for inds in combinations(range(len(a['states'])),size):
+            t=sum(1<<i for i in inds);assert s(full,t)==r(full,t)<=a['k'];count+=1
+    t=sum(1<<i for i in a['targets']);assert s(full,t)==r(full,t)==a['target_cost']==4;assert s(full,full)==r(full,full)==4
+    print(name,count,'all smaller designated subsets pass; exact obstruction and full depth',r(full,t),r(full,full))
+```
+Observed:
+```
+anchored 45 all smaller designated subsets pass; exact obstruction and full depth 4 4
+generic 129 all smaller designated subsets pass; exact obstruction and full depth 4 4
+```
+This explicitly crosschecks all 9 singletons and 36 pairs in the anchored witness, and all 9 singletons, 36 pairs and 84 triples in the generic witness, as well as both offending subsets and full costs. These additional checks are separate from the 7311 sampled comparisons. No frontier change.
