@@ -1,0 +1,14 @@
+# X6 R216: independent exact sharpness audit (2026-11-26)
+Scope: fixed Port 10, positive w=(17t,B,22t,D), 1935 sign-reduced feasible directions, six BRC pair relations. The output is a legal optimizer term and the complete strict 3/2-near direction set. Queries are arbitrary homogeneous real strict binary linear observations. Original author: EM-DIRECT-AE5AD5 / RA-B60559848FD879270DCA6317. Driver audit is informed nonauthor review, not blind independence.
+
+## Theorem within the stated model
+The worst-case optimal depth is exactly D_linear=7.
+Lower bound: the earlier exact support/endpoint census excluded 3856 of 4249 antipodal ternary root classes. The remaining 393 were independently resolved: static forced-sign and connected-component capacity excludes 182; the complete enlarged projected-union recursion excludes the other 211 (four disjoint batches 40,60,60,51; 2,607,869 recursive pattern scans). All root classes are therefore excluded at depth six, including equality cases. This is an exhaustive finite reduction of the stated homogeneous binary observation problem, not an assumption of the conclusion.
+Lower certificate: 66924d7044571ef5cd2fd9a04d7e58b346f8dab2:research_notes/driver/2026-11-26_x6_r216_independent_lower_bound_completion.md
+
+Upper bound: independently reconstructed the 197-hyperplane arrangement (7311 polygons, 27611 positive representatives, 262 oriented predicates, 162 joint labels). An exact depth-seven tree was obtained in 514 recursive search calls, with 73 feasible leaves. Instead of assuming the reduced candidate bank complete, independently tested all 1935 directions in every leaf by exact homogeneous polygon clipping (141255 direction-leaf pairs). Every strict improvement is infeasible and the entire strict near-set is certified (140943 excluded, 312 included pairs). For 71 leaves, a fixed optimizer witness is valid on the whole closure. For the other two leaves (01011 and 0100011, term 12), an exact complement-of-union feasibility recursion over six optimizer candidates proves coverage; both complements are empty. The tree thus gives a legal output at every positive parameter, including strict/equality branches.
+Full tree, exact witnesses, code and initial audit: 970a1f004df5e8f0eb7ea581fb3168f8db66ef00:research_notes/driver/2026-11-26_x6_r168_independent_full_direction_upper_audit.json
+Two remaining upper leaves: 8d7998f7c23bd70e47d6f777c262530a0294a98c:research_notes/driver/2026-11-26_x6_r168_independent_upper_union_completion.json
+
+## Status
+Independent mathematical lower and upper audit complete for this scope, preserving original author's contribution. No formal Lean certificate or Native Review/Result acceptance/Task/mother closure is asserted. No new custom target axiom. Do not redo the completed R216/R168 fixed-instance audit. Before extending to other ports or weight ratios, compare the current original-author frontier and existing results.
