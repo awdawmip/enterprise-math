@@ -15,7 +15,7 @@ No branch mass or endpoint is dropped. In particular Q is the V convolution at d
 
 ## 2. Smaller common rational denominator
 Let D*=2u(2u+1)(4m+2) product_{i=0}^{d-1}(u+i+3)(m+i+3).
-All four D*V,D*Q,D*A,D*E are integers by the exact shift and endpoint expression. Each factor <=8q, hence D*<=(8q)^(2d+3). (For q>=64,d<=2sqrt(q), 4m+2 can actually exceed 8q: 4m+2=8q+4d+2. To avoid the erroneous factor bound in IT, use the following safe bound instead.) Every factor <=10q, since d<=q/4 and q>=64. IS bounds V<=Z,Q<=4Z,A<=5Z, Z=(d+1)(d+2)(d+3)/6 <=(10q)^3, imply qA+Q+V<=5(q+1)Z. Thus writing c=D*A,b=D*Q,v0=D*V, the positive integer denominator (u+2q+1)(qc+b+v0)^2 <=(10q)^(4d+15). Subtracting 32/3 yields
+All four D*V,D*Q,D*A,D*E are integers by the exact shift and endpoint expression. Every factor <=10q, since d<=q/4 and q>=64; in particular 4m+2=8q+4d+2 can exceed 8q, so use this safe base rather than IT's all-factor <=8q claim. Thus D*<=(10q)^(2d+3). IS bounds V<=Z,Q<=4Z,A<=5Z, Z=(d+1)(d+2)(d+3)/6 <=(10q)^3, imply qA+Q+V<=5(q+1)Z. Thus writing c=D*A,b=D*Q,v0=D*V, the positive integer denominator (u+2q+1)(qc+b+v0)^2 <=(10q)^(4d+15). Subtracting 32/3 yields
 F=qK-32/3=0 or |F|>=(10q)^(-4d-16).
 Compared with IT's 6d+22 exponent this removes a linear d-dependent denominator group; use base 10q for the analytic proof. The executed finite checks below additionally tested the stronger 8q bound for the actual cases, not claimed unconditionally here. IT's stated all-factor <=8q justification requires this base correction independently of the new cancellation. Terminating precision cap (4d+16)ceil(log2(10q))+O(1) is still O(d log q), not a polynomial-log worst-case proof.
 
