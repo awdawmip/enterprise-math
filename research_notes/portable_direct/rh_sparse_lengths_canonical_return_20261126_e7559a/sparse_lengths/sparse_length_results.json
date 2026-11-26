@@ -1,0 +1,1253 @@
+{
+  "schema": "EM_ALL_INTEGER_DYADIC_LENGTH_GAP_V1",
+  "status": "PASS",
+  "author": "EM-DIRECT-E7559A / TASK_RESEARCH",
+  "activity": "RA-D2F111EA1C0D4B1DBEFBC1B4",
+  "status_scope": "Author exact finite checks; the unbounded theorem is proved by parity induction. No independent Review or formal Result.",
+  "arithmetic": "Python Fraction only; no floating eigenvalue decisions.",
+  "old_certificate_reruns": 0,
+  "road_queries": 0,
+  "prime_sieves": 0,
+  "matrix_checks": {
+    "sizes": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      7,
+      8,
+      9,
+      15,
+      16,
+      17,
+      31,
+      32,
+      33,
+      63,
+      64,
+      65,
+      127,
+      128,
+      129
+    ],
+    "complete_matrix_identities": 20,
+    "matrix_entries_checked": 65537,
+    "rows": [
+      {
+        "h": 1,
+        "lengths": [],
+        "zero_base_case": true
+      },
+      {
+        "h": 2,
+        "lengths": [
+          1
+        ],
+        "even_size": 1,
+        "odd_size": 1,
+        "prefix_square_sum": "1",
+        "between_mean_coefficient": "1",
+        "extra_square_coefficient": "0",
+        "complete_quadratic_matrix_identity": true,
+        "exact_square_sum_identity": true
+      },
+      {
+        "h": 3,
+        "lengths": [
+          1,
+          2
+        ],
+        "even_size": 2,
+        "odd_size": 1,
+        "prefix_square_sum": "1/2",
+        "between_mean_coefficient": "4/3",
+        "extra_square_coefficient": "2/3",
+        "complete_quadratic_matrix_identity": true,
+        "exact_square_sum_identity": true
+      },
+      {
+        "h": 4,
+        "lengths": [
+          1,
+          2
+        ],
+        "even_size": 2,
+        "odd_size": 2,
+        "prefix_square_sum": "1/2",
+        "between_mean_coefficient": "2",
+        "extra_square_coefficient": "0",
+        "complete_quadratic_matrix_identity": true,
+        "exact_square_sum_identity": true
+      },
+      {
+        "h": 5,
+        "lengths": [
+          1,
+          2,
+          4
+        ],
+        "even_size": 3,
+        "odd_size": 2,
+        "prefix_square_sum": "5/18",
+        "between_mean_coefficient": "12/5",
+        "extra_square_coefficient": "6/5",
+        "complete_quadratic_matrix_identity": true,
+        "exact_square_sum_identity": true
+      },
+      {
+        "h": 7,
+        "lengths": [
+          1,
+          2,
+          4
+        ],
+        "even_size": 4,
+        "odd_size": 3,
+        "prefix_square_sum": "7/36",
+        "between_mean_coefficient": "24/7",
+        "extra_square_coefficient": "12/7",
+        "complete_quadratic_matrix_identity": true,
+        "exact_square_sum_identity": true
+      },
+      {
+        "h": 8,
+        "lengths": [
+          1,
+          2,
+          4
+        ],
+        "even_size": 4,
+        "odd_size": 4,
+        "prefix_square_sum": "1/4",
+        "between_mean_coefficient": "4",
+        "extra_square_coefficient": "0",
+        "complete_quadratic_matrix_identity": true,
+        "exact_square_sum_identity": true
+      },
+      {
+        "h": 9,
+        "lengths": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "even_size": 5,
+        "odd_size": 4,
+        "prefix_square_sum": "3/20",
+        "between_mean_coefficient": "40/9",
+        "extra_square_coefficient": "20/9",
+        "complete_quadratic_matrix_identity": true,
+        "exact_square_sum_identity": true
+      },
+      {
+        "h": 15,
+        "lengths": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "even_size": 8,
+        "odd_size": 7,
+        "prefix_square_sum": "5/56",
+        "between_mean_coefficient": "112/15",
+        "extra_square_coefficient": "56/15",
+        "complete_quadratic_matrix_identity": true,
+        "exact_square_sum_identity": true
+      },
+      {
+        "h": 16,
+        "lengths": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "even_size": 8,
+        "odd_size": 8,
+        "prefix_square_sum": "1/8",
+        "between_mean_coefficient": "8",
+        "extra_square_coefficient": "0",
+        "complete_quadratic_matrix_identity": true,
+        "exact_square_sum_identity": true
+      },
+      {
+        "h": 17,
+        "lengths": [
+          1,
+          2,
+          4,
+          8,
+          16
+        ],
+        "even_size": 9,
+        "odd_size": 8,
+        "prefix_square_sum": "17/216",
+        "between_mean_coefficient": "144/17",
+        "extra_square_coefficient": "72/17",
+        "complete_quadratic_matrix_identity": true,
+        "exact_square_sum_identity": true
+      },
+      {
+        "h": 31,
+        "lengths": [
+          1,
+          2,
+          4,
+          8,
+          16
+        ],
+        "even_size": 16,
+        "odd_size": 15,
+        "prefix_square_sum": "31/720",
+        "between_mean_coefficient": "480/31",
+        "extra_square_coefficient": "240/31",
+        "complete_quadratic_matrix_identity": true,
+        "exact_square_sum_identity": true
+      },
+      {
+        "h": 32,
+        "lengths": [
+          1,
+          2,
+          4,
+          8,
+          16
+        ],
+        "even_size": 16,
+        "odd_size": 16,
+        "prefix_square_sum": "1/16",
+        "between_mean_coefficient": "16",
+        "extra_square_coefficient": "0",
+        "complete_quadratic_matrix_identity": true,
+        "exact_square_sum_identity": true
+      },
+      {
+        "h": 33,
+        "lengths": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "even_size": 17,
+        "odd_size": 16,
+        "prefix_square_sum": "11/272",
+        "between_mean_coefficient": "544/33",
+        "extra_square_coefficient": "272/33",
+        "complete_quadratic_matrix_identity": true,
+        "exact_square_sum_identity": true
+      },
+      {
+        "h": 63,
+        "lengths": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "even_size": 32,
+        "odd_size": 31,
+        "prefix_square_sum": "21/992",
+        "between_mean_coefficient": "1984/63",
+        "extra_square_coefficient": "992/63",
+        "complete_quadratic_matrix_identity": true,
+        "exact_square_sum_identity": true
+      },
+      {
+        "h": 64,
+        "lengths": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "even_size": 32,
+        "odd_size": 32,
+        "prefix_square_sum": "1/32",
+        "between_mean_coefficient": "32",
+        "extra_square_coefficient": "0",
+        "complete_quadratic_matrix_identity": true,
+        "exact_square_sum_identity": true
+      },
+      {
+        "h": 65,
+        "lengths": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64
+        ],
+        "even_size": 33,
+        "odd_size": 32,
+        "prefix_square_sum": "65/3168",
+        "between_mean_coefficient": "2112/65",
+        "extra_square_coefficient": "1056/65",
+        "complete_quadratic_matrix_identity": true,
+        "exact_square_sum_identity": true
+      },
+      {
+        "h": 127,
+        "lengths": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64
+        ],
+        "even_size": 64,
+        "odd_size": 63,
+        "prefix_square_sum": "127/12096",
+        "between_mean_coefficient": "8064/127",
+        "extra_square_coefficient": "4032/127",
+        "complete_quadratic_matrix_identity": true,
+        "exact_square_sum_identity": true
+      },
+      {
+        "h": 128,
+        "lengths": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64
+        ],
+        "even_size": 64,
+        "odd_size": 64,
+        "prefix_square_sum": "1/64",
+        "between_mean_coefficient": "64",
+        "extra_square_coefficient": "0",
+        "complete_quadratic_matrix_identity": true,
+        "exact_square_sum_identity": true
+      },
+      {
+        "h": 129,
+        "lengths": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128
+        ],
+        "even_size": 65,
+        "odd_size": 64,
+        "prefix_square_sum": "43/4160",
+        "between_mean_coefficient": "8320/129",
+        "extra_square_coefficient": "4160/129",
+        "complete_quadratic_matrix_identity": true,
+        "exact_square_sum_identity": true
+      }
+    ],
+    "uniform_sharpness": {
+      "h": 2,
+      "vector": [
+        "1",
+        "-1"
+      ],
+      "variance": "2",
+      "dyadic_edge_energy": "4"
+    }
+  },
+  "weighted_source_checks": {
+    "local_source_mesh_cases": 39,
+    "local_cases": [
+      {
+        "L": 5,
+        "R": 7,
+        "nodes": [
+          5,
+          6,
+          7
+        ],
+        "lengths": [
+          1
+        ],
+        "positive_square_energy": "1/5184",
+        "sparse_interval_square_sum": "1",
+        "geometry_constant_used": "1/50",
+        "transfer_coefficient": "7/15000",
+        "sparse_transfer_upper": "7/15000",
+        "source_pattern": "positive"
+      },
+      {
+        "L": 5,
+        "R": 7,
+        "nodes": [
+          5,
+          6,
+          7
+        ],
+        "lengths": [
+          1
+        ],
+        "positive_square_energy": "1/5184",
+        "sparse_interval_square_sum": "1",
+        "geometry_constant_used": "1/50",
+        "transfer_coefficient": "7/15000",
+        "sparse_transfer_upper": "7/15000",
+        "source_pattern": "signed_blocks"
+      },
+      {
+        "L": 5,
+        "R": 7,
+        "nodes": [
+          5,
+          6,
+          7
+        ],
+        "lengths": [
+          1
+        ],
+        "positive_square_energy": "25/254016",
+        "sparse_interval_square_sum": "25/49",
+        "geometry_constant_used": "1/50",
+        "transfer_coefficient": "7/15000",
+        "sparse_transfer_upper": "1/4200",
+        "source_pattern": "signed_rational"
+      },
+      {
+        "L": 7,
+        "R": 10,
+        "nodes": [
+          7,
+          8,
+          9,
+          10
+        ],
+        "lengths": [
+          1,
+          2
+        ],
+        "positive_square_energy": "23689/60466176",
+        "sparse_interval_square_sum": "6",
+        "geometry_constant_used": "9/392",
+        "transfer_coefficient": "45/153664",
+        "sparse_transfer_upper": "135/76832",
+        "source_pattern": "positive"
+      },
+      {
+        "L": 7,
+        "R": 10,
+        "nodes": [
+          7,
+          8,
+          10
+        ],
+        "lengths": [
+          1,
+          2
+        ],
+        "positive_square_energy": "16393/60466176",
+        "sparse_interval_square_sum": "6",
+        "geometry_constant_used": "9/392",
+        "transfer_coefficient": "45/153664",
+        "sparse_transfer_upper": "135/76832",
+        "source_pattern": "positive"
+      },
+      {
+        "L": 7,
+        "R": 10,
+        "nodes": [
+          7,
+          8,
+          9,
+          10
+        ],
+        "lengths": [
+          1,
+          2
+        ],
+        "positive_square_energy": "25/746496",
+        "sparse_interval_square_sum": "2",
+        "geometry_constant_used": "9/392",
+        "transfer_coefficient": "45/153664",
+        "sparse_transfer_upper": "45/76832",
+        "source_pattern": "signed_blocks"
+      },
+      {
+        "L": 7,
+        "R": 10,
+        "nodes": [
+          7,
+          8,
+          10
+        ],
+        "lengths": [
+          1,
+          2
+        ],
+        "positive_square_energy": "2425/60466176",
+        "sparse_interval_square_sum": "2",
+        "geometry_constant_used": "9/392",
+        "transfer_coefficient": "45/153664",
+        "sparse_transfer_upper": "45/76832",
+        "source_pattern": "signed_blocks"
+      },
+      {
+        "L": 7,
+        "R": 10,
+        "nodes": [
+          7,
+          8,
+          9,
+          10
+        ],
+        "lengths": [
+          1,
+          2
+        ],
+        "positive_square_energy": "361/185177664",
+        "sparse_interval_square_sum": "6/7",
+        "geometry_constant_used": "9/392",
+        "transfer_coefficient": "45/153664",
+        "sparse_transfer_upper": "135/537824",
+        "source_pattern": "signed_rational"
+      },
+      {
+        "L": 7,
+        "R": 10,
+        "nodes": [
+          7,
+          8,
+          10
+        ],
+        "lengths": [
+          1,
+          2
+        ],
+        "positive_square_energy": "0",
+        "sparse_interval_square_sum": "6/7",
+        "geometry_constant_used": "9/392",
+        "transfer_coefficient": "45/153664",
+        "sparse_transfer_upper": "135/537824",
+        "source_pattern": "signed_rational"
+      },
+      {
+        "L": 11,
+        "R": 16,
+        "nodes": [
+          11,
+          12,
+          15,
+          16
+        ],
+        "lengths": [
+          1,
+          2,
+          4
+        ],
+        "positive_square_energy": "77707579819/154293662250000",
+        "sparse_interval_square_sum": "32",
+        "geometry_constant_used": "25/968",
+        "transfer_coefficient": "25/175692",
+        "sparse_transfer_upper": "200/43923",
+        "source_pattern": "positive"
+      },
+      {
+        "L": 11,
+        "R": 16,
+        "nodes": [
+          11,
+          13,
+          16
+        ],
+        "lengths": [
+          1,
+          2,
+          4
+        ],
+        "positive_square_energy": "425917932572161/799858345104000000",
+        "sparse_interval_square_sum": "32",
+        "geometry_constant_used": "25/968",
+        "transfer_coefficient": "25/175692",
+        "sparse_transfer_upper": "200/43923",
+        "source_pattern": "positive"
+      },
+      {
+        "L": 11,
+        "R": 16,
+        "nodes": [
+          11,
+          12,
+          15,
+          16
+        ],
+        "lengths": [
+          1,
+          2,
+          4
+        ],
+        "positive_square_energy": "9209189/226717218000",
+        "sparse_interval_square_sum": "12",
+        "geometry_constant_used": "25/968",
+        "transfer_coefficient": "25/175692",
+        "sparse_transfer_upper": "25/14641",
+        "source_pattern": "signed_blocks"
+      },
+      {
+        "L": 11,
+        "R": 16,
+        "nodes": [
+          11,
+          13,
+          16
+        ],
+        "lengths": [
+          1,
+          2,
+          4
+        ],
+        "positive_square_energy": "28506454428481/799858345104000000",
+        "sparse_interval_square_sum": "12",
+        "geometry_constant_used": "25/968",
+        "transfer_coefficient": "25/175692",
+        "sparse_transfer_upper": "25/14641",
+        "source_pattern": "signed_blocks"
+      },
+      {
+        "L": 11,
+        "R": 16,
+        "nodes": [
+          11,
+          12,
+          15,
+          16
+        ],
+        "lengths": [
+          1,
+          2,
+          4
+        ],
+        "positive_square_energy": "499106446409/17010876263062500",
+        "sparse_interval_square_sum": "22/7",
+        "geometry_constant_used": "25/968",
+        "transfer_coefficient": "25/175692",
+        "sparse_transfer_upper": "25/55902",
+        "source_pattern": "signed_rational"
+      },
+      {
+        "L": 11,
+        "R": 16,
+        "nodes": [
+          11,
+          13,
+          16
+        ],
+        "lengths": [
+          1,
+          2,
+          4
+        ],
+        "positive_square_energy": "2542780275202801/39193058910096000000",
+        "sparse_interval_square_sum": "22/7",
+        "geometry_constant_used": "25/968",
+        "transfer_coefficient": "25/175692",
+        "sparse_transfer_upper": "25/55902",
+        "source_pattern": "signed_rational"
+      },
+      {
+        "L": 13,
+        "R": 19,
+        "nodes": [
+          13,
+          14,
+          15,
+          18,
+          19
+        ],
+        "lengths": [
+          1,
+          2,
+          4
+        ],
+        "positive_square_energy": "1575558193524211849/1940083097784975360000",
+        "sparse_interval_square_sum": "53",
+        "geometry_constant_used": "9/338",
+        "transfer_coefficient": "171/1599416",
+        "sparse_transfer_upper": "9063/1599416",
+        "source_pattern": "positive"
+      },
+      {
+        "L": 13,
+        "R": 19,
+        "nodes": [
+          13,
+          16,
+          19
+        ],
+        "lengths": [
+          1,
+          2,
+          4
+        ],
+        "positive_square_energy": "1291746686555856001/1940083097784975360000",
+        "sparse_interval_square_sum": "53",
+        "geometry_constant_used": "9/338",
+        "transfer_coefficient": "171/1599416",
+        "sparse_transfer_upper": "9063/1599416",
+        "source_pattern": "positive"
+      },
+      {
+        "L": 13,
+        "R": 19,
+        "nodes": [
+          13,
+          14,
+          15,
+          18,
+          19
+        ],
+        "lengths": [
+          1,
+          2,
+          4
+        ],
+        "positive_square_energy": "38849067617478241/215564788642775040000",
+        "sparse_interval_square_sum": "21",
+        "geometry_constant_used": "9/338",
+        "transfer_coefficient": "171/1599416",
+        "sparse_transfer_upper": "513/228488",
+        "source_pattern": "signed_blocks"
+      },
+      {
+        "L": 13,
+        "R": 19,
+        "nodes": [
+          13,
+          16,
+          19
+        ],
+        "lengths": [
+          1,
+          2,
+          4
+        ],
+        "positive_square_energy": "193860795174329761/1940083097784975360000",
+        "sparse_interval_square_sum": "21",
+        "geometry_constant_used": "9/338",
+        "transfer_coefficient": "171/1599416",
+        "sparse_transfer_upper": "513/228488",
+        "source_pattern": "signed_blocks"
+      },
+      {
+        "L": 13,
+        "R": 19,
+        "nodes": [
+          13,
+          14,
+          15,
+          18,
+          19
+        ],
+        "lengths": [
+          1,
+          2,
+          4
+        ],
+        "positive_square_energy": "1362741479291043601/23766017947865948160000",
+        "sparse_interval_square_sum": "267/49",
+        "geometry_constant_used": "9/338",
+        "transfer_coefficient": "171/1599416",
+        "sparse_transfer_upper": "45657/78371384",
+        "source_pattern": "signed_rational"
+      },
+      {
+        "L": 13,
+        "R": 19,
+        "nodes": [
+          13,
+          16,
+          19
+        ],
+        "lengths": [
+          1,
+          2,
+          4
+        ],
+        "positive_square_energy": "1415516166775439689/23766017947865948160000",
+        "sparse_interval_square_sum": "267/49",
+        "geometry_constant_used": "9/338",
+        "transfer_coefficient": "171/1599416",
+        "sparse_transfer_upper": "45657/78371384",
+        "source_pattern": "signed_rational"
+      },
+      {
+        "L": 19,
+        "R": 28,
+        "nodes": [
+          19,
+          20,
+          22,
+          27,
+          28
+        ],
+        "lengths": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "positive_square_energy": "142808396439841927039344311887249/120944947267881482088953610000000000",
+        "sparse_interval_square_sum": "180",
+        "geometry_constant_used": "81/2888",
+        "transfer_coefficient": "567/10425680",
+        "sparse_transfer_upper": "5103/521284",
+        "source_pattern": "positive"
+      },
+      {
+        "L": 19,
+        "R": 28,
+        "nodes": [
+          19,
+          23,
+          28
+        ],
+        "lengths": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "positive_square_energy": "517417726444683473551995522299821/483779789071525928355814440000000000",
+        "sparse_interval_square_sum": "180",
+        "geometry_constant_used": "81/2888",
+        "transfer_coefficient": "567/10425680",
+        "sparse_transfer_upper": "5103/521284",
+        "source_pattern": "positive"
+      },
+      {
+        "L": 19,
+        "R": 28,
+        "nodes": [
+          19,
+          20,
+          22,
+          27,
+          28
+        ],
+        "lengths": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "positive_square_energy": "890440577838799892419478441/8835192290735735414490000000000",
+        "sparse_interval_square_sum": "72",
+        "geometry_constant_used": "81/2888",
+        "transfer_coefficient": "567/10425680",
+        "sparse_transfer_upper": "5103/1303210",
+        "source_pattern": "signed_blocks"
+      },
+      {
+        "L": 19,
+        "R": 28,
+        "nodes": [
+          19,
+          23,
+          28
+        ],
+        "lengths": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "positive_square_energy": "15662214186734482999257544348621/483779789071525928355814440000000000",
+        "sparse_interval_square_sum": "72",
+        "geometry_constant_used": "81/2888",
+        "transfer_coefficient": "567/10425680",
+        "sparse_transfer_upper": "5103/1303210",
+        "source_pattern": "signed_blocks"
+      },
+      {
+        "L": 19,
+        "R": 28,
+        "nodes": [
+          19,
+          20,
+          22,
+          27,
+          28
+        ],
+        "lengths": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "positive_square_energy": "124558309302151641310571947219921/5926302416126192622358726890000000000",
+        "sparse_interval_square_sum": "583/49",
+        "geometry_constant_used": "81/2888",
+        "transfer_coefficient": "567/10425680",
+        "sparse_transfer_upper": "47223/72979760",
+        "source_pattern": "signed_rational"
+      },
+      {
+        "L": 19,
+        "R": 28,
+        "nodes": [
+          19,
+          23,
+          28
+        ],
+        "lengths": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "positive_square_energy": "106667093384437525548092473328221/5926302416126192622358726890000000000",
+        "sparse_interval_square_sum": "583/49",
+        "geometry_constant_used": "81/2888",
+        "transfer_coefficient": "567/10425680",
+        "sparse_transfer_upper": "47223/72979760",
+        "source_pattern": "signed_rational"
+      },
+      {
+        "L": 35,
+        "R": 52,
+        "nodes": [
+          35,
+          36,
+          40,
+          51,
+          52
+        ],
+        "lengths": [
+          1,
+          2,
+          4,
+          8,
+          16
+        ],
+        "positive_square_energy": "2059372470711483976584214341202678303059372149551400385247755267685981/1058396014866746668589836078235066091933069020626122976340049029184000000",
+        "sparse_interval_square_sum": "1116",
+        "geometry_constant_used": "289/9800",
+        "transfer_coefficient": "3757/216090000",
+        "sparse_transfer_upper": "116467/6002500",
+        "source_pattern": "positive"
+      },
+      {
+        "L": 35,
+        "R": 52,
+        "nodes": [
+          35,
+          43,
+          52
+        ],
+        "lengths": [
+          1,
+          2,
+          4,
+          8,
+          16
+        ],
+        "positive_square_energy": "22010838781545212838778283041774974144510311153230908584864964571997572861/10202587700335316646637890922755215616782906658333139170273001550745600000000",
+        "sparse_interval_square_sum": "1116",
+        "geometry_constant_used": "289/9800",
+        "transfer_coefficient": "3757/216090000",
+        "sparse_transfer_upper": "116467/6002500",
+        "source_pattern": "positive"
+      },
+      {
+        "L": 35,
+        "R": 52,
+        "nodes": [
+          35,
+          36,
+          40,
+          51,
+          52
+        ],
+        "lengths": [
+          1,
+          2,
+          4,
+          8,
+          16
+        ],
+        "positive_square_energy": "5510115220359176958655143514680453825014491457913554136476778629/26906473084671195585929029599931063702839124879980529022132451840000",
+        "sparse_interval_square_sum": "480",
+        "geometry_constant_used": "289/9800",
+        "transfer_coefficient": "3757/216090000",
+        "sparse_transfer_upper": "7514/900375",
+        "source_pattern": "signed_blocks"
+      },
+      {
+        "L": 35,
+        "R": 52,
+        "nodes": [
+          35,
+          43,
+          52
+        ],
+        "lengths": [
+          1,
+          2,
+          4,
+          8,
+          16
+        ],
+        "positive_square_energy": "337386318661965455634536291216624378714621589851557336932374651249097661/10202587700335316646637890922755215616782906658333139170273001550745600000000",
+        "sparse_interval_square_sum": "480",
+        "geometry_constant_used": "289/9800",
+        "transfer_coefficient": "3757/216090000",
+        "sparse_transfer_upper": "7514/900375",
+        "source_pattern": "signed_blocks"
+      },
+      {
+        "L": 35,
+        "R": 52,
+        "nodes": [
+          35,
+          36,
+          40,
+          51,
+          52
+        ],
+        "lengths": [
+          1,
+          2,
+          4,
+          8,
+          16
+        ],
+        "positive_square_energy": "76099518741946338513345635661781816416459986622987613363314309070741/2074456189138823470436078713340729540188815280427201033626496097200640000",
+        "sparse_interval_square_sum": "293/7",
+        "geometry_constant_used": "289/9800",
+        "transfer_coefficient": "3757/216090000",
+        "sparse_transfer_upper": "1100801/1512630000",
+        "source_pattern": "signed_rational"
+      },
+      {
+        "L": 35,
+        "R": 52,
+        "nodes": [
+          35,
+          43,
+          52
+        ],
+        "lengths": [
+          1,
+          2,
+          4,
+          8,
+          16
+        ],
+        "positive_square_energy": "794498119702708467062353319298600822433684312516293835718579392831366549/19997071892657220627410266208600222608894497050332952773735083039461376000000",
+        "sparse_interval_square_sum": "293/7",
+        "geometry_constant_used": "289/9800",
+        "transfer_coefficient": "3757/216090000",
+        "sparse_transfer_upper": "1100801/1512630000",
+        "source_pattern": "signed_rational"
+      },
+      {
+        "L": 67,
+        "R": 100,
+        "nodes": [
+          67,
+          68,
+          78,
+          99,
+          100
+        ],
+        "lengths": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "positive_square_energy": "26176822001913067383159962119006664784636572841126691790099544311365503171773993494437269973331153134158954150037196662721390716500117/6426243177447917292425316846525432250981500031862913095822244527327666969497527402470982373569632680831860420384160287779166720000000000",
+        "sparse_interval_square_sum": "7596",
+        "geometry_constant_used": "1089/35912",
+        "transfer_coefficient": "27225/5481104912",
+        "sparse_transfer_upper": "51700275/1370276228",
+        "source_pattern": "positive"
+      },
+      {
+        "L": 67,
+        "R": 100,
+        "nodes": [
+          67,
+          83,
+          100
+        ],
+        "lengths": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "positive_square_energy": "93116832694523467844803030583610092073607141267774123308531613828261921184778360395857993655597981205921725257103670919380725474872108897/21443277087368935421383186895450531653900404272851717042524522355768986732399677527166389457894863396156086501329812031747531715379200000000",
+        "sparse_interval_square_sum": "7596",
+        "geometry_constant_used": "1089/35912",
+        "transfer_coefficient": "27225/5481104912",
+        "sparse_transfer_upper": "51700275/1370276228",
+        "source_pattern": "positive"
+      },
+      {
+        "L": 67,
+        "R": 100,
+        "nodes": [
+          67,
+          68,
+          78,
+          99,
+          100
+        ],
+        "lengths": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "positive_square_energy": "14899398466688658407360683508990946848639415053677889850618207080810132743561280147437536005874850858206709195967598120187399088101/40045455065401702627614323455110428046680988440381981915485409165372249330030075909299026245530342620352495738478123435420160000000000",
+        "sparse_interval_square_sum": "3472",
+        "geometry_constant_used": "1089/35912",
+        "transfer_coefficient": "27225/5481104912",
+        "sparse_transfer_upper": "5907825/342569057",
+        "source_pattern": "signed_blocks"
+      },
+      {
+        "L": 67,
+        "R": 100,
+        "nodes": [
+          67,
+          83,
+          100
+        ],
+        "lengths": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "positive_square_energy": "863959351831988338350030418587849558214044355495380772294045864581498417979868028407222956185272090717749142173159482400662830240054497/21443277087368935421383186895450531653900404272851717042524522355768986732399677527166389457894863396156086501329812031747531715379200000000",
+        "sparse_interval_square_sum": "3472",
+        "geometry_constant_used": "1089/35912",
+        "transfer_coefficient": "27225/5481104912",
+        "sparse_transfer_upper": "5907825/342569057",
+        "source_pattern": "signed_blocks"
+      },
+      {
+        "L": 67,
+        "R": 100,
+        "nodes": [
+          67,
+          68,
+          78,
+          99,
+          100
+        ],
+        "lengths": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "positive_square_energy": "76215807688257813433845461540150008519830821407193290875324986430619010186930761481697031799310808606698467117252875840698762200565316141/904667235791585452675758829703310775996422629985565316890568117823606972964953415137657485604012179909466814400420932832687753341440000000000",
+        "sparse_interval_square_sum": "10362/49",
+        "geometry_constant_used": "1089/35912",
+        "transfer_coefficient": "27225/5481104912",
+        "sparse_transfer_upper": "141052725/134287070344",
+        "source_pattern": "signed_rational"
+      },
+      {
+        "L": 67,
+        "R": 100,
+        "nodes": [
+          67,
+          83,
+          100
+        ],
+        "lengths": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "positive_square_energy": "393500860814104243847617008155152551423176553508498677603622194678594003588644551382344098939988024865300151399422676521715123893427457/4104377255004210295499125616707328324379374255350523965170709357158907616748375776684191732175188696920500931895159334201675992396800000000",
+        "sparse_interval_square_sum": "10362/49",
+        "geometry_constant_used": "1089/35912",
+        "transfer_coefficient": "27225/5481104912",
+        "sparse_transfer_upper": "141052725/134287070344",
+        "source_pattern": "signed_rational"
+      }
+    ],
+    "nonuniform_multi_cell_cases": [
+      {
+        "coarse_nodes": [
+          37,
+          42,
+          51,
+          58,
+          74
+        ],
+        "max_length": 16,
+        "shared_lengths": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "actual_positive_square_energy": "11716303527760328978376660610030405897459986247619604847653323611493669076690658786169170769772088810748929/271896219124242295311405806853495457692903598692499776753845902789783417824266368384591012876415139840000000000",
+        "sparse_global_upper": "30688/5622483",
+        "finite_K": "1919/2664",
+        "sparse_K_upper": "38380/5622483",
+        "center_coverage_verified": true
+      },
+      {
+        "coarse_nodes": [
+          37,
+          42,
+          51,
+          57,
+          74
+        ],
+        "max_length": 17,
+        "shared_lengths": [
+          1,
+          2,
+          4,
+          8,
+          16
+        ],
+        "actual_positive_square_energy": "112579645635305982509515148686024403422339046673810874185824629315324382894145571283863599277998964238946987596929/1953869470318878015145510990824451801692571582171658827736008340659098262559261766853884390545359620045219840000000000",
+        "sparse_global_upper": "1203107/67469796",
+        "finite_K": "5449/5328",
+        "sparse_K_upper": "48817591/2159033472",
+        "center_coverage_verified": true
+      }
+    ]
+  }
+}
