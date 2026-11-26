@@ -56,3 +56,15 @@ assert digest(p0)=='c000cf55b3d47848c40c44c1054616a8de93606fb5033268f57bcc2d19ee
 assert digest(p2)=='82eb8fcf442e49134b6d8703dee9bb15d247a22b333e787cd1c3744d1698ff21'
 ```
 No new analytic coefficient computation, exact-zero oracle, all-scale theorem or native admission.
+
+## Additional exact threshold audit on extended candidate bank
+
+Actual second run over the 442 new candidates: every threshold interval is strictly inside the 8400 rho box and pairwise disjoint in sorted order. Minimum consecutive gap 6.540646997948378e-80; maximum width 1.7144199221828455e-105 (display approximations of exact rational values). Therefore at most 443 joint negative/nonnegative patterns rather than 2^442, and at most 9 oracle decisions if a terminating exact sign oracle becomes available. A rho refinement may settle the cut directly; exact-zero decision and full-scale separation remain open.
+Reproduce by appending:
+```python
+R,C,D=[[F(x,G) for x in z] for z in B1]
+thresholds=sorted(((F(j)-C[1]-D[1]/m-F(E,m*m))/m,(F(j)-C[0]-D[0]/m+F(E,m*m))/m) for m,j in p2)
+assert all(R[0]<l<=u<R[1] for l,u in thresholds)
+assert all(u<l2 for (_,u),(l2,_) in zip(thresholds,thresholds[1:]))
+print(float(min(l2-u for (_,u),(l2,_) in zip(thresholds,thresholds[1:]))),float(max(u-l for l,u in thresholds)))
+```
