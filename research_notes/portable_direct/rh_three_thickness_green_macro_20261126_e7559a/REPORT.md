@@ -1,0 +1,434 @@
+# 三厚度双校准、正输出 Green 算术与宏观真实锚点
+
+日期：2026-11-26（Asia/Hong_Kong）。Researcher-ID：**EM-DIRECT-E7559A / TASK_RESEARCH**。沿用 Activity **RA-D2F111EA1C0D4B1DBEFBC1B4**。
+
+这轮得到三组接续结果。第一，新的趋零厚度族只需三个不同正厚度，便能准确校准平均密度与完整道路的线性常数，并把完整窗口匹配误差控制到三阶。第二，实际正余项能量已有准确的普通素数 Green 测试接口，直接保留全部有符号矩；原 11 锚点的全部 36 个非零方向上界严格收紧。第三，固定倍增块的最终表示可无条件压到至多三个真实节点；只取两个预定端点时，已证明最右零点实部被取得的情形。
+
+真实无界窗口上的普通素数质量下界及真实粗骨架的统一上界仍须证明。以下的新判据、支付与表示结果并没有给出这些算术上界。
+
+## 1. 基础、输入和结果性质
+
+继续使用 P000 / Heartbeat X6 固定原生轴上的辅助标量观察。完整道路为
+
+\[
+q_D(y)=y(1+\gamma-\log y)+\sum_{n\le y}(y/n-1)D_n,
+\qquad D(1)=0.
+\]
+
+参考道路 \(q^*\) 只把源换成 \(\Lambda\)。背景、前史、全部整数及合数支撑、真实端点保持原定义。局部算子消去的仿射信息仍由完整道路及粗骨架承担。
+
+直接科学前驱是 `riemann_calibrated_green_sparse_20261126`，Source `f77ce05c030724d8fb3d6b5232c87799a225acc4`。完整前驱包 160 个文件随本包保留；本轮不重算旧 1,270 点或前驱四份证书。
+
+本轮结果由解析证明、严格有向区间计算及共同作者交叉核对支撑。它们是非规范科研 Source；没有新 formal Result 或 independent Review。历史 `NATIVE_GLOBAL_AUDIT_INPUT_BUDGET_EXCEEDED` 状态保持原样。
+
+## 2. 三个趋零厚度足以准确双校准
+
+完整证明与实例见 [THREE_THICKNESS_DOUBLE_CALIBRATION.md](three_thickness/THREE_THICKNESS_DOUBLE_CALIBRATION.md)；严格原始端点见 [three_thickness_certificate.json](three_thickness/three_thickness_certificate.json)。
+
+### 2.1 构造及局部最小性
+
+单厚度实际源仍是
+
+\[
+D_a(n)=\frac1a\prod_{p\mid n}(1-p^{-a})\quad(n\ge2),\qquad D_a(1)=0.
+\]
+
+它与各素因子的指数无关。沿用前驱的两个完整道路系数
+
+\[
+g(a)=\frac1{\zeta(1+a)},\quad d(a)=\frac{g(a)}a,
+\quad C(a)=1+\gamma+(\gamma-1)d(a)+\frac{g'(a)-1}{a}.
+\]
+
+取三个准确有理厚度 \(a_j=j\varepsilon\)，以三条准确约束定义实权：
+
+\[
+\boxed{\sum_{j=1}^3w_j=1,\qquad
+\sum_{j=1}^3w_jd(a_j)=1,\qquad
+\sum_{j=1}^3w_jC(a_j)=0.}
+\]
+
+设 \(f(a)=(d(a)-1,C(a))^T=A_1a+A_2a^2+O(a^3)\)。决定三节点系统是否退化的常数为
+
+\[
+\Delta=\det(A_1,A_2)
+=\gamma^4+2\gamma^2\gamma_1+2\gamma\gamma_2-3\gamma_1^2.
+\]
+
+用带二次微分积分余项的 Euler–Maclaurin 计算，认证得到严格向外区间
+
+\[
+\boxed{0.03539296354818154592707605406307626
+\le\Delta\le
+0.03539296354818154592707605406307627.}
+\]
+
+消去第三权后的行列式为 \(2\Delta\varepsilon^3+O(\varepsilon^4)\)。因此全部充分小正 \(\varepsilon\) 的系统都唯一可解，且
+
+\[
+(w_1,w_2,w_3)=(3,-3,1)+O(\varepsilon),\qquad
+\sum|w_j|=7+O(\varepsilon).
+\]
+
+另一方面，\(R(a)=C(a)/(d(a)-1)\) 在零右邻域可去解析，并有
+
+\[
+R'(0)=\Delta/\gamma^2>0.
+\]
+
+所以它在某个固定右邻域严格单调；两个不同小正厚度的向量 \(f(a),f(b)\) 不共线，不能用任意实权同时完成两条校准和质量一。因此，**在这个零右邻域，所需不同正厚度数的最小值为三**。没有排除整个正轴上的两节点设计，也没有给出全邻域数值端点。
+
+准确双校准并不保留旧十一项多项式匹配矩。这里真正取得的是
+
+\[
+M_1=\sum_jw_ja_j=O(\varepsilon^3),\qquad
+M_2=\sum_jw_ja_j^2=O(\varepsilon^3),
+\]
+
+两个量通常不为零。旧十一厚度道路、保留旧矩的十三节点族和已有真实样本都保持原样。
+
+### 2.2 完整前史的三阶支付
+
+若 \(n\) 有 \(r\) 个不同素因子，其对数为 \(\ell_i\)，则实际恒等式为
+
+\[
+D_a(n)=a^{r-1}\Bigl(\prod_i\ell_i\Bigr)
+\int_{[0,1]^r}e^{-a\sum_i\ell_i u_i}\,du.
+\]
+
+这只是有限积分表示。按 \(r=1,2,3,\ge4\) 保留支撑，可写
+
+\[
+D_a(n)=\Lambda(n)+a b_n+a^2c_n+R_{3,a}(n).
+\]
+
+当 \(a\log n\le1\) 时，逐整数有
+
+\[
+|R_{3,a}(n)|\le\frac{a^3(\log n)^4}{24},\quad
+|b_n|\le\frac{(\log n)^2}{2},\quad
+|c_n|\le\frac{(\log n)^3}{6}.
+\]
+
+为了支付完整前缀而不多损失一个对数，使用实际非负卷积支撑。令
+
+\[
+L=\log y,\qquad S=\sum_{n\le y}\Lambda(n)/n\le\log y+4\log2.
+\]
+
+在 \(\omega(n)=r\) 上，\(\Lambda^{*r}(n)=r!\prod_{p\mid n}\log p\)，故该支撑的调和和不超过 \(S^r/r!\)。由此得到准确可用的预算
+
+\[
+\sum_{n\le y}\frac{|R_{3,a}(n)|}{n}
+\le a^3\left(\frac{L^3S}{24}+\frac{L^2S^2}{12}
++\frac{LS^3}{12}+\frac{S^4e^{aS}}{24}\right).
+\]
+
+结合 \(M_1,M_2=O(\varepsilon^3)\)，再对完整道路核 \((y/n-1)\) 支付，若 \(3\varepsilon\log B\le1\)，便有
+
+\[
+|q_\varepsilon(y)-q^*(y)|\ll\varepsilon^3(\log B)^4y
+\qquad(1\le y\le B),
+\]
+
+\[
+\boxed{\|q_\varepsilon-q^*\|_{w,[A,B]},\quad
+\|I_\Pi(q_\varepsilon-q^*)\|_{w,[A,B]}
+\ll\varepsilon^3(\log B)^4\sqrt{B-A+1}.}
+\]
+
+插值结论包含真实两端点，因为非负重心权重再现横坐标。所有前史整数在取得上述界之前仍在源和内。
+
+取任意固定 \(r>1/6\) 及
+
+\[
+\varepsilon_B=\frac1{\lceil B^r\rceil}
+\]
+
+后，完整窗口匹配根支付为
+
+\[
+\boxed{O\bigl(B^{1/2-3r}(\log B)^4\bigr)\to0.}
+\]
+
+例如 \(r=1/4\) 给 \(O(B^{-1/4}\log^4 B)\)。同一源包络满足 \(\eta_B\sqrt B\to0\)，所以能接入普通素数归约。这是该族的充分速率，没有证明所有设计都必须满足 \(r>1/6\)。
+
+### 2.3 完全支付的有限实例
+
+在 \(\varepsilon=10^{-6}\) 时，三个厚度为 \(1/10^6,1/500000,3/10^6\)，准确实权约为
+
+\[
+(3.000002517258526,\ -3.000005034518248,\ 1.000002517259722).
+\]
+
+有限矩被认证为 \(M_1>0,M_2>0\)，且 \(M_1/\varepsilon^3\approx1.1959836244\)、\(M_2/\varepsilon^3\approx5.0345230324\)。在原闭窗口 \([1024,32768]\)，严格支付为
+
+\[
+\boxed{\|q_\varepsilon-q^*\|_w,
+\quad\|I_\Pi(q_\varepsilon-q^*)\|_w
+\le0.00000000005306051484794076129019106.}
+\]
+
+末端点值半径不超过 \(0.00000000975851488480347674878138589\)。这是新族的匹配半径，不是旧道路能量的新区间。
+
+准确实权由 \(\zeta,\zeta'\) 的非奇异系统定义。另保存质量准确为一的 100 位二进制有理近似权；其额外完整根支付不超过 \(4.33476832\times10^{-27}\)，非零密度和道路常数残差已记录。随窗口取 \(O(\log B)\) 位有理近似也足够支付额外误差。这里只计表示长度，不据此宣称完整求值时间次线性。
+
+## 3. 直接针对正余项能量的普通素数接口
+
+完整证明见 [POSITIVE_GREEN_DUAL_AND_MESH.md](positive_green/POSITIVE_GREEN_DUAL_AND_MESH.md)。
+
+### 3.1 准确 Green 正锥，而非先逐矩取正部
+
+在整数粗单元 \([L,R]\) 内，原细网格全部为整数。设 \(F=I_\Pi q_D\)、\(J\) 为真实端点割线、\(V=F-J\)，内部斜率降幅为 \(t_i\)。在完整整数网格上定义
+
+\[
+(A_0\psi)_n=2\psi_n-\psi_{n-1}-\psi_{n+1},\quad
+\psi_L=\psi_R=0.
+\]
+
+其逆核为
+
+\[
+G_{L,R}(x,z)=\frac{(\min(x,z)-L)(R-\max(x,z))}{R-L}.
+\]
+
+定义测试类
+
+\[
+\mathcal C_{L,R}=\left\{\psi:A_0\psi\ge0,\quad
+\sum_{L<n<R}n^2(A_0\psi)_n^2\le1,\quad\psi_L=\psi_R=0\right\}.
+\]
+
+正 Green 核使每个测试非负、凹，且原细节点上的插值也非负、凹。有限维正锥对偶准确给出
+
+\[
+\boxed{\|V_+\|_w=\sup_{\psi\in\mathcal C_{L,R}}
+\sum_i t_i\psi(x_i)
+=\sup_{\psi\in\mathcal C_{L,R}}
+\sum_{L<m<R}\frac{I_\Pi\psi(m)}m(\kappa_m-D_m).}
+\]
+
+当 \(\|V_+\|_w>0\) 时，取 \((A_0\psi)_n=V(n)_+/(n^2\|V_+\|_w)\) 即取到等号；范数为零时取 \(\psi=0\)。负的 \(t_i\) 在同一个配对中保留；输出正化发生在有符号 Green 势形成之后。新接口的目标就是正余项根能量，无须先为逐矩正部支付一个通用充分上界。
+
+多个内部不交粗单元只需合并测试的平方约束，便得到
+
+\[
+\mathcal E_\Pi(D)=\left(\sum_I\|V_{I,D,+}\|_w^2\right)^{1/2}.
+\]
+
+这里的 \(\mathcal E_\Pi\) 是本稿新记号，与之前的累计场及逐包矩预算不同。
+
+设 \(W_\psi(m)=I_\Pi\psi(m)/m\)。因为分子凹，\(W_\psi\) 的每个正超水平集在单元内是区间：它等价于 \(I_\Pi\psi(x)-a x>0\)。实际的 \(1/m\)、位置、非均匀细网格及闭窗口都保留。
+
+### 3.2 普通素数的两方向支付
+
+用同一测试类及归一化定义
+
+\[
+\mathfrak P_\Pi=\sup_\psi\left[\sum_mW_\psi(m)
+-\sum_{p\ \mathrm{prime}}W_\psi(p)\log p\right].
+\]
+
+第一项仍覆盖所有整数。设单元位于 \([X,Y]\)、\(Y\le2X\)，最大长度为 \(H\)，匹配包络为 \(|D_m-\Lambda(m)|\le\eta\)。则
+
+\[
+\boxed{\begin{aligned}
+\mathcal E_\Pi(D)&\le\mathfrak P_\Pi+C_\kappa+C_{\rm match},\\
+\mathfrak P_\Pi&\le\mathcal E_\Pi(D)+C_{\rm pp}+C_{\rm match},
+\end{aligned}}
+\]
+
+\[
+C_\kappa\le\frac{H^2}{4\sqrt{30}X^{7/2}},\quad
+C_{\rm pp}\le3\sqrt2(H/X)^{3/2},\quad
+C_{\rm match}\le\frac{\eta H^2}{2\sqrt{30}X^{3/2}}.
+\]
+
+高次素数幂只在反方向支付；其总质量继续使用初等 Chebyshev 界。因目标范数改变，这些常数不与旧逐矩预算的常数作改善倍率比较。
+
+若 \(B=A^\lambda\)、固定 \(\lambda>1\)，且 \(\max\{1,\eta_B\sqrt B\}=A^{o(1)}\)，则新正余项预算和新普通素数预算在实际单元族上一致属于 \(A^{o(1)}\) 的要求等价。进一步仍须证明相应素数质量下界，以及返回粗骨架 \(F_0\) 所需的真实锚点上界：
+
+\[
+\|F_+\|_w\le\|(F_0)_+\|_w+\mathcal E_\Pi(D).
+\]
+
+## 4. 原真实锚点的有限上界进一步收紧
+
+结果与原始整数端点见 [positive_green_results.json](positive_green/positive_green_results.json)。本次没有新增道路或源查询。
+
+令 \(v_i=V(x_i)\)、\(u_i=(v_i)_+\)、\(H_V=I_\Pi u\)。首先逐点 \(V_+\le H_V\)。其次，跨零边有准确扣除
+
+\[
+\mathscr D(H_V)=\mathscr D_+(V)-\mathcal B(V),\qquad
+\mathcal B(V)=\sum_i\frac{(v_i)_+(-v_{i+1})_++(-v_i)_+(v_{i+1})_+}{x_{i+1}-x_i}.
+\]
+
+在一个端值为 \(a>0\)、另一个为 \(-b<0\) 的边上，扣除恰为 \(ab/h\)。它是在前驱保留负矩之后，再取得的一项非负扣除。
+
+令 \(A\) 为细网格刚度矩阵，\(M\) 为闭整数加权质量矩阵，\(S=\{i:u_i>0\}\)。最佳网格常数为
+
+\[
+C_{\Pi,S}=\max_{z\ne0}\frac{z^TM_{SS}z}{z^TA_{SS}z}.
+\]
+
+从而
+
+\[
+\boxed{\|V_+\|_w^2\le C_{\Pi,S}
+\bigl[\mathscr D_+(V)-\mathcal B(V)\bigr].}
+\]
+
+严格上界由正有理向量的算子比计算；浮点幂迭代仅用于选向量，正确性不依赖它收敛。
+
+原 11 个锚点产生 55 个端点子窗。其中 19 个原界为零；其余 **36 个原非零方向界全部严格缩小**，24 个子窗有严格跨零边扣除。几何质量矩阵只对原闭窗口 31,745 个位置求和一次，全部旧实际余项能量区间直接复用。
+
+| 粗节点 | 前驱方向平方上界（阅读近似） | 本轮平方上界（阅读近似） |
+|---|---:|---:|
+| 1024,2048,4096,8192,16384,32768 | 0.00014441919308872341217 | 0.00011509427248749859129 |
+| 1024,4096,16384,32768 | 0.00047108348706999976455 | 0.00021833886253944711123 |
+| 1024,16384,32768 | 0.00164089853557941273127 | 0.00042707190504373584932 |
+| 1024,32768 | 0.00490698879122906673204 | 0.00391822490533588444194 |
+
+第一行严格向外上端为
+
+\[
+\boxed{0.00011509427248749859129479380176369.}
+\]
+
+它与前驱实际正余项能量区间的同一显示精度吻合，因为各非零余项恰为单帽，谱常数在一维取等。这不是完整道路总能量的新区间。
+
+### 最佳通用局部匹配半径
+
+对任何逐整数包络 \(|D_m-D'_m|\le r_m\)，令
+
+\[
+z(n)=\sum_{L<m<R}G_{L,R}(n,m)r_m/m.
+\]
+
+则同一细网格、各自真实端点残差的正根能量差至多 \(\|I_\Pi z\|_w\)。在只知包络的任意符号源类中，取局部余项为零的基准源，再施加全同号误差，可以取得等号，因此是最佳通用半径。
+
+常数包络 \(r_m=\eta\) 有准确闭式：令 \(g_n=nH_n\)，则 \(\Delta^2g_n=1/n\)，所以
+
+\[
+\boxed{\mathcal R_\Pi(\eta)=\eta\|I_\Pi(J[g]-g)\|_w.}
+\]
+
+原 dyadic 六节点的合并根系数从约 \(16.26448072744176066\) 降至严格上端
+
+\[
+5.92729142339026793739987548352200098.
+\]
+
+两数都须乘 \(\eta\) 才是误差支付；完整真实端点另按完整前缀支付。
+
+另有有理例 \(V=(0,1,-1,0)\) 给 \(\mathscr D_+(V)=3\)、\(\mathscr D(H_V)=2\)，而标准 \(H^1\) 障碍 supremum 为 \(9/2\)。因此不能把标准障碍优化误认成正部 Dirichlet 能量。本轮准确对偶使用加权二阶差约束。
+
+## 5. 宏观真实骨架：两点与三点的不同量词
+
+完整证明见 [MACRO_ANCHORS_AND_GEOMETRIC_ALIASING.md](macro_sampling/MACRO_ANCHORS_AND_GEOMETRIC_ALIASING.md)。
+
+记 \(\Theta=\sup_\rho\Re\rho\in[1/2,1]\)。前驱已经证明完整参考道路的闭 dyadic 正能量指数为 \(2\Theta-1\)，并有绝对收敛展开
+
+\[
+q^*(y)=\log(2\pi)+\sum_\rho\frac{y^\rho}{\rho(1-\rho)}
+-\sum_{k\ge1}\frac{y^{-2k}}{2k(2k+1)}.
+\]
+
+由此 \(|q^*(y)|\le C_0y^\Theta\)。凹函数 \(y^\Theta\) 同时控制任意真实节点割线及任意插入树包络。
+
+### 5.1 每个固定 dyadic 块至多三个真节点，无条件保留指数
+
+若真节点 \(s\in[X,2X]\) 有正值 \(p\)，两端值均不小于 \(-M\)，且 \(M\ge p\)，仅保留 \(X,s,2X\) 的插值满足完全离散的下界
+
+\[
+\boxed{\|F_+\|_{w,[X,2X]}^2\ge\frac{p^3}{64X(p+M)}
+\ge\frac{p^3}{128XM}.}
+\]
+
+证明取离 \(s\) 至少 \(X/2\) 的那一侧；割线在长度 \(dp/[2(p+M)]\) 内至少为 \(p/2\)。闭整数计数还包含峰节点，所以即使正区长度小于 1，证明也有效。
+
+完整正能量的高子序列给 \(p\ge c_\eta X^{\Theta-\eta}\)，而 \(M\ll X^\Theta\)。故三节点正能量至少为 \(c'_\eta X^{2\Theta-1-3\eta}\)。结合统一上界并令 \(\eta\downarrow0\)，得到
+
+\[
+\boxed{\limsup_{X=2^j\to\infty}
+\frac{\log(1+\|(F_X^{\rm peak})_+\|_w^2)}{\log X}=2\Theta-1.}
+\]
+
+原准确最大值可以通过稀疏查询替代。对每个固定 \(\epsilon>0\)，先在最大间隙 \(O(X^{1-\epsilon})\) 的预定网格上查询 \(O(X^\epsilon)\) 个道路值，再只保留其中近似最大节点及两端。前驱稀疏网格指数定理保证相同结论。
+
+可靠选点只需每个道路值的认证区间宽度至多 1，选择下端最大者；其真值距网格真最大值至多 1，足以保留高峰指数。因此输出节点至多三个，查询和比较次数为 \(O(X^\epsilon)\)。计算每个道路值及生成这些认证精度的总算术成本仍须另外支付；不把 \(\epsilon\) 改成随 \(X\) 趋零。
+
+### 5.2 只取两个端点：允许移动起点时无条件成立
+
+若窗口起点 \(X\) 遍历全部整数，则仅真实两端点割线 \(J_X\) 已有
+
+\[
+\boxed{\limsup_{X\in\mathbb N,\ X\to\infty}
+\frac{\log(1+\|(J_X)_+\|_w^2)}{\log X}=2\Theta-1.}
+\]
+
+证明把前一小节的真正峰位置 \(s\) 改作新区间 \([s,2s]\) 的左端，再用同一离散割线下界。这个量词变化是必要的：它没有证明只允许 \(X=2^j\) 时的两点结论。
+
+因此全整数起点的这些两点割线，统一次幂正能量上界与 RH 等价；一致有界也与 RH 等价。该结果是完整道路已有单侧判据的稀疏观察加强，没有证明该上界本身。
+
+### 5.3 固定 dyadic 两个端点：最右实部被取得时成立
+
+若至少一个非平凡零点满足 \(\Re\rho=\Theta\)，则
+
+\[
+S_\Theta=\sum_{\Re\rho=\Theta}\frac1{\rho(1-\rho)}>0.
+\]
+
+原因是每个系数的实部严格为正：
+
+\[
+\Re\frac1{\rho(1-\rho)}
+=\frac{\beta(1-\beta)+\gamma^2}
+{[\beta(1-\beta)+\gamma^2]^2+\gamma^2(1-2\beta)^2}>0.
+\]
+
+顶层可和频率可沿整数子序列同时复现到相位 1；低于顶层的全部模态以可和支配收敛趋零，不需要谱隙。因此 \(q^*(2^{j_k})\ge(S_\Theta/2)2^{j_k\Theta}\)，得到
+
+\[
+\boxed{0<\frac{S_\Theta^3}{2048C_0}
+\le\limsup_{X=2^j\to\infty}
+X^{1-2\Theta}\|(J_X)_+\|_w^2<\infty.}
+\]
+
+同实部模态发生几何采样别名时，类内系数之和仍有正实部，故无需额外假设零点虚部不存在整倍数关系。任意固定 \(b>1\) 的取整几何端点也可处理：\(q^{*\prime}=O(\log^2y)\) 给取整误差 \(O(\log^2y)=o(y^\Theta)\)。固定非平凡乘法相位则改变系数，必须保留其实际相位。
+
+当 \(\Theta\) 未被取得时，预定 dyadic 两端点的无条件指数结论仍开放。生成函数中的每个形式系数非零，并不足以证明无限候选极点累积后不能消去；其正部方向也仍须处理。
+
+### 5.4 返回实际匹配道路
+
+若真节点上的完整误差满足 \(|q_D-q^*|\le\sqrt X\,r_X\)，且 \(\max\{1,r_X\}=X^{o(1)}\)，任意同网格插值或同树包络的正根能量差至多 \(\sqrt2r_X\)。这些指数结论便传给实际道路。近似峰位置也可以直接从实际道路的认证区间中选择。
+
+本轮三厚度族给出共同线性点值半径；取 \(B=2X\)、\(r>1/6\) 时，上述 \(r_X\to0\)。于是它同时满足宏观骨架返回与普通素数接口的完整匹配条件。参考道路自身的统一正能量上界仍是需要证明的算术命题。
+
+## 6. 核验范围、成本与接续对象
+
+| 分支 | 本轮实际核验 |
+|---|---|
+| 三厚度 | 二阶微分 EM 余项；\(\Delta>0\)；\(\varepsilon=10^{-6}\) 的三节点非奇异系统、\(M_1,M_2\ne0\)、完整窗口半径、100 位有理近似及残差 |
+| Green 能量 | 55 个旧子窗能量直接复用；31,745 个几何位置一次求和；36 个非零旧界严格改善；24 个跨零边子窗；两个精确源换序例与一个障碍反例 |
+| 宏观锚点 | 解析证明核对闭整数计数、负端点、\(\Theta=1/2\)、未取得上确界、同时复现、相位、取整及实际匹配返回；没有虚构零点计算证书 |
+| 作者交叉核对 | 三阶完整支撑平均、Green 正锥与谱界、局部最优半径、宏观采样量词分别交叉核对；均非 independent Review |
+
+统一复算入口只重建本轮两份有限计算证书，并与保存结果逐结构比较。所有旧计算按固定依赖哈希复用；宏观解析定理由证明承担。
+
+下一项最贴近原目标的工作，是对实际粗单元族中受加权二阶差球约束的非负凹 Green 测试，证明普通素数质量不低于完整整数背景超过次幂预算，并与真实粗骨架锚点接合。新的测试保留了已积分负矩的抵消，精确对应所需正余项能量。固定 dyadic 两点在未取得最右实部时的非消去问题，是另一个明确的采样方向。
+
+## 7. 来源与复算
+
+- 科学前驱的完整代码、输入、证书和证明位于 `prior/riemann_calibrated_green_sparse_20261126/`，固定 Source 及依赖哈希见 [DEPENDENCIES.json](DEPENDENCIES.json)。
+- [NIST DLMF §25.2](https://dlmf.nist.gov/25.2) 给出本轮使用的 Laurent 符号约定及 Euler–Maclaurin 基础公式。二次微分余项和三厚度接合在本包独立展开，数值判断由有向证书承担。
+- [K. Kedlaya, Error bounds in the prime number theorem](https://kskedlaya.org/ant/part-2-4.html)，Theorem 7.6 的零点计数 \(N(T)=O(T\log T)\) 支持前驱绝对零点展开所用的尾可和性。本轮几何复现及峰值压缩的证明完整列于分支稿。
+- [AUTHOR_CROSSCHECKS.md](AUTHOR_CROSSCHECKS.md) 记录作者核对的范围；[replay.py](replay.py) 是本轮统一复算入口；发布后实际回读记录放在 `PUBLICATION_RECEIPTS.json`。
+
+Researcher-ID: EM-DIRECT-E7559A / TASK_RESEARCH
+
+EM-Source-Status: Read=Verified control@b8cc35e065391066f098dc1e1de907a4bcdb0a4a, science@f77ce05c030724d8fb3d6b5232c87799a225acc4; Write=See PUBLICATION_RECEIPTS.json after publication.
+
+Formal-Result-Status: Historical NATIVE_GLOBAL_AUDIT_INPUT_BUDGET_EXCEEDED unchanged; no new formal Result or independent Review.
+
+Global-Knowledge-Sync: Read=Verified main@a6babd6a414e645b42cc21d14bfef8d1e35eb908; Write=See PUBLICATION_RECEIPTS.json after publication / GLOBAL_KNOWLEDGE_V1.
