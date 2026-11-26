@@ -1,0 +1,39 @@
+{
+  "schema": "EC49FTL_EXACT_OPTIMIZED_GAP_CDF_V1",
+  "status": "AUTHOR_PROVED_EXACT_FRACTION_PARENT_DEPENDENT_NOT_REVIEWED",
+  "date": "2026-11-19",
+  "frozen_science_commit": "fc0f038e7bfd12c886b4d37f900bfb770c0f61ab",
+  "parent_prs": [
+    2774,
+    2776
+  ],
+  "support": [
+    "11457/512",
+    "187/8"
+  ],
+  "breakpoints": [
+    "11457/512",
+    "1461/64",
+    "1469/64",
+    "187/8"
+  ],
+  "cdf": [
+    "m<m0: 0",
+    "m0<=m<m1: (512m-11457)^2/242550",
+    "m1<=m<m2: (1024m-23145)/1050",
+    "m2<=m<m3: -(137216m^2-6555968m+78144641)/127575",
+    "m>=m3: 1"
+  ],
+  "junction_cdf": [
+    "0",
+    "11/50",
+    "359/1050",
+    "1"
+  ],
+  "atoms": "none",
+  "first_moment": "494813/21504",
+  "variance": "60097/1204224",
+  "validation": "147 exact independent conditional-integral rational samples plus exact full CDF moment integration",
+  "native_Bellman": "inherited, not rerun",
+  "review": false
+}
