@@ -1,0 +1,541 @@
+{
+  "scope": "Same Port10, 47 supports/49 components, strict wall capacity, root product of two necessary support factors and arbitrary real linear descendants. No full-output sufficiency or general quadratic conclusion.",
+  "input": "a6457e4902629de89a226001ef712ab7ae3733df:research_notes/driver/2026-11-26_x6_r228_independent_nonoverlap_midpoint_refinement.md remaining",
+  "code": "a6457e4902629de89a226001ef712ab7ae3733df:research_notes/driver/2026-11-26_x6_r228_independent_nonoverlap_midpoint_refinement.md fenced JS run(data,old,old,4,1500000)",
+  "data": "578fb612d9c52fa677c966740a99565d58fc98d7:research_notes/portable_direct/2026-11-26_r2_x6_r227_quadratic_root_wall_capacity.md const data",
+  "contribution": "Informed Driver extension of author R228; reuse verified independent midpoint implementation, no new proof of recursion needed.",
+  "result": {
+    "authorOnly": [],
+    "shared": 12,
+    "samples": 4,
+    "budget": 1500000,
+    "total": {
+      "checks": 13271251,
+      "calls": 4620,
+      "queryBanks": 84240,
+      "rankDef": 0,
+      "cappedSides": 5
+    },
+    "excluded": [
+      {
+        "i": 11,
+        "j": 13,
+        "counts": [
+          26,
+          22
+        ],
+        "pass": [
+          true,
+          true
+        ]
+      },
+      {
+        "i": 13,
+        "j": 19,
+        "counts": [
+          23,
+          25
+        ],
+        "pass": [
+          true,
+          true
+        ]
+      },
+      {
+        "i": 13,
+        "j": 27,
+        "counts": [
+          24,
+          26
+        ],
+        "pass": [
+          true,
+          true
+        ]
+      },
+      {
+        "i": 18,
+        "j": 24,
+        "counts": [
+          24,
+          25
+        ],
+        "pass": [
+          true,
+          true
+        ]
+      },
+      {
+        "i": 18,
+        "j": 28,
+        "counts": [
+          26,
+          24
+        ],
+        "pass": [
+          true,
+          true
+        ]
+      },
+      {
+        "i": 24,
+        "j": 44,
+        "counts": [
+          27,
+          26
+        ],
+        "pass": [
+          true,
+          true
+        ]
+      },
+      {
+        "i": 29,
+        "j": 35,
+        "counts": [
+          24,
+          24
+        ],
+        "pass": [
+          true,
+          true
+        ]
+      }
+    ],
+    "remaining": [
+      {
+        "i": 11,
+        "j": 20,
+        "counts": [
+          25,
+          24
+        ],
+        "pass": [
+          true,
+          true
+        ]
+      },
+      {
+        "i": 12,
+        "j": 33,
+        "counts": [
+          24,
+          25
+        ],
+        "pass": [
+          true,
+          true
+        ]
+      },
+      {
+        "i": 12,
+        "j": 45,
+        "counts": [
+          24,
+          25
+        ],
+        "pass": [
+          true,
+          true
+        ]
+      },
+      {
+        "i": 13,
+        "j": 23,
+        "counts": [
+          24,
+          24
+        ],
+        "pass": [
+          true,
+          true
+        ]
+      },
+      {
+        "i": 13,
+        "j": 26,
+        "counts": [
+          25,
+          23
+        ],
+        "pass": [
+          true,
+          true
+        ]
+      }
+    ],
+    "unknown": [
+      {
+        "i": 11,
+        "j": 20,
+        "counts": [
+          25,
+          24
+        ],
+        "pass": [
+          true,
+          true
+        ]
+      },
+      {
+        "i": 12,
+        "j": 33,
+        "counts": [
+          24,
+          25
+        ],
+        "pass": [
+          true,
+          true
+        ]
+      },
+      {
+        "i": 12,
+        "j": 45,
+        "counts": [
+          24,
+          25
+        ],
+        "pass": [
+          true,
+          true
+        ]
+      },
+      {
+        "i": 13,
+        "j": 23,
+        "counts": [
+          24,
+          24
+        ],
+        "pass": [
+          true,
+          true
+        ]
+      },
+      {
+        "i": 13,
+        "j": 26,
+        "counts": [
+          25,
+          23
+        ],
+        "pass": [
+          true,
+          true
+        ]
+      }
+    ],
+    "results": [
+      {
+        "i": 11,
+        "j": 13,
+        "counts": [
+          26,
+          22
+        ],
+        "samples": 4,
+        "sides": [
+          {
+            "pass": false,
+            "calls": 85,
+            "checks": 315256,
+            "memoHits": 6,
+            "pointCount": 107,
+            "queries": 5127,
+            "rankDef": false,
+            "cap": false
+          },
+          null
+        ]
+      },
+      {
+        "i": 11,
+        "j": 20,
+        "counts": [
+          25,
+          24
+        ],
+        "samples": 4,
+        "sides": [
+          {
+            "pass": true,
+            "calls": 167,
+            "checks": 385596,
+            "memoHits": 32,
+            "pointCount": 104,
+            "queries": 4834,
+            "rankDef": false,
+            "cap": false
+          },
+          {
+            "pass": null,
+            "calls": 550,
+            "checks": 1500002,
+            "memoHits": 183,
+            "pointCount": 102,
+            "queries": 4666,
+            "rankDef": false,
+            "cap": true
+          }
+        ]
+      },
+      {
+        "i": 12,
+        "j": 33,
+        "counts": [
+          24,
+          25
+        ],
+        "samples": 4,
+        "sides": [
+          {
+            "pass": null,
+            "calls": 403,
+            "checks": 1500002,
+            "memoHits": 37,
+            "pointCount": 103,
+            "queries": 4769,
+            "rankDef": false,
+            "cap": true
+          },
+          {
+            "pass": true,
+            "calls": 69,
+            "checks": 113042,
+            "memoHits": 11,
+            "pointCount": 104,
+            "queries": 4871,
+            "rankDef": false,
+            "cap": false
+          }
+        ]
+      },
+      {
+        "i": 12,
+        "j": 45,
+        "counts": [
+          24,
+          25
+        ],
+        "samples": 4,
+        "sides": [
+          {
+            "pass": null,
+            "calls": 437,
+            "checks": 1500002,
+            "memoHits": 49,
+            "pointCount": 103,
+            "queries": 4762,
+            "rankDef": false,
+            "cap": true
+          },
+          {
+            "pass": true,
+            "calls": 69,
+            "checks": 113042,
+            "memoHits": 11,
+            "pointCount": 104,
+            "queries": 4871,
+            "rankDef": false,
+            "cap": false
+          }
+        ]
+      },
+      {
+        "i": 13,
+        "j": 19,
+        "counts": [
+          23,
+          25
+        ],
+        "samples": 4,
+        "sides": [
+          null,
+          {
+            "pass": false,
+            "calls": 188,
+            "checks": 849466,
+            "memoHits": 16,
+            "pointCount": 106,
+            "queries": 5057,
+            "rankDef": false,
+            "cap": false
+          }
+        ]
+      },
+      {
+        "i": 13,
+        "j": 23,
+        "counts": [
+          24,
+          24
+        ],
+        "samples": 4,
+        "sides": [
+          {
+            "pass": true,
+            "calls": 362,
+            "checks": 524509,
+            "memoHits": 143,
+            "pointCount": 99,
+            "queries": 4365,
+            "rankDef": false,
+            "cap": false
+          },
+          {
+            "pass": null,
+            "calls": 437,
+            "checks": 1500002,
+            "memoHits": 72,
+            "pointCount": 102,
+            "queries": 4660,
+            "rankDef": false,
+            "cap": true
+          }
+        ]
+      },
+      {
+        "i": 13,
+        "j": 26,
+        "counts": [
+          25,
+          23
+        ],
+        "samples": 4,
+        "sides": [
+          {
+            "pass": true,
+            "calls": 183,
+            "checks": 359704,
+            "memoHits": 39,
+            "pointCount": 103,
+            "queries": 4748,
+            "rankDef": false,
+            "cap": false
+          },
+          {
+            "pass": null,
+            "calls": 747,
+            "checks": 1500002,
+            "memoHits": 324,
+            "pointCount": 98,
+            "queries": 4291,
+            "rankDef": false,
+            "cap": true
+          }
+        ]
+      },
+      {
+        "i": 13,
+        "j": 27,
+        "counts": [
+          24,
+          26
+        ],
+        "samples": 4,
+        "sides": [
+          null,
+          {
+            "pass": false,
+            "calls": 98,
+            "checks": 459396,
+            "memoHits": 14,
+            "pointCount": 110,
+            "queries": 5469,
+            "rankDef": false,
+            "cap": false
+          }
+        ]
+      },
+      {
+        "i": 18,
+        "j": 24,
+        "counts": [
+          24,
+          25
+        ],
+        "samples": 4,
+        "sides": [
+          null,
+          {
+            "pass": false,
+            "calls": 184,
+            "checks": 759945,
+            "memoHits": 39,
+            "pointCount": 108,
+            "queries": 5241,
+            "rankDef": false,
+            "cap": false
+          }
+        ]
+      },
+      {
+        "i": 18,
+        "j": 28,
+        "counts": [
+          26,
+          24
+        ],
+        "samples": 4,
+        "sides": [
+          {
+            "pass": false,
+            "calls": 62,
+            "checks": 185355,
+            "memoHits": 20,
+            "pointCount": 107,
+            "queries": 5160,
+            "rankDef": false,
+            "cap": false
+          },
+          null
+        ]
+      },
+      {
+        "i": 24,
+        "j": 44,
+        "counts": [
+          27,
+          26
+        ],
+        "samples": 4,
+        "sides": [
+          {
+            "pass": false,
+            "calls": 46,
+            "checks": 271072,
+            "memoHits": 3,
+            "pointCount": 118,
+            "queries": 6304,
+            "rankDef": false,
+            "cap": false
+          },
+          null
+        ]
+      },
+      {
+        "i": 29,
+        "j": 35,
+        "counts": [
+          24,
+          24
+        ],
+        "samples": 4,
+        "sides": [
+          {
+            "pass": false,
+            "calls": 533,
+            "checks": 1434858,
+            "memoHits": 150,
+            "pointCount": 106,
+            "queries": 5045,
+            "rankDef": false,
+            "cap": false
+          },
+          null
+        ]
+      }
+    ]
+  }
+}
