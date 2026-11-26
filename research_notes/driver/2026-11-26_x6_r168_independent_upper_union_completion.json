@@ -1,0 +1,165 @@
+{
+ "scope": "Full-cone upper proof completion for both unresolved fixed-witness leaves, same frozen Port10 problem. No native Result admission.",
+ "source": "970a1f004df5e8f0eb7ea581fb3168f8db66ef00:research_notes/driver/2026-11-26_x6_r168_independent_full_direction_upper_audit.json",
+ "proof": "The leaf's optimizer term is an upper bound on eta iff some direction has all six scores <= that term. It suffices to use the six listed optimizer candidates. Complement of their union is the intersection over witnesses of unions of strict inequalities F_v>term. Recursively choose one strict violating raw term per candidate, intersect exact closed polygon halfspaces and check all strict constraints simultaneously; the positive sum of vertices witnesses strict feasibility iff each strict constraint is positive at some vertex. Every complementary branch is exhausted; empty complement proves a legal upper witness exists at every actual leaf point, including tie faces. Combined with 71 fixed-witness leaves and all 141255 full-direction lower/near checks from prior report proves upper depth<=7 for entire positive cone.",
+ "out": [
+  {
+   "path": "01011",
+   "term": 12,
+   "candidateWitnesses": [
+    [
+     1,
+     0,
+     0
+    ],
+    [
+     4,
+     -1,
+     0
+    ],
+    [
+     5,
+     -1,
+     0
+    ],
+    [
+     6,
+     -4,
+     1
+    ],
+    [
+     6,
+     -1,
+     0
+    ],
+    [
+     9,
+     -5,
+     1
+    ]
+   ],
+   "counts": [
+    6,
+    6,
+    0,
+    0,
+    0,
+    0
+   ],
+   "survive": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "complementFeasible": false,
+   "counterRegions": [],
+   "vertices": [
+    [
+     "2",
+     "0",
+     "99"
+    ],
+    [
+     "2",
+     "0",
+     "83"
+    ],
+    [
+     "2",
+     "34",
+     "83"
+    ],
+    [
+     "2",
+     "8",
+     "109"
+    ]
+   ]
+  },
+  {
+   "path": "0100011",
+   "term": 12,
+   "candidateWitnesses": [
+    [
+     1,
+     0,
+     0
+    ],
+    [
+     4,
+     -1,
+     0
+    ],
+    [
+     5,
+     -1,
+     0
+    ],
+    [
+     6,
+     -4,
+     1
+    ],
+    [
+     6,
+     -1,
+     0
+    ],
+    [
+     9,
+     -5,
+     1
+    ]
+   ],
+   "counts": [
+    6,
+    6,
+    0,
+    0,
+    0,
+    0
+   ],
+   "survive": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "complementFeasible": false,
+   "counterRegions": [],
+   "vertices": [
+    [
+     "7",
+     "71",
+     "427"
+    ],
+    [
+     "1",
+     "0",
+     "61"
+    ],
+    [
+     "2",
+     "0",
+     "117"
+    ],
+    [
+     "4",
+     "35",
+     "199"
+    ],
+    [
+     "1",
+     "11",
+     "55"
+    ]
+   ]
+  }
+ ],
+ "reproduction": "function completeUpper(src){\n const E=[[17,1,0],[39,0,0],[17,0,1],[22,1,0],[0,1,1],[22,0,1]].map(x=>x.map(BigInt)),P=src.predForms.map(x=>x.map(BigInt)),T=src.terms.map(([j,g])=>[j,BigInt(g)]),W=[0,3,5,6,7,9].map(i=>src.directions[i]),abs=x=>x<0n?-x:x,gcd=(a,b)=>b?gcd(b,a%b):abs(a),norm=x=>{let d=x.reduce(gcd,0n);return d?x.map(a=>a/d):x},dot=(a,b)=>a.reduce((s,x,i)=>s+x*b[i],0n),neg=x=>x.map(v=>-v),tri=[[1n,0n,0n],[0n,1n,0n],[0n,0n,1n]],dedup=a=>[...new Map(a.map(x=>[x.join(),x])).values()];\n function clip(poly,l){let vv=poly.map(p=>dot(p,l));if(vv.every(x=>x>=0n))return poly;if(vv.every(x=>x<0n))return [];let out=[];for(let i=0;i<poly.length;i++){let p=poly[i],j=(i+1)%poly.length,q=poly[j],v=vv[i],w=vv[j];if(v>=0n)out.push(p);if(v*w<0n)out.push(norm(p.map((a,k)=>abs(w)*a+abs(v)*q[k])));}return dedup(out);}\n const strictOK=(poly,S)=>poly.length>0&&S.every(l=>poly.some(p=>dot(p,l)>0n));\n function gaps([x,y,z]){let h=[0,x+3*y+6*z,3*x+12*y+30*z,7*x+39*y+126*z],g=[];for(let i=0;i<4;i++)for(let j=i+1;j<4;j++)g.push(BigInt(Math.abs(h[i]-h[j])));return g;}\n const out=[];for(let f of src.fail){if(f.bad.some(x=>x.type!==\"noFixedUpper\"))throw Error(\"unexpected unresolved obligation\");let poly=tri,S=tri.slice(),t=src.tree;for(let bit of f.path){let l=P[t.q];if(bit===\"1\"){poly=clip(poly,l);S.push(l);t=t.yes}else{poly=clip(poly,neg(l));t=t.no}}if(!t.leaf||!strictOK(poly,S))throw Error(\"bad path\");let [j,g]=T[t.leaf[0]];\n let choices=W.map(v=>({v,forms:gaps(v).map((h,k)=>E[k].map((x,i)=>h*E[j][i]-g*x))}));\n // Search complement of union: for every witness direction choose a strictly larger term.\n // Keep actual feasibility after each choice, not a sample test.\n let counts=Array(W.length).fill(0),survive=Array(W.length).fill(0),closed=[];\n function rec(c,s,remaining,trace){if(!remaining.length){closed.push({trace,vertices:c.map(p=>p.map(String))});return}let options=remaining.map(w=>({w,live:w.forms.map((l,i)=>({l,i,p:clip(c,l)})).filter(a=>strictOK(a.p,[...s,a.l]))})).sort((a,b)=>a.live.length-b.live.length);\n let {w,live}=options[0],d=trace.length;counts[d]+=w.forms.length;survive[d]+=live.length;\n for(let a of live)rec(a.p,[...s,a.l],remaining.filter(x=>x!==w),[...trace,[w.v,a.i]]);\n }\n rec(poly,S,choices,[]);\n out.push({path:f.path,term:t.leaf[0],candidateWitnesses:W,counts,survive,complementFeasible:closed.length>0,counterRegions:closed,vertices:poly.map(p=>p.map(String))});\n }\n return out;\n}"
+}
