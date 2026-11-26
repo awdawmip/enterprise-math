@@ -1,0 +1,651 @@
+{
+  "scope": "Informed nonauthor Driver audit; Port10 positive (17t,B,22t,D), full 1935 direction strict 3/2 near output and legal optimum. Compare author R223 tree to independent full-direction R168 tree on common arrangement of support, reference predicates, and all optimizer equality lines. Signs constant on each relative open face, vertices and edges included, strict zero goes no. Preserve author provenance. Fixed partition minimax only, not global lower bound. Each query has strict oriented sign mask, exact original child partition up to swap, cache union and joint count tracked per path. Dominance: a smaller cache and fewer joint queries spent can reuse any downstream plan; memo by node, cache, remaining budget.",
+  "inputs": {
+    "author": {
+      "commit": "91018431d91de485076798931d9da8f428729cee",
+      "path": "research_notes/portable_direct/2026-11-26_r2_x6_r223_exact_local_output_cover.md"
+    },
+    "reference": {
+      "commit": "970a1f004df5e8f0eb7ea581fb3168f8db66ef00",
+      "path": "research_notes/driver/2026-11-26_x6_r168_independent_full_direction_upper_audit.json"
+    }
+  },
+  "result": {
+    "common": {
+      "lines": 88,
+      "polygons": 1471,
+      "positiveFaces": 5425,
+      "differentEqualTerm": 274,
+      "zeroQuery": 1180,
+      "mismatches": 0
+    },
+    "support": {
+      "polygons": 526,
+      "positiveFaces": 1925,
+      "patterns": 1925,
+      "hist": {
+        "0": 82,
+        "1": 752,
+        "2": 840,
+        "3": 251
+      },
+      "depth": {
+        "5": 15,
+        "6": 1910
+      },
+      "feasibleLeaves": 60,
+      "distinctOutputs": 35,
+      "maxFactors": 8,
+      "maxJoint": 3
+    },
+    "fixed": {
+      "nodes": 59,
+      "mandatoryQuadraticNodes": 14,
+      "queries": 2303,
+      "tested": [
+        {
+          "K": 5,
+          "J": 0,
+          "feasible": false,
+          "calls": 2,
+          "states": 2,
+          "witness": null
+        },
+        {
+          "K": 5,
+          "J": 1,
+          "feasible": false,
+          "calls": 4,
+          "states": 4,
+          "witness": null
+        },
+        {
+          "K": 5,
+          "J": 2,
+          "feasible": false,
+          "calls": 4,
+          "states": 4,
+          "witness": null
+        },
+        {
+          "K": 5,
+          "J": 3,
+          "feasible": false,
+          "calls": 4,
+          "states": 4,
+          "witness": null
+        },
+        {
+          "K": 6,
+          "J": 0,
+          "feasible": false,
+          "calls": 2,
+          "states": 2,
+          "witness": null
+        },
+        {
+          "K": 6,
+          "J": 1,
+          "feasible": false,
+          "calls": 4,
+          "states": 4,
+          "witness": null
+        },
+        {
+          "K": 6,
+          "J": 2,
+          "feasible": false,
+          "calls": 5,
+          "states": 5,
+          "witness": null
+        },
+        {
+          "K": 6,
+          "J": 3,
+          "feasible": false,
+          "calls": 5,
+          "states": 5,
+          "witness": null
+        },
+        {
+          "K": 7,
+          "J": 0,
+          "feasible": false,
+          "calls": 2,
+          "states": 2,
+          "witness": null
+        },
+        {
+          "K": 7,
+          "J": 1,
+          "feasible": false,
+          "calls": 4,
+          "states": 4,
+          "witness": null
+        },
+        {
+          "K": 7,
+          "J": 2,
+          "feasible": false,
+          "calls": 7,
+          "states": 6,
+          "witness": null
+        },
+        {
+          "K": 7,
+          "J": 3,
+          "feasible": false,
+          "calls": 7,
+          "states": 6,
+          "witness": null
+        },
+        {
+          "K": 8,
+          "J": 0,
+          "feasible": false,
+          "calls": 2,
+          "states": 2,
+          "witness": null
+        },
+        {
+          "K": 8,
+          "J": 1,
+          "feasible": false,
+          "calls": 4,
+          "states": 4,
+          "witness": null
+        },
+        {
+          "K": 8,
+          "J": 2,
+          "feasible": false,
+          "calls": 10,
+          "states": 7,
+          "witness": null
+        },
+        {
+          "K": 8,
+          "J": 3,
+          "feasible": true,
+          "calls": 119,
+          "states": 59,
+          "witness": {
+            "ROOT": {
+              "q": [
+                12,
+                -1,
+                1
+              ],
+              "swap": false
+            },
+            "Y": {
+              "q": [
+                19,
+                29,
+                -1
+              ],
+              "swap": false
+            },
+            "YY": {
+              "q": [
+                2,
+                -1,
+                1
+              ],
+              "swap": false
+            },
+            "YYY": {
+              "q": [
+                7,
+                9,
+                -1
+              ],
+              "swap": false
+            },
+            "YYYY": {
+              "q": [
+                8,
+                -1,
+                -1
+              ],
+              "swap": false
+            },
+            "YYYYN": {
+              "q": [
+                10,
+                -1,
+                -1
+              ],
+              "swap": false
+            },
+            "YYYN": {
+              "q": [
+                9,
+                25,
+                -1
+              ],
+              "swap": false
+            },
+            "YYYNY": {
+              "q": [
+                41,
+                -1,
+                1
+              ],
+              "swap": false
+            },
+            "YYYNN": {
+              "q": [
+                7,
+                -1,
+                1
+              ],
+              "swap": false
+            },
+            "YYN": {
+              "q": [
+                11,
+                27,
+                1
+              ],
+              "swap": false
+            },
+            "YYNY": {
+              "q": [
+                25,
+                -1,
+                1
+              ],
+              "swap": false
+            },
+            "YYNYY": {
+              "q": [
+                11,
+                -1,
+                1
+              ],
+              "swap": false
+            },
+            "YYNYN": {
+              "q": [
+                16,
+                -1,
+                1
+              ],
+              "swap": false
+            },
+            "YYNN": {
+              "q": [
+                23,
+                27,
+                1
+              ],
+              "swap": false
+            },
+            "YYNNY": {
+              "q": [
+                26,
+                -1,
+                -1
+              ],
+              "swap": false
+            },
+            "YYNNN": {
+              "q": [
+                27,
+                -1,
+                -1
+              ],
+              "swap": false
+            },
+            "YN": {
+              "q": [
+                19,
+                -1,
+                -1
+              ],
+              "swap": true
+            },
+            "YNY": {
+              "q": [
+                2,
+                -1,
+                1
+              ],
+              "swap": false
+            },
+            "YNYY": {
+              "q": [
+                6,
+                -1,
+                1
+              ],
+              "swap": false
+            },
+            "YNYN": {
+              "q": [
+                28,
+                -1,
+                1
+              ],
+              "swap": false
+            },
+            "YNYNY": {
+              "q": [
+                24,
+                -1,
+                1
+              ],
+              "swap": false
+            },
+            "YNYNN": {
+              "q": [
+                27,
+                28,
+                1
+              ],
+              "swap": false
+            },
+            "YNN": {
+              "q": [
+                16,
+                42,
+                1
+              ],
+              "swap": false
+            },
+            "YNNY": {
+              "q": [
+                44,
+                -1,
+                1
+              ],
+              "swap": false
+            },
+            "YNNYY": {
+              "q": [
+                16,
+                -1,
+                1
+              ],
+              "swap": false
+            },
+            "YNNYN": {
+              "q": [
+                5,
+                -1,
+                1
+              ],
+              "swap": false
+            },
+            "YNNN": {
+              "q": [
+                38,
+                -1,
+                1
+              ],
+              "swap": false
+            },
+            "YNNNY": {
+              "q": [
+                36,
+                -1,
+                1
+              ],
+              "swap": false
+            },
+            "YNNNN": {
+              "q": [
+                39,
+                -1,
+                1
+              ],
+              "swap": false
+            },
+            "N": {
+              "q": [
+                14,
+                -1,
+                1
+              ],
+              "swap": false
+            },
+            "NY": {
+              "q": [
+                3,
+                -1,
+                1
+              ],
+              "swap": false
+            },
+            "NYY": {
+              "q": [
+                4,
+                15,
+                1
+              ],
+              "swap": false
+            },
+            "NYYY": {
+              "q": [
+                13,
+                -1,
+                1
+              ],
+              "swap": false
+            },
+            "NYYYY": {
+              "q": [
+                30,
+                -1,
+                1
+              ],
+              "swap": false
+            },
+            "NYYYN": {
+              "q": [
+                22,
+                -1,
+                -1
+              ],
+              "swap": false
+            },
+            "NYYN": {
+              "q": [
+                34,
+                -1,
+                1
+              ],
+              "swap": false
+            },
+            "NYYNY": {
+              "q": [
+                5,
+                15,
+                1
+              ],
+              "swap": false
+            },
+            "NYYNN": {
+              "q": [
+                37,
+                -1,
+                -1
+              ],
+              "swap": false
+            },
+            "NYN": {
+              "q": [
+                18,
+                -1,
+                1
+              ],
+              "swap": false
+            },
+            "NYNY": {
+              "q": [
+                38,
+                -1,
+                1
+              ],
+              "swap": false
+            },
+            "NYNYY": {
+              "q": [
+                16,
+                -1,
+                1
+              ],
+              "swap": false
+            },
+            "NYNYN": {
+              "q": [
+                39,
+                -1,
+                1
+              ],
+              "swap": false
+            },
+            "NYNN": {
+              "q": [
+                21,
+                22,
+                1
+              ],
+              "swap": false
+            },
+            "NYNNY": {
+              "q": [
+                21,
+                -1,
+                1
+              ],
+              "swap": false
+            },
+            "NYNNN": {
+              "q": [
+                20,
+                22,
+                1
+              ],
+              "swap": false
+            },
+            "NN": {
+              "q": [
+                1,
+                31,
+                1
+              ],
+              "swap": false
+            },
+            "NNY": {
+              "q": [
+                35,
+                -1,
+                1
+              ],
+              "swap": false
+            },
+            "NNYY": {
+              "q": [
+                17,
+                -1,
+                1
+              ],
+              "swap": false
+            },
+            "NNYYY": {
+              "q": [
+                15,
+                -1,
+                -1
+              ],
+              "swap": false
+            },
+            "NNYYN": {
+              "q": [
+                46,
+                -1,
+                1
+              ],
+              "swap": false
+            },
+            "NNYN": {
+              "q": [
+                40,
+                46,
+                1
+              ],
+              "swap": false
+            },
+            "NNYNY": {
+              "q": [
+                40,
+                -1,
+                1
+              ],
+              "swap": false
+            },
+            "NNYNN": {
+              "q": [
+                43,
+                46,
+                1
+              ],
+              "swap": false
+            },
+            "NNN": {
+              "q": [
+                0,
+                -1,
+                1
+              ],
+              "swap": false
+            },
+            "NNNY": {
+              "q": [
+                1,
+                -1,
+                1
+              ],
+              "swap": false
+            },
+            "NNNYY": {
+              "q": [
+                32,
+                -1,
+                1
+              ],
+              "swap": false
+            },
+            "NNNN": {
+              "q": [
+                16,
+                -1,
+                1
+              ],
+              "swap": false
+            },
+            "NNNNY": {
+              "q": [
+                45,
+                -1,
+                1
+              ],
+              "swap": false
+            },
+            "NNNNN": {
+              "q": [
+                33,
+                -1,
+                1
+              ],
+              "swap": false
+            }
+          }
+        }
+      ]
+    }
+  },
+  "reproduction": "function run(author,b,rawR){\nconst R=rawR.map(x=>x.map(BigInt)), P=b.predForms.map(x=>x.map(BigInt)), T=b.terms.map(([i,g])=>[i,BigInt(g)]), E=[[17,1,0],[39,0,0],[17,0,1],[22,1,0],[0,1,1],[22,0,1]].map(x=>x.map(BigInt));\nconst abs=x=>x<0n?-x:x,gcd=(a,b)=>{a=abs(a);b=abs(b);while(b)[a,b]=[b,a%b];return a},norm=x=>{let d=x.reduce(gcd,0n);return d?x.map(v=>v/d):x},dot=(x,y)=>x.reduce((s,v,i)=>s+v*y[i],0n),sum=xs=>[0,1,2].map(i=>xs.reduce((s,x)=>s+x[i],0n));\nconst lineMap=new Map();function add(x){x=norm(x);if(!x.some(v=>v<0n)||!x.some(v=>v>0n))return;if(x.find(v=>v!==0n)<0n)x=x.map(v=>-v);lineMap.set(x.join(),x)}\nconst used=new Set();function visit(t){if(t.leaf)return;used.add(t.q);visit(t.yes);visit(t.no)}visit(b.tree);for(let i of used)add(P[i]);R.forEach(add);\nfor(let i=0;i<T.length;i++)for(let j=i+1;j<T.length;j++){let [a,g]=T[i],[c,h]=T[j];add(E[c].map((x,k)=>g*x-h*E[a][k]))}\nfunction arrange(lines){let cells=[[[1n,0n,0n],[0n,1n,0n],[0n,0n,1n]]];for(let l of lines){let next=[];for(let c of cells){let s=c.map(x=>dot(l,x));if(!s.some(v=>v>0n)||!s.some(v=>v<0n)){next.push(c);continue}let y=[],z=[];for(let i=0;i<c.length;i++){let j=(i+1)%c.length;if(s[i]>=0n)y.push(c[i]);if(s[i]<=0n)z.push(c[i]);if(s[i]*s[j]<0n){let w=norm(c[i].map((x,k)=>abs(s[j])*x+abs(s[i])*c[j][k]));y.push(w);z.push(w)}}next.push(y,z)}cells=next}let pts=new Map();function put(x){if(x.every(v=>v>0n)){x=norm(x);pts.set(x.join(),x)}}for(let c of cells){put(sum(c));for(let i=0;i<c.length;i++){put(c[i]);put(sum([c[i],c[(i+1)%c.length]]))}}return {cells:cells.length,pts:[...pts.values()]}}\nlet A=arrange(lineMap.values()), B=arrange(R), hist={},depth={},ties=0,zeros=0,paths=new Set(),outs=new Set(),maxF=0,maxJ=0;\nfunction walk(t,s){let f=new Set(),d=0,j=0,path=\"\",zero=false;while(!t.out){let [a,b,c]=t.q;f.add(a);if(b>=0){f.add(b);j++}let v=s[a]*c*(b<0?1:s[b]);if(v===0)zero=true;path+=v>0?\"Y\":\"N\";t=v>0?t.yes:t.no;d++}return {out:t.out,d,j,path,f,zero}}\nfunction signs(x){return R.map(r=>{let v=dot(r,x);return v>0n?1:v<0n?-1:0})}\nfor(let x of A.pts){let t=b.tree;while(!t.leaf)t=dot(P[t.q],x)>0n?t.yes:t.no;let [i,n]=t.leaf,z=walk(author.tree,signs(x)),[nn,m]=z.out,k=Math.log2(m);if(!Number.isInteger(k)||n!==nn)throw Error(\"near \"+x);let [a,g]=T[i],[c,h]=T[k];if(g*dot(E[c],x)!==h*dot(E[a],x))throw Error(\"term \"+x);ties+=i!==k;zeros+=z.zero}\nlet pat=[...new Map(B.pts.map(x=>{let s=signs(x);return [s.join(),s]})).values()];for(let s of pat){let z=walk(author.tree,s);hist[z.j]=(hist[z.j]||0)+1;depth[z.d]=(depth[z.d]||0)+1;paths.add(z.path);outs.add(z.out.join());maxF=Math.max(maxF,z.f.size);maxJ=Math.max(maxJ,z.j)}\nconst all=(1n<<BigInt(pat.length))-1n;let pos=R.map(()=>0n),neg=R.map(()=>0n);pat.forEach((s,i)=>s.forEach((v,j)=>{if(v>0)pos[j]|=1n<<BigInt(i);if(v<0)neg[j]|=1n<<BigInt(i)}));\nconst mask=([i,j,s])=>j<0?(s>0?pos[i]:neg[i]):s>0?(pos[i]&pos[j])|(neg[i]&neg[j]):(pos[i]&neg[j])|(neg[i]&pos[j]);\nlet qs=[];for(let i=0;i<R.length;i++){for(let s of [1,-1])qs.push([i,-1,s]);for(let j=i;j<R.length;j++)for(let s of [1,-1])if(j!==i||s===1)qs.push([i,j,s])}\nconst Q=qs.map(q=>({q,m:mask(q),f:(1n<<BigInt(q[0]))|(q[1]<0?0n:1n<<BigInt(q[1])),j:Number(q[1]>=0)}));\nlet nodecount=0,nonlinear=0;const pop=x=>{let n=0;while(x){x&=x-1n;n++}return n};\nfunction build(t,S,path=\"\"){if(t.out)return {out:t.out,path};let y=S&mask(t.q),z=S^y;if(!y||!z)throw Error(\"empty branch \"+path);let opts=Q.filter(q=>(q.m&S)===y||(q.m&S)===z).map(q=>({...q,swap:(q.m&S)===z}));if(!opts.length)throw Error(\"no option\");nodecount++;if(!opts.some(x=>!x.j))nonlinear++;return {path,opts,yes:build(t.yes,y,path+\"Y\"),no:build(t.no,z,path+\"N\")}}\nconst root=build(author.tree,all);let tested=[];\nfunction solve(K,J){let memo=new Map(),calls=0;function rec(v,C,j){calls++;if(pop(C)>K||j<0)return null;if(v.out)return {};let key=v.path+\":\"+C+\":\"+j;if(memo.has(key))return memo.get(key);let options=v.opts.map(o=>({...o,c:C|o.f})).filter(o=>pop(o.c)<=K&&o.j<=j).sort((a,b)=>pop(a.c)-pop(b.c)||a.j-b.j);let seen=[];for(let o of options){if(seen.some(x=>(x.c&o.c)===x.c&&x.j<=o.j))continue;seen.push(o);let y=rec(v.yes,o.c,j-o.j);if(y===null)continue;let n=rec(v.no,o.c,j-o.j);if(n===null)continue;let r={[v.path||\"ROOT\"]:{q:o.q,swap:o.swap},...y,...n};memo.set(key,r);return r}memo.set(key,null);return null}let witness=rec(root,0n,J);tested.push({K,J,feasible:witness!==null,calls,states:memo.size,witness});return witness}\nfor(let K=5;K<=8;K++)for(let J=0;J<=3;J++)solve(K,J);\nreturn {common:{lines:lineMap.size,polygons:A.cells,positiveFaces:A.pts.length,differentEqualTerm:ties,zeroQuery:zeros,mismatches:0},support:{polygons:B.cells,positiveFaces:B.pts.length,patterns:pat.length,hist,depth,feasibleLeaves:paths.size,distinctOutputs:outs.size,maxFactors:maxF,maxJoint:maxJ},fixed:{nodes:nodecount,mandatoryQuadraticNodes:nonlinear,queries:Q.length,tested}}\n}"
+}
