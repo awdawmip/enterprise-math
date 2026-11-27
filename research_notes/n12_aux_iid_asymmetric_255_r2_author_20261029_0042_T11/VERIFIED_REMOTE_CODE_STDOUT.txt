@@ -1,0 +1,23 @@
+# Verified byte-identical remote program execution — Stage255
+Execution: 2026-10-29 Asia/Shanghai, Python stdlib Fraction.
+Remote source at commit 218b5ee4cba55ebf421f06a7a222115e681b1a53
+Git blob SHA a04734b233e8f527cc2a4ff815d22ea5840300c5
+Actual local copy git hash-object a04734b233e8f527cc2a4ff815d22ea5840300c5 (byte-identical).
+Command: python STAGE255_EXACT_FACE_REMOTE.py
+Observed stdout:
+EXTREMAL root-P (Fraction(0, 1), Fraction(1, 1), Fraction(0, 1), Fraction(0, 1)) ordered_nodes 1 terminal_branches 1
+EXTREMAL root-Q (Fraction(1, 1), Fraction(0, 1), Fraction(0, 1), Fraction(0, 1)) ordered_nodes 1 terminal_branches 1
+EXTREMAL horizon-P (Fraction(1932641711, 8707129344), Fraction(2420922961, 4353564672), Fraction(1932641711, 362797056), Fraction(1932641711, 362797056)) ordered_nodes 37 terminal_branches 25
+EXTREMAL horizon-Q (Fraction(969734737, 2902376448), Fraction(1932641711, 4353564672), Fraction(1932641711, 362797056), Fraction(1932641711, 362797056)) ordered_nodes 37 terminal_branches 25
+SUPPORT lambdaP=lambdaQ=24 thetaP=thetaQ=1/2 Hroot=24
+STATES 455 ACTION_COSTS 1274 STRICT_POSITIVE_GAPS 794
+TIES [((0, 0, 0), ('P', 'Q', 'C')), ((0, 0, 1), ('P', 'Q', 'C')), ((0, 0, 2), ('P', 'Q', 'C')), ((0, 0, 3), ('P', 'Q', 'C')), ((0, 0, 4), ('P', 'Q', 'C')), ((0, 0, 5), ('P', 'Q', 'C')), ((0, 0, 6), ('P', 'Q', 'C')), ((0, 0, 7), ('P', 'Q', 'C')), ((0, 0, 8), ('P', 'Q', 'C')), ((0, 0, 9), ('P', 'Q', 'C')), ((0, 0, 10), ('P', 'Q', 'C')), ((0, 0, 11), ('P', 'Q', 'C')), ((0, 0, 12), ('P', 'Q'))]
+R12 244140625/2176782336 CONTACT_MIN_SUM 6774487633/8707129344 TARGET_SUM 43358101484827/55725627801600 MARGIN 460211209/18575209267200
+TARGET_CAPS 15492478957579/55725627801600 580533802651/1160950579200
+ROOT_P 238307216823020789/2243701513771529011200 ROOT_Q 12137690822080267/2243701513771529011200 ROOT_CONTINUE 12367526316773/12368906950400 TERMINAL_P 1/2
+TARGET_OBSERVERS (Fraction(15492478957579, 55725627801600), Fraction(580533802651, 1160950579200), Fraction(12367526316773, 2321901158400), Fraction(12367526316773, 2321901158400))
+V12 12367526316773/2321901158400 float 5.3264654578558135 ORDERED_DFS_NODES 37 TERMINAL_BRANCHES 28
+ADJACENCY w254=fQ and w254+v254=fP confirmed
+STAGE255_EXACT_AUTHOR_PASS
+
+Verification scope: finite model and exact script assertions. General all-real theorem is supplied separately by symbolic proof. This is author evidence, not a native Source Result or independent review.
