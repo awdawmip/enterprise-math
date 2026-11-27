@@ -164,3 +164,30 @@ if __name__=='__main__': main()
 
 ## 4. Frontier
 The simple-root obstruction makes infinite local jet escalation unproductive for these fibers. Study the r2 coordinate on the lifted family q=p s0+p^2 h (or p^2 h on boundary) with the exact residue h mod p^n, derive a deterministic cross-coordinate relation or a rigorous condition on large factors of q+d. For d>500, repeated-root cases (if any), smooth q, and integer equality outside the finite implicit coverage remain open. Real inverse-polynomial separation remains open. Retain original C, all prime factors as potential observers, and exact root digits; no independence assumption. No formal result, admission or task closure claimed.
+
+
+## 5. Additional exact witness primality audit and final owner observation
+The 708 witness primes were explicitly rechecked, as were divisibility, threshold and nonzero residue. There is one witness beyond 2^64, so the probable-prime branch of factorint/isprime alone would not suffice for the finite proof. For d=476,p=1907,N=6 the surviving representative is q=46812701342323511291, and the r2 witness l=q+d=46812701342323511767 with H(d) mod l=742936331645841664. Full factorization l-1=2*3^2*73*35626104522316219, all factors strictly below 2^64 and prime by deterministic-range SymPy isprime. With a=5, a^(l-1)=1 mod l and gcd(a^((l-1)/t)-1,l)=1 for each distinct prime t dividing l-1, verified by exact modular arithmetic. This is an elementary full-order primality proof: for every prime divisor b of l the order of a mod b divides l-1 and cannot divide (l-1)/t for any t, hence equals l-1, forcing b>=l. The other 707 witness evaluations use primes below 2^64. Maximum q among the 708 evaluations is 56693385334078500954. Additional actually executed audit (using routines and JSON above):
+```python
+import json, math
+from sympy import isprime
+rows=json.load(open('r284jq_witnesses.json'))
+big=0
+for d,p,N,q,(r,l,z) in rows:
+    if l<2**64: assert isprime(l)
+    else:
+        big+=1
+        assert l==46812701342323511767
+        fac={2:1,3:2,73:1,35626104522316219:1}
+        assert math.prod(k**e for k,e in fac.items())==l-1
+        assert all(k<2**64 and isprime(k) for k in fac)
+        assert pow(5,l-1,l)==1
+        assert all(math.gcd(pow(5,(l-1)//k,l)-1,l)==1 for k in fac)
+    if r==2:
+        H=64*d**6-61*d**5+13*d**4+61*d**3-29*d**2+16
+        assert (q+d)%l==0 and l>2*d+1 and H%l==z!=0
+    else:
+        assert (2*q+2*d-r+2)%l==0 and l>4*d+6 and second(d,r,l)==z!=0
+assert len(rows)==708 and big==1
+```
+All checks passed. The final owner inventory original request r1-20261127-1855-leased-read SUCCEEDED: as-of 2026-11-27T10:57:24.281527+00:00, source 6cdc7b061d6579d6993f2fbc30d396d9a5c29047, LEASED filter returned no tasks. No shared owner changes.
