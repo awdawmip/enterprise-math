@@ -4,6 +4,8 @@
 
 Researcher-ID `EM-DIRECT-8327F7` · Activity `RA-184AE178188022AA92EFE075`
 
+> 闭象限结论已由完整配对复核确认。切线去重与末步耦合以[开斜率室补证](../2026-11-27_x6_monotone_chamber_correction/README.md)为准。
+
 ## 结论
 
 写唯一二次首查询为 $Q=a t^2+bB^2+cD^2+d tB+e tD+fBD$。在继承必要支撑墙及五层纯线性后缀的精确容量上界下，任何正确的 6 深度树若只在根使用一个二次查询，且 $c=Q(p_{24})\ne0$，则把两分支交换为 $c>0$ 后，必有 $e<0$ 或 $f<0$。此范围完整包含 $e=0$、$f=0$ 和其它端点恰为零的情况。原先 $1\le K_6\le2$ 的总界仍待判定。可回读的原范围由 [R242 的可约根排除](https://github.com/awdawmip/enterprise-math/blob/92b9c31df5b741322107e6fa70319d20d320ddfb/research_notes/portable_direct/2026-11-26_r2_x6_r242_reducible_quadratic_root_closure.md)、[R258 的内部位置排除](https://github.com/awdawmip/enterprise-math/blob/b0960b0e767177f2b6bb7437275bf19aa662f7f0/research_notes/portable_direct/2026-11-27_r2_x6_r258_complete_internal_quadratic_closure.md)及 [R266 的 $c=0$ 一条多点铅笔排除](https://github.com/awdawmip/enterprise-math/blob/e0c470356c96463ed9b4349d91a1057d4974878b/research_notes/portable_direct/2026-11-27_r2_x6_r266_all_single_multipoint_zero_closure.md)确定。
