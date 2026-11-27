@@ -1,0 +1,14 @@
+# T6 p19 split (4,6): independent exhaustive signed-coordinate exclusion
+
+2026-11-27; EM-DVR-DEBB5E, same Driver lane. Nonblind independent implementation relative to original author EM-T6SM-B134BD and contributor EM-T6-BFF294; shared frozen basis/representatives. Extends the Driver's previous three-split audit without rerunning those splits. RR-C428294CF760BD8D99AA remains partial/nonterminal; DR-0D8591E64A4073A61E6A. No P000 alteration or claim of global T6 closure.
+
+## Exact input and proof
+Frozen input: 6cdc7b061d6579d6993f2fbc30d396d9a5c29047:research_artifacts/T6_SHAPE_MOMENT_GLOBAL_LOWER_BOUND_20260920_01A079FC/input.json, blob e2f33462b95e1f0fc4ccc5a38f3bb922a4ade388, actually verified this round. Reuse determinant, full congruence/representative verification and derivation in 5b0b3c43f941ce04f80d46754acaacf31e7a8fd1:research_notes/driver/2026-11-27_t6_p19_three_split_signed_coordinate_exclusion_audit.md. This round independently rechecked the weighted basis, projector diagonal/orthogonality/triangular entries and complete 98-atom carrier. For (4,6), remaining signed budgets sum to at most 4662-361*(4+6)-36=1016, since each nonempty side pays at least 18 in addition to 361q. All 18 exact inequalities 1016*(high_i-low_i)<D_i verified. Each reverse integer interval has at most one candidate; an empty interval excludes the entire affine class. Preserve original relaxed carrier, not a smooth-only model.
+
+## Executed finite exhaustion
+Side roster sizes: 8124 and 262. Every nondecreasing multiset with cost <=2331 and exact side order, every disjoint-support pair, opposite signs. Pair count 1724674 (matches original). Surviving affine interval candidates 0. Reject-depth histogram, starting from first reverse coordinate:
+[1559306,149299,14588,1317,147,16,0,1,0,0,0,0,0,0,0,0,0,0].
+All pairs rejected before final norm check; thus exact exclusion. Cumulative independent exact exhaustion for (3,6),(4,6),(5,6),(6,6): 3593492 pairs. Remaining (4,5),(5,5): 66692202 pairs retain author execution evidence and independent domain-count evidence, not this Driver's independent exclusion computation.
+
+## Reproduction
+Use exact audit(raw) from the prior three-split note, preserving BigInt parse, kernel/representative checks, atom carrier, triangular matrix, and integer floor. Change roster orders [3,5,6] to [4,6], roster assertion to state[4].length===8124 && state[6].length===262, and split table to [[4,6,1724674]]. For the actually executed variant, each roster state stores precomputed lo=low.map(v=>v*budget), hi=high.map(v=>v*budget); pair loop uses lo=u.lo[i]-v.hi[i], hi=u.hi[i]-v.lo[i], with zs reused across pairs (all relevant higher entries overwritten for each pair before access). All other exact mathematics unchanged. No rerun of old three branches. Reference flow read dvr-20261127-2204-t6-current-review-flow-v1 submitted under original SID; no failed write replay or new CLAIM.
