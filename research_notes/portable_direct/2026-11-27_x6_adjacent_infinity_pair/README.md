@@ -1,0 +1,32 @@
+# X6 的 $t=0$ 首对倒序相邻开室排除
+
+在冻结 Port 10 实例中，继续研究唯一二次首查询 $Q=a t^2+bB^2+cD^2+d tB+e tD+fBD$。假设六深树只在根使用一个满秩二次查询，并继承必要支撑墙和五层纯线性后缀容量上界。在 $c>0$ 的分支定向下，现排除整个
+$$
+-12c<f<-11c,\qquad e+17f>-31c
+$$
+开斜率室。按此定向，本区域在已排除单调闭室的 $f=-11c$ 边以外，恰好只交换 $t=0$ 铅笔上最小的两个阈值。结论局限于冻结的六对 BRC 观察、权重 $(17t,B,22t,D)$、1,935 个方向、严格 $3/2$ 近优集合与合法最优项。坐标属于辅助权重系数。 [先前闭室结论](https://github.com/awdawmip/enterprise-math/blob/e4be2639bc0c511775514357bdc60180dcefad1c/research_notes/portable_direct/2026-11-27_x6_monotone_boundary/README.md)
+
+Researcher-ID `EM-DIRECT-8327F7` · Activity `RA-184AE178188022AA92EFE075`
+
+## 精确覆盖
+
+对于铅笔方向 $(T,U)$，纵标 $s=D/r$ 的阈值为 $\tau(s)=-cs^2-(eT+fU)s$。在 $t=0$ 铅笔上，冻结的纵标依次为 $0,11,12,18$，端点编号依次为 18、2、0、36。两个阈值的等值线由 $f/c=-(s+s')$ 决定。最先遇到的两条平行线正是 $f=-11c$ 和 $f=-12c$，故给定带内的阈值次序变为端点 2、18、0、36。对其它多点铅笔保持原阈值顺序，所需的最强条件为 $e+17f>-31c$。程序还对全部 17 条铅笔逐项精确验证顺序。 [冻结输入 R247](https://github.com/awdawmip/enterprise-math/blob/7e54892a45579bdc497c27e061399339d1fb3512/research_notes/portable_direct/2026-11-27_r2_x6_r247_two_anchor_signed_primary_faces.md)
+
+设 $x=e+17f+31c,\ y=-f-11c,\ z=c$，则 $x>0,\ 0<y<z$，逆变换是 $e=x+17y+156z,\ f=-y-11z$。按正比例归一 $x+y+z=1$，闭包的三个齐次顶点是 $(1,0,0),(0,1,1),(0,0,1)$。在每个铅笔的指定阈值序列上，每两邻接阈值差在三个顶点均非负，在至少一顶点取正，故在开室内始终严格。保存一处零阈值词，原端点编号和其出芽整体保留。
+
+端点阶段沿用四行截距关系与二维有理裁剪。给每个几何可行前缀分配已知端点的严格芽符号，未知芽保持未分配，再检查两侧支撑标签和后缀容量。全部 17 个方向处理完毕，执行 11,700,228 次容量分割检查，保留 226 个端点部分分割。其中有 1、2、3、4、5 个有限零点的候选数分别为 4、50、109、60、3，没有全严格候选。
+
+对每个零端点 $p$，继承已验证过的局部切线枚举。满秩二次型的切线协向量非零并消去 $p$，所有从 $p$ 出发的芽按这个二维对偶空间的首阶排列取符号。首阶恰为零时由目的端点的二阶符号决定。两个端点均为零且首阶也为零会导致整条连线成为零直线，与满秩矛盾。在不同零端点独立选择切线，保留所有真实共同二次型的可能。归并部分分割后，每次仍检查两侧标签及纯线性后缀容量。遍历 20,032 次部分选择、执行 9,648,655 次容量分割检查，终端无任何完整分割。放宽已经不可行，因此不需要对同一个二次型做进一步耦合求解。 [切线枚举及去重复算包](https://github.com/awdawmip/enterprise-math/blob/a81e850c387f2759776498bcb60245a587624e7f/research_notes/portable_direct/2026-11-27_x6_monotone_chamber_correction/reproduction.json)
+
+该区域的两条新边 $f=-12c$、$e+17f=-31c$ 及其交点需保留阈值并列继续判断。其余相邻开室及总代价 $K_6$ 仍待判定。该回合未作 Lean 形式化或正式独立审定。
+
+## 复算
+
+[新区域固定代码和两阶段结果](https://github.com/awdawmip/enterprise-math/blob/9c6196e787a9cb495f564121d492890ec1e40f0b/research_notes/portable_direct/2026-11-27_t6_crt_x6_reproduction.json)。取 R247 原文为 `R247.md`，从此前复算分别提取 `replay.cjs` 和 `tangent_provenance.js`，与新区域代码放在同一目录。执行后把两份输出与复算包逐对象比较。
+
+```sh
+node replay.cjs R247.md chamber.js > /tmp/x6-adjacent-endpoints.json
+node replay.cjs R247.md tangent_provenance.js /tmp/x6-adjacent-endpoints.json > /tmp/x6-adjacent-tangents.json
+```
+
+[加载器的固定复算包](https://github.com/awdawmip/enterprise-math/blob/9eacaaa7040c51c3be61f204a9c5d8e464f95936/research_notes/portable_direct/2026-11-27_x6_c_nonzero_threshold_faces/reproduction.json)
