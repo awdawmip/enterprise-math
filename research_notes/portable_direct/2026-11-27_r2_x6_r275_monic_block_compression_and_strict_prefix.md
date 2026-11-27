@@ -1,0 +1,65 @@
+# X6 R275 — monic block boundary compression and shared-slope strict prefix
+
+2026-11-27. Independent informed TASK_RESEARCH; author proof and exact computation, NOT_REVIEWED. Client identity verified, own researcher binding unconfirmed. Native read r2-20261127-r275-task-read SUCCEEDED at 2026-11-27T11:06:06.332188Z, Source 096aac42193eb50d60fcbc56e4cf1ec0595de828, NO_CANONICAL_PUBLICATION_DIRECTORY; not a native owner projection. No CLAIM, Result, Review or shared control mutation. Activity association pending. P000 V5, ACTIVE worldview, residual fidelity and joint preservation retained. This is auxiliary BRC weight coefficient algebra, not a native spatial plane or dynamics.
+
+## Frozen sources
+R247@7e54892a45579bdc497c27e061399339d1fb3512:research_notes/portable_direct/2026-11-27_r2_x6_r247_two_anchor_signed_primary_faces.md (blob fdbef2ee6e6c32573f3a1ccd171cb5337de520fa), R261@b091d79f5b7b493918b181750b2494c3688799a2:research_notes/portable_direct/2026-11-27_r2_x6_r261_all_pencil_circuit_helly.md; R274@a62a9006a863589ba0c7dacb503719e4a9a5eb88:research_notes/portable_direct/2026-11-27_r2_x6_r274_all_double_pencil_four_anchor_closure.md. Same Port 10, 1935 integer directions, six-pair joint BRC, weights (17t,B,22t,D), strict 3/2, 47 necessary support labels, 51 endpoint rays, 98 directed germs, 2225 linear suffix partitions. All capacity conclusions inherit necessary-wall and complete pure-linear suffix premises. c=0 author closure and double-pencil four-zero closure retained; no repeat. Here c=1 after common branch exchange and positive normalization.
+
+## Boundary compression theorem (strict and weak words)
+
+Write q(y)=y^2+s y+K, y_1<...<y_n distinct finite ordinates, s=eT+fU. Any nonempty nonpositive block [l,h] is contiguous by convexity. For l<h, every interior sample is strictly negative by strict convexity, hence any zeros occur only at l or h. A singleton block can be negative or zero. Conversely, to impose a specified such word, impose its exact endpoint signs at l,h (one constraint when l=h) and strict positive signs at the immediately adjacent outside samples l-1 and h+1 when present. These at most four sample constraints are sufficient for all prescribed signs: interior strict negativity follows from strict convexity; to the left, if q(y_{l-1})>0>=q(y_l), the secant slope is strictly negative and earlier secant slopes are smaller, so all earlier values exceed q(y_{l-1}); the right side follows symmetrically. Necessity is immediate. For the all-positive word retain all n inequalities. For fixed s the maximum of the thresholds -y_i^2-s y_i is attained at an ordinate nearest to -s/2; adjacent midpoint events suffice for that all-positive envelope, but not used in current run. Thus every mixed strict/weak word has an exact at-most-four-row certificate, and the interval of allowed K obtained from those rows is EXACTLY the same as that from all samples, for every fixed s. No residual at a zero endpoint is discarded.
+
+The number of distinct realizable local strict words is 1+n(n+1)/2. For weak words it is 1+2n+4*C(n,2)=1+2n^2. To see realizability, choose two real roots delimiting the block: each chosen zero edge fixes one root, each negative edge places a root just outside that edge before the next positive sample, with unbounded outer intervals permitted. For a singleton zero choose a double root or two roots with one at the sample and the other in an adjacent gap; for all positive choose a monic quadratic of positive minimum. Double-zero words number C(n,2). By R274 a successful root may have such a word on at most one pencil. The local count is not a global realizability count.
+
+## Exact two-parameter projection for strict prefixes
+For strict words use the above compressed lower threshold list L_i (positive samples) and upper list U_i (negative samples), J_i=(max L_i,min U_i), with missing bounds infinite. Impose u-l>0 for all finite u in U_i,l in L_i. A threshold row is [-T D r,-U D r,-D^2,r^2] for p=(rT,rU,D), interpreted as (A e+B f+C)/den. For each quartet of distinct pencils compute the R261 cofactor circuit w. For both signs of w require the upper bound of sum w_j J_j to be strictly positive; if a selected endpoint list is empty this bound is +infinity. Otherwise this upper bound is a sum of minima (negative w reverses lower bounds), so require every finite choice of one row per list to have sum >0. The shared inequalities are affine in e,f; no independent slope choices across quartets. R261 Helly proves this is necessary and sufficient for endpoint word realizability, since every interval is exact and all quartet constraints hold for one shared pair e,f. For <=3 pencils the independent intercept rows suffice. A signed sum is kept with positive denominator, so clear denominators without changing signs.
+
+Fourier–Motzkin: for A_p>0>A_m, eliminate e from A e+B f+C>0 by imposing (A_p B_m-A_m B_p) f+(A_p C_m-A_m C_p)>0. Carry A=0 rows. Intersect open rational half-lines in f; accept exactly when nonempty (including unbounded intervals), and reject a nonpositive constant. All operations exact BigInt. For each prefix retain its full words and shared inequalities; do not deduplicate by masks if geometry might differ. At nonzero endpoints all outgoing germs have the endpoint sign, and p24 positive is assigned from the beginning. Partial branch masks are subsets of any full branch; count<=31 and can(mask,5) on both branches are necessary (monotonicity inherited). Neither remaining masks nor feasible prefixes are sufficient for a correct tree.
+
+## General zero-germ residual lifting (proved, not executed here)
+Let Q(p)=0, q be the other endpoint of a directed germ, d=2p^T A q with symmetric A. The exact jet is lexsgn(d,Q(q)) because Q(q-p)=Q(q)-d, and if d=0 its sign is sign Q(q). Once all endpoint signs are fixed, to assign a nonzero germ sign sigma, impose sigma*d >=0 if sign Q(q)=sigma, otherwise sigma*d>0. A zero germ requires d=0 and Q(q)=0. This converts all prescribed zero-endpoint germ signs to linear weak/strict constraints in the same original normalized five coefficients; no branching on hypothetical independent derivative values is needed. With endpoints and slopes fixed, the additional inequalities are affine in the three intercept coefficients; a generic Helly check on at most four convex halfspaces/equalities can be used if extending the projection beyond the pencil-only case. The mixed weak/strict feasibility and residual integration are next, not part of the strict experiment.
+
+## Actual exact calculation
+First independent execution of four-line prefix completed with 3,762,426 checks, 5051 survivors, no cutoff; cofactor vector for those four directions [-195,6,-26,5]. Second execution reproduced all four stages exactly then extended to B=17t, hitting the explicit capacity-check ceiling of 35,000,000 at fifth-line visit 157861. Counts below are the second execution only; do not add the first run's prefix cost. At fifth line the full candidate extension count is 5051*46=232346; 151469 excluded (66726 direct +70227 algebra +14516 recursive), 6391 processed survivors, 1 interrupted, 74485 not visited. Thus 74486 unknown; they are not exclusions. All four prefix stages have complete coverage; 22,000 extensions in stage four: 5086 direct, 10764 joint affine infeasible, 1099 recursive, 5051 remaining. The algebra test is before recursive test. Stage five partial result excludes 151469 extensions; no claim of closure. Returned three survivors are examples, not the full survivor bank. The code deterministically reconstructs the full bank and interrupted prefix; a continuation should serialize actual word states or process disjoint prefix batches with cache reuse. No requirement to repeat prior closed four-zero families.
+
+```json
+{"groups":[[18,2,0,36],[6,5,43],[48,21,29,23,46],[4,14,16,12,3,8],[26,19,34,20,25,28,39,1,37]],"hist":[{"patterns":11,"visits":11,"direct":0,"alg":0,"recursive":0,"surv":11,"checks":204},{"patterns":7,"visits":77,"direct":0,"alg":0,"recursive":0,"surv":77,"checks":2676},{"patterns":16,"visits":1232,"direct":8,"alg":180,"recursive":44,"surv":1000,"checks":319851},{"patterns":22,"visits":22000,"direct":5086,"alg":10764,"recursive":1099,"surv":5051,"checks":3439695},{"patterns":46,"visits":157861,"direct":66726,"alg":70227,"recursive":14516,"surv":6391,"checks":31237574}],"checks":35000000,"cut":4,"remaining":[{"a":"401504d45114d71c550005cf","b":"11700510184a108632a555030","words":[[1,0],[1,0],[0,4],[0,5],[0,3]]},{"a":"1441044d45115d44d5500014f","b":"1305110184a00b322a5554b0","words":[[1,0],[0,0],[0,1],[0,5],[0,4]]},{"a":"1441044d45115dc4d5500014f","b":"1305110184a003322a5554b0","words":[[1,0],[0,0],[0,1],[0,5],[1,4]]}]}
+```
+
+## Reproduce
+Extract first javascript block of pinned R247. Replace exact terminal line inside experiment 'return {points:P.length,germs:G.length,linearPartitions:Q.length,result:rank4("two_anchor_kernel",[])};' with this patch; replace terminal experiment(data) with return experiment(data); execute as BigInt-capable JS function. For four-line-only run remove the last direction and use the same circuit generalization (the actual first run used the identical four-line formulas specialized to its one quartet). The partial run code below is the exact executed patch. Increasing ceiling or batching yields a new run; do not add repeated work as novel coverage.
+
+```javascript
+
+ceiling=35000000;
+const E=P.map((p,i)=>G.filter(g=>g[0]===i).reduce((a,g)=>a|g[2],0n));
+const dirs=[[0n,1n],[1n,9n],[1n,4n],[2n,5n],[1n,17n]];
+const groups=dirs.map(([t,b])=>P.map((p,i)=>i).filter(i=>i!==24&&t*P[i][1]===b*P[i][0]).sort((i,j)=>sg(P[i][2]*(P[j][0]+P[j][1])-P[j][2]*(P[i][0]+P[i][1]))));
+const rr=dirs.map(([t,b])=>[t*t,t*b,b*b]),det=(a,b,c)=>dot(a,cross(b,c));
+const circuits=dirs.map((_,k)=>{let out=[];for(let i=0;i<k;i++)for(let j=i+1;j<k;j++)for(let h=j+1;h<k;h++){let ix=[i,j,h,k],w=ix.map((_,a)=>BigInt(a%2?-1:1)*det(...ix.filter((_,b)=>a!==b).map(z=>rr[z])));if(w.some(x=>!x)||[0,1,2].some(a=>ix.reduce((s,z,j)=>s+w[j]*rr[z][a],0n)))throw Error("circuit");out.push({ix,w})}return out});
+const add=(a,b)=>{let v=[a[0]*b[3]+b[0]*a[3],a[1]*b[3]+b[1]*a[3],a[2]*b[3]+b[2]*a[3],a[3]*b[3]],g=abs(v.reduce(gcd,0n));return v.map(x=>x/g)};
+const mul=(a,k)=>[a[0]*k,a[1]*k,a[2]*k,a[3]];
+function feasible(rows){let pos=[],neg=[],flat=[],seen=new Set();for(let r of rows){let a=norm(r.slice(0,3));let key=a.join();if(seen.has(key))continue;seen.add(key);if(a[0]>0n)pos.push(a);else if(a[0]<0n)neg.push(a);else flat.push(a.slice(1));}
+let lo=null,hi=null;
+function cut(b,c){if(!b)return c>0n;let q=b>0n?[-c,b]:[c,-b];if(b>0n){if(!lo||q[0]*lo[1]>lo[0]*q[1])lo=q}else if(!hi||q[0]*hi[1]<hi[0]*q[1])hi=q;return !lo||!hi||lo[0]*hi[1]<hi[0]*lo[1]}
+for(let [b,c] of flat)if(!cut(b,c))return false;
+for(let p of pos)for(let m of neg)if(!cut(p[0]*m[1]-m[0]*p[1],p[0]*m[2]-m[0]*p[2]))return false;
+return true}
+function patterns(k){let ids=groups[k],n=ids.length,[t,b]=dirs[k],out=[];
+function row(j){let p=P[ids[j]],r=t?p[0]/t:p[1]/b;if(r<=0n||p[0]!==r*t||p[1]!==r*b)throw Error("scale");return [-t*p[2]*r,-b*p[2]*r,-p[2]*p[2],r*r]}
+function emit(l,h){let a=0n,b=0n,L=[],U=[];for(let j=0;j<n;j++){if(j>=l&&j<=h)b|=E[ids[j]];else a|=E[ids[j]]}
+if(l>h){L=ids.map((_,j)=>row(j));}else{U=[row(l)];if(h!==l)U.push(row(h));if(l>0)L.push(row(l-1));if(h+1<n)L.push(row(h+1))}
+let R=[];for(let u of U)for(let l of L)R.push(add(u,mul(l,-1n)));
+out.push({a,b,L,U,R,word:[l,h]})}
+emit(1,0);for(let l=0;l<n;l++)for(let h=l;h<n;h++)emit(l,h);return out}
+function extendCircuit(ps,R,k){for(let {ix,w} of circuits[k])for(let side of [-1n,1n]){let sums=[[0n,0n,0n,1n]];for(let j=0;j<4;j++){let z=side*w[j],rs=z>0n?ps[ix[j]].U:ps[ix[j]].L;if(!rs.length){sums=[];break}sums=sums.flatMap(s=>rs.map(r=>add(s,mul(r,z))))}R.push(...sums)}}
+let states=[{a:E[24],b:0n,ps:[],R:[]}],hist=[],cut=null;
+for(let k=0;k<dirs.length;k++){let out=[],pats=patterns(k),visits=0,direct=0,alg=0,recursive=0,before=checks;
+try{for(let st of states)for(let p of pats){visits++;let a=st.a|p.a,b=st.b|p.b;if(count(a)>31||count(b)>31){direct++;continue}let ps=st.ps.concat(p),R=st.R.concat(p.R);extendCircuit(ps,R,k);if(!feasible(R)){alg++;continue}if(!can(a,5)||!can(b,5)){recursive++;continue}out.push({a,b,ps,R})}}catch(err){if(err!==CUT)throw err;cut=k}
+hist.push({patterns:pats.length,visits,direct,alg,recursive,surv:out.length,checks:checks-before});states=out;if(cut!==null)break}
+return {groups,hist,checks,cut,remaining:states.slice(0,3).map(s=>({a:s.a.toString(16),b:s.b.toString(16),words:s.ps.map(p=>p.word)}))};
+
+```
+
+## Next
+Finish strict fifth-line frontier (visit 157861 interrupted; next 74485 unvisited; 6391 surviving words must also continue). Then add B=0 and remaining singleton directions. Evaluate batching or an incremental 2D feasibility representation to reduce repeated Fourier–Motzkin products and repeated capacity costs. Extend boundary compression to weak words with exact zero-edge equalities and the zero-germ linear lifting above. K6 remains 1–2. Independent review and Activity association pending.
