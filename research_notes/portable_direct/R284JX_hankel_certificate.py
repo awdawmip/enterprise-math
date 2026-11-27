@@ -96,8 +96,7 @@ def jet(obs,ev):
     result=[]
     for i,tr in enumerate(obs):
         row=[]
-        for j in range(J+1):
-            row.append(ev(tr)/factorial(j) if i+j<=K else IV(0));tr=ds(tr)
+        for j in range(J+1):row.append(ev(tr)/factorial(j) if i+j<=K else IV(0));tr=ds(tr)
         result.append(row)
     return result
 def jadd(a,b):return [[u+v for u,v in zip(ar,br)] for ar,br in zip(a,b)]
@@ -107,8 +106,7 @@ def jp(expr,si):
     out=[]
     for i,p in enumerate(series(expr)):
         row=[]
-        for j in range(J+1):
-            row.append(sum((F(c)*si**k for (_,k),c in p.terms()),IV(0))/factorial(j) if i+j<=K else IV(0));p=p.diff(s)
+        for j in range(J+1):row.append(sum((F(c)*si**k for (_,k),c in p.terms()),IV(0))/factorial(j) if i+j<=K else IV(0));p=p.diff(s)
         out.append(row)
     return out
 def compute(si):
