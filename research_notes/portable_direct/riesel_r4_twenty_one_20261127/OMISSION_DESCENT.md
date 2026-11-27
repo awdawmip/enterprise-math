@@ -1,0 +1,75 @@
+<stdin>:4: SyntaxWarning: invalid escape sequence '\('
+<stdin>:4: SyntaxWarning: invalid escape sequence '\('
+<stdin>:6: SyntaxWarning: invalid escape sequence '\('
+<stdin>:6: SyntaxWarning: invalid escape sequence '\('
+<stdin>:7: SyntaxWarning: invalid escape sequence '\('
+<stdin>:7: SyntaxWarning: invalid escape sequence '\('
+# Riesel R₄ 漏项分支的有限预算归约
+
+2026-11-27 · 知情作者推导与整数复算 · 待项目独立评审
+
+沿用同目录[预算 21 的证明与几何](REPORT.md)。设 \(T_b=5040\cdot2^{b-11}\)。本条证明，对漏掉 5 或 13 的分支，任意超出本支有限上限的预算，其超界周期反例都可降到预算 \(23\) 至 \(32\) 之间。在固定亏缺覆盖模型里，仅放宽相对周期超过 30 的自由类库存。结合已有的小预算排除，任意预算上界可由预算 22 到 32 的有限核验解决。
+
+## 放宽模型和数位删除
+
+步长 \(s=2\) 时，两个基本素数均省略。步长 \(s=4\) 时，已保留一枚，固定其余支 \(\epsilon\in\{0,1\}\)。取此支中选定的固定额外类 \(C\)，令 \(L\) 为 105 与这些类的有效周期的最小公倍数。保留它们的相位和 \(D\bmod L\) 的实际孔集。其它类的有效周期为 \(h\)，相对期 \(m=h/\gcd(h,L)\)。保留相对期至 30 的原库存，可将相对期超过 30 的自由类放宽为任何相位与个数。特别地，预算 21 粗筛和细筛所列的有限库存有效期都在低库存内。
+
+取放宽模型的一个包含极小余覆盖及其超界目标类 \(s h>T_b\)。原阶 \(d>T_b\) 的实际目标必在这范围，因为 \(d\le s h\)。设 \(\gamma=1+|C|+\mathbf{1}_{s=4}\)。私有点数位给出
+\[
+ W(m)=\sum_{p^e\parallel m}e(p-1)\le b-\gamma.
+\]
+又有 \(sL\le15120\)，因此
+\[
+ 2^{W(m)}/m < \frac{2^{11-\gamma}s\,\gcd(h,L)}{5040}\le3072.
+\]
+任意 \(p\ge17\) 的单个贡献 \(2^{p-1}/p\) 已超过 3072，所有贡献均至少一。因此 \(m\) 的素因数只需考虑 \(2,3,5,7,11,13\)。
+
+若 \(p^e\parallel m\) 且 \(p^{e-1}>30\)，在联合 CRT 模数中把 \(p\) 的第 \(j=v_p(h)=v_p(L)+e\) 位固定为私有点的该位，再删去该位。保留所有别的素数坐标和低位。每个 \(p\) 指数小于 \(j\) 的类保持。指数至少 \(j\) 的类消失或周期除以 \(p\)，后者的新相对周期仍含 \(p^{e-1}\)，所以仍在高周期库存。固定的 \(L\)、孔集、低库存和预算中已计入的基本素数保持。模 11、13 的整相位类也保持，其他类的周期是否可被 11、13 整除保持。目标继续含有私有点，仅把 \(h\) 除以 \(p\)。
+
+在私有点的模 \(L\) 纤维中，原来第 \(j\) 位的 \(p-1\) 个探针需由互异类覆盖。这些类都因要求与保留位不相同而消失，所以新预算可取 \(b'=b-(p-1)\)。新目标仍超界，因为 \(2^{p-1}\ge p\)。取包含极小子覆盖后的私有点可继续使用。
+
+## 无可删数位的精确界
+
+若不存在可删数位，\(m\) 的六个指数最多为 \((5,4,3,2,2,2)\)。对每种固定类选择，用 \(T_b<sLm\) 求最大的可能预算，再与 \(b\ge W(m)+\gamma\) 相交。整数运算给出各支最大可能预算 \(32,31,24\)。这一步把 \(\gcd(h,L)\) 放宽至 \(L\)，无需判定各最值有无实际覆盖。按固定类逐项计算超界比率，三支的 \(2^{W(m)}/m\) 分别严格小于 \(768,384,64\)。所以可删素数在三支分别至多为 \(7,5,3\)。例如 \(p=7\) 可删至少要求 \(e=3\)，代价 \((64/7)^3>384\)。\(p=5\) 可删至少要求 \(e=4\)，代价 \((16/5)^4>64\)。对超过本支上限的预算反复删位，首次降到上限以内时，三支分别落在预算 \(27\) 至 \(32\)、\(28\) 至 \(31\)、\(23\) 至 \(24\)。
+
+下面的固定输入与代码可直接交给 Python 3.10+ 执行。固定额外类按 \((u\bmod d,d)\) 录入，奇偶支保留与步进相容的类。
+
+~~~python
+from fractions import Fraction
+from itertools import combinations, product
+from math import gcd, lcm, prod
+
+fixed = [(4, 9), (1, 9), (34, 36), (34, 54), (52, 72)]
+primes = (2, 3, 5, 7, 11, 13)
+short_periods = (5, 4, 3, 2, 2, 2)
+candidates = []
+for e in product(*(range(limit + 1) for limit in short_periods)):
+    m = prod(p**j for p, j in zip(primes, e))
+    weight = sum(j*(p-1) for p, j in zip(primes, e))
+    candidates.append((m, weight, e))
+for step, parity in ((2, 0), (4, 0), (4, 1)):
+    usable = [r for r in fixed if step == 2 or r[1] % 2 or r[0] % 2 == parity]
+    winners = []
+    ratio = Fraction(0)
+    for count in range(len(usable) + 1):
+        for selected in combinations(usable, count):
+            L = lcm(105, *(d//gcd(d, step//2) for _, d in selected))
+            charge = 1 + count + (step == 4)
+            ratio = max(ratio, Fraction(step*L*2**(11-charge), 5040))
+            for m, weight, e in candidates:
+                numerator = step*L*m
+                # Largest b with 5040*2**(b-11) < numerator.
+                n = (numerator-1)//5040
+                cap = 10+n.bit_length()
+                if n and cap >= max(11, weight + charge):
+                    winners.append((cap, m, weight, e, L, selected))
+    print(step, parity, ratio, max(winners))
+~~~
+
+~~~text
+2 0 768 (32, 756000, 29, (5, 3, 3, 1, 0, 0), 7560, ((34, 54), (52, 72)))
+4 0 384 (31, 453600, 27, (5, 4, 2, 1, 0, 0), 3780, ((34, 54), (52, 72)))
+4 1 64 (24, 64800, 21, (5, 4, 2, 0, 0, 0), 315, ((4, 9),))
+~~~
+
+下一步在预算 22 到 32 检验没有可删数位、或每种删法都会越过预算 21 的目标。其它目标仍可降到本区间内的更小预算或已核验的预算 21。余预算的容量和有限覆盖需要实际判定。
