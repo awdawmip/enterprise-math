@@ -1,0 +1,49 @@
+# X6 首步二次观察的单调闭斜率室排除
+
+Researcher-ID `EM-DIRECT-8327F7` · Activity `RA-184AE178188022AA92EFE075`
+
+2026-11-27。知情补充推导、BigInt 精确搜索和可复算的不可行证书。沿用 Port 10、正权重 $(17t,B,22t,D)$、1,935 个方向、六对联合 BRC、严格 $3/2$ 近优方向全集及合法最优方向。辅助实数参数只表示冻结观察器的权重，不表示心跳世界的空间坐标。
+
+写首查询为 $Q=a t^2+b B^2+cD^2+d tB+e tD+fBD$。在继承必要支撑墙及纯线性后缀容量的条件下，假设正确的六深二元树只在根使用一个满秩二次查询。若 $c\ne0$，通过整体交换严格芽分支把 $c$ 归一为正，则必须有
+$$
+3e+68c<0,\quad f+11c<0,\quad e+17f+31c<0
+$$
+三个条件中的至少一个。这里补上原开室的三条边和两顶点。原 $c=0$ 情形已由 R271 在同一继承条件下排除。剩余区域仍可能容纳一般二次根，$K_6$ 的总锐界待定。 [R271](https://github.com/awdawmip/enterprise-math/blob/f1ec411dfb652bbeab5e288af796eefb7a14280c/research_notes/portable_direct/2026-11-27_r2_x6_r271_common_zero_root_closure.md) · [开室结果](https://github.com/awdawmip/enterprise-math/blob/a81e850c387f2759776498bcb60245a587624e7f/research_notes/portable_direct/2026-11-27_x6_monotone_chamber_correction/README.md)
+
+## 边界符号词与覆盖
+
+设 $(u,v,w)=(3e+68c,f+11c,c)$，按正比例归一为 $u+v+w=1$。整个闭室是 $u,v,u+51v-536w\ge0$ 且 $w>0$。闭室边界定义为前三项至少一项为零。把三个条件分别以铅笔编号标记如下。
+
+| 编号 | 墙 | 新增并列铅笔 | 两个并列端点编号 |
+|---|---|---|---|
+| 0 | $v=0$ | $t=0$ | 18、2 |
+| 1 | $u+51v-536w=0$ | $B=17t$ | 26、19 |
+| 2 | $u=0$ | $B=0$ | 10、15 |
+
+有限端点的符号由 $K-\tau(y)$ 决定，阈值是 $\tau(y)=-cy^2-(eT+fU)y$。比较相邻纵标的阈值时，只有对应铅笔最小的两个纵标可能并列。该事实来自上稿的六个最小纵标和条件。三条不支撑该室的最小纵标和不等式在闭包仍严格，其余纵标和比同铅笔的最小和严格大。两个顶点可同时激活两面，因 $w>0$，不存在三面同时激活。对任何首查询，冻结的第 24 号端点符号为正。
+
+每条铅笔的候选符号由连续负号段、零阈值类和正号段构成。若某个词给同一潜在并列对不同符号，就约束相应墙严格在内侧。两端同时为零只在对应墙上可行，并用共同阈值为单点截距。相同非零号保持兼容相应开室和边界。这样由一个搜索覆盖全部五种边界开面，各词仍给普通开截距区间或截距单点。每个前缀用四元电路及 Helly 条件精确检验共同截距可行性，继承上稿对严格端点的处理。
+
+给定闭裁后的多边形和任一候选墙，由于墙行在全多边形非负，交集正是该墙上的顶点的凸包。对交集中的每个严格条件，只需有一个该墙顶点取正，所有见证顶点的平均就同时满足全部严格条件。故每个部分分割保留**可实现的墙标签集合**。即便某标签只在定下顶点后出现，也保留到完整芽耦合。局部切线的终端去重继续以完整分割加有限零点集为键，并携带墙标签。后续对每个配对和每个仍在记录中的墙分别检查，保持角点的重叠覆盖。
+
+## 精确证据
+
+端点阶段走完全部 17 条铅笔，执行 22,535,665 次容量分割检查，留下 603 个部分分割，无全严格候选。墙标签集合为 $\{0\},\{1\},\{2\},\{0,1\},\{1,2\}$ 的数量分别是 213、112、192、37、49。标签集合只表示各墙独立可行，顶点无需由标签集合推断。
+
+切线阶段遍历 96,318 次部分选择，执行 35,023,467 次容量分割检查。保留了 36 个不同完整芽分割，从属 94 个完整分割与零点集配对。加入墙标签得到 95 个耦合实例，三面分别为 59、10、26 个。
+
+对每个耦合实例，把墙等式与端点零集等式共同编入整系数核，并固定正的 $c$。实际出现 65 个零维和 30 个一维仿射参数图。对已知非零端点约束严格符号，对零点出芽保留上稿的首阶弱或严格条件，并纳入其余墙的闭式约束。因此每个实例归为关于常数或一个实变量的线性不等式。65 个零维实例各有一行处于常数矛盾。30 个一维实例各有一对违反界相容性的不等式。分别以正系数加权相加即可消去唯一变量，得到负常数应非负或零常数应严格为正。程序从原行再次核对每条证书，保留其权重、行、严格式及来源。所有 95 个实例均矛盾。通用 Fourier–Motzkin 消元的先行运行也得到全体相同判定。
+
+结论只使用冻结必要支撑墙与后缀能力，并未要求任一个可行后缀通过原始完整输出复核。首步根研究可继续检验跨过一面且只交换最小阈值对的相邻开斜率室。现有端点裁剪可复用，只需对倒序对重设符号词顺序与域条件。更远的面需要保留各自阈值顺序。
+
+## 复算
+
+[代码、后缀收束及全部不可行证书](https://github.com/awdawmip/enterprise-math/blob/691c53c7ec6de17d75f663ce00fac1bb51afef04/research_notes/portable_direct/2026-11-27_crt3x3_ec49_x6_reproduction.json) · [完整端点候选](https://github.com/awdawmip/enterprise-math/blob/691c53c7ec6de17d75f663ce00fac1bb51afef04/research_notes/portable_direct/2026-11-27_crt3x3_ec49_x6_reproduction.json)。固定输入是 R247 原文及上一稿的小型围栏加载器。解包到同一目录，把 R247 原文保存为 `R247.md`，从旧复算包提取 `replay.cjs`，依次执行。
+
+```sh
+node replay.cjs R247.md boundary.js > /tmp/x6-boundary-endpoints.json
+node replay.cjs R247.md tangent.js /tmp/x6-boundary-endpoints.json > /tmp/x6-boundary-tangent.json
+node replay.cjs R247.md coupled.js /tmp/x6-boundary-tangent.json > /tmp/x6-boundary-coupled.json
+```
+
+比较三份 JSON 对象。精确权重与系数用十进制字符串保存，掩码用十六进制保存。未进行 Lean 形式化或正式独立审定。 [冻结 R247 输入](https://github.com/awdawmip/enterprise-math/blob/7e54892a45579bdc497c27e061399339d1fb3512/research_notes/portable_direct/2026-11-27_r2_x6_r247_two_anchor_signed_primary_faces.md) · [加载器复算包](https://github.com/awdawmip/enterprise-math/blob/9eacaaa7040c51c3be61f204a9c5d8e464f95936/research_notes/portable_direct/2026-11-27_x6_c_nonzero_threshold_faces/reproduction.json)
