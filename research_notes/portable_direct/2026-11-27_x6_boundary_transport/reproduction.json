@@ -1,0 +1,369 @@
+{
+  "replay.py": "#!/usr/bin/env python3\n\"\"\"Compare the fixed R240/R247 banks and replay exact transport examples.\"\"\"\n\nimport hashlib\nimport itertools\nimport json\nimport math\nimport re\nimport sys\nfrom dataclasses import dataclass\nfrom fractions import Fraction as F\nfrom pathlib import Path\n\nR240_SHA256 = \"9cac62ce76f5ad97af0bc5f0e416a3836ed2a4d74319964d182d236c55543186\"\nR247_SHA256 = \"fd042b8150add80e2ee967ac785068107718ad99c58c00f958f35188baf6d7ec\"\nCORRECTIONS = {\n    (51, 2, -1): (((1, 9, 69), (3, 17, 187)), ((2, 5, 112), (1, 0, 51))),\n    (17, -1, 0): (((0, 0, 1), (1, 17, 391)), ((1, 17, 69), (1, 17, 22))),\n}\n\n\n@dataclass(frozen=True)\nclass Interval:\n    lo: F\n    hi: F\n    left_closed: bool = True\n    right_closed: bool = True\n\n    def contains(self, point):\n        return (self.lo < point or (self.left_closed and self.lo == point)) and (\n            point < self.hi or (self.right_closed and point == self.hi)\n        )\n\n    def intersect(self, other):\n        lo, hi = max(self.lo, other.lo), min(self.hi, other.hi)\n        left, right = self.contains(lo) and other.contains(lo), self.contains(hi) and other.contains(hi)\n        return Interval(lo, hi, left, right) if lo < hi or (lo == hi and left and right) else None\n\n    def encode(self):\n        return [str(self.lo), str(self.hi), self.left_closed, self.right_closed]\n\n\ndef read_source(path, digest):\n    content = Path(path).read_bytes()\n    assert hashlib.sha256(content).hexdigest() == digest\n    return content.decode()\n\n\ndef bank(source):\n    data_line = next(line for line in source.splitlines() if line.startswith(\"const data=\"))\n    data, _ = json.JSONDecoder().raw_decode(data_line.removeprefix(\"const data=\"))\n    points = {}\n    germs = []\n    for label, entry in enumerate(data):\n        normal = tuple(map(int, entry[\"normal\"]))\n        endpoints = (tuple(tuple(map(int, p)) for p in entry[\"endpoints\"]),)\n        for left, right in CORRECTIONS.get(normal, endpoints):\n            ids = []\n            for point in (left, right):\n                assert all(x >= 0 for x in point) and sum(point) > 0\n                assert sum(x * y for x, y in zip(point, normal)) == 0\n                primitive = tuple(x // math.gcd(*point) for x in point)\n                ids.append(points.setdefault(primitive, len(points)))\n            assert ids[0] != ids[1]\n            germs.extend(((ids[0], ids[1], label), (ids[1], ids[0], label)))\n    assert tuple(map(len, (data, points, germs))) == (47, 51, 98)\n    return list(points), germs\n\n\ndef sign(rows):\n    return next(((x > 0) - (x < 0) for x in rows if x), 0)\n\n\ndef value(q, point):\n    a, b, c, d, e, f = q\n    t, B, D = point\n    return a * t * t + b * B * B + c * D * D + d * t * B + e * t * D + f * B * D\n\n\ndef jets(q, p, v):\n    direction = tuple(y - x for x, y in zip(p, v))\n    first, third = value(q, p), value(q, direction)\n    return first, value(q, v) - first - third, third\n\n\ndef transported(q, alpha):\n    a, b, c, d, e, f = q\n    radius = -(e + 17 * f + 31 * c)\n    return a, b, c, d, e + radius * alpha, f + F(radius, 17) * (1 - alpha)\n\n\ndef verify_box(q, alpha, radius, points):\n    a, b, c, d, e, f = q\n    target = transported(q, alpha)\n    assert e + 17 * f + 31 * c + 18 * radius < 0\n    assert target[4] - (1 + 16 * alpha) * radius >= -100 * c\n    for t, B, D in points:\n        base = t * t + B * B + t * B\n        pivot = alpha * t + (1 - alpha) * F(B, 17)\n        source_norm = base + D * (t + B)\n        target_norm = base + D * (abs(t - pivot) + abs(B - 17 * pivot))\n        assert abs(value(q, (t, B, D))) > radius * source_norm\n        assert abs(value(target, (t, B, D))) > radius * target_norm\n\n\ndef verify_square_drift(points, germs):\n    q = (-580, 70, 1, -930, -102, F(70, 17))\n    a, b, c, d, e, f = q\n    width = F(1, 50)\n    x = e + 17 * f + 31 * c\n    target = a, b, c - x / 31, d, e, f\n    assert e - x + 17 * width < -100 * c\n    assert x + 18 * width < 0\n    assert e + 100 * target[2] - F(1769, 31) * width >= 0\n    assert target[4] + 17 * target[5] + 31 * target[2] == 0\n    assert determinant4(q) and determinant4(target)\n    labels = set(), set()\n    for p in points:\n        t, B, D = p\n        base = t * t + B * B + t * B\n        old, new = value(q, p), value(target, p)\n        assert old * new > 0\n        assert old * value((-580, 70, 1, -930, -101, 4), p) > 0\n        assert abs(old) > width * (base + t * D + B * D)\n        assert abs(new) > width * (base + abs(t * D - F(D * D, 31)) + abs(B * D - F(17 * D * D, 31)))\n    for u, _, label in germs:\n        labels[int(value(q, points[u]) < 0)].add(label)\n    assert tuple(map(len, labels)) == (31, 27)\n    return {\"q\": list(map(str, q)), \"target\": list(map(str, target)), \"box_radius\": str(width),\n            \"label_counts\": list(map(len, labels))}\n\n\ndef determinant4(q):\n    a, b, c, d, e, f = q\n    return 4 * a * b * c - a * f * f - b * e * e - c * d * d + d * e * f\n\n\ndef sign_on_line(rows, alpha):\n    return sign(start + slope * alpha for start, slope in rows)\n\n\ndef negative_interval(rows, domain):\n    for start, slope in rows:\n        if not (start or slope):\n            continue\n        if not slope:\n            return domain if start < 0 else None\n        root = -start / slope\n        if slope > 0 and root > domain.hi or slope < 0 and root < domain.lo:\n            return domain\n        if slope > 0 and root < domain.lo or slope < 0 and root > domain.hi:\n            return None\n        closed = sign_on_line(rows, root) == -1\n        side = Interval(domain.lo, root, True, closed) if slope > 0 else Interval(root, domain.hi, closed, True)\n        return domain.intersect(side)\n    return None\n\n\ndef probes(rows, domain):\n    events = {domain.lo, domain.hi}\n    events.update(-a / b for a, b in rows if b and domain.lo <= -a / b <= domain.hi)\n    events = sorted(events)\n    return events + [(a + b) / 2 for a, b in itertools.pairwise(events)]\n\n\ndef compute(q, points, germs):\n    q = tuple(map(F, q))\n    a, b, c, d, e, f = q\n    radius = -(e + 17 * f + 31 * c)\n    assert c > 0 and radius > 0 and determinant4(q)\n    domain = Interval(max(F(0), (-100 * c - e) / radius), F(1))\n    assert domain.lo <= domain.hi\n    pos, neg, intervals = set(), set(), {}\n    rows_used = {}\n    for i, (u, v, label) in enumerate(germs):\n        p, z = points[u], points[v]\n        original = sign(jets(q, p, z))\n        assert original\n        rows = tuple((start, end - start) for start, end in zip(jets(transported(q, F(0)), p, z), jets(transported(q, F(1)), p, z)))\n        samples = probes(rows, domain)\n        if original > 0:\n            pos.add(label)\n            assert all(sign_on_line(rows, sample) == 1 for sample in samples)\n            continue\n        neg.add(label)\n        interval = negative_interval(rows, domain)\n        assert all((interval is not None and interval.contains(sample)) == (sign_on_line(rows, sample) == -1) for sample in samples)\n        intervals[i] = interval\n        rows_used[i] = rows\n\n    result = domain\n    for interval in intervals.values():\n        result = result.intersect(interval) if result and interval else None\n    rows = list(itertools.chain.from_iterable(rows_used.values()))\n    assert all((result is not None and result.contains(sample)) == all(sign_on_line(germ, sample) == -1 for germ in rows_used.values()) for sample in probes(rows, domain))\n    return {\n        \"q\": list(map(str, q)),\n        \"x\": str(-radius),\n        \"domain\": domain.encode(),\n        \"common_interval\": result.encode() if result else None,\n        \"label_counts\": [len(pos), len(neg), len(pos & neg)],\n    }, intervals\n\n\ndef main():\n    r247 = read_source(sys.argv[1], R247_SHA256)\n    r240 = read_source(sys.argv[2], R240_SHA256)\n    points, germs = bank(r247)\n    assert (points, germs) == bank(r240)\n    r240_run = json.loads(re.search(r\"^\\{\\\"initial\\\".*$\", r240, re.MULTILINE)[0])\n    masks = [int(mask, 16) for mask, multiplicity in r240_run[\"relaxedMasks\"] if multiplicity == 1]\n    assert len(masks) == r240_run[\"relaxed\"] == r240_run[\"relaxedPairs\"] == 3\n    assert not r240_run[\"cut\"] and not r240_run[\"untested\"]\n    assert points[24] == (0, 0, 1) and points[25] == (1, 17, 69) and points[26] == (1, 17, 9)\n    signs = []\n    for mask in masks:\n        at = {}\n        pivot_sign = bool(mask & next(1 << i for i, (u, _, _) in enumerate(germs) if u == 24))\n        for point, required in [(24, 1), (25, -1), (26, 1)]:\n            at[point] = [[i, 1 if bool(mask & (1 << i)) == pivot_sign else -1] for i, (u, _, _) in enumerate(germs) if u == point]\n            assert at[point] and all(s == required for _, s in at[point])\n        signs.append({\"mask\": hex(mask)[2:], \"oriented_at\": at})\n\n    transfer_rows = []\n    for q, alpha, box_radius in [\n        ((-10, -10, 1, -10, -40, F(8, 17)), F(1, 2), F(1, 20)),\n        ((-580, 70, 1, -930, -101, 4), F(3, 4), F(1, 26)),\n    ]:\n        record, _ = compute(q, points, germs)\n        target = transported(q, alpha)\n        vals = [value(q, p) * value(target, p) for p in points]\n        assert all(v > 0 for v in vals) and max(record[\"label_counts\"][:2]) <= 31\n        assert target[4] >= -100 * target[2] and target[4] + 17 * target[5] + 31 * target[2] == 0 and determinant4(target)\n        verify_box(q, alpha, box_radius, points)\n        record.update(alpha=str(alpha), box_radius=str(box_radius), target=list(map(str, target)),\n                      target_determinant_times_four=str(determinant4(target)))\n        transfer_rows.append(record)\n\n    q = (F(386208, 2431), F(-2619769, 182325), 1, 0, -40, F(8, 17))\n    two_obstructions, intervals = compute(q, points, germs)\n    assert all(value(q, p) for p in points) and max(two_obstructions[\"label_counts\"][:2]) == 29\n    assert intervals and all(intervals.values()) and two_obstructions[\"common_interval\"] is None\n    proper = [(i, interval) for i, interval in intervals.items() if interval != Interval(F(0), F(1))]\n    assert {germs[i][0] for i, _ in proper} == {3, 22}\n    assert {interval.hi for i, interval in proper if germs[i][0] == 3} == {F(1, 3)}\n    assert {interval.lo for i, interval in proper if germs[i][0] == 22} == {F(2, 3)}\n    two_obstructions[\"proper_germ_intervals\"] = [[i, *germs[i][:2], interval.encode()] for i, interval in proper]\n\n    q = (-33000, 99, 1, 87, -45, -20)\n    second_order, intervals = compute(q, points, germs)\n    i = next(i for i, (u, v, _) in enumerate(germs) if (u, v) == (2, 1))\n    original = jets(q, points[2], points[1]); at_one = jets(transported(q, F(1)), points[2], points[1])\n    assert original[:2] == (0, 0) and original[2] < 0\n    assert at_one[0] == 0 and at_one[1] > 0 and intervals[i] is None\n    second_order.update(germ=i, original_jet=list(map(str, original)), alpha_one_jet=list(map(str, at_one)))\n\n    print(json.dumps({\"bank\": [len(points), len(germs), 47], \"r240_oriented_masks\": signs,\n                      \"transfers\": transfer_rows, \"two_obstructions\": two_obstructions,\n                      \"second_order\": second_order, \"square_drift\": verify_square_drift(points, germs)}, indent=2))\n\n\nif __name__ == \"__main__\":\n    main()\n",
+  "capacity.js": "const cases = [\n  [-170n, -170n, 17n, -170n, -680n, 8n],\n  [-580n, 70n, 1n, -930n, -101n, 4n],\n  [28965600n, -2619769n, 182325n, 0n, -7293000n, 85800n],\n  [-9860n, 1190n, 17n, -15810n, -1734n, 70n],\n];\nceiling = Infinity;\nconst rows = cases.map((coefficients) => {\n  const [a, b, c, d, e, f] = coefficients;\n  const values = P.map(([t, B, D]) => a*t*t + b*B*B + c*D*D + d*t*B + e*t*D + f*B*D);\n  if (values.some((value) => value === 0n)) throw Error('expected strict endpoint signs');\n  let positive = 0n;\n  let negative = 0n;\n  for (const [u, , bit] of G) {\n    if (values[u] > 0n) positive |= bit;\n    else negative |= bit;\n  }\n  const start = checks;\n  const allowed = [can(positive, 5), can(negative, 5)];\n  if (allowed.every(Boolean) || count(positive) > 31 || count(negative) > 31) throw Error('unexpected capacity outcome');\n  return {labels: [count(positive), count(negative)], allowed, checks: checks - start};\n});\nreturn rows;\n",
+  "results.json": {
+    "bank": [
+      51,
+      98,
+      47
+    ],
+    "r240_oriented_masks": [
+      {
+        "mask": "33cf330384c0033038fffff0",
+        "oriented_at": {
+          "24": [
+            [
+              34,
+              1
+            ]
+          ],
+          "25": [
+            [
+              36,
+              -1
+            ],
+            [
+              40,
+              -1
+            ],
+            [
+              80,
+              -1
+            ]
+          ],
+          "26": [
+            [
+              43,
+              1
+            ]
+          ]
+        }
+      },
+      {
+        "mask": "33cf330384c003303afffff0",
+        "oriented_at": {
+          "24": [
+            [
+              34,
+              1
+            ]
+          ],
+          "25": [
+            [
+              36,
+              -1
+            ],
+            [
+              40,
+              -1
+            ],
+            [
+              80,
+              -1
+            ]
+          ],
+          "26": [
+            [
+              43,
+              1
+            ]
+          ]
+        }
+      },
+      {
+        "mask": "33cf330384c0233038fffff0",
+        "oriented_at": {
+          "24": [
+            [
+              34,
+              1
+            ]
+          ],
+          "25": [
+            [
+              36,
+              -1
+            ],
+            [
+              40,
+              -1
+            ],
+            [
+              80,
+              -1
+            ]
+          ],
+          "26": [
+            [
+              43,
+              1
+            ]
+          ]
+        }
+      }
+    ],
+    "transfers": [
+      {
+        "q": [
+          "-10",
+          "-10",
+          "1",
+          "-10",
+          "-40",
+          "8/17"
+        ],
+        "x": "-1",
+        "domain": [
+          "0",
+          "1",
+          true,
+          true
+        ],
+        "common_interval": [
+          "0",
+          "1",
+          true,
+          true
+        ],
+        "label_counts": [
+          27,
+          28,
+          8
+        ],
+        "alpha": "1/2",
+        "box_radius": "1/20",
+        "target": [
+          "-10",
+          "-10",
+          "1",
+          "-10",
+          "-79/2",
+          "1/2"
+        ],
+        "target_determinant_times_four": "32205/2"
+      },
+      {
+        "q": [
+          "-580",
+          "70",
+          "1",
+          "-930",
+          "-101",
+          "4"
+        ],
+        "x": "-2",
+        "domain": [
+          "1/2",
+          "1",
+          true,
+          true
+        ],
+        "common_interval": [
+          "1/2",
+          "1",
+          true,
+          true
+        ],
+        "label_counts": [
+          31,
+          27,
+          11
+        ],
+        "alpha": "3/4",
+        "box_radius": "1/26",
+        "target": [
+          "-580",
+          "70",
+          "1",
+          "-930",
+          "-199/2",
+          "137/34"
+        ],
+        "target_determinant_times_four": "-386693245/289"
+      }
+    ],
+    "two_obstructions": {
+      "q": [
+        "386208/2431",
+        "-2619769/182325",
+        "1",
+        "0",
+        "-40",
+        "8/17"
+      ],
+      "x": "-1",
+      "domain": [
+        "0",
+        "1",
+        true,
+        true
+      ],
+      "common_interval": null,
+      "label_counts": [
+        29,
+        29,
+        11
+      ],
+      "proper_germ_intervals": [
+        [
+          4,
+          3,
+          4,
+          [
+            "0",
+            "1/3",
+            true,
+            true
+          ]
+        ],
+        [
+          16,
+          3,
+          11,
+          [
+            "0",
+            "1/3",
+            true,
+            false
+          ]
+        ],
+        [
+          31,
+          22,
+          18,
+          [
+            "2/3",
+            "1",
+            true,
+            true
+          ]
+        ],
+        [
+          39,
+          22,
+          23,
+          [
+            "2/3",
+            "1",
+            false,
+            true
+          ]
+        ],
+        [
+          67,
+          22,
+          2,
+          [
+            "2/3",
+            "1",
+            false,
+            true
+          ]
+        ]
+      ]
+    },
+    "second_order": {
+      "q": [
+        "-33000",
+        "99",
+        "1",
+        "87",
+        "-45",
+        "-20"
+      ],
+      "x": "-354",
+      "domain": [
+        "0",
+        "1",
+        true,
+        true
+      ],
+      "common_interval": null,
+      "label_counts": [
+        16,
+        45,
+        14
+      ],
+      "germ": 2,
+      "original_jet": [
+        "0",
+        "0",
+        "-564"
+      ],
+      "alpha_one_jet": [
+        "0",
+        "3894",
+        "133956"
+      ]
+    },
+    "square_drift": {
+      "q": [
+        "-580",
+        "70",
+        "1",
+        "-930",
+        "-102",
+        "70/17"
+      ],
+      "target": [
+        "-580",
+        "70",
+        "32/31",
+        "-930",
+        "-102",
+        "70/17"
+      ],
+      "box_radius": "1/50",
+      "label_counts": [
+        31,
+        27
+      ]
+    }
+  },
+  "capacity.json": [
+    {
+      "labels": [
+        27,
+        28
+      ],
+      "allowed": [
+        false,
+        false
+      ],
+      "checks": 7286
+    },
+    {
+      "labels": [
+        31,
+        27
+      ],
+      "allowed": [
+        false,
+        false
+      ],
+      "checks": 21670
+    },
+    {
+      "labels": [
+        29,
+        29
+      ],
+      "allowed": [
+        false,
+        false
+      ],
+      "checks": 4873
+    },
+    {
+      "labels": [
+        31,
+        27
+      ],
+      "allowed": [
+        false,
+        false
+      ],
+      "checks": 0
+    }
+  ]
+}
