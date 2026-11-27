@@ -1,0 +1,185 @@
+{
+  "frozen_records_all_labels_allowed": {
+    "0": {
+      "horizons": {
+        "1": {
+          "failing_circuits_by_size_and_gap": {
+            "1,2": 3
+          },
+          "full_candidate_occurrences": 25,
+          "full_low_slack_cuts": 6,
+          "global_circuits": 7,
+          "kept_candidate_occurrences": 25,
+          "kept_distinct_candidates": 7,
+          "kept_low_slack_cuts": 6,
+          "matching_deletion_queries": 8
+        },
+        "5": {
+          "failing_circuits_by_size_and_gap": {
+            "1,2": 3
+          },
+          "full_candidate_occurrences": 816,
+          "full_low_slack_cuts": 62,
+          "global_circuits": 7,
+          "kept_candidate_occurrences": 257,
+          "kept_distinct_candidates": 98,
+          "kept_low_slack_cuts": 16,
+          "matching_deletion_queries": 8
+        }
+      },
+      "initial_largest_cut": 57,
+      "initial_rank": 7,
+      "labels": 8,
+      "minimum": 1,
+      "minimum_witness_gap": 2,
+      "minimum_witness_largest_cut": 1,
+      "minimum_witness_original_labels": [
+        64
+      ],
+      "partition_bitmasks": [
+        1,
+        6,
+        8,
+        16,
+        32
+      ],
+      "ports": 6,
+      "strict_hall_cut_solver": {
+        "cuts_examined": 16,
+        "feasible_cuts": 2,
+        "internal_matching_queries": 8,
+        "strict_hall_queries": 15
+      }
+    },
+    "1": {
+      "horizons": {
+        "1": {
+          "failing_circuits_by_size_and_gap": {},
+          "full_candidate_occurrences": 9,
+          "full_low_slack_cuts": 1,
+          "global_circuits": 9,
+          "kept_candidate_occurrences": 9,
+          "kept_distinct_candidates": 9,
+          "kept_low_slack_cuts": 1,
+          "matching_deletion_queries": 15
+        },
+        "2": {
+          "failing_circuits_by_size_and_gap": {
+            "2,1": 7,
+            "2,2": 6
+          },
+          "full_candidate_occurrences": 637,
+          "full_low_slack_cuts": 11,
+          "global_circuits": 24,
+          "kept_candidate_occurrences": 550,
+          "kept_distinct_candidates": 114,
+          "kept_low_slack_cuts": 8,
+          "matching_deletion_queries": 40
+        },
+        "5": {
+          "failing_circuits_by_size_and_gap": {
+            "2,1": 7,
+            "2,2": 6
+          },
+          "full_candidate_occurrences": 44759,
+          "full_low_slack_cuts": 92,
+          "global_circuits": 24,
+          "kept_candidate_occurrences": 550,
+          "kept_distinct_candidates": 114,
+          "kept_low_slack_cuts": 8,
+          "matching_deletion_queries": 40
+        }
+      },
+      "initial_largest_cut": 19,
+      "initial_rank": 14,
+      "labels": 15,
+      "minimum": 2,
+      "minimum_witness_gap": 1,
+      "minimum_witness_largest_cut": 17,
+      "minimum_witness_original_labels": [
+        1024,
+        4096
+      ],
+      "partition_bitmasks": [
+        1,
+        2,
+        16,
+        236
+      ],
+      "ports": 8,
+      "strict_hall_cut_solver": {
+        "cuts_examined": 8,
+        "feasible_cuts": 5,
+        "internal_matching_queries": 5,
+        "strict_hall_queries": 73
+      }
+    },
+    "2": {
+      "horizons": {
+        "1": {
+          "failing_circuits_by_size_and_gap": {},
+          "full_candidate_occurrences": 12,
+          "full_low_slack_cuts": 1,
+          "global_circuits": 12,
+          "kept_candidate_occurrences": 12,
+          "kept_distinct_candidates": 12,
+          "kept_low_slack_cuts": 1,
+          "matching_deletion_queries": 16
+        },
+        "3": {
+          "failing_circuits_by_size_and_gap": {
+            "3,1": 4
+          },
+          "full_candidate_occurrences": 924,
+          "full_low_slack_cuts": 6,
+          "global_circuits": 16,
+          "kept_candidate_occurrences": 572,
+          "kept_distinct_candidates": 572,
+          "kept_low_slack_cuts": 2,
+          "matching_deletion_queries": 56
+        },
+        "5": {
+          "failing_circuits_by_size_and_gap": {
+            "3,1": 4
+          },
+          "full_candidate_occurrences": 38360,
+          "full_low_slack_cuts": 28,
+          "global_circuits": 16,
+          "kept_candidate_occurrences": 4212,
+          "kept_distinct_candidates": 2392,
+          "kept_low_slack_cuts": 4,
+          "matching_deletion_queries": 56
+        }
+      },
+      "initial_largest_cut": 17,
+      "initial_rank": 14,
+      "labels": 16,
+      "minimum": 3,
+      "minimum_witness_gap": 1,
+      "minimum_witness_largest_cut": 0,
+      "minimum_witness_original_labels": [
+        128,
+        2048,
+        32768
+      ],
+      "partition_bitmasks": [
+        1,
+        16,
+        238
+      ],
+      "ports": 8,
+      "strict_hall_cut_solver": {
+        "cuts_examined": 4,
+        "feasible_cuts": 1,
+        "internal_matching_queries": 1,
+        "strict_hall_queries": 17
+      }
+    }
+  },
+  "seeded_pool_checks": {
+    "deletion_pools": 3937,
+    "deletion_states": 3937,
+    "instances": 240,
+    "pools_allowing_coupling": 1072
+  }
+}
