@@ -1,0 +1,19 @@
+{
+  "arguments": {
+    "path": "research_notes/portable_direct/CRT_NINE_PROFILES_ONE_PREFIX_20261127.md",
+    "ref": "70e1643100ddd9aa483e9766a58571bef2fecc52",
+    "repository_full_name": "awdawmip/enterprise-math"
+  },
+  "observation_id": "codex-progressive-nt-20261127-r6-source-2",
+  "result": {
+    "isError": false,
+    "structuredContent": {
+      "content": "# 九种观察配置下的 CRT 单前缀整点恢复\n\n2026-11-27 · 知情作者证明与完整有限复算 · 待项目评审\n\n在完整 CRT 网格上固定非负整数行列边际和整数真实进位。只要任一边至多有九种单前缀观察配置，实数前缀范围 \\([L,U]\\) 内的每个整数都有整数表原像。因此可达整数读数恰是 \\([\\lceil L\\rceil,\\lfloor U\\rfloor]\\cap\\mathbb Z\\)。另一边的大小、互素模数与非负整数载荷任意。本次闭合了[八配置原稿](https://github.com/awdawmip/enterprise-math/blob/863b3c6c096af904e745a9701e3771ee4cb1e2e3/research_notes/portable_direct/CRT_EIGHT_PROFILES_ONE_PREFIX_20261127.md)留下的九阶单位边际核验。\n\n## 直接生成候选\n\n沿用阈值 \\(h,M,M+h\\) 的有序掩码 \\(A,B,D\\)，进位为 \\(B\\)，前缀为 \\(1+B-A-D\\)。每行的三种首 1 列号 \\(a_i,b_i,d_i\\) 满足 \\(0\\le a_i\\le b_i\\le d_i\\le9\\)，各自随行号弱降。由 CRT 代表的跨度小于 \\(M\\)，\\(A=0\\) 和 \\(D=1\\) 两角不能共享行或列。对固定的 \\(a\\) 序列，行相离要求在每个 \\(a_i>0\\) 的行令 \\(d_i=9\\)，列相离要求所有 \\(d_i\\ge a_0\\)。余行只需枚举满足该下界的弱降序列，直接得到 267,410 个外掩码对。\n\n先对 \\((A,D)\\) 取转置、倒序取补交换外掩码所生成四元群的最小代表，再只在这对外掩码的稳定子下选 \\(B\\) 的最小代表。转置保持 \\((e,p)\\)，倒序取补交换把它变为 \\((9-e,9-p)\\)，二者保持整数截面与跨层弦界。每个三重轨道先有唯一的最小外对，随后在稳定子中有唯一的最小中掩码，因此这两级选择等价于一次完整取商。\n\n递推 \\(b_i\\) 时直接用上下限 \\(a_i\\le b_i\\le d_i\\) 与弱降性。若相邻两行的外切点均相同，要求中切点严格下降。这样避免所有重复行配置。相邻两列的配置有异当且仅当其之间的位置出现于某一行某一掩码的切点。凡外掩码尚未出现的内部切点，必须由 \\(b\\) 序列补齐。弱降序使遗漏的最大切点无法在后续行补回，所以每次选择提前排除越过该点或余行不足的情况。被排除的重复行列配置可按既有合并机制缩到八阶，整数与实数分拆同样保持边际和观察。\n\n实际枚举得到 67,638 个外对轨道和 25,467,722 个三重轨道。根据每个代表在四元群中的稳定子计算轨道大小，反算得到 101,769,984 个不同配置的三重掩码。后二数与[既有组合计数](CRT_EIGHT_PROFILES_THRESHOLD_REPLAY_20261127.py)独立算出的九阶值一致。\n\n## 精确观察谱\n\n每个局部单位匹配以已占用列集合为状态。累计观测 \\((e,p)\\) 编在两个 64 位字的第 \\(10e+p\\) 位，共 100 个有效位。加入匹配格只做 0、1、10 或 11 位的移位和集合并。按目标状态读取相差一列的前驱。已配行数至多五时只需要低字，往后保留跨字位。对边界位 63、64、99 使用已知谱作单独测试。\n\n共执行 58,677,631,488 次子集转移，用 Hall 公式逐轨道核对全部进位层。对 170,438,028 个非空整数层验证前缀谱无断点。单位实数表为置换表的凸包，固定整数进位的实数截面端点必来自同层点或跨层弦。对所有跨层弦使用其两端层各自的最小和最大前缀作保守界，以整数交叉乘法验证其下界严格大于目标整数层的最小前缀减一，其上界严格小于目标整数层的最大前缀加一。814,690,542 条弦界全部通过。另在每分片的固定步距上逐格计算全部 \\(9!=362{,}880\\) 个置换，共 99 次独立观察谱比对，与位集结果完全一致。\n\n## 从单位表恢复任意边际\n\n先合并相同配置。给原运输多胞体加一条进位等式后，任一分数切片极点只能来自原来的一条运输边。运输边沿一个简单二分交替环变动，逐格取整后余量在环用到的各行列上各有单位边际。环每边至多九行，因而可在该完整子表用已经验证的单位观察谱把前缀改到相差严格小于一的整数，同时固定进位。若余量来自全局实数最小值，这个整数只能等于 \\(\\lceil L\\rceil\\)，最大值同理得到 \\(\\lfloor U\\rfloor\\)。固定进位的整数表由保进位的单位方格交换连接，每步前缀最多变一。两整数端点间的各值因此都能恢复，合并后的载荷可整数分拆回原边际。运输边与交换的适用条件见[六配置证明](https://github.com/awdawmip/enterprise-math/blob/a6e5f8aa371f9b02a97f5e6ac19a97700383032e/research_notes/portable_direct/CRT_SIX_ROWS_ONE_PREFIX_20261127.md)。\n\n## 固定复算与边界\n\n在本目录运行。三个分片按同一确定顺序为外对轨道编号，各分片只处理编号模三的对应余数。覆盖计数建立在互不交叠的外对轨道上。固定结果 JSON 同时保留三个原始输出及其加总，与 `count(9)` 作了独立核对。\n\n~~~sh\ng++ -O3 -Wall -Wextra -Wpedantic -Werror -std=c++20 -march=native CRT_NINE_PROFILES_ONE_PREFIX_REPLAY_20261127.cpp -o /tmp/crt_nine_profiles\npids=()\nfor shard in 0 1 2; do\n    timeout 150s /tmp/crt_nine_profiles \"$shard\" 3 > \"crt-nine-$shard.json\" &\n    pids+=(\"$!\")\ndone\nstatus=0\nfor pid in \"${pids[@]}\"; do\n    wait \"$pid\" || status=1\ndone\ntest \"$status\" -eq 0\n~~~\n\n三分片均在时限内退出且无错。若出现失败，复算器保留三张掩码的逐行切点、失败进位层和两套完整整数读数，供查验真实 CRT 可实现性。九阶结论只涉及两角相离的抽象有序掩码，对 CRT 足以覆盖原模型。禁格、联合前缀或十配置的情形仍需自己的证据。现有计数代码的 `count(10)` 得出 233,522,454 个十阶轨道、1,195,634,964,480 条候选子集转移，仅执行了计数。下一步可研究为何跨层弦界在已核验的全域内总能保持，或用中掩码的 Hall 层宽缩小待查域。\n",
+      "display_title": "CRT_NINE_PROFILES_ONE_PREFIX_20261127.md",
+      "display_url": "https://github.com/awdawmip/enterprise-math/blob/70e1643100ddd9aa483e9766a58571bef2fecc52/research_notes/portable_direct/CRT_NINE_PROFILES_ONE_PREFIX_20261127.md",
+      "encoding": "utf-8",
+      "sha": "d78a0656ec53ad291828f536d6d5fdb84b7ae6dc"
+    }
+  },
+  "tool_name": "mcp__codex_apps__github_fetch_file"
+}
