@@ -1,0 +1,33 @@
+# X6 无界负 $f$ 楔域排除与无排序截距消元
+
+保持 Port 10、六对联合 BRC、权重 $(17t,B,22t,D)$、1,935 个方向、严格 $3/2$ 近优方向集与合法最优项。继承必要支撑墙和五层纯线性后缀容量上界。假设六深树只在首步使用一个满秩二次查询 $Q=a t^2+b B^2+cD^2+d tB+e tD+fBD$，把严格芽的共同分支定向为 $c>0$。本轮排除整个
+$$
+f<-18c,\qquad e+17f\ge-31c
+$$
+无界楔域，包括等号壁 $e+17f=-31c$ 和所有内部阈值并列。在与此前有界带结果合用时，$c>0$ 的剩余首步根必须满足 $3e+68c<0$ 或 $e+17f+31c<0$。这个必要条件已无独立的 $f$ 截断，仍未判定 $K_6$。 [此前到 $-12c$ 的闭域](https://github.com/awdawmip/enterprise-math/blob/6cc7a12082a8bd1120b28bdbf3d5c3da08852565/research_notes/portable_direct/2026-11-27_x6_adjacent_infinity_boundary/README.md) · [同轮到 $-18c$ 的有界带](../2026-11-27_x6_infinity_second_strip/README.md)
+
+## 无排序的截距约束
+
+固定一条铅笔的纵标 $s_i=D_i/r_i$，令 $K=aT^2+dTU+bU^2$，$\tau_i=-cs_i^2-(eT+fU)s_i$。端点符号词要求 $K$ 大于每个标正的阈值，小于每个标负的阈值。出现零时，可以取一个零阈值为 $K$，对其余标零项要求阈值等同，逐条比较所有严格项。无零时，截距区间下端为正阈值的最大、上端为负阈值的最小，缺失的一侧为无穷。非空性直接由每对下界严格小于上界判断。在这些局部约束下，区间或是开区间，或是单点。
+
+对四个铅笔，取其截距行 $(T^2,TU,U^2)$ 的带号余子式 $w_j$。四个截距需同时满足 $\sum_j w_j K_j=0$。对任一整体方向 $s=\pm1$，可能的加权截距和的上端为各 $s w_j K_j$ 的极值之和。每个有限极值均是仿射候选列表的最小值。若 $s w_j>0$，使用全部原上界；若 $s w_j<0$，乘负数后使用全部原下界。于是上端为全部仿射和的最小值，条件是每项和都通过相同的上端比较。至少一个区间是开区间时严格比较，无穷上端自动通过。四个区间均为单点时用弱比较，两方向合并恰为等式。这样直接保留零端点及严格性，不需要先把斜率空间切成所有阈值次序面。所有四元约束共同充分来自三维截距系数空间上的 Helly 定理。 [原四元关系](https://github.com/awdawmip/enterprise-math/blob/b091d79f5b7b493918b181750b2494c3688799a2/research_notes/portable_direct/2026-11-27_r2_x6_r261_all_pencil_circuit_helly.md)
+
+## 无界楔域中的精确执行
+
+取 $(x,y,z)=(e+17f+31c,-f-18c,c)$，则 $x\ge0,\ y,z>0$，逆变换是 $e=x+17y+275z,\ f=-y-18z$。可以在正射影尺度下归一 $x+y+z=1$。除 $t=0$ 铅笔外，另外 16 条保持固定阈值顺序，仅 $B=17t$ 的第一对在 $x=0$ 时并列。程序逐条验证差行的系数非负，且非指定并列行在 $y$ 或 $z$ 上有严格正项。$t=0$ 四点的符号词则用正首系数二次式的根结构一次性列出全部 33 项，包括所有空或连续负号段、一个零点及两个零点。若只一条铅笔有多个阈值候选，每个四元上端比较至多产出四条仿射约束。无需分别重跑 $f/c=-23,-29,-30$ 分割出的四个区间。
+
+程序在可行斜率多边形上逐步加弱裁剪，以每条严格行在某顶点取正检查共同严格可行性。每个前缀保留已定端点芽与未知芽，并做标签及精确后缀必要检查。全部 17 条铅笔处理完毕，16,702,632 次容量分割检查得到 46 个部分分割，无全严格项。46 项均可在 $x>0$ 实现，其中 9 项同时可在 $x=0$ 的壁上实现。分别有 2、3、4、5 个零点的候选数是 2、15、23、6。独立切线阶段延用首阶符号及首阶为零时的二阶规则，保留每个零点的编号和所有芽。876 次部分切线选择、1,504,852 次容量分割检查后，无完整分割。放宽的必要条件已矛盾，无需进一步耦合所有局部切线。 [冻结输入 R247](https://github.com/awdawmip/enterprise-math/blob/7e54892a45579bdc497c27e061399339d1fb3512/research_notes/portable_direct/2026-11-27_r2_x6_r247_two_anchor_signed_primary_faces.md)
+
+仿射和展开额外对照了 7,392 个基于 Python Fraction 的直接截距上端判断，覆盖固定有理射影点、阈值碰撞和 $x=0$ 壁。对照检查支持展开实现，完整覆盖来自上述截距与裁剪证明。剩余半平面可用同一机制把多个可变排序铅笔同时引入。输入仍须保留所有符号词、相等阈值和实际后缀条件。此处为冻结实例内精确排除，未作 Lean 形式化或正式独立审定。
+
+## 本地复算
+
+解包 [本轮源文件与精确结果](reproduction.json)，从既有复算包提取 `replay.cjs` 和保留零点集的 `tangent_provenance.js`，取 R247 原文为 `R247.md`。
+
+```sh
+node replay.cjs R247.md wedge.js > /tmp/x6-low-wedge-endpoints.json
+node replay.cjs R247.md tangent_provenance.js /tmp/x6-low-wedge-endpoints.json > /tmp/x6-low-wedge-tangents.json
+python check_bounds.py replay.cjs R247.md wedge.js
+```
+
+将两个 JSON 输出与包内精确记录逐对象比较。 [固定加载器](https://github.com/awdawmip/enterprise-math/blob/9eacaaa7040c51c3be61f204a9c5d8e464f95936/research_notes/portable_direct/2026-11-27_x6_c_nonzero_threshold_faces/reproduction.json) · [固定切线实现](https://github.com/awdawmip/enterprise-math/blob/a81e850c387f2759776498bcb60245a587624e7f/research_notes/portable_direct/2026-11-27_x6_monotone_chamber_correction/reproduction.json)
