@@ -1,0 +1,48 @@
+# X6 的两铅笔变序带与 $-51c$ 界
+
+冻结 Port 10、六对联合 BRC、权重 $(17t,B,22t,D)$、1,935 个方向、严格 $3/2$ 近优集合及合法最优项，沿用必要支撑墙和五层纯线性后缀容量上界。若六深树的唯一二次查询在根且满秩，写 $Q=a t^2+b B^2+cD^2+d tB+e tD+fBD$，整体交换严格芽分支以定向 $c>0$。本轮排除完整区域
+$$
+-51c\le e<-34c,\qquad e+17f+31c\ge0.
+$$
+它包含开侧的全部阈值并列、$e=-51c$ 和 $e+17f+31c=0$ 两边及公共顶点。与已有域合并，剩余根必须满足 $e<-51c$ 或 $e+17f+31c<0$；总体 $K_6$ 未定。$t=0$ 铅笔在本域严格排序，R273 的两铅笔各有两零例不发生。 [此前 $-34c$ 界](https://github.com/awdawmip/enterprise-math/blob/70e1643100ddd9aa483e9766a58571bef2fecc52/research_notes/portable_direct/2026-11-27_x6_negative_e_first_strip/README.md) · [R273](https://github.com/awdawmip/enterprise-math/blob/9a92a7a6be912cfbad2efeb719db6c117dce1384/research_notes/portable_direct/2026-11-27_r2_x6_r273_infinity_double_pencil_closure.md)
+
+## 两个变序铅笔的精确词库
+
+取 $(x,y,z)=(e+17f+31c,-e-34c,c)$，带内 $x\ge0,\ 0<y\le17z$，闭包在 $x+y+z=1$ 的三个齐次顶点为 $(1,0,0),(0,17,1),(0,0,1)$。逆变换是 $e=-y-34z,\ f=(x+y+3z)/17$。铅笔 $(T,U)$ 的每个端点阈值 $\tau=-cs^2-(eT+fU)s$ 都是该坐标的线性式。用三顶点检查非负差，并用 $(0,17,1)$ 的严格值覆盖整个 $y>0$，证明 15 条铅笔保持排序，只有 $B=17t$ 的首对可在 $x=0$ 并列。其余两个铅笔如下。 [冻结 R247](https://github.com/awdawmip/enterprise-math/blob/7e54892a45579bdc497c27e061399339d1fb3512/research_notes/portable_direct/2026-11-27_r2_x6_r247_two_anchor_signed_primary_faces.md)
+
+| 变序铅笔 | 归一斜率范围 | 精确并列值 | 端点符号词 |
+|---|---|---|---|
+| $B=0$ | $e/c\in[-51,-34)$ | $-51,-99/2,-153/4$ | 34 |
+| $(T,U)=(2,5)$ | $(2e+5f)/c\in[-1634/17,\infty)$ | $-78,-173/3,-169/3,-52$ | 29 |
+
+每个阈值差只在对应两纵标之和的负数处换号。各铅笔逐个精确并列值和相邻开区间取一个有理代表，依次列出所有阈值截点与开间所给三值词，保留每个端点的稳定编号。两条变序铅笔各只有最小纵标的阈值在移动，其余阈值之间顺序固定。$B=0$ 的后两最低固定纵标之和为 $170/3>51$，$(2,5)$ 的为 $295/3>1634/17$。以独立 Python Fraction 实现复核全部 63 个词，并对固定词和样本斜率做 904 个压缩前后的端点极值比较，无差异。
+
+## 两条变序铅笔的上界压缩
+
+固定端点符号词，无零点时，截距下端是正符号阈值最大值，截距上端是负符号阈值最小值。一条铅笔若只有一个阈值移动，则每端只需保留移动阈值与同号固定阈值中的极端一项。其它同号固定项的顺序已知。保留全部真实上、下端，几何可行域不变。出现零点时，截距由任一零阈值给出，另外零阈值等同，并逐项验证所有严格正负关系。
+
+四铅笔余子式给出截距间的唯一齐次关系。对任一个带号上端比较，正权用上端，负权用下端乘其权，所得两者均是有限仿射列表上的最小值。各项相加等于所有独立取法的最小值，所以要求每一个仿射和过检。两条变序铅笔至多各给两行，每个四元方向至多展开四行。所有这些行作用在同一个斜率多边形上，共同保留两铅笔的耦合。若任何截距区间开，有限上端检验用严格不等式。均为单点时弱检验的两方向合取给等号。Helly 定理把任何大于四条的相容性还原到完整的四元检验。 [无排序截距关系](https://github.com/awdawmip/enterprise-math/blob/863b3c6c096af904e745a9701e3771ee4cb1e2e3/research_notes/portable_direct/2026-11-27_x6_infinity_low_wedge/README.md)
+
+## 完整排除
+
+端点阶段完成全部 17 条铅笔，执行 20,441,197 次容量分割检查，留下 297 个部分分割，无全严格项。288 项可在两边内侧实现，9 项只能在 $e=-51c$ 边实现。每项仍保留所有可行边标签。1、2、3、4、5 个有限零点的候选分别有 4、50、128、97、18 项。
+
+切线阶段允许不同零点的首阶协向量先独立选择，首阶为零仍保留二阶符号，完整分割与零点集联合去重。在 17,966 次部分选择及 7,161,977 次容量分割检查后，剩余 26 个完整分割与零集配对，来自 13 个不同完整分割。该配对集合与上一斜率带恰好相同。共同系数阶段先在本轮新域重新计算，再去掉所有 $e,f$ 域限制独立复核。 [固定切线实现](https://github.com/awdawmip/enterprise-math/blob/a81e850c387f2759776498bcb60245a587624e7f/research_notes/portable_direct/2026-11-27_x6_monotone_chamber_correction/reproduction.json)
+
+在已知零点的整系数核内取正 $c$ 仿射截面，得到 19 个一维和 7 个二维问题。把零点到 $q$ 的首阶符号求解写为严格或弱约束。已知二阶 $Q(q)$ 带目标符号时允许首阶零；否则首阶必须严格。去掉本轮上下界和共壁约束后，准确的 Fourier–Motzkin 消元仍排除全部 26 项。归档给出 23 份两行、2 份三行、1 份四行的正整数加权矛盾证书。独立 Python 重算全部证书的加权结果，另一版本的无证书有理投影也得到同样结论。这 26 个配对因此在任意 $c>0$ 的域内都不可实现，后续可直接复用其证书。新的配对仍需检查。
+
+下一步可研究 $\lambda=(2e+5f)/c$ 首次使两个固定阈值并列的侧界。当 $x\ge0$ 时 $\lambda\ge(29e/c-155)/17$，首次新阈值和为 $295/3$，因此它发生在 $(e/c,\lambda)=(-4550/87,-295/3)$ 的极端位置。这是现有两行极端压缩方案下一处需要扩充证明的边界。剩余半平面及外带仍开放。结果只涉及冻结 BRC 辅助权重系数，未作 Lean 形式化或正式独立审定。
+
+## 复算
+
+[本轮固定代码及输出](reproduction.json)。使用冻结 R247 原文 `R247.md`，从既有复算包取 `replay.cjs`、`tangent_provenance.js`。本轮源码包自带 `check_certs.py`。
+
+```sh
+python check_local_words.py
+node replay.cjs R247.md strip.js > /tmp/x6-negative-e-second-endpoints.json
+node replay.cjs R247.md tangent_provenance.js /tmp/x6-negative-e-second-endpoints.json > /tmp/x6-negative-e-second-tangents.json
+node replay.cjs R247.md coupled.js /tmp/x6-negative-e-second-tangents.json > /tmp/x6-negative-e-second-coupled.json
+python check_certs.py /tmp/x6-negative-e-second-coupled.json
+```
+
+逐对象比较结果。 [加载器包](https://github.com/awdawmip/enterprise-math/blob/9eacaaa7040c51c3be61f204a9c5d8e464f95936/research_notes/portable_direct/2026-11-27_x6_c_nonzero_threshold_faces/reproduction.json)

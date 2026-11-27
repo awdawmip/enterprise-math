@@ -17,7 +17,7 @@
 - \(j\ne t-1\) 时，含维修坐标的每层最多三枚，直接用各层的三种阶。\(t=0\) 时只有根叶和两枚深度一的维修坐标。
 - \(j=t-1\)、\(t\ge4\) 时，取深度 \(t-1\) 的梳状树并分裂其深度一的叶，得到 \(t+1\) 个叶。深度二恰有三叶，深度 \(t\) 只有维修坐标。
 - \(t=2,j=1\) 时，梳状树在深度二有两叶，加入两枚维修坐标共需四枚。原阶 6720 有至少两枚可用素数。
-- \(t=3,j=2\) 时，取全深度二的四叶树，维修坐标放到深度三。原阶 1120 有至少两枚可用素数。
+- \(t=3,j=2\) 时，取全深度二的四叶树，维修坐标放到深度三。同样使用原阶 6720 的两枚可用素数。阶 6720 位于深度二。
 
 各层的阶彼此不重合，分配时总可保留指定的 \(q\)，包括它位于同阶中有两枚的情形。
 
@@ -27,7 +27,7 @@
 
 ## 有限库存复算
 
-把[预算 19 的归档复算包](https://github.com/awdawmip/enterprise-math/blob/660f791ed86d245524e32610ee73bbb65db38085/research_notes/portable_direct/riesel_r4_nineteen_sharp_20261125/reproduction.json)存为 \(\texttt{budget19.json}\)。固定旧坐标只需检查哪些候选阶整除 \(q-1\)。有 78 个不同的旧坐标和锚，15 个可整除的阶候选，零碰撞。阶 1120 在去掉 16824641 后的原始部分仍有 360 位，阶 6720 在去掉 16141441 后仍有 1513 位，故两阶各有第二枚可用素数。
+把[预算 19 的归档复算包](https://github.com/awdawmip/enterprise-math/blob/660f791ed86d245524e32610ee73bbb65db38085/research_notes/portable_direct/riesel_r4_nineteen_sharp_20261125/reproduction.json)存为 \(\texttt{budget19.json}\)。固定旧坐标只需检查哪些候选阶整除 \(q-1\)。有 78 个不同的旧坐标和锚，15 个可整除的阶候选，零碰撞。阶 6720 在去掉 16141441 后的原始部分仍有 1513 位，故该阶有第二枚可用素数，供上述两个小层数的深度二分配。
 
 ~~~python
 import json
@@ -55,13 +55,13 @@ for q in old:
             d *= 2
 assert (len(old), checks) == (78,15)
 
-for d,q,bits in ((1120,16824641,360),(6720,16141441,1513)):
-    assert all(q%k for k in range(2,isqrt(q)+1)) and exact_order(q,d)
-    n = 2**d-1
-    excluded = prod(2**(d//p)-1 for p in (2,3,5,7) if d%p == 0)*q
-    while (factor := gcd(n,excluded)) > 1:
-        n //= factor
-    assert n > 1 and n.bit_length() == bits
+d, q = 6720, 16141441
+assert all(q%k for k in range(2,isqrt(q)+1)) and exact_order(q,d)
+n = 2**d-1
+excluded = prod(2**(d//p)-1 for p in (2,3,5,7) if d%p == 0)*q
+while (factor := gcd(n,excluded)) > 1:
+    n //= factor
+assert n > 1 and n.bit_length() == 1513
 ~~~
 
 这些阶族与统一最高阶相容。下一步可改变原锚留下的唯一孔，检验三族之外的坐标能否同样被强制。
