@@ -33,8 +33,9 @@ function replay(){
       const cache=new Map();
       function feasible(Q){for(let i=0;i<old.f.length;i++){stats.finiteIndependenceCoordinateTests++;if(pop[Q&old.f[i]]>a.v[i])return false}return true}
       function rank(Q){if(cache.has(Q))return cache.get(Q);stats.finiteRankCalls++;let I=0;for(let q=Q;q;q&=q-1){let y=q&-q;if(feasible(I|y))I|=y}let r=pop[I];cache.set(Q,r);return r}
-      skip={...a,v:next.f.map(rank)};
-      if(feasible(bit))take={v:next.f.map(Q=>rank(Q|bit)-1),p:a.p+x.p,s:a.s+x.s,mask:a.mask|bit};
+      const prior=next.w.map(w=>old.w.indexOf(w));
+      skip={...a,v:next.f.map((Q,i)=>(old.f[prior[i]]&bit)?rank(Q):a.v[prior[i]])};
+      if(feasible(bit))take={v:next.f.map((Q,i)=>(old.f[prior[i]]&bit)?a.v[prior[i]]-1:rank(Q|bit)-1),p:a.p+x.p,s:a.s+x.s,mask:a.mask|bit};
      }else{
       skip={...a,v:a.v.map((v,u)=>sub(u,b)?v:-1)};
       if(a.v[x.e]>=2)take={v:a.v.map((v,u)=>!sub(u,b)?-1:u===0?0:Math.min(v,a.v[u|x.e]-1)),p:a.p+x.p,s:a.s+x.s,mask:a.mask|bit};
@@ -52,7 +53,7 @@ function replay(){
       if(ok){if(finite&&!actualDenseDom(q,a,b))stats.finiteExtraDominance++;dominated=true;break}
      }if(!dominated)keep.push(a)}
     states=keep;stats[finite?"finiteStates":"baselineStates"]+=states.length;
-    stats[finite?"finiteEntries":"baselineEntries"]+=states.length*(finite?next.f.length:2**pop[b]);
+    stats[finite?"finiteEntries":"baselineEntries"]+=states.length*(finite?next.f.length:2**b.toString(2).replace(/0/g,"").length);
     let peak=finite?"peakFinite":"peakBaseline";stats[peak]=Math.max(stats[peak],states.length);
     if(finite&&states.length){for(let a of [states[0],states[states.length-1]])for(let i=0;i<next.f.length;i++){stats.rankSampleChecks++;check(a.v[i]===rankDirect(a.mask,next.f[i]),"rank transition")}}
    }return states;
