@@ -1,0 +1,43 @@
+# EC49GBW — Exact integer budget recovery by prefix-deficit faces
+
+Status: AUTHOR_PROVED / EXACT_FINITE_SYNTHETIC_BRUTE_REPLAY / NOT_REVIEWED.
+Predecessor: d4cecab6890929af925cbc6eed89315e6eea71db:research_notes/portable_direct/EC49GBV_HETEROGENEOUS_CAPACITY_BUDGET.md (read this turn). Inherited scientific pin BRC16943 unchanged; archive bytes not reread in this turn. The auxiliary labeled strict-Hall combinatorial model, not a native physical coordinate or Heartbeat simulation, is the domain of the theorem. Preserve all label/mask/cost data, P000 and joint-relation constraints.
+
+## 1. Exact residual identity
+
+Use the GBU/GBV capacity-lift matroid M with actual labels X and dummy labels D. An independent set S retains actual labels S intersect X and keeps dummy labels S intersect D. For nonnegative actual rewards v and nonnegative release costs a, let P(S)=sum retained v, C(S)=a(D)-sum kept a. Fix budget B and lambda>=0. Give actual labels score v_x and dummy labels score lambda*a_e. Order all N labels by decreasing score s_j (fixed ties), write A_j for the first j labels, and put s_(N+1)=0. Let g_j=s_j-s_(j+1), r_j=r_M(A_j), d_j(S)=r_j-|S intersect A_j|. Every d_j is nonnegative for independent S. Prefix-greedy optimality and telescoping imply
+
+  H(lambda)=sum_j g_j*r_j-lambda*a(D),
+  U=H(lambda)+lambda*B,
+  U-P(S)=sum_j g_j*d_j(S)+lambda*(B-C(S)).
+
+This is an exact identity, not merely a bound: the two nonnegative residuals for a budget-feasible S are weighted prefix rank deficiency and unused budget. For any feasible incumbent L, every optimum (indeed every feasible S with P>=L) satisfies sum_j g_j*d_j<=U-L and lambda*(B-C)<=U-L. For g_j>0 the individual integer deficiency is <=floor((U-L)/g_j). For lambda>0 the feasible competitive cost must be >=B-(U-L)/lambda. If g_j>U-L the prefix must be saturated. With integer rewards a search for strict improvement may use L+1 in place of L, retaining the incumbent separately. The proof works for any nonnegative real scores; rational scaling permits exact integer comparisons in the implementation.
+
+## 2. Exact factorization of the competitive face
+
+Choose any chain of forced saturated prefixes A_(j1) subset ... subset A_(jk), including the full set if forced. Set A_0=empty. The independent sets satisfying |S intersect A_(jt)|=r(A_(jt)) for each forced t are exactly the unions of independently chosen bases of the minors (M|A_(jt))/A_(j(t-1)), together with an arbitrary independent set in M/A_(jk) on the remaining labels. When no prefix is forced, use M alone; when the full ground is forced there is no tail.
+
+Proof: inductively the selected labels in the preceding prefix are a basis B' of that prefix, with closure containing the prefix. For any disjoint T in the next block, r(B' union T)=r(A_prev union T), and |B'|=r(A_prev). Thus B' union T is independent precisely when T is independent in the contraction M/A_prev. The new saturation condition says |T|=r(A_next)-r(A_prev), exactly a basis of the restricted minor. This proves both directions inductively, with the same rank identity for the final independent tail. In particular any chosen canonical basis of A_prev serves as an independence oracle for the minor, independent of the earlier actual label choices.
+
+The competitive region is contained in this forced face; the converse need not hold because small-gap deficits and budget slack are still live. Nonetheless, exact budget optimization on this face attains the original integer optimum, since at least one globally optimal S is retained and all face points are original independent sets. The argument keeps the full relation model as source; only a fixed (weights,costs,B,L,lambda) optimization search is reduced, not future arbitrary edits.
+
+## 3. Constructive exact algorithm
+
+Use GBV parameter scores at rational breakpoints and zero to get an exact upper bound U (minimum among evaluated supports) and a feasible incumbent L (best tested feasible greedy solution). Ties in the replay are tested both ways, not all intermediate adjacent swaps; the bound is valid regardless and this is not a claim of maximum possible incumbent quality. If floor(U)=L for integer rewards, stop with an exact certificate. Otherwise find the forced prefix chain. In each block enumerate admissible local sets, using a fixed greedy basis of the preceding prefix to test contraction independence. Require full local rank for a forced end. Charge cost of excluded dummy labels and reward of included actuals to their own block. Maintain the maximum reward at each integer cost and its local witness. Combine tables by exact max-plus cost convolution, ignoring costs above B; select maximum reward at cost <=B, with combined labels. The factorization proves that each local choice can be combined independently as a matroid set. The only remaining coupling is the integer budget.
+
+For block sizes n_t, enumeration visits sum_t 2^(n_t) local subsets, as opposed to 2^N raw global subsets; this does not include independence-oracle, table building, support search or convolution costs. For dense integer costs <=B, naive max-plus convolution costs O(number of blocks * (B+1)^2); sparse tables may avoid many pairs. No polynomial-in-bit-budget claim; GBV knapsack obstruction remains. A strong gap can force a large structural reduction, but no uniform reduction is guaranteed.
+
+## 4. Executed finite replay
+
+Code: 9b6c5202779d56b4005220e3a486e2c6d20f73ce:research_artifacts/portable_direct/EC49GBW/prefix_face_replay.js; blob b99870298d170c098352f54d575aa5e41c1939b9, exact remote text readback. Executed identical JavaScript function in available JS runtime (node path is reproducible but no Node benchmark measured). Seed 20261127; 400 generated models; n=1..4, m=1..7 actuals, d=1..5 auxiliary labels; positive base capacities 1..3, actual nonempty adjacency masks, rewards 1..15, costs 1..11. Highest capacities add one per dummy label. The reference exhausts all actual/dummy subsets and nonempty strict Hall constraints (early stop upon violation) to build a feasible-set oracle and exact budget optima. The replay uses that same exact oracle to build greedy prefixes and local contraction checks; this verifies the face reduction and DP, not a separate matching implementation. All integer budgets from zero through total dummy cost are tested; recovered DP label witnesses are checked directly against the original oracle and cost/reward.
+
+Output:
+{"seed":20261127,"models":400,"referenceSubsets":172360,"budgets":7301,"certifiedWithoutDP":5382,"dpBudgets":1919,"forcedCuts":2582,"multiBlockDP":1127,"blockSubsetChecks":802472,"unfactoredSubsetUniverse":1596320,"dpPairs":8598,"nonSupportedGap":50,"disagreements":0}
+
+The 50 cases counted as nonSupportedGap mean the tested feasible greedy incumbent was strictly below exact optimum; this does not establish that every optimum in those cases is nonsupported. On the 1919 unresolved budgets, local subset enumeration counted 802472 vs 1596320 hypothetical unfactored subset visits (not wall-clock speed or end-to-end reduction). 1127 of those budgets had multiple blocks. No frozen archive replay or physical roots executed. GBT inherited physical frontier only: 1991 YES, 68 NO, 334 other, next 2046, 25<=M14<=27.
+
+## 5. Control and next question
+
+Global canonical entry blobs verified together at 562852a9066547b5fd81dfdf525be557374eebf3 (bootstrap 25ae05640c7920104820dba91a1df5e9fafca25e, manual 108cd58e0458070b5f1a8171d2f66c8c3d0aa613). Source canonical control f34fc13a7fff1fe43ba0de68dd794163695f09b3; read applicable research entry, method, portable rules, P000 V4/V5, worldview and joint relation / residual constraints. Native read r4-20261127-2326-read-ec49as SUCCEEDED, NO_CANONICAL_PUBLICATION_DIRECTORY at 2026-11-27T15:27:22.111600+00:00; native operational owner projection skipped, no claim or formal task execution. Historical researcher provenance EM-DIRECT-23537B, private binding not confirmed. Independent portable continuation with isolated new research branch, no replacement identity. Activity association and canonical integration pending.
+
+Next: exploit bounded positive prefix deficits rather than only zero deficits, with contraction state or separator interface that provably preserves the interaction across non-tight prefixes; compare sparse DP to exact constrained greedy branch-and-bound on frozen BRC16943 once exact archive is recovered. Implement the capacity-level matching oracle and compare end-to-end costs. Preserve GBV's fixed-rank/PTAS and GBU compressed allocation implementation obligations and physical-root frontier.
