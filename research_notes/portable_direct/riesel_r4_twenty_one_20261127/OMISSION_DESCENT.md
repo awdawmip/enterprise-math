@@ -1,9 +1,3 @@
-<stdin>:4: SyntaxWarning: invalid escape sequence '\('
-<stdin>:4: SyntaxWarning: invalid escape sequence '\('
-<stdin>:6: SyntaxWarning: invalid escape sequence '\('
-<stdin>:6: SyntaxWarning: invalid escape sequence '\('
-<stdin>:7: SyntaxWarning: invalid escape sequence '\('
-<stdin>:7: SyntaxWarning: invalid escape sequence '\('
 # Riesel R₄ 漏项分支的有限预算归约
 
 2026-11-27 · 知情作者推导与整数复算 · 待项目独立评审
