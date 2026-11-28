@@ -1,0 +1,99 @@
+{
+  "stats": {
+    "seed": 20261128,
+    "models": 350,
+    "originalSubsets": 376960,
+    "legalSiblingPairs": 2570,
+    "rejectedPairs": 230,
+    "rootQueries": 18562,
+    "cacheZeroLoss": 9419,
+    "tightLocalReuse": 258,
+    "tightRepair": 1,
+    "strictLocalRepair": 0,
+    "fullFallback": 8884,
+    "flowCallsOld": 18562,
+    "flowCallsNew": 8885,
+    "baselineNewPorts": 89358,
+    "actualNewPorts": 45558,
+    "intervalChecks": 18562,
+    "slackOnlyFalse": 80,
+    "sameInsideCounts": 11617,
+    "strictBound": 7276
+  },
+  "firstSameSlackCounterexample": {
+    "c": [
+      2,
+      1,
+      4,
+      1,
+      4,
+      1
+    ],
+    "E": [
+      47,
+      60,
+      16,
+      45,
+      42,
+      22,
+      41
+    ],
+    "v": [
+      1,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "w": [
+      1,
+      0,
+      0,
+      0,
+      1,
+      1,
+      1
+    ],
+    "root": 60,
+    "old": {
+      "U": 60,
+      "slack": 10
+    },
+    "new": {
+      "U": 62,
+      "slack": 9
+    }
+  },
+  "explicitCounterexample": {
+    "c": [
+      2,
+      1
+    ],
+    "E": [
+      1,
+      3
+    ],
+    "v": [
+      0,
+      2
+    ],
+    "w": [
+      1,
+      1
+    ],
+    "root": 1,
+    "old": {
+      "U": 3,
+      "slack": 1,
+      "ports": 2
+    },
+    "new": {
+      "U": 1,
+      "slack": 1,
+      "ports": 2
+    }
+  },
+  "mismatches": 0
+}
