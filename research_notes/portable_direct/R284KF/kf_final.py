@@ -31,7 +31,7 @@ def modC(q,d,M):
   V=(V+a)%M;Q=(Q+b)%M;A=(A+(u-k)*(u+k+2)*iv*(a+b))%M
  E=U[d]*(u-d)*(2*d+3)*(n+2)*pow(2*(2*u+1)*(4*n+2),-1,M)%M
  Z=(q*A+Q+V)%M
- return (3*q*(4*q+3d+1)**2*(A+E)*Q-32*(3*q+d+1)*Z**2)%M
+ return (3*q*(4*q+3*d+1)**2*(A+E)*Q-32*(3*q+d+1)*Z**2)%M
 
 def cert():
  from math import isqrt
