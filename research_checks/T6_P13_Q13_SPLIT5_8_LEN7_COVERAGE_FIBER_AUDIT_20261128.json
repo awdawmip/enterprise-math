@@ -1,0 +1,3381 @@
+{
+  "schema": "T6_P13_Q13_SPLIT58_LEN7_COVERAGE_FIBER_AUDIT_V1",
+  "status": "AUTHOR_EXACT_CHECKED / UNREVIEWED / NOT_ADMITTED",
+  "mother": "T6=2332 OPEN",
+  "frozen_science": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "scope": "Exact author-side coverage and witness-fiber audit; no search replay, no independent kernel attestation.",
+  "authority": {
+    "conversation": "chatgpt-research-onhour-enterprise-math-20260923",
+    "activity": "RA-A468735D7C934B25C4B9614F",
+    "researcher": "EM-DIRECT-D03BC9",
+    "session": "MCP-7f3df4435e40430b832e8d5ff2137718",
+    "protected_claim_run": "UNVERIFIED",
+    "ordinary_pending_request": "onhour-20261128-0200-recovery-v1",
+    "issue": 7066
+  },
+  "basis_source": {
+    "path": "research_checks/T6_P13_Q13_SPLIT0_13_AUTHOR_EXACT_CERT_20261126.json",
+    "ref": "8fd2d6ff7f721894bad621f534e65dbbd0600892",
+    "blob": "bcab5ce85b368d2b65a74340ceadb4527da0f01e",
+    "sha256": "8138689f2424c9fb231c82128e8adced666ea2de3107fd4c3710a77e9d767f6d"
+  },
+  "prior_audit": {
+    "path": "research_checks/T6_P13_Q13_SPLIT5_8_LEN6_COVERAGE_FIBER_AUDIT_20261128.json",
+    "ref": "a4f50b57a98295679b4f3bd7c9ebae78b33511b5"
+  },
+  "result": {
+    "sources": [
+      {
+        "repository": "awdawmip/enterprise-math",
+        "commit": "586a8db726c985bd324c75e4f72429e15386a256",
+        "path": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS5_POS14_POS23_PARTIAL_CERT_20261127.json",
+        "sha256": "4a8833658e166de23323aca0d9addfb51a5049b6c5cd77ae9feade2f1ddee9b0",
+        "publication_state": "VERIFY_EM_PUBLICATION",
+        "blob": "880e53ea39ab1e9884eda2c4f78bbd415289d448",
+        "normalization": [
+          "canonical representatives regenerated from complete witness rows and independently verified against source counts; original representative rows absent"
+        ]
+      },
+      {
+        "repository": "awdawmip/enterprise-math",
+        "commit": "57cad87ed4aa66ebcc2931967a72d1994521a878",
+        "path": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS113_COMPLETE_CERT_20261127.json",
+        "sha256": "54d42c7716e4ce422e40e95edc30d54b2564da9a314feccd9808eaa57e7e5932",
+        "publication_state": "VERIFY_EM_PUBLICATION",
+        "blob": "0c0cc2520c4398db9552aa7f3181436f8f96e72c",
+        "normalization": [
+          "canonical representatives regenerated from complete witness rows and independently verified against source counts; original representative rows absent"
+        ]
+      },
+      {
+        "repository": "awdawmip/enterprise-math",
+        "commit": "96e38786c663c0c3b6fd44e44a2821d541e9ae68",
+        "path": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS122_COMPLETE_CERT_20261127.json",
+        "sha256": "afa1462702d34c1b102a44113d9846ee4d111691ea353f4d6960c6b6a995e70f",
+        "publication_state": "VERIFY_EM_PUBLICATION",
+        "blob": "e642462d7e6a084574983cc3cd1994c4adc5738f",
+        "normalization": []
+      },
+      {
+        "repository": "awdawmip/enterprise-math",
+        "commit": "15cbe6c21a4d151dde3196a518a0f08f9bcc909e",
+        "path": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS1112_SHARD0_10000_CERT_20261127.json",
+        "sha256": "aaa26892df1418892b22a8864178e771387ed50400ad9a01fa135d148f7566f4",
+        "publication_state": "VERIFY_EM_PUBLICATION",
+        "blob": "e8abcbb969cde5a11fb721fe4525786794be9237",
+        "normalization": []
+      },
+      {
+        "repository": "awdawmip/enterprise-math",
+        "commit": "88b4049e8e4fd9d60a255024b343adc00c6f889f",
+        "path": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS1112_EXTENSION_CERT_20261127.json",
+        "sha256": "3aaec524889d629dcfcc22fe181744eba5c9c8f5deb17491cbb23397ee26ce71",
+        "publication_state": "VERIFY_EM_PUBLICATION",
+        "blob": "b6c590fdfd5a8231cf679c8f19ca350b16a13362",
+        "normalization": []
+      },
+      {
+        "repository": "awdawmip/enterprise-math",
+        "commit": "0a00ae108d4527367c6bd6a792a87d3c33a53888",
+        "path": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS11111_COMPLETE_CERT_20261127.json",
+        "sha256": "a779c6db7c461c7bf7d424ddb058c5b4a5734dd5090b874fad2ffc2f26b730f1",
+        "publication_state": "VERIFY_EM_PUBLICATION",
+        "blob": "d834e1ae612098ed4eb7eeb65f19650f9063ee59",
+        "normalization": []
+      }
+    ],
+    "covered_pairs": 7,
+    "total": {
+      "raw": 1619968896,
+      "domain": 1617972732,
+      "common": 1144969026,
+      "reps": 532157026,
+      "nodes": 841470144,
+      "leaves": 14,
+      "fibers": 8
+    },
+    "one_side_valid": 9,
+    "min_excess": 664,
+    "cross": [
+      {
+        "pp": [
+          1,
+          1,
+          1,
+          2
+        ],
+        "np": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2
+        ],
+        "canonical": 43505,
+        "member": 79541,
+        "shard": [
+          30000,
+          60000
+        ],
+        "witness": {
+          "pos": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              2
+            ]
+          ],
+          "neg": [
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "z": [
+            244413,
+            -671554,
+            94183,
+            -151717,
+            779021,
+            519147,
+            -107727,
+            -621235,
+            92578,
+            19218,
+            287654,
+            -444944
+          ],
+          "u": [
+            28,
+            27,
+            -20,
+            -13,
+            -2,
+            0,
+            -1,
+            0,
+            -4,
+            -2,
+            -2,
+            0
+          ],
+          "residues": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "norm_sq": 1972690,
+          "radius_sq": 2210900,
+          "masses": [
+            1930,
+            4512
+          ],
+          "budget_valid": false,
+          "shard_lo": 30000,
+          "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS1112_EXTENSION_CERT_20261127.json"
+        }
+      },
+      {
+        "pp": [
+          1,
+          1,
+          1,
+          2
+        ],
+        "np": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2
+        ],
+        "canonical": 43505,
+        "member": 103565,
+        "shard": [
+          30000,
+          60000
+        ],
+        "witness": {
+          "pos": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              2
+            ]
+          ],
+          "neg": [
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "z": [
+            244413,
+            -671554,
+            94183,
+            -151717,
+            779021,
+            519147,
+            -107727,
+            -621235,
+            92578,
+            19218,
+            287654,
+            -444944
+          ],
+          "u": [
+            28,
+            27,
+            -20,
+            -13,
+            -2,
+            0,
+            -1,
+            0,
+            -4,
+            -2,
+            -2,
+            0
+          ],
+          "residues": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "norm_sq": 1972690,
+          "radius_sq": 2162410,
+          "masses": [
+            1943,
+            4525
+          ],
+          "budget_valid": false,
+          "shard_lo": 30000,
+          "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS1112_EXTENSION_CERT_20261127.json"
+        }
+      },
+      {
+        "pp": [
+          1,
+          1,
+          1,
+          2
+        ],
+        "np": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2
+        ],
+        "canonical": 43505,
+        "member": 119009,
+        "shard": [
+          30000,
+          60000
+        ],
+        "witness": {
+          "pos": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              2
+            ]
+          ],
+          "neg": [
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "z": [
+            244413,
+            -671554,
+            94183,
+            -151717,
+            779021,
+            519147,
+            -107727,
+            -621235,
+            92578,
+            19218,
+            287654,
+            -444944
+          ],
+          "u": [
+            28,
+            27,
+            -20,
+            -13,
+            -2,
+            0,
+            -1,
+            0,
+            -4,
+            -2,
+            -2,
+            0
+          ],
+          "residues": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "norm_sq": 1972690,
+          "radius_sq": 2114596,
+          "masses": [
+            1956,
+            4538
+          ],
+          "budget_valid": false,
+          "shard_lo": 30000,
+          "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS1112_EXTENSION_CERT_20261127.json"
+        }
+      },
+      {
+        "pp": [
+          1,
+          1,
+          1,
+          2
+        ],
+        "np": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2
+        ],
+        "canonical": 43505,
+        "member": 128512,
+        "shard": [
+          30000,
+          60000
+        ],
+        "witness": {
+          "pos": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              2
+            ]
+          ],
+          "neg": [
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "z": [
+            244413,
+            -671554,
+            94183,
+            -151717,
+            779021,
+            519147,
+            -107727,
+            -621235,
+            92578,
+            19218,
+            287654,
+            -444944
+          ],
+          "u": [
+            28,
+            27,
+            -20,
+            -13,
+            -2,
+            0,
+            -1,
+            0,
+            -4,
+            -2,
+            -2,
+            0
+          ],
+          "residues": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "norm_sq": 1972690,
+          "radius_sq": 2067458,
+          "masses": [
+            1969,
+            4551
+          ],
+          "budget_valid": false,
+          "shard_lo": 30000,
+          "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS1112_EXTENSION_CERT_20261127.json"
+        }
+      },
+      {
+        "pp": [
+          1,
+          1,
+          1,
+          2
+        ],
+        "np": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2
+        ],
+        "canonical": 43505,
+        "member": 129520,
+        "shard": [
+          30000,
+          60000
+        ],
+        "witness": {
+          "pos": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              2,
+              2
+            ]
+          ],
+          "neg": [
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "z": [
+            244413,
+            -671554,
+            94183,
+            -151717,
+            779021,
+            519147,
+            -107727,
+            -621235,
+            92578,
+            19218,
+            287654,
+            -444944
+          ],
+          "u": [
+            28,
+            27,
+            -20,
+            -13,
+            -2,
+            0,
+            -1,
+            0,
+            -4,
+            -2,
+            -2,
+            0
+          ],
+          "residues": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "norm_sq": 1972690,
+          "radius_sq": 2020996,
+          "masses": [
+            1982,
+            4564
+          ],
+          "budget_valid": false,
+          "shard_lo": 30000,
+          "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS1112_EXTENSION_CERT_20261127.json"
+        }
+      },
+      {
+        "pp": [
+          1,
+          1,
+          1,
+          2
+        ],
+        "np": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2
+        ],
+        "canonical": 43505,
+        "member": 129772,
+        "shard": [
+          30000,
+          60000
+        ],
+        "witness": {
+          "pos": [
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              2
+            ]
+          ],
+          "neg": [
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              6
+            ]
+          ],
+          "z": [
+            244413,
+            -671554,
+            94183,
+            -151717,
+            779021,
+            519147,
+            -107727,
+            -621235,
+            92578,
+            19218,
+            287654,
+            -444944
+          ],
+          "u": [
+            28,
+            27,
+            -20,
+            -13,
+            -2,
+            0,
+            -1,
+            0,
+            -4,
+            -2,
+            -2,
+            0
+          ],
+          "residues": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "norm_sq": 1972690,
+          "radius_sq": 1975210,
+          "masses": [
+            1995,
+            4577
+          ],
+          "budget_valid": false,
+          "shard_lo": 30000,
+          "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS1112_EXTENSION_CERT_20261127.json"
+        }
+      }
+    ],
+    "rows": [
+      {
+        "pp": [
+          5
+        ],
+        "np": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2
+        ],
+        "negative_rosters": 148329,
+        "raw": 1782144,
+        "domain": 1779948,
+        "common": 0,
+        "reps": 1779948,
+        "nodes": 3086191,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              5
+            ],
+            "negative_roster_range": [
+              0,
+              148329
+            ],
+            "search_domain": 1779948,
+            "common_feasible": 0,
+            "representative_search": 1779948,
+            "nodes": 3086191,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 1.128,
+            "n": 148329,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS5_POS14_POS23_PARTIAL_CERT_20261127.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          1,
+          4
+        ],
+        "np": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2
+        ],
+        "negative_rosters": 148329,
+        "raw": 21385728,
+        "domain": 21359376,
+        "common": 7542360,
+        "reps": 14446008,
+        "nodes": 24229915,
+        "leaves": 1,
+        "fibers": 1,
+        "shards": [
+          {
+            "pos_pattern": [
+              1,
+              4
+            ],
+            "negative_roster_range": [
+              0,
+              148329
+            ],
+            "search_domain": 21359376,
+            "common_feasible": 7542360,
+            "representative_search": 14446008,
+            "nodes": 24229915,
+            "representative_leaves": 1,
+            "leaves": 1,
+            "valid": 0,
+            "kernel_seconds": 9.039,
+            "n": 148329,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS5_POS14_POS23_PARTIAL_CERT_20261127.json",
+            "audit_leaves": 1,
+            "audit_reps": 1
+          }
+        ],
+        "witnesses": [
+          {
+            "pos": [
+              [
+                1,
+                8
+              ],
+              [
+                4,
+                1
+              ]
+            ],
+            "neg": [
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                7
+              ],
+              [
+                1,
+                7
+              ],
+              [
+                1,
+                7
+              ],
+              [
+                1,
+                7
+              ],
+              [
+                1,
+                11
+              ],
+              [
+                2,
+                1
+              ]
+            ],
+            "z": [
+              -816101,
+              531739,
+              -404520,
+              -170264,
+              118354,
+              69086,
+              -224681,
+              586549,
+              -34329,
+              -284689,
+              59441,
+              381306
+            ],
+            "u": [
+              22,
+              7,
+              2,
+              -6,
+              6,
+              -6,
+              -8,
+              1,
+              1,
+              -6,
+              2,
+              -1
+            ],
+            "residues": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "norm_sq": 1806855,
+            "radius_sq": 2061970,
+            "masses": [
+              2362,
+              4321
+            ],
+            "budget_valid": false,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS5_POS14_POS23_PARTIAL_CERT_20261127.json"
+          }
+        ],
+        "representatives": [
+          {
+            "pos": [
+              [
+                1,
+                8
+              ],
+              [
+                4,
+                1
+              ]
+            ],
+            "neg": [
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                7
+              ],
+              [
+                1,
+                7
+              ],
+              [
+                1,
+                7
+              ],
+              [
+                1,
+                7
+              ],
+              [
+                1,
+                11
+              ],
+              [
+                2,
+                1
+              ]
+            ],
+            "u": [
+              22,
+              7,
+              2,
+              -6,
+              6,
+              -6,
+              -8,
+              1,
+              1,
+              -6,
+              2,
+              -1
+            ],
+            "fiber_size": 1,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS5_POS14_POS23_PARTIAL_CERT_20261127.json"
+          }
+        ]
+      },
+      {
+        "pp": [
+          2,
+          3
+        ],
+        "np": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2
+        ],
+        "negative_rosters": 148329,
+        "raw": 21385728,
+        "domain": 21359376,
+        "common": 1779948,
+        "reps": 19727940,
+        "nodes": 33050607,
+        "leaves": 2,
+        "fibers": 2,
+        "shards": [
+          {
+            "pos_pattern": [
+              2,
+              3
+            ],
+            "negative_roster_range": [
+              0,
+              148329
+            ],
+            "search_domain": 21359376,
+            "common_feasible": 1779948,
+            "representative_search": 19727940,
+            "nodes": 33050607,
+            "representative_leaves": 2,
+            "leaves": 2,
+            "valid": 0,
+            "kernel_seconds": 12.303,
+            "n": 148329,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS5_POS14_POS23_PARTIAL_CERT_20261127.json",
+            "audit_leaves": 2,
+            "audit_reps": 2
+          }
+        ],
+        "witnesses": [
+          {
+            "pos": [
+              [
+                2,
+                2
+              ],
+              [
+                3,
+                12
+              ]
+            ],
+            "neg": [
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                1,
+                8
+              ],
+              [
+                1,
+                9
+              ],
+              [
+                1,
+                11
+              ],
+              [
+                2,
+                7
+              ]
+            ],
+            "z": [
+              -406562,
+              605059,
+              221438,
+              487356,
+              -72977,
+              156959,
+              13502,
+              -123378,
+              450928,
+              -72467,
+              -482346,
+              -89036
+            ],
+            "u": [
+              -34,
+              6,
+              2,
+              -11,
+              2,
+              -4,
+              1,
+              5,
+              -4,
+              4,
+              0,
+              0
+            ],
+            "residues": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "norm_sq": 1375586,
+            "radius_sq": 1877032,
+            "masses": [
+              2500,
+              3658
+            ],
+            "budget_valid": false,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS5_POS14_POS23_PARTIAL_CERT_20261127.json"
+          },
+          {
+            "pos": [
+              [
+                2,
+                5
+              ],
+              [
+                3,
+                1
+              ]
+            ],
+            "neg": [
+              [
+                1,
+                5
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                1,
+                7
+              ],
+              [
+                1,
+                9
+              ],
+              [
+                1,
+                9
+              ],
+              [
+                1,
+                11
+              ],
+              [
+                2,
+                2
+              ]
+            ],
+            "z": [
+              1135082,
+              -625547,
+              795237,
+              176290,
+              316838,
+              352148,
+              54208,
+              -466165,
+              5906,
+              10424,
+              179275,
+              -565536
+            ],
+            "u": [
+              35,
+              -13,
+              -8,
+              7,
+              -14,
+              5,
+              5,
+              3,
+              -2,
+              3,
+              -1,
+              -1
+            ],
+            "residues": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "norm_sq": 1998694,
+            "radius_sq": 2119144,
+            "masses": [
+              3229,
+              4023
+            ],
+            "budget_valid": false,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS5_POS14_POS23_PARTIAL_CERT_20261127.json"
+          }
+        ],
+        "representatives": [
+          {
+            "pos": [
+              [
+                2,
+                2
+              ],
+              [
+                3,
+                12
+              ]
+            ],
+            "neg": [
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                1,
+                8
+              ],
+              [
+                1,
+                9
+              ],
+              [
+                1,
+                11
+              ],
+              [
+                2,
+                7
+              ]
+            ],
+            "u": [
+              -34,
+              6,
+              2,
+              -11,
+              2,
+              -4,
+              1,
+              5,
+              -4,
+              4,
+              0,
+              0
+            ],
+            "fiber_size": 1,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS5_POS14_POS23_PARTIAL_CERT_20261127.json"
+          },
+          {
+            "pos": [
+              [
+                2,
+                5
+              ],
+              [
+                3,
+                1
+              ]
+            ],
+            "neg": [
+              [
+                1,
+                5
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                1,
+                7
+              ],
+              [
+                1,
+                9
+              ],
+              [
+                1,
+                9
+              ],
+              [
+                1,
+                11
+              ],
+              [
+                2,
+                2
+              ]
+            ],
+            "u": [
+              35,
+              -13,
+              -8,
+              7,
+              -14,
+              5,
+              5,
+              3,
+              -2,
+              3,
+              -1,
+              -1
+            ],
+            "fiber_size": 1,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS5_POS14_POS23_PARTIAL_CERT_20261127.json"
+          }
+        ]
+      },
+      {
+        "pp": [
+          1,
+          1,
+          3
+        ],
+        "np": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2
+        ],
+        "negative_rosters": 148329,
+        "raw": 139007232,
+        "domain": 138835944,
+        "common": 77540148,
+        "reps": 66681540,
+        "nodes": 108210132,
+        "leaves": 1,
+        "fibers": 1,
+        "shards": [
+          {
+            "pos_pattern": [
+              1,
+              1,
+              3
+            ],
+            "negative_roster_range": [
+              0,
+              30000
+            ],
+            "search_domain": 28080000,
+            "common_feasible": 15926400,
+            "representative_search": 15279408,
+            "nodes": 25197082,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 9.302,
+            "n": 148329,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS113_COMPLETE_CERT_20261127.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          },
+          {
+            "pos_pattern": [
+              1,
+              1,
+              3
+            ],
+            "negative_roster_range": [
+              30000,
+              60000
+            ],
+            "search_domain": 28080000,
+            "common_feasible": 16165728,
+            "representative_search": 14174208,
+            "nodes": 23058360,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 8.446,
+            "n": 148329,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS113_COMPLETE_CERT_20261127.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          },
+          {
+            "pos_pattern": [
+              1,
+              1,
+              3
+            ],
+            "negative_roster_range": [
+              60000,
+              90000
+            ],
+            "search_domain": 28080000,
+            "common_feasible": 16187904,
+            "representative_search": 11892096,
+            "nodes": 19205353,
+            "representative_leaves": 1,
+            "leaves": 1,
+            "valid": 0,
+            "kernel_seconds": 7.146,
+            "n": 148329,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS113_COMPLETE_CERT_20261127.json",
+            "audit_leaves": 1,
+            "audit_reps": 1
+          },
+          {
+            "pos_pattern": [
+              1,
+              1,
+              3
+            ],
+            "negative_roster_range": [
+              90000,
+              120000
+            ],
+            "search_domain": 28080000,
+            "common_feasible": 15449328,
+            "representative_search": 12630672,
+            "nodes": 20379547,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 7.361,
+            "n": 148329,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS113_COMPLETE_CERT_20261127.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          },
+          {
+            "pos_pattern": [
+              1,
+              1,
+              3
+            ],
+            "negative_roster_range": [
+              120000,
+              148329
+            ],
+            "search_domain": 26515944,
+            "common_feasible": 13810788,
+            "representative_search": 12705156,
+            "nodes": 20369790,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 7.462,
+            "n": 148329,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS113_COMPLETE_CERT_20261127.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [
+          {
+            "pos": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                3,
+                2
+              ]
+            ],
+            "neg": [
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                1,
+                7
+              ],
+              [
+                1,
+                10
+              ],
+              [
+                1,
+                11
+              ],
+              [
+                2,
+                11
+              ]
+            ],
+            "z": [
+              -784485,
+              574509,
+              222289,
+              121219,
+              -310046,
+              -222890,
+              -244560,
+              -111159,
+              801900,
+              -811919,
+              -338588,
+              353424
+            ],
+            "u": [
+              -22,
+              14,
+              -11,
+              -12,
+              4,
+              -5,
+              3,
+              0,
+              -1,
+              -1,
+              5,
+              -3
+            ],
+            "residues": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "norm_sq": 1778547,
+            "radius_sq": 2085448,
+            "masses": [
+              2519,
+              4358
+            ],
+            "budget_valid": false,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS113_COMPLETE_CERT_20261127.json"
+          }
+        ],
+        "representatives": [
+          {
+            "pos": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                3,
+                2
+              ]
+            ],
+            "neg": [
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                1,
+                7
+              ],
+              [
+                1,
+                10
+              ],
+              [
+                1,
+                11
+              ],
+              [
+                2,
+                11
+              ]
+            ],
+            "u": [
+              -22,
+              14,
+              -11,
+              -12,
+              4,
+              -5,
+              3,
+              0,
+              -1,
+              -1,
+              5,
+              -3
+            ],
+            "fiber_size": 1,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS113_COMPLETE_CERT_20261127.json"
+          }
+        ]
+      },
+      {
+        "pp": [
+          1,
+          2,
+          2
+        ],
+        "np": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2
+        ],
+        "negative_rosters": 148329,
+        "raw": 139007232,
+        "domain": 138835944,
+        "common": 62842356,
+        "reps": 80658612,
+        "nodes": 130725671,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              1,
+              2,
+              2
+            ],
+            "negative_roster_range": [
+              0,
+              30000
+            ],
+            "search_domain": 28080000,
+            "common_feasible": 12868056,
+            "representative_search": 17452428,
+            "nodes": 28770948,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 11.64,
+            "n": 148329,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS122_COMPLETE_CERT_20261127.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          },
+          {
+            "pos_pattern": [
+              1,
+              2,
+              2
+            ],
+            "negative_roster_range": [
+              30000,
+              60000
+            ],
+            "search_domain": 28080000,
+            "common_feasible": 13030416,
+            "representative_search": 16779480,
+            "nodes": 27276430,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 9.743,
+            "n": 148329,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS122_COMPLETE_CERT_20261127.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          },
+          {
+            "pos_pattern": [
+              1,
+              2,
+              2
+            ],
+            "negative_roster_range": [
+              60000,
+              90000
+            ],
+            "search_domain": 28080000,
+            "common_feasible": 13043880,
+            "representative_search": 15263940,
+            "nodes": 24669842,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 8.961,
+            "n": 148329,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS122_COMPLETE_CERT_20261127.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          },
+          {
+            "pos_pattern": [
+              1,
+              2,
+              2
+            ],
+            "negative_roster_range": [
+              90000,
+              120000
+            ],
+            "search_domain": 28080000,
+            "common_feasible": 12544920,
+            "representative_search": 15770460,
+            "nodes": 25425441,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 9.039,
+            "n": 148329,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS122_COMPLETE_CERT_20261127.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          },
+          {
+            "pos_pattern": [
+              1,
+              2,
+              2
+            ],
+            "negative_roster_range": [
+              120000,
+              148329
+            ],
+            "search_domain": 26515944,
+            "common_feasible": 11355084,
+            "representative_search": 15392304,
+            "nodes": 24583010,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 9.449,
+            "n": 148329,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS122_COMPLETE_CERT_20261127.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          1,
+          1,
+          1,
+          2
+        ],
+        "np": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2
+        ],
+        "negative_rosters": 148329,
+        "raw": 648700416,
+        "domain": 647901072,
+        "common": 461189712,
+        "reps": 212141128,
+        "nodes": 333504210,
+        "leaves": 10,
+        "fibers": 4,
+        "shards": [
+          {
+            "pos_pattern": [
+              1,
+              1,
+              1,
+              2
+            ],
+            "negative_roster_range": [
+              0,
+              10000
+            ],
+            "search_domain": 43680000,
+            "common_feasible": 29625828,
+            "representative_search": 19307557,
+            "nodes": 31166776,
+            "representative_leaves": 1,
+            "leaves": 1,
+            "valid": 0,
+            "kernel_seconds": 12.819,
+            "n": 148329,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS1112_SHARD0_10000_CERT_20261127.json",
+            "audit_leaves": 1,
+            "audit_reps": 1
+          },
+          {
+            "pos_pattern": [
+              1,
+              1,
+              1,
+              2
+            ],
+            "negative_roster_range": [
+              10000,
+              11000
+            ],
+            "search_domain": 4368000,
+            "common_feasible": 2954808,
+            "representative_search": 1941908,
+            "nodes": 3101412,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 1.267,
+            "n": 148329,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS1112_EXTENSION_CERT_20261127.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          },
+          {
+            "pos_pattern": [
+              1,
+              1,
+              1,
+              2
+            ],
+            "negative_roster_range": [
+              11000,
+              30000
+            ],
+            "search_domain": 82992000,
+            "common_feasible": 61764948,
+            "representative_search": 29835170,
+            "nodes": 47316987,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 19.19,
+            "n": 148329,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS1112_EXTENSION_CERT_20261127.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          },
+          {
+            "pos_pattern": [
+              1,
+              1,
+              1,
+              2
+            ],
+            "negative_roster_range": [
+              30000,
+              60000
+            ],
+            "search_domain": 131040000,
+            "common_feasible": 95352084,
+            "representative_search": 45858400,
+            "nodes": 72253974,
+            "representative_leaves": 1,
+            "leaves": 7,
+            "valid": 0,
+            "kernel_seconds": 31.563,
+            "n": 148329,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS1112_EXTENSION_CERT_20261127.json",
+            "audit_leaves": 7,
+            "audit_reps": 1
+          },
+          {
+            "pos_pattern": [
+              1,
+              1,
+              1,
+              2
+            ],
+            "negative_roster_range": [
+              60000,
+              90000
+            ],
+            "search_domain": 131040000,
+            "common_feasible": 95454648,
+            "representative_search": 35854938,
+            "nodes": 55995599,
+            "representative_leaves": 1,
+            "leaves": 1,
+            "valid": 0,
+            "kernel_seconds": 25.539,
+            "n": 148329,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS1112_EXTENSION_CERT_20261127.json",
+            "audit_leaves": 1,
+            "audit_reps": 1
+          },
+          {
+            "pos_pattern": [
+              1,
+              1,
+              1,
+              2
+            ],
+            "negative_roster_range": [
+              90000,
+              120000
+            ],
+            "search_domain": 131040000,
+            "common_feasible": 92335884,
+            "representative_search": 38997329,
+            "nodes": 60926879,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 28.009,
+            "n": 148329,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS1112_EXTENSION_CERT_20261127.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          },
+          {
+            "pos_pattern": [
+              1,
+              1,
+              1,
+              2
+            ],
+            "negative_roster_range": [
+              120000,
+              148329
+            ],
+            "search_domain": 123741072,
+            "common_feasible": 83701512,
+            "representative_search": 40345826,
+            "nodes": 62742583,
+            "representative_leaves": 1,
+            "leaves": 1,
+            "valid": 0,
+            "kernel_seconds": 28.215,
+            "n": 148329,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS1112_EXTENSION_CERT_20261127.json",
+            "audit_leaves": 1,
+            "audit_reps": 1
+          }
+        ],
+        "witnesses": [
+          {
+            "pos": [
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                1,
+                12
+              ],
+              [
+                2,
+                2
+              ]
+            ],
+            "neg": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                1,
+                7
+              ],
+              [
+                2,
+                4
+              ]
+            ],
+            "z": [
+              -242957,
+              90428,
+              -391171,
+              -325257,
+              -1575,
+              -279491,
+              -570958,
+              512354,
+              354324,
+              -434731,
+              357443,
+              76866
+            ],
+            "u": [
+              35,
+              9,
+              -4,
+              -1,
+              -3,
+              -6,
+              -4,
+              -4,
+              2,
+              -5,
+              2,
+              -4
+            ],
+            "residues": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "norm_sq": 1737287,
+            "radius_sq": 2039976,
+            "masses": [
+              2262,
+              4499
+            ],
+            "budget_valid": false,
+            "shard_lo": 0,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS1112_SHARD0_10000_CERT_20261127.json"
+          },
+          {
+            "pos": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                2,
+                2
+              ]
+            ],
+            "neg": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                1,
+                6
+              ],
+              [
+                1,
+                8
+              ],
+              [
+                1,
+                8
+              ],
+              [
+                2,
+                6
+              ]
+            ],
+            "z": [
+              244413,
+              -671554,
+              94183,
+              -151717,
+              779021,
+              519147,
+              -107727,
+              -621235,
+              92578,
+              19218,
+              287654,
+              -444944
+            ],
+            "u": [
+              28,
+              27,
+              -20,
+              -13,
+              -2,
+              0,
+              -1,
+              0,
+              -4,
+              -2,
+              -2,
+              0
+            ],
+            "residues": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "norm_sq": 1972690,
+            "radius_sq": 2260066,
+            "masses": [
+              1917,
+              4499
+            ],
+            "budget_valid": false,
+            "shard_lo": 30000,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS1112_EXTENSION_CERT_20261127.json"
+          },
+          {
+            "pos": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                2,
+                2
+              ]
+            ],
+            "neg": [
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                1,
+                6
+              ],
+              [
+                1,
+                8
+              ],
+              [
+                1,
+                8
+              ],
+              [
+                2,
+                6
+              ]
+            ],
+            "z": [
+              244413,
+              -671554,
+              94183,
+              -151717,
+              779021,
+              519147,
+              -107727,
+              -621235,
+              92578,
+              19218,
+              287654,
+              -444944
+            ],
+            "u": [
+              28,
+              27,
+              -20,
+              -13,
+              -2,
+              0,
+              -1,
+              0,
+              -4,
+              -2,
+              -2,
+              0
+            ],
+            "residues": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "norm_sq": 1972690,
+            "radius_sq": 2210900,
+            "masses": [
+              1930,
+              4512
+            ],
+            "budget_valid": false,
+            "shard_lo": 30000,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS1112_EXTENSION_CERT_20261127.json"
+          },
+          {
+            "pos": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                2,
+                2
+              ]
+            ],
+            "neg": [
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                1,
+                6
+              ],
+              [
+                1,
+                8
+              ],
+              [
+                1,
+                8
+              ],
+              [
+                2,
+                6
+              ]
+            ],
+            "z": [
+              244413,
+              -671554,
+              94183,
+              -151717,
+              779021,
+              519147,
+              -107727,
+              -621235,
+              92578,
+              19218,
+              287654,
+              -444944
+            ],
+            "u": [
+              28,
+              27,
+              -20,
+              -13,
+              -2,
+              0,
+              -1,
+              0,
+              -4,
+              -2,
+              -2,
+              0
+            ],
+            "residues": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "norm_sq": 1972690,
+            "radius_sq": 2162410,
+            "masses": [
+              1943,
+              4525
+            ],
+            "budget_valid": false,
+            "shard_lo": 30000,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS1112_EXTENSION_CERT_20261127.json"
+          },
+          {
+            "pos": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                2,
+                2
+              ]
+            ],
+            "neg": [
+              [
+                1,
+                4
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                1,
+                6
+              ],
+              [
+                1,
+                8
+              ],
+              [
+                1,
+                8
+              ],
+              [
+                2,
+                6
+              ]
+            ],
+            "z": [
+              244413,
+              -671554,
+              94183,
+              -151717,
+              779021,
+              519147,
+              -107727,
+              -621235,
+              92578,
+              19218,
+              287654,
+              -444944
+            ],
+            "u": [
+              28,
+              27,
+              -20,
+              -13,
+              -2,
+              0,
+              -1,
+              0,
+              -4,
+              -2,
+              -2,
+              0
+            ],
+            "residues": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "norm_sq": 1972690,
+            "radius_sq": 2114596,
+            "masses": [
+              1956,
+              4538
+            ],
+            "budget_valid": false,
+            "shard_lo": 30000,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS1112_EXTENSION_CERT_20261127.json"
+          },
+          {
+            "pos": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                2,
+                2
+              ]
+            ],
+            "neg": [
+              [
+                1,
+                5
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                1,
+                6
+              ],
+              [
+                1,
+                8
+              ],
+              [
+                1,
+                8
+              ],
+              [
+                2,
+                6
+              ]
+            ],
+            "z": [
+              244413,
+              -671554,
+              94183,
+              -151717,
+              779021,
+              519147,
+              -107727,
+              -621235,
+              92578,
+              19218,
+              287654,
+              -444944
+            ],
+            "u": [
+              28,
+              27,
+              -20,
+              -13,
+              -2,
+              0,
+              -1,
+              0,
+              -4,
+              -2,
+              -2,
+              0
+            ],
+            "residues": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "norm_sq": 1972690,
+            "radius_sq": 2067458,
+            "masses": [
+              1969,
+              4551
+            ],
+            "budget_valid": false,
+            "shard_lo": 30000,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS1112_EXTENSION_CERT_20261127.json"
+          },
+          {
+            "pos": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                6
+              ],
+              [
+                2,
+                2
+              ]
+            ],
+            "neg": [
+              [
+                1,
+                5
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                1,
+                6
+              ],
+              [
+                1,
+                6
+              ],
+              [
+                1,
+                8
+              ],
+              [
+                1,
+                8
+              ],
+              [
+                2,
+                6
+              ]
+            ],
+            "z": [
+              244413,
+              -671554,
+              94183,
+              -151717,
+              779021,
+              519147,
+              -107727,
+              -621235,
+              92578,
+              19218,
+              287654,
+              -444944
+            ],
+            "u": [
+              28,
+              27,
+              -20,
+              -13,
+              -2,
+              0,
+              -1,
+              0,
+              -4,
+              -2,
+              -2,
+              0
+            ],
+            "residues": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "norm_sq": 1972690,
+            "radius_sq": 2020996,
+            "masses": [
+              1982,
+              4564
+            ],
+            "budget_valid": false,
+            "shard_lo": 30000,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS1112_EXTENSION_CERT_20261127.json"
+          },
+          {
+            "pos": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                7
+              ],
+              [
+                2,
+                2
+              ]
+            ],
+            "neg": [
+              [
+                1,
+                5
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                1,
+                6
+              ],
+              [
+                1,
+                7
+              ],
+              [
+                1,
+                8
+              ],
+              [
+                1,
+                8
+              ],
+              [
+                2,
+                6
+              ]
+            ],
+            "z": [
+              244413,
+              -671554,
+              94183,
+              -151717,
+              779021,
+              519147,
+              -107727,
+              -621235,
+              92578,
+              19218,
+              287654,
+              -444944
+            ],
+            "u": [
+              28,
+              27,
+              -20,
+              -13,
+              -2,
+              0,
+              -1,
+              0,
+              -4,
+              -2,
+              -2,
+              0
+            ],
+            "residues": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "norm_sq": 1972690,
+            "radius_sq": 1975210,
+            "masses": [
+              1995,
+              4577
+            ],
+            "budget_valid": false,
+            "shard_lo": 30000,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS1112_EXTENSION_CERT_20261127.json"
+          },
+          {
+            "pos": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                7
+              ],
+              [
+                1,
+                8
+              ],
+              [
+                2,
+                11
+              ]
+            ],
+            "neg": [
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                1,
+                9
+              ],
+              [
+                2,
+                9
+              ]
+            ],
+            "z": [
+              901563,
+              185887,
+              -257653,
+              159229,
+              -75568,
+              31904,
+              85110,
+              330097,
+              -254252,
+              176617,
+              206514,
+              45664
+            ],
+            "u": [
+              2,
+              -32,
+              11,
+              12,
+              -2,
+              1,
+              1,
+              0,
+              -1,
+              -1,
+              -3,
+              -1
+            ],
+            "residues": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "norm_sq": 1455855,
+            "radius_sq": 1552346,
+            "masses": [
+              2413,
+              3580
+            ],
+            "budget_valid": false,
+            "shard_lo": 60000,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS1112_EXTENSION_CERT_20261127.json"
+          },
+          {
+            "pos": [
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                2,
+                3
+              ]
+            ],
+            "neg": [
+              [
+                1,
+                6
+              ],
+              [
+                1,
+                6
+              ],
+              [
+                1,
+                6
+              ],
+              [
+                1,
+                7
+              ],
+              [
+                1,
+                7
+              ],
+              [
+                1,
+                7
+              ],
+              [
+                2,
+                5
+              ]
+            ],
+            "z": [
+              128518,
+              209443,
+              431967,
+              351199,
+              -54451,
+              283932,
+              388434,
+              76628,
+              -164867,
+              -297238,
+              -28949,
+              9668
+            ],
+            "u": [
+              15,
+              -10,
+              7,
+              9,
+              0,
+              5,
+              2,
+              4,
+              0,
+              1,
+              0,
+              -1
+            ],
+            "residues": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "norm_sq": 767372,
+            "radius_sq": 1985805,
+            "masses": [
+              2995,
+              2322
+            ],
+            "budget_valid": false,
+            "shard_lo": 120000,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS1112_EXTENSION_CERT_20261127.json"
+          }
+        ],
+        "representatives": [
+          {
+            "pos": [
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                1,
+                12
+              ],
+              [
+                2,
+                2
+              ]
+            ],
+            "neg": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                1,
+                7
+              ],
+              [
+                2,
+                4
+              ]
+            ],
+            "u": [
+              35,
+              9,
+              -4,
+              -1,
+              -3,
+              -6,
+              -4,
+              -4,
+              2,
+              -5,
+              2,
+              -4
+            ],
+            "fiber_size": 1,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS1112_SHARD0_10000_CERT_20261127.json"
+          },
+          {
+            "pos": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                1
+              ],
+              [
+                2,
+                2
+              ]
+            ],
+            "neg": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                1,
+                6
+              ],
+              [
+                1,
+                8
+              ],
+              [
+                1,
+                8
+              ],
+              [
+                2,
+                6
+              ]
+            ],
+            "u": [
+              28,
+              27,
+              -20,
+              -13,
+              -2,
+              0,
+              -1,
+              0,
+              -4,
+              -2,
+              -2,
+              0
+            ],
+            "fiber_size": 7,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS1112_EXTENSION_CERT_20261127.json"
+          },
+          {
+            "pos": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                7
+              ],
+              [
+                1,
+                8
+              ],
+              [
+                2,
+                11
+              ]
+            ],
+            "neg": [
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                1,
+                9
+              ],
+              [
+                2,
+                9
+              ]
+            ],
+            "u": [
+              2,
+              -32,
+              11,
+              12,
+              -2,
+              1,
+              1,
+              0,
+              -1,
+              -1,
+              -3,
+              -1
+            ],
+            "fiber_size": 1,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS1112_EXTENSION_CERT_20261127.json"
+          },
+          {
+            "pos": [
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                2,
+                3
+              ]
+            ],
+            "neg": [
+              [
+                1,
+                6
+              ],
+              [
+                1,
+                6
+              ],
+              [
+                1,
+                6
+              ],
+              [
+                1,
+                7
+              ],
+              [
+                1,
+                7
+              ],
+              [
+                1,
+                7
+              ],
+              [
+                2,
+                5
+              ]
+            ],
+            "u": [
+              15,
+              -10,
+              7,
+              9,
+              0,
+              5,
+              2,
+              4,
+              0,
+              1,
+              0,
+              -1
+            ],
+            "fiber_size": 1,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS1112_EXTENSION_CERT_20261127.json"
+          }
+        ]
+      },
+      {
+        "pp": [
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "np": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2
+        ],
+        "negative_rosters": 148329,
+        "raw": 648700416,
+        "domain": 647901072,
+        "common": 534074502,
+        "reps": 136721850,
+        "nodes": 208663418,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "negative_roster_range": [
+              0,
+              37000
+            ],
+            "search_domain": 161616000,
+            "common_feasible": 135898908,
+            "representative_search": 41985076,
+            "nodes": 64899121,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 30.903,
+            "n": 148329,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS11111_COMPLETE_CERT_20261127.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          },
+          {
+            "pos_pattern": [
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "negative_roster_range": [
+              37000,
+              74000
+            ],
+            "search_domain": 161616000,
+            "common_feasible": 134661588,
+            "representative_search": 33581708,
+            "nodes": 51191578,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 25.402,
+            "n": 148329,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS11111_COMPLETE_CERT_20261127.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          },
+          {
+            "pos_pattern": [
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "negative_roster_range": [
+              74000,
+              111000
+            ],
+            "search_domain": 161616000,
+            "common_feasible": 134867628,
+            "representative_search": 26748372,
+            "nodes": 40435806,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 21.207,
+            "n": 148329,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS11111_COMPLETE_CERT_20261127.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          },
+          {
+            "pos_pattern": [
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "negative_roster_range": [
+              111000,
+              148329
+            ],
+            "search_domain": 163053072,
+            "common_feasible": 128646378,
+            "representative_search": 34406694,
+            "nodes": 52136913,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 25.892,
+            "n": 148329,
+            "source": "research_checks/T6_P13_Q13_SPLIT5_8_LEN7_POS11111_COMPLETE_CERT_20261127.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      }
+    ]
+  },
+  "verifier_javascript": "function verify(data,basis,len){\nconst ck=(b,m)=>{if(!b)throw Error(m)},eq=(a,b)=>JSON.stringify(a)===JSON.stringify(b),key=JSON.stringify,cap=2331,pin=\"d84bd940cfb093cdc60e569f15cad58772a51dca\",U=basis.U.map(r=>r.map(BigInt)),group=p=>[...new Set(p)].map(q=>[q,p.filter(x=>x===q).length]),C=(n,k)=>{if(n<k)return 0;let a=1;for(let j=1;j<=k;j++)a=a*(n-j+1)/j;return Math.round(a)},sort=A=>A.slice().sort((a,b)=>a[0]-b[0]||a[1]-b[1]),mod=(a,m)=>(a%m+m)%m;\nfunction inv(a,m){let r=m,s=mod(a,m),x=0n,y=1n;while(s){let q=r/s;[r,s]=[s,r-q*s];[x,y]=[y,x-q*y]}ck(r===1n,\"inv\");return mod(x,m)}\nfunction obs(P,N,u){let mass=A=>A.reduce((s,[q,r])=>s+169*q+13*r-1,0),cp=mass(P),cn=mass(N),mp=cp,mn=cn,norm=0;for(let i=0;i<12;i++){let v=u[i]*(13*(i+1)-1);norm+=v*v;if(v>0)mp+=v;else mn-=v}return {cp,cn,masses:[mp,mn],norm,radius:(cap-cp)**2+(cap-cn)**2}}\nfunction split(P,N){let D=new Map();for(let [A,s] of [[P,1],[N,-1]])for(let a of A)D.set(a.join(\",\"),(D.get(a.join(\",\"))||0)+s);let p=[],n=[];for(let [k,v] of D)for(let j=0;j<Math.abs(v);j++)(v>0?p:n).push(k.split(\",\").map(Number));return [sort(p),sort(n)]}\nfunction parts(n,l=1){if(n===0)return [[]];let a=[];for(let k=l;k<=n;k++)for(let b of parts(n-k,k))a.push([k,...b]);return a}\nlet all=new Map(),cross=[],sources=[],columns=[\"pos_pattern\",\"negative_roster_range\",\"search_domain\",\"common_feasible\",\"representative_search\",\"nodes\",\"representative_leaves\",\"leaves\",\"valid\",\"kernel_seconds\"];\nfor(let d of data){let c=d.c;ck(c.frozen_science===pin&&c.p===13&&c.valuation===1&&c.q===13&&c.budget===cap&&eq(c.split,[5,8])&&c.initializer_source_blob===\"cc284a4ebb9e3ba7dddfbcb0abbae8e227aaf46f\"&&c.kernel_blob===\"89e0f5aea7f6efcfd79dc32f29b84fa510f5d95e\"&&eq(c.columns,columns),\"pin/columns\");sources.push(d.source);\nfor(let r of c.counts){let t=Object.fromEntries(columns.map((k,i)=>[k,r[i]])),pp=t.pos_pattern,np=c.neg_pattern,k=key([pp,np]),v=all.get(k)||{pp,np,ts:[],ws:[],rs:[]};v.ts.push({...t,n:c.negative_roster_count,source:d.source.path});all.set(k,v)}\nfor(let [a,k] of [[c.witnesses,\"ws\"],[c.representative_witnesses,\"rs\"]])for(let w of a){let id=key([w.pos.map(a=>a[0]),w.neg.map(a=>a[0])]);ck(all.has(id),\"witness row\");all.get(id)[k].push({...w,source:d.source.path})}}\nlet rows=[],tot={raw:0,domain:0,common:0,reps:0,nodes:0,leaves:0,fibers:0},one=0,min=Infinity;\nfor(let [k,{pp,np,ts,ws,rs}] of all){let gp=group(pp),gn=group(np),pos=gp.reduce((a,[q,m])=>a*C(11+m,m),1),raw=gn.reduce((a,[q,m])=>a*C(11+m,m),pos),limit=Math.floor((cap-1352+np.length)/13),pc=[0],pb=[0],indices=new Map();\nfunction gen(i,l,s,A){if(i===np.length){let no=1,b=1;for(let [q,m] of gp){let d=new Set(A.filter((_,j)=>np[j]===q)),e=[...d].filter(x=>x!==1).length;no*=C(11-d.size+m,m);b*=C(11-e+m,m)}indices.set(key(A),pb.length-1);pc.push(pc.at(-1)+pos-no);pb.push(pb.at(-1)+b);return}for(let t=l;t<=12&&s+t<=limit;t++)gen(i+1,np[i+1]===np[i]?t:1,s+t,A.concat(t))}\ngen(0,1,0,[]);let n=pb.length-1,end=0,nodes=0,leaves=0,nf=0;ts.sort((a,b)=>a.negative_roster_range[0]-b.negative_roster_range[0]);for(let t of ts){let [l,h]=t.negative_roster_range;ck(l===end&&h>l&&h<=n&&t.n===n&&t.search_domain===(h-l)*pos&&t.common_feasible===pc[h]-pc[l]&&t.representative_search===pb[h]-pb[l]&&t.valid===0,\"range/count \"+k);end=h;nodes+=t.nodes;leaves+=t.leaves;nf+=t.representative_leaves;t.audit_leaves=0;t.audit_reps=0}ck(end===n&&leaves===ws.length&&nf===rs.length,\"full coverage\");\nlet fibers=new Map();\nfunction fiber(P,N,u){let [p,n]=split(P,N),rem=gp.map(([q,m])=>[q,m-p.filter(a=>a[0]===q).length]);ck(rem.every(([q,m])=>m>=0&&m===np.filter(x=>x===q).length-n.filter(a=>a[0]===q).length),\"common multiplicity\");return {p,n,rem,id:key([p,n,u]),u}}\nfunction canon(f){return sort(f.n.concat(f.rem.flatMap(([q,m])=>Array.from({length:m},()=>[q,1]))))}\nfunction locate(f,source){let i=indices.get(key(canon(f).map(a=>a[1])));ck(Number.isInteger(i),\"canonical index\");let t=ts.find(t=>t.negative_roster_range[0]<=i&&i<t.negative_roster_range[1]);ck(t&&t.source===source,\"source shard\");return [i,t]}\nfor(let w of ws){let {pos:P,neg:N,u,z}=w;ck(eq(P.map(a=>a[0]),pp)&&eq(N.map(a=>a[0]),np)&&eq(P,sort(P))&&eq(N,sort(N))&&[...P,...N].every(a=>Number.isInteger(a[1])&&a[1]>=1&&a[1]<=12)&&u.length===12&&u.every(Number.isSafeInteger)&&z.length===12&&z.every(Number.isSafeInteger),\"roster\");for(let j=0;j<12;j++)ck(z.reduce((s,x,i)=>s+BigInt(x)*U[i][j],0n)===13n**6n*BigInt(u[j]),\"zU\");for(let h=1;h<=6;h++){let m=13n**BigInt(h),v=u.reduce((s,x,i)=>s+BigInt(x)*inv(BigInt(i+1)**BigInt(h),m),0n);for(let [q,r] of P)v+=inv(BigInt(13*q+r)**BigInt(h),m);for(let [q,r] of N)v-=inv(BigInt(13*q+r)**BigInt(h),m);ck(mod(v,m)===0n&&w.residues[h-1]===0,\"congruence\")}let o=obs(P,N,u);ck(o.cp<=cap&&o.cn<=cap&&o.norm<=o.radius&&o.norm===w.norm_sq&&o.radius===w.radius_sq&&eq(o.masses,w.masses)&&Math.max(...w.masses)>cap&&w.budget_valid===false,\"observations\");if(Math.min(...w.masses)<=cap)one++;min=Math.min(min,Math.max(...w.masses)-cap);let f=fiber(P,N,u),[i,t]=locate(f,w.source),j=indices.get(key(N.map(a=>a[1])));ck(Number.isInteger(j),\"member index\");ck(w.shard_lo===undefined||w.shard_lo===t.negative_roster_range[0],\"declared shard\");t.audit_leaves++;if(j<t.negative_roster_range[0]||j>=t.negative_roster_range[1])cross.push({pp,np,canonical:i,member:j,shard:t.negative_roster_range,witness:w});let v=fibers.get(f.id)||{...f,set:new Set()};let id=key([P,N]);ck(!v.set.has(id),\"duplicate witness\");v.set.add(id);fibers.set(f.id,v)}\nlet seen=new Set();for(let w of rs){let f=fiber(w.pos,w.neg,w.u),v=fibers.get(f.id);ck(v&&!seen.has(f.id)&&v.set.size===w.fiber_size,\"rep fiber size\");seen.add(f.id);let [i,t]=locate(f,w.source);t.audit_reps++;ck(eq(w.neg,canon(f)),\"representative canonical neg\");let expected=new Set();function rec(i,left,l,A){if(i===f.rem.length){let p=sort(f.p.concat(A)),n=sort(f.n.concat(A)),o=obs(p,n,f.u);if(o.cp<=cap&&o.cn<=cap&&o.norm<=o.radius)expected.add(key([p,n]));return}if(left===0){rec(i+1,f.rem[i+1]?.[1]||0,1,A);return}for(let r=l;r<=12;r++)rec(i,left-1,r,A.concat([[f.rem[i][0],r]]))}rec(0,f.rem[0]?.[1]||0,1,[]);ck(expected.size===v.set.size&&[...expected].every(x=>v.set.has(x)),\"fiber recovery\")}\nck(seen.size===fibers.size&&ts.every(t=>t.audit_leaves===t.leaves&&t.audit_reps===t.representative_leaves),\"per-shard witness coverage\");let row={pp,np,negative_rosters:n,raw,domain:n*pos,common:pc[n],reps:pb[n],nodes,leaves,fibers:nf,shards:ts,witnesses:ws,representatives:rs};rows.push(row);for(let k in tot)tot[k]+=row[k]}\nlet exp=parts(5).flatMap(p=>parts(8).filter(n=>n.length===len).map(n=>key([p,n])));ck(all.size===exp.length&&exp.every(k=>all.has(k)),\"partition pair coverage\");return {sources,covered_pairs:rows.length,total:tot,one_side_valid:one,min_excess:Number.isFinite(min)?min:null,cross,rows}}",
+  "sha256_javascript": "function sha256(s){let bytes=[];for(let c of s){let n=c.codePointAt(0);if(n<128)bytes.push(n);else if(n<2048)bytes.push(192|(n>>6),128|(n&63));else if(n<65536)bytes.push(224|(n>>12),128|(n>>6&63),128|(n&63));else bytes.push(240|(n>>18),128|(n>>12&63),128|(n>>6&63),128|(n&63))}let bit=bytes.length*8;bytes.push(128);while(bytes.length%64!==56)bytes.push(0);for(let i=7;i>=0;i--)bytes.push(Math.floor(bit/2**(8*i))&255);let H=[],K=[];for(let p=2;K.length<64;p++){let prime=true;for(let d=2;d*d<=p;d++)if(p%d===0){prime=false;break}if(prime){if(H.length<8)H.push((Math.sqrt(p)%1*2**32)>>>0);K.push((Math.cbrt(p)%1*2**32)>>>0)}}const rr=(x,n)=>(x>>>n)|(x<<(32-n));for(let off=0;off<bytes.length;off+=64){let w=[];for(let i=0;i<16;i++)w[i]=(bytes[off+4*i]<<24)|(bytes[off+4*i+1]<<16)|(bytes[off+4*i+2]<<8)|bytes[off+4*i+3];for(let i=16;i<64;i++){let x=w[i-15],y=w[i-2];w[i]=((rr(x,7)^rr(x,18)^(x>>>3))+w[i-16]+(rr(y,17)^rr(y,19)^(y>>>10))+w[i-7])|0}let [a,b,c,d,e,f,g,h]=H;for(let i=0;i<64;i++){let t=(h+(rr(e,6)^rr(e,11)^rr(e,25))+((e&f)^(~e&g))+K[i]+w[i])|0,u=((rr(a,2)^rr(a,13)^rr(a,22))+((a&b)^(a&c)^(b&c)))|0;[a,b,c,d,e,f,g,h]=[(t+u)|0,a,b,c,(d+t)|0,e,f,g]}H=H.map((x,i)=>(x+[a,b,c,d,e,f,g,h][i])>>>0)}return H.map(x=>x.toString(16).padStart(8,\"0\")).join(\"\")}",
+  "normalizer6_javascript": "function normalize(c){const ck=(b,m)=>{if(!b)throw Error(m)},eq=(a,b)=>JSON.stringify(a)===JSON.stringify(b),sort=A=>A.slice().sort((a,b)=>a[0]-b[0]||a[1]-b[1]),fields=[\"pos_pattern\",\"negative_roster_range\",\"search_domain\",\"common_feasible\",\"representative_search\",\"nodes\",\"representative_leaves\",\"leaves\",\"valid\",\"kernel_seconds\"],prefix=\"22d0469739581b7cac3c5bdd3064859ef77255e656618e792af53d3a1427bee8\",blob=\"cc284a4ebb9e3ba7dddfbcb0abbae8e227aaf46f\";\nlet inferred=[];if(!c.initializer_source_blob){ck(c.initializer_prefix_sha256===prefix,\"initializer prefix\");c={...c,initializer_source_blob:blob};inferred.push(\"initializer source blob linked by previously audited prefix SHA256; not present in original\")}if(c.counts)return {c,inferred};\nlet counts=[],ws=[],rs=[];if(c.shards||c.negative_roster_range){for(let t of c.shards||[c]){let pp=t.pos_pattern??c.pos_pattern;ck(pp&&Array.isArray(t.witnesses)&&Array.isArray(t.rep_witness),\"shard fields\");counts.push(fields.map(k=>k===\"pos_pattern\"?pp:t[k]));ws.push(...t.witnesses.map(w=>({...w,shard_lo:t.negative_roster_range[0]})));rs.push(...t.rep_witness)}}else if(c.row_fields){ck(eq(c.row_fields,[\"lo\",\"hi\",...fields.slice(2)])&&eq(c.witness_fields,[\"shard_lo\",\"pos_labels\",\"neg_labels\",\"z\",\"u\",\"norm_sq\",\"radius_sq\",\"masses\"]),\"compact fields\");counts=c.rows.map(([l,h,...v])=>[c.pos_pattern,[l,h],...v]);let fs=new Map();for(let w of c.witnesses){let [shard_lo,p,n,z,u,norm_sq,radius_sq,masses]=w,P=c.pos_pattern.map((q,i)=>[q,p[i]]),N=c.neg_pattern.map((q,i)=>[q,n[i]]);ws.push({pos:P,neg:N,z,u,norm_sq,radius_sq,masses,shard_lo,residues:[0,0,0,0,0,0],budget_valid:Math.max(...masses)<=2331});let D=new Map();for(let [A,s] of [[P,1],[N,-1]])for(let a of A)D.set(a.join(\",\"),(D.get(a.join(\",\"))||0)+s);let pp=[],nn=[];for(let [k,v] of D)for(let j=0;j<Math.abs(v);j++)(v>0?pp:nn).push(k.split(\",\").map(Number));let common=[];for(let q of new Set(c.pos_pattern)){let n=c.pos_pattern.filter(x=>x===q).length-pp.filter(x=>x[0]===q).length;ck(n>=0&&n===c.neg_pattern.filter(x=>x===q).length-nn.filter(x=>x[0]===q).length,\"fiber common\");for(let j=0;j<n;j++)common.push([q,1])}let k=JSON.stringify([sort(pp),sort(nn),u]),r=fs.get(k)||{pos:sort(pp.concat(common)),neg:sort(nn.concat(common)),u,fiber_size:0};r.fiber_size++;fs.set(k,r)}rs=[...fs.values()];inferred.push(\"compact witness residues/budget reconstructed and verified, canonical representatives regenerated from exact signed differences; source supplies counts and full member fields but no representative rows\")}else throw Error(\"unknown certificate format\");\nck(counts.reduce((s,r)=>s+r[7],0)===ws.length&&counts.reduce((s,r)=>s+r[6],0)===rs.length,\"source counts\");\nreturn {c:{...c,columns:fields,counts,witnesses:ws,representative_witnesses:rs},inferred}}",
+  "normalizer78_javascript": "function normalize78(c,normalize6){\nconst ck=(b,m)=>{if(!b)throw Error(m)},eq=(a,b)=>JSON.stringify(a)===JSON.stringify(b),sort=A=>A.slice().sort((a,b)=>a[0]-b[0]||a[1]-b[1]),fields=[\"pos_pattern\",\"negative_roster_range\",\"search_domain\",\"common_feasible\",\"representative_search\",\"nodes\",\"representative_leaves\",\"leaves\",\"valid\",\"kernel_seconds\"],wf=[\"pos\",\"neg\",\"z\",\"u\",\"residues\",\"norm_sq\",\"radius_sq\",\"masses\",\"budget_valid\"];\nif(c.shards){return normalize6({...c,shards:c.shards.map(t=>({...t,negative_roster_range:t.negative_roster_range??t.range}))})}\nif(!c.rows)return normalize6(c);\nlet cols=c.row_fields??c.columns;ck(eq(cols,fields)||eq(cols,fields.slice(1)),\"row fields\");let counts=c.rows.map(r=>{ck(r.length===cols.length,\"row length\");return eq(cols,fields)?r:[c.pos_pattern,...r]});\nlet ws=c.witnesses.map(w=>{if(!Array.isArray(w))return w;ck(eq(c.witness_fields,wf)&&w.length===wf.length,\"witness fields\");return Object.fromEntries(wf.map((k,i)=>[k,w[i]]))});\nlet inferred=[],rs=c.rep_witness??c.representative_witnesses;if(!rs){let fs=new Map();for(let w of ws){let D=new Map();for(let [A,s] of [[w.pos,1],[w.neg,-1]])for(let a of A)D.set(a.join(\",\"),(D.get(a.join(\",\"))||0)+s);let pp=[],nn=[];for(let [k,v] of D)for(let j=0;j<Math.abs(v);j++)(v>0?pp:nn).push(k.split(\",\").map(Number));let common=[],p=w.pos.map(a=>a[0]),n=w.neg.map(a=>a[0]);for(let q of new Set(p)){let m=p.filter(x=>x===q).length-pp.filter(x=>x[0]===q).length;ck(m>=0&&m===n.filter(x=>x===q).length-nn.filter(x=>x[0]===q).length,\"common mult\");for(let j=0;j<m;j++)common.push([q,1])}let k=JSON.stringify([sort(pp),sort(nn),w.u]),r=fs.get(k)||{pos:sort(pp.concat(common)),neg:sort(nn.concat(common)),u:w.u,fiber_size:0};r.fiber_size++;fs.set(k,r)}rs=[...fs.values()];inferred.push(\"canonical representatives regenerated from complete witness rows and independently verified against source counts; original representative rows absent\")}\nck(counts.reduce((s,r)=>s+r[7],0)===ws.length&&counts.reduce((s,r)=>s+r[6],0)===rs.length,\"row sums\");return {c:{...c,columns:fields,counts,witnesses:ws,representative_witnesses:rs},inferred}\n}",
+  "next": "Split (5,8) length 8; aggregate 724/885; split (5,8) 147/154."
+}
