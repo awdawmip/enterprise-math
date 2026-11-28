@@ -1,0 +1,118 @@
+{
+  "schema": "D25_LENGTH2_OPPOSITE_GAUGE_AUTHOR_CHECK_V1",
+  "checks": [
+    {
+      "ring": "Z/9",
+      "residual_field_size": 3,
+      "ring_size": 9,
+      "states": 81,
+      "gauge_actions_checked": 486,
+      "classes": 17,
+      "predicted_classes": 17,
+      "class_strata": {
+        "X_UNIT": 9,
+        "Y_UNIT": 3,
+        "BOTH_NONUNIT": 5
+      },
+      "all_class_sizes_verified": true,
+      "all_full_group_actions_verified": true,
+      "result": "PASS"
+    },
+    {
+      "ring": "Z/25",
+      "residual_field_size": 5,
+      "ring_size": 25,
+      "states": 625,
+      "gauge_actions_checked": 12500,
+      "classes": 37,
+      "predicted_classes": 37,
+      "class_strata": {
+        "X_UNIT": 25,
+        "Y_UNIT": 5,
+        "BOTH_NONUNIT": 7
+      },
+      "all_class_sizes_verified": true,
+      "all_full_group_actions_verified": true,
+      "result": "PASS"
+    },
+    {
+      "ring": "Z/49",
+      "residual_field_size": 7,
+      "ring_size": 49,
+      "states": 2401,
+      "gauge_actions_checked": 100842,
+      "classes": 65,
+      "predicted_classes": 65,
+      "class_strata": {
+        "X_UNIT": 49,
+        "Y_UNIT": 7,
+        "BOTH_NONUNIT": 9
+      },
+      "all_class_sizes_verified": true,
+      "all_full_group_actions_verified": true,
+      "result": "PASS"
+    },
+    {
+      "ring": "Z/121",
+      "residual_field_size": 11,
+      "ring_size": 121,
+      "states": 14641,
+      "gauge_actions_checked": 1610510,
+      "classes": 145,
+      "predicted_classes": 145,
+      "class_strata": {
+        "X_UNIT": 121,
+        "Y_UNIT": 11,
+        "BOTH_NONUNIT": 13
+      },
+      "all_class_sizes_verified": true,
+      "all_full_group_actions_verified": true,
+      "result": "PASS"
+    },
+    {
+      "ring": "(Z/9)[T]/(T^2-2)",
+      "residual_field_size": 9,
+      "ring_size": 81,
+      "states": 6561,
+      "gauge_actions_checked": 472392,
+      "classes": 101,
+      "predicted_classes": 101,
+      "class_strata": {
+        "X_UNIT": 81,
+        "Y_UNIT": 9,
+        "BOTH_NONUNIT": 11
+      },
+      "all_class_sizes_verified": true,
+      "all_full_group_actions_verified": true,
+      "result": "PASS"
+    }
+  ],
+  "total_states": 24309,
+  "total_exact_gauge_actions": 2196730,
+  "p373_formula_only": {
+    "p": 373,
+    "ring": "(Z/373^2)[T]/(T^2-2)",
+    "residue_field_size": 139129,
+    "is_unramified_local": true,
+    "conditional_full_unit_gauge_orbits": 19357156901,
+    "integer_scalar_ring_orbits": 139877,
+    "two_same_product_and_valuation_witnesses": {
+      "first": [
+        "(p,0)",
+        "(p,0)"
+      ],
+      "second": [
+        "(p,0)",
+        "(2p,0)"
+      ],
+      "both_products_mod_p_squared": 0,
+      "p_scaled_residual_products": [
+        1,
+        2
+      ],
+      "equivalent_under_full_units": false
+    },
+    "classification_status": "conditional auxiliary coefficient-ring only, no native H0/B0 action"
+  },
+  "overall": "PASS"
+}

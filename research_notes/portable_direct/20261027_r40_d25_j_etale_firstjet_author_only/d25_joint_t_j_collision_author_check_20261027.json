@@ -1,0 +1,136 @@
+{
+  "schema": "AUTHOR_EXACT_JOINT_CM_OBSERVER_CERTIFICATE_V1",
+  "status": "LOCAL_UNPUBLISHED_UNREVIEWED_NOT_NATIVE_NOT_ADMITTED",
+  "domain": "X0(3) source h, involution x->1/x, t and j observers",
+  "symbolic_algebra_statement": "J(x)-J(1/x)=27*(x-1/x)*(t^-1-64)*(t^-1-8)",
+  "exact_rational_regressions": 5,
+  "p_adic_cases": [
+    {
+      "p": 13,
+      "precision_digits": 5,
+      "ring_modulus": 371293,
+      "collision_fibre": "1/8",
+      "cm_fibre": "1/216",
+      "collision_parameter_first_digit": 10,
+      "plus_root": [
+        275031,
+        208301
+      ],
+      "minus_root": [
+        275031,
+        162992
+      ],
+      "plus_root_first_digit": [
+        5,
+        7
+      ],
+      "minus_root_first_digit": [
+        5,
+        6
+      ],
+      "joint_observer": {
+        "t": [
+          139235,
+          0
+        ],
+        "j": [
+          8000,
+          0
+        ]
+      },
+      "frozen_j_difference": [
+        0,
+        72891
+      ],
+      "quantitative_collision_valuation_profile": [
+        {
+          "t_displacement_p_power": 1,
+          "j_sheet_difference_valuation": 1
+        },
+        {
+          "t_displacement_p_power": 2,
+          "j_sheet_difference_valuation": 2
+        },
+        {
+          "t_displacement_p_power": 3,
+          "j_sheet_difference_valuation": 3
+        },
+        {
+          "t_displacement_p_power": 4,
+          "j_sheet_difference_valuation": 4
+        }
+      ],
+      "assertions": "PASS"
+    },
+    {
+      "p": 19,
+      "precision_digits": 5,
+      "ring_modulus": 2476099,
+      "collision_fibre": "1/64",
+      "cm_fibre": "1/216",
+      "collision_parameter_first_digit": 18,
+      "plus_root": [
+        1192196,
+        954885
+      ],
+      "minus_root": [
+        1192196,
+        1521214
+      ],
+      "plus_root_first_digit": [
+        9,
+        2
+      ],
+      "minus_root_first_digit": [
+        9,
+        17
+      ],
+      "joint_observer": {
+        "t": [
+          812470,
+          0
+        ],
+        "j": [
+          2443331,
+          0
+        ]
+      },
+      "frozen_j_difference": [
+        0,
+        938429
+      ],
+      "quantitative_collision_valuation_profile": [
+        {
+          "t_displacement_p_power": 1,
+          "j_sheet_difference_valuation": 1
+        },
+        {
+          "t_displacement_p_power": 2,
+          "j_sheet_difference_valuation": 2
+        },
+        {
+          "t_displacement_p_power": 3,
+          "j_sheet_difference_valuation": 3
+        },
+        {
+          "t_displacement_p_power": 4,
+          "j_sheet_difference_valuation": 4
+        }
+      ],
+      "assertions": "PASS"
+    }
+  ],
+  "nonexceptional_prime_residue_controls": [
+    37,
+    43,
+    61,
+    67,
+    109,
+    139,
+    157,
+    163,
+    181
+  ],
+  "universal_proof": "Textual identity plus Hensel argument in companion Markdown; finite certificates are not general proof",
+  "native_source_claim": false
+}
