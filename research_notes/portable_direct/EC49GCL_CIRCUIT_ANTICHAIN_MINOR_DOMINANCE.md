@@ -1,0 +1,41 @@
+# EC49GCL — Circuit antichain minor carrier and exact dominance
+2026-11-28. AUTHOR_PROVED / EXACT_FINITE_SYNTHETIC_ALL_BUDGET_REPLAY / NOT_REVIEWED.
+Predecessor: 6de6a83e54967b7e18e0a3757761d183a0441fb8:research_notes/portable_direct/EC49GCK_SIGNED_DUAL_FLAT_MINOR_CARRIER.md (blob ec63ff19ff6a23930e56aa57a7c30b3559f1428b); branch copy matched. Auxiliary strict-Hall combinatorial observer only, not a native BRC arithmetic or physical computation. Standard finite matroid facts are used; no priority claim in matroid theory.
+
+## 1. Exact circuit extraction from GCK
+Let N be the remaining labeled finite matroid on F and nu(X)=|X|-r(X)=sum_{A subset X} c_A the unique Boolean carrier of GCK. Let Min denote distinct inclusion-minimal members. Then
+C(N)=Min{A:c_A != 0}.
+Indeed, any circuit C has nullity 1 and every proper subset has nullity 0, hence c_C=1 by inversion. Every nonzero term A must contain a circuit: if independent then every subset independent, so c_A=0. This proves both directions, including loops and the free matroid. Thus C(N) is a canonical equality key for the full labeled independence language; it determines ranks by maximum independent subsets, but does not by itself provide GCK's linear-time nullity readout. Circuit count never exceeds nonzero signed term count. Original label IDs, supports and objective values remain separate.
+
+## 2. Exact dominance with a concrete witness
+For two matroids S,T on the identical suffix F, S dominates T in feasibility iff I(T) subset I(S) iff each C in C(S) contains some D in C(T).
+Necessity: a circuit of S cannot be independent in T. Sufficiency: any dependent set of S contains a circuit of S and hence a circuit of T. If the test fails, the failing circuit itself is an explicit labeled set feasible in T and infeasible in S. Equivalently, using the signed carrier of T, check sum_{A subset C} c_A(T)>0 for each circuit C of S. The test direction is important: check circuits of the dominating candidate S, not of T. The criterion is also equivalent to r_S(X)>=r_T(X) for every X by maximum independent subsets (and evaluating X itself when independent). With additive p_S>=p_T and s_S>=s_T it supplies exact GCB pruning across every budget. It preserves all optimal values and at least one witness, not all historical labels of discarded optimal prefixes. Worst-case circuit comparison O(|C(S)||C(T)|) subset tests, with short-circuiting; no enumeration of all 2^|F| queries after extraction.
+
+## 3. Closed circuit-antichain minor carrier
+Take disjoint R,Q subset F, with R independent, select R and skip Q. For remaining X,
+X independent in N/R minus Q iff X union R independent in N.
+A parent circuit is contained in X union R iff it avoids Q and its residual C minus R is contained in X. Thus
+C(N/R minus Q)=Min{ C minus R : C in C(N), C intersect Q=empty }.
+No empty residual can occur because R is independent. This is exact for arbitrary labeled batches, not just equal-support groups, and the circuit count is nonincreasing per branch. Legality of R itself is the same containment test. Equality merging and subsequent dominance are exact for the declared future select/skip language. Canonical sorting by mask size, then removing supersets, suffices; naive minimization is O(c^2) subset tests, not included in replay's query-only subset counter. Mask width, allocation, initial circuit enumeration, rank readout and DP state growth cost extra. Retaining the signed map may be preferable for repeated numerical nullity queries; use the circuit carrier for feasibility and all-budget additive optimization.
+
+## 4. An exponential separation within strict Hall
+One port of capacity 2, m>=2 labels supported only on this port, yields U_{1,m}. Its circuits are the binom(m,2) pairs. Its nullity is max(0,|X|-1)=|X|-1+1_{X=empty}. Expansion of 1_{X=empty}=prod_{i=1}^m (1-1_{i in X}) gives coefficient (-1)^|A| for every |A|>=2, zero otherwise. Thus the signed label carrier has 2^m-m-1 nonzero terms, while the circuit carrier has binom(m,2). The rank-one example has an even smaller same-support count model, so this is a separation of representations, not an information-theoretic lower bound. It motivates selecting the carrier by the future observation language rather than globally replacing GCK.
+
+## 5. Actual all-budget DP integration
+Used exactly GCF's generator at 4808561105e689440db7741a266393d10ec7a05e:research_artifacts/portable_direct/EC49GCF/grouped_basis_replay.js (blob 7e747dccf0f585becc3ce3e3d84412bf9f223d95), xorshift32 seed 20261128, 350 models, 2..7 ports, 5..12 labels, same support grouping and sorted real/auxiliary prefixes. Original capacity lift included. Reference strict Hall checks all nonempty port cuts; rank recurrence over label subsets, signed initialization by Boolean inversion (not GCK's dual-flat constructor). Every generated child checked against all remaining subsets and the original Hall predicate at selected prefix; each attempted dominance compared with direct suffix enumeration and failures checked with actual circuit witness. All budget optima and label witnesses checked against exhaustive original subsets. Int16 coefficient arithmetic safe at m<=12: each partial inversion has at most 2^(m-1) terms of either sign with magnitude <=m, hence <=24576; ranks/popcounts <=12.
+
+Executed JS in tool isolate:
+350 models, 376960 original subset checks, 5096 budgets, 10192 witnesses, 1057088 child-subset comparisons, 3554 dominance comparisons across both modes, 1716 failing dominance witnesses, no assertion failures.
+Initial terms: signed 1941, circuits 1175; maxima 299,220 respectively.
+Both modes: 2146 stages, 7160 generated, 2986 retained, peak 12 states, 1777 dominance attempts per mode, same counts as GCF/GCH/GCI historical same generator. Cumulative retained entries signed 3343 vs circuits 2261; peak entries per retained state 163 vs 72. Query subset tests signed 46503 vs circuits 18575; transition input entries scanned 19515 vs 12279. Query subset counters exclude antichain minimization and signed map aggregation, so not a total operation count. No wall-clock or actual memory claim; full end-to-end timings and initial constructor comparison open. Reference and initialization use exhaustive small inputs, not a scalable constructor. No component-local convolution executed here (GCK already proved it).
+
+Evidence (exact executed code and output, remote content equality verified):
+- f038c4f2bdb761aa518d93bbc15677287a498be0:research_artifacts/portable_direct/EC49GCL/circuit_dp_replay.js (blob 1dca146060218d613ebbd2cd4785fd50b12b3aaa)
+- e42b1f10f160c3924e42c284fd3737e771c0463c:research_artifacts/portable_direct/EC49GCL/replay_output.json (blob fb66003b249933c01c12963a0fccacf53035162d)
+Reproduce: node circuit_dp_replay.js.
+
+## 6. Next
+Develop direct minimal forbidden count vectors for interchangeable support classes, with exact batch decrement and component-local convolution, avoiding exponential circuit label expansion for high multiplicity. Compare constructors and end-to-end performance with GCF/GCH; use signed carrier when rank readout is required. No new native BRC16943 byte recovery or fourth-layer physical computation this run. Historical hashes and next unresolved root 2046, 25<=M14<=27 remain as GCK; do not treat synthetic input as frozen physical input.
+
+## 7. Control provenance
+Global main entry blobs verified equal at immutable 16032354365b016dbc17b4bef403200082cb4323 (25ae05640c7920104820dba91a1df5e9fafca25e,108cd58e0458070b5f1a8171d2f66c8c3d0aa613). Current applicable P000 V4/V5, worldview, joint preservation, heartbeat companion, residual, portable, research method read; scientific pin unchanged. Current exact-topic read r4-20261128-1435-ec49as-topic-read SUCCEEDED, Source 36a089a9ba1e37b8576122af798ca243943a2cd3: NO_CANONICAL_PUBLICATION_DIRECTORY, native owner view not evaluated. em_status succeeded at gateway subject scope, not a private researcher session or execution grant. Historical EM-DIRECT-23537B is provenance only; current private identity unconfirmed. Independent informed portable continuation; no shared CLAIM, new execution identity, Task mutation or schedule change. Activity association and canonical integration pending. GitHub evidence saved, no Drive fallback needed.
