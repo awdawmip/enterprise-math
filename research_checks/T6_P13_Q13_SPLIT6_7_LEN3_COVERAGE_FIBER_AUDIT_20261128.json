@@ -1,0 +1,2547 @@
+{
+  "schema": "T6_P13_Q13_SPLIT67_LEN3_COVERAGE_FIBER_AUDIT_V1",
+  "status": "AUTHOR_EXACT_CHECKED / UNREVIEWED / NOT_ADMITTED",
+  "mother": "T6=2332 OPEN",
+  "frozen_science": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "scope": "Exact author-side coverage and witness-fiber audit; no search replay, no independent kernel attestation.",
+  "authority": {
+    "conversation": "chatgpt-research-onhour-enterprise-math-20260923",
+    "activity": "RA-A468735D7C934B25C4B9614F",
+    "researcher": "EM-DIRECT-D03BC9",
+    "session": "MCP-7f3df4435e40430b832e8d5ff2137718",
+    "protected_claim_run": "UNVERIFIED",
+    "ordinary_pending_request": "onhour-20261128-0200-recovery-v1",
+    "issue": 7066
+  },
+  "basis_source": {
+    "path": "research_checks/T6_P13_Q13_SPLIT0_13_AUTHOR_EXACT_CERT_20261126.json",
+    "ref": "8fd2d6ff7f721894bad621f534e65dbbd0600892",
+    "blob": "bcab5ce85b368d2b65a74340ceadb4527da0f01e",
+    "sha256": "8138689f2424c9fb231c82128e8adced666ea2de3107fd4c3710a77e9d767f6d"
+  },
+  "prior_audit": {
+    "path": "research_checks/T6_P13_Q13_SPLIT6_7_LEN2_COVERAGE_FIBER_AUDIT_20261128.json",
+    "ref": "5138b62ee7310a6c6506c538dd0bb3b6affa28aa"
+  },
+  "result": {
+    "sources": [
+      {
+        "repository": "awdawmip/enterprise-math",
+        "commit": "d3d7fecfc9bb1410091f8c3968183e4af7b11d70",
+        "path": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_1_5_COMPLETE_CERT_20261128.json",
+        "sha256": "b5ddf3941e865614517fd35c624dd82ca79a5c89de47775a6a577334e301b38c",
+        "publication_state": "VERIFY_EM_PUBLICATION",
+        "blob": "378db57cd79465730dfe90e9084256dddb78f710"
+      },
+      {
+        "repository": "awdawmip/enterprise-math",
+        "commit": "32f916a726fc5e0287d4a84412862e2909f326f3",
+        "path": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_2_4_COMPLETE_CERT_20261128.json",
+        "sha256": "d3d6bae6ae1a619b43dbc4979e88ce4f238b15de9b959a039647dd3c0c9e886c",
+        "publication_state": "VERIFY_EM_PUBLICATION",
+        "blob": "e87c71e39a02d5651a6d424acbed2563df0fc5ff"
+      },
+      {
+        "repository": "awdawmip/enterprise-math",
+        "commit": "4e61c452370406a2d31edfedf7906eb775d6e4b7",
+        "path": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_3_3_COMPLETE_CERT_20261128.json",
+        "sha256": "9cfa7f073b479b0a8fbb1857fb95f64b7507d8cb3fa378c339130fd3db38b7c1",
+        "publication_state": "VERIFY_EM_PUBLICATION",
+        "blob": "f7d5f650044c78e239cb969f8195297bce38e586"
+      },
+      {
+        "repository": "awdawmip/enterprise-math",
+        "commit": "88e0b729110c3ecbbee0556e7620657eaad892d6",
+        "path": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG2_2_3_COMPLETE_CERT_20261128.json",
+        "sha256": "c8c1b6be1cc45682235e7ae988aafbe4f99b79e06e43abcf5cbd94e240581b15",
+        "publication_state": "VERIFY_EM_PUBLICATION",
+        "blob": "9c435940572ba52cf17db91bd55d5e443ae2a49a"
+      }
+    ],
+    "covered_pairs": 44,
+    "total": {
+      "raw": 193297104,
+      "domain": 193297104,
+      "common": 55042128,
+      "reps": 142584552,
+      "nodes": 229250057,
+      "leaves": 3,
+      "fibers": 3
+    },
+    "one_side_valid": 0,
+    "min_excess": 955,
+    "cross": [],
+    "rows": [
+      {
+        "pp": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "np": [
+          1,
+          1,
+          5
+        ],
+        "negative_rosters": 936,
+        "raw": 11583936,
+        "domain": 11583936,
+        "common": 6466824,
+        "reps": 5565924,
+        "nodes": 8710302,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "negative_roster_range": [
+              0,
+              936
+            ],
+            "search_domain": 11583936,
+            "common_feasible": 6466824,
+            "representative_search": 5565924,
+            "nodes": 8710302,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 3.329,
+            "n": 936,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_1_5_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          1,
+          1,
+          1,
+          1,
+          2
+        ],
+        "np": [
+          1,
+          1,
+          5
+        ],
+        "negative_rosters": 936,
+        "raw": 15331680,
+        "domain": 15331680,
+        "common": 6806592,
+        "reps": 9030528,
+        "nodes": 14459476,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              1,
+              1,
+              1,
+              1,
+              2
+            ],
+            "negative_roster_range": [
+              0,
+              936
+            ],
+            "search_domain": 15331680,
+            "common_feasible": 6806592,
+            "representative_search": 9030528,
+            "nodes": 14459476,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 5.42,
+            "n": 936,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_1_5_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          1,
+          1,
+          1,
+          3
+        ],
+        "np": [
+          1,
+          1,
+          5
+        ],
+        "negative_rosters": 936,
+        "raw": 4088448,
+        "domain": 4088448,
+        "common": 1503360,
+        "reps": 2700864,
+        "nodes": 4434128,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              1,
+              1,
+              1,
+              3
+            ],
+            "negative_roster_range": [
+              0,
+              936
+            ],
+            "search_domain": 4088448,
+            "common_feasible": 1503360,
+            "representative_search": 2700864,
+            "nodes": 4434128,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 1.721,
+            "n": 936,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_1_5_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          1,
+          1,
+          2,
+          2
+        ],
+        "np": [
+          1,
+          1,
+          5
+        ],
+        "negative_rosters": 936,
+        "raw": 5694624,
+        "domain": 5694624,
+        "common": 1555632,
+        "reps": 4263480,
+        "nodes": 6996960,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              1,
+              1,
+              2,
+              2
+            ],
+            "negative_roster_range": [
+              0,
+              936
+            ],
+            "search_domain": 5694624,
+            "common_feasible": 1555632,
+            "representative_search": 4263480,
+            "nodes": 6996960,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 2.72,
+            "n": 936,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_1_5_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          1,
+          1,
+          4
+        ],
+        "np": [
+          1,
+          1,
+          5
+        ],
+        "negative_rosters": 936,
+        "raw": 876096,
+        "domain": 876096,
+        "common": 239328,
+        "reps": 655920,
+        "nodes": 1106443,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              1,
+              1,
+              4
+            ],
+            "negative_roster_range": [
+              0,
+              936
+            ],
+            "search_domain": 876096,
+            "common_feasible": 239328,
+            "representative_search": 655920,
+            "nodes": 1106443,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 0.422,
+            "n": 936,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_1_5_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          1,
+          2,
+          3
+        ],
+        "np": [
+          1,
+          1,
+          5
+        ],
+        "negative_rosters": 936,
+        "raw": 1617408,
+        "domain": 1617408,
+        "common": 248832,
+        "reps": 1389312,
+        "nodes": 2341309,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              1,
+              2,
+              3
+            ],
+            "negative_roster_range": [
+              0,
+              936
+            ],
+            "search_domain": 1617408,
+            "common_feasible": 248832,
+            "representative_search": 1389312,
+            "nodes": 2341309,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 0.882,
+            "n": 936,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_1_5_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          1,
+          5
+        ],
+        "np": [
+          1,
+          1,
+          5
+        ],
+        "negative_rosters": 936,
+        "raw": 134784,
+        "domain": 134784,
+        "common": 30240,
+        "reps": 106932,
+        "nodes": 185651,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              1,
+              5
+            ],
+            "negative_roster_range": [
+              0,
+              936
+            ],
+            "search_domain": 134784,
+            "common_feasible": 30240,
+            "representative_search": 106932,
+            "nodes": 185651,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 0.075,
+            "n": 936,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_1_5_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          2,
+          2,
+          2
+        ],
+        "np": [
+          1,
+          1,
+          5
+        ],
+        "negative_rosters": 936,
+        "raw": 340704,
+        "domain": 340704,
+        "common": 0,
+        "reps": 340704,
+        "nodes": 574427,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              2,
+              2,
+              2
+            ],
+            "negative_roster_range": [
+              0,
+              936
+            ],
+            "search_domain": 340704,
+            "common_feasible": 0,
+            "representative_search": 340704,
+            "nodes": 574427,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 0.23,
+            "n": 936,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_1_5_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          2,
+          4
+        ],
+        "np": [
+          1,
+          1,
+          5
+        ],
+        "negative_rosters": 936,
+        "raw": 134784,
+        "domain": 134784,
+        "common": 0,
+        "reps": 134784,
+        "nodes": 233993,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              2,
+              4
+            ],
+            "negative_roster_range": [
+              0,
+              936
+            ],
+            "search_domain": 134784,
+            "common_feasible": 0,
+            "representative_search": 134784,
+            "nodes": 233993,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 0.096,
+            "n": 936,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_1_5_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          3,
+          3
+        ],
+        "np": [
+          1,
+          1,
+          5
+        ],
+        "negative_rosters": 936,
+        "raw": 73008,
+        "domain": 73008,
+        "common": 0,
+        "reps": 73008,
+        "nodes": 126414,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              3,
+              3
+            ],
+            "negative_roster_range": [
+              0,
+              936
+            ],
+            "search_domain": 73008,
+            "common_feasible": 0,
+            "representative_search": 73008,
+            "nodes": 126414,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 0.054,
+            "n": 936,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_1_5_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          6
+        ],
+        "np": [
+          1,
+          1,
+          5
+        ],
+        "negative_rosters": 936,
+        "raw": 11232,
+        "domain": 11232,
+        "common": 0,
+        "reps": 11232,
+        "nodes": 19970,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              6
+            ],
+            "negative_roster_range": [
+              0,
+              936
+            ],
+            "search_domain": 11232,
+            "common_feasible": 0,
+            "representative_search": 11232,
+            "nodes": 19970,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 0.011,
+            "n": 936,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_1_5_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "np": [
+          1,
+          2,
+          4
+        ],
+        "negative_rosters": 1728,
+        "raw": 21385728,
+        "domain": 21385728,
+        "common": 7547904,
+        "reps": 14466816,
+        "nodes": 22597049,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "negative_roster_range": [
+              0,
+              1728
+            ],
+            "search_domain": 21385728,
+            "common_feasible": 7547904,
+            "representative_search": 14466816,
+            "nodes": 22597049,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 8.22,
+            "n": 1728,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_2_4_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          1,
+          1,
+          1,
+          1,
+          2
+        ],
+        "np": [
+          1,
+          2,
+          4
+        ],
+        "negative_rosters": 1728,
+        "raw": 28304640,
+        "domain": 28304640,
+        "common": 9277632,
+        "reps": 19752096,
+        "nodes": 31587996,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              1,
+              1,
+              1,
+              1,
+              2
+            ],
+            "negative_roster_range": [
+              0,
+              1728
+            ],
+            "search_domain": 28304640,
+            "common_feasible": 9277632,
+            "representative_search": 19752096,
+            "nodes": 31587996,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 12.107,
+            "n": 1728,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_2_4_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          1,
+          1,
+          1,
+          3
+        ],
+        "np": [
+          1,
+          2,
+          4
+        ],
+        "negative_rosters": 1728,
+        "raw": 7547904,
+        "domain": 7547904,
+        "common": 1617408,
+        "reps": 6065280,
+        "nodes": 9949348,
+        "leaves": 1,
+        "fibers": 1,
+        "shards": [
+          {
+            "pos_pattern": [
+              1,
+              1,
+              1,
+              3
+            ],
+            "negative_roster_range": [
+              0,
+              1728
+            ],
+            "search_domain": 7547904,
+            "common_feasible": 1617408,
+            "representative_search": 6065280,
+            "nodes": 9949348,
+            "representative_leaves": 1,
+            "leaves": 1,
+            "valid": 0,
+            "kernel_seconds": 3.749,
+            "n": 1728,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_2_4_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 1,
+            "audit_reps": 1
+          }
+        ],
+        "witnesses": [
+          {
+            "pos": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                3,
+                10
+              ]
+            ],
+            "neg": [
+              [
+                1,
+                10
+              ],
+              [
+                2,
+                9
+              ],
+              [
+                4,
+                1
+              ]
+            ],
+            "z": [
+              -705588,
+              -208390,
+              -133784,
+              -100162,
+              87969,
+              -174425,
+              -491619,
+              -269375,
+              -262604,
+              564306,
+              970,
+              -354409
+            ],
+            "u": [
+              -29,
+              27,
+              -8,
+              -9,
+              -4,
+              -5,
+              -7,
+              1,
+              3,
+              2,
+              -1,
+              3
+            ],
+            "residues": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "norm_sq": 1925153,
+            "radius_sq": 1975450,
+            "masses": [
+              3093,
+              3964
+            ],
+            "budget_valid": false,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_2_4_COMPLETE_CERT_20261128.json"
+          }
+        ],
+        "representatives": [
+          {
+            "pos": [
+              [
+                1,
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                3,
+                10
+              ]
+            ],
+            "neg": [
+              [
+                1,
+                10
+              ],
+              [
+                2,
+                9
+              ],
+              [
+                4,
+                1
+              ]
+            ],
+            "u": [
+              -29,
+              27,
+              -8,
+              -9,
+              -4,
+              -5,
+              -7,
+              1,
+              3,
+              2,
+              -1,
+              3
+            ],
+            "fiber_size": 1,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_2_4_COMPLETE_CERT_20261128.json"
+          }
+        ]
+      },
+      {
+        "pp": [
+          1,
+          1,
+          2,
+          2
+        ],
+        "np": [
+          1,
+          2,
+          4
+        ],
+        "negative_rosters": 1728,
+        "raw": 10513152,
+        "domain": 10513152,
+        "common": 2985984,
+        "reps": 7756992,
+        "nodes": 12728041,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              1,
+              1,
+              2,
+              2
+            ],
+            "negative_roster_range": [
+              0,
+              1728
+            ],
+            "search_domain": 10513152,
+            "common_feasible": 2985984,
+            "representative_search": 7756992,
+            "nodes": 12728041,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 4.898,
+            "n": 1728,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_2_4_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          1,
+          1,
+          4
+        ],
+        "np": [
+          1,
+          2,
+          4
+        ],
+        "negative_rosters": 1728,
+        "raw": 1617408,
+        "domain": 1617408,
+        "common": 362880,
+        "reps": 1283184,
+        "nodes": 2162941,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              1,
+              1,
+              4
+            ],
+            "negative_roster_range": [
+              0,
+              1728
+            ],
+            "search_domain": 1617408,
+            "common_feasible": 362880,
+            "representative_search": 1283184,
+            "nodes": 2162941,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 0.832,
+            "n": 1728,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_2_4_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          1,
+          2,
+          3
+        ],
+        "np": [
+          1,
+          2,
+          4
+        ],
+        "negative_rosters": 1728,
+        "raw": 2985984,
+        "domain": 2985984,
+        "common": 476928,
+        "reps": 2547216,
+        "nodes": 4294109,
+        "leaves": 1,
+        "fibers": 1,
+        "shards": [
+          {
+            "pos_pattern": [
+              1,
+              2,
+              3
+            ],
+            "negative_roster_range": [
+              0,
+              1728
+            ],
+            "search_domain": 2985984,
+            "common_feasible": 476928,
+            "representative_search": 2547216,
+            "nodes": 4294109,
+            "representative_leaves": 1,
+            "leaves": 1,
+            "valid": 0,
+            "kernel_seconds": 1.595,
+            "n": 1728,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_2_4_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 1,
+            "audit_reps": 1
+          }
+        ],
+        "witnesses": [
+          {
+            "pos": [
+              [
+                1,
+                7
+              ],
+              [
+                2,
+                7
+              ],
+              [
+                3,
+                8
+              ]
+            ],
+            "neg": [
+              [
+                1,
+                9
+              ],
+              [
+                2,
+                9
+              ],
+              [
+                4,
+                7
+              ]
+            ],
+            "z": [
+              581191,
+              -916292,
+              246522,
+              484683,
+              483177,
+              99969,
+              388109,
+              -327997,
+              -292917,
+              302387,
+              361636,
+              -276592
+            ],
+            "u": [
+              -37,
+              11,
+              7,
+              1,
+              -12,
+              7,
+              1,
+              -4,
+              -2,
+              -2,
+              -2,
+              -1
+            ],
+            "residues": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "norm_sq": 1629376,
+            "radius_sq": 1751432,
+            "masses": [
+              2518,
+              4058
+            ],
+            "budget_valid": false,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_2_4_COMPLETE_CERT_20261128.json"
+          }
+        ],
+        "representatives": [
+          {
+            "pos": [
+              [
+                1,
+                7
+              ],
+              [
+                2,
+                7
+              ],
+              [
+                3,
+                8
+              ]
+            ],
+            "neg": [
+              [
+                1,
+                9
+              ],
+              [
+                2,
+                9
+              ],
+              [
+                4,
+                7
+              ]
+            ],
+            "u": [
+              -37,
+              11,
+              7,
+              1,
+              -12,
+              7,
+              1,
+              -4,
+              -2,
+              -2,
+              -2,
+              -1
+            ],
+            "fiber_size": 1,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_2_4_COMPLETE_CERT_20261128.json"
+          }
+        ]
+      },
+      {
+        "pp": [
+          1,
+          5
+        ],
+        "np": [
+          1,
+          2,
+          4
+        ],
+        "negative_rosters": 1728,
+        "raw": 248832,
+        "domain": 248832,
+        "common": 20736,
+        "reps": 229824,
+        "nodes": 397995,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              1,
+              5
+            ],
+            "negative_roster_range": [
+              0,
+              1728
+            ],
+            "search_domain": 248832,
+            "common_feasible": 20736,
+            "representative_search": 229824,
+            "nodes": 397995,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 0.152,
+            "n": 1728,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_2_4_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          2,
+          2,
+          2
+        ],
+        "np": [
+          1,
+          2,
+          4
+        ],
+        "negative_rosters": 1728,
+        "raw": 628992,
+        "domain": 628992,
+        "common": 134784,
+        "reps": 505440,
+        "nodes": 853067,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              2,
+              2,
+              2
+            ],
+            "negative_roster_range": [
+              0,
+              1728
+            ],
+            "search_domain": 628992,
+            "common_feasible": 134784,
+            "representative_search": 505440,
+            "nodes": 853067,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 0.337,
+            "n": 1728,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_2_4_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          2,
+          4
+        ],
+        "np": [
+          1,
+          2,
+          4
+        ],
+        "negative_rosters": 1728,
+        "raw": 248832,
+        "domain": 248832,
+        "common": 39744,
+        "reps": 212268,
+        "nodes": 369205,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              2,
+              4
+            ],
+            "negative_roster_range": [
+              0,
+              1728
+            ],
+            "search_domain": 248832,
+            "common_feasible": 39744,
+            "representative_search": 212268,
+            "nodes": 369205,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 0.142,
+            "n": 1728,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_2_4_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          3,
+          3
+        ],
+        "np": [
+          1,
+          2,
+          4
+        ],
+        "negative_rosters": 1728,
+        "raw": 134784,
+        "domain": 134784,
+        "common": 0,
+        "reps": 134784,
+        "nodes": 233448,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              3,
+              3
+            ],
+            "negative_roster_range": [
+              0,
+              1728
+            ],
+            "search_domain": 134784,
+            "common_feasible": 0,
+            "representative_search": 134784,
+            "nodes": 233448,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 0.096,
+            "n": 1728,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_2_4_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          6
+        ],
+        "np": [
+          1,
+          2,
+          4
+        ],
+        "negative_rosters": 1728,
+        "raw": 20736,
+        "domain": 20736,
+        "common": 0,
+        "reps": 20736,
+        "nodes": 36968,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              6
+            ],
+            "negative_roster_range": [
+              0,
+              1728
+            ],
+            "search_domain": 20736,
+            "common_feasible": 0,
+            "representative_search": 20736,
+            "nodes": 36968,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 0.018,
+            "n": 1728,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_2_4_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "np": [
+          1,
+          3,
+          3
+        ],
+        "negative_rosters": 936,
+        "raw": 11583936,
+        "domain": 11583936,
+        "common": 4088448,
+        "reps": 7836192,
+        "nodes": 12240849,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "negative_roster_range": [
+              0,
+              936
+            ],
+            "search_domain": 11583936,
+            "common_feasible": 4088448,
+            "representative_search": 7836192,
+            "nodes": 12240849,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 4.596,
+            "n": 936,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_3_3_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          1,
+          1,
+          1,
+          1,
+          2
+        ],
+        "np": [
+          1,
+          3,
+          3
+        ],
+        "negative_rosters": 936,
+        "raw": 15331680,
+        "domain": 15331680,
+        "common": 4088448,
+        "reps": 11583936,
+        "nodes": 18519589,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              1,
+              1,
+              1,
+              1,
+              2
+            ],
+            "negative_roster_range": [
+              0,
+              936
+            ],
+            "search_domain": 15331680,
+            "common_feasible": 4088448,
+            "representative_search": 11583936,
+            "nodes": 18519589,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 6.594,
+            "n": 936,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_3_3_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          1,
+          1,
+          1,
+          3
+        ],
+        "np": [
+          1,
+          3,
+          3
+        ],
+        "negative_rosters": 936,
+        "raw": 4088448,
+        "domain": 4088448,
+        "common": 1370304,
+        "reps": 2822040,
+        "nodes": 4633438,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              1,
+              1,
+              1,
+              3
+            ],
+            "negative_roster_range": [
+              0,
+              936
+            ],
+            "search_domain": 4088448,
+            "common_feasible": 1370304,
+            "representative_search": 2822040,
+            "nodes": 4633438,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 1.823,
+            "n": 936,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_3_3_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          1,
+          1,
+          2,
+          2
+        ],
+        "np": [
+          1,
+          3,
+          3
+        ],
+        "negative_rosters": 936,
+        "raw": 5694624,
+        "domain": 5694624,
+        "common": 876096,
+        "reps": 4891536,
+        "nodes": 8020519,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              1,
+              1,
+              2,
+              2
+            ],
+            "negative_roster_range": [
+              0,
+              936
+            ],
+            "search_domain": 5694624,
+            "common_feasible": 876096,
+            "representative_search": 4891536,
+            "nodes": 8020519,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 3.073,
+            "n": 936,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_3_3_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          1,
+          1,
+          4
+        ],
+        "np": [
+          1,
+          3,
+          3
+        ],
+        "negative_rosters": 936,
+        "raw": 876096,
+        "domain": 876096,
+        "common": 134784,
+        "reps": 752544,
+        "nodes": 1268739,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              1,
+              1,
+              4
+            ],
+            "negative_roster_range": [
+              0,
+              936
+            ],
+            "search_domain": 876096,
+            "common_feasible": 134784,
+            "representative_search": 752544,
+            "nodes": 1268739,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 0.483,
+            "n": 936,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_3_3_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          1,
+          2,
+          3
+        ],
+        "np": [
+          1,
+          3,
+          3
+        ],
+        "negative_rosters": 936,
+        "raw": 1617408,
+        "domain": 1617408,
+        "common": 362880,
+        "reps": 1283184,
+        "nodes": 2164215,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              1,
+              2,
+              3
+            ],
+            "negative_roster_range": [
+              0,
+              936
+            ],
+            "search_domain": 1617408,
+            "common_feasible": 362880,
+            "representative_search": 1283184,
+            "nodes": 2164215,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 0.814,
+            "n": 936,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_3_3_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          1,
+          5
+        ],
+        "np": [
+          1,
+          3,
+          3
+        ],
+        "negative_rosters": 936,
+        "raw": 134784,
+        "domain": 134784,
+        "common": 11232,
+        "reps": 124488,
+        "nodes": 215865,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              1,
+              5
+            ],
+            "negative_roster_range": [
+              0,
+              936
+            ],
+            "search_domain": 134784,
+            "common_feasible": 11232,
+            "representative_search": 124488,
+            "nodes": 215865,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 0.086,
+            "n": 936,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_3_3_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          2,
+          2,
+          2
+        ],
+        "np": [
+          1,
+          3,
+          3
+        ],
+        "negative_rosters": 936,
+        "raw": 340704,
+        "domain": 340704,
+        "common": 0,
+        "reps": 340704,
+        "nodes": 574508,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              2,
+              2,
+              2
+            ],
+            "negative_roster_range": [
+              0,
+              936
+            ],
+            "search_domain": 340704,
+            "common_feasible": 0,
+            "representative_search": 340704,
+            "nodes": 574508,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 0.244,
+            "n": 936,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_3_3_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          2,
+          4
+        ],
+        "np": [
+          1,
+          3,
+          3
+        ],
+        "negative_rosters": 936,
+        "raw": 134784,
+        "domain": 134784,
+        "common": 0,
+        "reps": 134784,
+        "nodes": 233344,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              2,
+              4
+            ],
+            "negative_roster_range": [
+              0,
+              936
+            ],
+            "search_domain": 134784,
+            "common_feasible": 0,
+            "representative_search": 134784,
+            "nodes": 233344,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 0.092,
+            "n": 936,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_3_3_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          3,
+          3
+        ],
+        "np": [
+          1,
+          3,
+          3
+        ],
+        "negative_rosters": 936,
+        "raw": 73008,
+        "domain": 73008,
+        "common": 19944,
+        "reps": 54660,
+        "nodes": 94970,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              3,
+              3
+            ],
+            "negative_roster_range": [
+              0,
+              936
+            ],
+            "search_domain": 73008,
+            "common_feasible": 19944,
+            "representative_search": 54660,
+            "nodes": 94970,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 0.04,
+            "n": 936,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_3_3_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          6
+        ],
+        "np": [
+          1,
+          3,
+          3
+        ],
+        "negative_rosters": 936,
+        "raw": 11232,
+        "domain": 11232,
+        "common": 0,
+        "reps": 11232,
+        "nodes": 20077,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              6
+            ],
+            "negative_roster_range": [
+              0,
+              936
+            ],
+            "search_domain": 11232,
+            "common_feasible": 0,
+            "representative_search": 11232,
+            "nodes": 20077,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 0.011,
+            "n": 936,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG1_3_3_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ],
+        "np": [
+          2,
+          2,
+          3
+        ],
+        "negative_rosters": 936,
+        "raw": 11583936,
+        "domain": 11583936,
+        "common": 0,
+        "reps": 11583936,
+        "nodes": 18059518,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "negative_roster_range": [
+              0,
+              936
+            ],
+            "search_domain": 11583936,
+            "common_feasible": 0,
+            "representative_search": 11583936,
+            "nodes": 18059518,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 6.285,
+            "n": 936,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG2_2_3_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          1,
+          1,
+          1,
+          1,
+          2
+        ],
+        "np": [
+          2,
+          2,
+          3
+        ],
+        "negative_rosters": 936,
+        "raw": 15331680,
+        "domain": 15331680,
+        "common": 2358720,
+        "reps": 13169520,
+        "nodes": 21040466,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              1,
+              1,
+              1,
+              1,
+              2
+            ],
+            "negative_roster_range": [
+              0,
+              936
+            ],
+            "search_domain": 15331680,
+            "common_feasible": 2358720,
+            "representative_search": 13169520,
+            "nodes": 21040466,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 8.29,
+            "n": 936,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG2_2_3_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          1,
+          1,
+          1,
+          3
+        ],
+        "np": [
+          2,
+          2,
+          3
+        ],
+        "negative_rosters": 936,
+        "raw": 4088448,
+        "domain": 4088448,
+        "common": 340704,
+        "reps": 3776136,
+        "nodes": 6186097,
+        "leaves": 1,
+        "fibers": 1,
+        "shards": [
+          {
+            "pos_pattern": [
+              1,
+              1,
+              1,
+              3
+            ],
+            "negative_roster_range": [
+              0,
+              936
+            ],
+            "search_domain": 4088448,
+            "common_feasible": 340704,
+            "representative_search": 3776136,
+            "nodes": 6186097,
+            "representative_leaves": 1,
+            "leaves": 1,
+            "valid": 0,
+            "kernel_seconds": 2.353,
+            "n": 936,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG2_2_3_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 1,
+            "audit_reps": 1
+          }
+        ],
+        "witnesses": [
+          {
+            "pos": [
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                10
+              ],
+              [
+                1,
+                10
+              ],
+              [
+                3,
+                5
+              ]
+            ],
+            "neg": [
+              [
+                2,
+                10
+              ],
+              [
+                2,
+                10
+              ],
+              [
+                3,
+                8
+              ]
+            ],
+            "z": [
+              -339105,
+              443911,
+              -151706,
+              -181024,
+              281718,
+              255284,
+              -149716,
+              304871,
+              -11151,
+              377681,
+              127602,
+              -398971
+            ],
+            "u": [
+              26,
+              10,
+              2,
+              2,
+              2,
+              -3,
+              -9,
+              5,
+              -3,
+              3,
+              -1,
+              1
+            ],
+            "residues": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "norm_sq": 1482156,
+            "radius_sq": 1560269,
+            "masses": [
+              3286,
+              3075
+            ],
+            "budget_valid": false,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG2_2_3_COMPLETE_CERT_20261128.json"
+          }
+        ],
+        "representatives": [
+          {
+            "pos": [
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                10
+              ],
+              [
+                1,
+                10
+              ],
+              [
+                3,
+                5
+              ]
+            ],
+            "neg": [
+              [
+                2,
+                10
+              ],
+              [
+                2,
+                10
+              ],
+              [
+                3,
+                8
+              ]
+            ],
+            "u": [
+              26,
+              10,
+              2,
+              2,
+              2,
+              -3,
+              -9,
+              5,
+              -3,
+              3,
+              -1,
+              1
+            ],
+            "fiber_size": 1,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG2_2_3_COMPLETE_CERT_20261128.json"
+          }
+        ]
+      },
+      {
+        "pp": [
+          1,
+          1,
+          2,
+          2
+        ],
+        "np": [
+          2,
+          2,
+          3
+        ],
+        "negative_rosters": 936,
+        "raw": 5694624,
+        "domain": 5694624,
+        "common": 1555632,
+        "reps": 4263480,
+        "nodes": 6995561,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              1,
+              1,
+              2,
+              2
+            ],
+            "negative_roster_range": [
+              0,
+              936
+            ],
+            "search_domain": 5694624,
+            "common_feasible": 1555632,
+            "representative_search": 4263480,
+            "nodes": 6995561,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 2.907,
+            "n": 936,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG2_2_3_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          1,
+          1,
+          4
+        ],
+        "np": [
+          2,
+          2,
+          3
+        ],
+        "negative_rosters": 936,
+        "raw": 876096,
+        "domain": 876096,
+        "common": 0,
+        "reps": 876096,
+        "nodes": 1475710,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              1,
+              1,
+              4
+            ],
+            "negative_roster_range": [
+              0,
+              936
+            ],
+            "search_domain": 876096,
+            "common_feasible": 0,
+            "representative_search": 876096,
+            "nodes": 1475710,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 0.582,
+            "n": 936,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG2_2_3_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          1,
+          2,
+          3
+        ],
+        "np": [
+          2,
+          2,
+          3
+        ],
+        "negative_rosters": 936,
+        "raw": 1617408,
+        "domain": 1617408,
+        "common": 362880,
+        "reps": 1283184,
+        "nodes": 2164160,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              1,
+              2,
+              3
+            ],
+            "negative_roster_range": [
+              0,
+              936
+            ],
+            "search_domain": 1617408,
+            "common_feasible": 362880,
+            "representative_search": 1283184,
+            "nodes": 2164160,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 0.845,
+            "n": 936,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG2_2_3_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          1,
+          5
+        ],
+        "np": [
+          2,
+          2,
+          3
+        ],
+        "negative_rosters": 936,
+        "raw": 134784,
+        "domain": 134784,
+        "common": 0,
+        "reps": 134784,
+        "nodes": 233518,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              1,
+              5
+            ],
+            "negative_roster_range": [
+              0,
+              936
+            ],
+            "search_domain": 134784,
+            "common_feasible": 0,
+            "representative_search": 134784,
+            "nodes": 233518,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 0.108,
+            "n": 936,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG2_2_3_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          2,
+          2,
+          2
+        ],
+        "np": [
+          2,
+          2,
+          3
+        ],
+        "negative_rosters": 936,
+        "raw": 340704,
+        "domain": 340704,
+        "common": 125280,
+        "reps": 225072,
+        "nodes": 379825,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              2,
+              2,
+              2
+            ],
+            "negative_roster_range": [
+              0,
+              936
+            ],
+            "search_domain": 340704,
+            "common_feasible": 125280,
+            "representative_search": 225072,
+            "nodes": 379825,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 0.169,
+            "n": 936,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG2_2_3_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          2,
+          4
+        ],
+        "np": [
+          2,
+          2,
+          3
+        ],
+        "negative_rosters": 936,
+        "raw": 134784,
+        "domain": 134784,
+        "common": 20736,
+        "reps": 115776,
+        "nodes": 201126,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              2,
+              4
+            ],
+            "negative_roster_range": [
+              0,
+              936
+            ],
+            "search_domain": 134784,
+            "common_feasible": 20736,
+            "representative_search": 115776,
+            "nodes": 201126,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 0.097,
+            "n": 936,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG2_2_3_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          3,
+          3
+        ],
+        "np": [
+          2,
+          2,
+          3
+        ],
+        "negative_rosters": 936,
+        "raw": 73008,
+        "domain": 73008,
+        "common": 11232,
+        "reps": 62712,
+        "nodes": 108623,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              3,
+              3
+            ],
+            "negative_roster_range": [
+              0,
+              936
+            ],
+            "search_domain": 73008,
+            "common_feasible": 11232,
+            "representative_search": 62712,
+            "nodes": 108623,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 0.048,
+            "n": 936,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG2_2_3_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      },
+      {
+        "pp": [
+          6
+        ],
+        "np": [
+          2,
+          2,
+          3
+        ],
+        "negative_rosters": 936,
+        "raw": 11232,
+        "domain": 11232,
+        "common": 0,
+        "reps": 11232,
+        "nodes": 20100,
+        "leaves": 0,
+        "fibers": 0,
+        "shards": [
+          {
+            "pos_pattern": [
+              6
+            ],
+            "negative_roster_range": [
+              0,
+              936
+            ],
+            "search_domain": 11232,
+            "common_feasible": 0,
+            "representative_search": 11232,
+            "nodes": 20100,
+            "representative_leaves": 0,
+            "leaves": 0,
+            "valid": 0,
+            "kernel_seconds": 0.011,
+            "n": 936,
+            "source": "research_checks/T6_P13_Q13_SPLIT6_7_LEN3_NEG2_2_3_COMPLETE_CERT_20261128.json",
+            "audit_leaves": 0,
+            "audit_reps": 0
+          }
+        ],
+        "witnesses": [],
+        "representatives": []
+      }
+    ]
+  },
+  "verifier_javascript": "function verify(data,basis,len){\nconst ck=(b,m)=>{if(!b)throw Error(m)},eq=(a,b)=>JSON.stringify(a)===JSON.stringify(b),key=JSON.stringify,cap=2331,pin=\"d84bd940cfb093cdc60e569f15cad58772a51dca\",U=basis.U.map(r=>r.map(BigInt)),group=p=>[...new Set(p)].map(q=>[q,p.filter(x=>x===q).length]),C=(n,k)=>{if(n<k)return 0;let a=1;for(let j=1;j<=k;j++)a=a*(n-j+1)/j;return Math.round(a)},sort=A=>A.slice().sort((a,b)=>a[0]-b[0]||a[1]-b[1]),mod=(a,m)=>(a%m+m)%m;\nfunction inv(a,m){let r=m,s=mod(a,m),x=0n,y=1n;while(s){let q=r/s;[r,s]=[s,r-q*s];[x,y]=[y,x-q*y]}ck(r===1n,\"inv\");return mod(x,m)}\nfunction obs(P,N,u){let mass=A=>A.reduce((s,[q,r])=>s+169*q+13*r-1,0),cp=mass(P),cn=mass(N),mp=cp,mn=cn,norm=0;for(let i=0;i<12;i++){let v=u[i]*(13*(i+1)-1);norm+=v*v;if(v>0)mp+=v;else mn-=v}return {cp,cn,masses:[mp,mn],norm,radius:(cap-cp)**2+(cap-cn)**2}}\nfunction split(P,N){let D=new Map();for(let [A,s] of [[P,1],[N,-1]])for(let a of A)D.set(a.join(\",\"),(D.get(a.join(\",\"))||0)+s);let p=[],n=[];for(let [k,v] of D)for(let j=0;j<Math.abs(v);j++)(v>0?p:n).push(k.split(\",\").map(Number));return [sort(p),sort(n)]}\nfunction parts(n,l=1){if(n===0)return [[]];let a=[];for(let k=l;k<=n;k++)for(let b of parts(n-k,k))a.push([k,...b]);return a}\nlet all=new Map(),cross=[],sources=[],columns=[\"pos_pattern\",\"negative_roster_range\",\"search_domain\",\"common_feasible\",\"representative_search\",\"nodes\",\"representative_leaves\",\"leaves\",\"valid\",\"kernel_seconds\"];\nfor(let d of data){let c=d.c;ck(c.frozen_science===pin&&c.p===13&&c.valuation===1&&c.q===13&&c.budget===cap&&eq(c.split,[6,7])&&c.initializer_source_blob===\"cc284a4ebb9e3ba7dddfbcb0abbae8e227aaf46f\"&&c.kernel_blob===\"89e0f5aea7f6efcfd79dc32f29b84fa510f5d95e\"&&eq(c.columns,columns),\"pin/columns\");sources.push(d.source);\nfor(let r of c.counts){let t=Object.fromEntries(columns.map((k,i)=>[k,r[i]])),pp=t.pos_pattern,np=c.neg_pattern,k=key([pp,np]),v=all.get(k)||{pp,np,ts:[],ws:[],rs:[]};v.ts.push({...t,n:c.negative_roster_count,source:d.source.path});all.set(k,v)}\nfor(let [a,k] of [[c.witnesses,\"ws\"],[c.representative_witnesses,\"rs\"]])for(let w of a){let id=key([w.pos.map(a=>a[0]),w.neg.map(a=>a[0])]);ck(all.has(id),\"witness row\");all.get(id)[k].push({...w,source:d.source.path})}}\nlet rows=[],tot={raw:0,domain:0,common:0,reps:0,nodes:0,leaves:0,fibers:0},one=0,min=Infinity;\nfor(let [k,{pp,np,ts,ws,rs}] of all){let gp=group(pp),gn=group(np),pos=gp.reduce((a,[q,m])=>a*C(11+m,m),1),raw=gn.reduce((a,[q,m])=>a*C(11+m,m),pos),limit=Math.floor((cap-1183+np.length)/13),pc=[0],pb=[0],indices=new Map();\nfunction gen(i,l,s,A){if(i===np.length){let no=1,b=1;for(let [q,m] of gp){let d=new Set(A.filter((_,j)=>np[j]===q)),e=[...d].filter(x=>x!==1).length;no*=C(11-d.size+m,m);b*=C(11-e+m,m)}indices.set(key(A),pb.length-1);pc.push(pc.at(-1)+pos-no);pb.push(pb.at(-1)+b);return}for(let t=l;t<=12&&s+t<=limit;t++)gen(i+1,np[i+1]===np[i]?t:1,s+t,A.concat(t))}\ngen(0,1,0,[]);let n=pb.length-1,end=0,nodes=0,leaves=0,nf=0;ts.sort((a,b)=>a.negative_roster_range[0]-b.negative_roster_range[0]);for(let t of ts){let [l,h]=t.negative_roster_range;ck(l===end&&h>l&&h<=n&&t.n===n&&t.search_domain===(h-l)*pos&&t.common_feasible===pc[h]-pc[l]&&t.representative_search===pb[h]-pb[l]&&t.valid===0,\"range/count \"+k);end=h;nodes+=t.nodes;leaves+=t.leaves;nf+=t.representative_leaves;t.audit_leaves=0;t.audit_reps=0}ck(end===n&&leaves===ws.length&&nf===rs.length,\"full coverage\");\nlet fibers=new Map();\nfunction fiber(P,N,u){let [p,n]=split(P,N),rem=gp.map(([q,m])=>[q,m-p.filter(a=>a[0]===q).length]);ck(rem.every(([q,m])=>m>=0&&m===np.filter(x=>x===q).length-n.filter(a=>a[0]===q).length),\"common multiplicity\");return {p,n,rem,id:key([p,n,u]),u}}\nfunction canon(f){return sort(f.n.concat(f.rem.flatMap(([q,m])=>Array.from({length:m},()=>[q,1]))))}\nfunction locate(f,source){let i=indices.get(key(canon(f).map(a=>a[1])));ck(Number.isInteger(i),\"canonical index\");let t=ts.find(t=>t.negative_roster_range[0]<=i&&i<t.negative_roster_range[1]);ck(t&&t.source===source,\"source shard\");return [i,t]}\nfor(let w of ws){let {pos:P,neg:N,u,z}=w;ck(eq(P.map(a=>a[0]),pp)&&eq(N.map(a=>a[0]),np)&&eq(P,sort(P))&&eq(N,sort(N))&&[...P,...N].every(a=>Number.isInteger(a[1])&&a[1]>=1&&a[1]<=12)&&u.length===12&&u.every(Number.isSafeInteger)&&z.length===12&&z.every(Number.isSafeInteger),\"roster\");for(let j=0;j<12;j++)ck(z.reduce((s,x,i)=>s+BigInt(x)*U[i][j],0n)===13n**6n*BigInt(u[j]),\"zU\");for(let h=1;h<=6;h++){let m=13n**BigInt(h),v=u.reduce((s,x,i)=>s+BigInt(x)*inv(BigInt(i+1)**BigInt(h),m),0n);for(let [q,r] of P)v+=inv(BigInt(13*q+r)**BigInt(h),m);for(let [q,r] of N)v-=inv(BigInt(13*q+r)**BigInt(h),m);ck(mod(v,m)===0n&&w.residues[h-1]===0,\"congruence\")}let o=obs(P,N,u);ck(o.cp<=cap&&o.cn<=cap&&o.norm<=o.radius&&o.norm===w.norm_sq&&o.radius===w.radius_sq&&eq(o.masses,w.masses)&&Math.max(...w.masses)>cap&&w.budget_valid===false,\"observations\");if(Math.min(...w.masses)<=cap)one++;min=Math.min(min,Math.max(...w.masses)-cap);let f=fiber(P,N,u),[i,t]=locate(f,w.source),j=indices.get(key(N.map(a=>a[1])));ck(Number.isInteger(j),\"member index\");ck(w.shard_lo===undefined||w.shard_lo===t.negative_roster_range[0],\"declared shard\");t.audit_leaves++;if(j<t.negative_roster_range[0]||j>=t.negative_roster_range[1])cross.push({pp,np,canonical:i,member:j,shard:t.negative_roster_range,witness:w});let v=fibers.get(f.id)||{...f,set:new Set()};let id=key([P,N]);ck(!v.set.has(id),\"duplicate witness\");v.set.add(id);fibers.set(f.id,v)}\nlet seen=new Set();for(let w of rs){let f=fiber(w.pos,w.neg,w.u),v=fibers.get(f.id);ck(v&&!seen.has(f.id)&&v.set.size===w.fiber_size,\"rep fiber size\");seen.add(f.id);let [i,t]=locate(f,w.source);t.audit_reps++;ck(eq(w.neg,canon(f)),\"representative canonical neg\");let expected=new Set();function rec(i,left,l,A){if(i===f.rem.length){let p=sort(f.p.concat(A)),n=sort(f.n.concat(A)),o=obs(p,n,f.u);if(o.cp<=cap&&o.cn<=cap&&o.norm<=o.radius)expected.add(key([p,n]));return}if(left===0){rec(i+1,f.rem[i+1]?.[1]||0,1,A);return}for(let r=l;r<=12;r++)rec(i,left-1,r,A.concat([[f.rem[i][0],r]]))}rec(0,f.rem[0]?.[1]||0,1,[]);ck(expected.size===v.set.size&&[...expected].every(x=>v.set.has(x)),\"fiber recovery\")}\nck(seen.size===fibers.size&&ts.every(t=>t.audit_leaves===t.leaves&&t.audit_reps===t.representative_leaves),\"per-shard witness coverage\");let row={pp,np,negative_rosters:n,raw,domain:n*pos,common:pc[n],reps:pb[n],nodes,leaves,fibers:nf,shards:ts,witnesses:ws,representatives:rs};rows.push(row);for(let k in tot)tot[k]+=row[k]}\nlet exp=parts(6).flatMap(p=>parts(7).filter(n=>n.length===len).map(n=>key([p,n])));ck(all.size===exp.length&&exp.every(k=>all.has(k)),\"partition pair coverage\");return {sources,covered_pairs:rows.length,total:tot,one_side_valid:one,min_excess:Number.isFinite(min)?min:null,cross,rows}}",
+  "sha256_javascript": "function sha256(s){let bytes=[];for(let c of s){let n=c.codePointAt(0);if(n<128)bytes.push(n);else if(n<2048)bytes.push(192|(n>>6),128|(n&63));else if(n<65536)bytes.push(224|(n>>12),128|(n>>6&63),128|(n&63));else bytes.push(240|(n>>18),128|(n>>12&63),128|(n>>6&63),128|(n&63))}let bit=bytes.length*8;bytes.push(128);while(bytes.length%64!==56)bytes.push(0);for(let i=7;i>=0;i--)bytes.push(Math.floor(bit/2**(8*i))&255);let H=[],K=[];for(let p=2;K.length<64;p++){let prime=true;for(let d=2;d*d<=p;d++)if(p%d===0){prime=false;break}if(prime){if(H.length<8)H.push((Math.sqrt(p)%1*2**32)>>>0);K.push((Math.cbrt(p)%1*2**32)>>>0)}}const rr=(x,n)=>(x>>>n)|(x<<(32-n));for(let off=0;off<bytes.length;off+=64){let w=[];for(let i=0;i<16;i++)w[i]=(bytes[off+4*i]<<24)|(bytes[off+4*i+1]<<16)|(bytes[off+4*i+2]<<8)|bytes[off+4*i+3];for(let i=16;i<64;i++){let x=w[i-15],y=w[i-2];w[i]=((rr(x,7)^rr(x,18)^(x>>>3))+w[i-16]+(rr(y,17)^rr(y,19)^(y>>>10))+w[i-7])|0}let [a,b,c,d,e,f,g,h]=H;for(let i=0;i<64;i++){let t=(h+(rr(e,6)^rr(e,11)^rr(e,25))+((e&f)^(~e&g))+K[i]+w[i])|0,u=((rr(a,2)^rr(a,13)^rr(a,22))+((a&b)^(a&c)^(b&c)))|0;[a,b,c,d,e,f,g,h]=[(t+u)|0,a,b,c,(d+t)|0,e,f,g]}H=H.map((x,i)=>(x+[a,b,c,d,e,f,g,h][i])>>>0)}return H.map(x=>x.toString(16).padStart(8,\"0\")).join(\"\")}",
+  "normalizerMulti_javascript": "function normalizeMulti(c){let eq=(a,b)=>JSON.stringify(a)===JSON.stringify(b),fields=[\"neg_pattern\",\"pos_pattern\",\"negative_roster_range\",\"search_domain\",\"common_feasible\",\"representative_search\",\"nodes\",\"representative_leaves\",\"leaves\",\"valid\",\"kernel_seconds\"];if(!eq(c.columns,fields))throw Error(\"columns\");let ns=[...new Set(c.rows.map(r=>JSON.stringify(r[0])))].map(x=>JSON.parse(x));let out=ns.map(n=>({...c,neg_pattern:n,negative_roster_count:c.negative_roster_count_per_pattern,columns:fields.slice(1),counts:c.rows.filter(r=>eq(r[0],n)).map(r=>r.slice(1)),witnesses:c.witnesses.filter(w=>eq(w.neg.map(a=>a[0]),n)),representative_witnesses:c.rep_witness.filter(w=>eq(w.neg.map(a=>a[0]),n))}));if(out.reduce((s,c)=>s+c.witnesses.length,0)!==c.witnesses.length||out.reduce((s,c)=>s+c.representative_witnesses.length,0)!==c.rep_witness.length)throw Error(\"witness mapping\");return out}",
+  "next": "Split (6,7) length 4; aggregate 819/885; split (6,7) 99/165 including previously audited length 7."
+}
