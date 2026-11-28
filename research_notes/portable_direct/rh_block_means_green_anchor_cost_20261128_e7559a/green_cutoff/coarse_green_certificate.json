@@ -1,0 +1,121 @@
+{
+  "schema": "coarse_block_means_original_green_certificate_v1",
+  "status": "PASS",
+  "arithmetic": "exact fractions.Fraction; no floating point or square roots",
+  "claim_scope": "finite author checks; analytic proof establishes unbounded theorem",
+  "not_independent_review": true,
+  "files": {
+    "input_sha256": "18c0b3f397cf525429673553caf4ac4dd28e9c17fb587bcaaf4d13c9b77f8899",
+    "script_sha256": "adaa8297ad1d4f0888f97c47efda81c9d3416ec155cb8b65a8c4bc69a18298cd",
+    "proof_sha256": "3953bf782120897ddc7f2031dc0629a8ea7d074ff32a5329cf348046b62e9040"
+  },
+  "counts": {
+    "block_mean_hat_identities": 3132,
+    "cone_distance_checks": 1194,
+    "geometries": 199,
+    "integer_kernel_checks": 19685,
+    "interpolated_point_checks": 34272,
+    "jensen_length_checks": 1704,
+    "mesh_energy_checks": 4248,
+    "normalized_C_energy_checks": 714,
+    "output_kernel_rows": 1447,
+    "rational_kernel_probes": 85975,
+    "sharpness_bubble_checks": 925,
+    "sharpness_examples": 199,
+    "source_cases": 1194,
+    "source_point_checks": 8682
+  },
+  "case_output_sha256": "19f1ac1bddd9481295943d2e8b3854b3dac5cdb5a24b13ab43edc27dc1e8b82c",
+  "smallest_tested_source": "-142857143008",
+  "largest_exact_rho_ratio_to_r_squared_over_L": "244814368432068656602885379/665025122307837525475140900",
+  "largest_rho_ratio_witness_L_R_r_n": [
+    32,
+    64,
+    2,
+    45
+  ],
+  "proved_uniform_rho_ratio": "391/864 < 1/2",
+  "selected_exact_zero_statistic_examples": [
+    {
+      "L": 8,
+      "R": 16,
+      "r": 2,
+      "block_mean": "1/2",
+      "C": "0",
+      "energy_exact": "19404611126306767/263491335690022440000",
+      "energy_lower_bound": "1/65536"
+    },
+    {
+      "L": 8,
+      "R": 16,
+      "r": 4,
+      "block_mean": "3/2",
+      "C": "0",
+      "energy_exact": "12543219889264639/10539653427600897600",
+      "energy_lower_bound": "17/65536"
+    },
+    {
+      "L": 8,
+      "R": 16,
+      "r": 8,
+      "block_mean": "7/2",
+      "C": "0",
+      "energy_exact": "155633937848613799/10539653427600897600",
+      "energy_lower_bound": "273/65536"
+    },
+    {
+      "L": 16,
+      "R": 32,
+      "r": 2,
+      "block_mean": "1/2",
+      "C": "0",
+      "energy_exact": "1005606062680627276714347690325467750487746510199/106157716204909109756914012333241491969472072100000000",
+      "energy_lower_bound": "1/524288"
+    },
+    {
+      "L": 16,
+      "R": 32,
+      "r": 4,
+      "block_mean": "3/2",
+      "C": "0",
+      "energy_exact": "17253814154601165803196702799397052318872981760559/106157716204909109756914012333241491969472072100000000",
+      "energy_lower_bound": "17/524288"
+    },
+    {
+      "L": 16,
+      "R": 32,
+      "r": 8,
+      "block_mean": "7/2",
+      "C": "0",
+      "energy_exact": "5231199990315347699427338347396787152705318951351/2166484004181818566467632904760030448356572900000000",
+      "energy_lower_bound": "273/524288"
+    },
+    {
+      "L": 32,
+      "R": 64,
+      "r": 2,
+      "block_mean": "1/2",
+      "C": "0",
+      "energy_exact": "142241805358937218372453721199370446373576950905234678646856594768183999318622233189058778147109879/119245544359167120350950516917490092329487487482194766637593727660036952919403438196544411095360400000000",
+      "energy_lower_bound": "1/4194304"
+    },
+    {
+      "L": 32,
+      "R": 64,
+      "r": 4,
+      "block_mean": "3/2",
+      "C": "0",
+      "energy_exact": "2482517416181911448243247484057954479544824097784813440423680160064954633157548640041576383312061359/119245544359167120350950516917490092329487487482194766637593727660036952919403438196544411095360400000000",
+      "energy_lower_bound": "17/4194304"
+    },
+    {
+      "L": 32,
+      "R": 64,
+      "r": 8,
+      "block_mean": "7/2",
+      "C": "0",
+      "energy_exact": "39292208332620240727122057461839399229437835883153608614129383443218413512297915510987642182539281479/119245544359167120350950516917490092329487487482194766637593727660036952919403438196544411095360400000000",
+      "energy_lower_bound": "273/4194304"
+    }
+  ]
+}

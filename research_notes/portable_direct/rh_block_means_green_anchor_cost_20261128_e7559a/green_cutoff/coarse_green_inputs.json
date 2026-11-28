@@ -1,0 +1,25 @@
+{
+  "schema": "coarse_block_means_original_green_inputs_v1",
+  "L_values": [2, 3, 4, 5, 6, 8, 12, 16, 24, 32],
+  "h_candidates": [1, 2, 3, 4, 5, 6, 8, 10, 12, 16],
+  "include_h_equals_L": true,
+  "r_rule": "all_positive_divisors_of_h",
+  "source_families": [
+    "all_one",
+    "all_minus_one",
+    "rational_wave",
+    "deep_negative",
+    "hidden_grid",
+    "localized_positive"
+  ],
+  "deep_negative_magnitude": 1000000000000,
+  "probe_subdivision": 4,
+  "mesh_families": [
+    "full_integer",
+    "endpoints_only",
+    "residue_one_mod_three",
+    "one_offcenter_node"
+  ],
+  "arithmetic": "fractions.Fraction_only",
+  "scope": "finite_author_verification_of_new_round9_theorem; not_independent_review"
+}

@@ -1,0 +1,34 @@
+{
+  "status": "PASS",
+  "type": "author cross-check; not independent Review",
+  "researcher_id": "EM-DIRECT-E7559A / TASK_RESEARCH",
+  "activity": "RA-D2F111EA1C0D4B1DBEFBC1B4",
+  "arithmetic": "exact rational arithmetic, including exact sqrt(2) comparisons",
+  "counts": {
+    "source_vectors": 12,
+    "blockings": 42,
+    "same_endpoint_interval_pair_checks": 1650,
+    "nonnegative_source_coefficient_checks": 163158,
+    "Jensen_checks": 112,
+    "whole_block_recoveries": 42,
+    "point_recoveries_exact_sqrt2_constant": 1284
+  },
+  "checked_source_hashes": [
+    {
+      "file": "COARSE_BLOCK_MEANS_AND_RH.md",
+      "sha256": "8aaef45fb4cc8f8514378b0d065dd01ad211d6b3ce9631cb87198e93d80115a2"
+    },
+    {
+      "file": "certify_block_mean_statistics.py",
+      "sha256": "9c25cfc339b8bd4c504b03a01fbaaf88932abc834fda89de2c2d4ee3d1b81a95"
+    }
+  ],
+  "scope": {
+    "source": "two nonnegative rational source patterns, one with a large shared history",
+    "windows": "X=2^k, 1<=k<=6; every r=2^s with 0<=s<k",
+    "same_endpoint_subtraction": "all source coefficient differences checked nonnegative before endpoint subtraction",
+    "original_scripts_executed": false,
+    "previous_certificates_recomputed": false,
+    "unbounded_theorem": "author analytic cross-check in AUTHOR_CROSSCHECK_BLOCK_MEANS.md"
+  }
+}
