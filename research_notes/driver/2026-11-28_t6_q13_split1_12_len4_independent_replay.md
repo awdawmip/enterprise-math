@@ -3,7 +3,7 @@
 2026-11-28, original informed Driver lane EM-DVR-DEBB5E. Continues 7ab22f8ee19772fab74f458818c716e4a78bfbb3 (lengths 1–3). Frozen science d84bd940cfb093cdc60e569f15cad58772a51dca. Source 45b97058c2b6f51eaee8af00d1ba5862547641c0. Shared basis from 0bf185c700fe5a46b5e7ad1b49f7441c1a2ee7be:research_checks/T6_P13_Q13_SPLIT0_13_AUTHOR_EXACT_CERT_20261126.json blob bcab5ce85b368d2b65a74340ceadb4527da0f01e; author comparison certificate research_checks/T6_P13_Q13_SPLIT1_12_LEN4_AUTHOR_EXACT_CERT_20261126.json blob 1eb570c266931532c1f5ac87f23bcee83119b669.
 
 ## Scope and proof
-All 15 unordered partitions of 12 of length exactly 4, all 12 positive labels and all nondecreasing labels within equal negative q groups. Include common atoms. Reject only if a high mass exceeds 2331, then enumerate the exact affine coset subject to weighted squared norm <= (2331-m_plus)^2+(2331-m_minus)^2, a necessary condition from separate side L1 bounds. Six mixed congruences use the negative inverse-power sum minus positive inverse-power sum modulo 13^k. The prior Vandermonde digit lift gives full mixed-modulus image and hence kernel index 13^21. This run separately checks every basis row, determinant, lift and rational Gram–Schmidt; min squared length exceeds 2*2331^2, so the descending coordinate interval has radius <1 and floor(center) and its successor exhaust possible integers, with exact scaled squared norm inequalities. All candidate counts and nodes are computed here, compared only after enumerating each pattern. No feasible leaves; thus these 15 patterns are excluded even without smoothness. No H0, lower-prime completion, observer implication, blind independence, native formal review or Result acceptance claimed. Independent implementation reused from Driver's preceding audit; shared basis and author comparison counts.
+All 15 unordered partitions of 12 of length exactly 4, all 12 positive labels and all nondecreasing labels within equal negative q groups. Include common atoms. Reject only if a high mass exceeds 2331, then enumerate the exact affine coset subject to weighted squared norm <= (2331-m_plus)^2+(2331-m_minus)^2, a necessary condition from separate side L1 bounds. Six mixed congruences use the negative inverse-power sum minus positive inverse-power sum modulo 13^k. The prior Vandermonde digit lift gives full mixed-modulus image and hence kernel index 13^21. This run separately checks every basis row, determinant, lift and rational Gram–Schmidt; min squared length exceeds 2*2331^2, so the descending coordinate interval has radius <1 and floor(center) and its successor exhaust possible integers, with exact scaled squared norm inequalities. All candidate counts and nodes are computed here, compared only after enumerating each pattern. Two enclosing-sphere leaves were reached, but neither passed the separate signed budgets; thus these 15 patterns are excluded even without smoothness. No H0, lower-prime completion, observer implication, blind independence, native formal review or Result acceptance claimed. Independent implementation reused from Driver's preceding audit; shared basis and author comparison counts.
 
 ## Actual output
 ```json
@@ -310,4 +310,131 @@ if(rows.length!==cert.rows.length)throw Error("coverage");
 return {rows,totals:Object.fromEntries(fields.map(k=>[k,rows.reduce((s,r)=>s+r[k],0)])),min:min.join("/"),det:abs(det[0]).toString(),field_checks:fields.length*rows.length}
 }
 console.log(JSON.stringify(audit(U0,cert),null,2));
+```
+
+## Separate signed-budget verification of the two author witnesses
+The two sphere leaves are not budget-valid. Independently evaluated the published vectors by summing high costs and weighted positive/negative low coordinates, checked each mixed congruence using modular inversion, and recomputed the enclosing norm and radius. Both exceed both side budgets. This supplements the independent search's two leaf / zero valid counters; this direct check uses author-published vectors, not a claim of independently recorded vector identities.
+```json
+[
+  {
+    "pattern": [
+      2,
+      2,
+      4,
+      4
+    ],
+    "pos": [
+      [
+        1,
+        1
+      ]
+    ],
+    "neg": [
+      [
+        2,
+        6
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        4,
+        2
+      ],
+      [
+        4,
+        3
+      ]
+    ],
+    "u": [
+      7,
+      -42,
+      -20,
+      14,
+      9,
+      11,
+      6,
+      6,
+      0,
+      -2,
+      -2,
+      1
+    ],
+    "masses": [
+      3715,
+      4649
+    ],
+    "norm_sq": 4090906,
+    "radius_sq": 4623656,
+    "residues": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  },
+  {
+    "pattern": [
+      2,
+      3,
+      3,
+      4
+    ],
+    "pos": [
+      [
+        1,
+        7
+      ]
+    ],
+    "neg": [
+      [
+        2,
+        7
+      ],
+      [
+        3,
+        1
+      ],
+      [
+        3,
+        10
+      ],
+      [
+        4,
+        1
+      ]
+    ],
+    "u": [
+      -40,
+      18,
+      23,
+      10,
+      6,
+      -7,
+      0,
+      -3,
+      0,
+      1,
+      8,
+      5
+    ],
+    "masses": [
+      4517,
+      3599
+    ],
+    "norm_sq": 3898096,
+    "radius_sq": 4296784,
+    "residues": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ]
+  }
+]
 ```
