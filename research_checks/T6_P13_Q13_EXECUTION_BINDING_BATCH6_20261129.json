@@ -1,0 +1,1105 @@
+{
+  "schema": "T6_Q13_EXECUTION_BINDING_BATCH6_V1",
+  "status": "AUTHOR_SOURCE_CHECKED / UNREVIEWED / NOT_ADMITTED",
+  "mother": "T6=2332 OPEN",
+  "frozen_science": "d84bd940cfb093cdc60e569f15cad58772a51dca",
+  "authority": {
+    "conversation": "chatgpt-research-onhour-enterprise-math-20260923",
+    "researcher": "EM-DIRECT-D03BC9",
+    "session": "MCP-7f3df4435e40430b832e8d5ff2137718",
+    "activity": "RA-A468735D7C934B25C4B9614F",
+    "protected_claim_run": "UNVERIFIED",
+    "ordinary_request": "onhour-20261128-0200-recovery-v1",
+    "issue": 7066
+  },
+  "prior": "3cbe964921f9428166c71c617a02ae00cb6f298d:research_checks/T6_P13_Q13_EXECUTION_BINDING_BATCH5_20261129.json",
+  "audit": {
+    "path": "research_checks/T6_P13_Q13_SPLIT3_10_LEN6_THIRD_TO_FIFTH_COVERAGE_FIBER_AUDIT_20261128.json",
+    "commit": "bb89a97808c81d6b4d09b5186025ae1d8c342242",
+    "blob": "6ebc907f99276ad42fd1176d3977789729746ae9",
+    "sha256": "1e5bb77b74b045664e14c22f78e19a5b52046ebf8f3888c85f01ff90a0b416cb"
+  },
+  "replay_driver": {
+    "commit": "b25a51f109fed150dfca89e4116f5047e7f7d19f",
+    "path": "research_checks/T6_P13_Q13_BRC_FIBER_20261126/run_fiber_shard.py",
+    "blob": "0b18b3d0195b867069c3df88a943e4598de4ba2c",
+    "sha256": "d99f79672fe5ad797e4fad59ca3efaaa0f0f4025fe5714197d2e2c2baaf10685",
+    "observed_by": "immutable commit/file read resolved prior ambiguous reference to same verified driver blob; replay uses imported run_fiber(pp,np,lo,hi), not hardcoded CLI"
+  },
+  "records": [
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "d358afd237125a66b25a78d8369ab37e3a5640f6",
+      "path": "research_checks/T6_P13_Q13_SPLIT3_10_LEN6_THIRD_FAMILY_POS3_CERT_20261126.json",
+      "sha256": "32861896fd5765ac9b72f5c9937eeef7448d5b60f5bd0a630fa3c773fd62b769",
+      "publication_state": "VERIFY_EM_PUBLICATION",
+      "blob": "7849e546165c74770428b584458d649481e3375c",
+      "pin_scope": "INLINE",
+      "kernel_blobs": [
+        "509fbdc6230ed8477063a2799f14be0567b54495"
+      ],
+      "initializer_blobs": [
+        "cc284a4ebb9e3ba7dddfbcb0abbae8e227aaf46f"
+      ],
+      "driver": {
+        "kind": "EXPLICIT_BLOB",
+        "blob": "b3a95534e2e5005aa6daac12b3fc650ee1163044"
+      },
+      "params_sha256": "1722b634a0918b7011fcfad6c6e0ef2585e91693e8103e0494a96edd3d2b19b4",
+      "prior_commits": null,
+      "pairs": [
+        [
+          [
+            3
+          ],
+          [
+            1,
+            1,
+            1,
+            1,
+            3,
+            3
+          ]
+        ]
+      ],
+      "rows": [
+        {
+          "pos": [
+            3
+          ],
+          "neg": [
+            1,
+            1,
+            1,
+            1,
+            3,
+            3
+          ],
+          "range": null,
+          "calls": 955630
+        }
+      ],
+      "calls": 955630,
+      "valid": 0
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "533907d24c4e73b6ad33401e5b09b095f942627a",
+      "path": "research_checks/T6_P13_Q13_SPLIT3_10_LEN6_THIRD_FAMILY_POS12_SHARD0_5000_CERT_20261126.json",
+      "sha256": "9e3b89043c1cf8e77afcfac72dd64782efa1d84254e176587e880826a34e46f4",
+      "publication_state": "VERIFY_EM_PUBLICATION",
+      "blob": "91215e9e7b8a4656516d77aa7b42b37f0ed51923",
+      "pin_scope": "AUDIT_AND_PRIOR_COMMIT_LINK_ONLY",
+      "kernel_blobs": [],
+      "initializer_blobs": [],
+      "driver": null,
+      "params_sha256": null,
+      "prior_commits": null,
+      "pairs": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            1,
+            1,
+            1,
+            3,
+            3
+          ]
+        ]
+      ],
+      "rows": [
+        {
+          "range": [
+            0,
+            5000
+          ],
+          "calls": 618720
+        }
+      ],
+      "calls": 618720,
+      "valid": 0
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "697684025fef01df051a3abf4e8038095ef4fc92",
+      "path": "research_checks/T6_P13_Q13_SPLIT3_10_LEN6_THIRD_FAMILY_POS12_SHARD5000_15000_CERT_20261126.json",
+      "sha256": "b226a532a56aab66a6041f2d6defbc576fecc7a0b1af643cd158f91bfaf34cdb",
+      "publication_state": "VERIFY_EM_PUBLICATION",
+      "blob": "abd373d94f56cb8fc0e69b1d26996ee9e955d46e",
+      "pin_scope": "AUDIT_AND_PRIOR_COMMIT_LINK_ONLY",
+      "kernel_blobs": [],
+      "initializer_blobs": [],
+      "driver": null,
+      "params_sha256": null,
+      "prior_commits": null,
+      "pairs": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            1,
+            1,
+            1,
+            3,
+            3
+          ]
+        ]
+      ],
+      "rows": [
+        {
+          "range": [
+            5000,
+            15000
+          ],
+          "calls": 1133208
+        }
+      ],
+      "calls": 1133208,
+      "valid": 0
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "c6508a29055f82e7f58de50570c9ddc2ef4559ed",
+      "path": "research_checks/T6_P13_Q13_SPLIT3_10_LEN6_THIRD_FAMILY_POS12_SHARD15000_92598_CERT_20261127.json",
+      "sha256": "cec595e9e84e1de50f77d48caf8d7f721d0ef05c4a7a27e66589d9b3fe07e19b",
+      "publication_state": "VERIFY_EM_PUBLICATION",
+      "blob": "a821ba958af7e3099df45978c9aef080618d4b0b",
+      "pin_scope": "INLINE",
+      "kernel_blobs": [
+        "89e0f5aea7f6efcfd79dc32f29b84fa510f5d95e"
+      ],
+      "initializer_blobs": [
+        "cc284a4ebb9e3ba7dddfbcb0abbae8e227aaf46f"
+      ],
+      "driver": {
+        "kind": "EXPLICIT_REPLAY_COMMIT",
+        "commit": "b25a51f109fed150dfca89e4116f5047e7f7d19f",
+        "blob": "0b18b3d0195b867069c3df88a943e4598de4ba2c"
+      },
+      "params_sha256": null,
+      "prior_commits": [
+        "533907d24c4e73b6ad33401e5b09b095f942627a",
+        "697684025fef01df051a3abf4e8038095ef4fc92"
+      ],
+      "pairs": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            1,
+            1,
+            1,
+            3,
+            3
+          ]
+        ]
+      ],
+      "rows": [
+        {
+          "range": [
+            15000,
+            20000
+          ],
+          "calls": 568860
+        },
+        {
+          "range": [
+            20000,
+            30000
+          ],
+          "calls": 1144956
+        },
+        {
+          "range": [
+            30000,
+            40000
+          ],
+          "calls": 1034304
+        },
+        {
+          "range": [
+            40000,
+            50000
+          ],
+          "calls": 1044240
+        },
+        {
+          "range": [
+            50000,
+            60000
+          ],
+          "calls": 1045224
+        },
+        {
+          "range": [
+            60000,
+            70000
+          ],
+          "calls": 1064412
+        },
+        {
+          "range": [
+            70000,
+            80000
+          ],
+          "calls": 1059144
+        },
+        {
+          "range": [
+            80000,
+            90000
+          ],
+          "calls": 1075620
+        },
+        {
+          "range": [
+            90000,
+            92598
+          ],
+          "calls": 287988
+        }
+      ],
+      "calls": 8324748,
+      "valid": 0
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "952a5a516954e2f056ca162df33c8f3af01dfcb3",
+      "path": "research_checks/T6_P13_Q13_SPLIT3_10_LEN6_THIRD_FAMILY_POS111_COMPLETE_CERT_20261127.json",
+      "sha256": "97e3d5df43f7df46f8a693a79c7f39e34e40a0fde2f2466e114b59ce656207d1",
+      "publication_state": "VERIFY_EM_PUBLICATION",
+      "blob": "71b7f2ea725ce1b10f7903f48f8d096afb0eda51",
+      "pin_scope": "INLINE",
+      "kernel_blobs": [
+        "89e0f5aea7f6efcfd79dc32f29b84fa510f5d95e"
+      ],
+      "initializer_blobs": [
+        "cc284a4ebb9e3ba7dddfbcb0abbae8e227aaf46f"
+      ],
+      "driver": {
+        "kind": "EXPLICIT_REPLAY_COMMIT",
+        "commit": "b25a51f109fed150dfca89e4116f5047e7f7d19f",
+        "blob": "0b18b3d0195b867069c3df88a943e4598de4ba2c"
+      },
+      "params_sha256": null,
+      "prior_commits": null,
+      "pairs": [
+        [
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            1,
+            1,
+            3,
+            3
+          ]
+        ]
+      ],
+      "rows": [
+        {
+          "range": [
+            0,
+            10000
+          ],
+          "calls": 2182775
+        },
+        {
+          "range": [
+            10000,
+            20000
+          ],
+          "calls": 1879119
+        },
+        {
+          "range": [
+            20000,
+            30000
+          ],
+          "calls": 1953666
+        },
+        {
+          "range": [
+            30000,
+            40000
+          ],
+          "calls": 1486390
+        },
+        {
+          "range": [
+            40000,
+            50000
+          ],
+          "calls": 1531348
+        },
+        {
+          "range": [
+            50000,
+            60000
+          ],
+          "calls": 1528030
+        },
+        {
+          "range": [
+            60000,
+            70000
+          ],
+          "calls": 1610403
+        },
+        {
+          "range": [
+            70000,
+            80000
+          ],
+          "calls": 1589378
+        },
+        {
+          "range": [
+            80000,
+            90000
+          ],
+          "calls": 1658877
+        },
+        {
+          "range": [
+            90000,
+            92598
+          ],
+          "calls": 468685
+        }
+      ],
+      "calls": 15888671,
+      "valid": 0
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "70694993c09b8278a0c40da69a7ea18a2176ecba",
+      "path": "research_checks/T6_P13_Q13_SPLIT3_10_LEN6_FOURTH_FAMILY_POS3_CERT_20261127.json",
+      "sha256": "3bd2d04bf0ccf2e41e594424173e6c377fe8e9bd1a1798a28add0da1ea54688a",
+      "publication_state": "VERIFY_EM_PUBLICATION",
+      "blob": "9b61fbe5d8b1ab91798f55c57671782e6d7395e1",
+      "pin_scope": "INLINE",
+      "kernel_blobs": [
+        "89e0f5aea7f6efcfd79dc32f29b84fa510f5d95e"
+      ],
+      "initializer_blobs": [
+        "cc284a4ebb9e3ba7dddfbcb0abbae8e227aaf46f"
+      ],
+      "driver": null,
+      "params_sha256": null,
+      "prior_commits": null,
+      "pairs": [
+        [
+          [
+            3
+          ],
+          [
+            1,
+            1,
+            1,
+            2,
+            2,
+            3
+          ]
+        ]
+      ],
+      "rows": [
+        {
+          "range": [
+            0,
+            299164
+          ],
+          "calls": 3318515
+        }
+      ],
+      "calls": 3318515,
+      "valid": 0
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "976a457edb6345121cfd8a6e71ec04fbab1342d7",
+      "path": "research_checks/T6_P13_Q13_SPLIT3_10_LEN6_FOURTH_FAMILY_POS12_SHARD0_140000_CERT_20261127.json",
+      "sha256": "ebc1b11376bcffbebd0dc0323d410ebba2aa036f01abf76fca0f2cef86a46617",
+      "publication_state": "VERIFY_EM_PUBLICATION",
+      "blob": "ce544b692ad298cbc37ed91d637dbb02060fb9f0",
+      "pin_scope": "INLINE",
+      "kernel_blobs": [
+        "89e0f5aea7f6efcfd79dc32f29b84fa510f5d95e"
+      ],
+      "initializer_blobs": [
+        "cc284a4ebb9e3ba7dddfbcb0abbae8e227aaf46f"
+      ],
+      "driver": null,
+      "params_sha256": null,
+      "prior_commits": null,
+      "pairs": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            1,
+            1,
+            2,
+            2,
+            3
+          ]
+        ]
+      ],
+      "rows": [
+        {
+          "range": [
+            0,
+            20000
+          ],
+          "calls": 2197331
+        },
+        {
+          "range": [
+            20000,
+            60000
+          ],
+          "calls": 4180300
+        },
+        {
+          "range": [
+            60000,
+            100000
+          ],
+          "calls": 4003744
+        },
+        {
+          "range": [
+            100000,
+            140000
+          ],
+          "calls": 3878177
+        }
+      ],
+      "calls": 14259552,
+      "valid": 0
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "c9afa714f37b91c7f2cc0ed70bf59a22550618ca",
+      "path": "research_checks/T6_P13_Q13_SPLIT3_10_LEN6_FOURTH_FAMILY_POS12_SHARD140000_299164_CERT_20261127.json",
+      "sha256": "9dda5a6cbe3e02dd43f3fb4028791ea84f82304e978cdaa6c7c81bcf162801e0",
+      "publication_state": "VERIFY_EM_PUBLICATION",
+      "blob": "6c723f5ef0a51808d234cf9e5ab944fd5ee1baf8",
+      "pin_scope": "NESTED_ROWS",
+      "kernel_blobs": [
+        "89e0f5aea7f6efcfd79dc32f29b84fa510f5d95e"
+      ],
+      "initializer_blobs": [
+        "cc284a4ebb9e3ba7dddfbcb0abbae8e227aaf46f"
+      ],
+      "driver": null,
+      "params_sha256": null,
+      "prior_commits": null,
+      "pairs": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            1,
+            1,
+            2,
+            2,
+            3
+          ]
+        ]
+      ],
+      "rows": [
+        {
+          "pos": [
+            1,
+            2
+          ],
+          "neg": [
+            1,
+            1,
+            1,
+            2,
+            2,
+            3
+          ],
+          "range": [
+            140000,
+            160000
+          ],
+          "calls": 1889261
+        },
+        {
+          "pos": [
+            1,
+            2
+          ],
+          "neg": [
+            1,
+            1,
+            1,
+            2,
+            2,
+            3
+          ],
+          "range": [
+            160000,
+            200000
+          ],
+          "calls": 3875964
+        },
+        {
+          "pos": [
+            1,
+            2
+          ],
+          "neg": [
+            1,
+            1,
+            1,
+            2,
+            2,
+            3
+          ],
+          "range": [
+            200000,
+            240000
+          ],
+          "calls": 3873190
+        },
+        {
+          "pos": [
+            1,
+            2
+          ],
+          "neg": [
+            1,
+            1,
+            1,
+            2,
+            2,
+            3
+          ],
+          "range": [
+            240000,
+            280000
+          ],
+          "calls": 3940983
+        },
+        {
+          "pos": [
+            1,
+            2
+          ],
+          "neg": [
+            1,
+            1,
+            1,
+            2,
+            2,
+            3
+          ],
+          "range": [
+            280000,
+            299164
+          ],
+          "calls": 1953115
+        }
+      ],
+      "calls": 15532513,
+      "valid": 0
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "82f0bc64ee943d7b7ba2baee1a083ebb3066cad6",
+      "path": "research_checks/T6_P13_Q13_SPLIT3_10_LEN6_FOURTH_FAMILY_POS111_COMPLETE_CERT_20261127.json",
+      "sha256": "d327293b57781da2ead2d0b28c3cd98ae7be4c238e9c6d6894b8260b663b3259",
+      "publication_state": "VERIFY_EM_PUBLICATION",
+      "blob": "fb805eae61388e4afd777a171c5b0c7bef250d98",
+      "pin_scope": "NESTED_ROWS",
+      "kernel_blobs": [
+        "89e0f5aea7f6efcfd79dc32f29b84fa510f5d95e"
+      ],
+      "initializer_blobs": [
+        "cc284a4ebb9e3ba7dddfbcb0abbae8e227aaf46f"
+      ],
+      "driver": null,
+      "params_sha256": null,
+      "prior_commits": null,
+      "pairs": [
+        [
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            1,
+            2,
+            2,
+            3
+          ]
+        ]
+      ],
+      "rows": [
+        {
+          "pos": [
+            1,
+            1,
+            1
+          ],
+          "neg": [
+            1,
+            1,
+            1,
+            2,
+            2,
+            3
+          ],
+          "range": [
+            0,
+            30000
+          ],
+          "calls": 7537806
+        },
+        {
+          "pos": [
+            1,
+            1,
+            1
+          ],
+          "neg": [
+            1,
+            1,
+            1,
+            2,
+            2,
+            3
+          ],
+          "range": [
+            30000,
+            60000
+          ],
+          "calls": 6907824
+        },
+        {
+          "pos": [
+            1,
+            1,
+            1
+          ],
+          "neg": [
+            1,
+            1,
+            1,
+            2,
+            2,
+            3
+          ],
+          "range": [
+            60000,
+            90000
+          ],
+          "calls": 6479803
+        },
+        {
+          "pos": [
+            1,
+            1,
+            1
+          ],
+          "neg": [
+            1,
+            1,
+            1,
+            2,
+            2,
+            3
+          ],
+          "range": [
+            90000,
+            120000
+          ],
+          "calls": 5205750
+        },
+        {
+          "pos": [
+            1,
+            1,
+            1
+          ],
+          "neg": [
+            1,
+            1,
+            1,
+            2,
+            2,
+            3
+          ],
+          "range": [
+            120000,
+            150000
+          ],
+          "calls": 5802346
+        },
+        {
+          "pos": [
+            1,
+            1,
+            1
+          ],
+          "neg": [
+            1,
+            1,
+            1,
+            2,
+            2,
+            3
+          ],
+          "range": [
+            150000,
+            180000
+          ],
+          "calls": 5287073
+        },
+        {
+          "pos": [
+            1,
+            1,
+            1
+          ],
+          "neg": [
+            1,
+            1,
+            1,
+            2,
+            2,
+            3
+          ],
+          "range": [
+            180000,
+            210000
+          ],
+          "calls": 5651558
+        },
+        {
+          "pos": [
+            1,
+            1,
+            1
+          ],
+          "neg": [
+            1,
+            1,
+            1,
+            2,
+            2,
+            3
+          ],
+          "range": [
+            210000,
+            240000
+          ],
+          "calls": 5713818
+        },
+        {
+          "pos": [
+            1,
+            1,
+            1
+          ],
+          "neg": [
+            1,
+            1,
+            1,
+            2,
+            2,
+            3
+          ],
+          "range": [
+            240000,
+            270000
+          ],
+          "calls": 5853100
+        },
+        {
+          "pos": [
+            1,
+            1,
+            1
+          ],
+          "neg": [
+            1,
+            1,
+            1,
+            2,
+            2,
+            3
+          ],
+          "range": [
+            270000,
+            299164
+          ],
+          "calls": 5966345
+        }
+      ],
+      "calls": 60405423,
+      "valid": 0
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "25215f7fb16ca009bb8d630a1f41fac75e63efa4",
+      "path": "research_checks/T6_P13_Q13_SPLIT3_10_LEN6_FIFTH_FAMILY_POS3_CERT_20261127.json",
+      "sha256": "c18533b8dc9236f111f56a2cbd8623139ef98ef8241c908788e23e9816c524c6",
+      "publication_state": "VERIFY_EM_PUBLICATION",
+      "blob": "6742366c39b4dff54f9c6ee210a7fcce756996d0",
+      "pin_scope": "INLINE",
+      "kernel_blobs": [
+        "89e0f5aea7f6efcfd79dc32f29b84fa510f5d95e"
+      ],
+      "initializer_blobs": [
+        "cc284a4ebb9e3ba7dddfbcb0abbae8e227aaf46f"
+      ],
+      "driver": null,
+      "params_sha256": null,
+      "prior_commits": null,
+      "pairs": [
+        [
+          [
+            3
+          ],
+          [
+            1,
+            1,
+            2,
+            2,
+            2,
+            2
+          ]
+        ]
+      ],
+      "rows": [
+        {
+          "range": [
+            0,
+            92598
+          ],
+          "calls": 1111176
+        }
+      ],
+      "calls": 1111176,
+      "valid": 0
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "1b4a4a5b30c438148b399afedda958c73dec07e8",
+      "path": "research_checks/T6_P13_Q13_SPLIT3_10_LEN6_FIFTH_FAMILY_POS12_CERT_20261127.json",
+      "sha256": "cc48144908f091530862d7f58e043a08712d52e507780cb96f930926e28c183b",
+      "publication_state": "VERIFY_EM_PUBLICATION",
+      "blob": "f7ef9ad8389f4530dce86dd923af03e71f4cf836",
+      "pin_scope": "INLINE",
+      "kernel_blobs": [
+        "89e0f5aea7f6efcfd79dc32f29b84fa510f5d95e"
+      ],
+      "initializer_blobs": [
+        "cc284a4ebb9e3ba7dddfbcb0abbae8e227aaf46f"
+      ],
+      "driver": null,
+      "params_sha256": null,
+      "prior_commits": null,
+      "pairs": [
+        [
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            1,
+            2,
+            2,
+            2,
+            2
+          ]
+        ]
+      ],
+      "rows": [
+        {
+          "range": [
+            0,
+            92598
+          ],
+          "calls": 8666096
+        }
+      ],
+      "calls": 8666096,
+      "valid": 0
+    },
+    {
+      "repository": "awdawmip/enterprise-math",
+      "commit": "ab06bd6b3fcf0ea5ad0bf9e7e98f65dd95c40686",
+      "path": "research_checks/T6_P13_Q13_SPLIT3_10_LEN6_FIFTH_FAMILY_POS111_COMPLETE_CERT_20261127.json",
+      "sha256": "d2ee90c2f0ac704c777d6f3730b91cbab384b6c1458fdfe9631e5db644d3b349",
+      "publication_state": "VERIFY_EM_PUBLICATION",
+      "blob": "ad82b6af17ae86f6c447dea3d5ae1a630d6ea955",
+      "pin_scope": "NESTED_ROWS",
+      "kernel_blobs": [
+        "89e0f5aea7f6efcfd79dc32f29b84fa510f5d95e"
+      ],
+      "initializer_blobs": [
+        "cc284a4ebb9e3ba7dddfbcb0abbae8e227aaf46f"
+      ],
+      "driver": null,
+      "params_sha256": null,
+      "prior_commits": null,
+      "pairs": [
+        [
+          [
+            1,
+            1,
+            1
+          ],
+          [
+            1,
+            1,
+            2,
+            2,
+            2,
+            2
+          ]
+        ]
+      ],
+      "rows": [
+        {
+          "pos": [
+            1,
+            1,
+            1
+          ],
+          "neg": [
+            1,
+            1,
+            2,
+            2,
+            2,
+            2
+          ],
+          "range": [
+            0,
+            30000
+          ],
+          "calls": 7847730
+        },
+        {
+          "pos": [
+            1,
+            1,
+            1
+          ],
+          "neg": [
+            1,
+            1,
+            2,
+            2,
+            2,
+            2
+          ],
+          "range": [
+            30000,
+            60000
+          ],
+          "calls": 6864198
+        },
+        {
+          "pos": [
+            1,
+            1,
+            1
+          ],
+          "neg": [
+            1,
+            1,
+            2,
+            2,
+            2,
+            2
+          ],
+          "range": [
+            60000,
+            92598
+          ],
+          "calls": 7632900
+        }
+      ],
+      "calls": 22344828,
+      "valid": 0
+    }
+  ],
+  "totals": {
+    "pairs": 9,
+    "certificates": 12,
+    "calls": 152559080,
+    "pin_scope": {
+      "INLINE": {
+        "files": 7,
+        "calls": 52524388
+      },
+      "AUDIT_AND_PRIOR_COMMIT_LINK_ONLY": {
+        "files": 2,
+        "calls": 1751928
+      },
+      "NESTED_ROWS": {
+        "files": 3,
+        "calls": 98282764
+      }
+    },
+    "driver_scope": {
+      "EXPLICIT_BLOB": {
+        "files": 1,
+        "calls": 955630
+      },
+      "UNRECORDED": {
+        "files": 9,
+        "calls": 127390031
+      },
+      "EXPLICIT_REPLAY_COMMIT": {
+        "files": 2,
+        "calls": 24213419
+      }
+    },
+    "parameter_scope": {
+      "RECORDED": {
+        "files": 1,
+        "calls": 955630
+      },
+      "UNRECORDED": {
+        "files": 11,
+        "calls": 151603450
+      }
+    }
+  },
+  "qualification": "Two raw legacy shards lack inline pin and source hashes; exact bytes and prior_commits linkage to pinned batch are verified, not original run-time source authentication. Three outer wrappers lack inline pin but nested rows carry exact frozen pin and kernel/initializer blobs. Explicit replay reference is reproducibility evidence, not historical execution attestation. No new run, no original search replay. No silent promotion of missing driver or params digest.",
+  "next": "Bind split3,10 LEN7 (9 pairs) then LEN8–10 (12 pairs); preserve prior unit, runtime provenance and observation-envelope debt. D24 native #1559 independent.",
+  "verifier_sha256_javascript": "function sha256(s){let bytes=[];for(let c of s){let n=c.codePointAt(0);if(n<128)bytes.push(n);else if(n<2048)bytes.push(192|(n>>6),128|(n&63));else if(n<65536)bytes.push(224|(n>>12),128|((n>>6)&63),128|(n&63));else bytes.push(240|(n>>18),128|((n>>12)&63),128|((n>>6)&63),128|(n&63))}let bit=bytes.length*8;bytes.push(128);while(bytes.length%64!==56)bytes.push(0);for(let i=7;i>=0;i--)bytes.push(Math.floor(bit/2**(8*i))&255);let H=[],K=[];for(let p=2;K.length<64;p++){let prime=true;for(let d=2;d*d<=p;d++)if(p%d===0){prime=false;break}if(prime){if(H.length<8)H.push((Math.sqrt(p)%1*2**32)>>>0);K.push((Math.cbrt(p)%1*2**32)>>>0)}}const rr=(x,n)=>(x>>>n)|(x<<(32-n));for(let off=0;off<bytes.length;off+=64){let w=[];for(let i=0;i<16;i++)w[i]=(bytes[off+4*i]<<24)|(bytes[off+4*i+1]<<16)|(bytes[off+4*i+2]<<8)|bytes[off+4*i+3];for(let i=16;i<64;i++){let x=w[i-15],y=w[i-2];w[i]=((rr(x,7)^rr(x,18)^(x>>>3))+(rr(y,17)^rr(y,19)^(y>>>10))+w[i-16]+w[i-7])|0}let [a,b,c,d,e,f,g,h]=H;for(let i=0;i<64;i++){let t=(h+(rr(e,6)^rr(e,11)^rr(e,25))+((e&f)^(~e&g))+K[i]+w[i])|0,u=((rr(a,2)^rr(a,13)^rr(a,22))+((a&b)^(a&c)^(b&c)))|0;[a,b,c,d,e,f,g,h]=[(t+u)|0,a,b,c,(d+t)|0,e,f,g]}H=H.map((x,i)=>(x+[a,b,c,d,e,f,g,h][i])>>>0)}return H.map(x=>x.toString(16).padStart(8,\"0\")).join(\"\")}"
+}
